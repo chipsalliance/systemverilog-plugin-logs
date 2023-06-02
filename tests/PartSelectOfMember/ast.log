@@ -1240,20 +1240,16 @@ Dumping AST before simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:10.15-10.23> str='\a' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
             AST_ADD <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
-              AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
               AST_ADD <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                AST_SUB <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
-                  AST_ADD <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
-                    AST_SUB <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
-                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_ADD <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
-                    AST_SUB <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
-                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_SUB <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
+                  AST_SUB <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ADD <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -1276,7 +1272,7 @@ Dumping Verilog AST before simplification:
       assign a[(0)+(0):(0)+(0)] = 1;
       assign a[(0)+(7):(0)+(7)] = 1;
       assign a[(0)+(8):(0)+(8)] = 1;
-      assign o = a[(16)+((0)+((((7)-(0))+(1))-(((16)-(0))+(1)))):(0)+(0)];
+      assign o = a[((0)+(0))+((((7)-(0))+(1))-(1)):(0)+(0)];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
