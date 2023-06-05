@@ -1345,6 +1345,9 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/StructInPackage/dut.sv:14.13-14.19> str='\struct2'
         AST_STRUCT <UHDM-integration-tests/tests/StructInPackage/dut.sv:14.13-14.19> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructInPackage/dut.sv:15.21-15.26> str='third' logic basic_prep range=[5:0]
+            AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:15.15-15.20> basic_prep range=[5:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/StructInPackage/dut.sv:13.12-13.16> str='\var1' output logic basic_prep range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> str='\struct1' bits='0101110001110011011101000111001001110101011000110111010000110001'(64) basic_prep range=[63:0] int=1969452081
@@ -1384,9 +1387,15 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/StructInPackage/dut.sv:2.13-2.19> str='\pkg1::struct1' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/StructInPackage/dut.sv:2.13-2.19> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructInPackage/dut.sv:3.21-3.26> str='first' logic basic_prep range=[7:0]
+            AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:3.15-3.20> basic_prep range=[7:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/StructInPackage/dut.sv:8.13-8.19> str='\pkg2::struct1' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/StructInPackage/dut.sv:8.13-8.19> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructInPackage/dut.sv:9.21-9.27> str='second' logic basic_prep range=[6:0]
+            AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:9.15-9.20> basic_prep range=[6:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(var1, var2, var3);
@@ -1409,6 +1418,9 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/StructInPackage/dut.sv:14.13-14.19> str='\struct2' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/StructInPackage/dut.sv:14.13-14.19> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructInPackage/dut.sv:15.21-15.26> str='third' logic basic_prep range=[5:0]
+            AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:15.15-15.20> basic_prep range=[5:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/StructInPackage/dut.sv:13.12-13.16> str='\var1' output logic basic_prep range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> str='\struct1' bits='0101110001110011011101000111001001110101011000110111010000110001'(64) basic_prep range=[63:0] int=1969452081
@@ -1448,9 +1460,15 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/StructInPackage/dut.sv:2.13-2.19> str='\pkg1::struct1' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/StructInPackage/dut.sv:2.13-2.19> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructInPackage/dut.sv:3.21-3.26> str='first' logic basic_prep range=[7:0]
+            AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:3.15-3.20> basic_prep range=[7:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/StructInPackage/dut.sv:8.13-8.19> str='\pkg2::struct1' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/StructInPackage/dut.sv:8.13-8.19> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructInPackage/dut.sv:9.21-9.27> str='second' logic basic_prep range=[6:0]
+            AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:9.15-9.20> basic_prep range=[6:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6
+              AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(var1, var2, var3);
