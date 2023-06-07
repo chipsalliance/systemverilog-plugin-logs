@@ -23,7 +23,7 @@ cd UHDM-integration-tests/build && UHDM-integration-tests/../image/bin/yosys -c 
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+0 (git sha1 c5e4eec3b, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1507,14 +1507,17 @@ Generating RTLIL representation for module `$paramod\prim_generic_pad_attr\PadTy
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:14.1-18.34> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum2' logic
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum2' bits='001001000110010101101110011101010110110100110010'(48) range=[47:0] int=1853189426
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:16.25-16.45> str='\PadTypeInGeneric' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -1523,31 +1526,37 @@ Dumping AST before simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:17.11-17.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -1567,16 +1576,19 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:14.1-18.34> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum2' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum2' bits='001001000110010101101110011101010110110100110010'(48) basic_prep range=[47:0] int=1853189426
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum2' bits='001001000110010101101110011101010110110100110010'(48) basic_prep range=[47:0] int=1853189426
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:16.25-16.45> str='\PadTypeInGeneric' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -1585,31 +1597,37 @@ Dumping AST after simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:17.11-17.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -1630,14 +1648,17 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:33.1-42.10> str='\top'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum4' logic
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) range=[47:0] int=1853189428
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\target_cfg_t'
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
@@ -1655,31 +1676,37 @@ Dumping AST before simplification:
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:37.4-41.6> str='\o'
           AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:40.10-40.11> str='\o'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -1701,16 +1728,19 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:33.1-42.10> str='\top' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum4' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) basic_prep range=[47:0] int=1853189428
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) basic_prep range=[47:0] int=1853189428
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
@@ -1728,31 +1758,37 @@ Dumping AST after simplification:
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:37.4-41.6> str='\o' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:40.10-40.11> str='\o' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -1775,14 +1811,17 @@ Generating RTLIL representation for module `$paramod\prim_pad_attr\PadType=1'1'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:20.1-31.10> str='$paramod\prim_pad_attr\PadType=1'1'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum3' logic
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) range=[47:0] int=1853189427
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:22.25-22.36> str='\PadType' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -1793,31 +1832,37 @@ Dumping AST before simplification:
           AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:25.8-29.10> str='\o'
             AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:28.14-28.15> str='\o'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -1837,47 +1882,56 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:20.1-31.10> str='$paramod\prim_pad_attr\PadType=1'1' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum3' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) basic_prep range=[47:0] int=1853189427
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) basic_prep range=[47:0] int=1853189427
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:22.25-22.36> str='\PadType' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
       AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:20.35-20.36> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:24.4-30.7> str='\gen_generic' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:25.8-29.10> str='\gen_generic.u_impl_generic' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1' basic_prep
@@ -2107,7 +2161,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+0 (git sha1 c5e4eec3b, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
 
 (* src = "UHDM-integration-tests/tests/ParameterPassedToSubmoduleInGenscopeOfSubmodule/top.sv:14.1-18.34" *)
@@ -2199,5 +2253,5 @@ Simulating cycle 40.
 
 Warnings: 2 unique messages, 2 total
 
-Yosys 0.30+0 (git sha1 c5e4eec3b, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
