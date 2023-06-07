@@ -1187,19 +1187,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-      Object 'state_i' of type 'logic_var'
-        Object 'foo_type' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object 'state_i' of type 'port'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
       Object 'foo_inst' of type 'ref_obj'
     Object 'state_d' of type 'logic_var'
       Object 'state_e' of type 'logic_typespec'
@@ -1222,11 +1209,6 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_TYPEDEF <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.11-18.22> str='\foo_type'
-        AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.11-18.22> logic
-          AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.17-18.22>
-            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.11-18.22> str='\foo_type'
         AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.11-18.22> logic basic_prep range=[2:0]
           AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.17-18.22> basic_prep range=[2:0]
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1236,7 +1218,6 @@ Dumping Verilog AST before simplification:
     module \$paramod$71a5c9f5858ab9c319d21440db8ec918fe727532\test_module (state_i);
       (* wiretype = "\foo_type" *)
       input [8:0] state_i;
-      /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
@@ -1253,17 +1234,11 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.17-18.22> basic_prep range=[2:0]
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.11-18.22> str='\foo_type' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.11-18.22> logic basic_prep range=[2:0]
-          AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:18.17-18.22> basic_prep range=[2:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogic/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$71a5c9f5858ab9c319d21440db8ec918fe727532\test_module (state_i);
       (* wiretype = "\foo_type" *)
       input [8:0] state_i;
-      /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
