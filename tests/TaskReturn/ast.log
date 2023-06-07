@@ -1027,7 +1027,10 @@ Dumping AST before simplification:
           AST_TCALL <UHDM-integration-tests/tests/TaskReturn/top.sv:12.7-12.13> str='\my_pkg::assign_1'
             AST_IDENTIFIER <UHDM-integration-tests/tests/TaskReturn/top.sv:12.24-12.25> str='\o'
       AST_TASK <UHDM-integration-tests/tests/TaskReturn/top.sv:2.4-6.11> str='\my_pkg::assign_1'
-        AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:2.30-2.31> str='\x' input output logic port=1 range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:2.30-2.31> str='\x' input output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> str='\x' range=[0:0]
         AST_BLOCK <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0>
           AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskReturn/top.sv:3.7-3.22>
@@ -1069,7 +1072,10 @@ Dumping AST after simplification:
           AST_TCALL <UHDM-integration-tests/tests/TaskReturn/top.sv:12.7-12.13> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/TaskReturn/top.sv:12.24-12.25> str='\o' basic_prep
       AST_TASK <UHDM-integration-tests/tests/TaskReturn/top.sv:2.4-6.11> str='\my_pkg::assign_1'
-        AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:2.30-2.31> str='\x' input output logic port=1 range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:2.30-2.31> str='\x' input output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> str='\x' range=[0:0]
         AST_BLOCK <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0>
           AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskReturn/top.sv:3.7-3.22>
@@ -1078,15 +1084,18 @@ Dumping AST after simplification:
           AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskReturn/top.sv:5.7-5.22>
             AST_IDENTIFIER <UHDM-integration-tests/tests/TaskReturn/top.sv:5.14-5.15> str='\x'
             AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:2.30-2.31> str='\my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskReturn/top.sv:12$1.x' logic reg basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:2.30-2.31> str='\my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskReturn/top.sv:12$1.x' logic reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
           AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output reg o;
       (* nosync = 1 *)
-      reg \my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskReturn/top.sv:12$1.x ;
+      reg [0:0] \my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskReturn/top.sv:12$1.x ;
       /** AST_TASK **/
       initial
         begin
