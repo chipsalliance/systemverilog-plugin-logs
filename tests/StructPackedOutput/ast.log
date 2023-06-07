@@ -23,7 +23,7 @@ cd UHDM-integration-tests/build && UHDM-integration-tests/../image/bin/yosys -c 
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1287,25 +1287,25 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.1-11.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.67-9.78> str='\flash_rsp_o' output logic basic_prep range=[11:0] multirange=[ 0 12 0 10 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.67-9.78> str='\flash_rsp_o' output logic basic_prep range=[11:0] multirange=[ 0 12 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> str='\flash_phy_prim_flash_rsp_t' bits='010111000110011001101100011000010111001101101000010111110111000001101000011110010101111101110000011100100110100101101101010111110110011001101100011000010111001101101000010111110111001001110011011100000101111101110100'(216) basic_prep range=[215:0] int=1936744308
-        AST_RANGE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> range=[119:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000001110111'(32) signed range=[31:0] int=119
-          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> basic_prep range=[11:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructPackedOutput/top.sv:10.8-10.33>
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedOutput/top.sv:10.8-10.19> str='\flash_rsp_o' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0>
             AST_ADD <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0>
-              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
               AST_MUL <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001100'(32) signed range=[31:0] int=12
                 AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
             AST_ADD <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0>
-              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
               AST_MUL <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001100'(32) signed range=[31:0] int=12
                 AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
         AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
       AST_TYPEDEF <UHDM-integration-tests/tests/StructPackedOutput/top.sv:3.9-3.15> str='\flash_phy_pkg::flash_phy_prim_flash_rsp_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:3.9-3.15> basic_prep
@@ -1322,18 +1322,18 @@ Dumping Verilog AST before simplification:
     module dut(flash_rsp_o);
       /** AST_PARAMETER **/
       (* wiretype = "\flash_phy_prim_flash_rsp_t" *)
-      output [119:0] flash_rsp_o;
-      assign flash_rsp_o[(11)+((12)*(0)):(11)+((12)*(0))] = 1'b 1;
+      output [11:0] flash_rsp_o;
+      assign flash_rsp_o[((12)*(0))+(11):((12)*(0))+(11)] = 1'b 1;
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.1-11.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.67-9.78> str='\flash_rsp_o' output logic basic_prep range=[119:0] multirange=[ 0 12 0 10 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.67-9.78> str='\flash_rsp_o' output logic basic_prep range=[11:0] multirange=[ 0 12 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> str='\flash_phy_prim_flash_rsp_t' bits='010111000110011001101100011000010111001101101000010111110111000001101000011110010101111101110000011100100110100101101101010111110110011001101100011000010111001101101000010111110111001001110011011100000101111101110100'(216) basic_prep range=[215:0] int=1936744308
-        AST_RANGE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> basic_prep range=[119:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000001110111'(32) signed basic_prep range=[31:0] int=119
+        AST_RANGE <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> basic_prep range=[11:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11
           AST_CONSTANT <UHDM-integration-tests/tests/StructPackedOutput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructPackedOutput/top.sv:10.8-10.33> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedOutput/top.sv:10.8-10.19> str='\flash_rsp_o' basic_prep
@@ -1356,7 +1356,7 @@ Dumping Verilog AST after simplification:
     module dut(flash_rsp_o);
       /** AST_PARAMETER **/
       (* wiretype = "\flash_phy_prim_flash_rsp_t" *)
-      output [119:0] flash_rsp_o;
+      output [11:0] flash_rsp_o;
       assign flash_rsp_o[11:11] = 1'b 1;
       /** AST_TYPEDEF **/
     endmodule
@@ -1367,7 +1367,7 @@ Dumping Verilog AST after simplification:
 2.1. Executing BMUXMAP pass.
 
 2.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\dut'.
 
 (* cells_not_processed =  1  *)
@@ -1375,8 +1375,8 @@ Dumping module `\dut'.
 module dut(flash_rsp_o);
   (* src = "UHDM-integration-tests/tests/StructPackedOutput/top.sv:9.67-9.78" *)
   (* wiretype = "\\flash_phy_prim_flash_rsp_t" *)
-  output [119:0] flash_rsp_o;
-  wire [119:0] flash_rsp_o;
+  output [11:0] flash_rsp_o;
+  wire [11:0] flash_rsp_o;
   assign flash_rsp_o[11] = 1'h1;
 endmodule
 Dumping module `\top'.
@@ -1399,5 +1399,5 @@ Dumping module `\dut'.
 Dumping module `\top'.
 
 
-Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

@@ -23,7 +23,7 @@ cd UHDM-integration-tests/build && UHDM-integration-tests/../image/bin/yosys -c 
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1039,16 +1039,16 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:9.26-9.56> str='\x' reg basic_prep range=[3:0] multirange=[ 0 4 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:9.26-9.56> str='\x' reg basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> str='\lc_tx_t' bits='0101110001101100011000110101111101110100011110000101111101110100'(64) basic_prep range=[63:0] int=1954045812
         ATTR \enum_value_1010:
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> str='\On' bits='010111000100111101101110'(24) basic_prep range=[23:0] int=6049646
         ATTR \enum_value_1111:
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> str='\Off' bits='01011100010011110110011001100110'(32) basic_prep range=[31:0] int=1548707430
-        AST_RANGE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:2.23-2.28> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:10.11-10.22>
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:10.11-10.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:10.20-10.21> str='\x'
@@ -1088,7 +1088,7 @@ Dumping Verilog AST before simplification:
       (* wiretype = "\lc_tx_t" *)
       (* enum_value_1010 = "\On" *)
       (* enum_value_1111 = "\Off" *)
-      reg [7:0] x;
+      reg [3:0] x;
       assign o = x;
       initial
         x = {4'b 1010, 4'b 1111};
@@ -1102,15 +1102,15 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:9.26-9.56> str='\x' reg basic_prep range=[7:0] multirange=[ 0 4 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:9.26-9.56> str='\x' reg basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> str='\lc_tx_t' bits='0101110001101100011000110101111101110100011110000101111101110100'(64) basic_prep range=[63:0] int=1954045812
         ATTR \enum_value_1010:
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> str='\On' bits='010111000100111101101110'(24) basic_prep range=[23:0] int=6049646
         ATTR \enum_value_1111:
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> str='\Off' bits='01011100010011110110011001100110'(32) basic_prep range=[31:0] int=1548707430
-        AST_RANGE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> basic_prep range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+        AST_RANGE <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:2.23-2.28> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:10.11-10.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:10.11-10.12> str='\o' basic_prep
@@ -1149,7 +1149,7 @@ Dumping Verilog AST after simplification:
       (* wiretype = "\lc_tx_t" *)
       (* enum_value_1010 = "\On" *)
       (* enum_value_1111 = "\Off" *)
-      reg [7:0] x;
+      reg [3:0] x;
       assign o = x;
       initial
         x = 8'b 10101111;
@@ -1274,9 +1274,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             40
+   Number of wire bits:             36
    Number of public wires:           2
-   Number of public wire bits:      40
+   Number of public wire bits:      36
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1291,7 +1291,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1304,9 +1304,9 @@ module top(o);
   (* enum_value_1111 = "\\Off" *)
   (* src = "UHDM-integration-tests/tests/EnumArrayListedElements/top.sv:9.26-9.56" *)
   (* wiretype = "\\lc_tx_t" *)
-  wire [7:0] x;
-  assign o = 32'd175;
-  assign x = 8'haf;
+  wire [3:0] x;
+  assign o = 32'd15;
+  assign x = 4'hf;
 endmodule
 
 4. Executing Verilog backend.
@@ -1360,5 +1360,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

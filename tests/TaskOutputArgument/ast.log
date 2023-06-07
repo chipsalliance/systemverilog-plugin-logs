@@ -23,7 +23,7 @@ cd UHDM-integration-tests/build && UHDM-integration-tests/../image/bin/yosys -c 
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -938,7 +938,10 @@ Dumping AST before simplification:
           AST_TCALL <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9.7-9.13> str='\my_pkg::assign_1'
             AST_IDENTIFIER <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9.24-9.25> str='\o'
       AST_TASK <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.4-4.11> str='\my_pkg::assign_1'
-        AST_WIRE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.31-2.32> str='\x' output logic port=1 range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.31-2.32> str='\x' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:3.7-3.22>
           AST_IDENTIFIER <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:3.14-3.15> str='\x'
           AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -965,19 +968,25 @@ Dumping AST after simplification:
           AST_TCALL <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9.7-9.13> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9.24-9.25> str='\o' basic_prep
       AST_TASK <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.4-4.11> str='\my_pkg::assign_1'
-        AST_WIRE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.31-2.32> str='\x' output logic port=1 range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.31-2.32> str='\x' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:3.7-3.22>
           AST_IDENTIFIER <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:3.14-3.15> str='\x'
           AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.31-2.32> str='\my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9$1.x' logic reg basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:2.31-2.32> str='\my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9$1.x' logic reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
           AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskOutputArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output o;
       (* nosync = 1 *)
-      reg \my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9$1.x ;
+      reg [0:0] \my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskOutputArgument/top.sv:9$1.x ;
       /** AST_TASK **/
       initial
         begin
@@ -1122,7 +1131,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1189,5 +1198,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

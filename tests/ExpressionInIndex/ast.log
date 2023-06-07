@@ -23,7 +23,7 @@ cd UHDM-integration-tests/build && UHDM-integration-tests/../image/bin/yosys -c 
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1025,53 +1025,53 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:6.29-6.43> str='\sram_otp_key_o' logic basic_prep range=[31:0] multirange=[ 0 32 0 3 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:6.29-6.43> str='\sram_otp_key_o' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> str='\sram_otp_key_rsp_t' bits='01011100011100110111001001100001011011010101111101101111011101000111000001011111011010110110010101111001010111110111001001110011011100000101111101110100'(152) basic_prep range=[151:0] int=1936744308
-        AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> range=[95:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) signed range=[31:0] int=95
-          AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.11-8.40>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.11-8.25> str='\sram_otp_key_o' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
             AST_ADD <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+                AST_SUB <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.26-8.29>
+                  AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                  AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
               AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-              AST_MUL <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
-                AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
-                AST_SUB <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.26-8.29>
-                  AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
             AST_ADD <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
-              AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_MUL <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
                 AST_SUB <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.26-8.29>
                   AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+              AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_ASSIGN <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:9.11-9.38>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:9.11-9.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:9.15-9.38> str='\sram_otp_key_o' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
             AST_ADD <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-              AST_MUL <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
-                AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
-                AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_ADD <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
-              AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_MUL <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
                 AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
       output signed [31:0] o;
       (* wiretype = "\sram_otp_key_rsp_t" *)
-      wire [95:0] sram_otp_key_o;
+      wire [31:0] sram_otp_key_o;
       /** AST_TYPEDEF **/
-      assign sram_otp_key_o[(31)+((32)*((2)-(2))):(0)+((32)*((2)-(2)))] = 1;
-      assign o = sram_otp_key_o[(31)+((32)*(0)):(0)+((32)*(0))];
+      assign sram_otp_key_o[((32)*((2)-(2)))+(31):((32)*((2)-(2)))+(0)] = 1;
+      assign o = sram_otp_key_o[((32)*(0))+(31):((32)*(0))+(0)];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -1083,11 +1083,11 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:6.29-6.43> str='\sram_otp_key_o' logic basic_prep range=[95:0] multirange=[ 0 32 0 3 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:6.29-6.43> str='\sram_otp_key_o' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> str='\sram_otp_key_rsp_t' bits='01011100011100110111001001100001011011010101111101101111011101000111000001011111011010110110010101111001010111110111001001110011011100000101111101110100'(152) basic_prep range=[151:0] int=1936744308
-        AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) signed basic_prep range=[31:0] int=95
+        AST_RANGE <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.11-8.40> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ExpressionInIndex/top.sv:8.11-8.25> str='\sram_otp_key_o' basic_prep
@@ -1106,7 +1106,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       output signed [31:0] o;
       (* wiretype = "\sram_otp_key_rsp_t" *)
-      wire [95:0] sram_otp_key_o;
+      wire [31:0] sram_otp_key_o;
       /** AST_TYPEDEF **/
       assign sram_otp_key_o[31:0] = 1;
       assign o = sram_otp_key_o[31:0];
@@ -1224,9 +1224,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:            128
+   Number of wire bits:             64
    Number of public wires:           2
-   Number of public wire bits:     128
+   Number of public wire bits:      64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1241,7 +1241,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1251,11 +1251,10 @@ module top(o);
   output [31:0] o;
   wire [31:0] o;
   (* src = "UHDM-integration-tests/tests/ExpressionInIndex/top.sv:6.29-6.43" *)
-  (* unused_bits = "32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95" *)
   (* wiretype = "\\sram_otp_key_rsp_t" *)
-  wire [95:0] sram_otp_key_o;
+  wire [31:0] sram_otp_key_o;
   assign o = 32'd1;
-  assign sram_otp_key_o[31:0] = 32'd1;
+  assign sram_otp_key_o = 32'd1;
 endmodule
 
 4. Executing Verilog backend.
@@ -1309,5 +1308,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

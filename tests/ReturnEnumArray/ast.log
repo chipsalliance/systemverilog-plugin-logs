@@ -23,7 +23,7 @@ cd UHDM-integration-tests/build && UHDM-integration-tests/../image/bin/yosys -c 
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1171,51 +1171,42 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:7.4-11.15> str='\get_BA'
-        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:7.23-7.35> str='\get_BA' reg basic_prep range=[2:0] multirange=[ 0 3 0 2 ] multirange_swapped=[ 0 0 ]
+        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:7.23-7.35> str='\get_BA' reg basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\sp2v_e' bits='01011100011100110111000000110010011101100101111101100101'(56) basic_prep range=[55:0] int=846618469
           ATTR \enum_value_000:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\A' bits='0101110001000001'(16) basic_prep range=[15:0] int=23617
           ATTR \enum_value_111:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\B' bits='0101110001000010'(16) basic_prep range=[15:0] int=23618
-          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> range=[5:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 0 2 ] multirange_swapped=[ 0 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:2.23-2.28> basic_prep range=[2:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\sp2v_e' bits='01011100011100110111000000110010011101100101111101100101'(56) basic_prep range=[55:0] int=846618469
           ATTR \enum_value_000:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\A' bits='0101110001000001'(16) basic_prep range=[15:0] int=23617
           ATTR \enum_value_111:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\B' bits='0101110001000010'(16) basic_prep range=[15:0] int=23618
-          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> range=[5:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:2.23-2.28> basic_prep range=[2:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_BLOCK <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
           AST_BLOCK <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='$unnamed_block$0'
-            AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 0 2 ] multirange_swapped=[ 0 0 ]
+            AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
                 AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\sp2v_e' bits='01011100011100110111000000110010011101100101111101100101'(56) basic_prep range=[55:0] int=846618469
               ATTR \enum_value_000:
                 AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\A' bits='0101110001000001'(16) basic_prep range=[15:0] int=23617
               ATTR \enum_value_111:
                 AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\B' bits='0101110001000010'(16) basic_prep range=[15:0] int=23618
-              AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> range=[5:0]
-                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:2.23-2.28> basic_prep range=[2:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.17>
-              AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.13> str='\out' basic_prep
-                AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                  AST_SUB <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                    AST_MUL <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                      AST_ADD <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                        AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                      AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
-                    AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                  AST_MUL <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                    AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
+              AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.13> str='\out'
+                AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.13>
+                  AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.16-9.17> str='\B'
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:10.7-10.13>
               AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\get_BA'
@@ -1262,58 +1253,49 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:7.4-11.15> str='\get_BA'
-        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:7.23-7.35> str='\get_BA' reg basic_prep range=[2:0] multirange=[ 0 3 0 2 ] multirange_swapped=[ 0 0 ]
+        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:7.23-7.35> str='\get_BA' reg basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\sp2v_e' bits='01011100011100110111000000110010011101100101111101100101'(56) basic_prep range=[55:0] int=846618469
           ATTR \enum_value_000:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\A' bits='0101110001000001'(16) basic_prep range=[15:0] int=23617
           ATTR \enum_value_111:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\B' bits='0101110001000010'(16) basic_prep range=[15:0] int=23618
-          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> range=[5:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 0 2 ] multirange_swapped=[ 0 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:2.23-2.28> basic_prep range=[2:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\sp2v_e' bits='01011100011100110111000000110010011101100101111101100101'(56) basic_prep range=[55:0] int=846618469
           ATTR \enum_value_000:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\A' bits='0101110001000001'(16) basic_prep range=[15:0] int=23617
           ATTR \enum_value_111:
             AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\B' bits='0101110001000010'(16) basic_prep range=[15:0] int=23618
-          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> range=[5:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:2.23-2.28> basic_prep range=[2:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+            AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_BLOCK <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
           AST_BLOCK <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='$unnamed_block$0'
-            AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 0 2 ] multirange_swapped=[ 0 0 ]
+            AST_WIRE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:8.20-8.23> str='\out' reg basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
                 AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\sp2v_e' bits='01011100011100110111000000110010011101100101111101100101'(56) basic_prep range=[55:0] int=846618469
               ATTR \enum_value_000:
                 AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\A' bits='0101110001000001'(16) basic_prep range=[15:0] int=23617
               ATTR \enum_value_111:
                 AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\B' bits='0101110001000010'(16) basic_prep range=[15:0] int=23618
-              AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> range=[5:0]
-                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:2.23-2.28> basic_prep range=[2:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+                AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.17>
-              AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.13> str='\out' basic_prep
-                AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                  AST_SUB <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                    AST_MUL <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                      AST_ADD <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                        AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                      AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
-                    AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                  AST_MUL <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0>
-                    AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
+              AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.13> str='\out'
+                AST_RANGE <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.7-9.13>
+                  AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:9.16-9.17> str='\B'
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:10.7-10.13>
               AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:0.0-0.0> str='\get_BA'
               AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:10.14-10.17> str='\out'
       AST_ASSIGN <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:13.11-13.29> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:13.11-13.12> str='\o' basic_prep
-        AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:13.20-13.28> bits='xxx111'(6) basic_prep range=[5:0] int=7
+        AST_CONSTANT <UHDM-integration-tests/tests/ReturnEnumArray/top.sv:13.20-13.28> bits='xx1'(3) basic_prep range=[2:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -1321,7 +1303,7 @@ Dumping Verilog AST after simplification:
       /** AST_FUNCTION **/
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
-      assign o = 6'b xxx111;
+      assign o = 3'b xx1;
     endmodule
 --- END OF AST DUMP ---
 
@@ -1453,7 +1435,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1462,7 +1444,7 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/ReturnEnumArray/top.sv:1.23-1.24" *)
   output [31:0] o;
   wire [31:0] o;
-  assign o = 32'b00000000000000000000000000xxx111;
+  assign o = 32'b00000000000000000000000000000xx1;
 endmodule
 
 4. Executing Verilog backend.
@@ -1516,5 +1498,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.29+42 (git sha1 43b807fe6, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.29+44 (git sha1 88c849d11, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
