@@ -902,47 +902,30 @@ design: (work@top)
       |vpiActual:
       \_int_var: (work@top.o), line:1:23, endln:1:24
 Object 'work@top' of type 'design'
-MAND | apply_name_from_current_obj:1775
   Object 'builtin' of type 'package'
-MAND | apply_name_from_current_obj:1775
   Object '' of type 'module_inst'
-MAND | apply_name_from_current_obj:1775
     Object 'P' of type 'parameter'
-MAND | apply_name_from_current_obj:1775
     Object '' of type 'param_assign'
-MAND | apply_name_from_current_obj:1775
       Object 'P' of type 'parameter'
-MAND | apply_name_from_current_obj:1775
       Object '' of type 'constant'
     Object 'o' of type 'logic_net'
-MAND | apply_name_from_current_obj:1775
   Object 'work@top' of type 'module_inst'
     Object 'P' of type 'parameter'
-MAND | apply_name_from_current_obj:1775
     Object '' of type 'param_assign'
-MAND | apply_name_from_current_obj:1775
       Object 'P' of type 'parameter'
-MAND | apply_name_from_current_obj:1775
       Object '' of type 'constant'
     Object 'o' of type 'port'
-MAND | apply_name_from_current_obj:1775
       Object '' of type 'int_typespec'
-MAND | apply_name_from_current_obj:1775
     Object '' of type 'cont_assign'
-MAND | apply_name_from_current_obj:1775
       Object 'o' of type 'ref_obj'
-MAND | apply_name_from_current_obj:1775
       Object '' of type 'operation'
-MAND | apply_name_from_current_obj:1775
         Object 'P' of type 'ref_obj'
-MAND | apply_name_from_current_obj:1775
         Object '' of type 'constant'
     Object 'o' of type 'int_var'
-MAND | apply_name_from_current_obj:1775
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:1.1-4.10> str='\top'
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:2.18-2.23> str='\P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:2.18-2.23> str='\top.P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -966,7 +949,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:2.18-2.23> str='\P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:2.18-2.23> str='\top.P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -977,15 +960,20 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.11-3.20> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.11-3.12> str='\o' basic_prep
-        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.15-3.20> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+        AST_ADD <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.15-3.20> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.15-3.16> str='\P' basic_prep
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+      AST_AUTOWIRE <UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:0.0-0.0> str='\P' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
       output signed [31:0] o;
-      assign o = 3;
+      /** AST_AUTOWIRE **/
+      assign o = (P)+(2);
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3: Warning: Identifier `\P' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -1036,10 +1024,13 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Found and reported 0 problems.
+Warning: Wire top.\P is used but has no driver.
+Found and reported 1 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -1073,6 +1064,8 @@ Optimizing module top.
 2.6.8. Finished OPT passes. (There is nothing left to do.)
 
 2.7. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell top.$add$UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3$1 ($add).
+Removed top 29 bits (of 32) from port Y of cell top.$add$UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3$1 ($add).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
@@ -1097,18 +1090,20 @@ Finding unused cells or wires in module \top..
 
 === top ===
 
-   Number of wires:                  1
-   Number of wire bits:             32
-   Number of public wires:           1
-   Number of public wire bits:      32
+   Number of wires:                  2
+   Number of wire bits:             33
+   Number of public wires:           2
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                  0
+   Number of cells:                  1
+     $add                            1
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Found and reported 0 problems.
+Warning: Wire top.\P is used but has no driver.
+Found and reported 1 problems.
 
 3. Executing Verilog backend.
 
@@ -1121,10 +1116,13 @@ Dumping module `\top'.
 (* top =  1  *)
 (* src = "UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:1.1-4.10" *)
 module top(o);
+  (* src = "UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.15-3.16" *)
+  wire P;
   (* src = "UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:1.23-1.24" *)
   output [31:0] o;
   wire [31:0] o;
-  assign o = 32'd3;
+  assign o[2:0] = P + (* src = "UHDM-integration-tests/tests/AssignSumWithParameter/top.sv:3.15-3.20" *) 2'h2;
+  assign o[31:3] = 29'h00000000;
 endmodule
 
 4. Executing Verilog backend.
@@ -1177,6 +1175,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 2 unique messages, 3 total
 
 Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
