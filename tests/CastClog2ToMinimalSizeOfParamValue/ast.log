@@ -741,7 +741,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:1.1-4.10> str='\top'
-      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:2.18-2.23> str='\UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:2.18-2.23> str='\X' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
         AST_RANGE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -763,7 +763,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:2.18-2.23> str='\UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:2.18-2.23> str='\X' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
         AST_RANGE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -774,18 +774,15 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:3.11-3.28> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:3.11-3.12> str='\o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:3.26-3.27> str='\X' basic_prep
-      AST_AUTOWIRE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:0.0-0.0> str='\X' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:3.26-3.27> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
       output [1:0] o;
-      /** AST_AUTOWIRE **/
-      assign o = X;
+      assign o = 3;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:3: Warning: Identifier `\X' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -839,8 +836,7 @@ Finding unused cells or wires in module \top..
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o [0] is used but has no driver.
-Found and reported 1 problems.
+Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -898,10 +894,10 @@ Finding unused cells or wires in module \top..
 
 === top ===
 
-   Number of wires:                  2
-   Number of wire bits:              3
-   Number of public wires:           2
-   Number of public wire bits:       3
+   Number of wires:                  1
+   Number of wire bits:              2
+   Number of public wires:           1
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -909,8 +905,7 @@ Finding unused cells or wires in module \top..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o [0] is used but has no driver.
-Found and reported 1 problems.
+Found and reported 0 problems.
 
 3. Executing Verilog backend.
 
@@ -923,13 +918,10 @@ Dumping module `\top'.
 (* top =  1  *)
 (* src = "UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:1.1-4.10" *)
 module top(o);
-  (* src = "UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:3.26-3.27" *)
-  wire X;
   (* src = "UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValue/top.sv:1.31-1.32" *)
   output [1:0] o;
   wire [1:0] o;
-  assign X = o[0];
-  assign o[1] = 1'h0;
+  assign o = 2'h3;
 endmodule
 
 4. Executing Verilog backend.
@@ -982,7 +974,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 2 unique messages, 3 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

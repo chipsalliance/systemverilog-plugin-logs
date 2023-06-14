@@ -1138,7 +1138,7 @@ Dumping AST before simplification:
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:5.11-5.12> str='b' logic basic_prep range=[2:2]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:6.11-6.12> str='c' logic basic_prep range=[1:1]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:7.11-7.12> str='d' logic basic_prep range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:10.34-15.4> str='\top_pkg::UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv' logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:10.34-15.4> str='\top_pkg::MyParameter' logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> str='\my_struct_t' bits='010111000110110101111001010111110111001101110100011100100111010101100011011101000101111101110100'(96) basic_prep range=[95:0] int=1668570996
         AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:10.48-15.4> bits='1010'(4) basic_prep range=[3:0] int=10
@@ -1191,7 +1191,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:35.10-35.34> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:35.10-35.11> str='\z' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:35.14-35.23> str='\top_pkg::MyParameter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:35.14-35.23> bits='1010'(4) basic_prep range=[3:0] int=10
       AST_ASSIGN <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:36.10-36.26> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:36.10-36.12> str='\zz' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:36.15-36.26> str='\test_struct' basic_prep
@@ -1229,14 +1229,13 @@ Dumping AST after simplification:
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:5.11-5.12> str='b' logic basic_prep range=[2:2]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:6.11-6.12> str='c' logic basic_prep range=[1:1]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:7.11-7.12> str='d' logic basic_prep range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:10.34-15.4> str='\top_pkg::UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv' logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:10.34-15.4> str='\top_pkg::MyParameter' logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> str='\my_struct_t' bits='010111000110110101111001010111110111001101110100011100100111010101100011011101000101111101110100'(96) basic_prep range=[95:0] int=1668570996
         AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:10.48-15.4> bits='1010'(4) basic_prep range=[3:0] int=10
         AST_RANGE <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_AUTOWIRE <UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:0.0-0.0> str='\top_pkg::MyParameter' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(z, zz);
@@ -1248,8 +1247,7 @@ Dumping Verilog AST after simplification:
       output [3:0] zz;
       (* wiretype = "\my_struct_t" *)
       reg [3:0] test_struct;
-      /** AST_AUTOWIRE **/
-      assign z = \top_pkg::MyParameter ;
+      assign z = 4'b 1010;
       assign zz = test_struct;
       (* always_comb = 1 *)
       always @*
@@ -1262,7 +1260,6 @@ Dumping Verilog AST after simplification:
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/PatternAssignmentOfStructParam/top.sv:35: Warning: Identifier `\top_pkg::MyParameter' is implicitly declared.
 
 2. Executing Verilog backend.
 
@@ -1280,7 +1277,6 @@ module top(zz, z);
   reg \$auto$verilog_backend.cc:2097:dump_module$2  = 0;
   reg [3:0] _0_;
   reg [3:0] test_struct;
-  wire \top_pkg::MyParameter ;
   output [3:0] z;
   wire [3:0] z;
   output [3:0] zz;
@@ -1295,11 +1291,11 @@ module top(zz, z);
   always @* begin
       test_struct <= _0_;
   end
-  assign z = { 3'h0, \top_pkg::MyParameter  };
+  assign z = 4'ha;
   assign zz = test_struct;
 endmodule
 
-Warnings: 2 unique messages, 2 total
+Warnings: 1 unique messages, 1 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

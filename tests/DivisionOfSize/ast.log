@@ -1034,8 +1034,15 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:9.1-13.10> str='\top'
-      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\UHDM-integration-tests/tests/DivisionOfSize/top.sv' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\PartInvDefault' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='001'(3) range=[2:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.20-2.25> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\top.PartInvDefault' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_CONCAT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.46-6.48>
+          AST_CONCAT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:3.50-5.52>
+            AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='001'(3) range=[2:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.20-2.25> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
           AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1055,7 +1062,7 @@ Dumping AST before simplification:
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0>
             AST_IDENTIFIER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> str='\part_buf_data'
             AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='111'(3) range=[2:0] int=7
-      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\otp_ctrl_part_pkg::UHDM-integration-tests/tests/DivisionOfSize/top.sv' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\otp_ctrl_part_pkg::PartInvDefault' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.46-6.48> bits='001'(3) basic_prep range=[2:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.20-2.25> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1063,6 +1070,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
+      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output signed [31:0] o;
@@ -1074,8 +1082,13 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:9.1-13.10> str='\top' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\UHDM-integration-tests/tests/DivisionOfSize/top.sv' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\PartInvDefault' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='001'(3) basic_prep range=[2:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.20-2.25> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\top.PartInvDefault' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.46-6.48> bits='001'(3) basic_prep range=[2:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.20-2.25> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
           AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1095,7 +1108,7 @@ Dumping AST after simplification:
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> str='\part_buf_data' basic_prep
             AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='111'(3) basic_prep range=[2:0] int=7
-      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\otp_ctrl_part_pkg::UHDM-integration-tests/tests/DivisionOfSize/top.sv' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.26-6.49> str='\otp_ctrl_part_pkg::PartInvDefault' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.46-6.48> bits='001'(3) basic_prep range=[2:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/DivisionOfSize/top.sv:2.20-2.25> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/DivisionOfSize/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1103,6 +1116,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
+      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output signed [31:0] o;

@@ -1411,9 +1411,9 @@ Object 'work@top' of type 'design'
 Warning: Removing unelaborated module: \prim_submodule from the design.
 Warning: Removing unelaborated module: \prim_pad_attr from the design.
 Warning: Removing unelaborated module: \prim_generic_pad_attr from the design.
-Generating RTLIL representation for module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'.
+Generating RTLIL representation for module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.1-18.34> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'
+    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.1-18.34> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum2' logic
         AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
@@ -1427,9 +1427,11 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:16.25-16.45> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:16.25-16.45> str='\prim_generic_pad_attr.PadTypeInGeneric' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.43-14.44> str='\o' output logic port=1 range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:16.25-16.45> str='\PadTypeInGeneric' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:17.11-17.31>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:17.11-17.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -1468,7 +1470,8 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr (o);
+    module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1 (o);
+      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output o;
       /** AST_ENUM **/
@@ -1482,7 +1485,7 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.1-18.34> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.1-18.34> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum2' logic basic_prep
         AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
           ATTR \enum_base_type:
@@ -1498,9 +1501,11 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:16.25-16.45> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:16.25-16.45> str='\prim_generic_pad_attr.PadTypeInGeneric' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.43-14.44> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:16.25-16.45> str='\PadTypeInGeneric' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:17.11-17.31> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:17.11-17.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -1539,298 +1544,13 @@ Dumping AST after simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr (o);
+    module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1 (o);
+      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       assign o = 1'b 1;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_TYPEDEF **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.1-29.10> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum4' logic
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) range=[47:0] int=1853189428
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:22.25-22.36> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.36-20.37> str='\o' output logic port=2 range=[0:0]
-      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\u_impl_generic'
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'
-        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\o'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:27.10-27.11> str='\o'
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
-          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule (o);
-      /** AST_PARAMETER **/
-      output o;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_TYPEDEF **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.1-29.10> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule' basic_prep
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum4' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) basic_prep range=[47:0] int=1853189428
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) basic_prep range=[47:0] int=1853189428
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:22.25-22.36> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.36-20.37> str='\o' output logic basic_prep port=2 range=[0:0]
-      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\u_impl_generic' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr' basic_prep
-        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\o' basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:27.10-27.11> str='\o' basic_prep
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
-          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule (o);
-      /** AST_PARAMETER **/
-      output o;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_TYPEDEF **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.1-40.10> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum3' logic
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) range=[47:0] int=1853189427
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:33.25-33.36> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.35-31.36> str='\o' output logic port=3 range=[0:0]
-      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\u_submodule'
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'
-        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\o'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:38.10-38.11> str='\o'
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
-          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr (o);
-      /** AST_PARAMETER **/
-      output o;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_TYPEDEF **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.1-40.10> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr' basic_prep
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum3' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) basic_prep range=[47:0] int=1853189427
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) basic_prep range=[47:0] int=1853189427
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:33.25-33.36> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.35-31.36> str='\o' output logic basic_prep port=3 range=[0:0]
-      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\u_submodule' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule' basic_prep
-        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\o' basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:38.10-38.11> str='\o' basic_prep
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
-          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
-      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr (o);
-      /** AST_PARAMETER **/
-      output o;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
@@ -1857,7 +1577,7 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\target_cfg_t'
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:44.27-44.40> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' logic basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:44.27-44.40> str='\TargetCfg' logic basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='\target_cfg_t' bits='01011100011101000110000101110010011001110110010101110100010111110110001101100110011001110101111101110100'(104) basic_prep range=[103:0] int=1718050676
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -1866,7 +1586,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:42.25-42.26> str='\o' output logic port=4 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:46.4-50.6> str='\u_prim_pad_attr'
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod\prim_pad_attr\PadType=1'1'
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:46.4-50.6> str='\o'
           AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:49.10-49.11> str='\o'
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
@@ -1939,7 +1659,7 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\target_cfg_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:44.27-44.40> str='\UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv' logic basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:44.27-44.40> str='\TargetCfg' logic basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='\target_cfg_t' bits='01011100011101000110000101110010011001110110010101110100010111110110001101100110011001110101111101110100'(104) basic_prep range=[103:0] int=1718050676
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -1948,7 +1668,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:42.25-42.26> str='\o' output logic basic_prep port=4 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:46.4-50.6> str='\u_prim_pad_attr' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod\prim_pad_attr\PadType=1'1' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:46.4-50.6> str='\o' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:49.10-49.11> str='\o' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
@@ -2001,6 +1721,304 @@ Dumping Verilog AST after simplification:
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod\prim_submodule\PadType=1'1'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.1-29.10> str='$paramod\prim_submodule\PadType=1'1'
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum4' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) range=[47:0] int=1853189428
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:22.25-22.36> str='\prim_submodule.PadType' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.36-20.37> str='\o' output logic port=2 range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:22.25-22.36> str='\PadType' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\u_impl_generic'
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'
+        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\o'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:27.10-27.11> str='\o'
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod\prim_submodule\PadType=1'1 (o);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      output o;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.1-29.10> str='$paramod\prim_submodule\PadType=1'1' basic_prep
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum4' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) basic_prep range=[47:0] int=1853189428
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum4' bits='001001000110010101101110011101010110110100110100'(48) basic_prep range=[47:0] int=1853189428
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:22.25-22.36> str='\prim_submodule.PadType' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.36-20.37> str='\o' output logic basic_prep port=2 range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:22.25-22.36> str='\PadType' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\u_impl_generic' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6> str='\o' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:27.10-27.11> str='\o' basic_prep
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod\prim_submodule\PadType=1'1 (o);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      output o;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod\prim_pad_attr\PadType=1'1'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.1-40.10> str='$paramod\prim_pad_attr\PadType=1'1'
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum3' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic range=[-1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e'
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) range=[47:0] int=1853189427
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:33.25-33.36> str='\prim_pad_attr.PadType' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.35-31.36> str='\o' output logic port=3 range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:33.25-33.36> str='\PadType' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\u_submodule'
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod\prim_submodule\PadType=1'1'
+        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\o'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:38.10-38.11> str='\o'
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod\prim_pad_attr\PadType=1'1 (o);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      output o;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.1-40.10> str='$paramod\prim_pad_attr\PadType=1'1' basic_prep
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum3' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) basic_prep range=[47:0] int=1853189427
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum3' bits='001001000110010101101110011101010110110100110011'(48) basic_prep range=[47:0] int=1853189427
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:33.25-33.36> str='\prim_pad_attr.PadType' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.35-31.36> str='\o' output logic basic_prep port=3 range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:33.25-33.36> str='\PadType' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_CELL <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\u_submodule' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$paramod\prim_submodule\PadType=1'1' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6> str='\o' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:38.10-38.11> str='\o' basic_prep
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\pinmux_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> str='\pinmux_pkg::target_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:9.12-9.18> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:10.18-10.30> str='dio_pad_type' basic_prep range=[0:0]
+      AST_ENUM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> str='\prim_pad_wrapper_pkg::BidirStd' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:3.7-3.22> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:2.4-4.17> str='\prim_pad_wrapper_pkg::pad_type_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod\prim_pad_attr\PadType=1'1 (o);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      output o;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
 
 2. Executing PREP pass.
 
@@ -2008,15 +2026,15 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr
-Used module:         $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule
-Used module:             $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr
+Used module:     $paramod\prim_pad_attr\PadType=1'1
+Used module:         $paramod\prim_submodule\PadType=1'1
+Used module:             $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr
-Used module:         $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule
-Used module:             $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr
+Used module:     $paramod\prim_pad_attr\PadType=1'1
+Used module:         $paramod\prim_submodule\PadType=1'1
+Used module:             $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1
 Removed 0 unused modules.
 
 2.2. Executing PROC pass (convert processes to netlists).
@@ -2050,53 +2068,53 @@ Converted 0 switches.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\prim_pad_attr\PadType=1'1.
+Optimizing module $paramod\prim_submodule\PadType=1'1.
 Optimizing module top.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr.
+Optimizing module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\prim_pad_attr\PadType=1'1.
+Optimizing module $paramod\prim_submodule\PadType=1'1.
 Optimizing module top.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr.
+Optimizing module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\prim_pad_attr\PadType=1'1..
+Finding unused cells or wires in module $paramod\prim_submodule\PadType=1'1..
 Finding unused cells or wires in module \top..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr..
+Finding unused cells or wires in module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1..
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr...
-Checking module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr...
-Checking module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule...
+Checking module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1...
+Checking module $paramod\prim_pad_attr\PadType=1'1...
+Checking module $paramod\prim_submodule\PadType=1'1...
 Checking module top...
 Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule.
+Optimizing module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1.
+Optimizing module $paramod\prim_pad_attr\PadType=1'1.
+Optimizing module $paramod\prim_submodule\PadType=1'1.
 Optimizing module top.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'.
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'.
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'.
+Finding identical cells in module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
+Finding identical cells in module `$paramod\prim_pad_attr\PadType=1'1'.
+Finding identical cells in module `$paramod\prim_submodule\PadType=1'1'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr..
+Running muxtree optimizer on module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr..
+Running muxtree optimizer on module $paramod\prim_pad_attr\PadType=1'1..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule..
+Running muxtree optimizer on module $paramod\prim_submodule\PadType=1'1..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -2105,29 +2123,29 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr.
-  Optimizing cells in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr.
-  Optimizing cells in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule.
+  Optimizing cells in module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1.
+  Optimizing cells in module $paramod\prim_pad_attr\PadType=1'1.
+  Optimizing cells in module $paramod\prim_submodule\PadType=1'1.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'.
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'.
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'.
+Finding identical cells in module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
+Finding identical cells in module `$paramod\prim_pad_attr\PadType=1'1'.
+Finding identical cells in module `$paramod\prim_submodule\PadType=1'1'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule..
+Finding unused cells or wires in module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1..
+Finding unused cells or wires in module $paramod\prim_pad_attr\PadType=1'1..
+Finding unused cells or wires in module $paramod\prim_submodule\PadType=1'1..
 Finding unused cells or wires in module \top..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule.
+Optimizing module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1.
+Optimizing module $paramod\prim_pad_attr\PadType=1'1.
+Optimizing module $paramod\prim_submodule\PadType=1'1.
 Optimizing module top.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
@@ -2135,9 +2153,9 @@ Optimizing module top.
 2.7. Executing WREDUCE pass (reducing word size of cells).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule..
+Finding unused cells or wires in module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1..
+Finding unused cells or wires in module $paramod\prim_pad_attr\PadType=1'1..
+Finding unused cells or wires in module $paramod\prim_submodule\PadType=1'1..
 Finding unused cells or wires in module \top..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -2145,29 +2163,29 @@ Finding unused cells or wires in module \top..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr.
-Optimizing module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule.
+Optimizing module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1.
+Optimizing module $paramod\prim_pad_attr\PadType=1'1.
+Optimizing module $paramod\prim_submodule\PadType=1'1.
 Optimizing module top.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'.
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'.
-Finding identical cells in module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'.
+Finding identical cells in module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
+Finding identical cells in module `$paramod\prim_pad_attr\PadType=1'1'.
+Finding identical cells in module `$paramod\prim_submodule\PadType=1'1'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr..
-Finding unused cells or wires in module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule..
+Finding unused cells or wires in module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1..
+Finding unused cells or wires in module $paramod\prim_pad_attr\PadType=1'1..
+Finding unused cells or wires in module $paramod\prim_submodule\PadType=1'1..
 Finding unused cells or wires in module \top..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr ===
+=== $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1 ===
 
    Number of wires:                  1
    Number of wire bits:              1
@@ -2178,7 +2196,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-=== $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr ===
+=== $paramod\prim_pad_attr\PadType=1'1 ===
 
    Number of wires:                  1
    Number of wire bits:              1
@@ -2188,9 +2206,9 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule      1
+     $paramod\prim_submodule\PadType=1'1      1
 
-=== $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule ===
+=== $paramod\prim_submodule\PadType=1'1 ===
 
    Number of wires:                  1
    Number of wire bits:              1
@@ -2200,7 +2218,7 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr      1
+     $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1      1
 
 === top ===
 
@@ -2212,14 +2230,14 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr      1
+     $paramod\prim_pad_attr\PadType=1'1      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr      1
-       $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule      1
-         $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr      1
+     $paramod\prim_pad_attr\PadType=1'1      1
+       $paramod\prim_submodule\PadType=1'1      1
+         $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1      1
 
    Number of wires:                  4
    Number of wire bits:              4
@@ -2231,9 +2249,9 @@ Finding unused cells or wires in module \top..
    Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr...
-Checking module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr...
-Checking module $paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule...
+Checking module $paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1...
+Checking module $paramod\prim_pad_attr\PadType=1'1...
+Checking module $paramod\prim_submodule\PadType=1'1...
 Checking module top...
 Found and reported 0 problems.
 
@@ -2243,38 +2261,38 @@ Found and reported 0 problems.
 
 3.2. Executing DEMUXMAP pass.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'.
+Dumping module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
 
 (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.1-18.34" *)
-module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr (o);
+module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1 (o);
   (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:14.43-14.44" *)
   output o;
   wire o;
   assign o = 1'h1;
 endmodule
-Dumping module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'.
+Dumping module `$paramod\prim_pad_attr\PadType=1'1'.
 
 (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.1-40.10" *)
-module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr (o);
+module \$paramod\prim_pad_attr\PadType=1'1 (o);
   (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:31.35-31.36" *)
   output o;
   wire o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:35.4-39.6" *)
-  \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule  u_submodule (
+  \$paramod\prim_submodule\PadType=1'1  u_submodule (
     .o(o)
   );
 endmodule
-Dumping module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'.
+Dumping module `$paramod\prim_submodule\PadType=1'1'.
 
 (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.1-29.10" *)
-module \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule (o);
+module \$paramod\prim_submodule\PadType=1'1 (o);
   (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:20.36-20.37" *)
   output o;
   wire o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:24.4-28.6" *)
-  \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr  u_impl_generic (
+  \$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1  u_impl_generic (
     .o(o)
   );
 endmodule
@@ -2288,7 +2306,7 @@ module top(o);
   wire o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/ParameterPassedTo3TimesNestedSubmodule/top.sv:46.4-50.6" *)
-  \$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr  u_prim_pad_attr (
+  \$paramod\prim_pad_attr\PadType=1'1  u_prim_pad_attr (
     .o(o)
   );
 endmodule
@@ -2298,9 +2316,9 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_generic_pad_attr'.
-Dumping module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_pad_attr'.
-Dumping module `$paramod$458acb0cf5ee5ff2e616c5ccad9d4d86260de259\prim_submodule'.
+Dumping module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'.
+Dumping module `$paramod\prim_pad_attr\PadType=1'1'.
+Dumping module `$paramod\prim_submodule\PadType=1'1'.
 Dumping module `\top'.
 
 5. Executing SIM pass (simulate the circuit).

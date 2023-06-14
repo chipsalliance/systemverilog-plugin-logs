@@ -1117,7 +1117,17 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneInside/dut.v:1.1-12.10> str='\dut'
-      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:7.19-7.32> str='\UHDM-integration-tests/tests/OneInside/dut.v' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:5.19-5.32> str='\OP_1' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='100'(3) range=[2:0] int=4
+        AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:5.13-5.18> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:6.19-6.32> str='\OP_2' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='101'(3) range=[2:0] int=5
+        AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:6.13-6.18> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:7.19-7.32> str='\OP_3' multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='110'(3) range=[2:0] int=6
         AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:7.13-7.18> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1148,6 +1158,8 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module dut(a, b);
       /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
       input [2:0] a;
       output b;
       assign b = (a[2])&((((a)==(OP_1))||((a)==(OP_2)))||((a)==(OP_3)));
@@ -1155,7 +1167,17 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneInside/dut.v:1.1-12.10> str='\dut' basic_prep
-      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:7.19-7.32> str='\UHDM-integration-tests/tests/OneInside/dut.v' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:5.19-5.32> str='\OP_1' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='100'(3) basic_prep range=[2:0] int=4
+        AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:5.13-5.18> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:6.19-6.32> str='\OP_2' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='101'(3) basic_prep range=[2:0] int=5
+        AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:6.13-6.18> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/OneInside/dut.v:7.19-7.32> str='\OP_3' basic_prep range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='110'(3) basic_prep range=[2:0] int=6
         AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:7.13-7.18> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1175,31 +1197,24 @@ Dumping AST after simplification:
             AST_LOGIC_OR <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> basic_prep
               AST_EQ <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> basic_prep
                 AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> str='\a' basic_prep
-                AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:9.14-9.18> str='\OP_1' basic_prep
+                AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:9.14-9.18> bits='100'(3) basic_prep range=[2:0] int=4
               AST_EQ <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> basic_prep
                 AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> str='\a' basic_prep
-                AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:10.6-10.10> str='\OP_2' basic_prep
+                AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:10.6-10.10> bits='101'(3) basic_prep range=[2:0] int=5
             AST_EQ <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> basic_prep
               AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> str='\a' basic_prep
-              AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:11.6-11.10> str='\OP_3' basic_prep
-      AST_AUTOWIRE <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> str='\OP_1' basic_prep
-      AST_AUTOWIRE <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> str='\OP_2' basic_prep
-      AST_AUTOWIRE <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> str='\OP_3' basic_prep
+              AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:11.6-11.10> bits='110'(3) basic_prep range=[2:0] int=6
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);
       /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
       input [2:0] a;
       output b;
-      /** AST_AUTOWIRE **/
-      /** AST_AUTOWIRE **/
-      /** AST_AUTOWIRE **/
-      assign b = (a[2:2])&((((a)==(OP_1))||((a)==(OP_2)))||((a)==(OP_3)));
+      assign b = (a[2:2])&((((a)==(3'b 100))||((a)==(3'b 101)))||((a)==(3'b 110)));
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/OneInside/dut.v:9: Warning: Identifier `\OP_1' is implicitly declared.
-UHDM-integration-tests/tests/OneInside/dut.v:10: Warning: Identifier `\OP_2' is implicitly declared.
-UHDM-integration-tests/tests/OneInside/dut.v:11: Warning: Identifier `\OP_3' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -1255,10 +1270,7 @@ Removed 0 unused cells and 1 unused wires.
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
-Warning: Wire dut.\OP_3 is used but has no driver.
-Warning: Wire dut.\OP_2 is used but has no driver.
-Warning: Wire dut.\OP_1 is used but has no driver.
-Found and reported 3 problems.
+Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -1316,10 +1328,10 @@ Finding unused cells or wires in module \dut..
 
 === dut ===
 
-   Number of wires:                 10
-   Number of wire bits:             12
-   Number of public wires:           5
-   Number of public wire bits:       7
+   Number of wires:                  7
+   Number of wire bits:              9
+   Number of public wires:           2
+   Number of public wire bits:       4
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1330,10 +1342,7 @@ Finding unused cells or wires in module \dut..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
-Warning: Wire dut.\OP_3 is used but has no driver.
-Warning: Wire dut.\OP_2 is used but has no driver.
-Warning: Wire dut.\OP_1 is used but has no driver.
-Found and reported 3 problems.
+Found and reported 0 problems.
 
 3. Executing Verilog backend.
 
@@ -1356,12 +1365,6 @@ module dut(a, b);
   wire _03_;
   (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *)
   wire _04_;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.14-9.18" *)
-  wire OP_1;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:10.6-10.10" *)
-  wire OP_2;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:11.6-11.10" *)
-  wire OP_3;
   (* src = "UHDM-integration-tests/tests/OneInside/dut.v:4.13-4.14" *)
   input [2:0] a;
   wire [2:0] a;
@@ -1369,9 +1372,9 @@ module dut(a, b);
   output b;
   wire b;
   assign b = a[2] & (* src = "UHDM-integration-tests/tests/OneInside/dut.v:8.13-11.12" *) _04_;
-  assign _00_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) OP_1;
-  assign _01_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) OP_2;
-  assign _02_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) OP_3;
+  assign _00_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h4;
+  assign _01_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h5;
+  assign _02_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h6;
   assign _03_ = _00_ || (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) _01_;
   assign _04_ = _03_ || (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) _02_;
 endmodule
@@ -1383,7 +1386,6 @@ endmodule
 4.2. Executing DEMUXMAP pass.
 Dumping module `\dut'.
 
-Warnings: 6 unique messages, 9 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

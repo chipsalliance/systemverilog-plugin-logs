@@ -830,7 +830,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/FunctionParam/top.sv:1.1-9.10> str='\top'
-      AST_PARAMETER <UHDM-integration-tests/tests/FunctionParam/top.sv:2.18-2.35> str='\UHDM-integration-tests/tests/FunctionParam/top.sv' multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/FunctionParam/top.sv:2.18-2.35> str='\X' multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 0 ]
         AST_CONCAT <UHDM-integration-tests/tests/FunctionParam/top.sv:2.28-2.35>
           AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
@@ -848,9 +848,18 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_ASSIGN_EQ <UHDM-integration-tests/tests/FunctionParam/top.sv:5.7-5.13>
           AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> str='\theta'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:5.14-5.18> str='\X'
-            AST_RANGE <UHDM-integration-tests/tests/FunctionParam/top.sv:5.14-5.18>
-              AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:5.14-5.18> str='\X' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+              AST_SUB <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                AST_MUL <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                  AST_ADD <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_MUL <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
       AST_ASSIGN <UHDM-integration-tests/tests/FunctionParam/top.sv:8.11-8.22>
         AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:8.11-8.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
@@ -865,7 +874,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/FunctionParam/top.sv:1.1-9.10> str='\top' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/FunctionParam/top.sv:2.18-2.35> str='\UHDM-integration-tests/tests/FunctionParam/top.sv' basic_prep range=[63:0] multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/FunctionParam/top.sv:2.18-2.35> str='\X' basic_prep range=[63:0] multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:2.28-2.35> bits='0000000000000000000000000000000100000000000000000000000000000000'(64) basic_prep range=[63:0]
         AST_RANGE <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> basic_prep range=[63:0]
           AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
@@ -881,9 +890,18 @@ Dumping AST after simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_ASSIGN_EQ <UHDM-integration-tests/tests/FunctionParam/top.sv:5.7-5.13>
           AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> str='\theta'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:5.14-5.18> str='\X'
-            AST_RANGE <UHDM-integration-tests/tests/FunctionParam/top.sv:5.14-5.18>
-              AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:5.14-5.18> str='\X' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+              AST_SUB <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                AST_MUL <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                  AST_ADD <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_MUL <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
       AST_ASSIGN <UHDM-integration-tests/tests/FunctionParam/top.sv:8.11-8.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionParam/top.sv:8.11-8.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionParam/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1

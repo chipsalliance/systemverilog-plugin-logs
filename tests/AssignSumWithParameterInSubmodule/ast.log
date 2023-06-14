@@ -767,10 +767,10 @@ Object 'work@top' of type 'design'
       Object '' of type 'int_typespec'
     Object 'o' of type 'int_var'
 Warning: Removing unelaborated module: \submodule from the design.
-Generating RTLIL representation for module `$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'.
+Generating RTLIL representation for module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\submodule.P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -779,6 +779,11 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.20>
         AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.12> str='\a'
         AST_ADD <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20>
@@ -786,15 +791,16 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule (a);
+    module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
+      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output signed [31:0] a;
       assign a = (P)+(2);
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\submodule.P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -803,22 +809,23 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.20> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.12> str='\a' basic_prep
-        AST_ADD <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20> basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.16> str='\P' basic_prep
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-      AST_AUTOWIRE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='\P' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule (a);
+    module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
+      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output signed [31:0] a;
-      /** AST_AUTOWIRE **/
-      assign a = (P)+(2);
+      assign a = 3;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3: Warning: Identifier `\P' is implicitly declared.
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10> str='\top'
@@ -827,7 +834,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\u_sub'
-        AST_CELLTYPE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'
+        AST_CELLTYPE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
         AST_ARGUMENT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\a'
           AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.23-7.24> str='\o'
 --- END OF AST DUMP ---
@@ -844,7 +851,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\u_sub' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\a' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.23-7.24> str='\o' basic_prep
 --- END OF AST DUMP ---
@@ -861,11 +868,11 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule
+Used module:     $paramod\submodule\P=s32'00000000000000000000000000000001
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule
+Used module:     $paramod\submodule\P=s32'00000000000000000000000000000001
 Removed 0 unused modules.
 
 2.2. Executing PROC pass (convert processes to netlists).
@@ -900,37 +907,34 @@ Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-Optimizing module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.
+Optimizing module $paramod\submodule\P=s32'00000000000000000000000000000001.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-Optimizing module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.
+Optimizing module $paramod\submodule\P=s32'00000000000000000000000000000001.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Finding unused cells or wires in module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
+Finding unused cells or wires in module $paramod\submodule\P=s32'00000000000000000000000000000001..
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule...
-Warning: Wire $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.\P is used but has no driver.
+Checking module $paramod\submodule\P=s32'00000000000000000000000000000001...
 Checking module top...
-Found and reported 1 problems.
+Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.
+Optimizing module $paramod\submodule\P=s32'00000000000000000000000000000001.
 Optimizing module top.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'.
+Finding identical cells in module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule..
+Running muxtree optimizer on module $paramod\submodule\P=s32'00000000000000000000000000000001..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -939,31 +943,29 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.
+  Optimizing cells in module $paramod\submodule\P=s32'00000000000000000000000000000001.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'.
+Finding identical cells in module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule..
+Finding unused cells or wires in module $paramod\submodule\P=s32'00000000000000000000000000000001..
 Finding unused cells or wires in module \top..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.
+Optimizing module $paramod\submodule\P=s32'00000000000000000000000000000001.
 Optimizing module top.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
 
 2.7. Executing WREDUCE pass (reducing word size of cells).
-Removed top 30 bits (of 32) from port B of cell $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.$add$UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3$1 ($add).
-Removed top 29 bits (of 32) from port Y of cell $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.$add$UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3$1 ($add).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule..
+Finding unused cells or wires in module $paramod\submodule\P=s32'00000000000000000000000000000001..
 Finding unused cells or wires in module \top..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -971,33 +973,32 @@ Finding unused cells or wires in module \top..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.
+Optimizing module $paramod\submodule\P=s32'00000000000000000000000000000001.
 Optimizing module top.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'.
+Finding identical cells in module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule..
+Finding unused cells or wires in module $paramod\submodule\P=s32'00000000000000000000000000000001..
 Finding unused cells or wires in module \top..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule ===
+=== $paramod\submodule\P=s32'00000000000000000000000000000001 ===
 
-   Number of wires:                  2
-   Number of wire bits:             33
-   Number of public wires:           2
-   Number of public wire bits:      33
+   Number of wires:                  1
+   Number of wire bits:             32
+   Number of public wires:           1
+   Number of public wire bits:      32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                  1
-     $add                            1
+   Number of cells:                  0
 
 === top ===
 
@@ -1009,28 +1010,26 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule      1
+     $paramod\submodule\P=s32'00000000000000000000000000000001      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule      1
+     $paramod\submodule\P=s32'00000000000000000000000000000001      1
 
-   Number of wires:                  3
-   Number of wire bits:             65
-   Number of public wires:           3
-   Number of public wire bits:      65
+   Number of wires:                  2
+   Number of wire bits:             64
+   Number of public wires:           2
+   Number of public wire bits:      64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                  1
-     $add                            1
+   Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule...
-Warning: Wire $paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule.\P is used but has no driver.
+Checking module $paramod\submodule\P=s32'00000000000000000000000000000001...
 Checking module top...
-Found and reported 1 problems.
+Found and reported 0 problems.
 
 3. Executing Verilog backend.
 
@@ -1038,17 +1037,14 @@ Found and reported 1 problems.
 
 3.2. Executing DEMUXMAP pass.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'.
+Dumping module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 
 (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10" *)
-module \$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule (a);
-  (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.16" *)
-  wire P;
+module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
   (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30" *)
   output [31:0] a;
   wire [31:0] a;
-  assign a[2:0] = P + (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20" *) 2'h2;
-  assign a[31:3] = 29'h00000000;
+  assign a = 32'd3;
 endmodule
 Dumping module `\top'.
 
@@ -1060,7 +1056,7 @@ module top(o);
   wire [31:0] o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27" *)
-  \$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule  u_sub (
+  \$paramod\submodule\P=s32'00000000000000000000000000000001  u_sub (
     .a(o)
   );
 endmodule
@@ -1070,7 +1066,7 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod$f04a14c42c5a54dfed31d663570bc975ab0dd8d9\submodule'.
+Dumping module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 Dumping module `\top'.
 
 5. Executing SIM pass (simulate the circuit).
@@ -1116,7 +1112,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 3 unique messages, 4 total
+Warnings: 1 unique messages, 1 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
