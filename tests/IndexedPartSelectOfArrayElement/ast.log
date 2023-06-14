@@ -864,9 +864,7 @@ Dumping AST before simplification:
             AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                AST_SUB <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
                 AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
                   AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -889,9 +887,7 @@ Dumping AST before simplification:
             AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                AST_SUB <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                 AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0>
@@ -908,7 +904,7 @@ Dumping Verilog AST before simplification:
       /** AST_TYPEDEF **/
       initial
         a <= {8'b 00010010};
-      assign o = a[((8)*((1)-(0)))+(((0)+(((6)-(2))+(1'b 1)))+((((6)-(((6)-(2))+(1'b 1)))+(1))-(1))):((8)*((1)-(0)))+((0)+(((6)-(2))+(1'b 1)))];
+      assign o = a[((8)*(0))+(((0)+(((6)-(2))+(1'b 1)))+((((6)-(((6)-(2))+(1'b 1)))+(1))-(1))):((8)*(0))+((0)+(((6)-(2))+(1'b 1)))];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -934,9 +930,9 @@ Dumping AST after simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:7.11-7.34> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:7.11-7.12> str='\o' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:7.15-7.34> str='\a' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> basic_prep range=[14:13]
-            AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) basic_prep range=[31:0] int=14
-            AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000001101'(32) basic_prep range=[31:0] int=13
+          AST_RANGE <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> basic_prep range=[6:5]
+            AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+            AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectOfArrayElement/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -946,7 +942,7 @@ Dumping Verilog AST after simplification:
       /** AST_TYPEDEF **/
       initial
         a <= 8'b 00010010;
-      assign o = a[14:13];
+      assign o = a[6:5];
     endmodule
 --- END OF AST DUMP ---
 

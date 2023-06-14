@@ -779,13 +779,21 @@ Dumping AST before simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                 AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
-              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
+                  AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
+                AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
               AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
@@ -803,7 +811,7 @@ Dumping Verilog AST before simplification:
       (* wiretype = "\filter_ctl_t" *)
       wire [19:0] a;
       /** AST_TYPEDEF **/
-      assign o = a[(((1)+(1))*(10))-(1):(1)*(10)];
+      assign o = a[((1)*(10))+(((((1)+(1))*(10))-((1)*(10)))-(1)):(1)*(10)];
       initial
         a = {10'b 0000001111, 10'b 0000000000};
     endmodule

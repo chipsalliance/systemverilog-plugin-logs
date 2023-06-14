@@ -711,9 +711,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
@@ -727,12 +724,12 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypedefInModule/top.sv:1.25-1.31> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypedefInModule/top.sv:3.9-3.10> str='\x' logic basic_prep range=[31:0] multirange=[ 0 32 0 32 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefInModule/top.sv:3.9-3.10> str='\x' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> str='\word' bits='0101110001110111011011110111001001100100'(40) basic_prep range=[39:0] int=2003792484
-        AST_RANGE <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> range=[1023:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000001111111111'(32) signed range=[31:0] int=1023
-          AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/TypedefInModule/top.sv:2.18-2.24> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypedefInModule/top.sv:4.11-4.16>
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefInModule/top.sv:4.11-4.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefInModule/top.sv:4.15-4.16> str='\x'
@@ -746,7 +743,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       output [31:0] o;
       (* wiretype = "\word" *)
-      wire [1023:0] x;
+      wire [31:0] x;
       /** AST_TYPEDEF **/
       assign o = x;
       initial
@@ -764,11 +761,11 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypedefInModule/top.sv:1.25-1.31> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypedefInModule/top.sv:3.9-3.10> str='\x' logic reg basic_prep range=[1023:0] multirange=[ 0 32 0 32 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefInModule/top.sv:3.9-3.10> str='\x' logic reg basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> str='\word' bits='0101110001110111011011110111001001100100'(40) basic_prep range=[39:0] int=2003792484
-        AST_RANGE <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> basic_prep range=[1023:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000001111111111'(32) signed basic_prep range=[31:0] int=1023
+        AST_RANGE <UHDM-integration-tests/tests/TypedefInModule/top.sv:2.18-2.24> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefInModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypedefInModule/top.sv:4.11-4.16> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefInModule/top.sv:4.11-4.12> str='\o' basic_prep
@@ -783,7 +780,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       output [31:0] o;
       (* wiretype = "\word" *)
-      reg [1023:0] x;
+      reg [31:0] x;
       /** AST_TYPEDEF **/
       assign o = x;
       initial
@@ -907,9 +904,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:           1056
+   Number of wire bits:             64
    Number of public wires:           2
-   Number of public wire bits:    1056
+   Number of public wire bits:      64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -935,9 +932,9 @@ module top(o);
   wire [31:0] o;
   (* src = "UHDM-integration-tests/tests/TypedefInModule/top.sv:3.9-3.10" *)
   (* wiretype = "\\word" *)
-  wire [1023:0] x;
+  wire [31:0] x;
   assign o = 32'd43981;
-  assign x = 1024'h000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000abcd;
+  assign x = 32'd43981;
 endmodule
 
 4. Executing Verilog backend.
