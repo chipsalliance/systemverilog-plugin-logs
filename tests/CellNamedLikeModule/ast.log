@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -989,28 +989,22 @@ Object 'work@dut' of type 'design'
     Object 'b' of type 'logic_net'
       Object '' of type 'logic_typespec'
 Warning: Removing unelaborated module: \mod from the design.
-Generating RTLIL representation for module `$paramod\mod\x=s32'00000000000000000000000000000001'.
+Generating RTLIL representation for module `$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000001'
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\mod.x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\UHDM-integration-tests/tests/CellNamedLikeModule/dut.v' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic port=4 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16>
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b'
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\mod\x=s32'00000000000000000000000000000001 (a, b);
-      /** AST_PARAMETER **/
+    module \$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod (a, b);
       /** AST_PARAMETER **/
       input a;
       output b;
@@ -1018,54 +1012,42 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\mod.x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\UHDM-integration-tests/tests/CellNamedLikeModule/dut.v' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic basic_prep port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic basic_prep port=4 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\mod\x=s32'00000000000000000000000000000001 (a, b);
-      /** AST_PARAMETER **/
+    module \$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod (a, b);
       /** AST_PARAMETER **/
       input a;
       output b;
       assign b = a;
     endmodule
 --- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod\mod\x=s32'00000000000000000000000000000000'.
+Generating RTLIL representation for module `$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000000'
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\mod.x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\UHDM-integration-tests/tests/CellNamedLikeModule/dut.v' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic port=2 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16>
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b'
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
-      /** AST_PARAMETER **/
+    module \$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod (a, b);
       /** AST_PARAMETER **/
       input a;
       output b;
@@ -1073,26 +1055,20 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000000' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\mod.x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\UHDM-integration-tests/tests/CellNamedLikeModule/dut.v' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic basic_prep port=2 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
-      /** AST_PARAMETER **/
+    module \$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod (a, b);
       /** AST_PARAMETER **/
       input a;
       output b;
@@ -1106,13 +1082,13 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14> str='\a' input logic port=5 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17> str='\b' output logic port=6 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\mod'
-        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000000'
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\a'
           AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.24-12.25> str='\a'
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\b'
           AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.31-12.32> str='\c'
       AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\mod2'
-        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000001'
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\a'
           AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.25-13.26> str='\c'
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\b'
@@ -1133,13 +1109,13 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14> str='\a' input logic basic_prep port=5 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17> str='\b' output logic basic_prep port=6 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\mod' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000000' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\a' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.24-12.25> str='\a' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\b' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.31-12.32> str='\c' basic_prep
       AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\mod2' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000001' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\a' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.25-13.26> str='\c' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\b' basic_prep
@@ -1161,13 +1137,13 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \dut
-Used module:     $paramod\mod\x=s32'00000000000000000000000000000001
-Used module:     $paramod\mod\x=s32'00000000000000000000000000000000
+Used module:     $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod
+Used module:     $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \dut
-Used module:     $paramod\mod\x=s32'00000000000000000000000000000001
-Used module:     $paramod\mod\x=s32'00000000000000000000000000000000
+Used module:     $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod
+Used module:     $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod
 Removed 0 unused modules.
 
 2.2. Executing PROC pass (convert processes to netlists).
@@ -1202,43 +1178,43 @@ Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000000.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000001.
+Optimizing module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod.
+Optimizing module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000000.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000001.
+Optimizing module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod.
+Optimizing module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod..
+Finding unused cells or wires in module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod..
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\mod\x=s32'00000000000000000000000000000000...
-Checking module $paramod\mod\x=s32'00000000000000000000000000000001...
+Checking module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod...
+Checking module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod...
 Checking module dut...
 Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000000.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000001.
+Optimizing module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod.
+Optimizing module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod.
 Optimizing module dut.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\mod\x=s32'00000000000000000000000000000000'.
-Finding identical cells in module `$paramod\mod\x=s32'00000000000000000000000000000001'.
+Finding identical cells in module `$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'.
+Finding identical cells in module `$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'.
 Finding identical cells in module `\dut'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod\mod\x=s32'00000000000000000000000000000000..
+Running muxtree optimizer on module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod\mod\x=s32'00000000000000000000000000000001..
+Running muxtree optimizer on module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \dut..
@@ -1247,25 +1223,25 @@ Running muxtree optimizer on module \dut..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod\mod\x=s32'00000000000000000000000000000000.
-  Optimizing cells in module $paramod\mod\x=s32'00000000000000000000000000000001.
+  Optimizing cells in module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod.
+  Optimizing cells in module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod.
   Optimizing cells in module \dut.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\mod\x=s32'00000000000000000000000000000000'.
-Finding identical cells in module `$paramod\mod\x=s32'00000000000000000000000000000001'.
+Finding identical cells in module `$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'.
+Finding identical cells in module `$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'.
 Finding identical cells in module `\dut'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod..
+Finding unused cells or wires in module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod..
 Finding unused cells or wires in module \dut..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000000.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000001.
+Optimizing module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod.
+Optimizing module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod.
 Optimizing module dut.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
@@ -1273,8 +1249,8 @@ Optimizing module dut.
 2.7. Executing WREDUCE pass (reducing word size of cells).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod..
+Finding unused cells or wires in module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod..
 Finding unused cells or wires in module \dut..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -1282,26 +1258,26 @@ Finding unused cells or wires in module \dut..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000000.
-Optimizing module $paramod\mod\x=s32'00000000000000000000000000000001.
+Optimizing module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod.
+Optimizing module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod.
 Optimizing module dut.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\mod\x=s32'00000000000000000000000000000000'.
-Finding identical cells in module `$paramod\mod\x=s32'00000000000000000000000000000001'.
+Finding identical cells in module `$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'.
+Finding identical cells in module `$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'.
 Finding identical cells in module `\dut'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\mod\x=s32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod..
+Finding unused cells or wires in module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod..
 Finding unused cells or wires in module \dut..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod\mod\x=s32'00000000000000000000000000000000 ===
+=== $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod ===
 
    Number of wires:                  2
    Number of wire bits:              2
@@ -1312,7 +1288,7 @@ Finding unused cells or wires in module \dut..
    Number of processes:              0
    Number of cells:                  0
 
-=== $paramod\mod\x=s32'00000000000000000000000000000001 ===
+=== $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod ===
 
    Number of wires:                  2
    Number of wire bits:              2
@@ -1333,14 +1309,14 @@ Finding unused cells or wires in module \dut..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  2
-     $paramod\mod\x=s32'00000000000000000000000000000000      1
-     $paramod\mod\x=s32'00000000000000000000000000000001      1
+     $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod      1
+     $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod      1
 
 === design hierarchy ===
 
    dut                               1
-     $paramod\mod\x=s32'00000000000000000000000000000000      1
-     $paramod\mod\x=s32'00000000000000000000000000000001      1
+     $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod      1
+     $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod      1
 
    Number of wires:                  7
    Number of wire bits:              7
@@ -1352,8 +1328,8 @@ Finding unused cells or wires in module \dut..
    Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\mod\x=s32'00000000000000000000000000000000...
-Checking module $paramod\mod\x=s32'00000000000000000000000000000001...
+Checking module $paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod...
+Checking module $paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod...
 Checking module dut...
 Found and reported 0 problems.
 
@@ -1362,11 +1338,11 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod\mod\x=s32'00000000000000000000000000000000'.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+Dumping module `$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'.
 
 (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10" *)
-module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
+module \$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod (a, b);
   (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27" *)
   input a;
   wire a;
@@ -1375,10 +1351,10 @@ module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
   wire b;
   assign b = a;
 endmodule
-Dumping module `$paramod\mod\x=s32'00000000000000000000000000000001'.
+Dumping module `$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'.
 
 (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10" *)
-module \$paramod\mod\x=s32'00000000000000000000000000000001 (a, b);
+module \$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod (a, b);
   (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27" *)
   input a;
   wire a;
@@ -1402,13 +1378,13 @@ module dut(a, b);
   wire c;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35" *)
-  \$paramod\mod\x=s32'00000000000000000000000000000000  mod (
+  \$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod  mod (
     .a(a),
     .b(c)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36" *)
-  \$paramod\mod\x=s32'00000000000000000000000000000001  mod2 (
+  \$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod  mod2 (
     .a(c),
     .b(b)
   );
@@ -1419,8 +1395,8 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod\mod\x=s32'00000000000000000000000000000000'.
-Dumping module `$paramod\mod\x=s32'00000000000000000000000000000001'.
+Dumping module `$paramod$542a48cbede4cada42d2aff41a81e74b76cdb6d7\mod'.
+Dumping module `$paramod$c6a23d9375d86d5d96c80661702068ef58ccf0c8\mod'.
 Dumping module `\dut'.
 
 5. Executing SIM pass (simulate the circuit).
@@ -1468,5 +1444,5 @@ Simulating cycle 40.
 
 Warnings: 1 unique messages, 1 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

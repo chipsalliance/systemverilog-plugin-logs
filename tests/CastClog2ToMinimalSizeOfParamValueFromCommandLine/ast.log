@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -688,7 +688,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:1.1-4.10> str='\top'
-      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:2.18-2.23> str='\X' range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:2.18-2.23> str='\UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) range=[31:0] int=5
       AST_WIRE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
         AST_RANGE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:0.0-0.0>
@@ -707,7 +707,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:2.18-2.23> str='\X' basic_prep range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:2.18-2.23> str='\UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
       AST_WIRE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:0.0-0.0> basic_prep range=[31:0]
@@ -715,15 +715,18 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:3.11-3.34> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:3.11-3.12> str='\o' basic_prep
-        AST_CONSTANT <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:3.31-3.32> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:3.31-3.32> str='\X' basic_prep
+      AST_AUTOWIRE <UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:0.0-0.0> str='\X' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
       output signed [31:0] o;
-      assign o = 5;
+      /** AST_AUTOWIRE **/
+      assign o = X;
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:3: Warning: Identifier `\X' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -777,7 +780,8 @@ Finding unused cells or wires in module \top..
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Found and reported 0 problems.
+Warning: Wire top.\o [0] is used but has no driver.
+Found and reported 1 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -835,10 +839,10 @@ Finding unused cells or wires in module \top..
 
 === top ===
 
-   Number of wires:                  1
-   Number of wire bits:             32
-   Number of public wires:           1
-   Number of public wire bits:      32
+   Number of wires:                  2
+   Number of wire bits:             33
+   Number of public wires:           2
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -846,23 +850,27 @@ Finding unused cells or wires in module \top..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Found and reported 0 problems.
+Warning: Wire top.\o [0] is used but has no driver.
+Found and reported 1 problems.
 
 3. Executing Verilog backend.
 
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
 (* src = "UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:1.1-4.10" *)
 module top(o);
+  (* src = "UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:3.31-3.32" *)
+  wire X;
   (* src = "UHDM-integration-tests/tests/CastClog2ToMinimalSizeOfParamValueFromCommandLine/top.sv:1.23-1.24" *)
   output [31:0] o;
   wire [31:0] o;
-  assign o = 32'd5;
+  assign X = o[0];
+  assign o[31:1] = 31'h00000000;
 endmodule
 
 4. Executing Verilog backend.
@@ -915,6 +923,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 2 unique messages, 3 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

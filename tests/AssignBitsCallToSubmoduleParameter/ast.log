@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1110,73 +1110,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'constant'
           Object '' of type 'constant'
 Warning: Removing unelaborated module: \aes_reg_status from the design.
-Generating RTLIL representation for module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\aes_reg_status.Width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32> str='\we_i' input logic port=1 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:5.15-5.19> str='\we_o' output signed port=2 range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0>
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\Width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.28>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.23-7.27> str='\we_i'
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000 (we_i, we_o);
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-      input [15:0] we_i;
-      output signed [31:0] we_o;
-      assign we_o = we_i;
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\aes_reg_status.Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32> str='\we_i' input logic basic_prep port=1 range=[15:0] multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:5.15-5.19> str='\we_o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) basic_prep range=[31:0] int=16
-        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.28> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.23-7.27> str='\we_i' basic_prep
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module \$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000 (we_i, we_o);
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-      input [15:0] we_i;
-      output signed [31:0] we_o;
-      assign we_o = we_i;
-    endmodule
---- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:10.1-20.10> str='\top'
@@ -1194,7 +1127,7 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
             AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_CELL <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\u_reg_status_key_init'
-        AST_CELLTYPE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'
+        AST_CELLTYPE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> str='$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'
         AST_ARGUMENT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\we_i'
           AST_CONCAT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:17.13-17.45>
             AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:17.30-17.44> str='\key_init_we'
@@ -1227,7 +1160,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\u_reg_status_key_init' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> str='$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\we_i' basic_prep
           AST_CONCAT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:17.13-17.45> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:17.30-17.44> str='\key_init_we[0]' basic_prep
@@ -1260,6 +1193,61 @@ Dumping Verilog AST after simplification:
         \key_init_we[0]  = 1'b 1;
     endmodule
 --- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10> str='$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32> str='\we_i' input logic port=1 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:5.15-5.19> str='\we_o' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.28>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.23-7.27> str='\we_i'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status (we_i, we_o);
+      /** AST_PARAMETER **/
+      input [15:0] we_i;
+      output signed [31:0] we_o;
+      assign we_o = we_i;
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10> str='$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) basic_prep range=[31:0] int=16
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32> str='\we_i' input logic basic_prep port=1 range=[15:0] multirange=[ 0 16 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:5.15-5.19> str='\we_o' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.28> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:7.23-7.27> str='\we_i' basic_prep
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status (we_i, we_o);
+      /** AST_PARAMETER **/
+      input [15:0] we_i;
+      output signed [31:0] we_o;
+      assign we_o = we_i;
+    endmodule
+--- END OF AST DUMP ---
 
 2. Executing PREP pass.
 
@@ -1267,11 +1255,11 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000
+Used module:     $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000
+Used module:     $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status
 Removed 0 unused modules.
 
 2.2. Executing PROC pass (convert processes to netlists).
@@ -1308,21 +1296,21 @@ Removing empty process `top.$proc$UHDM-integration-tests/tests/AssignBitsCallToS
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status.
 Optimizing module top.
-Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status.
 Optimizing module top.
-Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status..
 Finding unused cells or wires in module \top..
-Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
 Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000...
+Checking module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status...
 Checking module top...
 Warning: Wire top.\key_init_we[1] [7] is used but has no driver.
 Warning: Wire top.\key_init_we[1] [6] is used but has no driver.
@@ -1337,16 +1325,16 @@ Found and reported 8 problems.
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
+Optimizing module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status.
 Optimizing module top.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
+Finding identical cells in module `$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
+Running muxtree optimizer on module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -1355,21 +1343,21 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
+  Optimizing cells in module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
+Finding identical cells in module `$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
+Finding unused cells or wires in module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status..
 Finding unused cells or wires in module \top..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
+Optimizing module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status.
 Optimizing module top.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
@@ -1377,7 +1365,7 @@ Optimizing module top.
 2.7. Executing WREDUCE pass (reducing word size of cells).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
+Finding unused cells or wires in module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status..
 Finding unused cells or wires in module \top..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -1385,23 +1373,23 @@ Finding unused cells or wires in module \top..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
+Optimizing module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status.
 Optimizing module top.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
+Finding identical cells in module `$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
+Finding unused cells or wires in module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status..
 Finding unused cells or wires in module \top..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000 ===
+=== $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status ===
 
    Number of wires:                  2
    Number of wire bits:             48
@@ -1422,12 +1410,12 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000      1
+     $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000      1
+     $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status      1
 
    Number of wires:                  5
    Number of wire bits:             96
@@ -1439,7 +1427,7 @@ Finding unused cells or wires in module \top..
    Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000...
+Checking module $paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status...
 Checking module top...
 Warning: Wire top.\key_init_we[1] [7] is used but has no driver.
 Warning: Wire top.\key_init_we[1] [6] is used but has no driver.
@@ -1456,11 +1444,11 @@ Found and reported 8 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+Dumping module `$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'.
 
 (* src = "UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10" *)
-module \$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000 (we_i, we_o);
+module \$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status (we_i, we_o);
   (* src = "UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32" *)
   input [15:0] we_i;
   wire [15:0] we_i;
@@ -1483,7 +1471,7 @@ module top(o);
   wire [31:0] o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6" *)
-  \$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000  u_reg_status_key_init (
+  \$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status  u_reg_status_key_init (
     .we_i({ \key_init_we[1] , 8'hff }),
     .we_o(o)
   );
@@ -1495,7 +1483,7 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
+Dumping module `$paramod$6f2904f8be7e54c3ce5bc0bb490fedabf861dceb\aes_reg_status'.
 Dumping module `\top'.
 
 5. Executing SIM pass (simulate the circuit).
@@ -1543,5 +1531,5 @@ Simulating cycle 40.
 
 Warnings: 10 unique messages, 18 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

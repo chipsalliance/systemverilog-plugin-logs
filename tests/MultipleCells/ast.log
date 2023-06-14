@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1128,21 +1128,16 @@ Object 'work@top' of type 'design'
     Object 'o2' of type 'logic_net'
       Object '' of type 'logic_typespec'
 Warning: Removing unelaborated module: \assigner from the design.
-Generating RTLIL representation for module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
+Generating RTLIL representation for module `$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000001'
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\assigner.invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\UHDM-integration-tests/tests/MultipleCells/top.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=4 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2'
         AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22>
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out'
@@ -1150,8 +1145,7 @@ Dumping AST before simplification:
             AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.19-10.22> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
-      /** AST_PARAMETER **/
+    module \$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner (inp, out);
       /** AST_PARAMETER **/
       input inp;
       output out;
@@ -1159,19 +1153,14 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\assigner.invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\UHDM-integration-tests/tests/MultipleCells/top.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=4 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out' basic_prep
@@ -1179,8 +1168,7 @@ Dumping AST after simplification:
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.19-10.22> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
-      /** AST_PARAMETER **/
+    module \$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner (inp, out);
       /** AST_PARAMETER **/
       input inp;
       output out;
@@ -1188,29 +1176,23 @@ Dumping Verilog AST after simplification:
       assign out = ~(inp);
     endmodule
 --- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
+Generating RTLIL representation for module `$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\assigner.invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\UHDM-integration-tests/tests/MultipleCells/top.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=2 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1'
         AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21>
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out'
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.18-8.21> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
-      /** AST_PARAMETER **/
+    module \$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner (inp, out);
       /** AST_PARAMETER **/
       input inp;
       output out;
@@ -1218,27 +1200,21 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\assigner.invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\UHDM-integration-tests/tests/MultipleCells/top.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=2 range=[0:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.18-8.21> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
-      /** AST_PARAMETER **/
+    module \$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner (inp, out);
       /** AST_PARAMETER **/
       input inp;
       output out;
@@ -1253,13 +1229,13 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg port=6 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg port=7 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0'
-        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp'
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.38-2.39> str='\i'
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\out'
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.47-2.49> str='\o1'
       AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\asgn1'
-        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000001'
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\inp'
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:3.38-3.39> str='\i'
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\out'
@@ -1280,13 +1256,13 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg basic_prep port=6 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg basic_prep port=7 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.38-2.39> str='\i' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\out' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.47-2.49> str='\o1' basic_prep
       AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\asgn1' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000001' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\inp' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:3.38-3.39> str='\i' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\out' basic_prep
@@ -1308,13 +1284,13 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\assigner\invert=32'00000000000000000000000000000001
-Used module:     $paramod\assigner\invert=32'00000000000000000000000000000000
+Used module:     $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner
+Used module:     $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\assigner\invert=32'00000000000000000000000000000001
-Used module:     $paramod\assigner\invert=32'00000000000000000000000000000000
+Used module:     $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner
+Used module:     $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner
 Removed 0 unused modules.
 
 2.2. Executing PROC pass (convert processes to netlists).
@@ -1349,45 +1325,45 @@ Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000000.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000001.
+Optimizing module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner.
+Optimizing module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000000.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000001.
+Optimizing module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner.
+Optimizing module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner..
+Finding unused cells or wires in module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner..
 Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\assigner\invert=32'00000000000000000000000000000000...
-Checking module $paramod\assigner\invert=32'00000000000000000000000000000001...
+Checking module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner...
+Checking module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner...
 Checking module top...
 Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000000.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000001.
+Optimizing module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner.
+Optimizing module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner.
 Optimizing module top.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
-Finding identical cells in module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
+Finding identical cells in module `$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'.
+Finding identical cells in module `$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod\assigner\invert=32'00000000000000000000000000000000..
+Running muxtree optimizer on module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod\assigner\invert=32'00000000000000000000000000000001..
+Running muxtree optimizer on module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -1396,25 +1372,25 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod\assigner\invert=32'00000000000000000000000000000000.
-  Optimizing cells in module $paramod\assigner\invert=32'00000000000000000000000000000001.
+  Optimizing cells in module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner.
+  Optimizing cells in module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
-Finding identical cells in module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
+Finding identical cells in module `$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'.
+Finding identical cells in module `$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner..
+Finding unused cells or wires in module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner..
 Finding unused cells or wires in module \top..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000000.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000001.
+Optimizing module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner.
+Optimizing module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner.
 Optimizing module top.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
@@ -1422,8 +1398,8 @@ Optimizing module top.
 2.7. Executing WREDUCE pass (reducing word size of cells).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner..
+Finding unused cells or wires in module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner..
 Finding unused cells or wires in module \top..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -1431,26 +1407,26 @@ Finding unused cells or wires in module \top..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000000.
-Optimizing module $paramod\assigner\invert=32'00000000000000000000000000000001.
+Optimizing module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner.
+Optimizing module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner.
 Optimizing module top.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
-Finding identical cells in module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
+Finding identical cells in module `$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'.
+Finding identical cells in module `$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000000..
-Finding unused cells or wires in module $paramod\assigner\invert=32'00000000000000000000000000000001..
+Finding unused cells or wires in module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner..
+Finding unused cells or wires in module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner..
 Finding unused cells or wires in module \top..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod\assigner\invert=32'00000000000000000000000000000000 ===
+=== $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner ===
 
    Number of wires:                  2
    Number of wire bits:              2
@@ -1461,7 +1437,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-=== $paramod\assigner\invert=32'00000000000000000000000000000001 ===
+=== $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner ===
 
    Number of wires:                  2
    Number of wire bits:              2
@@ -1483,14 +1459,14 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  2
-     $paramod\assigner\invert=32'00000000000000000000000000000000      1
-     $paramod\assigner\invert=32'00000000000000000000000000000001      1
+     $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner      1
+     $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod\assigner\invert=32'00000000000000000000000000000000      1
-     $paramod\assigner\invert=32'00000000000000000000000000000001      1
+     $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner      1
+     $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner      1
 
    Number of wires:                  7
    Number of wire bits:              7
@@ -1503,8 +1479,8 @@ Finding unused cells or wires in module \top..
      $not                            1
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\assigner\invert=32'00000000000000000000000000000000...
-Checking module $paramod\assigner\invert=32'00000000000000000000000000000001...
+Checking module $paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner...
+Checking module $paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner...
 Checking module top...
 Found and reported 0 problems.
 
@@ -1513,11 +1489,11 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+Dumping module `$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'.
 
 (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10" *)
-module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
+module \$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner (inp, out);
   (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56" *)
   input inp;
   wire inp;
@@ -1526,10 +1502,10 @@ module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
   wire out;
   assign out = inp;
 endmodule
-Dumping module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
+Dumping module `$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'.
 
 (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10" *)
-module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
+module \$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner (inp, out);
   (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56" *)
   input inp;
   wire inp;
@@ -1554,13 +1530,13 @@ module top(i, o1, o2);
   wire o2;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52" *)
-  \$paramod\assigner\invert=32'00000000000000000000000000000000  asgn0 (
+  \$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner  asgn0 (
     .inp(i),
     .out(o1)
   );
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52" *)
-  \$paramod\assigner\invert=32'00000000000000000000000000000001  asgn1 (
+  \$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner  asgn1 (
     .inp(i),
     .out(o2)
   );
@@ -1571,8 +1547,8 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
-Dumping module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
+Dumping module `$paramod$1507556c7b963c7da1fb2294067e3fd38e10bc63\assigner'.
+Dumping module `$paramod$b6a1852e98ed26d554382b4bc734cb0ac9393b09\assigner'.
 Dumping module `\top'.
 
 5. Executing SIM pass (simulate the circuit).
@@ -1620,5 +1596,5 @@ Simulating cycle 40.
 
 Warnings: 1 unique messages, 1 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

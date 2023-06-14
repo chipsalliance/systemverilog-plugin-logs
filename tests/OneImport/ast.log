@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1147,12 +1147,7 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\PMP_CFG_W' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
-        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\dut.PMP_CFG_W' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\UHDM-integration-tests/tests/OneImport/pkg.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1194,7 +1189,7 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::UHDM-integration-tests/tests/OneImport/pkg.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1202,7 +1197,6 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, b);
-      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       input [5:0] a;
@@ -1239,12 +1233,7 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\dut.PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\UHDM-integration-tests/tests/OneImport/pkg.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1286,7 +1275,7 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
             AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::UHDM-integration-tests/tests/OneImport/pkg.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1294,7 +1283,6 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);
-      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       input [5:0] a;
@@ -1309,5 +1297,5 @@ Dumping Verilog AST after simplification:
 
 Warnings: 1 unique messages, 1 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

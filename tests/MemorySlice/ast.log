@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1121,7 +1121,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/MemorySlice/top.sv:1.1-11.10> str='\top'
-      AST_PARAMETER <UHDM-integration-tests/tests/MemorySlice/top.sv:1.24-1.27> str='\N' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/MemorySlice/top.sv:1.24-1.27> str='\UHDM-integration-tests/tests/MemorySlice/top.sv' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1226,7 +1226,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/MemorySlice/top.sv:1.1-11.10> str='\top' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/MemorySlice/top.sv:1.24-1.27> str='\N' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/MemorySlice/top.sv:1.24-1.27> str='\UHDM-integration-tests/tests/MemorySlice/top.sv' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1247,9 +1247,21 @@ Dumping AST after simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/MemorySlice/top.sv:5.8-5.23> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:5.8-5.12> str='\sout' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:5.15-5.23> str='\mem' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:28]
-            AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
-            AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011100'(32) basic_prep range=[31:0] int=28
+          AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+            AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+              AST_MUL <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                AST_ADD <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                  AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:5.19-5.22> basic_prep
+                    AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:5.19-5.20> str='\N' basic_prep
+                    AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+                  AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+              AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+            AST_MUL <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+              AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:5.19-5.22> basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:5.19-5.20> str='\N' basic_prep
+                AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
       AST_ALWAYS <UHDM-integration-tests/tests/MemorySlice/top.sv:6.1-10.4> basic_prep
         ATTR \always_ff:
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
@@ -1257,21 +1269,78 @@ Dumping AST after simplification:
           AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:6.22-6.24> str='\ck' basic_prep
         AST_BLOCK <UHDM-integration-tests/tests/MemorySlice/top.sv:6.11-6.25> basic_prep
           AST_BLOCK <UHDM-integration-tests/tests/MemorySlice/top.sv:7.1-10.4> basic_prep
-            AST_ASSIGN_LE <UHDM-integration-tests/tests/MemorySlice/top.sv:8.3-8.29> basic_prep
-              AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:8.3-8.14> str='\mem' basic_prep
-                AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:4]
-                  AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
-                  AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-              AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:8.18-8.29> str='\mem' basic_prep
-                AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[27:0]
-                  AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011011'(32) basic_prep range=[31:0] int=27
-                  AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_BLOCK <UHDM-integration-tests/tests/MemorySlice/top.sv:8.3-8.29> basic_prep
+              AST_ASSIGN_EQ <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$sel$UHDM-integration-tests/tests/MemorySlice/top.sv:8$3' basic_prep
+                AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+              AST_ASSIGN_EQ <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$mask$UHDM-integration-tests/tests/MemorySlice/top.sv:8$1' basic_prep
+                AST_SHIFT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                  AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='111111'(6) basic_prep range=[5:0] int=63
+                  AST_NEG <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                    AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                      AST_TO_SIGNED <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                        AST_CAST_SIZE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
+                          AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$sel$UHDM-integration-tests/tests/MemorySlice/top.sv:8$3' basic_prep
+                      AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+              AST_ASSIGN_EQ <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$data$UHDM-integration-tests/tests/MemorySlice/top.sv:8$2' basic_prep
+                AST_SHIFT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                  AST_BIT_AND <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                    AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='111111'(6) basic_prep range=[5:0] int=63
+                    AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:8.18-8.29> str='\mem' basic_prep
+                      AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                        AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                          AST_MUL <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                            AST_ADD <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                              AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:8.23-8.26> basic_prep
+                                AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:8.23-8.24> str='\N' basic_prep
+                                AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+                              AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+                          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+                  AST_NEG <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                    AST_SUB <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                      AST_TO_SIGNED <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                        AST_CAST_SIZE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
+                          AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$sel$UHDM-integration-tests/tests/MemorySlice/top.sv:8$3' basic_prep
+                      AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+              AST_ASSIGN_LE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:8.3-8.14> str='\mem' basic_prep
+                AST_BIT_OR <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                  AST_BIT_AND <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                    AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:8.3-8.14> str='\mem' basic_prep lookahead
+                    AST_BIT_NOT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$mask$UHDM-integration-tests/tests/MemorySlice/top.sv:8$1' basic_prep
+                  AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$data$UHDM-integration-tests/tests/MemorySlice/top.sv:8$2' basic_prep
             AST_ASSIGN_LE <UHDM-integration-tests/tests/MemorySlice/top.sv:9.3-9.17> basic_prep
               AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:9.3-9.10> str='\mem' basic_prep
                 AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[3:0]
                   AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
                   AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
               AST_IDENTIFIER <UHDM-integration-tests/tests/MemorySlice/top.sv:9.14-9.17> str='\sin' basic_prep
+      AST_AUTOWIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='\N' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$mask$UHDM-integration-tests/tests/MemorySlice/top.sv:8$1' logic basic_prep range=[31:0]
+        ATTR \nosync:
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$data$UHDM-integration-tests/tests/MemorySlice/top.sv:8$2' logic basic_prep range=[31:0]
+        ATTR \nosync:
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> str='$bitselwrite$sel$UHDM-integration-tests/tests/MemorySlice/top.sv:8$3' logic basic_prep range=[31:0]
+        ATTR \nosync:
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(ck, sin, sout);
@@ -1280,22 +1349,35 @@ Dumping Verilog AST after simplification:
       input [3:0] sin;
       output [3:0] sout;
       reg [31:0] mem;
-      assign sout = mem[31:28];
+      /** AST_AUTOWIRE **/
+      (* nosync = 1 *)
+      wire [31:0] \$bitselwrite$mask$UHDM-integration-tests/tests/MemorySlice/top.sv:8$1 ;
+      (* nosync = 1 *)
+      wire [31:0] \$bitselwrite$data$UHDM-integration-tests/tests/MemorySlice/top.sv:8$2 ;
+      (* nosync = 1 *)
+      wire [31:0] \$bitselwrite$sel$UHDM-integration-tests/tests/MemorySlice/top.sv:8$3 ;
+      assign sout = mem[((((N)-(1))+(1))*(4))-(1):((N)-(1))*(4)];
       (* always_ff = 1 *)
       always @(posedge ck)
         begin
-          mem[31:4] <= mem[27:0];
+          begin
+            \$bitselwrite$sel$UHDM-integration-tests/tests/MemorySlice/top.sv:8$3  = 4;
+            \$bitselwrite$mask$UHDM-integration-tests/tests/MemorySlice/top.sv:8$1  = (6'b 111111)@shift@(-((/** AST_TO_SIGNED **/)-(0)));
+            \$bitselwrite$data$UHDM-integration-tests/tests/MemorySlice/top.sv:8$2  = ((6'b 111111)&(mem[((((N)-(2))+(1))*(4))-(1):0]))@shift@(-((/** AST_TO_SIGNED **/)-(0)));
+            mem <= ((mem)&(~(\$bitselwrite$mask$UHDM-integration-tests/tests/MemorySlice/top.sv:8$1 )))|(\$bitselwrite$data$UHDM-integration-tests/tests/MemorySlice/top.sv:8$2 );
+          end
           mem[3:0] <= sin;
         end
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/MemorySlice/top.sv:5: Warning: Identifier `\N' is implicitly declared.
 
 2. Executing Verilog backend.
 
 2.1. Executing BMUXMAP pass.
 
 2.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 Warning: Module top contains unmapped RTLIL processes. RTLIL processes
 can't always be mapped directly to Verilog always blocks. Unintended
@@ -1303,8 +1385,31 @@ changes in simulation behavior are possible! Use "proc" to convert
 processes to logic networks and registers.
 
 module top(ck, sin, sout);
-  reg \$auto$verilog_backend.cc:2097:dump_module$2  = 0;
-  reg [31:0] _0_;
+  reg \$auto$verilog_backend.cc:2097:dump_module$24  = 0;
+  reg [31:0] _00_;
+  reg [31:0] _01_;
+  reg [31:0] _02_;
+  reg [31:0] _03_;
+  reg [31:0] _04_;
+  wire [31:0] _05_;
+  wire [31:0] _06_;
+  reg [31:0] _07_;
+  reg [31:0] _08_;
+  reg [31:0] _09_;
+  reg [31:0] _10_;
+  wire [31:0] _11_;
+  wire [32:0] _12_;
+  wire [32:0] _13_;
+  wire [31:0] _14_;
+  wire [31:0] _15_;
+  wire [31:0] _16_;
+  wire [31:0] _17_;
+  wire [5:0] _18_;
+  wire [3:0] _19_;
+  wire [32:0] _20_;
+  wire [32:0] _21_;
+  wire [31:0] _22_;
+  wire N;
   input ck;
   wire ck;
   reg [31:0] mem;
@@ -1312,18 +1417,42 @@ module top(ck, sin, sout);
   wire [3:0] sin;
   output [3:0] sout;
   wire [3:0] sout;
+  assign _05_ = 6'h3f & _18_;
+  assign _06_ = mem & _14_;
+  assign _11_ = _22_ * 32'd4;
+  assign _12_ = - $signed(_20_);
+  assign _13_ = - $signed(_21_);
+  assign _14_ = ~ _16_;
+  assign _15_ = _06_ | _17_;
+  assign _16_ = $signed(_12_) < 0 ? 6'h3f << - _12_ : 6'h3f >> _12_;
+  assign _17_ = $signed(_13_) < 0 ? _05_ << - _13_ : _05_ >> _13_;
+  wire [31:0] _37_ = mem;
+  assign _18_ = _37_[$signed(32'd0) +: 6];
+  wire [31:0] _38_ = mem;
+  assign _19_ = _38_[$signed(_11_) +: 4];
+  assign _20_ = $signed(33'h000000004) - $signed(32'd0);
+  assign _21_ = $signed(33'h000000004) - $signed(32'd0);
+  assign _22_ = N - 32'd1;
   always @* begin
-    if (\$auto$verilog_backend.cc:2097:dump_module$2 ) begin end
-    _0_[31:4] = mem[27:0];
-    _0_[3:0] = sin;
+    if (\$auto$verilog_backend.cc:2097:dump_module$24 ) begin end
+    _02_ = 32'd4;
+    _01_ = _16_;
+    _00_ = _17_;
+    _03_[31:4] = _15_[31:4];
+    _03_[3:0] = sin;
+    _04_ = { _15_[31:4], sin };
   end
   always @(posedge ck) begin
-      mem <= _0_;
+      mem <= _04_;
+      _08_ <= 32'hxxxxxxxx;
+      _07_ <= 32'hxxxxxxxx;
+      _09_ <= 32'hxxxxxxxx;
+      _10_ <= 32'hxxxxxxxx;
   end
-  assign sout = mem[31:28];
+  assign sout = _19_;
 endmodule
 
-Warnings: 1 unique messages, 1 total
+Warnings: 2 unique messages, 2 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

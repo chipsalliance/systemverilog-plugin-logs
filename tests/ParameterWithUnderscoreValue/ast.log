@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -743,51 +743,48 @@ Object 'work@top' of type 'design'
       Object '' of type 'int_typespec'
     Object 'o' of type 'int_var'
 Warning: Removing unelaborated module: \dut from the design.
-Generating RTLIL representation for module `$paramod\dut\P=32'00000000000000000001110000100000'.
+Generating RTLIL representation for module `$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.1-4.10> str='$paramod\dut\P=32'00000000000000000001110000100000'
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:2.14-2.20> str='\dut.P' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='x'(1) unsized range=[0:0]
+    AST_MODULE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.1-4.10> str='$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:2.14-2.20> str='\UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000001110000100000'(32) unsized range=[31:0] int=7200
       AST_WIRE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.23-1.24> str='\a' output signed port=1 range=[0:0]
         AST_RANGE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:2.14-2.20> str='\P' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000001110000100000'(32) unsized range=[31:0] int=7200
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.11-3.22>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.11-3.12> str='\a'
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.20-3.21> str='\P'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\dut\P=32'00000000000000000001110000100000 (a);
-      /** AST_PARAMETER **/
+    module \$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut (a);
       /** AST_PARAMETER **/
       output signed [31:0] a;
       assign a = P;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.1-4.10> str='$paramod\dut\P=32'00000000000000000001110000100000' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:2.14-2.20> str='\dut.P' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='x'(1) unsized basic_prep range=[0:0]
+    AST_MODULE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.1-4.10> str='$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:2.14-2.20> str='\UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000001110000100000'(32) unsized basic_prep range=[31:0] int=7200
       AST_WIRE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.23-1.24> str='\a' output signed basic_prep port=1 range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:2.14-2.20> str='\P' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000001110000100000'(32) unsized basic_prep range=[31:0] int=7200
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.11-3.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.11-3.12> str='\a' basic_prep
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.20-3.21> bits='00000000000000000001110000100000'(32) unsized basic_prep range=[31:0] int=7200
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.20-3.21> str='\P' basic_prep
+      AST_AUTOWIRE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> str='\P' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\dut\P=32'00000000000000000001110000100000 (a);
-      /** AST_PARAMETER **/
+    module \$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut (a);
       /** AST_PARAMETER **/
       output signed [31:0] a;
-      assign a = 7200;
+      /** AST_AUTOWIRE **/
+      assign a = P;
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3: Warning: Identifier `\P' is implicitly declared.
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:6.1-8.10> str='\top'
@@ -796,7 +793,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.4-7.36> str='\u_dut'
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> str='$paramod\dut\P=32'00000000000000000001110000100000'
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> str='$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.4-7.36> str='\a'
           AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.32-7.33> str='\o'
 --- END OF AST DUMP ---
@@ -813,7 +810,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.4-7.36> str='\u_dut' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> str='$paramod\dut\P=32'00000000000000000001110000100000' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:0.0-0.0> str='$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.4-7.36> str='\a' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.32-7.33> str='\o' basic_prep
 --- END OF AST DUMP ---
@@ -830,11 +827,11 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\dut\P=32'00000000000000000001110000100000
+Used module:     $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\dut\P=32'00000000000000000001110000100000
+Used module:     $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut
 Removed 0 unused modules.
 
 2.2. Executing PROC pass (convert processes to netlists).
@@ -869,34 +866,35 @@ Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-Optimizing module $paramod\dut\P=32'00000000000000000001110000100000.
+Optimizing module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-Optimizing module $paramod\dut\P=32'00000000000000000001110000100000.
+Optimizing module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Finding unused cells or wires in module $paramod\dut\P=32'00000000000000000001110000100000..
+Finding unused cells or wires in module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut..
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\dut\P=32'00000000000000000001110000100000...
+Checking module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut...
+Warning: Wire $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.\a [0] is used but has no driver.
 Checking module top...
-Found and reported 0 problems.
+Found and reported 1 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\dut\P=32'00000000000000000001110000100000.
+Optimizing module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.
 Optimizing module top.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\dut\P=32'00000000000000000001110000100000'.
+Finding identical cells in module `$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod\dut\P=32'00000000000000000001110000100000..
+Running muxtree optimizer on module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -905,21 +903,21 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod\dut\P=32'00000000000000000001110000100000.
+  Optimizing cells in module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\dut\P=32'00000000000000000001110000100000'.
+Finding identical cells in module `$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\dut\P=32'00000000000000000001110000100000..
+Finding unused cells or wires in module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut..
 Finding unused cells or wires in module \top..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\dut\P=32'00000000000000000001110000100000.
+Optimizing module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.
 Optimizing module top.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
@@ -927,7 +925,7 @@ Optimizing module top.
 2.7. Executing WREDUCE pass (reducing word size of cells).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\dut\P=32'00000000000000000001110000100000..
+Finding unused cells or wires in module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut..
 Finding unused cells or wires in module \top..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -935,28 +933,28 @@ Finding unused cells or wires in module \top..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\dut\P=32'00000000000000000001110000100000.
+Optimizing module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.
 Optimizing module top.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\dut\P=32'00000000000000000001110000100000'.
+Finding identical cells in module `$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\dut\P=32'00000000000000000001110000100000..
+Finding unused cells or wires in module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut..
 Finding unused cells or wires in module \top..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod\dut\P=32'00000000000000000001110000100000 ===
+=== $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut ===
 
-   Number of wires:                  1
-   Number of wire bits:             32
-   Number of public wires:           1
-   Number of public wire bits:      32
+   Number of wires:                  2
+   Number of wire bits:             33
+   Number of public wires:           2
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -972,41 +970,45 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod\dut\P=32'00000000000000000001110000100000      1
+     $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod\dut\P=32'00000000000000000001110000100000      1
+     $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut      1
 
-   Number of wires:                  2
-   Number of wire bits:             64
-   Number of public wires:           2
-   Number of public wire bits:      64
+   Number of wires:                  3
+   Number of wire bits:             65
+   Number of public wires:           3
+   Number of public wire bits:      65
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\dut\P=32'00000000000000000001110000100000...
+Checking module $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut...
+Warning: Wire $paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut.\a [0] is used but has no driver.
 Checking module top...
-Found and reported 0 problems.
+Found and reported 1 problems.
 
 3. Executing Verilog backend.
 
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod\dut\P=32'00000000000000000001110000100000'.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+Dumping module `$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'.
 
 (* src = "UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.1-4.10" *)
-module \$paramod\dut\P=32'00000000000000000001110000100000 (a);
+module \$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut (a);
+  (* src = "UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:3.20-3.21" *)
+  wire P;
   (* src = "UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:1.23-1.24" *)
   output [31:0] a;
   wire [31:0] a;
-  assign a = 32'd7200;
+  assign P = a[0];
+  assign a[31:1] = 31'h00000000;
 endmodule
 Dumping module `\top'.
 
@@ -1018,7 +1020,7 @@ module top(o);
   wire [31:0] o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/ParameterWithUnderscoreValue/top.sv:7.4-7.36" *)
-  \$paramod\dut\P=32'00000000000000000001110000100000  u_dut (
+  \$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut  u_dut (
     .a(o)
   );
 endmodule
@@ -1028,7 +1030,7 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod\dut\P=32'00000000000000000001110000100000'.
+Dumping module `$paramod$93ae32089f706b52c19e96a23eda152e8d0046ac\dut'.
 Dumping module `\top'.
 
 5. Executing SIM pass (simulate the circuit).
@@ -1074,7 +1076,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
+Warnings: 3 unique messages, 4 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1205,11 +1205,11 @@ Object 'work@top' of type 'design'
     Object 'o' of type 'int_var'
 Warning: Removing unelaborated module: \prim_subreg_shadow from the design.
 Warning: Removing unelaborated module: \prim_subreg from the design.
-Generating RTLIL representation for module `$paramod\prim_subreg\RESVAL=5'11111'.
+Generating RTLIL representation for module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:1.1-4.10> str='$paramod\prim_subreg\RESVAL=5'11111'
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\prim_subreg.RESVAL' multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000'(5) range=[4:0]
+    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:1.1-4.10> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'
+      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv' multirange=[ 0 5 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
         AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0]
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1217,27 +1217,21 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\RESVAL' multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
-        AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.11-3.27>
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.11-3.12> str='\a'
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.20-3.26> str='\RESVAL'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\prim_subreg\RESVAL=5'11111 (a);
-      /** AST_PARAMETER **/
+    module \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg (a);
       /** AST_PARAMETER **/
       output signed [31:0] a;
       assign a = RESVAL;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:1.1-4.10> str='$paramod\prim_subreg\RESVAL=5'11111' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\prim_subreg.RESVAL' basic_prep range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000'(5) basic_prep range=[4:0]
+    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:1.1-4.10> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv' basic_prep range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
         AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0]
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1245,21 +1239,91 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\RESVAL' basic_prep range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
-        AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.11-3.27> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.11-3.12> str='\a' basic_prep
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.20-3.26> bits='11111'(5) basic_prep range=[4:0] int=31
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.20-3.26> str='\RESVAL' basic_prep
+      AST_AUTOWIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='\RESVAL' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\prim_subreg\RESVAL=5'11111 (a);
-      /** AST_PARAMETER **/
+    module \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg (a);
       /** AST_PARAMETER **/
       output signed [31:0] a;
-      assign a = 5'b 11111;
+      /** AST_AUTOWIRE **/
+      assign a = RESVAL;
+    endmodule
+--- END OF AST DUMP ---
+UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3: Warning: Identifier `\RESVAL' is implicitly declared.
+Generating RTLIL representation for module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.1-16.10> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'
+      AST_ENUM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum0' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic range=[-1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) range=[4:0] int=21
+          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t'
+        AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
+      AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg'
+        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'
+        AST_ARGUMENT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow (b);
+      /** AST_PARAMETER **/
+      output signed [31:0] b;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.1-16.10> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow' basic_prep
+      AST_ENUM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic basic_prep range=[4:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) basic_prep range=[4:0] int=21
+          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg basic_prep range=[4:0]
+          ATTR \enum_type:
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
+      AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b' basic_prep
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow (b);
+      /** AST_PARAMETER **/
+      output signed [31:0] b;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
@@ -1278,14 +1342,14 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:19.23-19.28>
             AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
             AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\CTRL_RESET' range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
       AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:18.23-18.24> str='\o' output signed port=3 range=[0:0]
         AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\u_ctrl_reg_shadowed'
-        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg_shadow\RESVAL=5'11111'
+        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'
         AST_ARGUMENT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\b'
           AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:27.30-27.31> str='\o'
       AST_ALWAYS <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:29.4-31.7>
@@ -1326,14 +1390,14 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:19.23-19.28> basic_prep range=[4:0]
             AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
             AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\CTRL_RESET' basic_prep range=[0:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
       AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:18.23-18.24> str='\o' output signed basic_prep port=3 range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\u_ctrl_reg_shadowed' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg_shadow\RESVAL=5'11111' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\b' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:27.30-27.31> str='\o' basic_prep
       AST_ALWAYS <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:29.4-31.7> basic_prep
@@ -1387,85 +1451,6 @@ Dumping Verilog AST after simplification:
       /** AST_ASSERT **/
     endmodule
 --- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.1-16.10> str='$paramod\prim_subreg_shadow\RESVAL=5'11111'
-      AST_ENUM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum0' logic
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic range=[-1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) range=[4:0] int=21
-          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t'
-        AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\prim_subreg_shadow.RESVAL' range=[0:0]
-        AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.30-11.39> str='\ENUM_ITEM'
-      AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed port=2 range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\RESVAL' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
-      AST_CELL <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg'
-        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg\RESVAL=5'11111'
-        AST_ARGUMENT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b'
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-      output signed [31:0] b;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.1-16.10> str='$paramod\prim_subreg_shadow\RESVAL=5'11111' basic_prep
-      AST_ENUM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic basic_prep range=[4:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) basic_prep range=[4:0] int=21
-          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg basic_prep range=[4:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\prim_subreg_shadow.RESVAL' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.30-11.39> bits='10101'(5) basic_prep range=[4:0] int=21
-      AST_WIRE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\RESVAL' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
-      AST_CELL <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg\RESVAL=5'11111' basic_prep
-        AST_ARGUMENT <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a' basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b' basic_prep
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-      output signed [31:0] b;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
-    endmodule
---- END OF AST DUMP ---
 
 2. Executing PREP pass.
 
@@ -1473,13 +1458,13 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\prim_subreg_shadow\RESVAL=5'11111
-Used module:         $paramod\prim_subreg\RESVAL=5'11111
+Used module:     $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow
+Used module:         $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod\prim_subreg_shadow\RESVAL=5'11111
-Used module:         $paramod\prim_subreg\RESVAL=5'11111
+Used module:     $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow
+Used module:         $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg
 Removed 0 unused modules.
 Module top directly or indirectly contains formal properties -> setting "keep" attribute.
 
@@ -1518,46 +1503,47 @@ Removing empty process `top.$proc$UHDM-integration-tests/tests/EnumParameterInNe
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module top.
-Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.
 
 2.3. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module top.
-Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
 Finding unused cells or wires in module \top..
-Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg..
 Removed 0 unused cells and 4 unused wires.
 <suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\prim_subreg\RESVAL=5'11111...
-Checking module $paramod\prim_subreg_shadow\RESVAL=5'11111...
+Checking module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg...
+Warning: Wire $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.\a [0] is used but has no driver.
+Checking module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow...
 Checking module top...
-Found and reported 0 problems.
+Found and reported 1 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
 2.6.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow.
 Optimizing module top.
 
 2.6.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\prim_subreg\RESVAL=5'11111'.
-Finding identical cells in module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
+Finding identical cells in module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'.
+Finding identical cells in module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod\prim_subreg\RESVAL=5'11111..
+Running muxtree optimizer on module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod\prim_subreg_shadow\RESVAL=5'11111..
+Running muxtree optimizer on module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -1566,25 +1552,25 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod\prim_subreg\RESVAL=5'11111.
-  Optimizing cells in module $paramod\prim_subreg_shadow\RESVAL=5'11111.
+  Optimizing cells in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.
+  Optimizing cells in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.6.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\prim_subreg\RESVAL=5'11111'.
-Finding identical cells in module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
+Finding identical cells in module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'.
+Finding identical cells in module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
-Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow..
 Finding unused cells or wires in module \top..
 
 2.6.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow.
 Optimizing module top.
 
 2.6.8. Finished OPT passes. (There is nothing left to do.)
@@ -1593,8 +1579,8 @@ Optimizing module top.
 Removed top 26 bits (of 32) from port B of cell top.$eq$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$5 ($eq).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
-Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow..
 Finding unused cells or wires in module \top..
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -1602,37 +1588,37 @@ Finding unused cells or wires in module \top..
 2.10. Executing OPT pass (performing simple optimizations).
 
 2.10.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.
+Optimizing module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow.
 Optimizing module top.
 
 2.10.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod\prim_subreg\RESVAL=5'11111'.
-Finding identical cells in module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
+Finding identical cells in module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'.
+Finding identical cells in module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
-Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg..
+Finding unused cells or wires in module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow..
 Finding unused cells or wires in module \top..
 
 2.10.4. Finished fast OPT passes.
 
 2.11. Printing statistics.
 
-=== $paramod\prim_subreg\RESVAL=5'11111 ===
+=== $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg ===
 
-   Number of wires:                  1
-   Number of wire bits:             32
-   Number of public wires:           1
-   Number of public wire bits:      32
+   Number of wires:                  2
+   Number of wire bits:             33
+   Number of public wires:           2
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-=== $paramod\prim_subreg_shadow\RESVAL=5'11111 ===
+=== $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow ===
 
    Number of wires:                  1
    Number of wire bits:             32
@@ -1642,7 +1628,7 @@ Finding unused cells or wires in module \top..
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $paramod\prim_subreg\RESVAL=5'11111      1
+     $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg      1
 
 === top ===
 
@@ -1656,18 +1642,18 @@ Finding unused cells or wires in module \top..
    Number of cells:                  3
      $assert                         1
      $eq                             1
-     $paramod\prim_subreg_shadow\RESVAL=5'11111      1
+     $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod\prim_subreg_shadow\RESVAL=5'11111      1
-       $paramod\prim_subreg\RESVAL=5'11111      1
+     $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow      1
+       $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg      1
 
-   Number of wires:                  4
-   Number of wire bits:             97
-   Number of public wires:           3
-   Number of public wire bits:      96
+   Number of wires:                  5
+   Number of wire bits:             98
+   Number of public wires:           4
+   Number of public wire bits:      97
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1676,36 +1662,40 @@ Finding unused cells or wires in module \top..
      $eq                             1
 
 2.12. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod\prim_subreg\RESVAL=5'11111...
-Checking module $paramod\prim_subreg_shadow\RESVAL=5'11111...
+Checking module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg...
+Warning: Wire $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg.\a [0] is used but has no driver.
+Checking module $paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow...
 Checking module top...
-Found and reported 0 problems.
+Found and reported 1 problems.
 
 3. Executing Verilog backend.
 
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$paramod\prim_subreg\RESVAL=5'11111'.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+Dumping module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'.
 
 (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:1.1-4.10" *)
-module \$paramod\prim_subreg\RESVAL=5'11111 (a);
+module \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg (a);
+  (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:3.20-3.26" *)
+  wire RESVAL;
   (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:1.31-1.32" *)
   output [31:0] a;
   wire [31:0] a;
-  assign a = 32'd31;
+  assign RESVAL = a[0];
+  assign a[31:1] = 31'h00000000;
 endmodule
-Dumping module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
+Dumping module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'.
 
 (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.1-16.10" *)
-module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
+module \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow (b);
   (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:6.38-6.39" *)
   output [31:0] b;
   wire [31:0] b;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:13.4-15.25" *)
-  \$paramod\prim_subreg\RESVAL=5'11111  staged_reg (
+  \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg  staged_reg (
     .a(b)
   );
 endmodule
@@ -1724,7 +1714,7 @@ module top(o);
   assign _0_ = $signed(o) == (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.14-30.21" *) $signed(6'h1f);
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:25.4-27.34" *)
-  \$paramod\prim_subreg_shadow\RESVAL=5'11111  u_ctrl_reg_shadowed (
+  \$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow  u_ctrl_reg_shadowed (
     .b(o)
   );
 endmodule
@@ -1734,54 +1724,94 @@ endmodule
 4.1. Executing BMUXMAP pass.
 
 4.2. Executing DEMUXMAP pass.
-Dumping module `$paramod\prim_subreg\RESVAL=5'11111'.
-Dumping module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
+Dumping module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg'.
+Dumping module `$paramod$5dab29a41662f7a3850485dc5dc17dd19bc2eff8\prim_subreg_shadow'.
 Dumping module `\top'.
 
 5. Executing SIM pass (simulate the circuit).
 Simulating cycle 0.
 Simulating cycle 1.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 2.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 3.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 4.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 5.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 6.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 7.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 8.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 9.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 10.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 11.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 12.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 13.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 14.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 15.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 16.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 17.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 18.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 19.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 20.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 21.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 22.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 23.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 24.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 25.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 26.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 27.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 28.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 29.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 30.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 31.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 32.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 33.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 34.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 35.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 36.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 37.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 38.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 39.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 Simulating cycle 40.
+Warning: Assert top.$assert$UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30$6 (UHDM-integration-tests/tests/EnumParameterInNestedModules/top.sv:30.7-30.23) failed.
 
-Warnings: 2 unique messages, 2 total
+Warnings: 5 unique messages, 45 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

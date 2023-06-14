@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1144,14 +1144,7 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> str='\app_config_t'
         AST_STRUCT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:3.20-3.26> str='Prefix' logic basic_prep range=[95:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\A' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
-        ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\app_config_t' bits='01011100011000010111000001110000010111110110001101101111011011100110011001101001011001110101111101110100'(104) basic_prep range=[103:0] int=1768382324
-        AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.31-8.5> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
-        AST_RANGE <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) signed basic_prep range=[31:0] int=95
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\top.A' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\app_config_t' bits='01011100011000010111000001110000010111110110001101101111011011100110011001101001011001110101111101110100'(104) basic_prep range=[103:0] int=1768382324
         AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.31-8.5> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
@@ -1164,14 +1157,11 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.11-13.28>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.11-13.12> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.19-13.27> str='\A' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0>
-            AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) signed range=[31:0] int=95
-            AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.19-13.27> str='\A.Prefix'
       AST_TYPEDEF <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> str='\kmac_pkg::app_config_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:3.20-3.26> str='Prefix' logic basic_prep range=[95:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\kmac_pkg::A' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\kmac_pkg::UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\app_config_t' bits='01011100011000010111000001110000010111110110001101101111011011100110011001101001011001110101111101110100'(104) basic_prep range=[103:0] int=1768382324
         AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.31-8.5> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
@@ -1185,11 +1175,9 @@ Dumping Verilog AST before simplification:
       /** AST_PARAMETER **/
       (* wiretype = "\app_config_t" *)
       /** AST_PARAMETER **/
-      (* wiretype = "\app_config_t" *)
-      /** AST_PARAMETER **/
       output signed [31:0] o;
       /** AST_TYPEDEF **/
-      assign o = A[95:0];
+      assign o = \A.Prefix ;
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
@@ -1198,14 +1186,7 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> str='\app_config_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:3.20-3.26> str='Prefix' logic basic_prep range=[95:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\A' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
-        ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\app_config_t' bits='01011100011000010111000001110000010111110110001101101111011011100110011001101001011001110101111101110100'(104) basic_prep range=[103:0] int=1768382324
-        AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.31-8.5> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
-        AST_RANGE <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) signed basic_prep range=[31:0] int=95
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\top.A' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\app_config_t' bits='01011100011000010111000001110000010111110110001101101111011011100110011001101001011001110101111101110100'(104) basic_prep range=[103:0] int=1768382324
         AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.31-8.5> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
@@ -1218,17 +1199,18 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.11-13.28> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.11-13.12> str='\o' basic_prep
-        AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.19-13.27> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.19-13.27> str='\A.Prefix' basic_prep
       AST_TYPEDEF <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> str='\kmac_pkg::app_config_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:3.20-3.26> str='Prefix' logic basic_prep range=[95:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\kmac_pkg::A' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+      AST_PARAMETER <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.27-8.5> str='\kmac_pkg::UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv' logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\app_config_t' bits='01011100011000010111000001110000010111110110001101101111011011100110011001101001011001110101111101110100'(104) basic_prep range=[103:0] int=1768382324
         AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:6.31-8.5> bits='010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001'(96) basic_prep range=[95:0] int=1073807361
         AST_RANGE <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> basic_prep range=[95:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) signed basic_prep range=[31:0] int=95
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_AUTOWIRE <UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:0.0-0.0> str='\A.Prefix' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -1236,14 +1218,14 @@ Dumping Verilog AST after simplification:
       /** AST_PARAMETER **/
       (* wiretype = "\app_config_t" *)
       /** AST_PARAMETER **/
-      (* wiretype = "\app_config_t" *)
-      /** AST_PARAMETER **/
       output signed [31:0] o;
+      /** AST_AUTOWIRE **/
       /** AST_TYPEDEF **/
-      assign o = 96'b 010011000101001001010100010000110101111101001101010011110101001001000000000000010000000000000001;
+      assign o = \A.Prefix ;
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13: Warning: Identifier `\A.Prefix' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -1297,7 +1279,8 @@ Finding unused cells or wires in module \top..
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Found and reported 0 problems.
+Warning: Wire top.\o [0] is used but has no driver.
+Found and reported 1 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -1355,10 +1338,10 @@ Finding unused cells or wires in module \top..
 
 === top ===
 
-   Number of wires:                  1
-   Number of wire bits:             32
-   Number of public wires:           1
-   Number of public wire bits:      32
+   Number of wires:                  2
+   Number of wire bits:             33
+   Number of public wires:           2
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1366,23 +1349,27 @@ Finding unused cells or wires in module \top..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Found and reported 0 problems.
+Warning: Wire top.\o [0] is used but has no driver.
+Found and reported 1 problems.
 
 3. Executing Verilog backend.
 
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
 (* src = "UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:11.1-14.10" *)
 module top(o);
+  (* src = "UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:13.19-13.27" *)
+  wire \A.Prefix ;
   (* src = "UHDM-integration-tests/tests/ImportedDoubleCastedParameter/top.sv:11.23-11.24" *)
   output [31:0] o;
   wire [31:0] o;
-  assign o = 32'd1073807361;
+  assign \A.Prefix  = o[0];
+  assign o[31:1] = 31'h00000000;
 endmodule
 
 4. Executing Verilog backend.
@@ -1435,6 +1422,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 2 unique messages, 3 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

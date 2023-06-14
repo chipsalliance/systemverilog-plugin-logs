@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1306,181 +1306,209 @@ Warning: Removing unelaborated module: \bar from the design.
 Warning: Removing unelaborated module: \dut from the design.
 Warning: Removing unelaborated module: \foo from the design.
 Warning: Removing unelaborated module: \PRIMITIVE from the design.
-Generating RTLIL representation for module `$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo'.
+Generating RTLIL representation for module `$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.1-5.10> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.44> str='\foo.REALPARAM' range=[0:0]
-        AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> real=5.000000e-01
-        AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.38> real=5.000000e-01
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.44> str='\REALPARAM' basic_prep range=[0:0]
-        AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00
-        AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.1-8.10> str='$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.31-7.51> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) range=[63:0] int=1919509605
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo ();
-      /** AST_PARAMETER **/
+    module \$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar ();
       /** AST_PARAMETER **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.1-5.10> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.44> str='\foo.REALPARAM' basic_prep range=[0:0]
-        AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=5.000000e-01
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.1-8.10> str='$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.31-7.51> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[0:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) basic_prep range=[63:0] int=1919509605
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.1-5.10> str='$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.44> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[0:0]
+        AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00
         AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.44> str='\REALPARAM' basic_prep range=[0:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.1-5.10> str='$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.44> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[0:0]
         AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00
         AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo ();
-      /** AST_PARAMETER **/
+    module \$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo ();
       /** AST_PARAMETER **/
     endmodule
 --- END OF AST DUMP ---
-Deferring `$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut' because it contains parameter(s) without defaults.
-Storing AST representation for module `$abstract$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut'.
+Generating RTLIL representation for module `$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$abstract$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\dut.PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'(256) range=[255:0]
         AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$abstract$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut ();
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-    endmodule
---- END OF AST DUMP ---
-Deferring `$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut' because it contains parameter(s) without defaults.
-Storing AST representation for module `$abstract$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$abstract$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\dut.PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) range=[255:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$abstract$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut ();
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-    endmodule
---- END OF AST DUMP ---
-Deferring `$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut' because it contains parameter(s) without defaults.
-Storing AST representation for module `$abstract$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$abstract$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\dut.PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) range=[255:0] int=4294967295
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$abstract$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut ();
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod$d8fc51ae15930444e081868e48788857029dc064\bar'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.1-8.10> str='$paramod$d8fc51ae15930444e081868e48788857029dc064\bar'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.31-7.51> str='\bar.STRPARAM' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='default' bits='01100100011001010110011001100001011101010110110001110100'(56) range=[55:0] int=1635085428
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.31-7.51> str='\STRPARAM' range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) range=[63:0] int=1919509605
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod$d8fc51ae15930444e081868e48788857029dc064\bar ();
-      /** AST_PARAMETER **/
+    module \$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut ();
       /** AST_PARAMETER **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.1-8.10> str='$paramod$d8fc51ae15930444e081868e48788857029dc064\bar' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.31-7.51> str='\bar.STRPARAM' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='default' bits='01100100011001010110011001100001011101010110110001110100'(56) basic_prep range=[55:0] int=1635085428
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:7.31-7.51> str='\STRPARAM' basic_prep range=[0:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) basic_prep range=[63:0] int=1919509605
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'(256) basic_prep range=[255:0]
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod$d8fc51ae15930444e081868e48788857029dc064\bar ();
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
-    endmodule
---- END OF AST DUMP ---
-Deferring `$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut' because it contains parameter(s) without defaults.
-Storing AST representation for module `$abstract$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$abstract$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\dut.PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) signed range=[255:0] int=4294967295
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$abstract$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut ();
-      /** AST_PARAMETER **/
+    module \$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut ();
       /** AST_PARAMETER **/
     endmodule
 --- END OF AST DUMP ---
-Deferring `$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut' because it contains parameter(s) without defaults.
-Storing AST representation for module `$abstract$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut'.
+Generating RTLIL representation for module `$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$abstract$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\dut.PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000'(256) signed range=[255:0]
         AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$abstract$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut ();
-      /** AST_PARAMETER **/
+    module \$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut ();
       /** AST_PARAMETER **/
     endmodule
 --- END OF AST DUMP ---
-Deferring `$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut' because it contains parameter(s) without defaults.
-Storing AST representation for module `$abstract$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut'.
-Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$abstract$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut'
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\dut.PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000'(256) basic_prep range=[255:0]
         AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) signed range=[255:0] int=4294967295
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) basic_prep range=[255:0] int=4294967295
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110010000000000000000000000000000000000'(256) signed range=[255:0]
         AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
           AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$abstract$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut ();
+    module \$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut ();
       /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110010000000000000000000000000000000000'(256) basic_prep range=[255:0]
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) range=[255:0] int=4294967295
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) basic_prep range=[255:0] int=4294967295
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut'.
+Dumping AST before simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut'
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) range=[255:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut ();
+      /** AST_PARAMETER **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.38-1.43> str='\UHDM-integration-tests/tests/LargeModuleParameter/top.sv' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) basic_prep range=[255:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut ();
       /** AST_PARAMETER **/
     endmodule
 --- END OF AST DUMP ---
@@ -1488,17 +1516,17 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:10.1-25.10> str='\top'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:12.1-12.23> str='\d1'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:13.1-13.23> str='\d2'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:14.1-14.32> str='\d3'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:15.1-15.32> str='\d4'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:16.1-16.34> str='\d5'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:17.1-17.24> str='\d6'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:19.1-19.30> str='\d7'
         AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='\PRIMITIVE'
         AST_PARASET <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='\WIDTH'
@@ -1508,9 +1536,9 @@ Dumping AST before simplification:
         AST_PARASET <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='\REAL' basic_prep range=[0:0]
           AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=3.270000e+01
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:22.1-22.29> str='\d9'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo'
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:23.1-23.36> str='\d10'
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$d8fc51ae15930444e081868e48788857029dc064\bar'
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top();
@@ -1529,17 +1557,17 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:10.1-25.10> str='\top' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:12.1-12.23> str='\d1' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:13.1-13.23> str='\d2' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:14.1-14.32> str='\d3' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:15.1-15.32> str='\d4' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:16.1-16.34> str='\d5' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:17.1-17.24> str='\d6' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:19.1-19.30> str='\d7' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='\PRIMITIVE' basic_prep
         AST_PARASET <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='\WIDTH' basic_prep
@@ -1549,9 +1577,9 @@ Dumping AST after simplification:
         AST_PARASET <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='\REAL' basic_prep range=[0:0]
           AST_REALVALUE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=3.270000e+01
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:22.1-22.29> str='\d9' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo' basic_prep
       AST_CELL <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:23.1-23.36> str='\d10' basic_prep
-        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$d8fc51ae15930444e081868e48788857029dc064\bar' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top();
@@ -1574,47 +1602,23 @@ UHDM-integration-tests/tests/LargeModuleParameter/top.sv:20: Warning: Replacing 
 2.1. Executing BMUXMAP pass.
 
 2.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
-Dumping module `$abstract$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'.
-
-module \$abstract$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut ();
-endmodule
-Dumping module `$abstract$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut'.
-
-module \$abstract$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut ();
-endmodule
-Dumping module `$abstract$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut'.
-
-module \$abstract$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut ();
-endmodule
-Dumping module `$abstract$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut'.
-
-module \$abstract$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut ();
-endmodule
-Dumping module `$abstract$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut'.
-
-module \$abstract$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut ();
-endmodule
-Dumping module `$abstract$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut'.
-
-module \$abstract$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut ();
-endmodule
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 module top();
-  \$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut  d1 (
+  \$paramod$5456ebeee1925eabf3d20c357a932e5a4bb8e448\dut  d1 (
   );
-  \$paramod$d8fc51ae15930444e081868e48788857029dc064\bar  d10 (
+  \$paramod$5932ebba9fcb4e292159849dd20ebd537ac464df\bar  d10 (
   );
-  \$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut  d2 (
+  \$paramod$178ff081a7ea839103226c8fd820ada7482c6829\dut  d2 (
   );
-  \$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut  d3 (
+  \$paramod$2489969f7cf1ee5beb859fd624f677cd4c14bf3c\dut  d3 (
   );
-  \$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut  d4 (
+  \$paramod$d4134211389d6b8a05831632c64682cfab38b710\dut  d4 (
   );
-  \$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut  d5 (
+  \$paramod$1a9a0b99b573c4e00a0dc6007fff97d63e3435b9\dut  d5 (
   );
-  \$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut  d6 (
+  \$paramod$8f952c6be32b4e30b33862dedc3cb61d1cdd865e\dut  d6 (
   );
   PRIMITIVE #(
     .WIDTH(32'sd32)
@@ -1624,11 +1628,11 @@ module top();
     .REAL(32.700000)
   ) d8 (
   );
-  \$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo  d9 (
+  \$paramod$be20d5a004c5abd0706e8538732f89b99648dec6\foo  d9 (
   );
 endmodule
 
 Warnings: 5 unique messages, 5 total
 
-Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
