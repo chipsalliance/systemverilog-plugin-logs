@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -4397,11 +4397,11 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:9.7-9.24>
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:10.31-10.44> str='\counter_val_i' logic multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:10.31-10.44> str='\counter_val_i' logic multirange=[ 0 2 0 32 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> range=[63:0]
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:11.31-11.44> str='\counter_val_o' logic multirange=[ 0 64 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:11.31-11.44> str='\counter_val_o' logic multirange=[ 0 2 0 64 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> range=[127:0]
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed range=[31:0] int=127
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -4432,26 +4432,42 @@ Dumping AST before simplification:
           AST_ARGUMENT <UHDM-integration-tests/tests/genscope_cells/dut.sv:13.3-21.35> str='\counter_val_i'
             AST_IDENTIFIER <UHDM-integration-tests/tests/genscope_cells/dut.sv:19.50-19.66> str='\counter_val_i' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                    AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                     AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                  AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                    AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
           AST_ARGUMENT <UHDM-integration-tests/tests/genscope_cells/dut.sv:13.3-21.35> str='\counter_val_o'
             AST_IDENTIFIER <UHDM-integration-tests/tests/genscope_cells/dut.sv:20.50-20.66> str='\counter_val_o' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                    AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                     AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
-                  AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                    AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
@@ -4482,26 +4498,42 @@ Dumping AST before simplification:
           AST_ARGUMENT <UHDM-integration-tests/tests/genscope_cells/dut.sv:13.3-21.35> str='\counter_val_i'
             AST_IDENTIFIER <UHDM-integration-tests/tests/genscope_cells/dut.sv:19.50-19.66> str='\counter_val_i' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                    AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                     AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                  AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                    AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
           AST_ARGUMENT <UHDM-integration-tests/tests/genscope_cells/dut.sv:13.3-21.35> str='\counter_val_o'
             AST_IDENTIFIER <UHDM-integration-tests/tests/genscope_cells/dut.sv:20.50-20.66> str='\counter_val_o' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                    AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                      AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                     AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
-                  AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                    AST_SUB <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_ADD <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
+                      AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
+                    AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_MUL <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0>
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) range=[31:0] int=64
@@ -4547,11 +4579,11 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:9.7-9.24> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:10.31-10.44> str='\counter_val_i' logic basic_prep range=[63:0] multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:10.31-10.44> str='\counter_val_i' logic basic_prep range=[63:0] multirange=[ 0 2 0 32 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> basic_prep range=[63:0]
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:11.31-11.44> str='\counter_val_o' logic basic_prep range=[127:0] multirange=[ 0 64 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:11.31-11.44> str='\counter_val_o' logic basic_prep range=[127:0] multirange=[ 0 2 0 64 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> basic_prep range=[127:0]
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed basic_prep range=[31:0] int=127
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -4703,7 +4735,7 @@ Optimizing module $paramod\ibex_counter\CounterWidth=s32'00000000000000000000000
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `$paramod\ibex_counter\CounterWidth=s32'00000000000000000000000000001010'.
 
 (* cells_not_processed =  1  *)
@@ -4865,5 +4897,5 @@ Dumping module `\dut'.
 
 Warnings: 1 unique messages, 1 total
 
-Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

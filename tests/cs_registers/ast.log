@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -14047,11 +14047,11 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:302.14-302.26> str='\debug_mode_i' logic range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:305.51-305.65> str='\pmp_addr_rdata' logic multirange=[ 0 32 0 16 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:305.51-305.65> str='\pmp_addr_rdata' logic multirange=[ 0 16 0 32 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> range=[511:0]
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000111111111'(32) signed range=[31:0] int=511
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:306.51-306.64> str='\pmp_cfg_rdata' logic multirange=[ 0 8 0 16 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:306.51-306.64> str='\pmp_cfg_rdata' logic multirange=[ 0 16 0 8 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> range=[127:0]
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed range=[31:0] int=127
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -14243,13 +14243,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:308.8-308.38>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:308.8-308.24> str='\pmp_cfg_rdata' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14257,13 +14265,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:309.8-309.38>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:309.8-309.24> str='\pmp_cfg_rdata' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14271,13 +14287,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:310.8-310.38>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:310.8-310.24> str='\pmp_cfg_rdata' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14285,13 +14309,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:311.8-311.38>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:311.8-311.24> str='\pmp_cfg_rdata' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14299,13 +14331,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:312.8-312.39>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:312.8-312.25> str='\pmp_cfg_rdata' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14313,13 +14353,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:317.8-317.35>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:317.8-317.20> str='\mhpmevent' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14327,13 +14375,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:318.8-318.35>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:318.8-318.20> str='\mhpmevent' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14341,13 +14397,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:319.8-319.35>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:319.8-319.20> str='\mhpmevent' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14355,13 +14419,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:320.8-320.35>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:320.8-320.20> str='\mhpmevent' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14369,13 +14441,21 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/cs_registers/dut.sv:321.8-321.36>
         AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:321.8-321.21> str='\mhpmevent' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14389,13 +14469,21 @@ Dumping AST before simplification:
               AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:324.8-324.39>
                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:324.8-324.24> str='\pmp_cfg_rdata' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                    AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                         AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                     AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14404,13 +14492,21 @@ Dumping AST before simplification:
               AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:325.8-325.39>
                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:325.8-325.24> str='\pmp_cfg_rdata' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                    AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                         AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                     AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14419,13 +14515,21 @@ Dumping AST before simplification:
               AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:326.8-326.39>
                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:326.8-326.24> str='\pmp_cfg_rdata' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                    AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                         AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                     AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14434,13 +14538,21 @@ Dumping AST before simplification:
               AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:327.8-327.39>
                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:327.8-327.24> str='\pmp_cfg_rdata' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                    AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                         AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                          AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                     AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                       AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14766,49 +14878,81 @@ Dumping AST before simplification:
                     AST_CONCAT <UHDM-integration-tests/tests/cs_registers/dut.sv:388.23-388.97>
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:388.80-388.96> str='\pmp_cfg_rdata' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:388.61-388.77> str='\pmp_cfg_rdata' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:388.43-388.59> str='\pmp_cfg_rdata' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:388.24-388.40> str='\pmp_cfg_rdata' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
@@ -14826,13 +14970,21 @@ Dumping AST before simplification:
                     AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:393.7-393.20> str='\csr_rdata_int'
                     AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:393.23-393.41> str='\pmp_addr_rdata' basic_prep
                       AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                              AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                         AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
                           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14844,13 +14996,21 @@ Dumping AST before simplification:
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:395.14-395.27> str='\csr_rdata_int'
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:395.31-395.49> str='\pmp_addr_rdata' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14878,13 +15038,21 @@ Dumping AST before simplification:
                     AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:403.14-403.56>
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.14-403.40> str='\mhpmevent' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx'
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx'
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx'
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx'
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx'
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14940,13 +15108,21 @@ Dumping AST before simplification:
                     AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.10-417.23> str='\csr_rdata_int'
                     AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.26-417.52> str='\mhpmevent' basic_prep
                       AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx'
-                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx'
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx'
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                              AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx'
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                         AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                           AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx'
                           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -14955,13 +15131,21 @@ Dumping AST before simplification:
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.17-418.30> str='\csr_rdata_int'
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.34-418.60> str='\mhpmevent' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx'
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx'
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx'
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx'
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx'
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -15001,13 +15185,21 @@ Dumping AST before simplification:
                     AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:429.14-429.56>
                       AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.14-429.40> str='\mhpmevent' basic_prep
                         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                          AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
-                                AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx'
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                              AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx'
                               AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                    AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx'
+                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                                AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx'
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0>
                             AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx'
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
@@ -16398,16 +16590,16 @@ Dumping Verilog AST before simplification:
       assign hart_id_i = 286331153;
       assign mcause_q = 6'b 111111;
       assign debug_mode_i = 1'b 1;
-      assign pmp_cfg_rdata[(((0)+(1))*(8))-(1):(0)*(8)] = 8'b 00000000;
-      assign pmp_cfg_rdata[(((1)+(1))*(8))-(1):(1)*(8)] = 8'b 11111111;
-      assign pmp_cfg_rdata[(((2)+(1))*(8))-(1):(2)*(8)] = 8'b 00000000;
-      assign pmp_cfg_rdata[(((3)+(1))*(8))-(1):(3)*(8)] = 8'b 11111111;
-      assign pmp_cfg_rdata[(((15)+(1))*(8))-(1):(15)*(8)] = 8'b 10101010;
-      assign mhpmevent[(((0)+(1))*(32))-(1):(0)*(32)] = 286331153;
-      assign mhpmevent[(((1)+(1))*(32))-(1):(1)*(32)] = 4369;
-      assign mhpmevent[(((2)+(1))*(32))-(1):(2)*(32)] = 286331153;
-      assign mhpmevent[(((3)+(1))*(32))-(1):(3)*(32)] = 4369;
-      assign mhpmevent[(((31)+(1))*(32))-(1):(31)*(32)] = 0;
+      assign pmp_cfg_rdata[((0)*(8))+(((((0)+(1))*(8))-((0)*(8)))-(1)):(0)*(8)] = 8'b 00000000;
+      assign pmp_cfg_rdata[((1)*(8))+(((((1)+(1))*(8))-((1)*(8)))-(1)):(1)*(8)] = 8'b 11111111;
+      assign pmp_cfg_rdata[((2)*(8))+(((((2)+(1))*(8))-((2)*(8)))-(1)):(2)*(8)] = 8'b 00000000;
+      assign pmp_cfg_rdata[((3)*(8))+(((((3)+(1))*(8))-((3)*(8)))-(1)):(3)*(8)] = 8'b 11111111;
+      assign pmp_cfg_rdata[((15)*(8))+(((((15)+(1))*(8))-((15)*(8)))-(1)):(15)*(8)] = 8'b 10101010;
+      assign mhpmevent[((0)*(32))+(((((0)+(1))*(32))-((0)*(32)))-(1)):(0)*(32)] = 286331153;
+      assign mhpmevent[((1)*(32))+(((((1)+(1))*(32))-((1)*(32)))-(1)):(1)*(32)] = 4369;
+      assign mhpmevent[((2)*(32))+(((((2)+(1))*(32))-((2)*(32)))-(1)):(2)*(32)] = 286331153;
+      assign mhpmevent[((3)*(32))+(((((3)+(1))*(32))-((3)*(32)))-(1)):(3)*(32)] = 4369;
+      assign mhpmevent[((31)*(32))+(((((31)+(1))*(32))-((31)*(32)))-(1)):(31)*(32)] = 0;
       always @(posedge clk)
         begin
           /** AST_ASSERT **/
@@ -16479,13 +16671,13 @@ Dumping Verilog AST before simplification:
               end
             CSR_PMPCFG0:
               begin
-                csr_rdata_int = {pmp_cfg_rdata[(((3)+(1))*(8))-(1):(3)*(8)], pmp_cfg_rdata[(((2)+(1))*(8))-(1):(2)*(8)], pmp_cfg_rdata[(((1)+(1))*(8))-(1):(1)*(8)], pmp_cfg_rdata[(((0)+(1))*(8))-(1):(0)*(8)]};
+                csr_rdata_int = {pmp_cfg_rdata[((3)*(8))+(((((3)+(1))*(8))-((3)*(8)))-(1)):(3)*(8)], pmp_cfg_rdata[((2)*(8))+(((((2)+(1))*(8))-((2)*(8)))-(1)):(2)*(8)], pmp_cfg_rdata[((1)*(8))+(((((1)+(1))*(8))-((1)*(8)))-(1)):(1)*(8)], pmp_cfg_rdata[((0)*(8))+(((((0)+(1))*(8))-((0)*(8)))-(1)):(0)*(8)]};
                 csr_addr_i = CSR_PMPADDR15;
                 /** AST_ASSERT **/
               end
             CSR_PMPADDR15:
               begin
-                csr_rdata_int = pmp_addr_rdata[(((15)+(1))*(32))-(1):(15)*(32)];
+                csr_rdata_int = pmp_addr_rdata[((15)*(32))+(((((15)+(1))*(32))-((15)*(32)))-(1)):(15)*(32)];
                 csr_addr_i = CSR_DCSR;
                 /** AST_ASSERT **/
               end
@@ -16504,7 +16696,7 @@ Dumping Verilog AST before simplification:
               end
             CSR_MHPMEVENT3, CSR_MHPMEVENT4, CSR_MHPMEVENT5, CSR_MHPMEVENT6, CSR_MHPMEVENT7, CSR_MHPMEVENT8, CSR_MHPMEVENT9, CSR_MHPMEVENT10, CSR_MHPMEVENT11, CSR_MHPMEVENT12, CSR_MHPMEVENT13, CSR_MHPMEVENT14, CSR_MHPMEVENT15, CSR_MHPMEVENT16, CSR_MHPMEVENT17, CSR_MHPMEVENT18, CSR_MHPMEVENT19, CSR_MHPMEVENT20, CSR_MHPMEVENT21, CSR_MHPMEVENT22, CSR_MHPMEVENT23, CSR_MHPMEVENT24, CSR_MHPMEVENT25, CSR_MHPMEVENT26, CSR_MHPMEVENT27, CSR_MHPMEVENT28, CSR_MHPMEVENT29, CSR_MHPMEVENT30, CSR_MHPMEVENT31:
               begin
-                csr_rdata_int = mhpmevent[(((mhpmcounter_idx)+(1))*(32))-(1):(mhpmcounter_idx)*(32)];
+                csr_rdata_int = mhpmevent[((mhpmcounter_idx)*(32))+(((((mhpmcounter_idx)+(1))*(32))-((mhpmcounter_idx)*(32)))-(1)):(mhpmcounter_idx)*(32)];
                 /** AST_ASSERT **/
                 csr_addr_i = DUMMY_CSR_SETMHPMEVENT31;
               end
@@ -18039,11 +18231,11 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:302.14-302.26> str='\debug_mode_i' logic basic_prep range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:305.51-305.65> str='\pmp_addr_rdata' logic basic_prep range=[511:0] multirange=[ 0 32 0 16 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:305.51-305.65> str='\pmp_addr_rdata' logic basic_prep range=[511:0] multirange=[ 0 16 0 32 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep range=[511:0]
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000111111111'(32) signed basic_prep range=[31:0] int=511
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:306.51-306.64> str='\pmp_cfg_rdata' logic basic_prep range=[127:0] multirange=[ 0 8 0 16 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/cs_registers/dut.sv:306.51-306.64> str='\pmp_cfg_rdata' logic basic_prep range=[127:0] multirange=[ 0 16 0 8 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep range=[127:0]
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed basic_prep range=[31:0] int=127
           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -19078,13 +19270,21 @@ Dumping AST after simplification:
                         AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:403.14-403.56> basic_prep
                           AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.14-403.40> str='\mhpmevent' basic_prep
                             AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                                 AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                                    AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx' basic_prep
-                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx' basic_prep
                                   AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                  AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                    AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                      AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                        AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx' basic_prep
+                                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                                    AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                      AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx' basic_prep
+                                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
                               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:403.24-403.39> str='\mhpmcounter_idx' basic_prep
                                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
@@ -19167,13 +19367,21 @@ Dumping AST after simplification:
                     AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.10-417.23> str='\csr_rdata_int' basic_prep
                     AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.26-417.52> str='\mhpmevent' basic_prep
                       AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                        AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                        AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                           AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                            AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                              AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx' basic_prep
-                              AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                            AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx' basic_prep
                             AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
-                          AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                          AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                            AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                              AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx' basic_prep
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                              AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx' basic_prep
+                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                            AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
                         AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                           AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:417.36-417.51> str='\mhpmcounter_idx' basic_prep
                           AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
@@ -19185,13 +19393,21 @@ Dumping AST after simplification:
                           AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.17-418.30> str='\csr_rdata_int' basic_prep
                           AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.34-418.60> str='\mhpmevent' basic_prep
                             AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                                 AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                                    AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx' basic_prep
-                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx' basic_prep
                                   AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                  AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                    AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                      AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                        AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx' basic_prep
+                                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                                    AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                      AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx' basic_prep
+                                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
                               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:418.44-418.59> str='\mhpmcounter_idx' basic_prep
                                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
@@ -19243,13 +19459,21 @@ Dumping AST after simplification:
                         AST_EQ <UHDM-integration-tests/tests/cs_registers/dut.sv:429.14-429.56> basic_prep
                           AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.14-429.40> str='\mhpmevent' basic_prep
                             AST_RANGE <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                              AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                              AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                                 AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                                  AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
-                                    AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx' basic_prep
-                                    AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                  AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx' basic_prep
                                   AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
-                                AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                  AST_SUB <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                    AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                      AST_ADD <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                        AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx' basic_prep
+                                        AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+                                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                                    AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
+                                      AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx' basic_prep
+                                      AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
+                                  AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
                               AST_MUL <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> basic_prep
                                 AST_IDENTIFIER <UHDM-integration-tests/tests/cs_registers/dut.sv:429.24-429.39> str='\mhpmcounter_idx' basic_prep
                                 AST_CONSTANT <UHDM-integration-tests/tests/cs_registers/dut.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
@@ -21327,7 +21551,7 @@ Dumping Verilog AST after simplification:
                     \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:402$24_EN  <= 1'b 1;
                   end
                   begin
-                    \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:403$25_CHECK  <= |((mhpmevent[(((mhpmcounter_idx)+(1))*(32))-(1):(mhpmcounter_idx)*(32)])==(4369));
+                    \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:403$25_CHECK  <= |((mhpmevent[((mhpmcounter_idx)*(32))+(((((mhpmcounter_idx)+(1))*(32))-((mhpmcounter_idx)*(32)))-(1)):(mhpmcounter_idx)*(32)])==(4369));
                     \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:403$25_EN  <= 1'b 1;
                   end
                   begin
@@ -21349,9 +21573,9 @@ Dumping Verilog AST after simplification:
                 end
               12'b 001100100011, 12'b 001100100100, 12'b 001100100101, 12'b 001100100110, 12'b 001100100111, 12'b 001100101000, 12'b 001100101001, 12'b 001100101010, 12'b 001100101011, 12'b 001100101100, 12'b 001100101101, 12'b 001100101110, 12'b 001100101111, 12'b 001100110000, 12'b 001100110001, 12'b 001100110010, 12'b 001100110011, 12'b 001100110100, 12'b 001100110101, 12'b 001100110110, 12'b 001100110111, 12'b 001100111000, 12'b 001100111001, 12'b 001100111010, 12'b 001100111011, 12'b 001100111100, 12'b 001100111101, 12'b 001100111110, 12'b 001100111111:
                 begin
-                  csr_rdata_int = mhpmevent[(((mhpmcounter_idx)+(1))*(32))-(1):(mhpmcounter_idx)*(32)];
+                  csr_rdata_int = mhpmevent[((mhpmcounter_idx)*(32))+(((((mhpmcounter_idx)+(1))*(32))-((mhpmcounter_idx)*(32)))-(1)):(mhpmcounter_idx)*(32)];
                   begin
-                    \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:418$30_CHECK  <= |((csr_rdata_int)==(mhpmevent[(((mhpmcounter_idx)+(1))*(32))-(1):(mhpmcounter_idx)*(32)]));
+                    \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:418$30_CHECK  <= |((csr_rdata_int)==(mhpmevent[((mhpmcounter_idx)*(32))+(((((mhpmcounter_idx)+(1))*(32))-((mhpmcounter_idx)*(32)))-(1)):(mhpmcounter_idx)*(32)]));
                     \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:418$30_EN  <= 1'b 1;
                   end
                   csr_addr_i = 12'b 111111111111;
@@ -21370,7 +21594,7 @@ Dumping Verilog AST after simplification:
                     \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:428$31_EN  <= 1'b 1;
                   end
                   begin
-                    \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:429$32_CHECK  <= |((mhpmevent[(((mhpmcounter_idx)+(1))*(32))-(1):(mhpmcounter_idx)*(32)])==(0));
+                    \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:429$32_CHECK  <= |((mhpmevent[((mhpmcounter_idx)*(32))+(((((mhpmcounter_idx)+(1))*(32))-((mhpmcounter_idx)*(32)))-(1)):(mhpmcounter_idx)*(32)])==(0));
                     \$formal$UHDM-integration-tests/tests/cs_registers/dut.sv:429$32_EN  <= 1'b 1;
                   end
                 end
@@ -22931,7 +23155,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\dut'.
 
 (* keep =  1  *)
@@ -24293,5 +24517,5 @@ Induction step proven: SUCCESS!
 
 Warnings: 864 unique messages, 864 total
 
-Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

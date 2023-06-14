@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -856,7 +856,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic multirange=[ 0 6 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic multirange=[ 0 2 0 6 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> range=[11:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -868,27 +868,27 @@ Dumping AST before simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.15-5.58> str='\iccm_bank_dout_hi' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
               AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                  AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                    AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q'
-                      AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52>
-                        AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) range=[31:0] int=6
-                  AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+                  AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q'
+                    AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52>
+                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) range=[31:0] int=6
+                AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                 AST_SUB <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                   AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                     AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                       AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
                       AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                     AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-              AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
@@ -914,7 +914,7 @@ Dumping Verilog AST before simplification:
       output [5:0] o;
       wire [11:0] iccm_bank_dout_hi;
       wire [1:0] iccm_rw_addr_q;
-      assign o = iccm_bank_dout_hi[((((iccm_rw_addr_q[0:0])*(6))+((0)*(1)))+((((5)+(1))*(1))-(1)))-((0)*(1)):((iccm_rw_addr_q[0:0])*(6))+((0)*(1))];
+      assign o = iccm_bank_dout_hi[(((iccm_rw_addr_q[0:0])*(6))+((0)*(1)))+(((((5)+(1))*(1))-((0)*(1)))-(1)):((iccm_rw_addr_q[0:0])*(6))+((0)*(1))];
       initial
         begin
           iccm_rw_addr_q = 2'b 10;
@@ -928,7 +928,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic reg basic_prep range=[11:0] multirange=[ 0 6 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic reg basic_prep range=[11:0] multirange=[ 0 2 0 6 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep range=[11:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -940,18 +940,16 @@ Dumping AST after simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.12> str='\o' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.15-5.58> str='\iccm_bank_dout_hi' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-            AST_SUB <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
+            AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
               AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                  AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                    AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep
-                      AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> basic_prep range=[0:0]
-                        AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                        AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
-                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-                AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
-              AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+                AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
+                  AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep
+                    AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> basic_prep range=[0:0]
+                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                      AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                  AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+                AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
             AST_ADD <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
               AST_MUL <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
                 AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep
@@ -974,7 +972,7 @@ Dumping Verilog AST after simplification:
       output [5:0] o;
       reg [11:0] iccm_bank_dout_hi;
       reg [1:0] iccm_rw_addr_q;
-      assign o = iccm_bank_dout_hi[((((iccm_rw_addr_q[0:0])*(6))+(0))+(5))-(0):((iccm_rw_addr_q[0:0])*(6))+(0)];
+      assign o = iccm_bank_dout_hi[(((iccm_rw_addr_q[0:0])*(6))+(0))+(5):((iccm_rw_addr_q[0:0])*(6))+(0)];
       initial
         begin
           iccm_rw_addr_q = 2'b 10;
@@ -1118,7 +1116,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1187,5 +1185,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

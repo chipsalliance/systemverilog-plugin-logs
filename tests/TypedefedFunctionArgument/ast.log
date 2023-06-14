@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -740,9 +740,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
@@ -753,12 +750,12 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
             AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:1.25-1.26> str='\o' output logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:7.9-7.10> str='\a' logic basic_prep range=[31:0] multirange=[ 0 32 0 32 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:7.9-7.10> str='\a' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> str='\word' bits='0101110001110111011011110111001001100100'(40) basic_prep range=[39:0] int=2003792484
-        AST_RANGE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> range=[1023:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000001111111111'(32) signed range=[31:0] int=1023
-          AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:2.18-2.24> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:3.4-5.15> str='\check_if_abcd'
         AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:3.23-3.28> str='\check_if_abcd' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:3.54-3.55> str='\x' input logic basic_prep port=2 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -786,7 +783,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       output o;
       (* wiretype = "\word" *)
-      wire [1023:0] a;
+      wire [31:0] a;
       /** AST_FUNCTION **/
       /** AST_TYPEDEF **/
       assign o = /** AST_FCALL **/;
@@ -802,11 +799,11 @@ Dumping AST after simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
             AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:7.9-7.10> str='\a' logic reg basic_prep range=[1023:0] multirange=[ 0 32 0 32 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:7.9-7.10> str='\a' logic reg basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> str='\word' bits='0101110001110111011011110111001001100100'(40) basic_prep range=[39:0] int=2003792484
-        AST_RANGE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> basic_prep range=[1023:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000001111111111'(32) signed basic_prep range=[31:0] int=1023
+        AST_RANGE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:2.18-2.24> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:3.4-5.15> str='\check_if_abcd'
         AST_WIRE <UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:3.23-3.28> str='\check_if_abcd' logic range=[0:0]
@@ -859,7 +856,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       output o;
       (* wiretype = "\word" *)
-      reg [1023:0] a;
+      reg [31:0] a;
       reg \check_if_abcd$func$UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:8$1.$result ;
       (* nosync = 1 *)
       reg \check_if_abcd$func$UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:8$2.$result ;
@@ -1002,9 +999,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  3
-   Number of wire bits:           1057
+   Number of wire bits:             65
    Number of public wires:           3
-   Number of public wire bits:    1057
+   Number of public wire bits:      65
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1019,7 +1016,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1027,7 +1024,7 @@ Dumping module `\top'.
 module top(o);
   (* src = "UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:7.9-7.10" *)
   (* wiretype = "\\word" *)
-  wire [1023:0] a;
+  wire [31:0] a;
   (* nosync = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:3.54-3.55" *)
   (* wiretype = "\\word" *)
@@ -1035,7 +1032,7 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:1.25-1.26" *)
   output o;
   wire o;
-  assign a = 1024'h000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000abcd;
+  assign a = 32'd43981;
   assign \check_if_abcd$func$UHDM-integration-tests/tests/TypedefedFunctionArgument/top.sv:8$2.x  = 32'hxxxxxxxx;
   assign o = 1'h1;
 endmodule
@@ -1091,5 +1088,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

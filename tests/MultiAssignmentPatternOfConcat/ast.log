@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -687,19 +687,31 @@ Dumping AST before simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:3.11-3.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:3.15-3.19> str='\n' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
-                  AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
-                    AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
-                    AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
-              AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                  AST_MUL <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                    AST_ADD <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                      AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                        AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                        AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_MUL <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                    AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
+                      AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                      AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
               AST_SUB <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
-                AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
                 AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
               AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
       AST_INITIAL <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
         AST_BLOCK <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0>
@@ -722,7 +734,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       output signed [31:0] o;
       wire [191:0] n;
-      assign o = n[((((4)-(2))+(1))*(32))-(1):((4)-(2))*(32)];
+      assign o = n[(((2)-(1))*(32))+((((((2)-(1))+(1))*(32))-(((2)-(1))*(32)))-(1)):((2)-(1))*(32)];
       initial
         begin
           n = {3{{4, 5}}};
@@ -745,9 +757,9 @@ Dumping AST after simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:3.11-3.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:3.11-3.12> str='\o' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:3.15-3.19> str='\n' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> basic_prep range=[95:64]
-            AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000001011111'(32) basic_prep range=[31:0] int=95
-            AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+          AST_RANGE <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> basic_prep range=[63:32]
+            AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) basic_prep range=[31:0] int=63
+            AST_CONSTANT <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32
       AST_INITIAL <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultiAssignmentPatternOfConcat/top.sv:0.0-0.0> basic_prep
@@ -761,7 +773,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       output signed [31:0] o;
       wire [191:0] n;
-      assign o = n[95:64];
+      assign o = n[63:32];
       initial
         begin
           n = 192'b 000000000000000000000000000001000000000000000000000000000000010100000000000000000000000000000100000000000000000000000000000001010000000000000000000000000000010000000000000000000000000000000101;
@@ -903,7 +915,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -915,7 +927,7 @@ module top(o);
   output [31:0] o;
   wire [31:0] o;
   assign n = 192'h000000040000000500000004000000050000000400000005;
-  assign o = 32'd5;
+  assign o = 32'd4;
 endmodule
 
 4. Executing Verilog backend.
@@ -970,5 +982,5 @@ Simulating cycle 40.
 
 Warnings: 2 unique messages, 3 total
 
-Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

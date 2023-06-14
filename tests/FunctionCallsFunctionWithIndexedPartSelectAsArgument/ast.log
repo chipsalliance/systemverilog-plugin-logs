@@ -24,7 +24,7 @@ Using Yosys read_systemverilog command
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+ Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -1148,9 +1148,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'state_in' of type 'io_decl'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -1164,9 +1161,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'state_in' of type 'io_decl'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -1177,18 +1171,12 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object '' of type 'begin'
         Object 'state_out' of type 'logic_var'
           Object '' of type 'logic_typespec'
             Object '' of type 'range'
               Object '' of type 'constant'
               Object '' of type 'constant'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
         Object '' of type 'assignment'
           Object '' of type 'indexed_part_select'
             Object '' of type 'constant'
@@ -1229,10 +1217,7 @@ Dumping AST before simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='xxxxxxxx11001101'(16) range=[15:0] int=205
       AST_FUNCTION <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.4-4.28> str='\my_pkg::sbox4_8bit'
-        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.23-2.34> str='\my_pkg::sbox4_8bit' logic
-          AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.29-2.34>
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.23-2.34> str='\my_pkg::sbox4_8bit' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.58-2.66> str='\state_in' input logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
           AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.52-2.57> basic_prep range=[7:0]
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
@@ -1241,24 +1226,15 @@ Dumping AST before simplification:
           AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_8bit'
           AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:3.14-3.22> str='\state_in'
       AST_FUNCTION <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.4-10.29> str='\my_pkg::sbox4_16bit'
-        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.23-6.35> str='\my_pkg::sbox4_16bit' logic
-          AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.29-6.35>
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.23-6.35> str='\my_pkg::sbox4_16bit' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.61-6.69> str='\state_in' input logic port=2 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
           AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.54-6.60> basic_prep range=[15:0]
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-          AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic range=[0:0]
         AST_BLOCK <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0>
           AST_BLOCK <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='$unnamed_block$0'
-            AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-              AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-                AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic range=[0:0]
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.55>
               AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> str='\state_out'
                 AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
@@ -1299,10 +1275,7 @@ Dumping AST after simplification:
         AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='xxxxxxxx11001101'(16) basic_prep range=[15:0] int=205
       AST_FUNCTION <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.4-4.28> str='\my_pkg::sbox4_8bit'
-        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.23-2.34> str='\my_pkg::sbox4_8bit' logic
-          AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.29-2.34>
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.23-2.34> str='\my_pkg::sbox4_8bit' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.58-2.66> str='\state_in' input logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
           AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.52-2.57> basic_prep range=[7:0]
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
@@ -1311,24 +1284,15 @@ Dumping AST after simplification:
           AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_8bit'
           AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:3.14-3.22> str='\state_in'
       AST_FUNCTION <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.4-10.29> str='\my_pkg::sbox4_16bit'
-        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.23-6.35> str='\my_pkg::sbox4_16bit' logic
-          AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.29-6.35>
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.23-6.35> str='\my_pkg::sbox4_16bit' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.61-6.69> str='\state_in' input logic port=2 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
           AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.54-6.60> basic_prep range=[15:0]
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
             AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-          AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic range=[0:0]
         AST_BLOCK <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0>
           AST_BLOCK <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='$unnamed_block$0'
-            AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-              AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-                AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic range=[0:0]
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.55>
               AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> str='\state_out'
                 AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
@@ -1488,7 +1452,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
+/* Generated by Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -1551,5 +1515,5 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 
-Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+Yosys 0.30+1 (git sha1 5813809ad, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
