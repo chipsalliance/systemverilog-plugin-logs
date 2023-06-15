@@ -867,9 +867,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'a[0][0].x[2]' of type 'hier_path'
         Object 'a' of type 'bit_select'
@@ -906,10 +903,7 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-2.18> str='\struct_t'
         AST_STRUCT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:3.19-3.20> str='x' logic basic_prep range=[2:0]
-      AST_WIRE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.25-1.30> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.31-1.32> str='\o' output logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:6.24-6.25> str='\a' logic basic_prep range=[2:0] multirange=[ 0 3 0 2 0 3 ] multirange_swapped=[ 0 0 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> str='\struct_t' bits='010111000111001101110100011100100111010101100011011101000101111101110100'(72) basic_prep range=[71:0] int=1668570996
@@ -967,7 +961,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [2:0] o;
+      output o;
       (* wiretype = "\struct_t" *)
       wire [17:0] a;
       /** AST_TYPEDEF **/
@@ -980,10 +974,7 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-2.18> str='\struct_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:3.19-3.20> str='x' logic basic_prep range=[2:0]
-      AST_WIRE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.25-1.30> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:6.24-6.25> str='\a' logic basic_prep range=[17:0] multirange=[ 0 3 0 2 0 3 ] multirange_swapped=[ 0 0 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> str='\struct_t' bits='010111000111001101110100011100100111010101100011011101000101111101110100'(72) basic_prep range=[71:0] int=1668570996
@@ -1005,7 +996,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output [2:0] o;
+      output o;
       (* wiretype = "\struct_t" *)
       wire [17:0] a;
       /** AST_TYPEDEF **/
@@ -1066,9 +1057,8 @@ Finding unused cells or wires in module \top..
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o [1] is used but has no driver.
-Warning: Wire top.\o [0] is used but has no driver.
-Found and reported 2 problems.
+Warning: Wire top.\o is used but has no driver.
+Found and reported 1 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -1127,9 +1117,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             21
+   Number of wire bits:             19
    Number of public wires:           2
-   Number of public wire bits:      21
+   Number of public wire bits:      19
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1137,9 +1127,8 @@ Finding unused cells or wires in module \top..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o [1] is used but has no driver.
-Warning: Wire top.\o [0] is used but has no driver.
-Found and reported 2 problems.
+Warning: Wire top.\o is used but has no driver.
+Found and reported 1 problems.
 
 3. Executing Verilog backend.
 
@@ -1153,14 +1142,13 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.1-9.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:6.24-6.25" *)
-  (* unused_bits = "3 4 5 6 7 8 9 10 11 12 13 14 15 16 17" *)
+  (* unused_bits = "1 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17" *)
   (* wiretype = "\\struct_t" *)
   wire [17:0] a;
   (* src = "UHDM-integration-tests/tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.31-1.32" *)
-  output [2:0] o;
-  wire [2:0] o;
-  assign a[2:0] = { 1'h1, o[1:0] };
-  assign o[2] = 1'h1;
+  output o;
+  wire o;
+  assign { a[2], a[0] } = { 1'h1, o };
 endmodule
 
 4. Executing Verilog backend.
@@ -1213,7 +1201,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 2 unique messages, 4 total
+Warnings: 1 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

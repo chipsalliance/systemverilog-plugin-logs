@@ -1099,9 +1099,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'b' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object '' of type 'cont_assign'
@@ -1132,10 +1129,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:7.13-7.18> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
           AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneInside/dut.v:4.13-4.14> str='\a' input logic port=1 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:4.7-4.12> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneInside/dut.v:4.13-4.14> str='\a' input logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneInside/dut.v:1.16-1.17> str='\b' output logic port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneInside/dut.v:8.9-11.12>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.9-8.10> str='\b'
@@ -1160,7 +1154,7 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      input [2:0] a;
+      input a;
       output b;
       assign b = (a[2])&((((a)==(OP_1))||((a)==(OP_2)))||((a)==(OP_3)));
     endmodule
@@ -1182,10 +1176,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:7.13-7.18> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
           AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneInside/dut.v:4.13-4.14> str='\a' input logic basic_prep port=1 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:4.7-4.12> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneInside/dut.v:4.13-4.14> str='\a' input logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneInside/dut.v:1.16-1.17> str='\b' output logic basic_prep port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneInside/dut.v:8.9-11.12> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.9-8.10> str='\b' basic_prep
@@ -1210,11 +1201,12 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      input [2:0] a;
+      input a;
       output b;
       assign b = (a[2:2])&((((a)==(3'b 100))||((a)==(3'b 101)))||((a)==(3'b 110)));
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/OneInside/dut.v:8: Warning: Range select out of bounds on signal `\a': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -1259,13 +1251,14 @@ Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
+<suppressed ~6 debug messages>
 
 2.3. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
-Removed 0 unused cells and 1 unused wires.
+Removed 0 unused cells and 6 unused wires.
 <suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
@@ -1328,17 +1321,14 @@ Finding unused cells or wires in module \dut..
 
 === dut ===
 
-   Number of wires:                  7
-   Number of wire bits:              9
+   Number of wires:                  2
+   Number of wire bits:              2
    Number of public wires:           2
-   Number of public wire bits:       4
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                  6
-     $and                            1
-     $eq                             3
-     $logic_or                       2
+   Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
@@ -1355,28 +1345,13 @@ Dumping module `\dut'.
 (* top =  1  *)
 (* src = "UHDM-integration-tests/tests/OneInside/dut.v:1.1-12.10" *)
 module dut(a, b);
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *)
-  wire _00_;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *)
-  wire _01_;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *)
-  wire _02_;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *)
-  wire _03_;
-  (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *)
-  wire _04_;
   (* src = "UHDM-integration-tests/tests/OneInside/dut.v:4.13-4.14" *)
-  input [2:0] a;
-  wire [2:0] a;
+  input a;
+  wire a;
   (* src = "UHDM-integration-tests/tests/OneInside/dut.v:1.16-1.17" *)
   output b;
   wire b;
-  assign b = a[2] & (* src = "UHDM-integration-tests/tests/OneInside/dut.v:8.13-11.12" *) _04_;
-  assign _00_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h4;
-  assign _01_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h5;
-  assign _02_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h6;
-  assign _03_ = _00_ || (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) _01_;
-  assign _04_ = _03_ || (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) _02_;
+  assign b = 1'h0;
 endmodule
 
 4. Executing Verilog backend.
@@ -1386,6 +1361,7 @@ endmodule
 4.2. Executing DEMUXMAP pass.
 Dumping module `\dut'.
 
+Warnings: 1 unique messages, 1 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

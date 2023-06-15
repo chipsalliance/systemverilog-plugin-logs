@@ -1017,9 +1017,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'a' of type 'port'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -1051,9 +1048,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
 Warning: Removing unelaborated module: \dut from the design.
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
@@ -1065,10 +1059,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:7.20-7.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.31-6.32> str='\o' output logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.25-6.30> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.31-6.32> str='\o' output logic port=2 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:8.4-12.6> str='\u_dut'
         AST_CELLTYPE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\P=2'01'
         AST_ARGUMENT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:8.4-12.6> str='\a'
@@ -1077,7 +1068,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [1:0] o;
+      output o;
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
@@ -1088,10 +1079,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:7.20-7.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.31-6.32> str='\o' output logic basic_prep port=2 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.25-6.30> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.31-6.32> str='\o' output logic basic_prep port=2 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:8.4-12.6> str='\u_dut' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\P=2'01' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:8.4-12.6> str='\a' basic_prep
@@ -1100,7 +1088,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [1:0] o;
+      output o;
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
@@ -1112,10 +1100,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.31-1.32> str='\a' output logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.25-1.30> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.31-1.32> str='\a' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:3.11-3.16>
         AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:3.11-3.12> str='\a'
         AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:3.15-3.16> str='\P'
@@ -1123,7 +1108,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\dut\P=2'01 (a);
       /** AST_PARAMETER **/
-      output [1:0] a;
+      output a;
       assign a = P;
     endmodule
 --- END OF AST DUMP ---
@@ -1134,10 +1119,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.31-1.32> str='\a' output logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.25-1.30> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.31-1.32> str='\a' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:3.11-3.16> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:3.11-3.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:3.15-3.16> bits='01'(2) basic_prep range=[1:0] int=1
@@ -1145,7 +1127,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\dut\P=2'01 (a);
       /** AST_PARAMETER **/
-      output [1:0] a;
+      output a;
       assign a = 2'b 01;
     endmodule
 --- END OF AST DUMP ---
@@ -1280,9 +1262,9 @@ Finding unused cells or wires in module \top..
 === $paramod\dut\P=2'01 ===
 
    Number of wires:                  1
-   Number of wire bits:              2
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:       2
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1291,9 +1273,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:              2
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:       2
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1306,9 +1288,9 @@ Finding unused cells or wires in module \top..
      $paramod\dut\P=2'01             1
 
    Number of wires:                  2
-   Number of wire bits:              4
+   Number of wire bits:              2
    Number of public wires:           2
-   Number of public wire bits:       4
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1330,9 +1312,9 @@ Dumping module `$paramod\dut\P=2'01'.
 (* src = "UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.1-4.10" *)
 module \$paramod\dut\P=2'01 (a);
   (* src = "UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:1.31-1.32" *)
-  output [1:0] a;
-  wire [1:0] a;
-  assign a = 2'h1;
+  output a;
+  wire a;
+  assign a = 1'h1;
 endmodule
 Dumping module `\top'.
 
@@ -1340,8 +1322,8 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.1-13.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:6.31-6.32" *)
-  output [1:0] o;
-  wire [1:0] o;
+  output o;
+  wire o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv:8.4-12.6" *)
   \$paramod\dut\P=2'01  u_dut (

@@ -674,9 +674,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'operation'
@@ -686,10 +683,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/Replication/top.sv:1.1-3.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/Replication/top.sv:1.30-1.31> str='\o' output logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/Replication/top.sv:1.24-1.29> basic_prep range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/Replication/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/Replication/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/Replication/top.sv:1.30-1.31> str='\o' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/Replication/top.sv:2.11-2.22>
         AST_IDENTIFIER <UHDM-integration-tests/tests/Replication/top.sv:2.11-2.12> str='\o'
         AST_REPLICATE <UHDM-integration-tests/tests/Replication/top.sv:2.15-2.22>
@@ -699,23 +693,20 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [7:0] o;
+      output o;
       assign o = {8{{1}}};
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/Replication/top.sv:1.1-3.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/Replication/top.sv:1.30-1.31> str='\o' output logic basic_prep port=1 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/Replication/top.sv:1.24-1.29> basic_prep range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/Replication/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/Replication/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/Replication/top.sv:1.30-1.31> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/Replication/top.sv:2.11-2.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/Replication/top.sv:2.11-2.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/Replication/top.sv:2.15-2.22> bits='0000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001'(256) basic_prep range=[255:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output [7:0] o;
+      output o;
       assign o = 256'b 0000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001;
     endmodule
 --- END OF AST DUMP ---
@@ -831,9 +822,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:              8
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:       8
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -855,9 +846,9 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/Replication/top.sv:1.1-3.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/Replication/top.sv:1.30-1.31" *)
-  output [7:0] o;
-  wire [7:0] o;
-  assign o = 8'h01;
+  output o;
+  wire o;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.

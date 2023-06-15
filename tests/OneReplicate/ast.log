@@ -713,9 +713,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object '' of type 'cont_assign'
@@ -727,10 +724,7 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.1-6.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg port=2 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.6-4.11> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.13-1.14> str='\a' input logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.10> str='\b'
@@ -741,7 +735,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(b, a);
-      output reg [3:0] b;
+      output reg b;
       input a;
       assign b = {4{{a}}};
     endmodule
@@ -749,10 +743,7 @@ Dumping Verilog AST before simplification:
 Warning: reg '\b' is assigned in a continuous assignment at UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.19.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.1-6.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg basic_prep port=2 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.6-4.11> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg basic_prep port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.10> str='\b' basic_prep
@@ -763,7 +754,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(b, a);
-      output reg [3:0] b;
+      output reg b;
       input a;
       assign b = {4{{a}}};
     endmodule
@@ -880,9 +871,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  2
-   Number of wire bits:              5
+   Number of wire bits:              2
    Number of public wires:           2
-   Number of public wire bits:       5
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -907,9 +898,9 @@ module dut(a, b);
   input a;
   wire a;
   (* src = "UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13" *)
-  output [3:0] b;
-  wire [3:0] b;
-  assign b = { a, a, a, a };
+  output b;
+  wire b;
+  assign b = a;
 endmodule
 
 4. Executing Verilog backend.

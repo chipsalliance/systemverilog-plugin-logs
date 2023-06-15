@@ -772,9 +772,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'constant'
@@ -786,10 +783,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:2.20-2.26> basic_prep range=[17:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000010001'(32) signed basic_prep range=[31:0] int=17
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.32-1.33> str='\o' output logic port=1 multirange=[ 0 18 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.25-1.31> basic_prep range=[17:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000010001'(32) signed basic_prep range=[31:0] int=17
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.32-1.33> str='\o' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:3.11-3.16>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:3.11-3.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='111111111111110000'(18) range=[17:0] int=262128
@@ -797,7 +791,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(o);
       /** AST_LOCALPARAM **/
-      output [17:0] o;
+      output o;
       assign o = 18'b 111111111111110000;
     endmodule
 --- END OF AST DUMP ---
@@ -808,10 +802,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:2.20-2.26> basic_prep range=[17:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000010001'(32) signed basic_prep range=[31:0] int=17
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.32-1.33> str='\o' output logic basic_prep port=1 range=[17:0] multirange=[ 0 18 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.25-1.31> basic_prep range=[17:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000010001'(32) signed basic_prep range=[31:0] int=17
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.32-1.33> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:3.11-3.16> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:3.11-3.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:0.0-0.0> bits='111111111111110000'(18) basic_prep range=[17:0] int=262128
@@ -819,7 +810,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_LOCALPARAM **/
-      output [17:0] o;
+      output o;
       assign o = 18'b 111111111111110000;
     endmodule
 --- END OF AST DUMP ---
@@ -935,9 +926,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:             18
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:      18
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -959,9 +950,9 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.1-4.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/ParameterInitializationWithNegation/top.sv:1.32-1.33" *)
-  output [17:0] o;
-  wire [17:0] o;
-  assign o = 18'h3fff0;
+  output o;
+  wire o;
+  assign o = 1'h0;
 endmodule
 
 4. Executing Verilog backend.

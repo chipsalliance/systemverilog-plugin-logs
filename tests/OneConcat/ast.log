@@ -858,9 +858,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a0' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object 'a1' of type 'logic_net'
@@ -879,10 +876,7 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneConcat/dut.v:1.1-6.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:4.12-4.13> str='\b' output reg port=5 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:4.6-4.11> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:4.12-4.13> str='\b' output reg port=5 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.12-1.14> str='\a0' input logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.16-1.18> str='\a1' input logic port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.20-1.22> str='\a2' input logic port=3 range=[0:0]
@@ -897,7 +891,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(b, a0, a1, a2, a3);
-      output reg [3:0] b;
+      output reg b;
       input a0;
       input a1;
       input a2;
@@ -908,10 +902,7 @@ Dumping Verilog AST before simplification:
 Warning: reg '\b' is assigned in a continuous assignment at UHDM-integration-tests/tests/OneConcat/dut.v:5.9-5.29.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneConcat/dut.v:1.1-6.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:4.12-4.13> str='\b' output reg basic_prep port=5 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:4.6-4.11> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:4.12-4.13> str='\b' output reg basic_prep port=5 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.12-1.14> str='\a0' input logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.16-1.18> str='\a1' input logic basic_prep port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.20-1.22> str='\a2' input logic basic_prep port=3 range=[0:0]
@@ -926,7 +917,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(b, a0, a1, a2, a3);
-      output reg [3:0] b;
+      output reg b;
       input a0;
       input a1;
       input a2;
@@ -1046,9 +1037,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  5
-   Number of wire bits:              8
+   Number of wire bits:              5
    Number of public wires:           5
-   Number of public wire bits:       8
+   Number of public wire bits:       5
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1082,9 +1073,9 @@ module dut(a0, a1, a2, a3, b);
   input a3;
   wire a3;
   (* src = "UHDM-integration-tests/tests/OneConcat/dut.v:4.12-4.13" *)
-  output [3:0] b;
-  wire [3:0] b;
-  assign b = { a3, a2, a1, a0 };
+  output b;
+  wire b;
+  assign b = a0;
 endmodule
 
 4. Executing Verilog backend.

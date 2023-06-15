@@ -760,9 +760,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'operation'
@@ -772,10 +769,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.1-8.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.31-5.32> str='\o' output logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.25-5.30> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.31-5.32> str='\o' output logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:6.8-6.13> str='\a' range=[0:0]
         AST_RANGE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -797,7 +791,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [3:0] o;
+      output o;
       wire [31:0] a;
       assign o = a;
       initial
@@ -807,10 +801,7 @@ Dumping Verilog AST before simplification:
 Warning: wire '\a' is assigned in a block at UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.1-8.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.31-5.32> str='\o' output logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.25-5.30> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.31-5.32> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:6.8-6.13> str='\a' basic_prep range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -832,7 +823,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [3:0] o;
+      output o;
       wire [31:0] a;
       assign o = a;
       initial
@@ -956,9 +947,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             36
+   Number of wire bits:             33
    Number of public wires:           2
-   Number of public wire bits:      36
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -982,10 +973,10 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:6.8-6.13" *)
   wire [31:0] a;
   (* src = "UHDM-integration-tests/tests/CastWidthFromPackage/top.sv:5.31-5.32" *)
-  output [3:0] o;
-  wire [3:0] o;
+  output o;
+  wire o;
   assign a = 32'd1;
-  assign o = 4'h1;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.

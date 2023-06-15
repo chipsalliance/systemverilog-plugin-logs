@@ -703,17 +703,11 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'a' of type 'ref_obj'
       Object '' of type 'constant'
@@ -725,14 +719,8 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/PartSelect/top.sv:1.1-5.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:1.25-1.26> str='\b' output logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelect/top.sv:1.19-1.24> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:2.14-2.15> str='\a' reg
-        AST_RANGE <UHDM-integration-tests/tests/PartSelect/top.sv:2.8-2.13>
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:1.25-1.26> str='\b' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:2.14-2.15> str='\a' reg range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PartSelect/top.sv:3.11-3.20>
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelect/top.sv:3.11-3.12> str='\a'
         AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00001111'(8) range=[7:0] int=15
@@ -745,8 +733,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(b);
-      output [3:0] b;
-      reg [7:0] a;
+      output b;
+      reg a;
       assign a = 8'b 00001111;
       assign b = a[6:3];
     endmodule
@@ -754,14 +742,8 @@ Dumping Verilog AST before simplification:
 Warning: reg '\a' is assigned in a continuous assignment at UHDM-integration-tests/tests/PartSelect/top.sv:3.11-3.20.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/PartSelect/top.sv:1.1-5.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:1.25-1.26> str='\b' output logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelect/top.sv:1.19-1.24> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:2.14-2.15> str='\a' reg basic_prep range=[7:0]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelect/top.sv:2.8-2.13> basic_prep range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:1.25-1.26> str='\b' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelect/top.sv:2.14-2.15> str='\a' reg basic_prep range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PartSelect/top.sv:3.11-3.20> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/PartSelect/top.sv:3.11-3.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/PartSelect/top.sv:0.0-0.0> bits='00001111'(8) basic_prep range=[7:0] int=15
@@ -774,12 +756,13 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(b);
-      output [3:0] b;
-      reg [7:0] a;
+      output b;
+      reg a;
       assign a = 8'b 00001111;
       assign b = a[6:3];
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/PartSelect/top.sv:4: Warning: Range select [6:3] out of bounds on signal `\a': Setting all 4 result bits to undef.
 
 2. Executing PREP pass.
 
@@ -892,9 +875,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             12
+   Number of wire bits:              2
    Number of public wires:           2
-   Number of public wire bits:      12
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -916,12 +899,12 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/PartSelect/top.sv:1.1-5.10" *)
 module top(b);
   (* src = "UHDM-integration-tests/tests/PartSelect/top.sv:2.14-2.15" *)
-  wire [7:0] a;
+  wire a;
   (* src = "UHDM-integration-tests/tests/PartSelect/top.sv:1.25-1.26" *)
-  output [3:0] b;
-  wire [3:0] b;
-  assign a = 8'h0f;
-  assign b = 4'h1;
+  output b;
+  wire b;
+  assign a = 1'h1;
+  assign b = 1'hx;
 endmodule
 
 4. Executing Verilog backend.
@@ -974,7 +957,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
+Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

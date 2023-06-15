@@ -868,28 +868,16 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'y' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/CaseInside/top.sv:1.1-7.16> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.32-1.35> str='\sel' input logic port=1 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/CaseInside/top.sv:1.26-1.31> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.58-1.59> str='\y' output logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/CaseInside/top.sv:1.52-1.57> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.32-1.35> str='\sel' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.58-1.59> str='\y' output logic port=2 range=[0:0]
       AST_ALWAYS <UHDM-integration-tests/tests/CaseInside/top.sv:2.3-6.10>
         ATTR \always_comb:
           AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
@@ -917,8 +905,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(sel, y);
-      input [2:0] sel;
-      output [1:0] y;
+      input sel;
+      output y;
       (* always_comb = 1 *)
       always @*
         case (sel)
@@ -931,14 +919,8 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/CaseInside/top.sv:1.1-7.16> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.32-1.35> str='\sel' input logic basic_prep port=1 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/CaseInside/top.sv:1.26-1.31> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.58-1.59> str='\y' output logic reg basic_prep port=2 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/CaseInside/top.sv:1.52-1.57> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.32-1.35> str='\sel' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CaseInside/top.sv:1.58-1.59> str='\y' output logic reg basic_prep port=2 range=[0:0]
       AST_ALWAYS <UHDM-integration-tests/tests/CaseInside/top.sv:2.3-6.10> basic_prep
         ATTR \always_comb:
           AST_CONSTANT <UHDM-integration-tests/tests/CaseInside/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
@@ -966,8 +948,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(sel, y);
-      input [2:0] sel;
-      output reg [1:0] y;
+      input sel;
+      output reg y;
       (* always_comb = 1 *)
       always @*
         case (sel)
@@ -996,26 +978,26 @@ processes to logic networks and registers.
 module top(sel, y);
   reg \$auto$verilog_backend.cc:2097:dump_module$2  = 0;
   (* src = "UHDM-integration-tests/tests/CaseInside/top.sv:2.3-6.10" *)
-  reg [1:0] _0_;
+  reg _0_;
   (* src = "UHDM-integration-tests/tests/CaseInside/top.sv:2.3-6.10" *)
-  reg [1:0] _1_;
+  reg _1_;
   (* src = "UHDM-integration-tests/tests/CaseInside/top.sv:1.32-1.35" *)
-  input [2:0] sel;
-  wire [2:0] sel;
+  input sel;
+  wire sel;
   (* src = "UHDM-integration-tests/tests/CaseInside/top.sv:1.58-1.59" *)
-  output [1:0] y;
-  reg [1:0] y;
+  output y;
+  reg y;
   always @* begin
     if (\$auto$verilog_backend.cc:2097:dump_module$2 ) begin end
     _0_ = _1_;
     (* src = "UHDM-integration-tests/tests/CaseInside/top.sv:3.5-6.10" *)
-    casez ({ 28'h0000000, sel })
+    casez ({ 30'h00000000, sel })
       /* src = "UHDM-integration-tests/tests/CaseInside/top.sv:4.7-4.50" */
       31'h00000000, 31'h00000001, 31'h00000002, 31'h00000003:
-          _1_ = 2'h1;
+          _1_ = 1'h1;
       /* src = "UHDM-integration-tests/tests/CaseInside/top.sv:5.7-5.25" */
       31'h00000004, 31'h00000005, 31'h00000006, 31'h00000007:
-          _1_ = 2'h2;
+          _1_ = 1'h0;
       default:
           _1_ = y;
     endcase

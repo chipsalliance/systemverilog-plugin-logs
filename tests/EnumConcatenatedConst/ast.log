@@ -827,19 +827,13 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.1-12.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic port=1 multirange=[ 0 64 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.25-10.31> basic_prep range=[63:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:11.11-11.31>
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:11.11-11.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='0000000000000000000000000000000100000000000000000000000000000001'(64) range=[63:0] int=1
@@ -867,7 +861,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [63:0] o;
+      output o;
       assign o = 64'b 0000000000000000000000000000000100000000000000000000000000000001;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
@@ -875,10 +869,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.1-12.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic basic_prep port=1 range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.25-10.31> basic_prep range=[63:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:11.11-11.31> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:11.11-11.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='0000000000000000000000000000000100000000000000000000000000000001'(64) basic_prep range=[63:0] int=1
@@ -906,7 +897,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [63:0] o;
+      output o;
       assign o = 64'b 0000000000000000000000000000000100000000000000000000000000000001;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
@@ -1024,9 +1015,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:             64
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:      64
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1048,9 +1039,9 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.1-12.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/EnumConcatenatedConst/top.sv:10.32-10.33" *)
-  output [63:0] o;
-  wire [63:0] o;
-  assign o = 64'h0000000100000001;
+  output o;
+  wire o;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.

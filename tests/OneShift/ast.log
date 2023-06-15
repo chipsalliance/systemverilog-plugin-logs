@@ -685,17 +685,11 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'operation'
@@ -704,14 +698,8 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneShift/dut.v:1.1-10.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:5.12-5.13> str='\a' input logic port=1 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneShift/dut.v:5.6-5.11> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:6.11-6.12> str='\o' output reg port=2 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneShift/dut.v:6.5-6.10> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:5.12-5.13> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:6.11-6.12> str='\o' output reg port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneShift/dut.v:8.8-8.18>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneShift/dut.v:8.8-8.9> str='\o'
         AST_SHIFT_LEFT <UHDM-integration-tests/tests/OneShift/dut.v:8.12-8.18>
@@ -721,22 +709,16 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, o);
-      input [2:0] a;
-      output reg [2:0] o;
+      input a;
+      output reg o;
       assign o = (a)<<(/** AST_TO_UNSIGNED **/);
     endmodule
 --- END OF AST DUMP ---
 Warning: reg '\o' is assigned in a continuous assignment at UHDM-integration-tests/tests/OneShift/dut.v:8.8-8.18.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneShift/dut.v:1.1-10.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:5.12-5.13> str='\a' input logic basic_prep port=1 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneShift/dut.v:5.6-5.11> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:6.11-6.12> str='\o' output reg basic_prep port=2 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneShift/dut.v:6.5-6.10> basic_prep range=[2:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT <UHDM-integration-tests/tests/OneShift/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:5.12-5.13> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneShift/dut.v:6.11-6.12> str='\o' output reg basic_prep port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneShift/dut.v:8.8-8.18> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneShift/dut.v:8.8-8.9> str='\o' basic_prep
         AST_SHIFT_LEFT <UHDM-integration-tests/tests/OneShift/dut.v:8.12-8.18> basic_prep
@@ -745,8 +727,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, o);
-      input [2:0] a;
-      output reg [2:0] o;
+      input a;
+      output reg o;
       assign o = (a)<<(1);
     endmodule
 --- END OF AST DUMP ---
@@ -865,9 +847,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  2
-   Number of wire bits:              6
+   Number of wire bits:              2
    Number of public wires:           2
-   Number of public wire bits:       6
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -889,12 +871,12 @@ Dumping module `\dut'.
 (* src = "UHDM-integration-tests/tests/OneShift/dut.v:1.1-10.10" *)
 module dut(a, o);
   (* src = "UHDM-integration-tests/tests/OneShift/dut.v:5.12-5.13" *)
-  input [2:0] a;
-  wire [2:0] a;
+  input a;
+  wire a;
   (* src = "UHDM-integration-tests/tests/OneShift/dut.v:6.11-6.12" *)
-  output [2:0] o;
-  wire [2:0] o;
-  assign o = { a[1:0], 1'h0 };
+  output o;
+  wire o;
+  assign o = 1'h0;
 endmodule
 
 4. Executing Verilog backend.

@@ -1296,9 +1296,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'memArray' of type 'array_net'
       Object 'mem_s' of type 'struct_typespec'
         Object 'addr' of type 'typespec_member'
@@ -1408,10 +1405,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 multirange=[ 0 17 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.20>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.16> str='\mem' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
@@ -1497,7 +1491,7 @@ Dumping Verilog AST before simplification:
       (* wiretype = "\mem_s" *)
       wire [16:0] mem;
       input a;
-      output [16:0] b;
+      output b;
       /** AST_TYPEDEF **/
       assign mem[0:0] = a;
       assign b[16] = mem[0:0];
@@ -1550,10 +1544,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.20> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.16> str='\mem' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
@@ -1639,7 +1630,7 @@ Dumping Verilog AST after simplification:
       (* wiretype = "\mem_s" *)
       reg [16:0] mem;
       input a;
-      output [16:0] b;
+      output b;
       /** AST_TYPEDEF **/
       assign mem[0:0] = a;
       assign b[16:16] = mem[0:0];
@@ -1660,6 +1651,18 @@ a        case (|((a)==(1'b 0)))
         endcase
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/OneStruct/dut.sv:28: Warning: Range select out of bounds on signal `\b': Setting result bit to undef.
+UHDM-integration-tests/tests/OneStruct/dut.sv:28: Warning: Ignoring assignment to constant bits:
+    old assignment: 1'x = \mem [0]
+    new assignment: { } = { }.
+UHDM-integration-tests/tests/OneStruct/dut.sv:29: Warning: Range select [15:8] out of bounds on signal `\b': Setting all 8 result bits to undef.
+UHDM-integration-tests/tests/OneStruct/dut.sv:29: Warning: Ignoring assignment to constant bits:
+    old assignment: 8'x = \mem [8:1]
+    new assignment: { } = { }.
+UHDM-integration-tests/tests/OneStruct/dut.sv:30: Warning: Range [7:0] select out of bounds on signal `\b': Setting 7 MSB bits to undef.
+UHDM-integration-tests/tests/OneStruct/dut.sv:30: Warning: Ignoring assignment to constant bits:
+    old assignment: { 7'x \b } = \mem [16:9]
+    new assignment: \b = \mem [9].
 
 2. Executing PREP pass.
 
@@ -1719,8 +1722,8 @@ Optimizing module dut.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
-Removed 1 unused cells and 10 unused wires.
-<suppressed ~5 debug messages>
+Removed 2 unused cells and 10 unused wires.
+<suppressed ~6 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
@@ -1741,7 +1744,7 @@ Running muxtree optimizer on module \dut..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~2 debug messages>
+<suppressed ~1 debug messages>
 
 2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \dut.
@@ -1760,6 +1763,7 @@ Optimizing module dut.
 2.6.8. Finished OPT passes. (There is nothing left to do.)
 
 2.7. Executing WREDUCE pass (reducing word size of cells).
+Removed cell dut.$procmux$7 ($mux).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
@@ -1785,14 +1789,13 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  3
-   Number of wire bits:             35
+   Number of wire bits:             19
    Number of public wires:           3
-   Number of public wire bits:      35
+   Number of public wire bits:      19
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                  2
-     $mux                            2
+   Number of cells:                  0
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
@@ -1813,15 +1816,14 @@ module dut(a, b);
   input a;
   wire a;
   (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17" *)
-  output [16:0] b;
-  wire [16:0] b;
+  output b;
+  wire b;
   (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12" *)
+  (* unused_bits = "0 1 2 3 4 5 6 7 8" *)
   (* wiretype = "\\mem_s" *)
   wire [16:0] mem;
-  assign b[15:8] = a ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0|UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8" *) 8'hff : 8'h00;
-  assign b[7:0] = a ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0|UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8" *) 8'h80 : 8'h00;
-  assign b[16] = a;
-  assign mem = { b[7:0], b[15:8], a };
+  assign b = 1'h0;
+  assign { mem[16:9], mem[0] } = { 8'bxxxxxxx0, a };
 endmodule
 
 4. Executing Verilog backend.
@@ -1874,6 +1876,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 6 unique messages, 6 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

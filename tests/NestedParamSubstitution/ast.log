@@ -1258,9 +1258,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'u_dut1' of type 'module_inst'
         Object 'P1' of type 'parameter'
           Object '' of type 'range'
@@ -1283,9 +1280,6 @@ Object 'work@top' of type 'design'
             Object '' of type 'range'
               Object '' of type 'constant'
               Object '' of type 'constant'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
         Object 'a' of type 'port'
           Object '' of type 'logic_typespec'
             Object '' of type 'range'
@@ -1321,9 +1315,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
 Warning: Removing unelaborated module: \dut2 from the design.
 Warning: Removing unelaborated module: \dut1 from the design.
 Generating RTLIL representation for module `$paramod\dut1\P1=2'10'.
@@ -1334,10 +1325,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:2.20-2.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.32-1.33> str='\a' output logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.26-1.31> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.32-1.33> str='\a' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:3.11-3.17>
         AST_IDENTIFIER <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:3.11-3.12> str='\a'
         AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='10'(2) range=[1:0] int=2
@@ -1345,7 +1333,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\dut1\P1=2'10 (a);
       /** AST_PARAMETER **/
-      output [1:0] a;
+      output a;
       assign a = 2'b 10;
     endmodule
 --- END OF AST DUMP ---
@@ -1356,10 +1344,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:2.20-2.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.32-1.33> str='\a' output logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.26-1.31> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.32-1.33> str='\a' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:3.11-3.17> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:3.11-3.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='10'(2) basic_prep range=[1:0] int=2
@@ -1367,7 +1352,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\dut1\P1=2'10 (a);
       /** AST_PARAMETER **/
-      output [1:0] a;
+      output a;
       assign a = 2'b 10;
     endmodule
 --- END OF AST DUMP ---
@@ -1379,10 +1364,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:7.20-7.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.32-6.33> str='\b' output logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.26-6.31> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.32-6.33> str='\b' output logic port=2 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:8.4-12.6> str='\u_dut1'
         AST_CELLTYPE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> str='$paramod\dut1\P1=2'10'
         AST_ARGUMENT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:8.4-12.6> str='\a'
@@ -1391,7 +1373,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\dut2\P2=2'01 (b);
       /** AST_PARAMETER **/
-      output [1:0] b;
+      output b;
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
@@ -1402,10 +1384,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:7.20-7.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.32-6.33> str='\b' output logic basic_prep port=2 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.26-6.31> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.32-6.33> str='\b' output logic basic_prep port=2 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:8.4-12.6> str='\u_dut1' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> str='$paramod\dut1\P1=2'10' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:8.4-12.6> str='\a' basic_prep
@@ -1414,7 +1393,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\dut2\P2=2'01 (b);
       /** AST_PARAMETER **/
-      output [1:0] b;
+      output b;
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
@@ -1426,10 +1405,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:16.20-16.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.31-15.32> str='\o' output logic port=3 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.25-15.30> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.31-15.32> str='\o' output logic port=3 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:17.4-21.6> str='\u_dut2'
         AST_CELLTYPE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> str='$paramod\dut2\P2=2'01'
         AST_ARGUMENT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:17.4-21.6> str='\b'
@@ -1438,7 +1414,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [1:0] o;
+      output o;
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
@@ -1449,10 +1425,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:16.20-16.25> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.31-15.32> str='\o' output logic basic_prep port=3 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.25-15.30> basic_prep range=[1:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.31-15.32> str='\o' output logic basic_prep port=3 range=[0:0]
       AST_CELL <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:17.4-21.6> str='\u_dut2' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:0.0-0.0> str='$paramod\dut2\P2=2'01' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:17.4-21.6> str='\b' basic_prep
@@ -1461,7 +1434,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
-      output [1:0] o;
+      output o;
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
@@ -1615,9 +1588,9 @@ Finding unused cells or wires in module \top..
 === $paramod\dut1\P1=2'10 ===
 
    Number of wires:                  1
-   Number of wire bits:              2
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:       2
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1626,9 +1599,9 @@ Finding unused cells or wires in module \top..
 === $paramod\dut2\P2=2'01 ===
 
    Number of wires:                  1
-   Number of wire bits:              2
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:       2
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1638,9 +1611,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:              2
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:       2
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1654,9 +1627,9 @@ Finding unused cells or wires in module \top..
        $paramod\dut1\P1=2'10         1
 
    Number of wires:                  3
-   Number of wire bits:              6
+   Number of wire bits:              3
    Number of public wires:           3
-   Number of public wire bits:       6
+   Number of public wire bits:       3
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1679,17 +1652,17 @@ Dumping module `$paramod\dut1\P1=2'10'.
 (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.1-4.10" *)
 module \$paramod\dut1\P1=2'10 (a);
   (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:1.32-1.33" *)
-  output [1:0] a;
-  wire [1:0] a;
-  assign a = 2'h2;
+  output a;
+  wire a;
+  assign a = 1'h0;
 endmodule
 Dumping module `$paramod\dut2\P2=2'01'.
 
 (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.1-13.10" *)
 module \$paramod\dut2\P2=2'01 (b);
   (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:6.32-6.33" *)
-  output [1:0] b;
-  wire [1:0] b;
+  output b;
+  wire b;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:8.4-12.6" *)
   \$paramod\dut1\P1=2'10  u_dut1 (
@@ -1702,8 +1675,8 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.1-22.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:15.31-15.32" *)
-  output [1:0] o;
-  wire [1:0] o;
+  output o;
+  wire o;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/NestedParamSubstitution/top.sv:17.4-21.6" *)
   \$paramod\dut2\P2=2'01  u_dut2 (

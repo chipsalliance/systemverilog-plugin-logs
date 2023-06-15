@@ -673,9 +673,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'xn' of type 'ref_obj'
       Object 'inp' of type 'ref_obj'
@@ -683,10 +680,7 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/SignedWire/top.sv:1.1-6.10> str='\top'
       AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.12-1.15> str='\inp' input logic signed port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19> str='\xn' output reg port=2 multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/SignedWire/top.sv:3.16-3.21> basic_prep range=[4:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19> str='\xn' output reg port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/SignedWire/top.sv:5.12-5.20>
         AST_IDENTIFIER <UHDM-integration-tests/tests/SignedWire/top.sv:5.12-5.14> str='\xn'
         AST_IDENTIFIER <UHDM-integration-tests/tests/SignedWire/top.sv:5.17-5.20> str='\inp'
@@ -694,7 +688,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(inp, xn);
       input signed inp;
-      output reg [4:0] xn;
+      output reg xn;
       assign xn = inp;
     endmodule
 --- END OF AST DUMP ---
@@ -702,10 +696,7 @@ Warning: reg '\xn' is assigned in a continuous assignment at UHDM-integration-te
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/SignedWire/top.sv:1.1-6.10> str='\top' basic_prep
       AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.12-1.15> str='\inp' input logic signed basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19> str='\xn' output reg basic_prep port=2 range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/SignedWire/top.sv:3.16-3.21> basic_prep range=[4:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19> str='\xn' output reg basic_prep port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/SignedWire/top.sv:5.12-5.20> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/SignedWire/top.sv:5.12-5.14> str='\xn' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/SignedWire/top.sv:5.17-5.20> str='\inp' basic_prep
@@ -713,7 +704,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(inp, xn);
       input signed inp;
-      output reg [4:0] xn;
+      output reg xn;
       assign xn = inp;
     endmodule
 --- END OF AST DUMP ---
@@ -829,9 +820,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:              6
+   Number of wire bits:              2
    Number of public wires:           2
-   Number of public wire bits:       6
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -856,9 +847,9 @@ module top(inp, xn);
   input inp;
   wire inp;
   (* src = "UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19" *)
-  output [4:0] xn;
-  wire [4:0] xn;
-  assign xn = { inp, inp, inp, inp, inp };
+  output xn;
+  wire xn;
+  assign xn = inp;
 endmodule
 
 4. Executing Verilog backend.

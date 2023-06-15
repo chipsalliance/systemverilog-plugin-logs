@@ -1212,19 +1212,13 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.1-15.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic port=3 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.25-13.31> basic_prep range=[15:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic port=3 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.44>
         AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='xxxxxxxx11001101'(16) range=[15:0] int=205
@@ -1283,7 +1277,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [15:0] o;
+      output o;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       assign o = 16'b xxxxxxxx11001101;
@@ -1291,10 +1285,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.1-15.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic basic_prep port=3 range=[15:0] multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.25-13.31> basic_prep range=[15:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic basic_prep port=3 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.44> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='xxxxxxxx11001101'(16) basic_prep range=[15:0] int=205
@@ -1353,7 +1344,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output [15:0] o;
+      output o;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       assign o = 16'b xxxxxxxx11001101;
@@ -1471,9 +1462,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:             16
+   Number of wire bits:              1
    Number of public wires:           1
-   Number of public wire bits:      16
+   Number of public wire bits:       1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1495,9 +1486,9 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.1-15.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33" *)
-  output [15:0] o;
-  wire [15:0] o;
-  assign o = 16'hxxcd;
+  output o;
+  wire o;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.

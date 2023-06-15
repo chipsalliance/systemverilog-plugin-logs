@@ -908,9 +908,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a' of type 'struct_net'
       Object '' of type 'struct_typespec'
         Object 'b' of type 'typespec_member'
@@ -945,10 +942,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.1-12.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.25-1.30> basic_prep range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.31-1.32> str='\o' output logic port=1 range=[0:0]
       AST_STRUCT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:4.6-4.7> str='\a' basic_prep
         AST_STRUCT_ITEM <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:3.20-3.21> str='b' logic basic_prep range=[16:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:6.11-6.21>
@@ -1011,7 +1005,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [7:0] o;
+      output o;
       (* wiretype = "\a" *)
       wire [16:0] [16:0] a;
       /** AST_STRUCT **/
@@ -1023,10 +1017,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.1-12.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.25-1.30> basic_prep range=[7:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_STRUCT <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:4.6-4.7> str='\a' basic_prep
         AST_STRUCT_ITEM <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:3.20-3.21> str='b' logic basic_prep range=[16:0]
       AST_ASSIGN <UHDM-integration-tests/tests/PartSelectOfMember/top.sv:6.11-6.21> basic_prep
@@ -1065,7 +1056,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output [7:0] o;
+      output o;
       (* wiretype = "\a" *)
       wire [16:0] [16:0] a;
       /** AST_STRUCT **/
@@ -1128,13 +1119,7 @@ Finding unused cells or wires in module \top..
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o [6] is used but has no driver.
-Warning: Wire top.\o [5] is used but has no driver.
-Warning: Wire top.\o [4] is used but has no driver.
-Warning: Wire top.\o [3] is used but has no driver.
-Warning: Wire top.\o [2] is used but has no driver.
-Warning: Wire top.\o [1] is used but has no driver.
-Found and reported 6 problems.
+Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -1193,9 +1178,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             25
+   Number of wire bits:             18
    Number of public wires:           2
-   Number of public wire bits:      25
+   Number of public wire bits:      18
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1203,13 +1188,7 @@ Finding unused cells or wires in module \top..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o [6] is used but has no driver.
-Warning: Wire top.\o [5] is used but has no driver.
-Warning: Wire top.\o [4] is used but has no driver.
-Warning: Wire top.\o [3] is used but has no driver.
-Warning: Wire top.\o [2] is used but has no driver.
-Warning: Wire top.\o [1] is used but has no driver.
-Found and reported 6 problems.
+Found and reported 0 problems.
 
 3. Executing Verilog backend.
 
@@ -1223,14 +1202,14 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.1-12.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/PartSelectOfMember/top.sv:0.0-0.0" *)
-  (* unused_bits = "9 10 11 12 13 14 15 16" *)
+  (* unused_bits = "1 2 3 4 5 6 9 10 11 12 13 14 15 16" *)
   (* wiretype = "\\a" *)
   wire [16:0] a;
   (* src = "UHDM-integration-tests/tests/PartSelectOfMember/top.sv:1.31-1.32" *)
-  output [7:0] o;
-  wire [7:0] o;
-  assign a[8:0] = { 2'h3, o[6:1], 1'h1 };
-  assign { o[7], o[0] } = 2'h3;
+  output o;
+  wire o;
+  assign { a[8:7], a[0] } = 3'h7;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.
@@ -1283,7 +1262,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 6 unique messages, 12 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

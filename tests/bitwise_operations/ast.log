@@ -2873,9 +2873,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'out_1' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object 'out_2' of type 'logic_net'
@@ -3026,10 +3023,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.11-3.16> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17> str='\out_1' output logic port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24> str='\out_2' output logic port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31> str='\out_3' output logic port=4 range=[0:0]
@@ -3193,7 +3187,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, out_10, out_11, out_12, out_13, out_14, out_15, out_16, out_17, out_18);
-      input [3:0] in;
+      input in;
       output out_1;
       output out_2;
       output out_3;
@@ -3234,10 +3228,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.11-3.16> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17> str='\out_1' output logic basic_prep port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24> str='\out_2' output logic basic_prep port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31> str='\out_3' output logic basic_prep port=4 range=[0:0]
@@ -3401,7 +3392,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, out_10, out_11, out_12, out_13, out_14, out_15, out_16, out_17, out_18);
-      input [3:0] in;
+      input in;
       output out_1;
       output out_2;
       output out_3;
@@ -3440,6 +3431,17 @@ Dumping Verilog AST after simplification:
       assign out_18 = (in[0:1])||(in[2:3]);
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/bitwise_operations/top.sv:7: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:8: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:9: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:10: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:11: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:12: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:13: Warning: Range select out of bounds on signal `\in': Setting result bit to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:23: Warning: Range [1:0] select out of bounds on signal `\in': Setting 1 MSB bits to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:23: Warning: Range select [3:2] out of bounds on signal `\in': Setting all 2 result bits to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:24: Warning: Range [1:0] select out of bounds on signal `\in': Setting 1 MSB bits to undef.
+UHDM-integration-tests/tests/bitwise_operations/top.sv:24: Warning: Range select [3:2] out of bounds on signal `\in': Setting all 2 result bits to undef.
 
 2. Executing PREP pass.
 
@@ -3580,9 +3582,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                 19
-   Number of wire bits:             22
+   Number of wire bits:             19
    Number of public wires:          19
-   Number of public wire bits:      22
+   Number of public wire bits:      19
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -3612,8 +3614,8 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10" *)
 module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, out_10, out_11, out_12, out_13, out_14, out_15, out_16, out_17, out_18);
   (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19" *)
-  input [3:0] in;
-  wire [3:0] in;
+  input in;
+  wire in;
   (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17" *)
   output out_1;
   wire out_1;
@@ -3668,24 +3670,24 @@ module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, ou
   (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73" *)
   output out_9;
   wire out_9;
-  assign out_1 = in[0] & (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34" *) in[1];
-  assign out_17 = in[1:0] && (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41" *) in[3:2];
-  assign out_12 = ! (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) in[0];
-  assign out_18 = in[1:0] || (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41" *) in[3:2];
+  assign out_1 = in & (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34" *) 1'hx;
+  assign out_17 = { 1'hx, in } && (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41" *) 2'hx;
+  assign out_12 = ! (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) in;
+  assign out_18 = { 1'hx, in } || (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41" *) 2'hx;
   assign out_3 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) out_1;
   assign out_4 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) out_2;
-  assign out_8 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27" *) in[0];
-  assign out_2 = in[0] | (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35" *) in[1];
-  assign out_6 = in[0] ~^ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35" *) in[1];
-  assign out_5 = in[0] ^ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34" *) in[1];
-  assign out_10 = in[0];
-  assign out_11 = in[0];
+  assign out_8 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27" *) in;
+  assign out_2 = in | (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35" *) 1'hx;
+  assign out_6 = in ~^ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35" *) 1'hx;
+  assign out_5 = in ^ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34" *) 1'hx;
+  assign out_10 = in;
+  assign out_11 = in;
   assign out_13 = out_12;
-  assign out_14 = in[0];
+  assign out_14 = in;
   assign out_15 = out_8;
   assign out_16 = out_8;
   assign out_7 = out_6;
-  assign out_9 = in[0];
+  assign out_9 = in;
 endmodule
 
 4. Executing Verilog backend.
@@ -3738,6 +3740,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 3 unique messages, 11 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

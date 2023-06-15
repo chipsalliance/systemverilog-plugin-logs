@@ -725,9 +725,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'un' of type 'struct_net'
       Object '' of type 'union_typespec'
         Object 'field' of type 'typespec_member'
@@ -737,10 +734,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.1-10.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.25-1.30> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.31-1.32> str='\o' output logic port=1 range=[0:0]
       AST_UNION <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:4.6-4.8> str='\un' basic_prep
         AST_STRUCT_ITEM <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:3.17-3.22> str='field' logic basic_prep range=[3:0]
       AST_INITIAL <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:6.4-9.7>
@@ -766,7 +760,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [3:0] o;
+      output o;
       (* wiretype = "\un" *)
       wire [3:0] [3:0] un;
       /** AST_UNION **/
@@ -779,10 +773,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.1-10.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.31-1.32> str='\o' output logic reg basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.25-1.30> basic_prep range=[3:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.31-1.32> str='\o' output logic reg basic_prep port=1 range=[0:0]
       AST_UNION <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:4.6-4.8> str='\un' basic_prep
         AST_STRUCT_ITEM <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:3.17-3.22> str='field' logic basic_prep range=[3:0]
       AST_INITIAL <UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:6.4-9.7> basic_prep
@@ -808,7 +799,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output reg [3:0] o;
+      output reg o;
       (* wiretype = "\un" *)
       reg [3:0] [3:0] un;
       /** AST_UNION **/
@@ -937,9 +928,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:              8
+   Number of wire bits:              5
    Number of public wires:           2
-   Number of public wire bits:       8
+   Number of public wire bits:       5
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -961,12 +952,12 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.1-10.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:1.31-1.32" *)
-  output [3:0] o;
-  wire [3:0] o;
+  output o;
+  wire o;
   (* src = "UHDM-integration-tests/tests/AssignToUnionAndReadField/top.sv:0.0-0.0" *)
   (* wiretype = "\\un" *)
   wire [3:0] un;
-  assign o = 4'ha;
+  assign o = 1'h0;
   assign un = 4'ha;
 endmodule
 

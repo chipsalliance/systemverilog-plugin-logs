@@ -813,9 +813,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object 'iccm_bank_dout_hi' of type 'var_select'
@@ -852,10 +849,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.1-6.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 6 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic multirange=[ 0 6 0 2 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> range=[11:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
@@ -911,7 +905,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [5:0] o;
+      output o;
       wire [11:0] iccm_bank_dout_hi;
       wire [1:0] iccm_rw_addr_q;
       assign o = iccm_bank_dout_hi[((((iccm_rw_addr_q[0:0])*(6))+((0)*(1)))+((((5)+(1))*(1))-(1)))-((0)*(1)):((iccm_rw_addr_q[0:0])*(6))+((0)*(1))];
@@ -924,10 +918,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.1-6.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic reg basic_prep range=[11:0] multirange=[ 0 6 0 2 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep range=[11:0]
           AST_CONSTANT <UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11
@@ -971,7 +962,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output [5:0] o;
+      output o;
       reg [11:0] iccm_bank_dout_hi;
       reg [1:0] iccm_rw_addr_q;
       assign o = iccm_bank_dout_hi[((((iccm_rw_addr_q[0:0])*(6))+(0))+(5))-(0):((iccm_rw_addr_q[0:0])*(6))+(0)];
@@ -1101,9 +1092,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  3
-   Number of wire bits:             20
+   Number of wire bits:             15
    Number of public wires:           3
-   Number of public wire bits:      20
+   Number of public wire bits:      15
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1129,11 +1120,11 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:3.16-3.38" *)
   wire [1:0] iccm_rw_addr_q;
   (* src = "UHDM-integration-tests/tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32" *)
-  output [5:0] o;
-  wire [5:0] o;
+  output o;
+  wire o;
   assign iccm_bank_dout_hi = 12'habc;
   assign iccm_rw_addr_q = 2'h2;
-  assign o = 6'h3c;
+  assign o = 1'h0;
 endmodule
 
 4. Executing Verilog backend.

@@ -3714,17 +3714,11 @@ Object 'work@dut' of type 'design'
               Object '' of type 'range'
                 Object '' of type 'constant'
                 Object '' of type 'constant'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
           Object 'counter_val_o' of type 'logic_net'
             Object '' of type 'logic_typespec'
               Object '' of type 'range'
                 Object '' of type 'constant'
                 Object '' of type 'constant'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
           Object 'clk_i' of type 'port'
             Object '' of type 'logic_typespec'
           Object 'rst_ni' of type 'port'
@@ -3877,14 +3871,8 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:34.23-34.36> str='\counter_inc_i' input logic port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:35.23-35.36> str='\counterh_we_i' input logic port=4 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:36.23-36.35> str='\counter_we_i' input logic port=5 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:37.23-37.36> str='\counter_val_i' input logic port=6 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:37.16-37.22> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:38.23-38.36> str='\counter_val_o' output logic port=7 multirange=[ 0 64 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:38.16-38.22> basic_prep range=[63:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:37.23-37.36> str='\counter_val_i' input logic port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:38.23-38.36> str='\counter_val_o' output logic port=7 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:41.28-41.35> str='\counter' logic
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:41.9-41.15>
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
@@ -4078,8 +4066,8 @@ Dumping Verilog AST before simplification:
       input counter_inc_i;
       input counterh_we_i;
       input counter_we_i;
-      input [31:0] counter_val_i;
-      output [63:0] counter_val_o;
+      input counter_val_i;
+      output counter_val_o;
       wire [63:0] counter;
       wire [9:0] counter_upd;
       wire [63:0] counter_load;
@@ -4136,14 +4124,8 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:34.23-34.36> str='\counter_inc_i' input logic basic_prep port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:35.23-35.36> str='\counterh_we_i' input logic basic_prep port=4 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:36.23-36.35> str='\counter_we_i' input logic basic_prep port=5 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:37.23-37.36> str='\counter_val_i' input logic basic_prep port=6 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:37.16-37.22> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:38.23-38.36> str='\counter_val_o' output logic basic_prep port=7 range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:38.16-38.22> basic_prep range=[63:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:37.23-37.36> str='\counter_val_i' input logic basic_prep port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:38.23-38.36> str='\counter_val_o' output logic basic_prep port=7 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/genscope_cells/dut.sv:41.28-41.35> str='\counter' logic basic_prep range=[63:0]
         AST_RANGE <UHDM-integration-tests/tests/genscope_cells/dut.sv:41.9-41.15> basic_prep range=[63:0]
           AST_CONSTANT <UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
@@ -4320,8 +4302,8 @@ Dumping Verilog AST after simplification:
       input counter_inc_i;
       input counterh_we_i;
       input counter_we_i;
-      input [31:0] counter_val_i;
-      output [63:0] counter_val_o;
+      input counter_val_i;
+      output counter_val_o;
       wire [63:0] counter;
       reg [9:0] counter_upd;
       reg [63:0] counter_load;
@@ -4758,11 +4740,11 @@ module \$paramod\ibex_counter\CounterWidth=s32'00000000000000000000000000001010 
   (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:42.28-42.39" *)
   wire [9:0] counter_upd;
   (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:37.23-37.36" *)
-  input [31:0] counter_val_i;
-  wire [31:0] counter_val_i;
+  input counter_val_i;
+  wire counter_val_i;
   (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:38.23-38.36" *)
-  output [63:0] counter_val_o;
-  wire [63:0] counter_val_o;
+  output counter_val_o;
+  wire counter_val_o;
   (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:36.23-36.35" *)
   input counter_we_i;
   wire counter_we_i;
@@ -4786,10 +4768,10 @@ module \$paramod\ibex_counter\CounterWidth=s32'00000000000000000000000000001010 
     else counter_q <= _13_;
   assign _11_ = _12_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:63.5-69.8" *) 10'hxxx : _19_;
   assign _13_ = _14_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:63.5-69.8" *) _06_[9:0] : _07_;
-  assign _15_ = _16_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:54.5-57.8" *) counter_val_i : 32'd0;
-  assign _17_ = _18_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:54.5-57.8" *) { 22'h000000, counter_q } : counter_val_i;
+  assign _15_ = _16_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:54.5-57.8" *) { 31'h00000000, counter_val_i } : 32'd0;
+  assign _17_ = _18_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:54.5-57.8" *) { 22'h000000, counter_q } : { 31'h00000000, counter_val_i };
   assign _19_ = _20_ ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/genscope_cells/dut.sv:0.0-0.0|UHDM-integration-tests/tests/genscope_cells/dut.sv:65.14-69.8" *) _08_ : counter_q;
-  assign counter_val_o = counter;
+  assign counter_val_o = counter[0];
   assign counter[9:0] = counter_q;
   assign counter[63:10] = 54'h00000000000000;
   assign \g_counter_narrow.unused_counter_load  = counter_load[63:10];

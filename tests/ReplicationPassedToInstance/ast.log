@@ -1008,9 +1008,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'wmask_i' of type 'port'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -1107,10 +1104,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic port=1 multirange=[ 0 19 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.10-5.21> basic_prep range=[18:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18
-          AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:6.15-6.16> str='\x' output signed port=2 range=[0:0]
         AST_RANGE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -1122,7 +1116,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\dut\Width=s32'00000000000000000000000000010011 (wmask_i, x);
       /** AST_PARAMETER **/
-      input [18:0] wmask_i;
+      input wmask_i;
       output signed [31:0] x;
       assign x = wmask_i;
     endmodule
@@ -1134,10 +1128,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic basic_prep port=1 range=[18:0] multirange=[ 0 19 ] multirange_swapped=[ 0 ]
-        AST_RANGE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.10-5.21> basic_prep range=[18:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18
-          AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic basic_prep port=1 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:6.15-6.16> str='\x' output signed basic_prep port=2 range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1149,7 +1140,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\dut\Width=s32'00000000000000000000000000010011 (wmask_i, x);
       /** AST_PARAMETER **/
-      input [18:0] wmask_i;
+      input wmask_i;
       output signed [31:0] x;
       assign x = wmask_i;
     endmodule
@@ -1285,9 +1276,9 @@ Finding unused cells or wires in module \top..
 === $paramod\dut\Width=s32'00000000000000000000000000010011 ===
 
    Number of wires:                  2
-   Number of wire bits:             51
+   Number of wire bits:             33
    Number of public wires:           2
-   Number of public wire bits:      51
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1311,9 +1302,9 @@ Finding unused cells or wires in module \top..
      $paramod\dut\Width=s32'00000000000000000000000000010011      1
 
    Number of wires:                  3
-   Number of wire bits:             83
+   Number of wire bits:             65
    Number of public wires:           3
-   Number of public wire bits:      83
+   Number of public wire bits:      65
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1335,12 +1326,12 @@ Dumping module `$paramod\dut\Width=s32'00000000000000000000000000010011'.
 (* src = "UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:1.1-9.10" *)
 module \$paramod\dut\Width=s32'00000000000000000000000000010011 (wmask_i, x);
   (* src = "UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:5.22-5.29" *)
-  input [18:0] wmask_i;
-  wire [18:0] wmask_i;
+  input wmask_i;
+  wire wmask_i;
   (* src = "UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:6.15-6.16" *)
   output [31:0] x;
   wire [31:0] x;
-  assign x = { 13'h0000, wmask_i };
+  assign x = { 31'h00000000, wmask_i };
 endmodule
 Dumping module `\top'.
 
@@ -1353,7 +1344,7 @@ module top(o);
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/ReplicationPassedToInstance/top.sv:15.4-20.6" *)
   \$paramod\dut\Width=s32'00000000000000000000000000010011  u_dut (
-    .wmask_i(19'h7ffff),
+    .wmask_i(1'h1),
     .x(o)
   );
 endmodule
