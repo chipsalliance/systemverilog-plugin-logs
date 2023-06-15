@@ -824,26 +824,14 @@ Dumping AST before simplification:
               AST_BLOCK <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
                 AST_ASSIGN_EQ <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.13-11.45>
                   AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.13-11.14> str='\o'
-                  AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.17-11.45> str='\operation_i' basic_prep
-                    AST_RANGE <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                      AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                        AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                          AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+                  AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.17-11.45> str='\operation_i'
+                    AST_RANGE <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44>
+                      AST_SUB <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44>
+                        AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44>
                           AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_SUB <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                          AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                            AST_SUB <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                              AST_SUB <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44>
-                                AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44>
-                                  AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                                  AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
-                                AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-                              AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                            AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                          AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                      AST_ADD <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
-                        AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
-                        AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                          AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+                        AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_COND <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:12.10-12.26>
               AST_DEFAULT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
               AST_BLOCK <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0>
@@ -863,7 +851,7 @@ Dumping Verilog AST before simplification:
       always @*
         case (0)
           0:
-            o = operation_i[((32)+(0))+((((((0)+(32))-(1'b 1))-(0))+(1))-(1)):(32)+(0)];
+            o = operation_i[((0)+(32))-(1'b 1):0];
           default:
             o = 1'b 0;
         endcase
@@ -903,9 +891,9 @@ Dumping AST after simplification:
                 AST_ASSIGN_EQ <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.13-11.45> basic_prep
                   AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.13-11.14> str='\o' basic_prep
                   AST_IDENTIFIER <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.17-11.45> str='\operation_i' basic_prep
-                    AST_RANGE <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> basic_prep range=[63:32]
-                      AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) basic_prep range=[31:0] int=63
-                      AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
+                    AST_RANGE <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44> basic_prep range=[31:0]
+                      AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:11.29-11.44> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                      AST_CONSTANT <UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -919,7 +907,7 @@ Dumping Verilog AST after simplification:
       always @*
         case (0)
           0:
-            o = operation_i[63:32];
+            o = operation_i[31:0];
         endcase
     endmodule
 --- END OF AST DUMP ---
@@ -1073,7 +1061,7 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/IndexedPartSelectInUniqueCase/top.sv:7.27-7.38" *)
   (* wiretype = "\\mac_bignum_operation_t" *)
   wire [63:0] operation_i;
-  assign o = 32'd4294967295;
+  assign o = 32'd0;
   assign operation_i = 64'hffffffff00000000;
 endmodule
 
