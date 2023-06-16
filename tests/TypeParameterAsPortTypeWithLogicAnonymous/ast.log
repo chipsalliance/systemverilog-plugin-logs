@@ -1058,7 +1058,7 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
           AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21>
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
@@ -1066,7 +1066,7 @@ Dumping Verilog AST before simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
       input [1:0] a_in;
       output a;
-      assign a = \UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv [0];
+      assign a = a_in[0];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -1078,21 +1078,17 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=2 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_AUTOWIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
       input [1:0] a_in;
       output a;
-      /** AST_AUTOWIRE **/
-      assign a = \UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv [0:0];
+      assign a = a_in[0:0];
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7: Warning: Identifier `\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv' is implicitly declared.
-UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv': Setting result bit to undef.
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top'
@@ -1178,7 +1174,7 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
           AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21>
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
@@ -1186,7 +1182,7 @@ Dumping Verilog AST before simplification:
     module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
       input [3:0] a_in;
       output a;
-      assign a = \UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv [0];
+      assign a = a_in[0];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -1198,21 +1194,17 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_AUTOWIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
       input [3:0] a_in;
       output a;
-      /** AST_AUTOWIRE **/
-      assign a = \UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv [0:0];
+      assign a = a_in[0:0];
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7: Warning: Identifier `\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv' is implicitly declared.
-UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -1277,8 +1269,8 @@ Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
 Finding unused cells or wires in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
 Finding unused cells or wires in module \top..
 Finding unused cells or wires in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
-Removed 0 unused cells and 3 unused wires.
-<suppressed ~3 debug messages>
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module...
@@ -1521,7 +1513,7 @@ Optimizing module top.
 
 5.9. Finished OPT passes. (There is nothing left to do.)
 
-Warnings: 4 unique messages, 6 total
+Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

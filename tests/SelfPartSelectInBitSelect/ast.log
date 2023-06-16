@@ -668,7 +668,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.11-3.24>
         AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.11-3.12> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.15-3.24> str='\UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.15-3.24> str='\a'
           AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.15-3.24>
             AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.17-3.23> str='\a'
               AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.17-3.23>
@@ -684,7 +684,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       output o;
       wire [15:0] a;
-      assign o = \UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv [a[3:0]];
+      assign o = a[a[3:0]];
       initial
         a = 16'b 1010101111001101;
     endmodule
@@ -698,7 +698,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.11-3.24> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.11-3.12> str='\o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.15-3.24> str='\UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.15-3.24> str='\a' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.15-3.24> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.17-3.23> str='\a' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3.17-3.23> basic_prep range=[3:0]
@@ -709,19 +709,16 @@ Dumping AST after simplification:
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> str='\a' basic_prep
             AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='1010101111001101'(16) basic_prep range=[15:0] int=43981
-      AST_AUTOWIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output o;
       reg [15:0] a;
-      /** AST_AUTOWIRE **/
-      assign o = \UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv [a[3:0]];
+      assign o = a[a[3:0]];
       initial
         a = 16'b 1010101111001101;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:3: Warning: Identifier `\UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -776,8 +773,8 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 3 unused wires.
-<suppressed ~2 debug messages>
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -869,7 +866,7 @@ module top(o);
   output o;
   wire o;
   assign a = 16'habcd;
-  assign o = 1'hx;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.
@@ -922,7 +919,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

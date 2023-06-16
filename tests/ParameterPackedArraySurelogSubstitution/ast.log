@@ -931,15 +931,24 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.12> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> str='\UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv'
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19>
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> str='\P' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0>
+            AST_SUB <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+              AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+            AST_MUL <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0>
+              AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a);
       /** AST_PARAMETER **/
       output [3:0] a;
-      assign a = \UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv [0];
+      assign a = P[(((0)+(1))*(4))-(1):(0)*(4)];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -955,21 +964,15 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.12> str='\a' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> str='\UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_AUTOWIRE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> bits='0001'(4) basic_prep range=[3:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
       /** AST_PARAMETER **/
       output [3:0] a;
-      /** AST_AUTOWIRE **/
-      assign a = \UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv [0:0];
+      assign a = 4'b 0001;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6: Warning: Identifier `\UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv' is implicitly declared.
-UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -1020,8 +1023,6 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -1110,7 +1111,7 @@ module top(a);
   (* src = "UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.30-3.31" *)
   output [3:0] a;
   wire [3:0] a;
-  assign a = 4'b000x;
+  assign a = 4'h1;
 endmodule
 
 4. Executing Verilog backend.
@@ -1163,7 +1164,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

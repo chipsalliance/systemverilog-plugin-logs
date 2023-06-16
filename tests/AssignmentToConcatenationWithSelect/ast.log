@@ -662,7 +662,7 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.7-4.30>
             AST_CONCAT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.8-4.14>
-              AST_IDENTIFIER <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.16-4.20> str='\UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv'
+              AST_IDENTIFIER <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.16-4.20> str='\o'
                 AST_RANGE <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.16-4.20>
                   AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
               AST_IDENTIFIER <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.8-4.14> str='\o'
@@ -677,7 +677,7 @@ Dumping Verilog AST before simplification:
       initial
         begin
           o = 0;
-          {o[1:0], \UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv [2]} = 3'b 111;
+          {o[1:0], o[2]} = 3'b 111;
         end
     endmodule
 --- END OF AST DUMP ---
@@ -695,7 +695,7 @@ Dumping AST after simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.7-4.30> basic_prep
             AST_CONCAT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.8-4.14> basic_prep
-              AST_IDENTIFIER <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.16-4.20> str='\UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv' basic_prep
+              AST_IDENTIFIER <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.16-4.20> str='\o' basic_prep
                 AST_RANGE <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.16-4.20> basic_prep range=[2:2]
                   AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
               AST_IDENTIFIER <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4.8-4.14> str='\o' basic_prep
@@ -703,22 +703,17 @@ Dumping AST after simplification:
                   AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
                   AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> bits='111'(3) basic_prep range=[2:0] int=7
-      AST_AUTOWIRE <UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output signed [31:0] o;
-      /** AST_AUTOWIRE **/
       initial
         begin
           o = 0;
-          {o[1:0], \UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv [2:2]} = 3'b 111;
+          {o[1:0], o[2:2]} = 3'b 111;
         end
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4: Warning: Identifier `\UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv' is implicitly declared.
-UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv': Setting result bit to undef.
-UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:4: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -772,8 +767,8 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 2 unused wires.
-<suppressed ~2 debug messages>
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -862,7 +857,7 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/AssignmentToConcatenationWithSelect/top.sv:1.23-1.24" *)
   output [31:0] o;
   wire [31:0] o;
-  assign o = 32'd3;
+  assign o = 32'd7;
 endmodule
 
 4. Executing Verilog backend.
@@ -915,7 +910,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 3 unique messages, 4 total
+Warnings: 1 unique messages, 1 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

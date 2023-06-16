@@ -739,7 +739,7 @@ Dumping AST before simplification:
         AST_BLOCK <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:9.16-11.7> str='\always_block'
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.7-10.23>
             AST_IDENTIFIER <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.7-10.8> str='\o'
-            AST_PREFIX <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.11-10.23> str='\UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv'
+            AST_PREFIX <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.11-10.23> str='\gen_blk'
               AST_CONSTANT <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_IDENTIFIER <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.22-10.23> str='\z'
 --- END OF AST DUMP ---
@@ -762,7 +762,7 @@ Dumping AST after simplification:
         AST_BLOCK <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:9.16-11.7> basic_prep
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.7-10.23> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.7-10.8> str='\o' basic_prep
-            AST_IDENTIFIER <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.11-10.23> str='\UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv[0].z' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.11-10.23> str='\gen_blk[0].z' basic_prep
       AST_LOCALPARAM <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:4.0-4.0> str='\gen_blk[0].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:4.0-4.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:0.0-0.0> basic_prep range=[31:0]
@@ -775,22 +775,19 @@ Dumping AST after simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:5.21-5.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:0.0-0.0> str='\gen_blk[0].z' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_AUTOWIRE <UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv[0].z' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_LOCALPARAM **/
       output reg o;
       wire [0:0] \gen_blk[0].z ;
-      /** AST_AUTOWIRE **/
       /** AST_GENBLOCK **/
       (* always_comb = 1 *)
       always @*
-        o = \UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv[0].z ;
+        o = \gen_blk[0].z ;
       assign \gen_blk[0].z  = 1'b 1;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10: Warning: Identifier `\UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv[0].z' is implicitly declared.
 
 2. Executing PREP pass.
 
@@ -849,8 +846,7 @@ Removed 0 unused cells and 1 unused wires.
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o is used but has no driver.
-Found and reported 1 problems.
+Found and reported 0 problems.
 
 2.6. Executing OPT pass (performing simple optimizations).
 
@@ -908,10 +904,10 @@ Finding unused cells or wires in module \top..
 
 === top ===
 
-   Number of wires:                  3
-   Number of wire bits:              3
-   Number of public wires:           3
-   Number of public wire bits:       3
+   Number of wires:                  2
+   Number of wire bits:              2
+   Number of public wires:           2
+   Number of public wire bits:       2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -919,8 +915,7 @@ Finding unused cells or wires in module \top..
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
-Warning: Wire top.\o is used but has no driver.
-Found and reported 1 problems.
+Found and reported 0 problems.
 
 3. Executing Verilog backend.
 
@@ -933,15 +928,13 @@ Dumping module `\top'.
 (* top =  1  *)
 (* src = "UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:1.1-12.10" *)
 module top(o);
-  (* src = "UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:10.11-10.23" *)
-  wire \UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv[0].z ;
   (* src = "UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:5.21-5.22" *)
   wire \gen_blk[0].z ;
   (* src = "UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv:1.25-1.26" *)
   output o;
   wire o;
-  assign \UHDM-integration-tests/tests/AssignGeneratedWireInAlways/top.sv[0].z  = o;
   assign \gen_blk[0].z  = 1'h1;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.
@@ -994,7 +987,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 2 unique messages, 3 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

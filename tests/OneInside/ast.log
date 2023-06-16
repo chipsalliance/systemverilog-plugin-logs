@@ -1140,7 +1140,7 @@ Dumping AST before simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/OneInside/dut.v:8.9-11.12>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.9-8.10> str='\b'
         AST_BIT_AND <UHDM-integration-tests/tests/OneInside/dut.v:8.13-11.12>
-          AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.13-8.17> str='\UHDM-integration-tests/tests/OneInside/dut.v'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.13-8.17> str='\a'
             AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:8.13-8.17>
               AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
           AST_LOGIC_OR <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5>
@@ -1162,7 +1162,7 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       input [2:0] a;
       output b;
-      assign b = (\UHDM-integration-tests/tests/OneInside/dut.v [2])&((((a)==(OP_1))||((a)==(OP_2)))||((a)==(OP_3)));
+      assign b = (a[2])&((((a)==(OP_1))||((a)==(OP_2)))||((a)==(OP_3)));
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -1190,7 +1190,7 @@ Dumping AST after simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/OneInside/dut.v:8.9-11.12> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.9-8.10> str='\b' basic_prep
         AST_BIT_AND <UHDM-integration-tests/tests/OneInside/dut.v:8.13-11.12> basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.13-8.17> str='\UHDM-integration-tests/tests/OneInside/dut.v' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:8.13-8.17> str='\a' basic_prep
             AST_RANGE <UHDM-integration-tests/tests/OneInside/dut.v:8.13-8.17> basic_prep range=[2:2]
               AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
           AST_LOGIC_OR <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> basic_prep
@@ -1204,7 +1204,6 @@ Dumping AST after simplification:
             AST_EQ <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> basic_prep
               AST_IDENTIFIER <UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5> str='\a' basic_prep
               AST_CONSTANT <UHDM-integration-tests/tests/OneInside/dut.v:11.6-11.10> bits='110'(3) basic_prep range=[2:0] int=6
-      AST_AUTOWIRE <UHDM-integration-tests/tests/OneInside/dut.v:0.0-0.0> str='\UHDM-integration-tests/tests/OneInside/dut.v' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);
@@ -1213,12 +1212,9 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       input [2:0] a;
       output b;
-      /** AST_AUTOWIRE **/
-      assign b = (\UHDM-integration-tests/tests/OneInside/dut.v [2:2])&((((a)==(3'b 100))||((a)==(3'b 101)))||((a)==(3'b 110)));
+      assign b = (a[2:2])&((((a)==(3'b 100))||((a)==(3'b 101)))||((a)==(3'b 110)));
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/OneInside/dut.v:8: Warning: Identifier `\UHDM-integration-tests/tests/OneInside/dut.v' is implicitly declared.
-UHDM-integration-tests/tests/OneInside/dut.v:8: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/OneInside/dut.v': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -1269,8 +1265,8 @@ Optimizing module dut.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
-Removed 0 unused cells and 2 unused wires.
-<suppressed ~2 debug messages>
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
@@ -1375,7 +1371,7 @@ module dut(a, b);
   (* src = "UHDM-integration-tests/tests/OneInside/dut.v:1.16-1.17" *)
   output b;
   wire b;
-  assign b = 1'hx & (* src = "UHDM-integration-tests/tests/OneInside/dut.v:8.13-11.12" *) _04_;
+  assign b = a[2] & (* src = "UHDM-integration-tests/tests/OneInside/dut.v:8.13-11.12" *) _04_;
   assign _00_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h4;
   assign _01_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h5;
   assign _02_ = a == (* src = "UHDM-integration-tests/tests/OneInside/dut.v:9.4-9.5" *) 3'h6;
@@ -1390,7 +1386,6 @@ endmodule
 4.2. Executing DEMUXMAP pass.
 Dumping module `\dut'.
 
-Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

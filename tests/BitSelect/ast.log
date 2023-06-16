@@ -658,7 +658,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/BitSelect/top.sv:3.11-3.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:3.11-3.12> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:3.15-3.19> str='\UHDM-integration-tests/tests/BitSelect/top.sv'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:3.15-3.19> str='\x'
           AST_RANGE <UHDM-integration-tests/tests/BitSelect/top.sv:3.15-3.19>
             AST_CONSTANT <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_INITIAL <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0>
@@ -673,7 +673,7 @@ Dumping Verilog AST before simplification:
     module top(a);
       output a;
       wire [1:0] x;
-      assign a = \UHDM-integration-tests/tests/BitSelect/top.sv [0];
+      assign a = x[0];
       initial
         x = {1'b 0, 1'b 1};
     endmodule
@@ -687,7 +687,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/BitSelect/top.sv:3.11-3.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:3.11-3.12> str='\a' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:3.15-3.19> str='\UHDM-integration-tests/tests/BitSelect/top.sv' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:3.15-3.19> str='\x' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/BitSelect/top.sv:3.15-3.19> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_INITIAL <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> basic_prep
@@ -695,20 +695,16 @@ Dumping AST after simplification:
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> str='\x' basic_prep
             AST_CONSTANT <UHDM-integration-tests/tests/BitSelect/top.sv:2.20-2.27> bits='01'(2) basic_prep range=[1:0] int=1
-      AST_AUTOWIRE <UHDM-integration-tests/tests/BitSelect/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/BitSelect/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
       output a;
       reg [1:0] x;
-      /** AST_AUTOWIRE **/
-      assign a = \UHDM-integration-tests/tests/BitSelect/top.sv [0:0];
+      assign a = x[0:0];
       initial
         x = 2'b 01;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/BitSelect/top.sv:3: Warning: Identifier `\UHDM-integration-tests/tests/BitSelect/top.sv' is implicitly declared.
-UHDM-integration-tests/tests/BitSelect/top.sv:3: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/BitSelect/top.sv': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -762,8 +758,8 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 2 unused wires.
-<suppressed ~2 debug messages>
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -854,7 +850,7 @@ module top(a);
   wire a;
   (* src = "UHDM-integration-tests/tests/BitSelect/top.sv:2.10-2.17" *)
   wire [1:0] x;
-  assign a = 1'hx;
+  assign a = 1'h1;
   assign x = 2'h1;
 endmodule
 
@@ -908,7 +904,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

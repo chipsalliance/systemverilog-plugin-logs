@@ -698,7 +698,7 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.24>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.12> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> str='\UHDM-integration-tests/tests/ParameterColonReference/top.sv'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> str='\pkg::A'
           AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24>
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
@@ -711,7 +711,7 @@ Dumping Verilog AST before simplification:
     module top(a);
       /** AST_PARAMETER **/
       output a;
-      assign a = \UHDM-integration-tests/tests/ParameterColonReference/top.sv [0];
+      assign a = \pkg::A [0];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -719,26 +719,20 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.24> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> str='\UHDM-integration-tests/tests/ParameterColonReference/top.sv' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> bits='1'(1) basic_prep range=[0:0] int=1
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15
         AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:2.20-2.25> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_AUTOWIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/ParameterColonReference/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
       /** AST_PARAMETER **/
       output a;
-      /** AST_AUTOWIRE **/
-      assign a = \UHDM-integration-tests/tests/ParameterColonReference/top.sv [0:0];
+      assign a = 1'b 1;
     endmodule
 --- END OF AST DUMP ---
-UHDM-integration-tests/tests/ParameterColonReference/top.sv:6: Warning: Identifier `\UHDM-integration-tests/tests/ParameterColonReference/top.sv' is implicitly declared.
-UHDM-integration-tests/tests/ParameterColonReference/top.sv:6: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/ParameterColonReference/top.sv': Setting result bit to undef.
 
 2. Executing HIERARCHY pass (managing design hierarchy).
 
@@ -802,37 +796,11 @@ Removed a total of 0 cells.
 
 4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
 
 4.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-4.9. Rerunning OPT passes. (Maybe there is more to do..)
-
-4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module \top..
-  Creating internal representation of mux trees.
-  No muxes found in this module.
-Removed 0 multiplexer ports.
-
-4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module \top.
-Performed a total of 0 changes.
-
-4.12. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `\top'.
-Removed a total of 0 cells.
-
-4.13. Executing OPT_DFF pass (perform DFF optimizations).
-
-4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \top..
-
-4.15. Executing OPT_EXPR pass (perform const folding).
-Optimizing module top.
-
-4.16. Finished OPT passes. (There is nothing left to do.)
+4.9. Finished OPT passes. (There is nothing left to do.)
 
 5. Executing SAT pass (solving SAT problems in the circuit).
 
@@ -874,7 +842,6 @@ Induction step proven: SUCCESS!
                  \____ $$$|__/|________/|__/|_______/|__/
                        \__/                              
 
-Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
