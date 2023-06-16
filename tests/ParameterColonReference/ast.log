@@ -698,7 +698,7 @@ Dumping AST before simplification:
       AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.24>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.12> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> str='\UHDM-integration-tests/tests/ParameterColonReference/top.sv'
           AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24>
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
@@ -711,7 +711,7 @@ Dumping Verilog AST before simplification:
     module top(a);
       /** AST_PARAMETER **/
       output a;
-      assign a = [0];
+      assign a = \UHDM-integration-tests/tests/ParameterColonReference/top.sv [0];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -719,7 +719,7 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.24> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> str='\UHDM-integration-tests/tests/ParameterColonReference/top.sv' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.15-6.24> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
@@ -727,12 +727,154 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:2.20-2.25> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_AUTOWIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep
+      AST_AUTOWIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/ParameterColonReference/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
       /** AST_PARAMETER **/
       output a;
       /** AST_AUTOWIRE **/
-      assign a = [0:0];
+      assign a = \UHDM-integration-tests/tests/ParameterColonReference/top.sv [0:0];
     endmodule
+--- END OF AST DUMP ---
+UHDM-integration-tests/tests/ParameterColonReference/top.sv:6: Warning: Identifier `\UHDM-integration-tests/tests/ParameterColonReference/top.sv' is implicitly declared.
+UHDM-integration-tests/tests/ParameterColonReference/top.sv:6: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/ParameterColonReference/top.sv': Setting result bit to undef.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+
+** Trying induction with length 1 **
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+Import show expression: \a
+
+[base case 1] Solving problem with 2 variables and 4 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+Import show expression: \a
+
+[induction step 1] Solving problem with 2 variables and 5 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+Warnings: 2 unique messages, 2 total
+
+Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
+

@@ -777,18 +777,9 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-            AST_SUB <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-              AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-                AST_ADD <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-                  AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
-              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-            AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\UHDM-integration-tests/tests/StructPackedArray/top.sv'
+          AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19>
+            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_INITIAL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
         AST_BLOCK <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
@@ -803,7 +794,7 @@ Dumping Verilog AST before simplification:
       (* wiretype = "\filter_ctl_t" *)
       wire [19:0] a;
       /** AST_TYPEDEF **/
-      assign o = a[(((1)+(1))*(10))-(1):(1)*(10)];
+      assign o = \UHDM-integration-tests/tests/StructPackedArray/top.sv [1];
       initial
         a = {10'b 0000001111, 10'b 0000000000};
     endmodule
@@ -825,27 +816,30 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep range=[19:10]
-            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) basic_prep range=[31:0] int=19
-            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\UHDM-integration-tests/tests/StructPackedArray/top.sv' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> basic_prep range=[1:1]
+            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
       AST_INITIAL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
             AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\a' basic_prep
             AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:6.27-6.43> bits='00000011110000000000'(20) basic_prep range=[19:0] int=15360
+      AST_AUTOWIRE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/StructPackedArray/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output [9:0] o;
       (* wiretype = "\filter_ctl_t" *)
       reg [19:0] a;
+      /** AST_AUTOWIRE **/
       /** AST_TYPEDEF **/
-      assign o = a[19:10];
+      assign o = \UHDM-integration-tests/tests/StructPackedArray/top.sv [1:1];
       initial
         a = 20'b 00000011110000000000;
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/StructPackedArray/top.sv:7: Warning: Identifier `\UHDM-integration-tests/tests/StructPackedArray/top.sv' is implicitly declared.
+UHDM-integration-tests/tests/StructPackedArray/top.sv:7: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/StructPackedArray/top.sv': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -899,8 +893,8 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -993,7 +987,7 @@ module top(o);
   output [9:0] o;
   wire [9:0] o;
   assign a = 20'h03c00;
-  assign o = 10'h00f;
+  assign o = 10'b000000000x;
 endmodule
 
 4. Executing Verilog backend.
@@ -1046,6 +1040,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 2 unique messages, 2 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

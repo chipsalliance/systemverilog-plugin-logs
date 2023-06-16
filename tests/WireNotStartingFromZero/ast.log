@@ -822,17 +822,17 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.27>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.20> str='\index_o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.20> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv'
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.20>
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.23-5.27> str='\i'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.23-5.27> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv'
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.23-5.27>
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_ASSIGN <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.27>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.20> str='\index_o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.20> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv'
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.20>
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.23-6.27> str='\i'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.23-6.27> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv'
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.23-6.27>
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
@@ -840,8 +840,8 @@ Dumping Verilog AST before simplification:
     module top(index_o, i);
       output [1:2] index_o;
       input [31:0] i;
-      assign index_o[1] = i[1];
-      assign index_o[2] = i[0];
+      assign \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [1] = \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [1];
+      assign \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [2] = \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [0];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -855,28 +855,41 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.27> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.20> str='\index_o' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.20> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.10-5.20> basic_prep range=[1:1]
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.23-5.27> str='\i' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.23-5.27> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5.23-5.27> basic_prep range=[1:1]
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
       AST_ASSIGN <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.27> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.20> str='\index_o' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.20> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.10-6.20> basic_prep range=[2:2]
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.23-6.27> str='\i' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.23-6.27> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6.23-6.27> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_AUTOWIRE <UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(index_o, i);
       output [1:2] index_o;
       input [31:0] i;
-      assign index_o[1:1] = i[1:1];
-      assign index_o[2:2] = i[0:0];
+      /** AST_AUTOWIRE **/
+      assign \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [1:1] = \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [1:1];
+      assign \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [2:2] = \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv [0:0];
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5: Warning: Identifier `\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv' is implicitly declared.
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:5: Warning: Ignoring assignment to constant bits:
+    old assignment: 1'x = 1'x
+    new assignment: { } = { }.
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv:6: Warning: Ignoring assignment to constant bits:
+    old assignment: 1'x = 1'x
+    new assignment: { } = { }.
 
 2. Executing Verilog backend.
 
@@ -887,14 +900,14 @@ Dumping Verilog AST after simplification:
 Dumping module `\top'.
 
 module top(i, index_o);
+  wire \UHDM-integration-tests/tests/WireNotStartingFromZero/top.sv ;
   input [31:0] i;
   wire [31:0] i;
   output [1:2] index_o;
   wire [1:2] index_o;
-  assign index_o[1] = i[1];
-  assign index_o[2] = i[0];
 endmodule
 
+Warnings: 3 unique messages, 7 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 

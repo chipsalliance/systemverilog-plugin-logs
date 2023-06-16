@@ -1173,22 +1173,22 @@ Dumping AST before simplification:
                     AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                 AST_BLOCK <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.47-14.10> str='$loop0'
                   AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.38>
-                    AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> str='\register'
+                    AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv'
                       AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22>
                         AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.20-13.21> str='\i'
-                    AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> str='\register'
+                    AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv'
                       AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38>
                         AST_SUB <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.34-13.37>
                           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.34-13.35> str='\i'
                           AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.27>
-              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.18> str='\register'
+              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.18> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv'
                 AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.18>
                   AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.21-15.27> str='\wire_i'
             AST_ASSIGN_LE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.7-16.38>
               AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.7-16.17> str='\register_o'
-              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.21-16.38> str='\register'
+              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.21-16.38> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv'
                 AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.21-16.38>
                   AST_SUB <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.30-16.37>
                     AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.30-16.35> str='\SHIFT'
@@ -1210,11 +1210,14 @@ Dumping Verilog AST before simplification:
             wire signed [31:0] i;
             /** AST_FOR **/
           end
-          register[0] = wire_i;
-          register_o <= register[(SHIFT)-(1)];
+          \UHDM-integration-tests/tests/MultipleAssignments/top.sv [0] = wire_i;
+          register_o <= \UHDM-integration-tests/tests/MultipleAssignments/top.sv [(SHIFT)-(1)];
         end
     endmodule
 --- END OF AST DUMP ---
+Warning: wire '\UHDM-integration-tests/tests/MultipleAssignments/top.sv' is assigned in a block at UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.38.
+Warning: wire '\UHDM-integration-tests/tests/MultipleAssignments/top.sv' is assigned in a block at UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.38.
+Warning: wire '\UHDM-integration-tests/tests/MultipleAssignments/top.sv' is assigned in a block at UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.27.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:1.1-21.10> str='\top' basic_prep
       AST_LOCALPARAM <UHDM-integration-tests/tests/MultipleAssignments/top.sv:8.18-8.27> str='\SHIFT' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -1226,7 +1229,7 @@ Dumping AST after simplification:
       AST_WIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:3.17-3.23> str='\wire_i' input logic basic_prep port=2 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:4.18-4.24> str='\wire_o' output logic basic_prep port=3 range=[0:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:5.18-5.28> str='\register_o' output logic reg basic_prep port=4 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:9.21-9.29> str='\register' logic reg basic_prep range=[2:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:9.21-9.29> str='\register' logic basic_prep range=[2:0]
         AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:9.9-9.20> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1242,17 +1245,17 @@ Dumping AST after simplification:
           AST_BLOCK <UHDM-integration-tests/tests/MultipleAssignments/top.sv:11.28-17.6> basic_prep
             AST_BLOCK <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.7-12.10> basic_prep
               AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.38> basic_prep
-                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> str='\register' basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> basic_prep range=[2:2]
                     AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.20-13.21> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> str='\register' basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> basic_prep range=[1:1]
                     AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.34-13.37> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
               AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.38> basic_prep
-                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> str='\register' basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.11-13.22> basic_prep range=[1:1]
                     AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.20-13.21> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> str='\register' basic_prep
+                AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
                   AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.25-13.38> basic_prep range=[0:0]
                     AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:13.34-13.37> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
               AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.37-12.46> basic_prep
@@ -1260,13 +1263,13 @@ Dumping AST after simplification:
                 AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.41-12.46> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
               AST_FOR <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.7-12.10> str='$loop0' basic_prep
             AST_ASSIGN_EQ <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.27> basic_prep
-              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.18> str='\register' basic_prep
+              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.18> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
                 AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.7-15.18> basic_prep range=[0:0]
                   AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
               AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:15.21-15.27> str='\wire_i' basic_prep
             AST_ASSIGN_LE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.7-16.38> basic_prep
               AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.7-16.17> str='\register_o' basic_prep
-              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.21-16.38> str='\register' basic_prep
+              AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.21-16.38> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
                 AST_RANGE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.21-16.38> basic_prep range=[2:2]
                   AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:16.30-16.37> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
       AST_WIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.16-12.17> str='$fordecl_block0.i' logic reg signed basic_prep range=[31:0]
@@ -1277,6 +1280,7 @@ Dumping AST after simplification:
         AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.20-12.27> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
       AST_LOCALPARAM <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> str='$fordecl_block0.$loop0[1].i' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/MultipleAssignments/top.sv:12.41-12.46> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_AUTOWIRE <UHDM-integration-tests/tests/MultipleAssignments/top.sv:0.0-0.0> str='\UHDM-integration-tests/tests/MultipleAssignments/top.sv' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(clk, wire_i, wire_o, register_o);
@@ -1287,23 +1291,34 @@ Dumping Verilog AST after simplification:
       input wire_i;
       output wire_o;
       output reg register_o;
-      reg [2:0] register;
+      wire [2:0] register;
       reg signed [31:0] \$fordecl_block0.i ;
+      /** AST_AUTOWIRE **/
       assign wire_o = wire_i;
       (* always_ff = 1 *)
       always @(posedge clk)
         begin
           begin
-            register[2:2] = register[1:1];
-            register[1:1] = register[0:0];
+            \UHDM-integration-tests/tests/MultipleAssignments/top.sv [2:2] = \UHDM-integration-tests/tests/MultipleAssignments/top.sv [1:1];
+            \UHDM-integration-tests/tests/MultipleAssignments/top.sv [1:1] = \UHDM-integration-tests/tests/MultipleAssignments/top.sv [0:0];
             \$fordecl_block0.i  = 0;
             /** AST_FOR **/
           end
-          register[0:0] = wire_i;
-          register_o <= register[2:2];
+          \UHDM-integration-tests/tests/MultipleAssignments/top.sv [0:0] = wire_i;
+          register_o <= \UHDM-integration-tests/tests/MultipleAssignments/top.sv [2:2];
         end
     endmodule
 --- END OF AST DUMP ---
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Identifier `\UHDM-integration-tests/tests/MultipleAssignments/top.sv' is implicitly declared.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:15: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:13: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:15: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
+UHDM-integration-tests/tests/MultipleAssignments/top.sv:16: Warning: Range select out of bounds on signal `\UHDM-integration-tests/tests/MultipleAssignments/top.sv': Setting result bit to undef.
 
 2. Executing PREP pass.
 
@@ -1326,7 +1341,7 @@ Removed a total of 0 dead cases.
 
 2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 0 redundant assignments.
-Promoted 5 assignments to connections.
+Promoted 2 assignments to connections.
 
 2.2.4. Executing PROC_INIT pass (extract init attributes).
 
@@ -1343,10 +1358,8 @@ Creating decoders for process `\top.$proc$UHDM-integration-tests/tests/MultipleA
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 Creating register for signal `\top.\register_o' using process `\top.$proc$UHDM-integration-tests/tests/MultipleAssignments/top.sv:11$1'.
   created $dff cell `$procdff$3' with positive edge clock.
-Creating register for signal `\top.\register' using process `\top.$proc$UHDM-integration-tests/tests/MultipleAssignments/top.sv:11$1'.
-  created $dff cell `$procdff$4' with positive edge clock.
 Creating register for signal `\top.$fordecl_block0.i' using process `\top.$proc$UHDM-integration-tests/tests/MultipleAssignments/top.sv:11$1'.
-  created $dff cell `$procdff$5' with positive edge clock.
+  created $dff cell `$procdff$4' with positive edge clock.
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
@@ -1362,8 +1375,8 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 1 unused cells and 4 unused wires.
-<suppressed ~2 debug messages>
+Removed 1 unused cells and 5 unused wires.
+<suppressed ~4 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -1401,13 +1414,9 @@ Optimizing module top.
 2.6.8. Finished OPT passes. (There is nothing left to do.)
 
 2.7. Executing WREDUCE pass (reducing word size of cells).
-Removed top 1 bits (of 3) from FF cell top.$procdff$4 ($dff).
-Removed top 1 bits (of 3) from wire top.register.
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
 
 2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
 
@@ -1429,15 +1438,15 @@ Finding unused cells or wires in module \top..
 
 === top ===
 
-   Number of wires:                  5
-   Number of wire bits:              6
-   Number of public wires:           5
-   Number of public wire bits:       6
+   Number of wires:                  4
+   Number of wire bits:              4
+   Number of public wires:           4
+   Number of public wire bits:       4
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                  2
-     $dff                            2
+   Number of cells:                  1
+     $dff                            1
 
 2.12. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -1457,7 +1466,6 @@ module top(clk, wire_i, wire_o, register_o);
   (* src = "UHDM-integration-tests/tests/MultipleAssignments/top.sv:2.17-2.20" *)
   input clk;
   wire clk;
-  reg [1:0] register;
   (* src = "UHDM-integration-tests/tests/MultipleAssignments/top.sv:5.18-5.28" *)
   output register_o;
   reg register_o;
@@ -1470,11 +1478,7 @@ module top(clk, wire_i, wire_o, register_o);
   (* \always_ff  = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/MultipleAssignments/top.sv:11.3-17.6" *)
   always @(posedge clk)
-    register_o <= register[1];
-  (* \always_ff  = 32'd1 *)
-  (* src = "UHDM-integration-tests/tests/MultipleAssignments/top.sv:11.3-17.6" *)
-  always @(posedge clk)
-    register <= { register[0], wire_i };
+    register_o <= wire_i;
   assign wire_o = wire_i;
 endmodule
 
@@ -1528,6 +1532,7 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
+Warnings: 4 unique messages, 13 total
 
 Yosys 0.30+16 (git sha1 8b2a00102, gcc 11.3.0-1ubuntu1~22.04.1 -fPIC -Os)
 
