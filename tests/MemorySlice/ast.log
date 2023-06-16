@@ -1120,9 +1120,18 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:3.24-3.28> str='\sout' output logic port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic port=2 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.33-2.38> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:3.24-3.28> str='\sout' output logic port=3 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:3.18-3.23> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:4.13-4.24> str='\mem' logic multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -1199,9 +1208,9 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(ck, sin, sout);
       /** AST_PARAMETER **/
-      input ck;
-      input sin;
-      output sout;
+      input [0:0] ck;
+      input [3:0] sin;
+      output [3:0] sout;
       wire [31:0] mem;
       assign sout = mem[((((N)-(1))+(1))*(4))-(1):((N)-(1))*(4)];
       (* always_ff = 1 *)
@@ -1219,9 +1228,18 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:3.24-3.28> str='\sout' output logic basic_prep port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic basic_prep port=2 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.33-2.38> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:3.24-3.28> str='\sout' output logic basic_prep port=3 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:3.18-3.23> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:4.13-4.24> str='\mem' logic reg basic_prep range=[31:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1258,9 +1276,9 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(ck, sin, sout);
       /** AST_PARAMETER **/
-      input ck;
-      input sin;
-      output sout;
+      input [0:0] ck;
+      input [3:0] sin;
+      output [3:0] sout;
       reg [31:0] mem;
       assign sout = mem[31:28];
       (* always_ff = 1 *)
@@ -1290,19 +1308,19 @@ module top(ck, sin, sout);
   input ck;
   wire ck;
   reg [31:0] mem;
-  input sin;
-  wire sin;
-  output sout;
-  wire sout;
+  input [3:0] sin;
+  wire [3:0] sin;
+  output [3:0] sout;
+  wire [3:0] sout;
   always @* begin
     if (\$auto$verilog_backend.cc:2097:dump_module$2 ) begin end
     _0_[31:4] = mem[27:0];
-    _0_[3:0] = { 3'h0, sin };
+    _0_[3:0] = sin;
   end
   always @(posedge ck) begin
       mem <= _0_;
   end
-  assign sout = mem[28];
+  assign sout = mem[31:28];
 endmodule
 
 Warnings: 1 unique messages, 1 total

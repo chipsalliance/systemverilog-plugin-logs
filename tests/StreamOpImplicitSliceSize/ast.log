@@ -972,9 +972,18 @@ Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:2.1-13.10> str='\dut'
       AST_PARAMETER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:2.28-2.37> str='\PARAM' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.24-3.25> str='\i' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.46-3.47> str='\o' output logic port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:5.19-5.20> str='\t' logic range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.24-3.25> str='\i' input logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.18-3.23> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.46-3.47> str='\o' output logic port=2 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.40-3.45> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:5.19-5.20> str='\t' logic multirange=[ 0 8 0 4 ] multirange_swapped=[ 0 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_width' range=[0:0]
         AST_FCALL <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='\$bits'
           AST_CONCAT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.19-8.27>
@@ -1042,30 +1051,48 @@ Dumping AST before simplification:
                   AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:7.3-10.21> str='\genblk1'
         AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.27>
-          AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.16> str='\t'
-            AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.16>
-              AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.16> str='\t' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+              AST_SUB <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+                AST_MUL <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+                  AST_ADD <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+                    AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_MUL <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
           AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst'
       AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.10-12.18>
         AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.10-12.11> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.14-12.18> str='\t'
-          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.14-12.18>
-            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.14-12.18> str='\t' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+            AST_SUB <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+              AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+            AST_MUL <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0>
+              AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(i, o);
       /** AST_PARAMETER **/
       /** AST_LOCALPARAM **/
-      input i;
-      output o;
-      wire t;
+      input [7:0] i;
+      output [7:0] o;
+      wire [31:0] t;
       wire [0:(\$systemverilog_plugin$stream_op_0_width )-(1)] \$systemverilog_plugin$stream_op_0_src ;
       wire [(\$systemverilog_plugin$stream_op_0_width )-(1):0] \$systemverilog_plugin$stream_op_0_dst ;
       assign \$systemverilog_plugin$stream_op_0_src  = {i};
       /** AST_GENVAR **/
       /** AST_GENFOR **/
       /** AST_GENBLOCK **/
-      assign o = t[0];
+      assign o = t[(((0)+(1))*(8))-(1):(0)*(8)];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
@@ -1074,21 +1101,30 @@ Dumping AST after simplification:
         AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
       AST_PARAMETER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:2.28-2.37> str='\PARAM' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.24-3.25> str='\i' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.46-3.47> str='\o' output logic basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:5.19-5.20> str='\t' logic basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.24-3.25> str='\i' input logic basic_prep port=1 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.18-3.23> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.46-3.47> str='\o' output logic basic_prep port=2 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.40-3.45> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:5.19-5.20> str='\t' logic basic_prep range=[31:0] multirange=[ 0 8 0 4 ] multirange_swapped=[ 0 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_width' basic_prep range=[31:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8
         AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> signed basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep swapped_range=[7:0]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep swapped_range=[7:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[0:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep range=[7:0]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
           AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
@@ -1103,8 +1139,9 @@ Dumping AST after simplification:
       AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.10-12.18> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.10-12.11> str='\o' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.14-12.18> str='\t' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:12.14-12.18> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> basic_prep range=[7:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[0].$systemverilog_plugin$stream_op_0_counter' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
@@ -1116,10 +1153,88 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[0:0]
             AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[1].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[1:1]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[1:1]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[2].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[2:2]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[2:2]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[3].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[3:3]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[3:3]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[4].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[4:4]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[4:4]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[5].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[5:5]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[5:5]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[6].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[6:6]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[6:6]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+      AST_LOCALPARAM <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> str='$systemverilog_plugin$stream_op_0_loop_body[7].$systemverilog_plugin$stream_op_0_counter' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+      AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[7:7]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_src' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> basic_prep range=[7:7]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
       AST_ASSIGN <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.27> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.16> str='\t' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.12-8.16> basic_prep range=[0:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> basic_prep range=[7:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
+            AST_CONSTANT <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
         AST_IDENTIFIER <UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:8.23-8.26> str='$systemverilog_plugin$stream_op_0_dst' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -1128,18 +1243,32 @@ Dumping Verilog AST after simplification:
       /** AST_PARAMETER **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      input i;
-      output o;
-      wire t;
-      wire [0:0] \$systemverilog_plugin$stream_op_0_src ;
-      wire [0:0] \$systemverilog_plugin$stream_op_0_dst ;
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      input [7:0] i;
+      output [7:0] o;
+      wire [31:0] t;
+      wire [0:7] \$systemverilog_plugin$stream_op_0_src ;
+      wire [7:0] \$systemverilog_plugin$stream_op_0_dst ;
       assign \$systemverilog_plugin$stream_op_0_src  = {i};
       /** AST_GENVAR **/
       /** AST_GENFOR **/
       /** AST_GENBLOCK **/
-      assign o = t[0:0];
+      assign o = t[7:0];
       assign \$systemverilog_plugin$stream_op_0_dst [0:0] = \$systemverilog_plugin$stream_op_0_src [0:0];
-      assign t[0:0] = \$systemverilog_plugin$stream_op_0_dst ;
+      assign \$systemverilog_plugin$stream_op_0_dst [1:1] = \$systemverilog_plugin$stream_op_0_src [1:1];
+      assign \$systemverilog_plugin$stream_op_0_dst [2:2] = \$systemverilog_plugin$stream_op_0_src [2:2];
+      assign \$systemverilog_plugin$stream_op_0_dst [3:3] = \$systemverilog_plugin$stream_op_0_src [3:3];
+      assign \$systemverilog_plugin$stream_op_0_dst [4:4] = \$systemverilog_plugin$stream_op_0_src [4:4];
+      assign \$systemverilog_plugin$stream_op_0_dst [5:5] = \$systemverilog_plugin$stream_op_0_src [5:5];
+      assign \$systemverilog_plugin$stream_op_0_dst [6:6] = \$systemverilog_plugin$stream_op_0_src [6:6];
+      assign \$systemverilog_plugin$stream_op_0_dst [7:7] = \$systemverilog_plugin$stream_op_0_src [7:7];
+      assign t[7:0] = \$systemverilog_plugin$stream_op_0_dst ;
     endmodule
 --- END OF AST DUMP ---
 
@@ -1256,9 +1385,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  3
-   Number of wire bits:              3
+   Number of wire bits:             48
    Number of public wires:           3
-   Number of public wire bits:       3
+   Number of public wire bits:      48
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1281,15 +1410,16 @@ Dumping module `\dut'.
 (* src = "UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:2.1-13.10" *)
 module dut(i, o);
   (* src = "UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.24-3.25" *)
-  input i;
-  wire i;
+  input [7:0] i;
+  wire [7:0] i;
   (* src = "UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:3.46-3.47" *)
-  output o;
-  wire o;
+  output [7:0] o;
+  wire [7:0] o;
   (* src = "UHDM-integration-tests/tests/StreamOpImplicitSliceSize/dut.sv:5.19-5.20" *)
-  wire t;
-  assign o = i;
-  assign t = i;
+  (* unused_bits = "8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
+  wire [31:0] t;
+  assign o = { i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7] };
+  assign t[7:0] = { i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7] };
 endmodule
 
 4. Executing Verilog backend.

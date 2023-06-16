@@ -1232,7 +1232,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic port=2 multirange=[ 0 5 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.17-4.26> basic_prep range=[4:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.27>
         AST_IDENTIFIER <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.12> str='\a'
         AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -1240,7 +1243,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\submodule\P=s32'00000000000000000000000000000011 (a);
       /** AST_PARAMETER **/
-      output a;
+      output [4:0] a;
       assign a = 31;
     endmodule
 --- END OF AST DUMP ---
@@ -1251,7 +1254,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic basic_prep port=2 range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.17-4.26> basic_prep range=[4:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.27> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1259,7 +1265,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\submodule\P=s32'00000000000000000000000000000011 (a);
       /** AST_PARAMETER **/
-      output a;
+      output [4:0] a;
       assign a = 31;
     endmodule
 --- END OF AST DUMP ---
@@ -1271,7 +1277,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic port=1 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.17-4.26> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.27>
         AST_IDENTIFIER <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.12> str='\a'
         AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -1279,7 +1288,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
       /** AST_PARAMETER **/
-      output a;
+      output [2:0] a;
       assign a = 31;
     endmodule
 --- END OF AST DUMP ---
@@ -1290,7 +1299,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28> str='\a' output logic basic_prep port=1 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.17-4.26> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.27> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:6.11-6.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -1298,15 +1310,21 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
       /** AST_PARAMETER **/
-      output a;
+      output [2:0] a;
       assign a = 31;
     endmodule
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.1-12.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.31-9.32> str='\o' output logic port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.53-9.54> str='\p' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.31-9.32> str='\o' output logic port=3 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.25-9.30> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.53-9.54> str='\p' output logic port=4 multirange=[ 0 5 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.47-9.52> basic_prep range=[4:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:10.4-10.38> str='\u_sub1'
         AST_CELLTYPE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
         AST_ARGUMENT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:10.4-10.38> str='\a'
@@ -1318,16 +1336,22 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o, p);
-      output o;
-      output p;
+      output [2:0] o;
+      output [4:0] p;
       /** AST_CELL **/
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.1-12.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.31-9.32> str='\o' output logic basic_prep port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.53-9.54> str='\p' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.31-9.32> str='\o' output logic basic_prep port=3 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.25-9.30> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.53-9.54> str='\p' output logic basic_prep port=4 range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.47-9.52> basic_prep range=[4:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+          AST_CONSTANT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:10.4-10.38> str='\u_sub1' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:10.4-10.38> str='\a' basic_prep
@@ -1339,8 +1363,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o, p);
-      output o;
-      output p;
+      output [2:0] o;
+      output [4:0] p;
       /** AST_CELL **/
       /** AST_CELL **/
     endmodule
@@ -1495,9 +1519,9 @@ Finding unused cells or wires in module \top..
 === $paramod\submodule\P=s32'00000000000000000000000000000001 ===
 
    Number of wires:                  1
-   Number of wire bits:              1
+   Number of wire bits:              3
    Number of public wires:           1
-   Number of public wire bits:       1
+   Number of public wire bits:       3
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1506,9 +1530,9 @@ Finding unused cells or wires in module \top..
 === $paramod\submodule\P=s32'00000000000000000000000000000011 ===
 
    Number of wires:                  1
-   Number of wire bits:              1
+   Number of wire bits:              5
    Number of public wires:           1
-   Number of public wire bits:       1
+   Number of public wire bits:       5
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1517,9 +1541,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:              2
+   Number of wire bits:              8
    Number of public wires:           2
-   Number of public wire bits:       2
+   Number of public wire bits:       8
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1534,9 +1558,9 @@ Finding unused cells or wires in module \top..
      $paramod\submodule\P=s32'00000000000000000000000000000011      1
 
    Number of wires:                  4
-   Number of wire bits:              4
+   Number of wire bits:             16
    Number of public wires:           4
-   Number of public wire bits:       4
+   Number of public wire bits:      16
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1559,18 +1583,18 @@ Dumping module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:1.1-7.10" *)
 module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
   (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28" *)
-  output a;
-  wire a;
-  assign a = 1'h1;
+  output [2:0] a;
+  wire [2:0] a;
+  assign a = 3'h7;
 endmodule
 Dumping module `$paramod\submodule\P=s32'00000000000000000000000000000011'.
 
 (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:1.1-7.10" *)
 module \$paramod\submodule\P=s32'00000000000000000000000000000011 (a);
   (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:4.27-4.28" *)
-  output a;
-  wire a;
-  assign a = 1'h1;
+  output [4:0] a;
+  wire [4:0] a;
+  assign a = 5'h1f;
 endmodule
 Dumping module `\top'.
 
@@ -1578,11 +1602,11 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.1-12.10" *)
 module top(o, p);
   (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.31-9.32" *)
-  output o;
-  wire o;
+  output [2:0] o;
+  wire [2:0] o;
   (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:9.53-9.54" *)
-  output p;
-  wire p;
+  output [4:0] p;
+  wire [4:0] p;
   (* module_not_derived = 32'd1 *)
   (* src = "UHDM-integration-tests/tests/CastToSumWithParameterIn2InstancesOfSubmodule/top.sv:10.4-10.38" *)
   \$paramod\submodule\P=s32'00000000000000000000000000000001  u_sub1 (

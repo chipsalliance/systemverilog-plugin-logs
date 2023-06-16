@@ -1478,10 +1478,22 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.1-22.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.30-1.31> str='\a' output logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.33-1.34> str='\b' output logic port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.36-1.37> str='\c' output logic port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.39-1.40> str='\d' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.30-1.31> str='\a' output logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.33-1.34> str='\b' output logic port=2 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.36-1.37> str='\c' output logic port=3 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.39-1.40> str='\d' output logic port=4 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:2.26-9.12> str='\x' logic multirange=[ 0 4 0 3 0 2 ] multirange_swapped=[ 0 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> range=[23:0]
           AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010111'(32) signed range=[31:0] int=23
@@ -1666,10 +1678,10 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b, c, d);
-      output a;
-      output b;
-      output c;
-      output d;
+      output [3:0] a;
+      output [3:0] b;
+      output [3:0] c;
+      output [3:0] d;
       wire [23:0] x;
       assign a = x[((((0)*(12))+((0)*(4)))+((((0)+(1))*(4))-(1)))-((0)*(4)):((0)*(12))+((0)*(4))];
       assign b = x[((((0)*(12))+((1)*(4)))+((((1)+(1))*(4))-(1)))-((1)*(4)):((0)*(12))+((1)*(4))];
@@ -1689,10 +1701,22 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.1-22.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.30-1.31> str='\a' output logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.33-1.34> str='\b' output logic basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.36-1.37> str='\c' output logic basic_prep port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.39-1.40> str='\d' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.30-1.31> str='\a' output logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.33-1.34> str='\b' output logic basic_prep port=2 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.36-1.37> str='\c' output logic basic_prep port=3 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.39-1.40> str='\d' output logic basic_prep port=4 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.24-1.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:2.26-9.12> str='\x' logic reg basic_prep range=[23:0] multirange=[ 0 4 0 3 0 2 ] multirange_swapped=[ 0 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> basic_prep range=[23:0]
           AST_CONSTANT <UHDM-integration-tests/tests/LogicPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010111'(32) signed basic_prep range=[31:0] int=23
@@ -1821,10 +1845,10 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b, c, d);
-      output a;
-      output b;
-      output c;
-      output d;
+      output [3:0] a;
+      output [3:0] b;
+      output [3:0] c;
+      output [3:0] d;
       reg [23:0] x;
       wire \$formal$UHDM-integration-tests/tests/LogicPackedArray/top.sv:17$1_CHECK ;
       wire \$formal$UHDM-integration-tests/tests/LogicPackedArray/top.sv:17$1_EN ;
@@ -1940,7 +1964,7 @@ Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
-<suppressed ~4 debug messages>
+<suppressed ~7 debug messages>
 
 2.3. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
@@ -2012,9 +2036,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  5
-   Number of wire bits:             28
+   Number of wire bits:             40
    Number of public wires:           5
-   Number of public wire bits:      28
+   Number of public wire bits:      40
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -2038,24 +2062,24 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.1-22.10" *)
 module top(a, b, c, d);
   (* src = "UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.30-1.31" *)
-  output a;
-  wire a;
+  output [3:0] a;
+  wire [3:0] a;
   (* src = "UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.33-1.34" *)
-  output b;
-  wire b;
+  output [3:0] b;
+  wire [3:0] b;
   (* src = "UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.36-1.37" *)
-  output c;
-  wire c;
+  output [3:0] c;
+  wire [3:0] c;
   (* src = "UHDM-integration-tests/tests/LogicPackedArray/top.sv:1.39-1.40" *)
-  output d;
-  wire d;
+  output [3:0] d;
+  wire [3:0] d;
   (* src = "UHDM-integration-tests/tests/LogicPackedArray/top.sv:2.26-9.12" *)
   wire [23:0] x;
   always @* if (1'h1) assert(1'h0);
-  assign a = 1'h1;
-  assign b = 1'h0;
-  assign c = 1'h0;
-  assign d = 1'h0;
+  assign a = 4'h1;
+  assign b = 4'h0;
+  assign c = 4'h0;
+  assign d = 4'h0;
   assign x = 24'h000001;
 endmodule
 

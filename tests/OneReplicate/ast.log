@@ -724,8 +724,14 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.1-6.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.13-1.14> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg port=2 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.6-4.11> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.13-1.14> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.10> str='\b'
         AST_REPLICATE <UHDM-integration-tests/tests/OneReplicate/dut.v:5.13-5.19>
@@ -735,16 +741,22 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(b, a);
-      output reg b;
-      input a;
+      output reg [3:0] b;
+      input [0:0] a;
       assign b = {4{{a}}};
     endmodule
 --- END OF AST DUMP ---
 Warning: reg '\b' is assigned in a continuous assignment at UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.19.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.1-6.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13> str='\b' output reg basic_prep port=2 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneReplicate/dut.v:4.6-4.11> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneReplicate/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneReplicate/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneReplicate/dut.v:5.9-5.10> str='\b' basic_prep
         AST_REPLICATE <UHDM-integration-tests/tests/OneReplicate/dut.v:5.13-5.19> basic_prep
@@ -754,8 +766,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(b, a);
-      output reg b;
-      input a;
+      output reg [3:0] b;
+      input [0:0] a;
       assign b = {4{{a}}};
     endmodule
 --- END OF AST DUMP ---
@@ -871,9 +883,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  2
-   Number of wire bits:              2
+   Number of wire bits:              5
    Number of public wires:           2
-   Number of public wire bits:       2
+   Number of public wire bits:       5
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -898,9 +910,9 @@ module dut(a, b);
   input a;
   wire a;
   (* src = "UHDM-integration-tests/tests/OneReplicate/dut.v:4.12-4.13" *)
-  output b;
-  wire b;
-  assign b = a;
+  output [3:0] b;
+  wire [3:0] b;
+  assign b = { a, a, a, a };
 endmodule
 
 4. Executing Verilog backend.

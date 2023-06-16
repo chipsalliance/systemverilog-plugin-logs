@@ -1061,8 +1061,14 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:4.17-4.20> str='\clk' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:5.37-5.40> str='\out' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:4.17-4.20> str='\clk' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:5.37-5.40> str='\out' output logic port=2 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:5.18-5.36> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:8.18-8.25> str='\counter' logic
         AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:8.11-8.17>
           AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
@@ -1105,8 +1111,8 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(clk, out);
       /** AST_PARAMETER **/
-      input clk;
-      output out;
+      input [0:0] clk;
+      output [31:0] out;
       wire [63:0] counter;
       wire [31:0] counter_upd;
       assign out = counter_upd;
@@ -1123,8 +1129,14 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:4.17-4.20> str='\clk' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:5.37-5.40> str='\out' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:4.17-4.20> str='\clk' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:5.37-5.40> str='\out' output logic basic_prep port=2 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:5.18-5.36> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ConcatWidth/top.sv:8.18-8.25> str='\counter' logic reg basic_prep range=[63:0]
         AST_RANGE <UHDM-integration-tests/tests/ConcatWidth/top.sv:8.11-8.17> basic_prep range=[63:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
@@ -1158,8 +1170,8 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(clk, out);
       /** AST_PARAMETER **/
-      input clk;
-      output out;
+      input [0:0] clk;
+      output [31:0] out;
       reg [63:0] counter;
       reg [31:0] counter_upd;
       assign out = counter_upd;
@@ -1266,7 +1278,6 @@ Optimizing module top.
 2.6.8. Finished OPT passes. (There is nothing left to do.)
 
 2.7. Executing WREDUCE pass (reducing word size of cells).
-Removed top 31 bits (of 32) from FF cell top.$procdff$4 ($dff).
 
 2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
@@ -1292,9 +1303,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  4
-   Number of wire bits:             98
+   Number of wire bits:            129
    Number of public wires:           4
-   Number of public wire bits:      98
+   Number of public wire bits:     129
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1322,18 +1333,15 @@ module top(clk, out);
   (* src = "UHDM-integration-tests/tests/ConcatWidth/top.sv:8.18-8.25" *)
   wire [63:0] counter;
   (* src = "UHDM-integration-tests/tests/ConcatWidth/top.sv:9.30-9.41" *)
-  (* unused_bits = "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" *)
-  wire [31:0] counter_upd;
+  reg [31:0] counter_upd;
   (* src = "UHDM-integration-tests/tests/ConcatWidth/top.sv:5.37-5.40" *)
-  output out;
-  wire out;
-  reg \counter_upd_reg[0] ;
+  output [31:0] out;
+  wire [31:0] out;
   (* src = "UHDM-integration-tests/tests/ConcatWidth/top.sv:13.5-15.8" *)
   always @(posedge clk)
-    \counter_upd_reg[0]  <= 1'h1;
-  assign counter_upd[0] = \counter_upd_reg[0] ;
+    counter_upd <= 32'd1;
   assign counter = 64'h0000000000000000;
-  assign out = counter_upd[0];
+  assign out = counter_upd;
 endmodule
 
 4. Executing Verilog backend.

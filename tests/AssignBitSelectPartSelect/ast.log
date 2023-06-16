@@ -768,7 +768,10 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.1-4.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.30-1.31> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.30-1.31> str='\o' output logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.24-1.29> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:2.21-2.27> str='\x' logic multirange=[ 0 2 0 5 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> range=[9:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
@@ -811,7 +814,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output o;
+      output [1:0] o;
       wire [9:0] x;
       assign o = x[((((0)*(2))+((0)*(1)))+((((1)+(1))*(1))-(1)))-((0)*(1)):((0)*(2))+((0)*(1))];
       initial
@@ -820,7 +823,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.30-1.31> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.30-1.31> str='\o' output logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.24-1.29> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:2.21-2.27> str='\x' logic reg basic_prep range=[9:0] multirange=[ 0 2 0 5 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> basic_prep range=[9:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
@@ -839,7 +845,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output o;
+      output [1:0] o;
       reg [9:0] x;
       assign o = x[1:0];
       initial
@@ -963,9 +969,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             11
+   Number of wire bits:             12
    Number of public wires:           2
-   Number of public wire bits:      11
+   Number of public wire bits:      12
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -987,11 +993,11 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.1-4.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:1.30-1.31" *)
-  output o;
-  wire o;
+  output [1:0] o;
+  wire [1:0] o;
   (* src = "UHDM-integration-tests/tests/AssignBitSelectPartSelect/top.sv:2.21-2.27" *)
   wire [9:0] x;
-  assign o = 1'h1;
+  assign o = 2'h3;
   assign x = 10'h3ff;
 endmodule
 

@@ -864,7 +864,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic port=1 multirange=[ 0 15 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.17-5.32> basic_prep range=[14:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) signed basic_prep range=[31:0] int=14
+          AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:9.4-11.15> str='\get_casted_depth'
         AST_WIRE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38> str='\get_casted_depth' logic
           AST_RANGE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38>
@@ -883,7 +886,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
-      output o;
+      output [14:0] o;
       /** AST_FUNCTION **/
       assign o = 15'b 000000000000011;
     endmodule
@@ -900,7 +903,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic basic_prep port=1 range=[14:0] multirange=[ 0 15 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.17-5.32> basic_prep range=[14:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) signed basic_prep range=[31:0] int=14
+          AST_CONSTANT <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:9.4-11.15> str='\get_casted_depth'
         AST_WIRE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38> str='\get_casted_depth' logic
           AST_RANGE <UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38>
@@ -919,7 +925,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
-      output o;
+      output [14:0] o;
       /** AST_FUNCTION **/
       assign o = 15'b 000000000000011;
     endmodule
@@ -1036,9 +1042,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:              1
+   Number of wire bits:             15
    Number of public wires:           1
-   Number of public wire bits:       1
+   Number of public wire bits:      15
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1060,9 +1066,9 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:1.1-12.10" *)
 module top(o);
   (* src = "UHDM-integration-tests/tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34" *)
-  output o;
-  wire o;
-  assign o = 1'h1;
+  output [14:0] o;
+  wire [14:0] o;
+  assign o = 15'h0003;
 endmodule
 
 4. Executing Verilog backend.

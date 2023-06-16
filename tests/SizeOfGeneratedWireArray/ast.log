@@ -718,7 +718,10 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> basic_prep range=[31:0]
             AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
             AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.21-5.22> str='\z' logic range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.21-5.22> str='\z' logic
+          AST_RANGE <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.15-5.20>
+            AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_ASSIGN <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.21-5.22>
           AST_IDENTIFIER <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> str='\z'
           AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -752,6 +755,9 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.21-5.22> str='\gen_blk[0].z' logic basic_prep range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.15-5.20> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:5.21-5.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> str='\gen_blk[0].z' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/SizeOfGeneratedWireArray/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -761,7 +767,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       /** AST_LOCALPARAM **/
       output signed [31:0] o;
-      wire \gen_blk[0].z ;
+      wire [0:0] \gen_blk[0].z ;
       /** AST_AUTOWIRE **/
       /** AST_GENBLOCK **/
       assign o = 1;

@@ -1335,8 +1335,14 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/OneCast/dut.v:10.14-10.30> str='\DUMMY' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:4.14-4.15> str='\b' output reg port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:4.14-4.15> str='\b' output reg port=2 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:4.7-4.13> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneCast/dut.v:12.10-17.23>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneCast/dut.v:12.10-12.11> str='\b'
         AST_BIT_OR <UHDM-integration-tests/tests/OneCast/dut.v:12.15-17.23>
@@ -1376,8 +1382,8 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      output reg b;
-      input a;
+      output reg [31:0] b;
+      input [0:0] a;
       assign b = ((((((0)<<(/** AST_TO_UNSIGNED **/))|((1)<<(/** AST_TO_UNSIGNED **/)))|((a)<<(/** AST_TO_UNSIGNED **/)))|((1)<<(/** AST_TO_UNSIGNED **/)))|((ONE)<<(/** AST_TO_UNSIGNED **/)))|((1)<<(/** AST_TO_UNSIGNED **/));
     endmodule
 --- END OF AST DUMP ---
@@ -1406,8 +1412,14 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/OneCast/dut.v:10.14-10.30> str='\DUMMY' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:4.14-4.15> str='\b' output reg basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:4.14-4.15> str='\b' output reg basic_prep port=2 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:4.7-4.13> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneCast/dut.v:12.10-17.23> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneCast/dut.v:12.10-12.11> str='\b' basic_prep
         AST_BIT_OR <UHDM-integration-tests/tests/OneCast/dut.v:12.15-17.23> basic_prep
@@ -1429,8 +1441,8 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      output reg b;
-      input a;
+      output reg [31:0] b;
+      input [0:0] a;
       assign b = ((((4)|((a)<<(3)))|(16))|(2))|(32);
     endmodule
 --- END OF AST DUMP ---
@@ -1549,9 +1561,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  2
-   Number of wire bits:              2
+   Number of wire bits:             33
    Number of public wires:           2
-   Number of public wire bits:       2
+   Number of public wire bits:      33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1576,9 +1588,9 @@ module dut(a, b);
   input a;
   wire a;
   (* src = "UHDM-integration-tests/tests/OneCast/dut.v:4.14-4.15" *)
-  output b;
-  wire b;
-  assign b = 1'h0;
+  output [31:0] b;
+  wire [31:0] b;
+  assign b = { 28'h0000003, a, 3'h6 };
 endmodule
 
 4. Executing Verilog backend.

@@ -793,7 +793,10 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:2.12-2.18> str='\dmi_t'
         AST_STRUCT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:3.20-3.24> str='data' logic basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.32-1.33> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.32-1.33> str='\o' output logic port=1 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.25-1.31> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:6.29-6.44> str='\dr_q' logic
         AST_RANGE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:6.10-6.28>
           AST_CONSTANT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -816,7 +819,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output o;
+      output [31:0] o;
       wire [31:0] dr_q;
       /** AST_TYPEDEF **/
       assign o = dr_q[(/** AST_FCALL **/)-(1):0];
@@ -829,7 +832,10 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:2.12-2.18> str='\dmi_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:2.12-2.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:3.20-3.24> str='data' logic basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.32-1.33> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.32-1.33> str='\o' output logic basic_prep port=1 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.25-1.31> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:6.29-6.44> str='\dr_q' logic reg basic_prep range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:6.10-6.28> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -848,7 +854,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output o;
+      output [31:0] o;
       reg [31:0] dr_q;
       /** AST_TYPEDEF **/
       assign o = dr_q[31:0];
@@ -973,9 +979,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             33
+   Number of wire bits:             64
    Number of public wires:           2
-   Number of public wire bits:      33
+   Number of public wire bits:      64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -999,10 +1005,10 @@ module top(o);
   (* src = "UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:6.29-6.44" *)
   wire [31:0] dr_q;
   (* src = "UHDM-integration-tests/tests/BitsCallOnExpression/top.sv:1.32-1.33" *)
-  output o;
-  wire o;
+  output [31:0] o;
+  wire [31:0] o;
   assign dr_q = 32'd43981;
-  assign o = 1'h1;
+  assign o = 32'd43981;
 endmodule
 
 4. Executing Verilog backend.

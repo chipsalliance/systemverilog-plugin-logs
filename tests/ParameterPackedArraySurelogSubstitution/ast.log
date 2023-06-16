@@ -922,7 +922,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.30-3.31> str='\a' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.30-3.31> str='\a' output logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.24-3.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.12> str='\a'
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> str='\P' basic_prep
@@ -941,7 +944,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(a);
       /** AST_PARAMETER **/
-      output a;
+      output [3:0] a;
       assign a = P[(((0)+(1))*(4))-(1):(0)*(4)];
     endmodule
 --- END OF AST DUMP ---
@@ -952,7 +955,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.30-3.31> str='\a' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.30-3.31> str='\a' output logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.24-3.29> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.11-6.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:6.15-6.19> bits='0001'(4) basic_prep range=[3:0] int=1
@@ -960,7 +966,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(a);
       /** AST_PARAMETER **/
-      output a;
+      output [3:0] a;
       assign a = 4'b 0001;
     endmodule
 --- END OF AST DUMP ---
@@ -1076,9 +1082,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  1
-   Number of wire bits:              1
+   Number of wire bits:              4
    Number of public wires:           1
-   Number of public wire bits:       1
+   Number of public wire bits:       4
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1100,9 +1106,9 @@ Dumping module `\top'.
 (* src = "UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.1-7.10" *)
 module top(a);
   (* src = "UHDM-integration-tests/tests/ParameterPackedArraySurelogSubstitution/top.sv:3.30-3.31" *)
-  output a;
-  wire a;
-  assign a = 1'h1;
+  output [3:0] a;
+  wire [3:0] a;
+  assign a = 4'h1;
 endmodule
 
 4. Executing Verilog backend.

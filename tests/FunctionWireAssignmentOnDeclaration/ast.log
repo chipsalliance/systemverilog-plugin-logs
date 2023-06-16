@@ -914,8 +914,14 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:1.1-10.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:2.21-2.22> str='\i' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:3.22-3.23> str='\o' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:2.21-2.22> str='\i' input logic port=1 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:2.15-2.20> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:3.22-3.23> str='\o' output logic port=2 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:3.16-3.21> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:4.1-7.12> str='\test'
         AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:4.20-4.31> str='\test' logic
           AST_RANGE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:4.26-4.31>
@@ -948,16 +954,22 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(i, o);
-      input i;
-      output o;
+      input [2:0] i;
+      output [2:0] o;
       /** AST_FUNCTION **/
       assign o = /** AST_FCALL **/;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:1.1-10.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:2.21-2.22> str='\i' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:3.22-3.23> str='\o' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:2.21-2.22> str='\i' input logic basic_prep port=1 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:2.15-2.20> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:3.22-3.23> str='\o' output logic basic_prep port=2 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:3.16-3.21> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:4.1-7.12> str='\test'
         AST_WIRE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:4.20-4.31> str='\test' logic
           AST_RANGE <UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:4.26-4.31>
@@ -1031,8 +1043,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(i, o);
-      input i;
-      output o;
+      input [2:0] i;
+      output [2:0] o;
       reg [2:0] \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$1.$result ;
       (* nosync = 1 *)
       reg [2:0] \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.$result ;
@@ -1073,10 +1085,10 @@ module top(i, o);
   reg [2:0] _1_;
   reg [2:0] _2_;
   reg [2:0] _3_;
-  input i;
-  wire i;
-  output o;
-  wire o;
+  input [2:0] i;
+  wire [2:0] i;
+  output [2:0] o;
+  wire [2:0] o;
   reg [2:0] \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$1.$result ;
   reg [2:0] \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.$result ;
   reg [2:0] \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.$unnamed_block$0.data ;
@@ -1084,8 +1096,8 @@ module top(i, o);
   reg [2:0] \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.in ;
   always @* begin
     if (\$auto$verilog_backend.cc:2097:dump_module$8 ) begin end
-    _3_ = { 2'h0, i };
-    _2_ = { 2'h0, i };
+    _3_ = i;
+    _2_ = i;
     _1_ = \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.$unnamed_block$0.data ;
     _0_ = \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.$unnamed_block$0.data ;
   end
@@ -1095,7 +1107,7 @@ module top(i, o);
       \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.in  <= 3'hx;
       \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$2.$unnamed_block$0.data  <= _2_;
   end
-  assign o = \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$1.$result [0];
+  assign o = \test$func$UHDM-integration-tests/tests/FunctionWireAssignmentOnDeclaration/top.sv:9$1.$result ;
 endmodule
 
 Warnings: 1 unique messages, 1 total

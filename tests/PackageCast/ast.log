@@ -988,8 +988,14 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/PackageCast/dut.v:5.1-7.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.24-5.27> str='\clk' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.46-5.47> str='\a' input logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.24-5.27> str='\clk' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.46-5.47> str='\a' input logic port=2 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackageCast/dut.v:5.40-5.45> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.68-5.69> str='\b' output reg basic_prep port=3 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> str='\enum_t' bits='01011100011001010110111001110101011011010101111101110100'(56) basic_prep range=[55:0] int=1970102132
@@ -1055,8 +1061,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(clk, a, b);
-      input clk;
-      input a;
+      input [0:0] clk;
+      input [7:0] a;
       (* wiretype = "\enum_t" *)
       (* enum_value_00000000 = "\ONE" *)
       (* enum_value_00000001 = "\TWO" *)
@@ -1072,8 +1078,14 @@ Dumping Verilog AST before simplification:
 Warning: reg '\b' is assigned in a continuous assignment at UHDM-integration-tests/tests/PackageCast/dut.v:6.11-6.30.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/PackageCast/dut.v:5.1-7.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.24-5.27> str='\clk' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.46-5.47> str='\a' input logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.24-5.27> str='\clk' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.46-5.47> str='\a' input logic basic_prep port=2 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackageCast/dut.v:5.40-5.45> basic_prep range=[7:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+          AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/PackageCast/dut.v:5.68-5.69> str='\b' output reg basic_prep port=3 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/PackageCast/dut.v:0.0-0.0> str='\enum_t' bits='01011100011001010110111001110101011011010101111101110100'(56) basic_prep range=[55:0] int=1970102132
@@ -1139,8 +1151,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(clk, a, b);
-      input clk;
-      input a;
+      input [0:0] clk;
+      input [7:0] a;
       (* wiretype = "\enum_t" *)
       (* enum_value_00000000 = "\ONE" *)
       (* enum_value_00000001 = "\TWO" *)
@@ -1265,9 +1277,9 @@ Finding unused cells or wires in module \dut..
 === dut ===
 
    Number of wires:                  3
-   Number of wire bits:             10
+   Number of wire bits:             17
    Number of public wires:           3
-   Number of public wire bits:      10
+   Number of public wire bits:      17
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1289,8 +1301,8 @@ Dumping module `\dut'.
 (* src = "UHDM-integration-tests/tests/PackageCast/dut.v:5.1-7.10" *)
 module dut(clk, a, b);
   (* src = "UHDM-integration-tests/tests/PackageCast/dut.v:5.46-5.47" *)
-  input a;
-  wire a;
+  input [7:0] a;
+  wire [7:0] a;
   (* enum_value_00000000 = "\\ONE" *)
   (* enum_value_00000001 = "\\TWO" *)
   (* enum_value_00000010 = "\\THREE" *)
@@ -1303,7 +1315,7 @@ module dut(clk, a, b);
   (* src = "UHDM-integration-tests/tests/PackageCast/dut.v:5.24-5.27" *)
   input clk;
   wire clk;
-  assign b = { 7'h00, a };
+  assign b = a;
 endmodule
 
 4. Executing Verilog backend.

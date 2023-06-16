@@ -1361,7 +1361,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:9.19-9.20> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:9.19-9.20> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:22.3-22.25> str='\foo_instance'
         AST_CELLTYPE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> str='\FooMod'
       AST_ASSIGN <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:24.10-24.16>
@@ -1373,7 +1376,7 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
@@ -1421,7 +1424,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:9.19-9.20> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:9.19-9.20> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:22.3-22.25> str='\foo_instance' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:0.0-0.0> str='\FooMod' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/ModuleInstantiationAndIndirectParams/dut.sv:24.10-24.16> basic_prep
@@ -1433,7 +1439,7 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
