@@ -69,12 +69,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 3
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -643,7 +646,7 @@ design: (work@dut)
     |vpiVariables:
     \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
       |vpiParent:
-      \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
       |vpiTypespec:
       \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
       |vpiName:payload
@@ -651,7 +654,7 @@ design: (work@dut)
     |vpiVariables:
     \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
       |vpiParent:
-      \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
       |vpiTypespec:
       \_logic_typespec: , line:54:5, endln:54:10
         |vpiInstance:
@@ -668,6 +671,8 @@ design: (work@dut)
     \_package: tlul_pkg (tlul_pkg::), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:19:1, endln:62:11
     |vpiIODecl:
     \_io_decl: (tl), line:52:70, endln:52:72
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
       |vpiDirection:1
       |vpiName:tl
       |vpiTypedef:
@@ -679,8 +684,20 @@ design: (work@dut)
       |vpiFullName:tlul_pkg::extract_d2h_rsp_intg
       |vpiVariables:
       \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiTypespec:
+        \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
+        |vpiName:payload
+        |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::payload
       |vpiVariables:
       \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiTypespec:
+        \_logic_typespec: , line:54:5, endln:54:10
+        |vpiName:unused_tlul
+        |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::unused_tlul
       |vpiStmt:
       \_assignment: , line:55:5, endln:55:22
         |vpiParent:
@@ -690,7 +707,7 @@ design: (work@dut)
         |vpiRhs:
         \_operation: , line:55:19, endln:55:22
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:55:5, endln:55:22
           |vpiOpType:9
           |vpiOperand:
           \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::tl), line:55:20, endln:55:22
@@ -703,7 +720,7 @@ design: (work@dut)
         |vpiLhs:
         \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:55:5, endln:55:16
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:55:5, endln:55:22
           |vpiName:unused_tlul
           |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::unused_tlul
           |vpiActual:
@@ -717,33 +734,41 @@ design: (work@dut)
         |vpiRhs:
         \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:56:5, endln:56:33
           |vpiName:tl.d_opcode
           |vpiActual:
           \_ref_obj: (tl), line:56:22, endln:56:24
             |vpiParent:
             \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
             |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
           |vpiActual:
           \_ref_obj: (d_opcode), line:56:25, endln:56:33
             |vpiParent:
             \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
             |vpiName:d_opcode
+            |vpiActual:
+            \_typespec_member: (d_opcode), line:32:15, endln:32:23
         |vpiLhs:
         \_hier_path: (payload.opcode), line:56:5, endln:56:19
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:56:5, endln:56:33
           |vpiName:payload.opcode
           |vpiActual:
           \_ref_obj: (payload)
             |vpiParent:
             \_hier_path: (payload.opcode), line:56:5, endln:56:19
             |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
           |vpiActual:
           \_ref_obj: (opcode)
             |vpiParent:
             \_hier_path: (payload.opcode), line:56:5, endln:56:19
             |vpiName:opcode
+            |vpiActual:
+            \_typespec_member: (opcode), line:46:35, endln:46:41
       |vpiStmt:
       \_assignment: , line:57:5, endln:57:31
         |vpiParent:
@@ -753,33 +778,41 @@ design: (work@dut)
         |vpiRhs:
         \_hier_path: (tl.d_size), line:57:22, endln:57:31
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:57:5, endln:57:31
           |vpiName:tl.d_size
           |vpiActual:
           \_ref_obj: (tl), line:57:22, endln:57:24
             |vpiParent:
             \_hier_path: (tl.d_size), line:57:22, endln:57:31
             |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
           |vpiActual:
           \_ref_obj: (d_size), line:57:25, endln:57:31
             |vpiParent:
             \_hier_path: (tl.d_size), line:57:22, endln:57:31
             |vpiName:d_size
+            |vpiActual:
+            \_typespec_member: (d_size), line:34:21, endln:34:27
         |vpiLhs:
         \_hier_path: (payload.size), line:57:5, endln:57:17
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:57:5, endln:57:31
           |vpiName:payload.size
           |vpiActual:
           \_ref_obj: (payload)
             |vpiParent:
             \_hier_path: (payload.size), line:57:5, endln:57:17
             |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
           |vpiActual:
           \_ref_obj: (size)
             |vpiParent:
             \_hier_path: (payload.size), line:57:5, endln:57:17
             |vpiName:size
+            |vpiActual:
+            \_typespec_member: (size), line:47:21, endln:47:25
       |vpiStmt:
       \_assignment: , line:58:5, endln:58:32
         |vpiParent:
@@ -789,33 +822,41 @@ design: (work@dut)
         |vpiRhs:
         \_hier_path: (tl.d_error), line:58:22, endln:58:32
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:58:5, endln:58:32
           |vpiName:tl.d_error
           |vpiActual:
           \_ref_obj: (tl), line:58:22, endln:58:24
             |vpiParent:
             \_hier_path: (tl.d_error), line:58:22, endln:58:32
             |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
           |vpiActual:
           \_ref_obj: (d_error), line:58:25, endln:58:32
             |vpiParent:
             \_hier_path: (tl.d_error), line:58:22, endln:58:32
             |vpiName:d_error
+            |vpiActual:
+            \_typespec_member: (d_error), line:39:35, endln:39:42
         |vpiLhs:
         \_hier_path: (payload.error), line:58:5, endln:58:18
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:58:5, endln:58:32
           |vpiName:payload.error
           |vpiActual:
           \_ref_obj: (payload)
             |vpiParent:
             \_hier_path: (payload.error), line:58:5, endln:58:18
             |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
           |vpiActual:
           \_ref_obj: (error)
             |vpiParent:
             \_hier_path: (payload.error), line:58:5, endln:58:18
             |vpiName:error
+            |vpiActual:
+            \_typespec_member: (error), line:48:35, endln:48:40
       |vpiStmt:
       \_return_stmt: , line:59:5, endln:59:11
         |vpiParent:
@@ -1338,7 +1379,7 @@ design: (work@dut)
     |vpiVariables:
     \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
       |vpiParent:
-      \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
       |vpiTypespec:
       \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
       |vpiName:payload
@@ -1346,7 +1387,7 @@ design: (work@dut)
     |vpiVariables:
     \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
       |vpiParent:
-      \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
       |vpiTypespec:
       \_logic_typespec: , line:54:5, endln:54:10
         |vpiInstance:
@@ -1363,6 +1404,8 @@ design: (work@dut)
     \_package: tlul_pkg (tlul_pkg::), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:19:1, endln:62:11
     |vpiIODecl:
     \_io_decl: (tl), line:52:70, endln:52:72
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
       |vpiDirection:1
       |vpiName:tl
       |vpiTypedef:
@@ -1374,8 +1417,20 @@ design: (work@dut)
       |vpiFullName:tlul_pkg::extract_d2h_rsp_intg
       |vpiVariables:
       \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiTypespec:
+        \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
+        |vpiName:payload
+        |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::payload
       |vpiVariables:
       \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiTypespec:
+        \_logic_typespec: , line:54:5, endln:54:10
+        |vpiName:unused_tlul
+        |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::unused_tlul
       |vpiStmt:
       \_assignment: , line:55:5, endln:55:22
         |vpiParent:
@@ -1385,7 +1440,7 @@ design: (work@dut)
         |vpiRhs:
         \_operation: , line:55:19, endln:55:22
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:55:5, endln:55:22
           |vpiOpType:9
           |vpiOperand:
           \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::tl), line:55:20, endln:55:22
@@ -1398,7 +1453,7 @@ design: (work@dut)
         |vpiLhs:
         \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:55:5, endln:55:16
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:55:5, endln:55:22
           |vpiName:unused_tlul
           |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::unused_tlul
           |vpiActual:
@@ -1412,33 +1467,41 @@ design: (work@dut)
         |vpiRhs:
         \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:56:5, endln:56:33
           |vpiName:tl.d_opcode
           |vpiActual:
           \_ref_obj: (tl), line:56:22, endln:56:24
             |vpiParent:
             \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
             |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
           |vpiActual:
           \_ref_obj: (d_opcode), line:56:25, endln:56:33
             |vpiParent:
             \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
             |vpiName:d_opcode
+            |vpiActual:
+            \_typespec_member: (d_opcode), line:32:15, endln:32:23
         |vpiLhs:
         \_hier_path: (payload.opcode), line:56:5, endln:56:19
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:56:5, endln:56:33
           |vpiName:payload.opcode
           |vpiActual:
           \_ref_obj: (payload)
             |vpiParent:
             \_hier_path: (payload.opcode), line:56:5, endln:56:19
             |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
           |vpiActual:
           \_ref_obj: (opcode)
             |vpiParent:
             \_hier_path: (payload.opcode), line:56:5, endln:56:19
             |vpiName:opcode
+            |vpiActual:
+            \_typespec_member: (opcode), line:46:35, endln:46:41
       |vpiStmt:
       \_assignment: , line:57:5, endln:57:31
         |vpiParent:
@@ -1448,33 +1511,41 @@ design: (work@dut)
         |vpiRhs:
         \_hier_path: (tl.d_size), line:57:22, endln:57:31
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:57:5, endln:57:31
           |vpiName:tl.d_size
           |vpiActual:
           \_ref_obj: (tl), line:57:22, endln:57:24
             |vpiParent:
             \_hier_path: (tl.d_size), line:57:22, endln:57:31
             |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
           |vpiActual:
           \_ref_obj: (d_size), line:57:25, endln:57:31
             |vpiParent:
             \_hier_path: (tl.d_size), line:57:22, endln:57:31
             |vpiName:d_size
+            |vpiActual:
+            \_typespec_member: (d_size), line:34:21, endln:34:27
         |vpiLhs:
         \_hier_path: (payload.size), line:57:5, endln:57:17
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:57:5, endln:57:31
           |vpiName:payload.size
           |vpiActual:
           \_ref_obj: (payload)
             |vpiParent:
             \_hier_path: (payload.size), line:57:5, endln:57:17
             |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
           |vpiActual:
           \_ref_obj: (size)
             |vpiParent:
             \_hier_path: (payload.size), line:57:5, endln:57:17
             |vpiName:size
+            |vpiActual:
+            \_typespec_member: (size), line:47:21, endln:47:25
       |vpiStmt:
       \_assignment: , line:58:5, endln:58:32
         |vpiParent:
@@ -1484,33 +1555,41 @@ design: (work@dut)
         |vpiRhs:
         \_hier_path: (tl.d_error), line:58:22, endln:58:32
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:58:5, endln:58:32
           |vpiName:tl.d_error
           |vpiActual:
           \_ref_obj: (tl), line:58:22, endln:58:24
             |vpiParent:
             \_hier_path: (tl.d_error), line:58:22, endln:58:32
             |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
           |vpiActual:
           \_ref_obj: (d_error), line:58:25, endln:58:32
             |vpiParent:
             \_hier_path: (tl.d_error), line:58:22, endln:58:32
             |vpiName:d_error
+            |vpiActual:
+            \_typespec_member: (d_error), line:39:35, endln:39:42
         |vpiLhs:
         \_hier_path: (payload.error), line:58:5, endln:58:18
           |vpiParent:
-          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          \_assignment: , line:58:5, endln:58:32
           |vpiName:payload.error
           |vpiActual:
           \_ref_obj: (payload)
             |vpiParent:
             \_hier_path: (payload.error), line:58:5, endln:58:18
             |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
           |vpiActual:
           \_ref_obj: (error)
             |vpiParent:
             \_hier_path: (payload.error), line:58:5, endln:58:18
             |vpiName:error
+            |vpiActual:
+            \_typespec_member: (error), line:48:35, endln:48:40
       |vpiStmt:
       \_return_stmt: , line:59:5, endln:59:11
         |vpiParent:
@@ -1547,6 +1626,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -1586,6 +1667,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -1602,6 +1685,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -1616,6 +1701,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -1636,6 +1723,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -1650,6 +1739,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -1670,6 +1761,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -1684,30 +1777,40 @@ design: (work@dut)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -1740,6 +1843,39 @@ design: (work@dut)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -1804,6 +1940,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1827,6 +1965,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1850,6 +1990,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1879,6 +2021,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1908,6 +2052,208 @@ design: (work@dut)
   |vpiDefName:work@dut
   |vpiTaskFunc:
   \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+    |vpiParent:
+    \_package: tlul_pkg (tlul_pkg::), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:19:1, endln:62:11
+    |vpiName:extract_d2h_rsp_intg
+    |vpiFullName:tlul_pkg::extract_d2h_rsp_intg
+    |vpiVariables:
+    \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+      |vpiParent:
+      \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      |vpiTypespec:
+      \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
+      |vpiName:payload
+      |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::payload
+    |vpiVariables:
+    \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
+      |vpiParent:
+      \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      |vpiTypespec:
+      \_logic_typespec: , line:54:5, endln:54:10
+      |vpiName:unused_tlul
+      |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::unused_tlul
+    |vpiVisibility:1
+    |vpiAutomatic:1
+    |vpiReturn:
+    \_struct_var: , line:52:22, endln:52:39
+    |vpiParent:
+    \_package: tlul_pkg (tlul_pkg::), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:19:1, endln:62:11
+    |vpiIODecl:
+    \_io_decl: (tl), line:52:70, endln:52:72
+      |vpiDirection:1
+      |vpiName:tl
+      |vpiTypedef:
+      \_struct_typespec: (tlul_pkg::tl_d2h_t), line:30:11, endln:30:17
+    |vpiStmt:
+    \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+      |vpiFullName:tlul_pkg::extract_d2h_rsp_intg
+      |vpiVariables:
+      \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+      |vpiVariables:
+      \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
+      |vpiStmt:
+      \_assignment: , line:55:5, endln:55:22
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:55:19, endln:55:22
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiOpType:9
+          |vpiOperand:
+          \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::tl), line:55:20, endln:55:22
+            |vpiParent:
+            \_operation: , line:55:19, endln:55:22
+            |vpiName:tl
+            |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+        |vpiLhs:
+        \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:55:5, endln:55:16
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:unused_tlul
+          |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::unused_tlul
+          |vpiActual:
+          \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
+      |vpiStmt:
+      \_assignment: , line:56:5, endln:56:33
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:tl.d_opcode
+          |vpiActual:
+          \_ref_obj: (tl), line:56:22, endln:56:24
+            |vpiParent:
+            \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
+            |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+          |vpiActual:
+          \_ref_obj: (d_opcode), line:56:25, endln:56:33
+            |vpiParent:
+            \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
+            |vpiName:d_opcode
+        |vpiLhs:
+        \_hier_path: (payload.opcode), line:56:5, endln:56:19
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:payload.opcode
+          |vpiActual:
+          \_ref_obj: (payload)
+            |vpiParent:
+            \_hier_path: (payload.opcode), line:56:5, endln:56:19
+            |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+          |vpiActual:
+          \_ref_obj: (opcode)
+            |vpiParent:
+            \_hier_path: (payload.opcode), line:56:5, endln:56:19
+            |vpiName:opcode
+      |vpiStmt:
+      \_assignment: , line:57:5, endln:57:31
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_hier_path: (tl.d_size), line:57:22, endln:57:31
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:tl.d_size
+          |vpiActual:
+          \_ref_obj: (tl), line:57:22, endln:57:24
+            |vpiParent:
+            \_hier_path: (tl.d_size), line:57:22, endln:57:31
+            |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+          |vpiActual:
+          \_ref_obj: (d_size), line:57:25, endln:57:31
+            |vpiParent:
+            \_hier_path: (tl.d_size), line:57:22, endln:57:31
+            |vpiName:d_size
+        |vpiLhs:
+        \_hier_path: (payload.size), line:57:5, endln:57:17
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:payload.size
+          |vpiActual:
+          \_ref_obj: (payload)
+            |vpiParent:
+            \_hier_path: (payload.size), line:57:5, endln:57:17
+            |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+          |vpiActual:
+          \_ref_obj: (size)
+            |vpiParent:
+            \_hier_path: (payload.size), line:57:5, endln:57:17
+            |vpiName:size
+      |vpiStmt:
+      \_assignment: , line:58:5, endln:58:32
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_hier_path: (tl.d_error), line:58:22, endln:58:32
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:tl.d_error
+          |vpiActual:
+          \_ref_obj: (tl), line:58:22, endln:58:24
+            |vpiParent:
+            \_hier_path: (tl.d_error), line:58:22, endln:58:32
+            |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+          |vpiActual:
+          \_ref_obj: (d_error), line:58:25, endln:58:32
+            |vpiParent:
+            \_hier_path: (tl.d_error), line:58:22, endln:58:32
+            |vpiName:d_error
+        |vpiLhs:
+        \_hier_path: (payload.error), line:58:5, endln:58:18
+          |vpiParent:
+          \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+          |vpiName:payload.error
+          |vpiActual:
+          \_ref_obj: (payload)
+            |vpiParent:
+            \_hier_path: (payload.error), line:58:5, endln:58:18
+            |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+          |vpiActual:
+          \_ref_obj: (error)
+            |vpiParent:
+            \_hier_path: (payload.error), line:58:5, endln:58:18
+            |vpiName:error
+      |vpiStmt:
+      \_return_stmt: , line:59:5, endln:59:11
+        |vpiParent:
+        \_begin: (tlul_pkg::extract_d2h_rsp_intg)
+        |vpiCondition:
+        \_ref_obj: (tlul_pkg::extract_d2h_rsp_intg::payload), line:59:12, endln:59:19
+          |vpiParent:
+          \_return_stmt: , line:59:5, endln:59:11
+          |vpiName:payload
+          |vpiFullName:tlul_pkg::extract_d2h_rsp_intg::payload
+          |vpiActual:
+          \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+    |vpiInstance:
+    \_package: tlul_pkg (tlul_pkg::), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:19:1, endln:62:11
   |vpiNet:
   \_logic_net: (work@dut.tl_i), line:68:19, endln:68:23
     |vpiParent:
@@ -2685,6 +3031,234 @@ design: (work@dut)
   |vpiTop:1
   |vpiTaskFunc:
   \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
+    |vpiName:extract_d2h_rsp_intg
+    |vpiFullName:tlul_pkg::extract_d2h_rsp_intg
+    |vpiVariables:
+    \_struct_var: (work@dut.extract_d2h_rsp_intg.payload), line:53:23, endln:53:30
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+      |vpiTypespec:
+      \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
+      |vpiName:payload
+      |vpiFullName:work@dut.extract_d2h_rsp_intg.payload
+    |vpiVariables:
+    \_logic_var: (work@dut.extract_d2h_rsp_intg.unused_tlul), line:54:11, endln:54:22
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+      |vpiTypespec:
+      \_logic_typespec: , line:54:5, endln:54:10
+      |vpiName:unused_tlul
+      |vpiFullName:work@dut.extract_d2h_rsp_intg.unused_tlul
+    |vpiVisibility:1
+    |vpiAutomatic:1
+    |vpiReturn:
+    \_struct_var: , line:52:22, endln:52:39
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
+    |vpiIODecl:
+    \_io_decl: (tl), line:52:70, endln:52:72
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+      |vpiDirection:1
+      |vpiName:tl
+      |vpiTypedef:
+      \_struct_typespec: (tlul_pkg::tl_d2h_t), line:30:11, endln:30:17
+    |vpiStmt:
+    \_begin: (work@dut.extract_d2h_rsp_intg)
+      |vpiParent:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+      |vpiFullName:work@dut.extract_d2h_rsp_intg
+      |vpiVariables:
+      \_struct_var: (work@dut.extract_d2h_rsp_intg.payload), line:53:23, endln:53:30
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiTypespec:
+        \_struct_typespec: (tlul_pkg::tl_d2h_rsp_intg_t), line:45:11, endln:45:17
+        |vpiName:payload
+        |vpiFullName:work@dut.extract_d2h_rsp_intg.payload
+      |vpiVariables:
+      \_logic_var: (work@dut.extract_d2h_rsp_intg.unused_tlul), line:54:11, endln:54:22
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiTypespec:
+        \_logic_typespec: , line:54:5, endln:54:10
+        |vpiName:unused_tlul
+        |vpiFullName:work@dut.extract_d2h_rsp_intg.unused_tlul
+      |vpiStmt:
+      \_assignment: , line:55:5, endln:55:22
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:55:19, endln:55:22
+          |vpiParent:
+          \_assignment: , line:55:5, endln:55:22
+          |vpiOpType:9
+          |vpiOperand:
+          \_ref_obj: (work@dut.extract_d2h_rsp_intg.tl), line:55:20, endln:55:22
+            |vpiParent:
+            \_operation: , line:55:19, endln:55:22
+            |vpiName:tl
+            |vpiFullName:work@dut.extract_d2h_rsp_intg.tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+        |vpiLhs:
+        \_ref_obj: (work@dut.extract_d2h_rsp_intg.unused_tlul), line:55:5, endln:55:16
+          |vpiParent:
+          \_assignment: , line:55:5, endln:55:22
+          |vpiName:unused_tlul
+          |vpiFullName:work@dut.extract_d2h_rsp_intg.unused_tlul
+          |vpiActual:
+          \_logic_var: (tlul_pkg::extract_d2h_rsp_intg::unused_tlul), line:54:11, endln:54:22
+      |vpiStmt:
+      \_assignment: , line:56:5, endln:56:33
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
+          |vpiParent:
+          \_assignment: , line:56:5, endln:56:33
+          |vpiName:tl.d_opcode
+          |vpiActual:
+          \_ref_obj: (tl), line:56:22, endln:56:24
+            |vpiParent:
+            \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
+            |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+          |vpiActual:
+          \_ref_obj: (d_opcode), line:56:25, endln:56:33
+            |vpiParent:
+            \_hier_path: (tl.d_opcode), line:56:22, endln:56:33
+            |vpiName:d_opcode
+            |vpiActual:
+            \_typespec_member: (d_opcode), line:32:15, endln:32:23
+        |vpiLhs:
+        \_hier_path: (payload.opcode), line:56:5, endln:56:19
+          |vpiParent:
+          \_assignment: , line:56:5, endln:56:33
+          |vpiName:payload.opcode
+          |vpiActual:
+          \_ref_obj: (payload)
+            |vpiParent:
+            \_hier_path: (payload.opcode), line:56:5, endln:56:19
+            |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+          |vpiActual:
+          \_ref_obj: (opcode)
+            |vpiParent:
+            \_hier_path: (payload.opcode), line:56:5, endln:56:19
+            |vpiName:opcode
+            |vpiActual:
+            \_typespec_member: (opcode), line:46:35, endln:46:41
+      |vpiStmt:
+      \_assignment: , line:57:5, endln:57:31
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_hier_path: (tl.d_size), line:57:22, endln:57:31
+          |vpiParent:
+          \_assignment: , line:57:5, endln:57:31
+          |vpiName:tl.d_size
+          |vpiActual:
+          \_ref_obj: (tl), line:57:22, endln:57:24
+            |vpiParent:
+            \_hier_path: (tl.d_size), line:57:22, endln:57:31
+            |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+          |vpiActual:
+          \_ref_obj: (d_size), line:57:25, endln:57:31
+            |vpiParent:
+            \_hier_path: (tl.d_size), line:57:22, endln:57:31
+            |vpiName:d_size
+            |vpiActual:
+            \_typespec_member: (d_size), line:34:21, endln:34:27
+        |vpiLhs:
+        \_hier_path: (payload.size), line:57:5, endln:57:17
+          |vpiParent:
+          \_assignment: , line:57:5, endln:57:31
+          |vpiName:payload.size
+          |vpiActual:
+          \_ref_obj: (payload)
+            |vpiParent:
+            \_hier_path: (payload.size), line:57:5, endln:57:17
+            |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+          |vpiActual:
+          \_ref_obj: (size)
+            |vpiParent:
+            \_hier_path: (payload.size), line:57:5, endln:57:17
+            |vpiName:size
+            |vpiActual:
+            \_typespec_member: (size), line:47:21, endln:47:25
+      |vpiStmt:
+      \_assignment: , line:58:5, endln:58:32
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_hier_path: (tl.d_error), line:58:22, endln:58:32
+          |vpiParent:
+          \_assignment: , line:58:5, endln:58:32
+          |vpiName:tl.d_error
+          |vpiActual:
+          \_ref_obj: (tl), line:58:22, endln:58:24
+            |vpiParent:
+            \_hier_path: (tl.d_error), line:58:22, endln:58:32
+            |vpiName:tl
+            |vpiActual:
+            \_io_decl: (tl), line:52:70, endln:52:72
+          |vpiActual:
+          \_ref_obj: (d_error), line:58:25, endln:58:32
+            |vpiParent:
+            \_hier_path: (tl.d_error), line:58:22, endln:58:32
+            |vpiName:d_error
+            |vpiActual:
+            \_typespec_member: (d_error), line:39:35, endln:39:42
+        |vpiLhs:
+        \_hier_path: (payload.error), line:58:5, endln:58:18
+          |vpiParent:
+          \_assignment: , line:58:5, endln:58:32
+          |vpiName:payload.error
+          |vpiActual:
+          \_ref_obj: (payload)
+            |vpiParent:
+            \_hier_path: (payload.error), line:58:5, endln:58:18
+            |vpiName:payload
+            |vpiActual:
+            \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+          |vpiActual:
+          \_ref_obj: (error)
+            |vpiParent:
+            \_hier_path: (payload.error), line:58:5, endln:58:18
+            |vpiName:error
+            |vpiActual:
+            \_typespec_member: (error), line:48:35, endln:48:40
+      |vpiStmt:
+      \_return_stmt: , line:59:5, endln:59:11
+        |vpiParent:
+        \_begin: (work@dut.extract_d2h_rsp_intg)
+        |vpiCondition:
+        \_ref_obj: (work@dut.extract_d2h_rsp_intg.payload), line:59:12, endln:59:19
+          |vpiParent:
+          \_return_stmt: , line:59:5, endln:59:11
+          |vpiName:payload
+          |vpiFullName:work@dut.extract_d2h_rsp_intg.payload
+          |vpiActual:
+          \_struct_var: (tlul_pkg::extract_d2h_rsp_intg::payload), line:53:23, endln:53:30
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
   |vpiTopModule:1
   |vpiPort:
   \_port: (tl_i), line:68:19, endln:68:23
@@ -2694,12 +3268,16 @@ design: (work@dut)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@dut.tl_i), line:68:19, endln:68:23
+      |vpiParent:
+      \_port: (tl_i), line:68:19, endln:68:23
       |vpiName:tl_i
       |vpiFullName:work@dut.tl_i
       |vpiActual:
       \_struct_var: (work@dut.tl_i), line:68:19, endln:68:23
     |vpiTypedef:
     \_struct_typespec: (tlul_pkg::tl_d2h_t), line:30:11, endln:30:17
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
   |vpiPort:
   \_port: (tl_o), line:69:19, endln:69:23
     |vpiParent:
@@ -2708,14 +3286,66 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.tl_o), line:69:19, endln:69:23
+      |vpiParent:
+      \_port: (tl_o), line:69:19, endln:69:23
       |vpiName:tl_o
       |vpiFullName:work@dut.tl_o
       |vpiActual:
       \_struct_var: (work@dut.tl_o), line:69:19, endln:69:23
     |vpiTypedef:
     \_struct_typespec: (tlul_pkg::tl_d2h_t), line:30:11, endln:30:17
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
   |vpiProcess:
   \_always: , line:83:3, endln:85:6
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
+    |vpiStmt:
+    \_begin: (work@dut), line:83:15, endln:85:6
+      |vpiParent:
+      \_always: , line:83:3, endln:85:6
+      |vpiFullName:work@dut
+      |vpiStmt:
+      \_assignment: , line:84:5, endln:84:36
+        |vpiParent:
+        \_begin: (work@dut), line:83:15, endln:85:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_ref_obj: (work@dut.rsp_intg), line:84:28, endln:84:36
+          |vpiParent:
+          \_assignment: , line:84:5, endln:84:36
+          |vpiName:rsp_intg
+          |vpiFullName:work@dut.rsp_intg
+          |vpiActual:
+          \_logic_var: (work@dut.rsp_intg), line:72:17, endln:72:25
+        |vpiLhs:
+        \_hier_path: (tl_o.d_user.rsp_intg), line:84:5, endln:84:25
+          |vpiParent:
+          \_assignment: , line:84:5, endln:84:36
+          |vpiName:tl_o.d_user.rsp_intg
+          |vpiActual:
+          \_ref_obj: (tl_o)
+            |vpiParent:
+            \_hier_path: (tl_o.d_user.rsp_intg), line:84:5, endln:84:25
+            |vpiName:tl_o
+            |vpiActual:
+            \_struct_var: (work@dut.tl_o), line:69:19, endln:69:23
+          |vpiActual:
+          \_ref_obj: (d_user)
+            |vpiParent:
+            \_hier_path: (tl_o.d_user.rsp_intg), line:84:5, endln:84:25
+            |vpiName:d_user
+            |vpiActual:
+            \_typespec_member: (d_user), line:38:35, endln:38:41
+          |vpiActual:
+          \_ref_obj: (rsp_intg)
+            |vpiParent:
+            \_hier_path: (tl_o.d_user.rsp_intg), line:84:5, endln:84:25
+            |vpiName:rsp_intg
+            |vpiActual:
+            \_typespec_member: (rsp_intg), line:26:22, endln:26:30
+    |vpiAlwaysType:2
   |vpiModule:
   \_module_inst: work@prim_secded_64_57_enc (work@dut.u_rsp_gen), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:78:3, endln:81:5
     |vpiParent:
@@ -2788,19 +3418,24 @@ design: (work@dut)
       |vpiDirection:1
       |vpiHighConn:
       \_operation: , line:79:13, endln:79:21
+        |vpiParent:
+        \_port: (data_i), line:2:23, endln:2:29
         |vpiTypespec:
         \_integer_typespec: , line:79:13, endln:79:15
           |INT:57
         |vpiOpType:67
         |vpiOperand:
-        \_ref_obj: (rsp), line:79:17, endln:79:20
+        \_ref_obj: (work@dut.u_rsp_gen.data_i.rsp), line:79:17, endln:79:20
           |vpiParent:
           \_operation: , line:79:13, endln:79:21
           |vpiName:rsp
+          |vpiFullName:work@dut.u_rsp_gen.data_i.rsp
           |vpiActual:
           \_struct_var: (work@dut.rsp), line:73:21, endln:73:24
       |vpiLowConn:
       \_ref_obj: (work@dut.u_rsp_gen.data_i), line:79:6, endln:79:12
+        |vpiParent:
+        \_port: (data_i), line:2:23, endln:2:29
         |vpiName:data_i
         |vpiFullName:work@dut.u_rsp_gen.data_i
         |vpiActual:
@@ -2827,6 +3462,8 @@ design: (work@dut)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
+      |vpiInstance:
+      \_module_inst: work@prim_secded_64_57_enc (work@dut.u_rsp_gen), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:78:3, endln:81:5
     |vpiPort:
     \_port: (data_o), line:3:23, endln:3:29
       |vpiParent:
@@ -2835,23 +3472,29 @@ design: (work@dut)
       |vpiDirection:2
       |vpiHighConn:
       \_operation: , line:80:13, endln:80:39
+        |vpiParent:
+        \_port: (data_o), line:3:23, endln:3:29
         |vpiOpType:33
         |vpiOperand:
-        \_ref_obj: (rsp_intg), line:80:14, endln:80:22
+        \_ref_obj: (work@dut.u_rsp_gen.data_o.rsp_intg), line:80:14, endln:80:22
           |vpiParent:
           \_operation: , line:80:13, endln:80:39
           |vpiName:rsp_intg
+          |vpiFullName:work@dut.u_rsp_gen.data_o.rsp_intg
           |vpiActual:
           \_logic_var: (work@dut.rsp_intg), line:72:17, endln:72:25
         |vpiOperand:
-        \_ref_obj: (unused_payload), line:80:24, endln:80:38
+        \_ref_obj: (work@dut.u_rsp_gen.data_o.unused_payload), line:80:24, endln:80:38
           |vpiParent:
           \_operation: , line:80:13, endln:80:39
           |vpiName:unused_payload
+          |vpiFullName:work@dut.u_rsp_gen.data_o.unused_payload
           |vpiActual:
           \_logic_var: (work@dut.unused_payload), line:74:18, endln:74:32
       |vpiLowConn:
       \_ref_obj: (work@dut.u_rsp_gen.data_o), line:80:6, endln:80:12
+        |vpiParent:
+        \_port: (data_o), line:3:23, endln:3:29
         |vpiName:data_o
         |vpiFullName:work@dut.u_rsp_gen.data_o
         |vpiActual:
@@ -2878,10 +3521,371 @@ design: (work@dut)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
+      |vpiInstance:
+      \_module_inst: work@prim_secded_64_57_enc (work@dut.u_rsp_gen), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:78:3, endln:81:5
     |vpiProcess:
     \_always: , line:6:3, endln:15:6
+      |vpiParent:
+      \_module_inst: work@prim_secded_64_57_enc (work@dut.u_rsp_gen), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:78:3, endln:81:5
+      |vpiStmt:
+      \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+        |vpiParent:
+        \_always: , line:6:3, endln:15:6
+        |vpiName:p_encode
+        |vpiFullName:work@dut.u_rsp_gen.p_encode
+        |vpiStmt:
+        \_assignment: , line:7:5, endln:7:25
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:7:14, endln:7:25
+            |vpiParent:
+            \_assignment: , line:7:5, endln:7:25
+            |vpiTypespec:
+            \_integer_typespec: , line:7:14, endln:7:16
+            |vpiOpType:67
+            |vpiOperand:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_i), line:7:18, endln:7:24
+              |vpiParent:
+              \_operation: , line:7:14, endln:7:25
+              |vpiName:data_i
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_i
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_i), line:2:23, endln:2:29
+          |vpiLhs:
+          \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:7:5, endln:7:11
+            |vpiParent:
+            \_assignment: , line:7:5, endln:7:25
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:8:5, endln:8:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:8:18, endln:8:50
+            |vpiParent:
+            \_assignment: , line:8:5, endln:8:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:8:20, endln:8:49
+              |vpiParent:
+              \_operation: , line:8:18, endln:8:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:8:20, endln:8:26
+                |vpiParent:
+                \_operation: , line:8:20, endln:8:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:8:29, endln:8:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:8:5, endln:8:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:8:5, endln:8:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:8:12, endln:8:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:9:5, endln:9:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:9:18, endln:9:50
+            |vpiParent:
+            \_assignment: , line:9:5, endln:9:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:9:20, endln:9:49
+              |vpiParent:
+              \_operation: , line:9:18, endln:9:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:9:20, endln:9:26
+                |vpiParent:
+                \_operation: , line:9:20, endln:9:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:9:29, endln:9:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:9:5, endln:9:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:9:5, endln:9:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:9:12, endln:9:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:10:5, endln:10:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:10:18, endln:10:50
+            |vpiParent:
+            \_assignment: , line:10:5, endln:10:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:10:20, endln:10:49
+              |vpiParent:
+              \_operation: , line:10:18, endln:10:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:10:20, endln:10:26
+                |vpiParent:
+                \_operation: , line:10:20, endln:10:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:10:29, endln:10:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:10:5, endln:10:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:10:5, endln:10:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:10:12, endln:10:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:11:5, endln:11:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:11:18, endln:11:50
+            |vpiParent:
+            \_assignment: , line:11:5, endln:11:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:11:20, endln:11:49
+              |vpiParent:
+              \_operation: , line:11:18, endln:11:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:11:20, endln:11:26
+                |vpiParent:
+                \_operation: , line:11:20, endln:11:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:11:29, endln:11:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:11:5, endln:11:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:11:5, endln:11:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:11:12, endln:11:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:12:5, endln:12:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:12:18, endln:12:50
+            |vpiParent:
+            \_assignment: , line:12:5, endln:12:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:12:20, endln:12:49
+              |vpiParent:
+              \_operation: , line:12:18, endln:12:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:12:20, endln:12:26
+                |vpiParent:
+                \_operation: , line:12:20, endln:12:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:12:29, endln:12:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:12:5, endln:12:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:12:5, endln:12:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:12:12, endln:12:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:13:5, endln:13:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:13:18, endln:13:50
+            |vpiParent:
+            \_assignment: , line:13:5, endln:13:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:13:20, endln:13:49
+              |vpiParent:
+              \_operation: , line:13:18, endln:13:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:13:20, endln:13:26
+                |vpiParent:
+                \_operation: , line:13:20, endln:13:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:13:29, endln:13:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:13:5, endln:13:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:13:5, endln:13:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:13:12, endln:13:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+        |vpiStmt:
+        \_assignment: , line:14:5, endln:14:50
+          |vpiParent:
+          \_named_begin: (work@dut.u_rsp_gen.p_encode), line:6:15, endln:15:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:14:18, endln:14:50
+            |vpiParent:
+            \_assignment: , line:14:5, endln:14:50
+            |vpiOpType:9
+            |vpiOperand:
+            \_operation: , line:14:20, endln:14:49
+              |vpiParent:
+              \_operation: , line:14:18, endln:14:50
+              |vpiOpType:28
+              |vpiOperand:
+              \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o), line:14:20, endln:14:26
+                |vpiParent:
+                \_operation: , line:14:20, endln:14:49
+                |vpiName:data_o
+                |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+                |vpiActual:
+                \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+              |vpiOperand:
+              \_constant: , line:14:29, endln:14:49
+          |vpiLhs:
+          \_bit_select: (work@dut.u_rsp_gen.data_o), line:14:5, endln:14:15
+            |vpiParent:
+            \_ref_obj: (work@dut.u_rsp_gen.p_encode.data_o)
+              |vpiParent:
+              \_assignment: , line:14:5, endln:14:50
+              |vpiName:data_o
+              |vpiFullName:work@dut.u_rsp_gen.p_encode.data_o
+              |vpiActual:
+              \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+            |vpiName:data_o
+            |vpiFullName:work@dut.u_rsp_gen.data_o
+            |vpiIndex:
+            \_constant: , line:14:12, endln:14:14
+            |vpiActual:
+            \_logic_net: (work@dut.u_rsp_gen.data_o), line:3:23, endln:3:29
+      |vpiAlwaysType:2
   |vpiContAssign:
   \_cont_assign: , line:76:10, endln:76:42
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/rsp_gen_minimal/dut.v, line:65:1, endln:87:10
+    |vpiRhs:
+    \_func_call: (extract_d2h_rsp_intg), line:76:16, endln:76:42
+      |vpiParent:
+      \_cont_assign: , line:76:10, endln:76:42
+      |vpiArgument:
+      \_ref_obj: (work@dut.tl_i), line:76:37, endln:76:41
+        |vpiParent:
+        \_func_call: (extract_d2h_rsp_intg), line:76:16, endln:76:42
+        |vpiTypespec:
+        \_struct_typespec: (tlul_pkg::tl_d2h_t), line:30:11, endln:30:17
+        |vpiName:tl_i
+        |vpiFullName:work@dut.tl_i
+        |vpiActual:
+        \_struct_var: (work@dut.tl_i), line:68:19, endln:68:23
+      |vpiName:extract_d2h_rsp_intg
+      |vpiFunction:
+      \_function: (tlul_pkg::extract_d2h_rsp_intg), line:52:3, endln:60:14
+    |vpiLhs:
+    \_ref_obj: (work@dut.rsp), line:76:10, endln:76:13
+      |vpiParent:
+      \_cont_assign: , line:76:10, endln:76:42
+      |vpiName:rsp
+      |vpiFullName:work@dut.rsp
+      |vpiActual:
+      \_struct_var: (work@dut.rsp), line:73:21, endln:73:24
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object 'tlul_pkg' of type 'package'

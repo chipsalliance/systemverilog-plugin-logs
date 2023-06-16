@@ -67,12 +67,15 @@ Using Yosys read_systemverilog command
 
 [WRN:UH0720] UHDM-integration-tests/tests/MultipleNets/top.sv:20:11: Non-synthesizable construct "".
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 3
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -290,6 +293,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -329,6 +334,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -345,6 +352,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -359,6 +368,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -379,6 +390,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -393,6 +406,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -413,6 +428,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -427,30 +444,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -483,6 +510,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -547,6 +607,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -570,6 +632,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -593,6 +657,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -622,6 +688,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1142,12 +1210,16 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.simple_logic_net), line:12:17, endln:12:33
+      |vpiParent:
+      \_port: (simple_logic_net), line:12:17, endln:12:33
       |vpiName:simple_logic_net
       |vpiFullName:work@top.simple_logic_net
       |vpiActual:
       \_logic_net: (work@top.simple_logic_net), line:12:17, endln:12:33
     |vpiTypedef:
     \_logic_typespec: , line:12:11, endln:12:16
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (packed_logic_net), line:13:23, endln:13:39
     |vpiParent:
@@ -1156,6 +1228,8 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.packed_logic_net), line:13:23, endln:13:39
+      |vpiParent:
+      \_port: (packed_logic_net), line:13:23, endln:13:39
       |vpiName:packed_logic_net
       |vpiFullName:work@top.packed_logic_net
       |vpiActual:
@@ -1182,6 +1256,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (unpacked_logic_net), line:14:17, endln:14:35
     |vpiParent:
@@ -1190,12 +1266,16 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.unpacked_logic_net), line:14:17, endln:14:35
+      |vpiParent:
+      \_port: (unpacked_logic_net), line:14:17, endln:14:35
       |vpiName:unpacked_logic_net
       |vpiFullName:work@top.unpacked_logic_net
       |vpiActual:
       \_array_net: (work@top.unpacked_logic_net), line:14:17, endln:14:35
     |vpiTypedef:
     \_logic_typespec: , line:14:11, endln:14:16
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (packed_array_logic_net), line:15:29, endln:15:51
     |vpiParent:
@@ -1204,6 +1284,8 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.packed_array_logic_net), line:15:29, endln:15:51
+      |vpiParent:
+      \_port: (packed_array_logic_net), line:15:29, endln:15:51
       |vpiName:packed_array_logic_net
       |vpiFullName:work@top.packed_array_logic_net
       |vpiActual:
@@ -1250,6 +1332,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (unpacked_array_logic_net), line:16:23, endln:16:47
     |vpiParent:
@@ -1258,6 +1342,8 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.unpacked_array_logic_net), line:16:23, endln:16:47
+      |vpiParent:
+      \_port: (unpacked_array_logic_net), line:16:23, endln:16:47
       |vpiName:unpacked_array_logic_net
       |vpiFullName:work@top.unpacked_array_logic_net
       |vpiActual:
@@ -1284,6 +1370,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (enum_net_output), line:17:25, endln:17:40
     |vpiParent:
@@ -1292,12 +1380,16 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.enum_net_output), line:17:25, endln:17:40
+      |vpiParent:
+      \_port: (enum_net_output), line:17:25, endln:17:40
       |vpiName:enum_net_output
       |vpiFullName:work@top.enum_net_output
       |vpiActual:
       \_enum_var: (work@top.enum_net_output), line:17:25, endln:17:40
     |vpiTypedef:
     \_enum_typespec: (custom::enum1), line:2:5, endln:5:13
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (struct_net_input), line:18:27, endln:18:43
     |vpiParent:
@@ -1306,12 +1398,16 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.struct_net_input), line:18:27, endln:18:43
+      |vpiParent:
+      \_port: (struct_net_input), line:18:27, endln:18:43
       |vpiName:struct_net_input
       |vpiFullName:work@top.struct_net_input
       |vpiActual:
       \_struct_net: (work@top.struct_net_input), line:18:27, endln:18:43
     |vpiTypedef:
     \_struct_typespec: (custom::struct1), line:6:13, endln:6:19
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (integer_net_input), line:19:19, endln:19:36
     |vpiParent:
@@ -1320,6 +1416,8 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.integer_net_input), line:19:19, endln:19:36
+      |vpiParent:
+      \_port: (integer_net_input), line:19:19, endln:19:36
       |vpiName:integer_net_input
       |vpiFullName:work@top.integer_net_input
       |vpiActual:
@@ -1327,6 +1425,8 @@ design: (work@top)
     |vpiTypedef:
     \_integer_typespec: , line:19:11, endln:19:18
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
   |vpiPort:
   \_port: (time_net_input), line:20:16, endln:20:30
     |vpiParent:
@@ -1335,12 +1435,16 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.time_net_input), line:20:16, endln:20:30
+      |vpiParent:
+      \_port: (time_net_input), line:20:16, endln:20:30
       |vpiName:time_net_input
       |vpiFullName:work@top.time_net_input
       |vpiActual:
       \_logic_net: (work@top.time_net_input), line:20:16, endln:20:30
     |vpiTypedef:
     \_time_typespec: , line:20:11, endln:20:15
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleNets/top.sv, line:11:1, endln:25:10
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object 'custom' of type 'package'

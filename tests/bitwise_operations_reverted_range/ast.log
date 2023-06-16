@@ -64,12 +64,15 @@ there are 17 more instances of this message.
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 6
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -138,6 +141,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -177,6 +182,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -193,6 +200,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -207,6 +216,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -227,6 +238,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -241,6 +254,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -261,6 +276,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -275,30 +292,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -331,6 +358,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -395,6 +455,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -418,6 +480,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -441,6 +505,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -470,6 +536,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1834,6 +1902,8 @@ design: (work@top)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@top.in), line:3:17, endln:3:19
+      |vpiParent:
+      \_port: (in), line:3:17, endln:3:19
       |vpiName:in
       |vpiFullName:work@top.in
       |vpiActual:
@@ -1860,6 +1930,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:3
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_1), line:4:12, endln:4:17
     |vpiParent:
@@ -1868,12 +1940,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_1), line:4:12, endln:4:17
+      |vpiParent:
+      \_port: (out_1), line:4:12, endln:4:17
       |vpiName:out_1
       |vpiFullName:work@top.out_1
       |vpiActual:
       \_logic_net: (work@top.out_1), line:4:12, endln:4:17
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_2), line:4:19, endln:4:24
     |vpiParent:
@@ -1882,12 +1958,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_2), line:4:19, endln:4:24
+      |vpiParent:
+      \_port: (out_2), line:4:19, endln:4:24
       |vpiName:out_2
       |vpiFullName:work@top.out_2
       |vpiActual:
       \_logic_net: (work@top.out_2), line:4:19, endln:4:24
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_3), line:4:26, endln:4:31
     |vpiParent:
@@ -1896,12 +1976,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_3), line:4:26, endln:4:31
+      |vpiParent:
+      \_port: (out_3), line:4:26, endln:4:31
       |vpiName:out_3
       |vpiFullName:work@top.out_3
       |vpiActual:
       \_logic_net: (work@top.out_3), line:4:26, endln:4:31
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_4), line:4:33, endln:4:38
     |vpiParent:
@@ -1910,12 +1994,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_4), line:4:33, endln:4:38
+      |vpiParent:
+      \_port: (out_4), line:4:33, endln:4:38
       |vpiName:out_4
       |vpiFullName:work@top.out_4
       |vpiActual:
       \_logic_net: (work@top.out_4), line:4:33, endln:4:38
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_5), line:4:40, endln:4:45
     |vpiParent:
@@ -1924,12 +2012,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_5), line:4:40, endln:4:45
+      |vpiParent:
+      \_port: (out_5), line:4:40, endln:4:45
       |vpiName:out_5
       |vpiFullName:work@top.out_5
       |vpiActual:
       \_logic_net: (work@top.out_5), line:4:40, endln:4:45
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_6), line:4:47, endln:4:52
     |vpiParent:
@@ -1938,12 +2030,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_6), line:4:47, endln:4:52
+      |vpiParent:
+      \_port: (out_6), line:4:47, endln:4:52
       |vpiName:out_6
       |vpiFullName:work@top.out_6
       |vpiActual:
       \_logic_net: (work@top.out_6), line:4:47, endln:4:52
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_7), line:4:54, endln:4:59
     |vpiParent:
@@ -1952,12 +2048,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_7), line:4:54, endln:4:59
+      |vpiParent:
+      \_port: (out_7), line:4:54, endln:4:59
       |vpiName:out_7
       |vpiFullName:work@top.out_7
       |vpiActual:
       \_logic_net: (work@top.out_7), line:4:54, endln:4:59
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_8), line:4:61, endln:4:66
     |vpiParent:
@@ -1966,12 +2066,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_8), line:4:61, endln:4:66
+      |vpiParent:
+      \_port: (out_8), line:4:61, endln:4:66
       |vpiName:out_8
       |vpiFullName:work@top.out_8
       |vpiActual:
       \_logic_net: (work@top.out_8), line:4:61, endln:4:66
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_9), line:4:68, endln:4:73
     |vpiParent:
@@ -1980,12 +2084,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_9), line:4:68, endln:4:73
+      |vpiParent:
+      \_port: (out_9), line:4:68, endln:4:73
       |vpiName:out_9
       |vpiFullName:work@top.out_9
       |vpiActual:
       \_logic_net: (work@top.out_9), line:4:68, endln:4:73
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_10), line:4:75, endln:4:81
     |vpiParent:
@@ -1994,12 +2102,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_10), line:4:75, endln:4:81
+      |vpiParent:
+      \_port: (out_10), line:4:75, endln:4:81
       |vpiName:out_10
       |vpiFullName:work@top.out_10
       |vpiActual:
       \_logic_net: (work@top.out_10), line:4:75, endln:4:81
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_11), line:5:12, endln:5:18
     |vpiParent:
@@ -2008,12 +2120,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_11), line:5:12, endln:5:18
+      |vpiParent:
+      \_port: (out_11), line:5:12, endln:5:18
       |vpiName:out_11
       |vpiFullName:work@top.out_11
       |vpiActual:
       \_logic_net: (work@top.out_11), line:5:12, endln:5:18
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_12), line:5:20, endln:5:26
     |vpiParent:
@@ -2022,12 +2138,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_12), line:5:20, endln:5:26
+      |vpiParent:
+      \_port: (out_12), line:5:20, endln:5:26
       |vpiName:out_12
       |vpiFullName:work@top.out_12
       |vpiActual:
       \_logic_net: (work@top.out_12), line:5:20, endln:5:26
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_13), line:5:28, endln:5:34
     |vpiParent:
@@ -2036,12 +2156,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_13), line:5:28, endln:5:34
+      |vpiParent:
+      \_port: (out_13), line:5:28, endln:5:34
       |vpiName:out_13
       |vpiFullName:work@top.out_13
       |vpiActual:
       \_logic_net: (work@top.out_13), line:5:28, endln:5:34
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_14), line:5:36, endln:5:42
     |vpiParent:
@@ -2050,12 +2174,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_14), line:5:36, endln:5:42
+      |vpiParent:
+      \_port: (out_14), line:5:36, endln:5:42
       |vpiName:out_14
       |vpiFullName:work@top.out_14
       |vpiActual:
       \_logic_net: (work@top.out_14), line:5:36, endln:5:42
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_15), line:5:44, endln:5:50
     |vpiParent:
@@ -2064,12 +2192,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_15), line:5:44, endln:5:50
+      |vpiParent:
+      \_port: (out_15), line:5:44, endln:5:50
       |vpiName:out_15
       |vpiFullName:work@top.out_15
       |vpiActual:
       \_logic_net: (work@top.out_15), line:5:44, endln:5:50
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_16), line:5:52, endln:5:58
     |vpiParent:
@@ -2078,12 +2210,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_16), line:5:52, endln:5:58
+      |vpiParent:
+      \_port: (out_16), line:5:52, endln:5:58
       |vpiName:out_16
       |vpiFullName:work@top.out_16
       |vpiActual:
       \_logic_net: (work@top.out_16), line:5:52, endln:5:58
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_17), line:5:60, endln:5:66
     |vpiParent:
@@ -2092,12 +2228,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_17), line:5:60, endln:5:66
+      |vpiParent:
+      \_port: (out_17), line:5:60, endln:5:66
       |vpiName:out_17
       |vpiFullName:work@top.out_17
       |vpiActual:
       \_logic_net: (work@top.out_17), line:5:60, endln:5:66
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiPort:
   \_port: (out_18), line:5:68, endln:5:74
     |vpiParent:
@@ -2106,27 +2246,37 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out_18), line:5:68, endln:5:74
+      |vpiParent:
+      \_port: (out_18), line:5:68, endln:5:74
       |vpiName:out_18
       |vpiFullName:work@top.out_18
       |vpiActual:
       \_logic_net: (work@top.out_18), line:5:68, endln:5:74
     |vpiTypedef:
     \_logic_typespec: , line:4:12, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
   |vpiContAssign:
   \_cont_assign: , line:7:12, endln:7:34
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:7:21, endln:7:34
       |vpiParent:
       \_cont_assign: , line:7:12, endln:7:34
       |vpiOpType:28
       |vpiOperand:
-      \_bit_select: (in), line:7:21, endln:7:26
+      \_bit_select: (work@top.in), line:7:21, endln:7:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:7:21, endln:7:34
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:7:24, endln:7:25
           |vpiParent:
@@ -2135,14 +2285,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:7:29, endln:7:34
+      \_bit_select: (work@top.in), line:7:29, endln:7:34
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:7:21, endln:7:34
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:7:32, endln:7:33
           |vpiParent:
@@ -2151,28 +2307,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_1), line:7:12, endln:7:17
+    \_ref_obj: (work@top.out_1), line:7:12, endln:7:17
       |vpiParent:
       \_cont_assign: , line:7:12, endln:7:34
       |vpiName:out_1
+      |vpiFullName:work@top.out_1
       |vpiActual:
       \_logic_net: (work@top.out_1), line:4:12, endln:4:17
   |vpiContAssign:
   \_cont_assign: , line:8:12, endln:8:34
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:8:21, endln:8:34
       |vpiParent:
       \_cont_assign: , line:8:12, endln:8:34
       |vpiOpType:29
       |vpiOperand:
-      \_bit_select: (in), line:8:21, endln:8:26
+      \_bit_select: (work@top.in), line:8:21, endln:8:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:8:21, endln:8:34
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:8:24, endln:8:25
           |vpiParent:
@@ -2181,14 +2346,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:8:29, endln:8:34
+      \_bit_select: (work@top.in), line:8:29, endln:8:34
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:8:21, endln:8:34
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:8:32, endln:8:33
           |vpiParent:
@@ -2197,28 +2368,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_2), line:8:12, endln:8:17
+    \_ref_obj: (work@top.out_2), line:8:12, endln:8:17
       |vpiParent:
       \_cont_assign: , line:8:12, endln:8:34
       |vpiName:out_2
+      |vpiFullName:work@top.out_2
       |vpiActual:
       \_logic_net: (work@top.out_2), line:4:19, endln:4:24
   |vpiContAssign:
   \_cont_assign: , line:9:12, endln:9:35
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:9:21, endln:9:35
       |vpiParent:
       \_cont_assign: , line:9:12, endln:9:35
       |vpiOpType:6
       |vpiOperand:
-      \_bit_select: (in), line:9:21, endln:9:26
+      \_bit_select: (work@top.in), line:9:21, endln:9:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:9:21, endln:9:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:9:24, endln:9:25
           |vpiParent:
@@ -2227,14 +2407,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:9:30, endln:9:35
+      \_bit_select: (work@top.in), line:9:30, endln:9:35
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:9:21, endln:9:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:9:33, endln:9:34
           |vpiParent:
@@ -2243,28 +2429,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_3), line:9:12, endln:9:17
+    \_ref_obj: (work@top.out_3), line:9:12, endln:9:17
       |vpiParent:
       \_cont_assign: , line:9:12, endln:9:35
       |vpiName:out_3
+      |vpiFullName:work@top.out_3
       |vpiActual:
       \_logic_net: (work@top.out_3), line:4:26, endln:4:31
   |vpiContAssign:
   \_cont_assign: , line:10:12, endln:10:35
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:10:21, endln:10:35
       |vpiParent:
       \_cont_assign: , line:10:12, endln:10:35
       |vpiOpType:8
       |vpiOperand:
-      \_bit_select: (in), line:10:21, endln:10:26
+      \_bit_select: (work@top.in), line:10:21, endln:10:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:10:21, endln:10:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:10:24, endln:10:25
           |vpiParent:
@@ -2273,14 +2468,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:10:30, endln:10:35
+      \_bit_select: (work@top.in), line:10:30, endln:10:35
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:10:21, endln:10:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:10:33, endln:10:34
           |vpiParent:
@@ -2289,28 +2490,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_4), line:10:12, endln:10:17
+    \_ref_obj: (work@top.out_4), line:10:12, endln:10:17
       |vpiParent:
       \_cont_assign: , line:10:12, endln:10:35
       |vpiName:out_4
+      |vpiFullName:work@top.out_4
       |vpiActual:
       \_logic_net: (work@top.out_4), line:4:33, endln:4:38
   |vpiContAssign:
   \_cont_assign: , line:11:12, endln:11:34
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:11:21, endln:11:34
       |vpiParent:
       \_cont_assign: , line:11:12, endln:11:34
       |vpiOpType:30
       |vpiOperand:
-      \_bit_select: (in), line:11:21, endln:11:26
+      \_bit_select: (work@top.in), line:11:21, endln:11:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:11:21, endln:11:34
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:11:24, endln:11:25
           |vpiParent:
@@ -2319,14 +2529,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:11:29, endln:11:34
+      \_bit_select: (work@top.in), line:11:29, endln:11:34
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:11:21, endln:11:34
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:11:32, endln:11:33
           |vpiParent:
@@ -2335,28 +2551,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_5), line:11:12, endln:11:17
+    \_ref_obj: (work@top.out_5), line:11:12, endln:11:17
       |vpiParent:
       \_cont_assign: , line:11:12, endln:11:34
       |vpiName:out_5
+      |vpiFullName:work@top.out_5
       |vpiActual:
       \_logic_net: (work@top.out_5), line:4:40, endln:4:45
   |vpiContAssign:
   \_cont_assign: , line:12:12, endln:12:35
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:12:21, endln:12:35
       |vpiParent:
       \_cont_assign: , line:12:12, endln:12:35
       |vpiOpType:31
       |vpiOperand:
-      \_bit_select: (in), line:12:21, endln:12:26
+      \_bit_select: (work@top.in), line:12:21, endln:12:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:12:21, endln:12:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:12:24, endln:12:25
           |vpiParent:
@@ -2365,14 +2590,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:12:30, endln:12:35
+      \_bit_select: (work@top.in), line:12:30, endln:12:35
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:12:21, endln:12:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:12:33, endln:12:34
           |vpiParent:
@@ -2381,28 +2612,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_6), line:12:12, endln:12:17
+    \_ref_obj: (work@top.out_6), line:12:12, endln:12:17
       |vpiParent:
       \_cont_assign: , line:12:12, endln:12:35
       |vpiName:out_6
+      |vpiFullName:work@top.out_6
       |vpiActual:
       \_logic_net: (work@top.out_6), line:4:47, endln:4:52
   |vpiContAssign:
   \_cont_assign: , line:13:12, endln:13:35
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:13:21, endln:13:35
       |vpiParent:
       \_cont_assign: , line:13:12, endln:13:35
       |vpiOpType:31
       |vpiOperand:
-      \_bit_select: (in), line:13:21, endln:13:26
+      \_bit_select: (work@top.in), line:13:21, endln:13:26
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:13:21, endln:13:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:13:24, endln:13:25
           |vpiParent:
@@ -2411,14 +2651,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
       |vpiOperand:
-      \_bit_select: (in), line:13:30, endln:13:35
+      \_bit_select: (work@top.in), line:13:30, endln:13:35
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:13:21, endln:13:35
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:13:33, endln:13:34
           |vpiParent:
@@ -2427,28 +2673,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:1
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_7), line:13:12, endln:13:17
+    \_ref_obj: (work@top.out_7), line:13:12, endln:13:17
       |vpiParent:
       \_cont_assign: , line:13:12, endln:13:35
       |vpiName:out_7
+      |vpiFullName:work@top.out_7
       |vpiActual:
       \_logic_net: (work@top.out_7), line:4:54, endln:4:59
   |vpiContAssign:
   \_cont_assign: , line:14:12, endln:14:27
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:14:21, endln:14:27
       |vpiParent:
       \_cont_assign: , line:14:12, endln:14:27
       |vpiOpType:4
       |vpiOperand:
-      \_bit_select: (in), line:14:22, endln:14:27
+      \_bit_select: (work@top.in), line:14:22, endln:14:27
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:14:21, endln:14:27
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:14:25, endln:14:26
           |vpiParent:
@@ -2457,30 +2712,65 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_8), line:14:12, endln:14:17
+    \_ref_obj: (work@top.out_8), line:14:12, endln:14:17
       |vpiParent:
       \_cont_assign: , line:14:12, endln:14:27
       |vpiName:out_8
+      |vpiFullName:work@top.out_8
       |vpiActual:
       \_logic_net: (work@top.out_8), line:4:61, endln:4:66
   |vpiContAssign:
   \_cont_assign: , line:15:12, endln:15:26
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
+    |vpiRhs:
+    \_bit_select: (work@top.in), line:15:21, endln:15:26
+      |vpiParent:
+      \_ref_obj: (work@top.in)
+        |vpiParent:
+        \_cont_assign: , line:15:12, endln:15:26
+        |vpiName:in
+        |vpiFullName:work@top.in
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
+      |vpiName:in
+      |vpiFullName:work@top.in
+      |vpiIndex:
+      \_constant: , line:15:24, endln:15:25
+      |vpiActual:
+      \_logic_net: (work@top.in), line:3:17, endln:3:19
+    |vpiLhs:
+    \_ref_obj: (work@top.out_9), line:15:12, endln:15:17
+      |vpiParent:
+      \_cont_assign: , line:15:12, endln:15:26
+      |vpiName:out_9
+      |vpiFullName:work@top.out_9
+      |vpiActual:
+      \_logic_net: (work@top.out_9), line:4:68, endln:4:73
   |vpiContAssign:
   \_cont_assign: , line:16:12, endln:16:28
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:16:22, endln:16:28
       |vpiParent:
       \_cont_assign: , line:16:12, endln:16:28
       |vpiOpType:5
       |vpiOperand:
-      \_bit_select: (in), line:16:23, endln:16:28
+      \_bit_select: (work@top.in), line:16:23, endln:16:28
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:16:22, endln:16:28
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:16:26, endln:16:27
           |vpiParent:
@@ -2489,28 +2779,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_10), line:16:12, endln:16:18
+    \_ref_obj: (work@top.out_10), line:16:12, endln:16:18
       |vpiParent:
       \_cont_assign: , line:16:12, endln:16:28
       |vpiName:out_10
+      |vpiFullName:work@top.out_10
       |vpiActual:
       \_logic_net: (work@top.out_10), line:4:75, endln:4:81
   |vpiContAssign:
   \_cont_assign: , line:17:12, endln:17:28
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:17:22, endln:17:28
       |vpiParent:
       \_cont_assign: , line:17:12, endln:17:28
       |vpiOpType:7
       |vpiOperand:
-      \_bit_select: (in), line:17:23, endln:17:28
+      \_bit_select: (work@top.in), line:17:23, endln:17:28
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:17:22, endln:17:28
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:17:26, endln:17:27
           |vpiParent:
@@ -2519,28 +2818,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_11), line:17:12, endln:17:18
+    \_ref_obj: (work@top.out_11), line:17:12, endln:17:18
       |vpiParent:
       \_cont_assign: , line:17:12, endln:17:28
       |vpiName:out_11
+      |vpiFullName:work@top.out_11
       |vpiActual:
       \_logic_net: (work@top.out_11), line:5:12, endln:5:18
   |vpiContAssign:
   \_cont_assign: , line:18:12, endln:18:29
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:18:22, endln:18:29
       |vpiParent:
       \_cont_assign: , line:18:12, endln:18:29
       |vpiOpType:6
       |vpiOperand:
-      \_bit_select: (in), line:18:24, endln:18:29
+      \_bit_select: (work@top.in), line:18:24, endln:18:29
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:18:22, endln:18:29
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:18:27, endln:18:28
           |vpiParent:
@@ -2549,28 +2857,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_12), line:18:12, endln:18:18
+    \_ref_obj: (work@top.out_12), line:18:12, endln:18:18
       |vpiParent:
       \_cont_assign: , line:18:12, endln:18:29
       |vpiName:out_12
+      |vpiFullName:work@top.out_12
       |vpiActual:
       \_logic_net: (work@top.out_12), line:5:20, endln:5:26
   |vpiContAssign:
   \_cont_assign: , line:19:12, endln:19:29
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:19:22, endln:19:29
       |vpiParent:
       \_cont_assign: , line:19:12, endln:19:29
       |vpiOpType:8
       |vpiOperand:
-      \_bit_select: (in), line:19:24, endln:19:29
+      \_bit_select: (work@top.in), line:19:24, endln:19:29
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:19:22, endln:19:29
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:19:27, endln:19:28
           |vpiParent:
@@ -2579,28 +2896,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_13), line:19:12, endln:19:18
+    \_ref_obj: (work@top.out_13), line:19:12, endln:19:18
       |vpiParent:
       \_cont_assign: , line:19:12, endln:19:29
       |vpiName:out_13
+      |vpiFullName:work@top.out_13
       |vpiActual:
       \_logic_net: (work@top.out_13), line:5:28, endln:5:34
   |vpiContAssign:
   \_cont_assign: , line:20:12, endln:20:28
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:20:22, endln:20:28
       |vpiParent:
       \_cont_assign: , line:20:12, endln:20:28
       |vpiOpType:9
       |vpiOperand:
-      \_bit_select: (in), line:20:23, endln:20:28
+      \_bit_select: (work@top.in), line:20:23, endln:20:28
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:20:22, endln:20:28
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:20:26, endln:20:27
           |vpiParent:
@@ -2609,28 +2935,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_14), line:20:12, endln:20:18
+    \_ref_obj: (work@top.out_14), line:20:12, endln:20:18
       |vpiParent:
       \_cont_assign: , line:20:12, endln:20:28
       |vpiName:out_14
+      |vpiFullName:work@top.out_14
       |vpiActual:
       \_logic_net: (work@top.out_14), line:5:36, endln:5:42
   |vpiContAssign:
   \_cont_assign: , line:21:12, endln:21:29
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:21:22, endln:21:29
       |vpiParent:
       \_cont_assign: , line:21:12, endln:21:29
       |vpiOpType:10
       |vpiOperand:
-      \_bit_select: (in), line:21:24, endln:21:29
+      \_bit_select: (work@top.in), line:21:24, endln:21:29
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:21:22, endln:21:29
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:21:27, endln:21:28
           |vpiParent:
@@ -2639,28 +2974,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_15), line:21:12, endln:21:18
+    \_ref_obj: (work@top.out_15), line:21:12, endln:21:18
       |vpiParent:
       \_cont_assign: , line:21:12, endln:21:29
       |vpiName:out_15
+      |vpiFullName:work@top.out_15
       |vpiActual:
       \_logic_net: (work@top.out_15), line:5:44, endln:5:50
   |vpiContAssign:
   \_cont_assign: , line:22:12, endln:22:29
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:22:22, endln:22:29
       |vpiParent:
       \_cont_assign: , line:22:12, endln:22:29
       |vpiOpType:10
       |vpiOperand:
-      \_bit_select: (in), line:22:24, endln:22:29
+      \_bit_select: (work@top.in), line:22:24, endln:22:29
         |vpiParent:
-        \_ref_obj: (in)
+        \_ref_obj: (work@top.in)
           |vpiParent:
           \_operation: , line:22:22, endln:22:29
           |vpiName:in
+          |vpiFullName:work@top.in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiName:in
+        |vpiFullName:work@top.in
         |vpiIndex:
         \_constant: , line:22:27, endln:22:28
           |vpiParent:
@@ -2669,15 +3013,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiLhs:
-    \_ref_obj: (out_16), line:22:12, endln:22:18
+    \_ref_obj: (work@top.out_16), line:22:12, endln:22:18
       |vpiParent:
       \_cont_assign: , line:22:12, endln:22:29
       |vpiName:out_16
+      |vpiFullName:work@top.out_16
       |vpiActual:
       \_logic_net: (work@top.out_16), line:5:52, endln:5:58
   |vpiContAssign:
   \_cont_assign: , line:23:12, endln:23:41
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:23:22, endln:23:41
       |vpiParent:
@@ -2686,11 +3035,14 @@ design: (work@top)
       |vpiOperand:
       \_part_select: , line:23:22, endln:23:29
         |vpiParent:
-        \_ref_obj: in (in), line:23:22, endln:23:24
+        \_ref_obj: in (work@top.in), line:23:22, endln:23:24
           |vpiParent:
           \_operation: , line:23:22, endln:23:41
           |vpiName:in
+          |vpiFullName:work@top.in
           |vpiDefName:in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiConstantSelect:1
         |vpiLeftRange:
         \_constant: , line:23:25, endln:23:26
@@ -2711,11 +3063,14 @@ design: (work@top)
       |vpiOperand:
       \_part_select: , line:23:33, endln:23:41
         |vpiParent:
-        \_ref_obj: in (in), line:23:33, endln:23:35
+        \_ref_obj: in (work@top.in), line:23:33, endln:23:35
           |vpiParent:
           \_operation: , line:23:22, endln:23:41
           |vpiName:in
+          |vpiFullName:work@top.in
           |vpiDefName:in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiConstantSelect:1
         |vpiLeftRange:
         \_constant: , line:23:37, endln:23:38
@@ -2734,14 +3089,17 @@ design: (work@top)
           |UINT:3
           |vpiConstType:9
     |vpiLhs:
-    \_ref_obj: (out_17), line:23:12, endln:23:18
+    \_ref_obj: (work@top.out_17), line:23:12, endln:23:18
       |vpiParent:
       \_cont_assign: , line:23:12, endln:23:41
       |vpiName:out_17
+      |vpiFullName:work@top.out_17
       |vpiActual:
       \_logic_net: (work@top.out_17), line:5:60, endln:5:66
   |vpiContAssign:
   \_cont_assign: , line:24:12, endln:24:41
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations_reverted_range/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:24:22, endln:24:41
       |vpiParent:
@@ -2750,11 +3108,14 @@ design: (work@top)
       |vpiOperand:
       \_part_select: , line:24:22, endln:24:29
         |vpiParent:
-        \_ref_obj: in (in), line:24:22, endln:24:24
+        \_ref_obj: in (work@top.in), line:24:22, endln:24:24
           |vpiParent:
           \_operation: , line:24:22, endln:24:41
           |vpiName:in
+          |vpiFullName:work@top.in
           |vpiDefName:in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiConstantSelect:1
         |vpiLeftRange:
         \_constant: , line:24:25, endln:24:26
@@ -2775,11 +3136,14 @@ design: (work@top)
       |vpiOperand:
       \_part_select: , line:24:33, endln:24:41
         |vpiParent:
-        \_ref_obj: in (in), line:24:33, endln:24:35
+        \_ref_obj: in (work@top.in), line:24:33, endln:24:35
           |vpiParent:
           \_operation: , line:24:22, endln:24:41
           |vpiName:in
+          |vpiFullName:work@top.in
           |vpiDefName:in
+          |vpiActual:
+          \_logic_net: (work@top.in), line:3:17, endln:3:19
         |vpiConstantSelect:1
         |vpiLeftRange:
         \_constant: , line:24:37, endln:24:38
@@ -2798,10 +3162,11 @@ design: (work@top)
           |UINT:3
           |vpiConstType:9
     |vpiLhs:
-    \_ref_obj: (out_18), line:24:12, endln:24:18
+    \_ref_obj: (work@top.out_18), line:24:12, endln:24:18
       |vpiParent:
       \_cont_assign: , line:24:12, endln:24:41
       |vpiName:out_18
+      |vpiFullName:work@top.out_18
       |vpiActual:
       \_logic_net: (work@top.out_18), line:5:68, endln:5:74
 Object 'work@top' of type 'design'

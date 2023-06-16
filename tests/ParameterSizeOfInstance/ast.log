@@ -69,12 +69,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 3
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -248,6 +251,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -287,6 +292,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -303,6 +310,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -317,6 +326,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -337,6 +348,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -351,6 +364,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -371,6 +386,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -385,30 +402,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -441,6 +468,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -505,6 +565,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -528,6 +590,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -551,6 +615,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -580,6 +646,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1025,6 +1093,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.o), line:11:42, endln:11:43
+      |vpiParent:
+      \_port: (o), line:11:42, endln:11:43
       |vpiName:o
       |vpiFullName:work@top.o
       |vpiActual:
@@ -1032,6 +1102,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:11:38, endln:11:41
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ParameterSizeOfInstance/top.sv, line:11:1, endln:15:10
   |vpiModule:
   \_module_inst: work@aes_cipher_core (work@top.u_aes_cipher_core), file:UHDM-integration-tests/tests/ParameterSizeOfInstance/top.sv, line:12:4, endln:14:32
     |vpiParent:
@@ -1158,12 +1230,16 @@ design: (work@top)
       |vpiDirection:2
       |vpiHighConn:
       \_ref_obj: (work@top.o), line:14:28, endln:14:29
+        |vpiParent:
+        \_port: (x), line:6:54, endln:6:55
         |vpiName:o
         |vpiFullName:work@top.o
         |vpiActual:
         \_int_var: (work@top.o), line:11:42, endln:11:43
       |vpiLowConn:
       \_ref_obj: (work@top.u_aes_cipher_core.x), line:14:26, endln:14:27
+        |vpiParent:
+        \_port: (x), line:6:54, endln:6:55
         |vpiName:x
         |vpiFullName:work@top.u_aes_cipher_core.x
         |vpiActual:
@@ -1171,8 +1247,12 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:6:50, endln:6:53
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@aes_cipher_core (work@top.u_aes_cipher_core), file:UHDM-integration-tests/tests/ParameterSizeOfInstance/top.sv, line:12:4, endln:14:32
     |vpiContAssign:
     \_cont_assign: , line:8:11, endln:8:31
+      |vpiParent:
+      \_module_inst: work@aes_cipher_core (work@top.u_aes_cipher_core), file:UHDM-integration-tests/tests/ParameterSizeOfInstance/top.sv, line:12:4, endln:14:32
       |vpiRhs:
       \_constant: 
         |vpiParent:
@@ -1182,10 +1262,13 @@ design: (work@top)
         |BIN:01110100111100010111000100111010
         |vpiConstType:3
       |vpiLhs:
-      \_ref_obj: (x), line:8:11, endln:8:12
+      \_ref_obj: (work@top.u_aes_cipher_core.x), line:8:11, endln:8:12
         |vpiParent:
         \_cont_assign: , line:8:11, endln:8:31
         |vpiName:x
+        |vpiFullName:work@top.u_aes_cipher_core.x
+        |vpiActual:
+        \_int_var: (work@top.u_aes_cipher_core.x), line:6:54, endln:6:55
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object 'aes_pkg' of type 'package'

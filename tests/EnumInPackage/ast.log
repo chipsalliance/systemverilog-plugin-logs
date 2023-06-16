@@ -73,12 +73,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 4
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -438,6 +441,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -477,6 +482,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -493,6 +500,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -507,6 +516,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -527,6 +538,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -541,6 +554,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -561,6 +576,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -575,30 +592,40 @@ design: (work@dut)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -631,6 +658,39 @@ design: (work@dut)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -695,6 +755,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -718,6 +780,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -741,6 +805,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -770,6 +836,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1038,12 +1106,16 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.var1), line:22:12, endln:22:16
+      |vpiParent:
+      \_port: (var1), line:22:12, endln:22:16
       |vpiName:var1
       |vpiFullName:work@dut.var1
       |vpiActual:
       \_enum_var: (work@dut.var1), line:22:12, endln:22:16
     |vpiTypedef:
     \_enum_typespec: (pkg1::enum1), line:2:5, endln:5:13
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
   |vpiPort:
   \_port: (var2), line:22:18, endln:22:22
     |vpiParent:
@@ -1052,12 +1124,16 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.var2), line:22:18, endln:22:22
+      |vpiParent:
+      \_port: (var2), line:22:18, endln:22:22
       |vpiName:var2
       |vpiFullName:work@dut.var2
       |vpiActual:
       \_enum_var: (work@dut.var2), line:22:18, endln:22:22
     |vpiTypedef:
     \_enum_typespec: (pkg2::enum1), line:9:5, endln:12:13
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
   |vpiPort:
   \_port: (var3), line:22:24, endln:22:28
     |vpiParent:
@@ -1066,12 +1142,16 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.var3), line:22:24, endln:22:28
+      |vpiParent:
+      \_port: (var3), line:22:24, endln:22:28
       |vpiName:var3
       |vpiFullName:work@dut.var3
       |vpiActual:
       \_enum_var: (work@dut.var3), line:22:24, endln:22:28
     |vpiTypedef:
     \_enum_typespec: (pkg3::enum2), line:16:5, endln:19:13
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
   |vpiPort:
   \_port: (var4), line:22:30, endln:22:34
     |vpiParent:
@@ -1080,32 +1160,48 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.var4), line:22:30, endln:22:34
+      |vpiParent:
+      \_port: (var4), line:22:30, endln:22:34
       |vpiName:var4
       |vpiFullName:work@dut.var4
       |vpiActual:
       \_enum_var: (work@dut.var4), line:22:30, endln:22:34
     |vpiTypedef:
     \_enum_typespec: (enum3), line:23:5, endln:26:13
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
   |vpiContAssign:
   \_cont_assign: , line:35:12, endln:35:30
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
     |vpiRhs:
     \_constant: , line:35:19, endln:35:30
     |vpiLhs:
-    \_ref_obj: (var1), line:35:12, endln:35:16
+    \_ref_obj: (work@dut.var1), line:35:12, endln:35:16
       |vpiParent:
       \_cont_assign: , line:35:12, endln:35:30
       |vpiName:var1
+      |vpiFullName:work@dut.var1
+      |vpiActual:
+      \_enum_var: (work@dut.var1), line:22:12, endln:22:16
   |vpiContAssign:
   \_cont_assign: , line:36:12, endln:36:31
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
     |vpiRhs:
     \_constant: , line:36:19, endln:36:31
     |vpiLhs:
-    \_ref_obj: (var2), line:36:12, endln:36:16
+    \_ref_obj: (work@dut.var2), line:36:12, endln:36:16
       |vpiParent:
       \_cont_assign: , line:36:12, endln:36:31
       |vpiName:var2
+      |vpiFullName:work@dut.var2
+      |vpiActual:
+      \_enum_var: (work@dut.var2), line:22:18, endln:22:22
   |vpiContAssign:
   \_cont_assign: , line:37:12, endln:37:24
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
     |vpiRhs:
     \_constant: 
       |vpiParent:
@@ -1115,12 +1211,17 @@ design: (work@dut)
       |BIN:1100011
       |vpiConstType:3
     |vpiLhs:
-    \_ref_obj: (var3), line:37:12, endln:37:16
+    \_ref_obj: (work@dut.var3), line:37:12, endln:37:16
       |vpiParent:
       \_cont_assign: , line:37:12, endln:37:24
       |vpiName:var3
+      |vpiFullName:work@dut.var3
+      |vpiActual:
+      \_enum_var: (work@dut.var3), line:22:24, endln:22:28
   |vpiContAssign:
   \_cont_assign: , line:38:12, endln:38:26
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/EnumInPackage/dut.sv, line:22:1, endln:39:10
     |vpiRhs:
     \_constant: 
       |vpiParent:
@@ -1130,10 +1231,13 @@ design: (work@dut)
       |BIN:01011010
       |vpiConstType:3
     |vpiLhs:
-    \_ref_obj: (var4), line:38:12, endln:38:16
+    \_ref_obj: (work@dut.var4), line:38:12, endln:38:16
       |vpiParent:
       \_cont_assign: , line:38:12, endln:38:26
       |vpiName:var4
+      |vpiFullName:work@dut.var4
+      |vpiActual:
+      \_enum_var: (work@dut.var4), line:22:30, endln:22:34
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object 'pkg1' of type 'package'

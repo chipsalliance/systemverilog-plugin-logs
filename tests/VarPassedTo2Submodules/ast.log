@@ -73,12 +73,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 4
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -275,6 +278,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -314,6 +319,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -330,6 +337,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -344,6 +353,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -364,6 +375,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -378,6 +391,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -398,6 +413,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -412,30 +429,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -468,6 +495,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -532,6 +592,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -555,6 +617,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -578,6 +642,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -607,6 +673,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -954,6 +1022,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.o), line:22:23, endln:22:24
+      |vpiParent:
+      \_port: (o), line:22:23, endln:22:24
       |vpiName:o
       |vpiFullName:work@top.o
       |vpiActual:
@@ -961,6 +1031,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:22:19, endln:22:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:22:1, endln:33:16
   |vpiPort:
   \_port: (p), line:22:37, endln:22:38
     |vpiParent:
@@ -969,6 +1041,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.p), line:22:37, endln:22:38
+      |vpiParent:
+      \_port: (p), line:22:37, endln:22:38
       |vpiName:p
       |vpiFullName:work@top.p
       |vpiActual:
@@ -976,6 +1050,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:22:33, endln:22:36
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:22:1, endln:33:16
   |vpiModule:
   \_module_inst: work@prim_lc_sync (work@top.u_prim_lc_sync_clk_byp_ack), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:24:4, endln:26:6
     |vpiParent:
@@ -1028,12 +1104,16 @@ design: (work@top)
       |vpiDirection:2
       |vpiHighConn:
       \_ref_obj: (work@top.lc_clk_byp_ack), line:25:16, endln:25:30
+        |vpiParent:
+        \_port: (lc_en_o), line:17:38, endln:17:45
         |vpiName:lc_clk_byp_ack
         |vpiFullName:work@top.lc_clk_byp_ack
         |vpiActual:
         \_packed_array_var: (work@top.lc_clk_byp_ack), line:23:31, endln:23:45
       |vpiLowConn:
       \_ref_obj: (work@top.u_prim_lc_sync_clk_byp_ack.lc_en_o), line:25:8, endln:25:15
+        |vpiParent:
+        \_port: (lc_en_o), line:17:38, endln:17:45
         |vpiName:lc_en_o
         |vpiFullName:work@top.u_prim_lc_sync_clk_byp_ack.lc_en_o
         |vpiActual:
@@ -1062,15 +1142,22 @@ design: (work@top)
             |vpiConstType:9
         |vpiElemTypespec:
         \_enum_typespec: (lc_ctrl_pkg::lc_tx_t), line:2:4, endln:4:14
+      |vpiInstance:
+      \_module_inst: work@prim_lc_sync (work@top.u_prim_lc_sync_clk_byp_ack), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:24:4, endln:26:6
     |vpiContAssign:
     \_cont_assign: , line:19:11, endln:19:28
+      |vpiParent:
+      \_module_inst: work@prim_lc_sync (work@top.u_prim_lc_sync_clk_byp_ack), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:24:4, endln:26:6
       |vpiRhs:
       \_constant: , line:19:21, endln:19:28
       |vpiLhs:
-      \_ref_obj: (lc_en_o), line:19:11, endln:19:18
+      \_ref_obj: (work@top.u_prim_lc_sync_clk_byp_ack.lc_en_o), line:19:11, endln:19:18
         |vpiParent:
         \_cont_assign: , line:19:11, endln:19:28
         |vpiName:lc_en_o
+        |vpiFullName:work@top.u_prim_lc_sync_clk_byp_ack.lc_en_o
+        |vpiActual:
+        \_packed_array_var: (work@top.u_prim_lc_sync_clk_byp_ack.lc_en_o), line:17:38, endln:17:45
   |vpiModule:
   \_module_inst: work@lc_ctrl_fsm (work@top.u_lc_ctrl_fsm), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:29:4, endln:32:6
     |vpiParent:
@@ -1109,11 +1196,17 @@ design: (work@top)
       |vpiName:lc_clk_byp_ack_i
       |vpiDirection:1
       |vpiHighConn:
-      \_bit_select: (lc_clk_byp_ack), line:30:26, endln:30:43
+      \_bit_select: (work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i.lc_clk_byp_ack), line:30:26, endln:30:43
         |vpiParent:
-        \_ref_obj: (lc_clk_byp_ack)
+        \_ref_obj: (work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i.lc_clk_byp_ack)
+          |vpiParent:
+          \_port: (lc_clk_byp_ack_i), line:10:31, endln:10:47
           |vpiName:lc_clk_byp_ack
+          |vpiFullName:work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i.lc_clk_byp_ack
+          |vpiActual:
+          \_packed_array_var: (work@top.lc_clk_byp_ack), line:23:31, endln:23:45
         |vpiName:lc_clk_byp_ack
+        |vpiFullName:work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i.lc_clk_byp_ack
         |vpiIndex:
         \_constant: , line:30:41, endln:30:42
           |vpiParent:
@@ -1122,14 +1215,20 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_packed_array_var: (work@top.lc_clk_byp_ack), line:23:31, endln:23:45
       |vpiLowConn:
       \_ref_obj: (work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i), line:30:8, endln:30:24
+        |vpiParent:
+        \_port: (lc_clk_byp_ack_i), line:10:31, endln:10:47
         |vpiName:lc_clk_byp_ack_i
         |vpiFullName:work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i
         |vpiActual:
         \_enum_var: (work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i), line:10:31, endln:10:47
       |vpiTypedef:
       \_enum_typespec: (lc_ctrl_pkg::lc_tx_t), line:2:4, endln:4:14
+      |vpiInstance:
+      \_module_inst: work@lc_ctrl_fsm (work@top.u_lc_ctrl_fsm), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:29:4, endln:32:6
     |vpiPort:
     \_port: (o), line:11:15, endln:11:16
       |vpiParent:
@@ -1138,12 +1237,16 @@ design: (work@top)
       |vpiDirection:2
       |vpiHighConn:
       \_ref_obj: (work@top.o), line:31:8, endln:31:9
+        |vpiParent:
+        \_port: (o), line:11:15, endln:11:16
         |vpiName:o
         |vpiFullName:work@top.o
         |vpiActual:
         \_int_var: (work@top.o), line:22:23, endln:22:24
       |vpiLowConn:
       \_ref_obj: (work@top.u_lc_ctrl_fsm.o), line:31:8, endln:31:9
+        |vpiParent:
+        \_port: (o), line:11:15, endln:11:16
         |vpiName:o
         |vpiFullName:work@top.u_lc_ctrl_fsm.o
         |vpiActual:
@@ -1151,8 +1254,12 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:11:11, endln:11:14
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@lc_ctrl_fsm (work@top.u_lc_ctrl_fsm), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:29:4, endln:32:6
     |vpiContAssign:
     \_cont_assign: , line:13:11, endln:13:37
+      |vpiParent:
+      \_module_inst: work@lc_ctrl_fsm (work@top.u_lc_ctrl_fsm), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:29:4, endln:32:6
       |vpiRhs:
       \_operation: , line:13:15, endln:13:37
         |vpiParent:
@@ -1164,19 +1271,25 @@ design: (work@top)
           |vpiSigned:1
         |vpiOpType:67
         |vpiOperand:
-        \_ref_obj: (lc_clk_byp_ack_i), line:13:20, endln:13:36
+        \_ref_obj: (work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i), line:13:20, endln:13:36
           |vpiParent:
           \_operation: , line:13:15, endln:13:37
           |vpiName:lc_clk_byp_ack_i
+          |vpiFullName:work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i
+          |vpiActual:
+          \_enum_var: (work@top.u_lc_ctrl_fsm.lc_clk_byp_ack_i), line:10:31, endln:10:47
       |vpiLhs:
-      \_ref_obj: (o), line:13:11, endln:13:12
+      \_ref_obj: (work@top.u_lc_ctrl_fsm.o), line:13:11, endln:13:12
         |vpiParent:
         \_cont_assign: , line:13:11, endln:13:37
         |vpiName:o
+        |vpiFullName:work@top.u_lc_ctrl_fsm.o
         |vpiActual:
         \_int_var: (work@top.u_lc_ctrl_fsm.o), line:11:15, endln:11:16
   |vpiContAssign:
   \_cont_assign: , line:27:11, endln:27:38
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/VarPassedTo2Submodules/top.sv, line:22:1, endln:33:16
     |vpiRhs:
     \_operation: , line:27:15, endln:27:38
       |vpiParent:
@@ -1188,13 +1301,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiOpType:67
       |vpiOperand:
-      \_bit_select: (lc_clk_byp_ack), line:27:20, endln:27:37
+      \_bit_select: (work@top.lc_clk_byp_ack), line:27:20, endln:27:37
         |vpiParent:
-        \_ref_obj: (lc_clk_byp_ack)
+        \_ref_obj: (work@top.lc_clk_byp_ack)
           |vpiParent:
           \_operation: , line:27:15, endln:27:38
           |vpiName:lc_clk_byp_ack
+          |vpiFullName:work@top.lc_clk_byp_ack
+          |vpiActual:
+          \_packed_array_var: (work@top.lc_clk_byp_ack), line:23:31, endln:23:45
         |vpiName:lc_clk_byp_ack
+        |vpiFullName:work@top.lc_clk_byp_ack
         |vpiIndex:
         \_constant: , line:27:35, endln:27:36
           |vpiParent:
@@ -1203,11 +1320,14 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+        |vpiActual:
+        \_packed_array_var: (work@top.lc_clk_byp_ack), line:23:31, endln:23:45
     |vpiLhs:
-    \_ref_obj: (p), line:27:11, endln:27:12
+    \_ref_obj: (work@top.p), line:27:11, endln:27:12
       |vpiParent:
       \_cont_assign: , line:27:11, endln:27:38
       |vpiName:p
+      |vpiFullName:work@top.p
       |vpiActual:
       \_int_var: (work@top.p), line:22:37, endln:22:38
 Object 'work@top' of type 'design'

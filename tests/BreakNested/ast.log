@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -135,6 +138,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -174,6 +179,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -190,6 +197,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -204,6 +213,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -224,6 +235,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -238,6 +251,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -258,6 +273,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -272,30 +289,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -328,6 +355,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -392,6 +452,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -415,6 +477,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -438,6 +502,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -467,6 +533,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -827,6 +895,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.a), line:1:23, endln:1:24
+      |vpiParent:
+      \_port: (a), line:1:23, endln:1:24
       |vpiName:a
       |vpiFullName:work@top.a
       |vpiActual:
@@ -834,6 +904,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:1:19, endln:1:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakNested/top.sv, line:1:1, endln:17:10
   |vpiPort:
   \_port: (b), line:1:37, endln:1:38
     |vpiParent:
@@ -842,6 +914,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.b), line:1:37, endln:1:38
+      |vpiParent:
+      \_port: (b), line:1:37, endln:1:38
       |vpiName:b
       |vpiFullName:work@top.b
       |vpiActual:
@@ -849,8 +923,222 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:1:33, endln:1:36
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakNested/top.sv, line:1:1, endln:17:10
   |vpiProcess:
   \_initial: , line:2:4, endln:16:7
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakNested/top.sv, line:1:1, endln:17:10
+    |vpiStmt:
+    \_begin: (work@top), line:2:12, endln:16:7
+      |vpiParent:
+      \_initial: , line:2:4, endln:16:7
+      |vpiFullName:work@top
+      |vpiStmt:
+      \_assignment: , line:3:7, endln:3:12
+        |vpiParent:
+        \_begin: (work@top), line:2:12, endln:16:7
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_constant: , line:3:11, endln:3:12
+        |vpiLhs:
+        \_ref_obj: (work@top.a), line:3:7, endln:3:8
+          |vpiParent:
+          \_assignment: , line:3:7, endln:3:12
+          |vpiName:a
+          |vpiFullName:work@top.a
+          |vpiActual:
+          \_int_var: (work@top.a), line:1:23, endln:1:24
+      |vpiStmt:
+      \_assignment: , line:4:7, endln:4:12
+        |vpiParent:
+        \_begin: (work@top), line:2:12, endln:16:7
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_constant: , line:4:11, endln:4:12
+        |vpiLhs:
+        \_ref_obj: (work@top.b), line:4:7, endln:4:8
+          |vpiParent:
+          \_assignment: , line:4:7, endln:4:12
+          |vpiName:b
+          |vpiFullName:work@top.b
+          |vpiActual:
+          \_int_var: (work@top.b), line:1:37, endln:1:38
+      |vpiStmt:
+      \_repeat: , line:5:7, endln:5:13
+        |vpiParent:
+        \_begin: (work@top), line:2:12, endln:16:7
+        |vpiCondition:
+        \_constant: , line:5:14, endln:5:16
+        |vpiStmt:
+        \_begin: (work@top), line:5:18, endln:15:10
+          |vpiParent:
+          \_repeat: , line:5:7, endln:5:13
+          |vpiFullName:work@top
+          |vpiStmt:
+          \_if_stmt: , line:6:10, endln:13:13
+            |vpiParent:
+            \_begin: (work@top), line:5:18, endln:15:10
+            |vpiCondition:
+            \_operation: , line:6:13, endln:6:20
+              |vpiParent:
+              \_if_stmt: , line:6:10, endln:13:13
+              |vpiOpType:18
+              |vpiOperand:
+              \_ref_obj: (work@top.a), line:6:13, endln:6:14
+                |vpiParent:
+                \_operation: , line:6:13, endln:6:20
+                |vpiName:a
+                |vpiFullName:work@top.a
+                |vpiActual:
+                \_int_var: (work@top.a), line:1:23, endln:1:24
+              |vpiOperand:
+              \_constant: , line:6:17, endln:6:20
+            |vpiStmt:
+            \_begin: (work@top), line:6:22, endln:13:13
+              |vpiParent:
+              \_if_stmt: , line:6:10, endln:13:13
+              |vpiFullName:work@top
+              |vpiStmt:
+              \_for_stmt: (work@top), line:7:13, endln:7:16
+                |vpiParent:
+                \_begin: (work@top), line:6:22, endln:13:13
+                |vpiFullName:work@top
+                |vpiForInitStmt:
+                \_assign_stmt: , line:7:18, endln:7:27
+                  |vpiParent:
+                  \_for_stmt: (work@top), line:7:13, endln:7:16
+                  |vpiRhs:
+                  \_constant: , line:7:26, endln:7:27
+                  |vpiLhs:
+                  \_int_var: (work@top.i), line:7:22, endln:7:23
+                    |vpiParent:
+                    \_assign_stmt: , line:7:18, endln:7:27
+                    |vpiTypespec:
+                    \_int_typespec: , line:7:18, endln:7:21
+                    |vpiName:i
+                    |vpiFullName:work@top.i
+                    |vpiSigned:1
+                |vpiForIncStmt:
+                \_operation: , line:7:36, endln:7:39
+                  |vpiParent:
+                  \_for_stmt: (work@top), line:7:13, endln:7:16
+                  |vpiOpType:62
+                  |vpiOperand:
+                  \_ref_obj: (work@top.i), line:7:36, endln:7:37
+                    |vpiParent:
+                    \_operation: , line:7:36, endln:7:39
+                    |vpiName:i
+                    |vpiFullName:work@top.i
+                    |vpiActual:
+                    \_int_var: (work@top.i), line:7:22, endln:7:23
+                |vpiCondition:
+                \_operation: , line:7:29, endln:7:34
+                  |vpiParent:
+                  \_for_stmt: (work@top), line:7:13, endln:7:16
+                  |vpiOpType:20
+                  |vpiOperand:
+                  \_ref_obj: (work@top.i), line:7:29, endln:7:30
+                    |vpiParent:
+                    \_operation: , line:7:29, endln:7:34
+                    |vpiName:i
+                    |vpiFullName:work@top.i
+                    |vpiActual:
+                    \_int_var: (work@top.i), line:7:22, endln:7:23
+                  |vpiOperand:
+                  \_constant: , line:7:33, endln:7:34
+                |vpiStmt:
+                \_begin: (work@top), line:7:41, endln:11:16
+                  |vpiParent:
+                  \_for_stmt: (work@top), line:7:13, endln:7:16
+                  |vpiFullName:work@top
+                  |vpiStmt:
+                  \_if_stmt: , line:8:16, endln:9:25
+                    |vpiParent:
+                    \_begin: (work@top), line:7:41, endln:11:16
+                    |vpiCondition:
+                    \_operation: , line:8:20, endln:8:26
+                      |vpiParent:
+                      \_if_stmt: , line:8:16, endln:9:25
+                      |vpiOpType:18
+                      |vpiOperand:
+                      \_ref_obj: (work@top.b), line:8:20, endln:8:21
+                        |vpiParent:
+                        \_operation: , line:8:20, endln:8:26
+                        |vpiName:b
+                        |vpiFullName:work@top.b
+                        |vpiActual:
+                        \_int_var: (work@top.b), line:1:37, endln:1:38
+                      |vpiOperand:
+                      \_constant: , line:8:24, endln:8:26
+                    |vpiStmt:
+                    \_break_stmt: , line:9:19, endln:9:24
+                      |vpiParent:
+                      \_if_stmt: , line:8:16, endln:9:25
+                  |vpiStmt:
+                  \_assignment: , line:10:16, endln:10:25
+                    |vpiParent:
+                    \_begin: (work@top), line:7:41, endln:11:16
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_operation: , line:10:20, endln:10:25
+                      |vpiParent:
+                      \_assignment: , line:10:16, endln:10:25
+                      |vpiOpType:24
+                      |vpiOperand:
+                      \_ref_obj: (work@top.b), line:10:20, endln:10:21
+                        |vpiParent:
+                        \_operation: , line:10:20, endln:10:25
+                        |vpiName:b
+                        |vpiFullName:work@top.b
+                        |vpiActual:
+                        \_int_var: (work@top.b), line:1:37, endln:1:38
+                      |vpiOperand:
+                      \_constant: , line:10:24, endln:10:25
+                    |vpiLhs:
+                    \_ref_obj: (work@top.b), line:10:16, endln:10:17
+                      |vpiParent:
+                      \_assignment: , line:10:16, endln:10:25
+                      |vpiName:b
+                      |vpiFullName:work@top.b
+                      |vpiActual:
+                      \_int_var: (work@top.b), line:1:37, endln:1:38
+              |vpiStmt:
+              \_break_stmt: , line:12:13, endln:12:18
+                |vpiParent:
+                \_begin: (work@top), line:6:22, endln:13:13
+          |vpiStmt:
+          \_assignment: , line:14:10, endln:14:20
+            |vpiParent:
+            \_begin: (work@top), line:5:18, endln:15:10
+            |vpiOpType:82
+            |vpiBlocking:1
+            |vpiRhs:
+            \_operation: , line:14:14, endln:14:20
+              |vpiParent:
+              \_assignment: , line:14:10, endln:14:20
+              |vpiOpType:24
+              |vpiOperand:
+              \_ref_obj: (work@top.a), line:14:14, endln:14:15
+                |vpiParent:
+                \_operation: , line:14:14, endln:14:20
+                |vpiName:a
+                |vpiFullName:work@top.a
+                |vpiActual:
+                \_int_var: (work@top.a), line:1:23, endln:1:24
+              |vpiOperand:
+              \_constant: , line:14:18, endln:14:20
+            |vpiLhs:
+            \_ref_obj: (work@top.a), line:14:10, endln:14:11
+              |vpiParent:
+              \_assignment: , line:14:10, endln:14:20
+              |vpiName:a
+              |vpiFullName:work@top.a
+              |vpiActual:
+              \_int_var: (work@top.a), line:1:23, endln:1:24
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

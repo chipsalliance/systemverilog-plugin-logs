@@ -81,12 +81,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -155,6 +158,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -194,6 +199,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -210,6 +217,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -224,6 +233,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -244,6 +255,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -258,6 +271,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -278,6 +293,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -292,30 +309,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -348,6 +375,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -412,6 +472,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -435,6 +497,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -458,6 +522,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -487,6 +553,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -601,6 +669,8 @@ design: (work@top)
             |vpiParent:
             \_operation: , line:25:20, endln:25:36
             |vpiName:InfoTypesWidth
+            |vpiActual:
+            \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
           |vpiOperand:
           \_constant: , line:25:35, endln:25:36
             |vpiParent:
@@ -640,6 +710,8 @@ design: (work@top)
             |vpiParent:
             \_operation: , line:26:20, endln:26:27
             |vpiName:BankW
+            |vpiActual:
+            \_parameter: (work@top.BankW), line:4:17, endln:4:22
           |vpiOperand:
           \_constant: , line:26:26, endln:26:27
             |vpiParent:
@@ -822,6 +894,8 @@ design: (work@top)
               \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
               |vpiName:InfoTypesWidth
               |vpiFullName:work@top.page_addr_t.InfoTypesWidth
+              |vpiActual:
+              \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
             |vpiOperand:
             \_constant: , line:7:27, endln:7:28
               |vpiParent:
@@ -867,6 +941,8 @@ design: (work@top)
               \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
               |vpiName:AllPagesW
               |vpiFullName:work@top.page_addr_t.AllPagesW
+              |vpiActual:
+              \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
             |vpiOperand:
             \_constant: , line:8:22, endln:8:23
               |vpiParent:
@@ -1220,6 +1296,8 @@ design: (work@top)
             \_operation: , line:25:20, endln:25:36
             |vpiName:InfoTypesWidth
             |vpiFullName:work@top.InfoSel.InfoTypesWidth
+            |vpiActual:
+            \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
           |vpiOperand:
           \_constant: , line:25:35, endln:25:36
             |vpiParent:
@@ -1262,6 +1340,8 @@ design: (work@top)
             \_operation: , line:26:20, endln:26:27
             |vpiName:BankW
             |vpiFullName:work@top.Bank.BankW
+            |vpiActual:
+            \_parameter: (work@top.BankW), line:4:17, endln:4:22
           |vpiOperand:
           \_constant: , line:26:26, endln:26:27
             |vpiParent:
@@ -1398,6 +1478,236 @@ design: (work@top)
   |vpiTop:1
   |vpiTaskFunc:
   \_function: (work@top.max_info_pages), line:11:3, endln:19:14
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructParameterInGenScope/top.sv, line:1:1, endln:32:10
+    |vpiName:max_info_pages
+    |vpiFullName:work@top.max_info_pages
+    |vpiVariables:
+    \_int_var: (work@top.max_info_pages.current_max), line:12:9, endln:12:20
+      |vpiParent:
+      \_function: (work@top.max_info_pages), line:11:3, endln:19:14
+      |vpiTypespec:
+      \_int_typespec: , line:12:5, endln:12:8
+      |vpiName:current_max
+      |vpiFullName:work@top.max_info_pages.current_max
+      |vpiSigned:1
+    |vpiVisibility:1
+    |vpiAutomatic:1
+    |vpiReturn:
+    \_integer_var: , line:11:22, endln:11:29
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructParameterInGenScope/top.sv, line:1:1, endln:32:10
+    |vpiIODecl:
+    \_io_decl: (infos), line:11:49, endln:11:54
+      |vpiParent:
+      \_function: (work@top.max_info_pages), line:11:3, endln:19:14
+      |vpiDirection:1
+      |vpiName:infos
+      |vpiRange:
+      \_range: , line:11:55, endln:11:64
+        |vpiParent:
+        \_io_decl: (infos), line:11:49, endln:11:54
+        |vpiLeftRange:
+        \_constant: , line:11:55, endln:11:56
+        |vpiRightRange:
+        \_operation: 
+          |vpiParent:
+          \_range: , line:11:55, endln:11:64
+          |vpiOpType:11
+          |vpiOperand:
+          \_ref_obj: (work@top.max_info_pages.infos.InfoTypes), line:11:55, endln:11:64
+            |vpiParent:
+            \_operation: 
+            |vpiName:InfoTypes
+            |vpiFullName:work@top.max_info_pages.infos.InfoTypes
+            |vpiActual:
+            \_parameter: (work@top.InfoTypes), line:10:17, endln:10:26
+          |vpiOperand:
+          \_constant: 
+      |vpiTypedef:
+      \_int_typespec: , line:11:45, endln:11:48
+    |vpiStmt:
+    \_begin: (work@top.max_info_pages)
+      |vpiParent:
+      \_function: (work@top.max_info_pages), line:11:3, endln:19:14
+      |vpiFullName:work@top.max_info_pages
+      |vpiVariables:
+      \_int_var: (work@top.max_info_pages.current_max), line:12:9, endln:12:20
+        |vpiParent:
+        \_begin: (work@top.max_info_pages)
+        |vpiTypespec:
+        \_int_typespec: , line:12:5, endln:12:8
+        |vpiName:current_max
+        |vpiFullName:work@top.max_info_pages.current_max
+        |vpiSigned:1
+      |vpiStmt:
+      \_assign_stmt: , line:12:9, endln:12:24
+        |vpiParent:
+        \_begin: (work@top.max_info_pages)
+        |vpiRhs:
+        \_constant: , line:12:23, endln:12:24
+        |vpiLhs:
+        \_int_var: (work@top.max_info_pages.current_max), line:12:9, endln:12:20
+          |vpiParent:
+          \_assign_stmt: , line:12:9, endln:12:24
+          |vpiTypespec:
+          \_int_typespec: , line:12:5, endln:12:8
+          |vpiName:current_max
+          |vpiFullName:work@top.max_info_pages.current_max
+          |vpiSigned:1
+      |vpiStmt:
+      \_for_stmt: (work@top.max_info_pages), line:13:5, endln:13:8
+        |vpiParent:
+        \_begin: (work@top.max_info_pages)
+        |vpiFullName:work@top.max_info_pages
+        |vpiForInitStmt:
+        \_assign_stmt: , line:13:10, endln:13:19
+          |vpiParent:
+          \_for_stmt: (work@top.max_info_pages), line:13:5, endln:13:8
+          |vpiRhs:
+          \_constant: , line:13:18, endln:13:19
+          |vpiLhs:
+          \_int_var: (work@top.max_info_pages.i), line:13:14, endln:13:15
+            |vpiParent:
+            \_assign_stmt: , line:13:10, endln:13:19
+            |vpiTypespec:
+            \_int_typespec: , line:13:10, endln:13:13
+            |vpiName:i
+            |vpiFullName:work@top.max_info_pages.i
+            |vpiSigned:1
+        |vpiForIncStmt:
+        \_operation: , line:13:36, endln:13:39
+          |vpiParent:
+          \_for_stmt: (work@top.max_info_pages), line:13:5, endln:13:8
+          |vpiOpType:62
+          |vpiOperand:
+          \_ref_obj: (work@top.max_info_pages.i), line:13:36, endln:13:37
+            |vpiParent:
+            \_operation: , line:13:36, endln:13:39
+            |vpiName:i
+            |vpiFullName:work@top.max_info_pages.i
+            |vpiActual:
+            \_int_var: (work@top.max_info_pages.i), line:13:14, endln:13:15
+        |vpiCondition:
+        \_operation: , line:13:21, endln:13:34
+          |vpiParent:
+          \_for_stmt: (work@top.max_info_pages), line:13:5, endln:13:8
+          |vpiOpType:20
+          |vpiOperand:
+          \_ref_obj: (work@top.max_info_pages.i), line:13:21, endln:13:22
+            |vpiParent:
+            \_operation: , line:13:21, endln:13:34
+            |vpiName:i
+            |vpiFullName:work@top.max_info_pages.i
+            |vpiActual:
+            \_int_var: (work@top.max_info_pages.i), line:13:14, endln:13:15
+          |vpiOperand:
+          \_ref_obj: (work@top.max_info_pages.InfoTypes), line:13:25, endln:13:34
+            |vpiParent:
+            \_operation: , line:13:21, endln:13:34
+            |vpiName:InfoTypes
+            |vpiFullName:work@top.max_info_pages.InfoTypes
+            |vpiActual:
+            \_parameter: (work@top.InfoTypes), line:10:17, endln:10:26
+        |vpiStmt:
+        \_begin: (work@top.max_info_pages), line:13:41, endln:17:8
+          |vpiParent:
+          \_for_stmt: (work@top.max_info_pages), line:13:5, endln:13:8
+          |vpiFullName:work@top.max_info_pages
+          |vpiStmt:
+          \_if_stmt: , line:14:7, endln:16:10
+            |vpiParent:
+            \_begin: (work@top.max_info_pages), line:13:41, endln:17:8
+            |vpiCondition:
+            \_operation: , line:14:11, endln:14:33
+              |vpiParent:
+              \_if_stmt: , line:14:7, endln:16:10
+              |vpiOpType:18
+              |vpiOperand:
+              \_bit_select: (work@top.max_info_pages.infos), line:14:11, endln:14:19
+                |vpiParent:
+                \_ref_obj: (work@top.max_info_pages.infos)
+                  |vpiParent:
+                  \_operation: , line:14:11, endln:14:33
+                  |vpiName:infos
+                  |vpiFullName:work@top.max_info_pages.infos
+                  |vpiActual:
+                  \_io_decl: (infos), line:11:49, endln:11:54
+                |vpiName:infos
+                |vpiFullName:work@top.max_info_pages.infos
+                |vpiIndex:
+                \_ref_obj: (work@top.max_info_pages.infos.i), line:14:17, endln:14:18
+                  |vpiParent:
+                  \_bit_select: (work@top.max_info_pages.infos), line:14:11, endln:14:19
+                  |vpiName:i
+                  |vpiFullName:work@top.max_info_pages.infos.i
+                  |vpiActual:
+                  \_int_var: (work@top.max_info_pages.i), line:13:14, endln:13:15
+                |vpiActual:
+                \_io_decl: (infos), line:11:49, endln:11:54
+              |vpiOperand:
+              \_ref_obj: (work@top.max_info_pages.current_max), line:14:22, endln:14:33
+                |vpiParent:
+                \_operation: , line:14:11, endln:14:33
+                |vpiName:current_max
+                |vpiFullName:work@top.max_info_pages.current_max
+                |vpiActual:
+                \_int_var: (work@top.max_info_pages.current_max), line:12:9, endln:12:20
+            |vpiStmt:
+            \_begin: (work@top.max_info_pages), line:14:35, endln:16:10
+              |vpiParent:
+              \_if_stmt: , line:14:7, endln:16:10
+              |vpiFullName:work@top.max_info_pages
+              |vpiStmt:
+              \_assignment: , line:15:9, endln:15:31
+                |vpiParent:
+                \_begin: (work@top.max_info_pages), line:14:35, endln:16:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_bit_select: (work@top.max_info_pages.infos), line:15:23, endln:15:31
+                  |vpiParent:
+                  \_ref_obj: (work@top.max_info_pages.infos)
+                    |vpiParent:
+                    \_assignment: , line:15:9, endln:15:31
+                    |vpiName:infos
+                    |vpiFullName:work@top.max_info_pages.infos
+                    |vpiActual:
+                    \_io_decl: (infos), line:11:49, endln:11:54
+                  |vpiName:infos
+                  |vpiFullName:work@top.max_info_pages.infos
+                  |vpiIndex:
+                  \_ref_obj: (work@top.max_info_pages.infos.i), line:15:29, endln:15:30
+                    |vpiParent:
+                    \_bit_select: (work@top.max_info_pages.infos), line:15:23, endln:15:31
+                    |vpiName:i
+                    |vpiFullName:work@top.max_info_pages.infos.i
+                    |vpiActual:
+                    \_int_var: (work@top.max_info_pages.i), line:13:14, endln:13:15
+                  |vpiActual:
+                  \_io_decl: (infos), line:11:49, endln:11:54
+                |vpiLhs:
+                \_ref_obj: (work@top.max_info_pages.current_max), line:15:9, endln:15:20
+                  |vpiParent:
+                  \_assignment: , line:15:9, endln:15:31
+                  |vpiName:current_max
+                  |vpiFullName:work@top.max_info_pages.current_max
+                  |vpiActual:
+                  \_int_var: (work@top.max_info_pages.current_max), line:12:9, endln:12:20
+      |vpiStmt:
+      \_return_stmt: , line:18:5, endln:18:11
+        |vpiParent:
+        \_begin: (work@top.max_info_pages)
+        |vpiCondition:
+        \_ref_obj: (work@top.max_info_pages.current_max), line:18:12, endln:18:23
+          |vpiParent:
+          \_return_stmt: , line:18:5, endln:18:11
+          |vpiName:current_max
+          |vpiFullName:work@top.max_info_pages.current_max
+          |vpiActual:
+          \_int_var: (work@top.max_info_pages.current_max), line:12:9, endln:12:20
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructParameterInGenScope/top.sv, line:1:1, endln:32:10
   |vpiTopModule:1
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.gen_info_priv[0]), line:28:45, endln:31:6
@@ -1413,7 +1723,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[0].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[0])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -1445,7 +1755,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[0].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[0])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -1478,6 +1788,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[0].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -1523,6 +1835,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[0].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -1629,6 +1943,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[0].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -1674,6 +1990,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[0].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -1707,7 +2025,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -1752,7 +2070,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[1].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[1])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -1784,7 +2102,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[1].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[1])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -1817,6 +2135,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[1].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -1862,6 +2182,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[1].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -1968,6 +2290,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[1].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -2013,6 +2337,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[1].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -2046,7 +2372,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -2091,7 +2417,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[2].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[2])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -2123,7 +2449,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[2].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[2])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -2156,6 +2482,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[2].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -2201,6 +2529,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[2].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -2307,6 +2637,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[2].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -2352,6 +2684,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[2].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -2385,7 +2719,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -2430,7 +2764,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[3].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[3])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -2462,7 +2796,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[3].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[3])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -2495,6 +2829,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[3].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -2540,6 +2876,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[3].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -2646,6 +2984,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[3].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -2691,6 +3031,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[3].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -2724,7 +3066,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -2769,7 +3111,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[4].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[4])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -2801,7 +3143,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[4].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[4])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -2834,6 +3176,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[4].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -2879,6 +3223,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[4].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -2985,6 +3331,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[4].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -3030,6 +3378,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[4].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -3063,7 +3413,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -3108,7 +3458,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[5].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[5])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -3140,7 +3490,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[5].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[5])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -3173,6 +3523,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[5].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -3218,6 +3570,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[5].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -3324,6 +3678,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[5].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -3369,6 +3725,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[5].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -3402,7 +3760,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -3447,7 +3805,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[6].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[6])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -3479,7 +3837,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[6].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[6])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -3512,6 +3870,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[6].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -3557,6 +3917,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[6].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -3663,6 +4025,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[6].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -3708,6 +4072,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[6].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -3741,7 +4107,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -3786,7 +4152,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[7].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[7])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -3818,7 +4184,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[7].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[7])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -3851,6 +4217,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[7].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -3896,6 +4264,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[7].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -4002,6 +4372,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[7].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -4047,6 +4419,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[7].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -4080,7 +4454,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -4125,7 +4499,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[8].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[8])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -4157,7 +4531,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[8].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[8])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -4190,6 +4564,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[8].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -4235,6 +4611,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[8].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -4341,6 +4719,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[8].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -4386,6 +4766,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[8].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -4419,7 +4801,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:
@@ -4464,7 +4846,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[9].CurPage), line:29:38, endln:29:45
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[9])
+        \_param_assign: , line:29:38, endln:29:49
         |UINT:0
         |vpiTypespec:
         \_logic_typespec: , line:29:16, endln:29:37
@@ -4496,7 +4878,7 @@ design: (work@top)
       |vpiParameter:
       \_parameter: (work@top.gen_info_priv[9].CurAddr), line:30:28, endln:30:35
         |vpiParent:
-        \_gen_scope: (work@top.gen_info_priv[9])
+        \_param_assign: , line:30:28, endln:30:84
         |vpiTypespec:
         \_struct_typespec: (page_addr_t), line:6:11, endln:6:17
           |vpiParent:
@@ -4529,6 +4911,8 @@ design: (work@top)
                     \_operation: , line:7:12, endln:7:28
                     |vpiName:InfoTypesWidth
                     |vpiFullName:work@top.gen_info_priv[9].CurAddr.page_addr_t.sel.InfoTypesWidth
+                    |vpiActual:
+                    \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                   |vpiOperand:
                   \_constant: , line:7:27, endln:7:28
                     |vpiParent:
@@ -4574,6 +4958,8 @@ design: (work@top)
                     \_operation: , line:8:12, endln:8:23
                     |vpiName:AllPagesW
                     |vpiFullName:work@top.gen_info_priv[9].CurAddr.page_addr_t.addr.AllPagesW
+                    |vpiActual:
+                    \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                   |vpiOperand:
                   \_constant: , line:8:22, endln:8:23
                     |vpiParent:
@@ -4680,6 +5066,8 @@ design: (work@top)
                       \_operation: , line:7:12, endln:7:28
                       |vpiName:InfoTypesWidth
                       |vpiFullName:work@top.gen_info_priv[9].page_addr_t.sel.InfoTypesWidth
+                      |vpiActual:
+                      \_parameter: (work@top.InfoTypesWidth), line:2:17, endln:2:31
                     |vpiOperand:
                     \_constant: , line:7:27, endln:7:28
                       |vpiParent:
@@ -4725,6 +5113,8 @@ design: (work@top)
                       \_operation: , line:8:12, endln:8:23
                       |vpiName:AllPagesW
                       |vpiFullName:work@top.gen_info_priv[9].page_addr_t.addr.AllPagesW
+                      |vpiActual:
+                      \_parameter: (work@top.AllPagesW), line:3:17, endln:3:26
                     |vpiOperand:
                     \_constant: , line:8:22, endln:8:23
                       |vpiParent:
@@ -4758,7 +5148,7 @@ design: (work@top)
           |vpiOperand:
           \_operation: , line:30:60, endln:30:83
             |vpiParent:
-            \_tagged_pattern: , line:30:60, endln:30:83
+            \_operation: , line:30:38, endln:30:84
             |vpiSize:10
             |vpiOpType:33
             |vpiOperand:

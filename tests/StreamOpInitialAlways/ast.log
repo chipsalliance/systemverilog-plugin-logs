@@ -64,12 +64,15 @@ there are 11 more instances of this message.
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 6
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -138,6 +141,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -177,6 +182,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -193,6 +200,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -207,6 +216,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -227,6 +238,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -241,6 +254,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -261,6 +276,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -275,30 +292,40 @@ design: (work@dut)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -331,6 +358,39 @@ design: (work@dut)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -395,6 +455,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -418,6 +480,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -441,6 +505,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -470,6 +536,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -2600,12 +2668,16 @@ design: (work@dut)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@dut.clk), line:2:9, endln:2:12
+      |vpiParent:
+      \_port: (clk), line:2:9, endln:2:12
       |vpiName:clk
       |vpiFullName:work@dut.clk
       |vpiActual:
       \_logic_net: (work@dut.clk), line:2:9, endln:2:12
     |vpiTypedef:
     \_logic_typespec: , line:2:9, endln:2:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (i), line:3:15, endln:3:16
     |vpiParent:
@@ -2614,6 +2686,8 @@ design: (work@dut)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@dut.i), line:3:15, endln:3:16
+      |vpiParent:
+      \_port: (i), line:3:15, endln:3:16
       |vpiName:i
       |vpiFullName:work@dut.i
       |vpiActual:
@@ -2640,6 +2714,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o1_4), line:4:16, endln:4:20
     |vpiParent:
@@ -2648,6 +2724,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o1_4), line:4:16, endln:4:20
+      |vpiParent:
+      \_port: (o1_4), line:4:16, endln:4:20
       |vpiName:o1_4
       |vpiFullName:work@dut.o1_4
       |vpiActual:
@@ -2674,6 +2752,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o2_4), line:5:16, endln:5:20
     |vpiParent:
@@ -2682,6 +2762,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o2_4), line:5:16, endln:5:20
+      |vpiParent:
+      \_port: (o2_4), line:5:16, endln:5:20
       |vpiName:o2_4
       |vpiFullName:work@dut.o2_4
       |vpiActual:
@@ -2708,6 +2790,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o3_4), line:6:16, endln:6:20
     |vpiParent:
@@ -2716,6 +2800,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o3_4), line:6:16, endln:6:20
+      |vpiParent:
+      \_port: (o3_4), line:6:16, endln:6:20
       |vpiName:o3_4
       |vpiFullName:work@dut.o3_4
       |vpiActual:
@@ -2742,6 +2828,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o4_4), line:7:16, endln:7:20
     |vpiParent:
@@ -2750,6 +2838,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o4_4), line:7:16, endln:7:20
+      |vpiParent:
+      \_port: (o4_4), line:7:16, endln:7:20
       |vpiName:o4_4
       |vpiFullName:work@dut.o4_4
       |vpiActual:
@@ -2776,6 +2866,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o5_4), line:8:16, endln:8:20
     |vpiParent:
@@ -2784,6 +2876,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o5_4), line:8:16, endln:8:20
+      |vpiParent:
+      \_port: (o5_4), line:8:16, endln:8:20
       |vpiName:o5_4
       |vpiFullName:work@dut.o5_4
       |vpiActual:
@@ -2810,6 +2904,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o6_4), line:9:16, endln:9:20
     |vpiParent:
@@ -2818,6 +2914,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o6_4), line:9:16, endln:9:20
+      |vpiParent:
+      \_port: (o6_4), line:9:16, endln:9:20
       |vpiName:o6_4
       |vpiFullName:work@dut.o6_4
       |vpiActual:
@@ -2844,6 +2942,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o1_8), line:10:17, endln:10:21
     |vpiParent:
@@ -2852,6 +2952,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o1_8), line:10:17, endln:10:21
+      |vpiParent:
+      \_port: (o1_8), line:10:17, endln:10:21
       |vpiName:o1_8
       |vpiFullName:work@dut.o1_8
       |vpiActual:
@@ -2878,6 +2980,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o2_8), line:11:17, endln:11:21
     |vpiParent:
@@ -2886,6 +2990,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o2_8), line:11:17, endln:11:21
+      |vpiParent:
+      \_port: (o2_8), line:11:17, endln:11:21
       |vpiName:o2_8
       |vpiFullName:work@dut.o2_8
       |vpiActual:
@@ -2912,6 +3018,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o3_8), line:12:17, endln:12:21
     |vpiParent:
@@ -2920,6 +3028,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o3_8), line:12:17, endln:12:21
+      |vpiParent:
+      \_port: (o3_8), line:12:17, endln:12:21
       |vpiName:o3_8
       |vpiFullName:work@dut.o3_8
       |vpiActual:
@@ -2946,6 +3056,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o4_8), line:13:17, endln:13:21
     |vpiParent:
@@ -2954,6 +3066,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o4_8), line:13:17, endln:13:21
+      |vpiParent:
+      \_port: (o4_8), line:13:17, endln:13:21
       |vpiName:o4_8
       |vpiFullName:work@dut.o4_8
       |vpiActual:
@@ -2980,6 +3094,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o5_8), line:14:17, endln:14:21
     |vpiParent:
@@ -2988,6 +3104,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o5_8), line:14:17, endln:14:21
+      |vpiParent:
+      \_port: (o5_8), line:14:17, endln:14:21
       |vpiName:o5_8
       |vpiFullName:work@dut.o5_8
       |vpiActual:
@@ -3014,6 +3132,8 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiPort:
   \_port: (o6_8), line:15:17, endln:15:21
     |vpiParent:
@@ -3022,6 +3142,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.o6_8), line:15:17, endln:15:21
+      |vpiParent:
+      \_port: (o6_8), line:15:17, endln:15:21
       |vpiName:o6_8
       |vpiFullName:work@dut.o6_8
       |vpiActual:
@@ -3048,30 +3170,987 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
   |vpiProcess:
   \_initial: , line:19:3, endln:23:6
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_begin: (work@dut), line:19:11, endln:23:6
+      |vpiParent:
+      \_initial: , line:19:3, endln:23:6
+      |vpiFullName:work@dut
+      |vpiStmt:
+      \_assignment: , line:20:5, endln:20:28
+        |vpiParent:
+        \_begin: (work@dut), line:19:11, endln:23:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:20:18, endln:20:27
+          |vpiParent:
+          \_assignment: , line:20:5, endln:20:28
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:20:16, endln:20:17
+          |vpiOperand:
+          \_operation: , line:20:12, endln:20:28
+            |vpiParent:
+            \_operation: , line:20:18, endln:20:27
+            |vpiOpType:33
+            |vpiOperand:
+            \_ref_obj: (work@dut.i), line:20:19, endln:20:20
+              |vpiParent:
+              \_operation: , line:20:12, endln:20:28
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiOperand:
+            \_constant: , line:20:22, endln:20:26
+        |vpiLhs:
+        \_ref_obj: (work@dut.o1_4), line:20:5, endln:20:9
+          |vpiParent:
+          \_assignment: , line:20:5, endln:20:28
+          |vpiName:o1_4
+          |vpiFullName:work@dut.o1_4
+          |vpiActual:
+          \_logic_net: (work@dut.o1_4), line:4:16, endln:4:20
+      |vpiStmt:
+      \_assignment: , line:21:5, endln:21:39
+        |vpiParent:
+        \_begin: (work@dut), line:19:11, endln:23:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:21:24, endln:21:38
+          |vpiParent:
+          \_assignment: , line:21:5, endln:21:39
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:21:22, endln:21:23
+          |vpiOperand:
+          \_operation: , line:21:18, endln:21:39
+            |vpiParent:
+            \_operation: , line:21:24, endln:21:38
+            |vpiOpType:33
+            |vpiOperand:
+            \_part_select: , line:21:25, endln:21:31
+              |vpiParent:
+              \_ref_obj: i (work@dut.i), line:21:25, endln:21:26
+                |vpiParent:
+                \_operation: , line:21:18, endln:21:39
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiDefName:i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiConstantSelect:1
+              |vpiLeftRange:
+              \_constant: , line:21:27, endln:21:28
+              |vpiRightRange:
+              \_constant: , line:21:29, endln:21:30
+            |vpiOperand:
+            \_constant: , line:21:33, endln:21:37
+        |vpiLhs:
+        \_part_select: , line:21:5, endln:21:15
+          |vpiParent:
+          \_ref_obj: o1_8 (work@dut.o1_8)
+            |vpiParent:
+            \_assignment: , line:21:5, endln:21:39
+            |vpiName:o1_8
+            |vpiFullName:work@dut.o1_8
+            |vpiDefName:o1_8
+            |vpiActual:
+            \_logic_net: (work@dut.o1_8), line:10:17, endln:10:21
+          |vpiConstantSelect:1
+          |vpiLeftRange:
+          \_constant: , line:21:10, endln:21:12
+          |vpiRightRange:
+          \_constant: , line:21:13, endln:21:14
+      |vpiStmt:
+      \_assignment: , line:22:5, endln:22:39
+        |vpiParent:
+        \_begin: (work@dut), line:19:11, endln:23:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:22:24, endln:22:38
+          |vpiParent:
+          \_assignment: , line:22:5, endln:22:39
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:22:22, endln:22:23
+          |vpiOperand:
+          \_operation: , line:22:18, endln:22:39
+            |vpiParent:
+            \_operation: , line:22:24, endln:22:38
+            |vpiOpType:33
+            |vpiOperand:
+            \_part_select: , line:22:25, endln:22:31
+              |vpiParent:
+              \_ref_obj: i (work@dut.i), line:22:25, endln:22:26
+                |vpiParent:
+                \_operation: , line:22:18, endln:22:39
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiDefName:i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiConstantSelect:1
+              |vpiLeftRange:
+              \_constant: , line:22:27, endln:22:28
+              |vpiRightRange:
+              \_constant: , line:22:29, endln:22:30
+            |vpiOperand:
+            \_constant: , line:22:33, endln:22:37
+        |vpiLhs:
+        \_part_select: , line:22:5, endln:22:14
+          |vpiParent:
+          \_ref_obj: o1_8 (work@dut.o1_8)
+            |vpiParent:
+            \_assignment: , line:22:5, endln:22:39
+            |vpiName:o1_8
+            |vpiFullName:work@dut.o1_8
+            |vpiDefName:o1_8
+            |vpiActual:
+            \_logic_net: (work@dut.o1_8), line:10:17, endln:10:21
+          |vpiConstantSelect:1
+          |vpiLeftRange:
+          \_constant: , line:22:10, endln:22:11
+          |vpiRightRange:
+          \_constant: , line:22:12, endln:22:13
   |vpiProcess:
   \_initial: , line:26:3, endln:27:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_assignment: , line:27:5, endln:27:28
+      |vpiParent:
+      \_initial: , line:26:3, endln:27:29
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_operation: , line:27:18, endln:27:27
+        |vpiParent:
+        \_assignment: , line:27:5, endln:27:28
+        |vpiOpType:72
+        |vpiOperand:
+        \_constant: , line:27:16, endln:27:17
+        |vpiOperand:
+        \_operation: , line:27:12, endln:27:28
+          |vpiParent:
+          \_operation: , line:27:18, endln:27:27
+          |vpiOpType:33
+          |vpiOperand:
+          \_ref_obj: (work@dut.i), line:27:19, endln:27:20
+            |vpiParent:
+            \_operation: , line:27:12, endln:27:28
+            |vpiName:i
+            |vpiFullName:work@dut.i
+            |vpiActual:
+            \_logic_net: (work@dut.i), line:3:15, endln:3:16
+          |vpiOperand:
+          \_constant: , line:27:22, endln:27:26
+      |vpiLhs:
+      \_ref_obj: (work@dut.o2_4), line:27:5, endln:27:9
+        |vpiParent:
+        \_assignment: , line:27:5, endln:27:28
+        |vpiName:o2_4
+        |vpiFullName:work@dut.o2_4
+        |vpiActual:
+        \_logic_net: (work@dut.o2_4), line:5:16, endln:5:20
   |vpiProcess:
   \_initial: , line:28:3, endln:29:40
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_assignment: , line:29:5, endln:29:39
+      |vpiParent:
+      \_initial: , line:28:3, endln:29:40
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_operation: , line:29:24, endln:29:38
+        |vpiParent:
+        \_assignment: , line:29:5, endln:29:39
+        |vpiOpType:72
+        |vpiOperand:
+        \_constant: , line:29:22, endln:29:23
+        |vpiOperand:
+        \_operation: , line:29:18, endln:29:39
+          |vpiParent:
+          \_operation: , line:29:24, endln:29:38
+          |vpiOpType:33
+          |vpiOperand:
+          \_part_select: , line:29:25, endln:29:31
+            |vpiParent:
+            \_ref_obj: i (work@dut.i), line:29:25, endln:29:26
+              |vpiParent:
+              \_operation: , line:29:18, endln:29:39
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiDefName:i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_constant: , line:29:27, endln:29:28
+            |vpiRightRange:
+            \_constant: , line:29:29, endln:29:30
+          |vpiOperand:
+          \_constant: , line:29:33, endln:29:37
+      |vpiLhs:
+      \_part_select: , line:29:5, endln:29:15
+        |vpiParent:
+        \_ref_obj: o2_8 (work@dut.o2_8)
+          |vpiParent:
+          \_assignment: , line:29:5, endln:29:39
+          |vpiName:o2_8
+          |vpiFullName:work@dut.o2_8
+          |vpiDefName:o2_8
+          |vpiActual:
+          \_logic_net: (work@dut.o2_8), line:11:17, endln:11:21
+        |vpiConstantSelect:1
+        |vpiLeftRange:
+        \_constant: , line:29:10, endln:29:12
+        |vpiRightRange:
+        \_constant: , line:29:13, endln:29:14
   |vpiProcess:
   \_initial: , line:30:3, endln:31:40
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_assignment: , line:31:5, endln:31:39
+      |vpiParent:
+      \_initial: , line:30:3, endln:31:40
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_operation: , line:31:24, endln:31:38
+        |vpiParent:
+        \_assignment: , line:31:5, endln:31:39
+        |vpiOpType:72
+        |vpiOperand:
+        \_constant: , line:31:22, endln:31:23
+        |vpiOperand:
+        \_operation: , line:31:18, endln:31:39
+          |vpiParent:
+          \_operation: , line:31:24, endln:31:38
+          |vpiOpType:33
+          |vpiOperand:
+          \_part_select: , line:31:25, endln:31:31
+            |vpiParent:
+            \_ref_obj: i (work@dut.i), line:31:25, endln:31:26
+              |vpiParent:
+              \_operation: , line:31:18, endln:31:39
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiDefName:i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_constant: , line:31:27, endln:31:28
+            |vpiRightRange:
+            \_constant: , line:31:29, endln:31:30
+          |vpiOperand:
+          \_constant: , line:31:33, endln:31:37
+      |vpiLhs:
+      \_part_select: , line:31:5, endln:31:14
+        |vpiParent:
+        \_ref_obj: o2_8 (work@dut.o2_8)
+          |vpiParent:
+          \_assignment: , line:31:5, endln:31:39
+          |vpiName:o2_8
+          |vpiFullName:work@dut.o2_8
+          |vpiDefName:o2_8
+          |vpiActual:
+          \_logic_net: (work@dut.o2_8), line:11:17, endln:11:21
+        |vpiConstantSelect:1
+        |vpiLeftRange:
+        \_constant: , line:31:10, endln:31:11
+        |vpiRightRange:
+        \_constant: , line:31:12, endln:31:13
   |vpiProcess:
   \_always: , line:34:3, endln:38:6
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_event_control: , line:34:10, endln:34:24
+      |vpiParent:
+      \_always: , line:34:3, endln:38:6
+      |vpiCondition:
+      \_operation: , line:34:12, endln:34:23
+        |vpiParent:
+        \_event_control: , line:34:10, endln:34:24
+        |vpiOpType:39
+        |vpiOperand:
+        \_ref_obj: (work@dut.clk), line:34:20, endln:34:23
+          |vpiParent:
+          \_operation: , line:34:12, endln:34:23
+          |vpiName:clk
+          |vpiFullName:work@dut.clk
+          |vpiActual:
+          \_logic_net: (work@dut.clk), line:2:9, endln:2:12
+      |vpiStmt:
+      \_begin: (work@dut), line:34:25, endln:38:6
+        |vpiParent:
+        \_event_control: , line:34:10, endln:34:24
+        |vpiFullName:work@dut
+        |vpiStmt:
+        \_assignment: , line:35:5, endln:35:28
+          |vpiParent:
+          \_begin: (work@dut), line:34:25, endln:38:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:35:18, endln:35:27
+            |vpiParent:
+            \_assignment: , line:35:5, endln:35:28
+            |vpiOpType:72
+            |vpiOperand:
+            \_constant: , line:35:16, endln:35:17
+            |vpiOperand:
+            \_operation: , line:35:12, endln:35:28
+              |vpiParent:
+              \_operation: , line:35:18, endln:35:27
+              |vpiOpType:33
+              |vpiOperand:
+              \_ref_obj: (work@dut.i), line:35:19, endln:35:20
+                |vpiParent:
+                \_operation: , line:35:12, endln:35:28
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiOperand:
+              \_constant: , line:35:22, endln:35:26
+          |vpiLhs:
+          \_ref_obj: (work@dut.o3_4), line:35:5, endln:35:9
+            |vpiParent:
+            \_assignment: , line:35:5, endln:35:28
+            |vpiName:o3_4
+            |vpiFullName:work@dut.o3_4
+            |vpiActual:
+            \_logic_net: (work@dut.o3_4), line:6:16, endln:6:20
+        |vpiStmt:
+        \_assignment: , line:36:5, endln:36:39
+          |vpiParent:
+          \_begin: (work@dut), line:34:25, endln:38:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:36:24, endln:36:38
+            |vpiParent:
+            \_assignment: , line:36:5, endln:36:39
+            |vpiOpType:72
+            |vpiOperand:
+            \_constant: , line:36:22, endln:36:23
+            |vpiOperand:
+            \_operation: , line:36:18, endln:36:39
+              |vpiParent:
+              \_operation: , line:36:24, endln:36:38
+              |vpiOpType:33
+              |vpiOperand:
+              \_part_select: , line:36:25, endln:36:31
+                |vpiParent:
+                \_ref_obj: i (work@dut.i), line:36:25, endln:36:26
+                  |vpiParent:
+                  \_operation: , line:36:18, endln:36:39
+                  |vpiName:i
+                  |vpiFullName:work@dut.i
+                  |vpiDefName:i
+                  |vpiActual:
+                  \_logic_net: (work@dut.i), line:3:15, endln:3:16
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:36:27, endln:36:28
+                |vpiRightRange:
+                \_constant: , line:36:29, endln:36:30
+              |vpiOperand:
+              \_constant: , line:36:33, endln:36:37
+          |vpiLhs:
+          \_part_select: , line:36:5, endln:36:15
+            |vpiParent:
+            \_ref_obj: o3_8 (work@dut.o3_8)
+              |vpiParent:
+              \_assignment: , line:36:5, endln:36:39
+              |vpiName:o3_8
+              |vpiFullName:work@dut.o3_8
+              |vpiDefName:o3_8
+              |vpiActual:
+              \_logic_net: (work@dut.o3_8), line:12:17, endln:12:21
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_constant: , line:36:10, endln:36:12
+            |vpiRightRange:
+            \_constant: , line:36:13, endln:36:14
+        |vpiStmt:
+        \_assignment: , line:37:5, endln:37:39
+          |vpiParent:
+          \_begin: (work@dut), line:34:25, endln:38:6
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_operation: , line:37:24, endln:37:38
+            |vpiParent:
+            \_assignment: , line:37:5, endln:37:39
+            |vpiOpType:72
+            |vpiOperand:
+            \_constant: , line:37:22, endln:37:23
+            |vpiOperand:
+            \_operation: , line:37:18, endln:37:39
+              |vpiParent:
+              \_operation: , line:37:24, endln:37:38
+              |vpiOpType:33
+              |vpiOperand:
+              \_part_select: , line:37:25, endln:37:31
+                |vpiParent:
+                \_ref_obj: i (work@dut.i), line:37:25, endln:37:26
+                  |vpiParent:
+                  \_operation: , line:37:18, endln:37:39
+                  |vpiName:i
+                  |vpiFullName:work@dut.i
+                  |vpiDefName:i
+                  |vpiActual:
+                  \_logic_net: (work@dut.i), line:3:15, endln:3:16
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:37:27, endln:37:28
+                |vpiRightRange:
+                \_constant: , line:37:29, endln:37:30
+              |vpiOperand:
+              \_constant: , line:37:33, endln:37:37
+          |vpiLhs:
+          \_part_select: , line:37:5, endln:37:14
+            |vpiParent:
+            \_ref_obj: o3_8 (work@dut.o3_8)
+              |vpiParent:
+              \_assignment: , line:37:5, endln:37:39
+              |vpiName:o3_8
+              |vpiFullName:work@dut.o3_8
+              |vpiDefName:o3_8
+              |vpiActual:
+              \_logic_net: (work@dut.o3_8), line:12:17, endln:12:21
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_constant: , line:37:10, endln:37:11
+            |vpiRightRange:
+            \_constant: , line:37:12, endln:37:13
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:41:3, endln:42:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_event_control: , line:41:10, endln:41:24
+      |vpiParent:
+      \_always: , line:41:3, endln:42:29
+      |vpiCondition:
+      \_operation: , line:41:12, endln:41:23
+        |vpiParent:
+        \_event_control: , line:41:10, endln:41:24
+        |vpiOpType:39
+        |vpiOperand:
+        \_ref_obj: (work@dut.clk), line:41:20, endln:41:23
+          |vpiParent:
+          \_operation: , line:41:12, endln:41:23
+          |vpiName:clk
+          |vpiFullName:work@dut.clk
+          |vpiActual:
+          \_logic_net: (work@dut.clk), line:2:9, endln:2:12
+      |vpiStmt:
+      \_assignment: , line:42:5, endln:42:28
+        |vpiParent:
+        \_event_control: , line:41:10, endln:41:24
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:42:18, endln:42:27
+          |vpiParent:
+          \_assignment: , line:42:5, endln:42:28
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:42:16, endln:42:17
+          |vpiOperand:
+          \_operation: , line:42:12, endln:42:28
+            |vpiParent:
+            \_operation: , line:42:18, endln:42:27
+            |vpiOpType:33
+            |vpiOperand:
+            \_ref_obj: (work@dut.i), line:42:19, endln:42:20
+              |vpiParent:
+              \_operation: , line:42:12, endln:42:28
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiOperand:
+            \_constant: , line:42:22, endln:42:26
+        |vpiLhs:
+        \_ref_obj: (work@dut.o4_4), line:42:5, endln:42:9
+          |vpiParent:
+          \_assignment: , line:42:5, endln:42:28
+          |vpiName:o4_4
+          |vpiFullName:work@dut.o4_4
+          |vpiActual:
+          \_logic_net: (work@dut.o4_4), line:7:16, endln:7:20
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:43:3, endln:44:40
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_event_control: , line:43:10, endln:43:24
+      |vpiParent:
+      \_always: , line:43:3, endln:44:40
+      |vpiCondition:
+      \_operation: , line:43:12, endln:43:23
+        |vpiParent:
+        \_event_control: , line:43:10, endln:43:24
+        |vpiOpType:39
+        |vpiOperand:
+        \_ref_obj: (work@dut.clk), line:43:20, endln:43:23
+          |vpiParent:
+          \_operation: , line:43:12, endln:43:23
+          |vpiName:clk
+          |vpiFullName:work@dut.clk
+          |vpiActual:
+          \_logic_net: (work@dut.clk), line:2:9, endln:2:12
+      |vpiStmt:
+      \_assignment: , line:44:5, endln:44:39
+        |vpiParent:
+        \_event_control: , line:43:10, endln:43:24
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:44:24, endln:44:38
+          |vpiParent:
+          \_assignment: , line:44:5, endln:44:39
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:44:22, endln:44:23
+          |vpiOperand:
+          \_operation: , line:44:18, endln:44:39
+            |vpiParent:
+            \_operation: , line:44:24, endln:44:38
+            |vpiOpType:33
+            |vpiOperand:
+            \_part_select: , line:44:25, endln:44:31
+              |vpiParent:
+              \_ref_obj: i (work@dut.i), line:44:25, endln:44:26
+                |vpiParent:
+                \_operation: , line:44:18, endln:44:39
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiDefName:i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiConstantSelect:1
+              |vpiLeftRange:
+              \_constant: , line:44:27, endln:44:28
+              |vpiRightRange:
+              \_constant: , line:44:29, endln:44:30
+            |vpiOperand:
+            \_constant: , line:44:33, endln:44:37
+        |vpiLhs:
+        \_part_select: , line:44:5, endln:44:15
+          |vpiParent:
+          \_ref_obj: o4_8 (work@dut.o4_8)
+            |vpiParent:
+            \_assignment: , line:44:5, endln:44:39
+            |vpiName:o4_8
+            |vpiFullName:work@dut.o4_8
+            |vpiDefName:o4_8
+            |vpiActual:
+            \_logic_net: (work@dut.o4_8), line:13:17, endln:13:21
+          |vpiConstantSelect:1
+          |vpiLeftRange:
+          \_constant: , line:44:10, endln:44:12
+          |vpiRightRange:
+          \_constant: , line:44:13, endln:44:14
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:45:3, endln:46:40
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_event_control: , line:45:10, endln:45:24
+      |vpiParent:
+      \_always: , line:45:3, endln:46:40
+      |vpiCondition:
+      \_operation: , line:45:12, endln:45:23
+        |vpiParent:
+        \_event_control: , line:45:10, endln:45:24
+        |vpiOpType:39
+        |vpiOperand:
+        \_ref_obj: (work@dut.clk), line:45:20, endln:45:23
+          |vpiParent:
+          \_operation: , line:45:12, endln:45:23
+          |vpiName:clk
+          |vpiFullName:work@dut.clk
+          |vpiActual:
+          \_logic_net: (work@dut.clk), line:2:9, endln:2:12
+      |vpiStmt:
+      \_assignment: , line:46:5, endln:46:39
+        |vpiParent:
+        \_event_control: , line:45:10, endln:45:24
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:46:24, endln:46:38
+          |vpiParent:
+          \_assignment: , line:46:5, endln:46:39
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:46:22, endln:46:23
+          |vpiOperand:
+          \_operation: , line:46:18, endln:46:39
+            |vpiParent:
+            \_operation: , line:46:24, endln:46:38
+            |vpiOpType:33
+            |vpiOperand:
+            \_part_select: , line:46:25, endln:46:31
+              |vpiParent:
+              \_ref_obj: i (work@dut.i), line:46:25, endln:46:26
+                |vpiParent:
+                \_operation: , line:46:18, endln:46:39
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiDefName:i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiConstantSelect:1
+              |vpiLeftRange:
+              \_constant: , line:46:27, endln:46:28
+              |vpiRightRange:
+              \_constant: , line:46:29, endln:46:30
+            |vpiOperand:
+            \_constant: , line:46:33, endln:46:37
+        |vpiLhs:
+        \_part_select: , line:46:5, endln:46:14
+          |vpiParent:
+          \_ref_obj: o4_8 (work@dut.o4_8)
+            |vpiParent:
+            \_assignment: , line:46:5, endln:46:39
+            |vpiName:o4_8
+            |vpiFullName:work@dut.o4_8
+            |vpiDefName:o4_8
+            |vpiActual:
+            \_logic_net: (work@dut.o4_8), line:13:17, endln:13:21
+          |vpiConstantSelect:1
+          |vpiLeftRange:
+          \_constant: , line:46:10, endln:46:11
+          |vpiRightRange:
+          \_constant: , line:46:12, endln:46:13
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:49:3, endln:53:6
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_begin: (work@dut), line:49:10, endln:53:6
+      |vpiParent:
+      \_always: , line:49:3, endln:53:6
+      |vpiFullName:work@dut
+      |vpiStmt:
+      \_assignment: , line:50:5, endln:50:28
+        |vpiParent:
+        \_begin: (work@dut), line:49:10, endln:53:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:50:18, endln:50:27
+          |vpiParent:
+          \_assignment: , line:50:5, endln:50:28
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:50:16, endln:50:17
+          |vpiOperand:
+          \_operation: , line:50:12, endln:50:28
+            |vpiParent:
+            \_operation: , line:50:18, endln:50:27
+            |vpiOpType:33
+            |vpiOperand:
+            \_ref_obj: (work@dut.i), line:50:19, endln:50:20
+              |vpiParent:
+              \_operation: , line:50:12, endln:50:28
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiOperand:
+            \_constant: , line:50:22, endln:50:26
+        |vpiLhs:
+        \_ref_obj: (work@dut.o5_4), line:50:5, endln:50:9
+          |vpiParent:
+          \_assignment: , line:50:5, endln:50:28
+          |vpiName:o5_4
+          |vpiFullName:work@dut.o5_4
+          |vpiActual:
+          \_logic_net: (work@dut.o5_4), line:8:16, endln:8:20
+      |vpiStmt:
+      \_assignment: , line:51:5, endln:51:39
+        |vpiParent:
+        \_begin: (work@dut), line:49:10, endln:53:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:51:24, endln:51:38
+          |vpiParent:
+          \_assignment: , line:51:5, endln:51:39
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:51:22, endln:51:23
+          |vpiOperand:
+          \_operation: , line:51:18, endln:51:39
+            |vpiParent:
+            \_operation: , line:51:24, endln:51:38
+            |vpiOpType:33
+            |vpiOperand:
+            \_part_select: , line:51:25, endln:51:31
+              |vpiParent:
+              \_ref_obj: i (work@dut.i), line:51:25, endln:51:26
+                |vpiParent:
+                \_operation: , line:51:18, endln:51:39
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiDefName:i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiConstantSelect:1
+              |vpiLeftRange:
+              \_constant: , line:51:27, endln:51:28
+              |vpiRightRange:
+              \_constant: , line:51:29, endln:51:30
+            |vpiOperand:
+            \_constant: , line:51:33, endln:51:37
+        |vpiLhs:
+        \_part_select: , line:51:5, endln:51:15
+          |vpiParent:
+          \_ref_obj: o5_8 (work@dut.o5_8)
+            |vpiParent:
+            \_assignment: , line:51:5, endln:51:39
+            |vpiName:o5_8
+            |vpiFullName:work@dut.o5_8
+            |vpiDefName:o5_8
+            |vpiActual:
+            \_logic_net: (work@dut.o5_8), line:14:17, endln:14:21
+          |vpiConstantSelect:1
+          |vpiLeftRange:
+          \_constant: , line:51:10, endln:51:12
+          |vpiRightRange:
+          \_constant: , line:51:13, endln:51:14
+      |vpiStmt:
+      \_assignment: , line:52:5, endln:52:39
+        |vpiParent:
+        \_begin: (work@dut), line:49:10, endln:53:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_operation: , line:52:24, endln:52:38
+          |vpiParent:
+          \_assignment: , line:52:5, endln:52:39
+          |vpiOpType:72
+          |vpiOperand:
+          \_constant: , line:52:22, endln:52:23
+          |vpiOperand:
+          \_operation: , line:52:18, endln:52:39
+            |vpiParent:
+            \_operation: , line:52:24, endln:52:38
+            |vpiOpType:33
+            |vpiOperand:
+            \_part_select: , line:52:25, endln:52:31
+              |vpiParent:
+              \_ref_obj: i (work@dut.i), line:52:25, endln:52:26
+                |vpiParent:
+                \_operation: , line:52:18, endln:52:39
+                |vpiName:i
+                |vpiFullName:work@dut.i
+                |vpiDefName:i
+                |vpiActual:
+                \_logic_net: (work@dut.i), line:3:15, endln:3:16
+              |vpiConstantSelect:1
+              |vpiLeftRange:
+              \_constant: , line:52:27, endln:52:28
+              |vpiRightRange:
+              \_constant: , line:52:29, endln:52:30
+            |vpiOperand:
+            \_constant: , line:52:33, endln:52:37
+        |vpiLhs:
+        \_part_select: , line:52:5, endln:52:14
+          |vpiParent:
+          \_ref_obj: o5_8 (work@dut.o5_8)
+            |vpiParent:
+            \_assignment: , line:52:5, endln:52:39
+            |vpiName:o5_8
+            |vpiFullName:work@dut.o5_8
+            |vpiDefName:o5_8
+            |vpiActual:
+            \_logic_net: (work@dut.o5_8), line:14:17, endln:14:21
+          |vpiConstantSelect:1
+          |vpiLeftRange:
+          \_constant: , line:52:10, endln:52:11
+          |vpiRightRange:
+          \_constant: , line:52:12, endln:52:13
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:56:3, endln:57:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_assignment: , line:57:5, endln:57:28
+      |vpiParent:
+      \_always: , line:56:3, endln:57:29
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_operation: , line:57:18, endln:57:27
+        |vpiParent:
+        \_assignment: , line:57:5, endln:57:28
+        |vpiOpType:72
+        |vpiOperand:
+        \_constant: , line:57:16, endln:57:17
+        |vpiOperand:
+        \_operation: , line:57:12, endln:57:28
+          |vpiParent:
+          \_operation: , line:57:18, endln:57:27
+          |vpiOpType:33
+          |vpiOperand:
+          \_ref_obj: (work@dut.i), line:57:19, endln:57:20
+            |vpiParent:
+            \_operation: , line:57:12, endln:57:28
+            |vpiName:i
+            |vpiFullName:work@dut.i
+            |vpiActual:
+            \_logic_net: (work@dut.i), line:3:15, endln:3:16
+          |vpiOperand:
+          \_constant: , line:57:22, endln:57:26
+      |vpiLhs:
+      \_ref_obj: (work@dut.o6_4), line:57:5, endln:57:9
+        |vpiParent:
+        \_assignment: , line:57:5, endln:57:28
+        |vpiName:o6_4
+        |vpiFullName:work@dut.o6_4
+        |vpiActual:
+        \_logic_net: (work@dut.o6_4), line:9:16, endln:9:20
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:58:3, endln:59:40
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_assignment: , line:59:5, endln:59:39
+      |vpiParent:
+      \_always: , line:58:3, endln:59:40
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_operation: , line:59:24, endln:59:38
+        |vpiParent:
+        \_assignment: , line:59:5, endln:59:39
+        |vpiOpType:72
+        |vpiOperand:
+        \_constant: , line:59:22, endln:59:23
+        |vpiOperand:
+        \_operation: , line:59:18, endln:59:39
+          |vpiParent:
+          \_operation: , line:59:24, endln:59:38
+          |vpiOpType:33
+          |vpiOperand:
+          \_part_select: , line:59:25, endln:59:31
+            |vpiParent:
+            \_ref_obj: i (work@dut.i), line:59:25, endln:59:26
+              |vpiParent:
+              \_operation: , line:59:18, endln:59:39
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiDefName:i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_constant: , line:59:27, endln:59:28
+            |vpiRightRange:
+            \_constant: , line:59:29, endln:59:30
+          |vpiOperand:
+          \_constant: , line:59:33, endln:59:37
+      |vpiLhs:
+      \_part_select: , line:59:5, endln:59:15
+        |vpiParent:
+        \_ref_obj: o6_8 (work@dut.o6_8)
+          |vpiParent:
+          \_assignment: , line:59:5, endln:59:39
+          |vpiName:o6_8
+          |vpiFullName:work@dut.o6_8
+          |vpiDefName:o6_8
+          |vpiActual:
+          \_logic_net: (work@dut.o6_8), line:15:17, endln:15:21
+        |vpiConstantSelect:1
+        |vpiLeftRange:
+        \_constant: , line:59:10, endln:59:12
+        |vpiRightRange:
+        \_constant: , line:59:13, endln:59:14
+    |vpiAlwaysType:1
   |vpiProcess:
   \_always: , line:60:3, endln:61:40
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv, line:1:1, endln:63:10
+    |vpiStmt:
+    \_assignment: , line:61:5, endln:61:39
+      |vpiParent:
+      \_always: , line:60:3, endln:61:40
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_operation: , line:61:24, endln:61:38
+        |vpiParent:
+        \_assignment: , line:61:5, endln:61:39
+        |vpiOpType:72
+        |vpiOperand:
+        \_constant: , line:61:22, endln:61:23
+        |vpiOperand:
+        \_operation: , line:61:18, endln:61:39
+          |vpiParent:
+          \_operation: , line:61:24, endln:61:38
+          |vpiOpType:33
+          |vpiOperand:
+          \_part_select: , line:61:25, endln:61:31
+            |vpiParent:
+            \_ref_obj: i (work@dut.i), line:61:25, endln:61:26
+              |vpiParent:
+              \_operation: , line:61:18, endln:61:39
+              |vpiName:i
+              |vpiFullName:work@dut.i
+              |vpiDefName:i
+              |vpiActual:
+              \_logic_net: (work@dut.i), line:3:15, endln:3:16
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_constant: , line:61:27, endln:61:28
+            |vpiRightRange:
+            \_constant: , line:61:29, endln:61:30
+          |vpiOperand:
+          \_constant: , line:61:33, endln:61:37
+      |vpiLhs:
+      \_part_select: , line:61:5, endln:61:14
+        |vpiParent:
+        \_ref_obj: o6_8 (work@dut.o6_8)
+          |vpiParent:
+          \_assignment: , line:61:5, endln:61:39
+          |vpiName:o6_8
+          |vpiFullName:work@dut.o6_8
+          |vpiDefName:o6_8
+          |vpiActual:
+          \_logic_net: (work@dut.o6_8), line:15:17, endln:15:21
+        |vpiConstantSelect:1
+        |vpiLeftRange:
+        \_constant: , line:61:10, endln:61:11
+        |vpiRightRange:
+        \_constant: , line:61:12, endln:61:13
+    |vpiAlwaysType:1
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -135,6 +138,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -174,6 +179,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -190,6 +197,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -204,6 +213,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -224,6 +235,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -238,6 +251,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -258,6 +273,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -272,30 +289,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -328,6 +355,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -392,6 +452,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -415,6 +477,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -438,6 +502,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -467,6 +533,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -799,6 +867,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out1), line:4:23, endln:4:27
+      |vpiParent:
+      \_port: (out1), line:4:23, endln:4:27
       |vpiName:out1
       |vpiFullName:work@top.out1
       |vpiActual:
@@ -825,6 +895,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
   |vpiPort:
   \_port: (out2), line:5:17, endln:5:21
     |vpiParent:
@@ -833,12 +905,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out2), line:5:17, endln:5:21
+      |vpiParent:
+      \_port: (out2), line:5:17, endln:5:21
       |vpiName:out2
       |vpiFullName:work@top.out2
       |vpiActual:
       \_logic_net: (work@top.out2), line:5:17, endln:5:21
     |vpiTypedef:
     \_logic_typespec: , line:5:12, endln:5:16
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
   |vpiPort:
   \_port: (out3), line:6:31, endln:6:35
     |vpiParent:
@@ -847,12 +923,16 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out3), line:6:31, endln:6:35
+      |vpiParent:
+      \_port: (out3), line:6:31, endln:6:35
       |vpiName:out3
       |vpiFullName:work@top.out3
       |vpiActual:
       \_struct_net: (work@top.out3), line:6:31, endln:6:35
     |vpiTypedef:
     \_struct_typespec: (my_struct_packed_t), line:1:9, endln:1:15
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
   |vpiPort:
   \_port: (out4), line:7:17, endln:7:21
     |vpiParent:
@@ -861,14 +941,20 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.out4), line:7:17, endln:7:21
+      |vpiParent:
+      \_port: (out4), line:7:17, endln:7:21
       |vpiName:out4
       |vpiFullName:work@top.out4
       |vpiActual:
       \_logic_net: (work@top.out4), line:7:17, endln:7:21
     |vpiTypedef:
     \_logic_typespec: , line:7:12, endln:7:16
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
   |vpiContAssign:
   \_cont_assign: , line:9:10, endln:9:21
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
     |vpiRhs:
     \_constant: , line:9:19, endln:9:21
       |vpiParent:
@@ -878,22 +964,30 @@ design: (work@top)
       |UINT:15
       |vpiConstType:9
     |vpiLhs:
-    \_ref_obj: (out1), line:9:10, endln:9:14
+    \_ref_obj: (work@top.out1), line:9:10, endln:9:14
       |vpiParent:
       \_cont_assign: , line:9:10, endln:9:21
       |vpiName:out1
+      |vpiFullName:work@top.out1
+      |vpiActual:
+      \_logic_net: (work@top.out1), line:4:23, endln:4:27
   |vpiContAssign:
   \_cont_assign: , line:10:10, endln:10:36
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
     |vpiRhs:
     \_operation: , line:10:20, endln:10:35
       |vpiParent:
       \_cont_assign: , line:10:10, endln:10:36
       |vpiOpType:14
       |vpiOperand:
-      \_ref_obj: (out1), line:10:20, endln:10:24
+      \_ref_obj: (work@top.out1), line:10:20, endln:10:24
         |vpiParent:
         \_operation: , line:10:20, endln:10:35
         |vpiName:out1
+        |vpiFullName:work@top.out1
+        |vpiActual:
+        \_logic_net: (work@top.out1), line:4:23, endln:4:27
       |vpiOperand:
       \_constant: , line:10:28, endln:10:35
         |vpiParent:
@@ -903,16 +997,23 @@ design: (work@top)
         |BIN:1111
         |vpiConstType:3
     |vpiLhs:
-    \_ref_obj: (out2), line:10:10, endln:10:14
+    \_ref_obj: (work@top.out2), line:10:10, endln:10:14
       |vpiParent:
       \_cont_assign: , line:10:10, endln:10:36
       |vpiName:out2
+      |vpiFullName:work@top.out2
       |vpiActual:
       \_logic_net: (work@top.out2), line:5:17, endln:5:21
   |vpiContAssign:
   \_cont_assign: , line:11:10, endln:11:21
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
     |vpiRhs:
     \_constant: , line:11:19, endln:11:21
+      |vpiDecompile:15
+      |vpiSize:4
+      |UINT:15
+      |vpiConstType:9
     |vpiLhs:
     \_hier_path: (out3.a), line:11:10, endln:11:16
       |vpiParent:
@@ -923,36 +1024,44 @@ design: (work@top)
         |vpiParent:
         \_hier_path: (out3.a), line:11:10, endln:11:16
         |vpiName:out3
+        |vpiActual:
+        \_struct_net: (work@top.out3), line:6:31, endln:6:35
       |vpiActual:
       \_ref_obj: (a)
         |vpiParent:
         \_hier_path: (out3.a), line:11:10, endln:11:16
         |vpiName:a
+        |vpiActual:
+        \_typespec_member: (a), line:1:36, endln:1:37
   |vpiContAssign:
   \_cont_assign: , line:12:10, endln:12:31
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/UnsizedConst/top.sv, line:3:1, endln:13:16
     |vpiRhs:
     \_operation: , line:12:20, endln:12:30
       |vpiParent:
       \_cont_assign: , line:12:10, endln:12:31
       |vpiOpType:14
       |vpiOperand:
-      \_ref_obj: (out3), line:12:20, endln:12:24
+      \_ref_obj: (work@top.out3), line:12:20, endln:12:24
         |vpiParent:
         \_operation: , line:12:20, endln:12:30
         |vpiName:out3
+        |vpiFullName:work@top.out3
+        |vpiActual:
+        \_struct_net: (work@top.out3), line:6:31, endln:6:35
       |vpiOperand:
       \_constant: , line:12:28, endln:12:30
-        |vpiParent:
-        \_operation: , line:12:20, endln:12:30
-        |vpiDecompile:'1
-        |vpiSize:-1
-        |BIN:1
-        |vpiConstType:3
+        |vpiDecompile:15
+        |vpiSize:4
+        |UINT:15
+        |vpiConstType:9
     |vpiLhs:
-    \_ref_obj: (out4), line:12:10, endln:12:14
+    \_ref_obj: (work@top.out4), line:12:10, endln:12:14
       |vpiParent:
       \_cont_assign: , line:12:10, endln:12:31
       |vpiName:out4
+      |vpiFullName:work@top.out4
       |vpiActual:
       \_logic_net: (work@top.out4), line:7:17, endln:7:21
 Object 'work@top' of type 'design'
@@ -1047,12 +1156,12 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
             AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1'(1) unsized range=[0:0] int=1
+        AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1111'(4) range=[3:0] int=15
       AST_ASSIGN <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.10-12.31>
         AST_IDENTIFIER <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.10-12.14> str='\out4'
         AST_EQ <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.20-12.30>
           AST_IDENTIFIER <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.20-12.24> str='\out3'
-          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1'(1) unsized range=[0:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1111'(4) range=[3:0] int=15
       AST_TYPEDEF <UHDM-integration-tests/tests/UnsizedConst/top.sv:1.9-1.15> str='\my_struct_packed_t'
         AST_STRUCT <UHDM-integration-tests/tests/UnsizedConst/top.sv:1.9-1.15> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/UnsizedConst/top.sv:1.36-1.37> str='a' logic basic_prep range=[3:0]
@@ -1066,8 +1175,8 @@ Dumping Verilog AST before simplification:
       output out4;
       assign out1 = 4'b 1111;
       assign out2 = (out1)==(4'b 1111);
-      assign out3[3:0] = 1'b 1;
-      assign out4 = (out3)==(1'b 1);
+      assign out3[3:0] = 4'b 1111;
+      assign out4 = (out3)==(4'b 1111);
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
@@ -1098,12 +1207,12 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[3:0]
             AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
             AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1'(1) unsized basic_prep range=[0:0] int=1
+        AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15
       AST_ASSIGN <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.10-12.31> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.10-12.14> str='\out4' basic_prep
         AST_EQ <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.20-12.30> basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/UnsizedConst/top.sv:12.20-12.24> str='\out3' basic_prep
-          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1'(1) unsized basic_prep range=[0:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15
       AST_TYPEDEF <UHDM-integration-tests/tests/UnsizedConst/top.sv:1.9-1.15> str='\my_struct_packed_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/UnsizedConst/top.sv:1.9-1.15> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/UnsizedConst/top.sv:1.36-1.37> str='a' logic basic_prep range=[3:0]
@@ -1117,8 +1226,8 @@ Dumping Verilog AST after simplification:
       output out4;
       assign out1 = 4'b 1111;
       assign out2 = (out1)==(4'b 1111);
-      assign out3[3:0] = 1'b 1;
-      assign out4 = (out3)==(1'b 1);
+      assign out3[3:0] = 4'b 1111;
+      assign out4 = (out3)==(4'b 1111);
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---

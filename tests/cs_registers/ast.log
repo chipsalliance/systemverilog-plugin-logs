@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -3138,6 +3141,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -3177,6 +3182,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -3193,6 +3200,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -3207,6 +3216,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -3227,6 +3238,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -3241,6 +3254,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -3261,6 +3276,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -3275,30 +3292,40 @@ design: (work@dut)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -3331,6 +3358,39 @@ design: (work@dut)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -3395,6 +3455,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -3418,6 +3480,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -3441,6 +3505,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -3470,6 +3536,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -10390,16 +10458,2827 @@ design: (work@dut)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@dut.clk), line:209:18, endln:209:21
+      |vpiParent:
+      \_port: (clk), line:209:18, endln:209:21
       |vpiName:clk
       |vpiFullName:work@dut.clk
       |vpiActual:
       \_logic_net: (work@dut.clk), line:209:18, endln:209:21
     |vpiTypedef:
     \_logic_typespec: , line:209:18, endln:209:18
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
   |vpiProcess:
   \_always: , line:323:1, endln:437:4
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
+    |vpiStmt:
+    \_event_control: , line:323:8, endln:323:22
+      |vpiParent:
+      \_always: , line:323:1, endln:437:4
+      |vpiCondition:
+      \_operation: , line:323:10, endln:323:21
+        |vpiParent:
+        \_event_control: , line:323:8, endln:323:22
+        |vpiOpType:39
+        |vpiOperand:
+        \_ref_obj: (work@dut.clk), line:323:18, endln:323:21
+          |vpiParent:
+          \_operation: , line:323:10, endln:323:21
+          |vpiName:clk
+          |vpiFullName:work@dut.clk
+          |vpiActual:
+          \_logic_net: (work@dut.clk), line:209:18, endln:209:21
+      |vpiStmt:
+      \_begin: (work@dut), line:323:23, endln:437:4
+        |vpiParent:
+        \_event_control: , line:323:8, endln:323:22
+        |vpiFullName:work@dut
+        |vpiStmt:
+        \_immediate_assert: , line:324:1, endln:324:41
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiExpr:
+          \_operation: , line:324:8, endln:324:39
+            |vpiParent:
+            \_immediate_assert: , line:324:1, endln:324:41
+            |vpiOpType:14
+            |vpiOperand:
+            \_bit_select: (work@dut.pmp_cfg_rdata), line:324:8, endln:324:24
+              |vpiParent:
+              \_ref_obj: (work@dut.pmp_cfg_rdata)
+                |vpiParent:
+                \_operation: , line:324:8, endln:324:39
+                |vpiName:pmp_cfg_rdata
+                |vpiFullName:work@dut.pmp_cfg_rdata
+                |vpiActual:
+                \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+              |vpiName:pmp_cfg_rdata
+              |vpiFullName:work@dut.pmp_cfg_rdata
+              |vpiIndex:
+              \_constant: , line:324:22, endln:324:23
+              |vpiActual:
+              \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+            |vpiOperand:
+            \_constant: , line:324:28, endln:324:39
+        |vpiStmt:
+        \_immediate_assert: , line:325:1, endln:325:41
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiExpr:
+          \_operation: , line:325:8, endln:325:39
+            |vpiParent:
+            \_immediate_assert: , line:325:1, endln:325:41
+            |vpiOpType:14
+            |vpiOperand:
+            \_bit_select: (work@dut.pmp_cfg_rdata), line:325:8, endln:325:24
+              |vpiParent:
+              \_ref_obj: (work@dut.pmp_cfg_rdata)
+                |vpiParent:
+                \_operation: , line:325:8, endln:325:39
+                |vpiName:pmp_cfg_rdata
+                |vpiFullName:work@dut.pmp_cfg_rdata
+                |vpiActual:
+                \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+              |vpiName:pmp_cfg_rdata
+              |vpiFullName:work@dut.pmp_cfg_rdata
+              |vpiIndex:
+              \_constant: , line:325:22, endln:325:23
+              |vpiActual:
+              \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+            |vpiOperand:
+            \_constant: , line:325:28, endln:325:39
+        |vpiStmt:
+        \_immediate_assert: , line:326:1, endln:326:41
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiExpr:
+          \_operation: , line:326:8, endln:326:39
+            |vpiParent:
+            \_immediate_assert: , line:326:1, endln:326:41
+            |vpiOpType:14
+            |vpiOperand:
+            \_bit_select: (work@dut.pmp_cfg_rdata), line:326:8, endln:326:24
+              |vpiParent:
+              \_ref_obj: (work@dut.pmp_cfg_rdata)
+                |vpiParent:
+                \_operation: , line:326:8, endln:326:39
+                |vpiName:pmp_cfg_rdata
+                |vpiFullName:work@dut.pmp_cfg_rdata
+                |vpiActual:
+                \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+              |vpiName:pmp_cfg_rdata
+              |vpiFullName:work@dut.pmp_cfg_rdata
+              |vpiIndex:
+              \_constant: , line:326:22, endln:326:23
+              |vpiActual:
+              \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+            |vpiOperand:
+            \_constant: , line:326:28, endln:326:39
+        |vpiStmt:
+        \_immediate_assert: , line:327:1, endln:327:41
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiExpr:
+          \_operation: , line:327:8, endln:327:39
+            |vpiParent:
+            \_immediate_assert: , line:327:1, endln:327:41
+            |vpiOpType:14
+            |vpiOperand:
+            \_bit_select: (work@dut.pmp_cfg_rdata), line:327:8, endln:327:24
+              |vpiParent:
+              \_ref_obj: (work@dut.pmp_cfg_rdata)
+                |vpiParent:
+                \_operation: , line:327:8, endln:327:39
+                |vpiName:pmp_cfg_rdata
+                |vpiFullName:work@dut.pmp_cfg_rdata
+                |vpiActual:
+                \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+              |vpiName:pmp_cfg_rdata
+              |vpiFullName:work@dut.pmp_cfg_rdata
+              |vpiIndex:
+              \_constant: , line:327:22, endln:327:23
+              |vpiActual:
+              \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+            |vpiOperand:
+            \_constant: , line:327:28, endln:327:39
+        |vpiStmt:
+        \_assignment: , line:329:3, endln:329:21
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:329:19, endln:329:21
+            |vpiParent:
+            \_assignment: , line:329:3, endln:329:21
+            |vpiDecompile:'0
+            |vpiSize:-1
+            |BIN:0
+            |vpiConstType:3
+          |vpiLhs:
+          \_ref_obj: (work@dut.csr_rdata_int), line:329:3, endln:329:16
+            |vpiParent:
+            \_assignment: , line:329:3, endln:329:21
+            |vpiName:csr_rdata_int
+            |vpiFullName:work@dut.csr_rdata_int
+            |vpiActual:
+            \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+        |vpiStmt:
+        \_assignment: , line:330:3, endln:330:23
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:330:19, endln:330:23
+          |vpiLhs:
+          \_ref_obj: (work@dut.illegal_csr), line:330:3, endln:330:14
+            |vpiParent:
+            \_assignment: , line:330:3, endln:330:23
+            |vpiName:illegal_csr
+            |vpiFullName:work@dut.illegal_csr
+            |vpiActual:
+            \_logic_var: (work@dut.illegal_csr), line:299:14, endln:299:25
+        |vpiStmt:
+        \_case_stmt: , line:332:3, endln:436:10
+          |vpiParent:
+          \_begin: (work@dut), line:323:23, endln:437:4
+          |vpiCaseType:1
+          |vpiQualifier:1
+          |vpiCondition:
+          \_ref_obj: (work@dut.csr_addr_i), line:332:16, endln:332:26
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiName:csr_addr_i
+            |vpiFullName:work@dut.csr_addr_i
+            |vpiActual:
+            \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+          |vpiCaseItem:
+          \_case_item: , line:333:5, endln:337:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHARTID), line:333:5, endln:333:16
+              |vpiParent:
+              \_case_item: , line:333:5, endln:337:10
+              |vpiName:CSR_MHARTID
+              |vpiFullName:work@dut.CSR_MHARTID
+              |vpiActual:
+              \_enum_const: (CSR_MHARTID), line:4:3, endln:4:26
+            |vpiStmt:
+            \_begin: (work@dut), line:333:18, endln:337:10
+              |vpiParent:
+              \_case_item: , line:333:5, endln:337:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:334:7, endln:334:32
+                |vpiParent:
+                \_begin: (work@dut), line:333:18, endln:337:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.hart_id_i), line:334:23, endln:334:32
+                  |vpiParent:
+                  \_assignment: , line:334:7, endln:334:32
+                  |vpiName:hart_id_i
+                  |vpiFullName:work@dut.hart_id_i
+                  |vpiActual:
+                  \_logic_var: (work@dut.hart_id_i), line:297:14, endln:297:23
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:334:7, endln:334:20
+                  |vpiParent:
+                  \_assignment: , line:334:7, endln:334:32
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:335:7, endln:335:31
+                |vpiParent:
+                \_begin: (work@dut), line:333:18, endln:337:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MSTATUS), line:335:20, endln:335:31
+                  |vpiParent:
+                  \_assignment: , line:335:7, endln:335:31
+                  |vpiName:CSR_MSTATUS
+                  |vpiFullName:work@dut.CSR_MSTATUS
+                  |vpiActual:
+                  \_enum_const: (CSR_MSTATUS), line:7:3, endln:7:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:335:7, endln:335:17
+                  |vpiParent:
+                  \_assignment: , line:335:7, endln:335:31
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:336:7, endln:336:42
+                |vpiParent:
+                \_begin: (work@dut), line:333:18, endln:337:10
+                |vpiExpr:
+                \_operation: , line:336:14, endln:336:40
+                  |vpiParent:
+                  \_immediate_assert: , line:336:7, endln:336:42
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:336:14, endln:336:27
+                    |vpiParent:
+                    \_operation: , line:336:14, endln:336:40
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.hart_id_i), line:336:31, endln:336:40
+                    |vpiParent:
+                    \_operation: , line:336:14, endln:336:40
+                    |vpiName:hart_id_i
+                    |vpiFullName:work@dut.hart_id_i
+                    |vpiActual:
+                    \_logic_var: (work@dut.hart_id_i), line:297:14, endln:297:23
+          |vpiCaseItem:
+          \_case_item: , line:338:5, endln:351:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MSTATUS), line:338:5, endln:338:16
+              |vpiParent:
+              \_case_item: , line:338:5, endln:351:10
+              |vpiName:CSR_MSTATUS
+              |vpiFullName:work@dut.CSR_MSTATUS
+              |vpiActual:
+              \_enum_const: (CSR_MSTATUS), line:7:3, endln:7:26
+            |vpiStmt:
+            \_begin: (work@dut), line:338:18, endln:351:10
+              |vpiParent:
+              \_case_item: , line:338:5, endln:351:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:339:7, endln:339:75
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_constant: , line:339:73, endln:339:75
+                  |vpiParent:
+                  \_assignment: , line:339:7, endln:339:75
+                  |vpiDecompile:'0
+                  |vpiSize:-1
+                  |BIN:0
+                  |vpiConstType:3
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:339:7, endln:339:20
+                  |vpiParent:
+                  \_assignment: , line:339:7, endln:339:75
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:340:7, endln:340:86
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mstatus_q.mie), line:340:73, endln:340:86
+                  |vpiParent:
+                  \_assignment: , line:340:7, endln:340:86
+                  |vpiName:mstatus_q.mie
+                  |vpiActual:
+                  \_ref_obj: (mstatus_q), line:340:73, endln:340:82
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mie), line:340:73, endln:340:86
+                    |vpiName:mstatus_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                  |vpiActual:
+                  \_ref_obj: (mie), line:340:83, endln:340:86
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mie), line:340:73, endln:340:86
+                    |vpiName:mie
+                    |vpiActual:
+                    \_typespec_member: (mie), line:213:14, endln:213:17
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:340:7, endln:340:41
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:340:7, endln:340:86
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:340:21, endln:340:40
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:341:7, endln:341:87
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mstatus_q.mpie), line:341:73, endln:341:87
+                  |vpiParent:
+                  \_assignment: , line:341:7, endln:341:87
+                  |vpiName:mstatus_q.mpie
+                  |vpiActual:
+                  \_ref_obj: (mstatus_q), line:341:73, endln:341:82
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mpie), line:341:73, endln:341:87
+                    |vpiName:mstatus_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                  |vpiActual:
+                  \_ref_obj: (mpie), line:341:83, endln:341:87
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mpie), line:341:73, endln:341:87
+                    |vpiName:mpie
+                    |vpiActual:
+                    \_typespec_member: (mpie), line:214:14, endln:214:18
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:341:7, endln:341:42
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:341:7, endln:341:87
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:341:21, endln:341:41
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:342:7, endln:342:86
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mstatus_q.mpp), line:342:73, endln:342:86
+                  |vpiParent:
+                  \_assignment: , line:342:7, endln:342:86
+                  |vpiName:mstatus_q.mpp
+                  |vpiActual:
+                  \_ref_obj: (mstatus_q), line:342:73, endln:342:82
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mpp), line:342:73, endln:342:86
+                    |vpiName:mstatus_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                  |vpiActual:
+                  \_ref_obj: (mpp), line:342:83, endln:342:86
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mpp), line:342:73, endln:342:86
+                    |vpiName:mpp
+                    |vpiActual:
+                    \_typespec_member: (mpp), line:215:14, endln:215:17
+                |vpiLhs:
+                \_part_select: , line:342:7, endln:342:70
+                  |vpiParent:
+                  \_ref_obj: csr_rdata_int (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:342:7, endln:342:86
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiDefName:csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiConstantSelect:1
+                  |vpiLeftRange:
+                  \_constant: , line:342:21, endln:342:45
+                  |vpiRightRange:
+                  \_constant: , line:342:46, endln:342:69
+              |vpiStmt:
+              \_assignment: , line:343:7, endln:343:87
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mstatus_q.mprv), line:343:73, endln:343:87
+                  |vpiParent:
+                  \_assignment: , line:343:7, endln:343:87
+                  |vpiName:mstatus_q.mprv
+                  |vpiActual:
+                  \_ref_obj: (mstatus_q), line:343:73, endln:343:82
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mprv), line:343:73, endln:343:87
+                    |vpiName:mstatus_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                  |vpiActual:
+                  \_ref_obj: (mprv), line:343:83, endln:343:87
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.mprv), line:343:73, endln:343:87
+                    |vpiName:mprv
+                    |vpiActual:
+                    \_typespec_member: (mprv), line:216:14, endln:216:18
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:343:7, endln:343:42
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:343:7, endln:343:87
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:343:21, endln:343:41
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:344:7, endln:344:85
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mstatus_q.tw), line:344:73, endln:344:85
+                  |vpiParent:
+                  \_assignment: , line:344:7, endln:344:85
+                  |vpiName:mstatus_q.tw
+                  |vpiActual:
+                  \_ref_obj: (mstatus_q), line:344:73, endln:344:82
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.tw), line:344:73, endln:344:85
+                    |vpiName:mstatus_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                  |vpiActual:
+                  \_ref_obj: (tw), line:344:83, endln:344:85
+                    |vpiParent:
+                    \_hier_path: (mstatus_q.tw), line:344:73, endln:344:85
+                    |vpiName:tw
+                    |vpiActual:
+                    \_typespec_member: (tw), line:217:14, endln:217:16
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:344:7, endln:344:40
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:344:7, endln:344:85
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:344:21, endln:344:39
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:345:7, endln:345:28
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MISA), line:345:20, endln:345:28
+                  |vpiParent:
+                  \_assignment: , line:345:7, endln:345:28
+                  |vpiName:CSR_MISA
+                  |vpiFullName:work@dut.CSR_MISA
+                  |vpiActual:
+                  \_enum_const: (CSR_MISA), line:8:3, endln:8:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:345:7, endln:345:17
+                  |vpiParent:
+                  \_assignment: , line:345:7, endln:345:28
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:346:7, endln:346:67
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiExpr:
+                \_operation: , line:346:14, endln:346:65
+                  |vpiParent:
+                  \_immediate_assert: , line:346:7, endln:346:67
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:346:14, endln:346:48
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:346:14, endln:346:65
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:346:28, endln:346:47
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mstatus_q.mie), line:346:52, endln:346:65
+                    |vpiParent:
+                    \_operation: , line:346:14, endln:346:65
+                    |vpiName:mstatus_q.mie
+                    |vpiActual:
+                    \_ref_obj: (mstatus_q), line:346:52, endln:346:61
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mie), line:346:52, endln:346:65
+                      |vpiName:mstatus_q
+                      |vpiActual:
+                      \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                    |vpiActual:
+                    \_ref_obj: (mie), line:346:62, endln:346:65
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mie), line:346:52, endln:346:65
+                      |vpiName:mie
+                      |vpiActual:
+                      \_typespec_member: (mie), line:213:14, endln:213:17
+              |vpiStmt:
+              \_immediate_assert: , line:347:7, endln:347:69
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiExpr:
+                \_operation: , line:347:14, endln:347:67
+                  |vpiParent:
+                  \_immediate_assert: , line:347:7, endln:347:69
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:347:14, endln:347:49
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:347:14, endln:347:67
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:347:28, endln:347:48
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mstatus_q.mpie), line:347:53, endln:347:67
+                    |vpiParent:
+                    \_operation: , line:347:14, endln:347:67
+                    |vpiName:mstatus_q.mpie
+                    |vpiActual:
+                    \_ref_obj: (mstatus_q), line:347:53, endln:347:62
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mpie), line:347:53, endln:347:67
+                      |vpiName:mstatus_q
+                      |vpiActual:
+                      \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                    |vpiActual:
+                    \_ref_obj: (mpie), line:347:63, endln:347:67
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mpie), line:347:53, endln:347:67
+                      |vpiName:mpie
+                      |vpiActual:
+                      \_typespec_member: (mpie), line:214:14, endln:214:18
+              |vpiStmt:
+              \_immediate_assert: , line:348:7, endln:348:96
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiExpr:
+                \_operation: , line:348:14, endln:348:94
+                  |vpiParent:
+                  \_immediate_assert: , line:348:7, endln:348:96
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_part_select: , line:348:14, endln:348:77
+                    |vpiParent:
+                    \_ref_obj: csr_rdata_int (work@dut.csr_rdata_int), line:348:14, endln:348:27
+                      |vpiParent:
+                      \_operation: , line:348:14, endln:348:94
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiDefName:csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:348:28, endln:348:52
+                    |vpiRightRange:
+                    \_constant: , line:348:53, endln:348:76
+                  |vpiOperand:
+                  \_hier_path: (mstatus_q.mpp), line:348:81, endln:348:94
+                    |vpiParent:
+                    \_operation: , line:348:14, endln:348:94
+                    |vpiName:mstatus_q.mpp
+                    |vpiActual:
+                    \_ref_obj: (mstatus_q), line:348:81, endln:348:90
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mpp), line:348:81, endln:348:94
+                      |vpiName:mstatus_q
+                      |vpiActual:
+                      \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                    |vpiActual:
+                    \_ref_obj: (mpp), line:348:91, endln:348:94
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mpp), line:348:81, endln:348:94
+                      |vpiName:mpp
+                      |vpiActual:
+                      \_typespec_member: (mpp), line:215:14, endln:215:17
+              |vpiStmt:
+              \_immediate_assert: , line:349:7, endln:349:69
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiExpr:
+                \_operation: , line:349:14, endln:349:67
+                  |vpiParent:
+                  \_immediate_assert: , line:349:7, endln:349:69
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:349:14, endln:349:49
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:349:14, endln:349:67
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:349:28, endln:349:48
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mstatus_q.mprv), line:349:53, endln:349:67
+                    |vpiParent:
+                    \_operation: , line:349:14, endln:349:67
+                    |vpiName:mstatus_q.mprv
+                    |vpiActual:
+                    \_ref_obj: (mstatus_q), line:349:53, endln:349:62
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mprv), line:349:53, endln:349:67
+                      |vpiName:mstatus_q
+                      |vpiActual:
+                      \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                    |vpiActual:
+                    \_ref_obj: (mprv), line:349:63, endln:349:67
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.mprv), line:349:53, endln:349:67
+                      |vpiName:mprv
+                      |vpiActual:
+                      \_typespec_member: (mprv), line:216:14, endln:216:18
+              |vpiStmt:
+              \_immediate_assert: , line:350:7, endln:350:65
+                |vpiParent:
+                \_begin: (work@dut), line:338:18, endln:351:10
+                |vpiExpr:
+                \_operation: , line:350:14, endln:350:63
+                  |vpiParent:
+                  \_immediate_assert: , line:350:7, endln:350:65
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:350:14, endln:350:47
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:350:14, endln:350:63
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:350:28, endln:350:46
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mstatus_q.tw), line:350:51, endln:350:63
+                    |vpiParent:
+                    \_operation: , line:350:14, endln:350:63
+                    |vpiName:mstatus_q.tw
+                    |vpiActual:
+                    \_ref_obj: (mstatus_q), line:350:51, endln:350:60
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.tw), line:350:51, endln:350:63
+                      |vpiName:mstatus_q
+                      |vpiActual:
+                      \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
+                    |vpiActual:
+                    \_ref_obj: (tw), line:350:61, endln:350:63
+                      |vpiParent:
+                      \_hier_path: (mstatus_q.tw), line:350:51, endln:350:63
+                      |vpiName:tw
+                      |vpiActual:
+                      \_typespec_member: (tw), line:217:14, endln:217:16
+          |vpiCaseItem:
+          \_case_item: , line:352:5, endln:357:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MISA), line:352:5, endln:352:13
+              |vpiParent:
+              \_case_item: , line:352:5, endln:357:10
+              |vpiName:CSR_MISA
+              |vpiFullName:work@dut.CSR_MISA
+              |vpiActual:
+              \_enum_const: (CSR_MISA), line:8:3, endln:8:26
+            |vpiStmt:
+            \_begin: (work@dut), line:352:15, endln:357:10
+              |vpiParent:
+              \_case_item: , line:352:5, endln:357:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:353:7, endln:353:33
+                |vpiParent:
+                \_begin: (work@dut), line:352:15, endln:357:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.MISA_VALUE), line:353:23, endln:353:33
+                  |vpiParent:
+                  \_assignment: , line:353:7, endln:353:33
+                  |vpiName:MISA_VALUE
+                  |vpiFullName:work@dut.MISA_VALUE
+                  |vpiActual:
+                  \_parameter: (work@dut.MISA_VALUE), line:258:25, endln:258:35
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:353:7, endln:353:20
+                  |vpiParent:
+                  \_assignment: , line:353:7, endln:353:33
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:354:7, endln:354:27
+                |vpiParent:
+                \_begin: (work@dut), line:352:15, endln:357:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MIE), line:354:20, endln:354:27
+                  |vpiParent:
+                  \_assignment: , line:354:7, endln:354:27
+                  |vpiName:CSR_MIE
+                  |vpiFullName:work@dut.CSR_MIE
+                  |vpiActual:
+                  \_enum_const: (CSR_MIE), line:9:3, endln:9:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:354:7, endln:354:17
+                  |vpiParent:
+                  \_assignment: , line:354:7, endln:354:27
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:355:7, endln:355:43
+                |vpiParent:
+                \_begin: (work@dut), line:352:15, endln:357:10
+                |vpiExpr:
+                \_operation: , line:355:14, endln:355:41
+                  |vpiParent:
+                  \_immediate_assert: , line:355:7, endln:355:43
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:355:14, endln:355:27
+                    |vpiParent:
+                    \_operation: , line:355:14, endln:355:41
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.MISA_VALUE), line:355:31, endln:355:41
+                    |vpiParent:
+                    \_operation: , line:355:14, endln:355:41
+                    |vpiName:MISA_VALUE
+                    |vpiFullName:work@dut.MISA_VALUE
+                    |vpiActual:
+                    \_parameter: (work@dut.MISA_VALUE), line:258:25, endln:258:35
+              |vpiStmt:
+              \_immediate_assert: , line:356:7, endln:356:47
+                |vpiParent:
+                \_begin: (work@dut), line:352:15, endln:357:10
+                |vpiExpr:
+                \_operation: , line:356:14, endln:356:45
+                  |vpiParent:
+                  \_immediate_assert: , line:356:7, endln:356:47
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.MISA_VALUE), line:356:14, endln:356:24
+                    |vpiParent:
+                    \_operation: , line:356:14, endln:356:45
+                    |vpiName:MISA_VALUE
+                    |vpiFullName:work@dut.MISA_VALUE
+                    |vpiActual:
+                    \_parameter: (work@dut.MISA_VALUE), line:258:25, endln:258:35
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.MISA_VALUE_RESULT), line:356:28, endln:356:45
+                    |vpiParent:
+                    \_operation: , line:356:14, endln:356:45
+                    |vpiName:MISA_VALUE_RESULT
+                    |vpiFullName:work@dut.MISA_VALUE_RESULT
+                    |vpiActual:
+                    \_parameter: (work@dut.MISA_VALUE_RESULT), line:272:25, endln:272:42
+          |vpiCaseItem:
+          \_case_item: , line:358:5, endln:369:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MIE), line:358:5, endln:358:12
+              |vpiParent:
+              \_case_item: , line:358:5, endln:369:10
+              |vpiName:CSR_MIE
+              |vpiFullName:work@dut.CSR_MIE
+              |vpiActual:
+              \_enum_const: (CSR_MIE), line:9:3, endln:9:26
+            |vpiStmt:
+            \_begin: (work@dut), line:358:14, endln:369:10
+              |vpiParent:
+              \_case_item: , line:358:5, endln:369:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:359:7, endln:359:61
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_constant: , line:359:59, endln:359:61
+                  |vpiParent:
+                  \_assignment: , line:359:7, endln:359:61
+                  |vpiDecompile:'0
+                  |vpiSize:-1
+                  |BIN:0
+                  |vpiConstType:3
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:359:7, endln:359:20
+                  |vpiParent:
+                  \_assignment: , line:359:7, endln:359:61
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:360:7, endln:360:77
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mie_q.irq_software), line:360:59, endln:360:77
+                  |vpiParent:
+                  \_assignment: , line:360:7, endln:360:77
+                  |vpiName:mie_q.irq_software
+                  |vpiActual:
+                  \_ref_obj: (mie_q), line:360:59, endln:360:64
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_software), line:360:59, endln:360:77
+                    |vpiName:mie_q
+                    |vpiActual:
+                    \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                  |vpiActual:
+                  \_ref_obj: (irq_software), line:360:65, endln:360:77
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_software), line:360:59, endln:360:77
+                    |vpiName:irq_software
+                    |vpiActual:
+                    \_typespec_member: (irq_software), line:181:16, endln:181:28
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:360:7, endln:360:34
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:360:7, endln:360:77
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:360:21, endln:360:33
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:361:7, endln:361:74
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mie_q.irq_timer), line:361:59, endln:361:74
+                  |vpiParent:
+                  \_assignment: , line:361:7, endln:361:74
+                  |vpiName:mie_q.irq_timer
+                  |vpiActual:
+                  \_ref_obj: (mie_q), line:361:59, endln:361:64
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_timer), line:361:59, endln:361:74
+                    |vpiName:mie_q
+                    |vpiActual:
+                    \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                  |vpiActual:
+                  \_ref_obj: (irq_timer), line:361:65, endln:361:74
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_timer), line:361:59, endln:361:74
+                    |vpiName:irq_timer
+                    |vpiActual:
+                    \_typespec_member: (irq_timer), line:182:16, endln:182:25
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:361:7, endln:361:34
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:361:7, endln:361:74
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:361:21, endln:361:33
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:362:7, endln:362:77
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mie_q.irq_external), line:362:59, endln:362:77
+                  |vpiParent:
+                  \_assignment: , line:362:7, endln:362:77
+                  |vpiName:mie_q.irq_external
+                  |vpiActual:
+                  \_ref_obj: (mie_q), line:362:59, endln:362:64
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_external), line:362:59, endln:362:77
+                    |vpiName:mie_q
+                    |vpiActual:
+                    \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                  |vpiActual:
+                  \_ref_obj: (irq_external), line:362:65, endln:362:77
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_external), line:362:59, endln:362:77
+                    |vpiName:irq_external
+                    |vpiActual:
+                    \_typespec_member: (irq_external), line:183:16, endln:183:28
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:362:7, endln:362:34
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:362:7, endln:362:77
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:362:21, endln:362:33
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:363:7, endln:363:73
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mie_q.irq_fast), line:363:59, endln:363:73
+                  |vpiParent:
+                  \_assignment: , line:363:7, endln:363:73
+                  |vpiName:mie_q.irq_fast
+                  |vpiActual:
+                  \_ref_obj: (mie_q), line:363:59, endln:363:64
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_fast), line:363:59, endln:363:73
+                    |vpiName:mie_q
+                    |vpiActual:
+                    \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                  |vpiActual:
+                  \_ref_obj: (irq_fast), line:363:65, endln:363:73
+                    |vpiParent:
+                    \_hier_path: (mie_q.irq_fast), line:363:59, endln:363:73
+                    |vpiName:irq_fast
+                    |vpiActual:
+                    \_typespec_member: (irq_fast), line:184:16, endln:184:24
+                |vpiLhs:
+                \_part_select: , line:363:7, endln:363:56
+                  |vpiParent:
+                  \_ref_obj: csr_rdata_int (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:363:7, endln:363:73
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiDefName:csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiConstantSelect:1
+                  |vpiLeftRange:
+                  \_constant: , line:363:21, endln:363:38
+                  |vpiRightRange:
+                  \_constant: , line:363:39, endln:363:55
+              |vpiStmt:
+              \_assignment: , line:364:7, endln:364:30
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MCAUSE), line:364:20, endln:364:30
+                  |vpiParent:
+                  \_assignment: , line:364:7, endln:364:30
+                  |vpiName:CSR_MCAUSE
+                  |vpiFullName:work@dut.CSR_MCAUSE
+                  |vpiActual:
+                  \_enum_const: (CSR_MCAUSE), line:15:3, endln:15:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:364:7, endln:364:17
+                  |vpiParent:
+                  \_assignment: , line:364:7, endln:364:30
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:365:7, endln:365:65
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiExpr:
+                \_operation: , line:365:14, endln:365:63
+                  |vpiParent:
+                  \_immediate_assert: , line:365:7, endln:365:65
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:365:14, endln:365:41
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:365:14, endln:365:63
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:365:28, endln:365:40
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mie_q.irq_software), line:365:45, endln:365:63
+                    |vpiParent:
+                    \_operation: , line:365:14, endln:365:63
+                    |vpiName:mie_q.irq_software
+                    |vpiActual:
+                    \_ref_obj: (mie_q), line:365:45, endln:365:50
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_software), line:365:45, endln:365:63
+                      |vpiName:mie_q
+                      |vpiActual:
+                      \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                    |vpiActual:
+                    \_ref_obj: (irq_software), line:365:51, endln:365:63
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_software), line:365:45, endln:365:63
+                      |vpiName:irq_software
+                      |vpiActual:
+                      \_typespec_member: (irq_software), line:181:16, endln:181:28
+              |vpiStmt:
+              \_immediate_assert: , line:366:7, endln:366:62
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiExpr:
+                \_operation: , line:366:14, endln:366:60
+                  |vpiParent:
+                  \_immediate_assert: , line:366:7, endln:366:62
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:366:14, endln:366:41
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:366:14, endln:366:60
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:366:28, endln:366:40
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mie_q.irq_timer), line:366:45, endln:366:60
+                    |vpiParent:
+                    \_operation: , line:366:14, endln:366:60
+                    |vpiName:mie_q.irq_timer
+                    |vpiActual:
+                    \_ref_obj: (mie_q), line:366:45, endln:366:50
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_timer), line:366:45, endln:366:60
+                      |vpiName:mie_q
+                      |vpiActual:
+                      \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                    |vpiActual:
+                    \_ref_obj: (irq_timer), line:366:51, endln:366:60
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_timer), line:366:45, endln:366:60
+                      |vpiName:irq_timer
+                      |vpiActual:
+                      \_typespec_member: (irq_timer), line:182:16, endln:182:25
+              |vpiStmt:
+              \_immediate_assert: , line:367:7, endln:367:65
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiExpr:
+                \_operation: , line:367:14, endln:367:63
+                  |vpiParent:
+                  \_immediate_assert: , line:367:7, endln:367:65
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:367:14, endln:367:41
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:367:14, endln:367:63
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:367:28, endln:367:40
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mie_q.irq_external), line:367:45, endln:367:63
+                    |vpiParent:
+                    \_operation: , line:367:14, endln:367:63
+                    |vpiName:mie_q.irq_external
+                    |vpiActual:
+                    \_ref_obj: (mie_q), line:367:45, endln:367:50
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_external), line:367:45, endln:367:63
+                      |vpiName:mie_q
+                      |vpiActual:
+                      \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                    |vpiActual:
+                    \_ref_obj: (irq_external), line:367:51, endln:367:63
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_external), line:367:45, endln:367:63
+                      |vpiName:irq_external
+                      |vpiActual:
+                      \_typespec_member: (irq_external), line:183:16, endln:183:28
+              |vpiStmt:
+              \_immediate_assert: , line:368:7, endln:368:83
+                |vpiParent:
+                \_begin: (work@dut), line:358:14, endln:369:10
+                |vpiExpr:
+                \_operation: , line:368:14, endln:368:81
+                  |vpiParent:
+                  \_immediate_assert: , line:368:7, endln:368:83
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_part_select: , line:368:14, endln:368:63
+                    |vpiParent:
+                    \_ref_obj: csr_rdata_int (work@dut.csr_rdata_int), line:368:14, endln:368:27
+                      |vpiParent:
+                      \_operation: , line:368:14, endln:368:81
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiDefName:csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:368:28, endln:368:45
+                    |vpiRightRange:
+                    \_constant: , line:368:46, endln:368:62
+                  |vpiOperand:
+                  \_hier_path: (mie_q.irq_fast), line:368:67, endln:368:81
+                    |vpiParent:
+                    \_operation: , line:368:14, endln:368:81
+                    |vpiName:mie_q.irq_fast
+                    |vpiActual:
+                    \_ref_obj: (mie_q), line:368:67, endln:368:72
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_fast), line:368:67, endln:368:81
+                      |vpiName:mie_q
+                      |vpiActual:
+                      \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
+                    |vpiActual:
+                    \_ref_obj: (irq_fast), line:368:73, endln:368:81
+                      |vpiParent:
+                      \_hier_path: (mie_q.irq_fast), line:368:67, endln:368:81
+                      |vpiName:irq_fast
+                      |vpiActual:
+                      \_typespec_member: (irq_fast), line:184:16, endln:184:24
+          |vpiCaseItem:
+          \_case_item: , line:370:5, endln:374:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MCAUSE), line:370:5, endln:370:15
+              |vpiParent:
+              \_case_item: , line:370:5, endln:374:10
+              |vpiName:CSR_MCAUSE
+              |vpiFullName:work@dut.CSR_MCAUSE
+              |vpiActual:
+              \_enum_const: (CSR_MCAUSE), line:15:3, endln:15:26
+            |vpiStmt:
+            \_begin: (work@dut), line:370:17, endln:374:10
+              |vpiParent:
+              \_case_item: , line:370:5, endln:374:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:371:7, endln:371:58
+                |vpiParent:
+                \_begin: (work@dut), line:370:17, endln:374:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_operation: , line:371:23, endln:371:58
+                  |vpiParent:
+                  \_assignment: , line:371:7, endln:371:58
+                  |vpiOpType:33
+                  |vpiOperand:
+                  \_bit_select: (work@dut.mcause_q), line:371:24, endln:371:35
+                    |vpiParent:
+                    \_ref_obj: (work@dut.mcause_q)
+                      |vpiParent:
+                      \_operation: , line:371:23, endln:371:58
+                      |vpiName:mcause_q
+                      |vpiFullName:work@dut.mcause_q
+                      |vpiActual:
+                      \_logic_var: (work@dut.mcause_q), line:300:14, endln:300:22
+                    |vpiName:mcause_q
+                    |vpiFullName:work@dut.mcause_q
+                    |vpiIndex:
+                    \_constant: , line:371:33, endln:371:34
+                    |vpiActual:
+                    \_logic_var: (work@dut.mcause_q), line:300:14, endln:300:22
+                  |vpiOperand:
+                  \_constant: , line:371:37, endln:371:42
+                  |vpiOperand:
+                  \_part_select: , line:371:44, endln:371:57
+                    |vpiParent:
+                    \_ref_obj: mcause_q (work@dut.mcause_q), line:371:44, endln:371:52
+                      |vpiParent:
+                      \_operation: , line:371:23, endln:371:58
+                      |vpiName:mcause_q
+                      |vpiFullName:work@dut.mcause_q
+                      |vpiDefName:mcause_q
+                      |vpiActual:
+                      \_logic_var: (work@dut.mcause_q), line:300:14, endln:300:22
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:371:53, endln:371:54
+                    |vpiRightRange:
+                    \_constant: , line:371:55, endln:371:56
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:371:7, endln:371:20
+                  |vpiParent:
+                  \_assignment: , line:371:7, endln:371:58
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:372:7, endln:372:27
+                |vpiParent:
+                \_begin: (work@dut), line:370:17, endln:374:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MIP), line:372:20, endln:372:27
+                  |vpiParent:
+                  \_assignment: , line:372:7, endln:372:27
+                  |vpiName:CSR_MIP
+                  |vpiFullName:work@dut.CSR_MIP
+                  |vpiActual:
+                  \_enum_const: (CSR_MIP), line:17:3, endln:17:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:372:7, endln:372:17
+                  |vpiParent:
+                  \_assignment: , line:372:7, endln:372:27
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:373:7, endln:373:69
+                |vpiParent:
+                \_begin: (work@dut), line:370:17, endln:374:10
+                |vpiExpr:
+                \_operation: , line:373:14, endln:373:67
+                  |vpiParent:
+                  \_immediate_assert: , line:373:7, endln:373:69
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:373:14, endln:373:27
+                    |vpiParent:
+                    \_operation: , line:373:14, endln:373:67
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_constant: , line:373:31, endln:373:67
+          |vpiCaseItem:
+          \_case_item: , line:375:5, endln:386:8
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MIP), line:375:5, endln:375:12
+              |vpiParent:
+              \_case_item: , line:375:5, endln:386:8
+              |vpiName:CSR_MIP
+              |vpiFullName:work@dut.CSR_MIP
+              |vpiActual:
+              \_enum_const: (CSR_MIP), line:17:3, endln:17:26
+            |vpiStmt:
+            \_begin: (work@dut), line:375:14, endln:386:8
+              |vpiParent:
+              \_case_item: , line:375:5, endln:386:8
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:376:7, endln:376:61
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_constant: , line:376:59, endln:376:61
+                  |vpiParent:
+                  \_assignment: , line:376:7, endln:376:61
+                  |vpiDecompile:'0
+                  |vpiSize:-1
+                  |BIN:0
+                  |vpiConstType:3
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:376:7, endln:376:20
+                  |vpiParent:
+                  \_assignment: , line:376:7, endln:376:61
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:377:7, endln:377:75
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mip.irq_software), line:377:59, endln:377:75
+                  |vpiParent:
+                  \_assignment: , line:377:7, endln:377:75
+                  |vpiName:mip.irq_software
+                  |vpiActual:
+                  \_ref_obj: (mip), line:377:59, endln:377:62
+                    |vpiParent:
+                    \_hier_path: (mip.irq_software), line:377:59, endln:377:75
+                    |vpiName:mip
+                    |vpiActual:
+                    \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                  |vpiActual:
+                  \_ref_obj: (irq_software), line:377:63, endln:377:75
+                    |vpiParent:
+                    \_hier_path: (mip.irq_software), line:377:59, endln:377:75
+                    |vpiName:irq_software
+                    |vpiActual:
+                    \_typespec_member: (irq_software), line:181:16, endln:181:28
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:377:7, endln:377:34
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:377:7, endln:377:75
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:377:21, endln:377:33
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:378:7, endln:378:72
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mip.irq_timer), line:378:59, endln:378:72
+                  |vpiParent:
+                  \_assignment: , line:378:7, endln:378:72
+                  |vpiName:mip.irq_timer
+                  |vpiActual:
+                  \_ref_obj: (mip), line:378:59, endln:378:62
+                    |vpiParent:
+                    \_hier_path: (mip.irq_timer), line:378:59, endln:378:72
+                    |vpiName:mip
+                    |vpiActual:
+                    \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                  |vpiActual:
+                  \_ref_obj: (irq_timer), line:378:63, endln:378:72
+                    |vpiParent:
+                    \_hier_path: (mip.irq_timer), line:378:59, endln:378:72
+                    |vpiName:irq_timer
+                    |vpiActual:
+                    \_typespec_member: (irq_timer), line:182:16, endln:182:25
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:378:7, endln:378:34
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:378:7, endln:378:72
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:378:21, endln:378:33
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:379:7, endln:379:75
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mip.irq_external), line:379:59, endln:379:75
+                  |vpiParent:
+                  \_assignment: , line:379:7, endln:379:75
+                  |vpiName:mip.irq_external
+                  |vpiActual:
+                  \_ref_obj: (mip), line:379:59, endln:379:62
+                    |vpiParent:
+                    \_hier_path: (mip.irq_external), line:379:59, endln:379:75
+                    |vpiName:mip
+                    |vpiActual:
+                    \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                  |vpiActual:
+                  \_ref_obj: (irq_external), line:379:63, endln:379:75
+                    |vpiParent:
+                    \_hier_path: (mip.irq_external), line:379:59, endln:379:75
+                    |vpiName:irq_external
+                    |vpiActual:
+                    \_typespec_member: (irq_external), line:183:16, endln:183:28
+                |vpiLhs:
+                \_bit_select: (work@dut.csr_rdata_int), line:379:7, endln:379:34
+                  |vpiParent:
+                  \_ref_obj: (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:379:7, endln:379:75
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiIndex:
+                  \_constant: , line:379:21, endln:379:33
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:380:7, endln:380:71
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_hier_path: (mip.irq_fast), line:380:59, endln:380:71
+                  |vpiParent:
+                  \_assignment: , line:380:7, endln:380:71
+                  |vpiName:mip.irq_fast
+                  |vpiActual:
+                  \_ref_obj: (mip), line:380:59, endln:380:62
+                    |vpiParent:
+                    \_hier_path: (mip.irq_fast), line:380:59, endln:380:71
+                    |vpiName:mip
+                    |vpiActual:
+                    \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                  |vpiActual:
+                  \_ref_obj: (irq_fast), line:380:63, endln:380:71
+                    |vpiParent:
+                    \_hier_path: (mip.irq_fast), line:380:59, endln:380:71
+                    |vpiName:irq_fast
+                    |vpiActual:
+                    \_typespec_member: (irq_fast), line:184:16, endln:184:24
+                |vpiLhs:
+                \_part_select: , line:380:7, endln:380:56
+                  |vpiParent:
+                  \_ref_obj: csr_rdata_int (work@dut.csr_rdata_int)
+                    |vpiParent:
+                    \_assignment: , line:380:7, endln:380:71
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiDefName:csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiConstantSelect:1
+                  |vpiLeftRange:
+                  \_constant: , line:380:21, endln:380:38
+                  |vpiRightRange:
+                  \_constant: , line:380:39, endln:380:55
+              |vpiStmt:
+              \_assignment: , line:381:7, endln:381:31
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_PMPCFG0), line:381:20, endln:381:31
+                  |vpiParent:
+                  \_assignment: , line:381:7, endln:381:31
+                  |vpiName:CSR_PMPCFG0
+                  |vpiFullName:work@dut.CSR_PMPCFG0
+                  |vpiActual:
+                  \_enum_const: (CSR_PMPCFG0), line:20:3, endln:20:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:381:7, endln:381:17
+                  |vpiParent:
+                  \_assignment: , line:381:7, endln:381:31
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:382:7, endln:382:63
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiExpr:
+                \_operation: , line:382:14, endln:382:61
+                  |vpiParent:
+                  \_immediate_assert: , line:382:7, endln:382:63
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:382:14, endln:382:41
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:382:14, endln:382:61
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:382:28, endln:382:40
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mip.irq_software), line:382:45, endln:382:61
+                    |vpiParent:
+                    \_operation: , line:382:14, endln:382:61
+                    |vpiName:mip.irq_software
+                    |vpiActual:
+                    \_ref_obj: (mip), line:382:45, endln:382:48
+                      |vpiParent:
+                      \_hier_path: (mip.irq_software), line:382:45, endln:382:61
+                      |vpiName:mip
+                      |vpiActual:
+                      \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                    |vpiActual:
+                    \_ref_obj: (irq_software), line:382:49, endln:382:61
+                      |vpiParent:
+                      \_hier_path: (mip.irq_software), line:382:45, endln:382:61
+                      |vpiName:irq_software
+                      |vpiActual:
+                      \_typespec_member: (irq_software), line:181:16, endln:181:28
+              |vpiStmt:
+              \_immediate_assert: , line:383:7, endln:383:60
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiExpr:
+                \_operation: , line:383:14, endln:383:58
+                  |vpiParent:
+                  \_immediate_assert: , line:383:7, endln:383:60
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:383:14, endln:383:41
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:383:14, endln:383:58
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:383:28, endln:383:40
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mip.irq_timer), line:383:45, endln:383:58
+                    |vpiParent:
+                    \_operation: , line:383:14, endln:383:58
+                    |vpiName:mip.irq_timer
+                    |vpiActual:
+                    \_ref_obj: (mip), line:383:45, endln:383:48
+                      |vpiParent:
+                      \_hier_path: (mip.irq_timer), line:383:45, endln:383:58
+                      |vpiName:mip
+                      |vpiActual:
+                      \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                    |vpiActual:
+                    \_ref_obj: (irq_timer), line:383:49, endln:383:58
+                      |vpiParent:
+                      \_hier_path: (mip.irq_timer), line:383:45, endln:383:58
+                      |vpiName:irq_timer
+                      |vpiActual:
+                      \_typespec_member: (irq_timer), line:182:16, endln:182:25
+              |vpiStmt:
+              \_immediate_assert: , line:384:7, endln:384:63
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiExpr:
+                \_operation: , line:384:14, endln:384:61
+                  |vpiParent:
+                  \_immediate_assert: , line:384:7, endln:384:63
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.csr_rdata_int), line:384:14, endln:384:41
+                    |vpiParent:
+                    \_ref_obj: (work@dut.csr_rdata_int)
+                      |vpiParent:
+                      \_operation: , line:384:14, endln:384:61
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiIndex:
+                    \_constant: , line:384:28, endln:384:40
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_hier_path: (mip.irq_external), line:384:45, endln:384:61
+                    |vpiParent:
+                    \_operation: , line:384:14, endln:384:61
+                    |vpiName:mip.irq_external
+                    |vpiActual:
+                    \_ref_obj: (mip), line:384:45, endln:384:48
+                      |vpiParent:
+                      \_hier_path: (mip.irq_external), line:384:45, endln:384:61
+                      |vpiName:mip
+                      |vpiActual:
+                      \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                    |vpiActual:
+                    \_ref_obj: (irq_external), line:384:49, endln:384:61
+                      |vpiParent:
+                      \_hier_path: (mip.irq_external), line:384:45, endln:384:61
+                      |vpiName:irq_external
+                      |vpiActual:
+                      \_typespec_member: (irq_external), line:183:16, endln:183:28
+              |vpiStmt:
+              \_immediate_assert: , line:385:7, endln:385:81
+                |vpiParent:
+                \_begin: (work@dut), line:375:14, endln:386:8
+                |vpiExpr:
+                \_operation: , line:385:14, endln:385:79
+                  |vpiParent:
+                  \_immediate_assert: , line:385:7, endln:385:81
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_part_select: , line:385:14, endln:385:63
+                    |vpiParent:
+                    \_ref_obj: csr_rdata_int (work@dut.csr_rdata_int), line:385:14, endln:385:27
+                      |vpiParent:
+                      \_operation: , line:385:14, endln:385:79
+                      |vpiName:csr_rdata_int
+                      |vpiFullName:work@dut.csr_rdata_int
+                      |vpiDefName:csr_rdata_int
+                      |vpiActual:
+                      \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:385:28, endln:385:45
+                    |vpiRightRange:
+                    \_constant: , line:385:46, endln:385:62
+                  |vpiOperand:
+                  \_hier_path: (mip.irq_fast), line:385:67, endln:385:79
+                    |vpiParent:
+                    \_operation: , line:385:14, endln:385:79
+                    |vpiName:mip.irq_fast
+                    |vpiActual:
+                    \_ref_obj: (mip), line:385:67, endln:385:70
+                      |vpiParent:
+                      \_hier_path: (mip.irq_fast), line:385:67, endln:385:79
+                      |vpiName:mip
+                      |vpiActual:
+                      \_struct_net: (work@dut.mip), line:277:14, endln:277:17
+                    |vpiActual:
+                    \_ref_obj: (irq_fast), line:385:71, endln:385:79
+                      |vpiParent:
+                      \_hier_path: (mip.irq_fast), line:385:67, endln:385:79
+                      |vpiName:irq_fast
+                      |vpiActual:
+                      \_typespec_member: (irq_fast), line:184:16, endln:184:24
+          |vpiCaseItem:
+          \_case_item: , line:387:5, endln:391:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_PMPCFG0), line:387:5, endln:387:16
+              |vpiParent:
+              \_case_item: , line:387:5, endln:391:10
+              |vpiName:CSR_PMPCFG0
+              |vpiFullName:work@dut.CSR_PMPCFG0
+              |vpiActual:
+              \_enum_const: (CSR_PMPCFG0), line:20:3, endln:20:26
+            |vpiStmt:
+            \_begin: (work@dut), line:387:18, endln:391:10
+              |vpiParent:
+              \_case_item: , line:387:5, endln:391:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:388:7, endln:388:97
+                |vpiParent:
+                \_begin: (work@dut), line:387:18, endln:391:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_operation: , line:388:23, endln:388:97
+                  |vpiParent:
+                  \_assignment: , line:388:7, endln:388:97
+                  |vpiOpType:33
+                  |vpiOperand:
+                  \_bit_select: (work@dut.pmp_cfg_rdata), line:388:24, endln:388:40
+                    |vpiParent:
+                    \_ref_obj: (work@dut.pmp_cfg_rdata)
+                      |vpiParent:
+                      \_operation: , line:388:23, endln:388:97
+                      |vpiName:pmp_cfg_rdata
+                      |vpiFullName:work@dut.pmp_cfg_rdata
+                      |vpiActual:
+                      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                    |vpiName:pmp_cfg_rdata
+                    |vpiFullName:work@dut.pmp_cfg_rdata
+                    |vpiIndex:
+                    \_constant: , line:388:38, endln:388:39
+                    |vpiActual:
+                    \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                  |vpiOperand:
+                  \_bit_select: (work@dut.pmp_cfg_rdata), line:388:43, endln:388:59
+                    |vpiParent:
+                    \_ref_obj: (work@dut.pmp_cfg_rdata)
+                      |vpiParent:
+                      \_operation: , line:388:23, endln:388:97
+                      |vpiName:pmp_cfg_rdata
+                      |vpiFullName:work@dut.pmp_cfg_rdata
+                      |vpiActual:
+                      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                    |vpiName:pmp_cfg_rdata
+                    |vpiFullName:work@dut.pmp_cfg_rdata
+                    |vpiIndex:
+                    \_constant: , line:388:57, endln:388:58
+                    |vpiActual:
+                    \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                  |vpiOperand:
+                  \_bit_select: (work@dut.pmp_cfg_rdata), line:388:61, endln:388:77
+                    |vpiParent:
+                    \_ref_obj: (work@dut.pmp_cfg_rdata)
+                      |vpiParent:
+                      \_operation: , line:388:23, endln:388:97
+                      |vpiName:pmp_cfg_rdata
+                      |vpiFullName:work@dut.pmp_cfg_rdata
+                      |vpiActual:
+                      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                    |vpiName:pmp_cfg_rdata
+                    |vpiFullName:work@dut.pmp_cfg_rdata
+                    |vpiIndex:
+                    \_constant: , line:388:75, endln:388:76
+                    |vpiActual:
+                    \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                  |vpiOperand:
+                  \_bit_select: (work@dut.pmp_cfg_rdata), line:388:80, endln:388:96
+                    |vpiParent:
+                    \_ref_obj: (work@dut.pmp_cfg_rdata)
+                      |vpiParent:
+                      \_operation: , line:388:23, endln:388:97
+                      |vpiName:pmp_cfg_rdata
+                      |vpiFullName:work@dut.pmp_cfg_rdata
+                      |vpiActual:
+                      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                    |vpiName:pmp_cfg_rdata
+                    |vpiFullName:work@dut.pmp_cfg_rdata
+                    |vpiIndex:
+                    \_constant: , line:388:94, endln:388:95
+                    |vpiActual:
+                    \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:388:7, endln:388:20
+                  |vpiParent:
+                  \_assignment: , line:388:7, endln:388:97
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:389:7, endln:389:33
+                |vpiParent:
+                \_begin: (work@dut), line:387:18, endln:391:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_PMPADDR15), line:389:20, endln:389:33
+                  |vpiParent:
+                  \_assignment: , line:389:7, endln:389:33
+                  |vpiName:CSR_PMPADDR15
+                  |vpiFullName:work@dut.CSR_PMPADDR15
+                  |vpiActual:
+                  \_enum_const: (CSR_PMPADDR15), line:39:3, endln:39:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:389:7, endln:389:17
+                  |vpiParent:
+                  \_assignment: , line:389:7, endln:389:33
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:390:7, endln:390:69
+                |vpiParent:
+                \_begin: (work@dut), line:387:18, endln:391:10
+                |vpiExpr:
+                \_operation: , line:390:14, endln:390:67
+                  |vpiParent:
+                  \_immediate_assert: , line:390:7, endln:390:69
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:390:14, endln:390:27
+                    |vpiParent:
+                    \_operation: , line:390:14, endln:390:67
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_constant: , line:390:31, endln:390:67
+          |vpiCaseItem:
+          \_case_item: , line:392:5, endln:396:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_PMPADDR15), line:392:5, endln:392:18
+              |vpiParent:
+              \_case_item: , line:392:5, endln:396:10
+              |vpiName:CSR_PMPADDR15
+              |vpiFullName:work@dut.CSR_PMPADDR15
+              |vpiActual:
+              \_enum_const: (CSR_PMPADDR15), line:39:3, endln:39:26
+            |vpiStmt:
+            \_begin: (work@dut), line:392:20, endln:396:10
+              |vpiParent:
+              \_case_item: , line:392:5, endln:396:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:393:7, endln:393:41
+                |vpiParent:
+                \_begin: (work@dut), line:392:20, endln:396:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_bit_select: (work@dut.pmp_addr_rdata), line:393:23, endln:393:41
+                  |vpiParent:
+                  \_ref_obj: (work@dut.pmp_addr_rdata)
+                    |vpiParent:
+                    \_assignment: , line:393:7, endln:393:41
+                    |vpiName:pmp_addr_rdata
+                    |vpiFullName:work@dut.pmp_addr_rdata
+                    |vpiActual:
+                    \_logic_var: (work@dut.pmp_addr_rdata), line:305:51, endln:305:65
+                  |vpiName:pmp_addr_rdata
+                  |vpiFullName:work@dut.pmp_addr_rdata
+                  |vpiIndex:
+                  \_constant: , line:393:38, endln:393:40
+                  |vpiActual:
+                  \_logic_var: (work@dut.pmp_addr_rdata), line:305:51, endln:305:65
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:393:7, endln:393:20
+                  |vpiParent:
+                  \_assignment: , line:393:7, endln:393:41
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:394:7, endln:394:28
+                |vpiParent:
+                \_begin: (work@dut), line:392:20, endln:396:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_DCSR), line:394:20, endln:394:28
+                  |vpiParent:
+                  \_assignment: , line:394:7, endln:394:28
+                  |vpiName:CSR_DCSR
+                  |vpiFullName:work@dut.CSR_DCSR
+                  |vpiActual:
+                  \_enum_const: (CSR_DCSR), line:50:3, endln:50:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:394:7, endln:394:17
+                  |vpiParent:
+                  \_assignment: , line:394:7, endln:394:28
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_immediate_assert: , line:395:7, endln:395:51
+                |vpiParent:
+                \_begin: (work@dut), line:392:20, endln:396:10
+                |vpiExpr:
+                \_operation: , line:395:14, endln:395:49
+                  |vpiParent:
+                  \_immediate_assert: , line:395:7, endln:395:51
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:395:14, endln:395:27
+                    |vpiParent:
+                    \_operation: , line:395:14, endln:395:49
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_bit_select: (work@dut.pmp_addr_rdata), line:395:31, endln:395:49
+                    |vpiParent:
+                    \_ref_obj: (work@dut.pmp_addr_rdata)
+                      |vpiParent:
+                      \_operation: , line:395:14, endln:395:49
+                      |vpiName:pmp_addr_rdata
+                      |vpiFullName:work@dut.pmp_addr_rdata
+                      |vpiActual:
+                      \_logic_var: (work@dut.pmp_addr_rdata), line:305:51, endln:305:65
+                    |vpiName:pmp_addr_rdata
+                    |vpiFullName:work@dut.pmp_addr_rdata
+                    |vpiIndex:
+                    \_constant: , line:395:46, endln:395:48
+                    |vpiActual:
+                    \_logic_var: (work@dut.pmp_addr_rdata), line:305:51, endln:305:65
+          |vpiCaseItem:
+          \_case_item: , line:397:5, endln:408:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_DCSR), line:397:5, endln:397:13
+              |vpiParent:
+              \_case_item: , line:397:5, endln:408:10
+              |vpiName:CSR_DCSR
+              |vpiFullName:work@dut.CSR_DCSR
+              |vpiActual:
+              \_enum_const: (CSR_DCSR), line:50:3, endln:50:26
+            |vpiStmt:
+            \_begin: (work@dut), line:397:15, endln:408:10
+              |vpiParent:
+              \_case_item: , line:397:5, endln:408:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:398:7, endln:398:29
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.dcsr_q), line:398:23, endln:398:29
+                  |vpiParent:
+                  \_assignment: , line:398:7, endln:398:29
+                  |vpiName:dcsr_q
+                  |vpiFullName:work@dut.dcsr_q
+                  |vpiActual:
+                  \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:398:7, endln:398:20
+                  |vpiParent:
+                  \_assignment: , line:398:7, endln:398:29
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_assignment: , line:399:7, endln:399:34
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_operation: , line:399:21, endln:399:34
+                  |vpiParent:
+                  \_assignment: , line:399:7, endln:399:34
+                  |vpiOpType:4
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.debug_mode_i), line:399:22, endln:399:34
+                    |vpiParent:
+                    \_operation: , line:399:21, endln:399:34
+                    |vpiName:debug_mode_i
+                    |vpiFullName:work@dut.debug_mode_i
+                    |vpiActual:
+                    \_logic_var: (work@dut.debug_mode_i), line:302:14, endln:302:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.illegal_csr), line:399:7, endln:399:18
+                  |vpiParent:
+                  \_assignment: , line:399:7, endln:399:34
+                  |vpiName:illegal_csr
+                  |vpiFullName:work@dut.illegal_csr
+                  |vpiActual:
+                  \_logic_var: (work@dut.illegal_csr), line:299:14, endln:299:25
+              |vpiStmt:
+              \_assignment: , line:400:7, endln:400:34
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MHPMEVENT3), line:400:20, endln:400:34
+                  |vpiParent:
+                  \_assignment: , line:400:7, endln:400:34
+                  |vpiName:CSR_MHPMEVENT3
+                  |vpiFullName:work@dut.CSR_MHPMEVENT3
+                  |vpiActual:
+                  \_enum_const: (CSR_MHPMEVENT3), line:59:3, endln:59:31
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:400:7, endln:400:17
+                  |vpiParent:
+                  \_assignment: , line:400:7, endln:400:34
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_assignment: , line:401:7, endln:401:29
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_constant: , line:401:25, endln:401:29
+                |vpiLhs:
+                \_ref_obj: (work@dut.mhpmcounter_idx), line:401:7, endln:401:22
+                  |vpiParent:
+                  \_assignment: , line:401:7, endln:401:29
+                  |vpiName:mhpmcounter_idx
+                  |vpiFullName:work@dut.mhpmcounter_idx
+                  |vpiActual:
+                  \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+              |vpiStmt:
+              \_immediate_assert: , line:402:7, endln:402:43
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiExpr:
+                \_operation: , line:402:14, endln:402:41
+                  |vpiParent:
+                  \_immediate_assert: , line:402:7, endln:402:43
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.mhpmcounter_idx), line:402:14, endln:402:29
+                    |vpiParent:
+                    \_operation: , line:402:14, endln:402:41
+                    |vpiName:mhpmcounter_idx
+                    |vpiFullName:work@dut.mhpmcounter_idx
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                  |vpiOperand:
+                  \_constant: , line:402:33, endln:402:41
+              |vpiStmt:
+              \_immediate_assert: , line:403:7, endln:403:58
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiExpr:
+                \_operation: , line:403:14, endln:403:56
+                  |vpiParent:
+                  \_immediate_assert: , line:403:7, endln:403:58
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.mhpmevent), line:403:14, endln:403:40
+                    |vpiParent:
+                    \_ref_obj: (work@dut.mhpmevent)
+                      |vpiParent:
+                      \_operation: , line:403:14, endln:403:56
+                      |vpiName:mhpmevent
+                      |vpiFullName:work@dut.mhpmevent
+                      |vpiActual:
+                      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                    |vpiName:mhpmevent
+                    |vpiFullName:work@dut.mhpmevent
+                    |vpiIndex:
+                    \_ref_obj: (work@dut.mhpmevent.mhpmcounter_idx), line:403:24, endln:403:39
+                      |vpiParent:
+                      \_bit_select: (work@dut.mhpmevent), line:403:14, endln:403:40
+                      |vpiName:mhpmcounter_idx
+                      |vpiFullName:work@dut.mhpmevent.mhpmcounter_idx
+                      |vpiActual:
+                      \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                  |vpiOperand:
+                  \_constant: , line:403:44, endln:403:56
+              |vpiStmt:
+              \_immediate_assert: , line:404:7, endln:404:39
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiExpr:
+                \_operation: , line:404:14, endln:404:37
+                  |vpiParent:
+                  \_immediate_assert: , line:404:7, endln:404:39
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:404:14, endln:404:27
+                    |vpiParent:
+                    \_operation: , line:404:14, endln:404:37
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.dcsr_q), line:404:31, endln:404:37
+                    |vpiParent:
+                    \_operation: , line:404:14, endln:404:37
+                    |vpiName:dcsr_q
+                    |vpiFullName:work@dut.dcsr_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
+              |vpiStmt:
+              \_immediate_assert: , line:405:7, endln:405:62
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiExpr:
+                \_operation: , line:405:14, endln:405:60
+                  |vpiParent:
+                  \_immediate_assert: , line:405:7, endln:405:62
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.dcsr_q), line:405:14, endln:405:20
+                    |vpiParent:
+                    \_operation: , line:405:14, endln:405:60
+                    |vpiName:dcsr_q
+                    |vpiFullName:work@dut.dcsr_q
+                    |vpiActual:
+                    \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
+                  |vpiOperand:
+                  \_constant: , line:405:24, endln:405:60
+              |vpiStmt:
+              \_immediate_assert: , line:406:7, endln:406:69
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiExpr:
+                \_operation: , line:406:14, endln:406:67
+                  |vpiParent:
+                  \_immediate_assert: , line:406:7, endln:406:69
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:406:14, endln:406:27
+                    |vpiParent:
+                    \_operation: , line:406:14, endln:406:67
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_constant: , line:406:31, endln:406:67
+              |vpiStmt:
+              \_immediate_assert: , line:407:7, endln:407:35
+                |vpiParent:
+                \_begin: (work@dut), line:397:15, endln:408:10
+                |vpiExpr:
+                \_operation: , line:407:14, endln:407:33
+                  |vpiParent:
+                  \_immediate_assert: , line:407:7, endln:407:35
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.illegal_csr), line:407:14, endln:407:25
+                    |vpiParent:
+                    \_operation: , line:407:14, endln:407:33
+                    |vpiName:illegal_csr
+                    |vpiFullName:work@dut.illegal_csr
+                    |vpiActual:
+                    \_logic_var: (work@dut.illegal_csr), line:299:14, endln:299:25
+                  |vpiOperand:
+                  \_constant: , line:407:29, endln:407:33
+          |vpiCaseItem:
+          \_case_item: , line:409:5, endln:420:11
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT3), line:409:5, endln:409:19
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT3
+              |vpiFullName:work@dut.CSR_MHPMEVENT3
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT3), line:59:3, endln:59:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT4), line:410:8, endln:410:22
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT4
+              |vpiFullName:work@dut.CSR_MHPMEVENT4
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT4), line:60:3, endln:60:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT5), line:410:25, endln:410:39
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT5
+              |vpiFullName:work@dut.CSR_MHPMEVENT5
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT5), line:61:3, endln:61:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT6), line:410:42, endln:410:56
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT6
+              |vpiFullName:work@dut.CSR_MHPMEVENT6
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT6), line:62:3, endln:62:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT7), line:410:59, endln:410:73
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT7
+              |vpiFullName:work@dut.CSR_MHPMEVENT7
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT7), line:63:3, endln:63:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT8), line:411:8, endln:411:22
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT8
+              |vpiFullName:work@dut.CSR_MHPMEVENT8
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT8), line:64:3, endln:64:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT9), line:411:25, endln:411:39
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT9
+              |vpiFullName:work@dut.CSR_MHPMEVENT9
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT9), line:65:3, endln:65:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT10), line:411:42, endln:411:57
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT10
+              |vpiFullName:work@dut.CSR_MHPMEVENT10
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT10), line:66:3, endln:66:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT11), line:411:59, endln:411:74
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT11
+              |vpiFullName:work@dut.CSR_MHPMEVENT11
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT11), line:67:3, endln:67:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT12), line:412:8, endln:412:23
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT12
+              |vpiFullName:work@dut.CSR_MHPMEVENT12
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT12), line:68:3, endln:68:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT13), line:412:25, endln:412:40
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT13
+              |vpiFullName:work@dut.CSR_MHPMEVENT13
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT13), line:69:3, endln:69:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT14), line:412:42, endln:412:57
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT14
+              |vpiFullName:work@dut.CSR_MHPMEVENT14
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT14), line:70:3, endln:70:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT15), line:412:59, endln:412:74
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT15
+              |vpiFullName:work@dut.CSR_MHPMEVENT15
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT15), line:71:3, endln:71:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT16), line:413:8, endln:413:23
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT16
+              |vpiFullName:work@dut.CSR_MHPMEVENT16
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT16), line:72:3, endln:72:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT17), line:413:25, endln:413:40
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT17
+              |vpiFullName:work@dut.CSR_MHPMEVENT17
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT17), line:73:3, endln:73:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT18), line:413:42, endln:413:57
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT18
+              |vpiFullName:work@dut.CSR_MHPMEVENT18
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT18), line:74:3, endln:74:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT19), line:413:59, endln:413:74
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT19
+              |vpiFullName:work@dut.CSR_MHPMEVENT19
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT19), line:75:3, endln:75:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT20), line:414:8, endln:414:23
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT20
+              |vpiFullName:work@dut.CSR_MHPMEVENT20
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT20), line:76:3, endln:76:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT21), line:414:25, endln:414:40
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT21
+              |vpiFullName:work@dut.CSR_MHPMEVENT21
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT21), line:77:3, endln:77:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT22), line:414:42, endln:414:57
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT22
+              |vpiFullName:work@dut.CSR_MHPMEVENT22
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT22), line:78:3, endln:78:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT23), line:414:59, endln:414:74
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT23
+              |vpiFullName:work@dut.CSR_MHPMEVENT23
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT23), line:79:3, endln:79:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT24), line:415:8, endln:415:23
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT24
+              |vpiFullName:work@dut.CSR_MHPMEVENT24
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT24), line:80:3, endln:80:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT25), line:415:25, endln:415:40
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT25
+              |vpiFullName:work@dut.CSR_MHPMEVENT25
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT25), line:81:3, endln:81:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT26), line:415:42, endln:415:57
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT26
+              |vpiFullName:work@dut.CSR_MHPMEVENT26
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT26), line:82:3, endln:82:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT27), line:415:59, endln:415:74
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT27
+              |vpiFullName:work@dut.CSR_MHPMEVENT27
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT27), line:83:3, endln:83:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT28), line:416:8, endln:416:23
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT28
+              |vpiFullName:work@dut.CSR_MHPMEVENT28
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT28), line:84:3, endln:84:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT29), line:416:25, endln:416:40
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT29
+              |vpiFullName:work@dut.CSR_MHPMEVENT29
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT29), line:85:3, endln:85:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT30), line:416:42, endln:416:57
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT30
+              |vpiFullName:work@dut.CSR_MHPMEVENT30
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT30), line:86:3, endln:86:31
+            |vpiExpr:
+            \_ref_obj: (work@dut.CSR_MHPMEVENT31), line:416:59, endln:416:74
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiName:CSR_MHPMEVENT31
+              |vpiFullName:work@dut.CSR_MHPMEVENT31
+              |vpiActual:
+              \_enum_const: (CSR_MHPMEVENT31), line:87:3, endln:87:31
+            |vpiStmt:
+            \_begin: (work@dut), line:416:76, endln:420:11
+              |vpiParent:
+              \_case_item: , line:409:5, endln:420:11
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:417:10, endln:417:52
+                |vpiParent:
+                \_begin: (work@dut), line:416:76, endln:420:11
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_bit_select: (work@dut.mhpmevent), line:417:26, endln:417:52
+                  |vpiParent:
+                  \_ref_obj: (work@dut.mhpmevent)
+                    |vpiParent:
+                    \_assignment: , line:417:10, endln:417:52
+                    |vpiName:mhpmevent
+                    |vpiFullName:work@dut.mhpmevent
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                  |vpiName:mhpmevent
+                  |vpiFullName:work@dut.mhpmevent
+                  |vpiIndex:
+                  \_ref_obj: (work@dut.mhpmevent.mhpmcounter_idx), line:417:36, endln:417:51
+                    |vpiParent:
+                    \_bit_select: (work@dut.mhpmevent), line:417:26, endln:417:52
+                    |vpiName:mhpmcounter_idx
+                    |vpiFullName:work@dut.mhpmevent.mhpmcounter_idx
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                  |vpiActual:
+                  \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_rdata_int), line:417:10, endln:417:23
+                  |vpiParent:
+                  \_assignment: , line:417:10, endln:417:52
+                  |vpiName:csr_rdata_int
+                  |vpiFullName:work@dut.csr_rdata_int
+                  |vpiActual:
+                  \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+              |vpiStmt:
+              \_immediate_assert: , line:418:10, endln:418:62
+                |vpiParent:
+                \_begin: (work@dut), line:416:76, endln:420:11
+                |vpiExpr:
+                \_operation: , line:418:17, endln:418:60
+                  |vpiParent:
+                  \_immediate_assert: , line:418:10, endln:418:62
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.csr_rdata_int), line:418:17, endln:418:30
+                    |vpiParent:
+                    \_operation: , line:418:17, endln:418:60
+                    |vpiName:csr_rdata_int
+                    |vpiFullName:work@dut.csr_rdata_int
+                    |vpiActual:
+                    \_logic_var: (work@dut.csr_rdata_int), line:296:14, endln:296:27
+                  |vpiOperand:
+                  \_bit_select: (work@dut.mhpmevent), line:418:34, endln:418:60
+                    |vpiParent:
+                    \_ref_obj: (work@dut.mhpmevent)
+                      |vpiParent:
+                      \_operation: , line:418:17, endln:418:60
+                      |vpiName:mhpmevent
+                      |vpiFullName:work@dut.mhpmevent
+                      |vpiActual:
+                      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                    |vpiName:mhpmevent
+                    |vpiFullName:work@dut.mhpmevent
+                    |vpiIndex:
+                    \_ref_obj: (work@dut.mhpmevent.mhpmcounter_idx), line:418:44, endln:418:59
+                      |vpiParent:
+                      \_bit_select: (work@dut.mhpmevent), line:418:34, endln:418:60
+                      |vpiName:mhpmcounter_idx
+                      |vpiFullName:work@dut.mhpmevent.mhpmcounter_idx
+                      |vpiActual:
+                      \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+              |vpiStmt:
+              \_assignment: , line:419:10, endln:419:47
+                |vpiParent:
+                \_begin: (work@dut), line:416:76, endln:420:11
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.DUMMY_CSR_SETMHPMEVENT31), line:419:23, endln:419:47
+                  |vpiParent:
+                  \_assignment: , line:419:10, endln:419:47
+                  |vpiName:DUMMY_CSR_SETMHPMEVENT31
+                  |vpiFullName:work@dut.DUMMY_CSR_SETMHPMEVENT31
+                  |vpiActual:
+                  \_enum_const: (DUMMY_CSR_SETMHPMEVENT31), line:153:3, endln:153:37
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:419:10, endln:419:20
+                  |vpiParent:
+                  \_assignment: , line:419:10, endln:419:47
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+          |vpiCaseItem:
+          \_case_item: , line:421:5, endln:430:8
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiExpr:
+            \_ref_obj: (work@dut.DUMMY_CSR_SETMHPMEVENT31), line:421:5, endln:421:29
+              |vpiParent:
+              \_case_item: , line:421:5, endln:430:8
+              |vpiName:DUMMY_CSR_SETMHPMEVENT31
+              |vpiFullName:work@dut.DUMMY_CSR_SETMHPMEVENT31
+              |vpiActual:
+              \_enum_const: (DUMMY_CSR_SETMHPMEVENT31), line:153:3, endln:153:37
+            |vpiStmt:
+            \_begin: (work@dut), line:421:31, endln:430:8
+              |vpiParent:
+              \_case_item: , line:421:5, endln:430:8
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_if_else: , line:422:7, endln:426:10
+                |vpiParent:
+                \_begin: (work@dut), line:421:31, endln:430:8
+                |vpiCondition:
+                \_operation: , line:422:11, endln:422:35
+                  |vpiParent:
+                  \_if_else: , line:422:7, endln:426:10
+                  |vpiOpType:15
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.mhpmcounter_idx), line:422:11, endln:422:26
+                    |vpiParent:
+                    \_operation: , line:422:11, endln:422:35
+                    |vpiName:mhpmcounter_idx
+                    |vpiFullName:work@dut.mhpmcounter_idx
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                  |vpiOperand:
+                  \_constant: , line:422:30, endln:422:35
+                |vpiStmt:
+                \_begin: (work@dut), line:422:37, endln:424:10
+                  |vpiParent:
+                  \_if_else: , line:422:7, endln:426:10
+                  |vpiFullName:work@dut
+                  |vpiStmt:
+                  \_assignment: , line:423:9, endln:423:37
+                    |vpiParent:
+                    \_begin: (work@dut), line:422:37, endln:424:10
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_ref_obj: (work@dut.CSR_MHPMEVENT31), line:423:22, endln:423:37
+                      |vpiParent:
+                      \_assignment: , line:423:9, endln:423:37
+                      |vpiName:CSR_MHPMEVENT31
+                      |vpiFullName:work@dut.CSR_MHPMEVENT31
+                      |vpiActual:
+                      \_enum_const: (CSR_MHPMEVENT31), line:87:3, endln:87:31
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.csr_addr_i), line:423:9, endln:423:19
+                      |vpiParent:
+                      \_assignment: , line:423:9, endln:423:37
+                      |vpiName:csr_addr_i
+                      |vpiFullName:work@dut.csr_addr_i
+                      |vpiActual:
+                      \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+                |vpiElseStmt:
+                \_begin: (work@dut), line:424:16, endln:426:10
+                  |vpiParent:
+                  \_if_else: , line:422:7, endln:426:10
+                  |vpiFullName:work@dut
+                  |vpiStmt:
+                  \_assignment: , line:425:9, endln:425:29
+                    |vpiParent:
+                    \_begin: (work@dut), line:424:16, endln:426:10
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_ref_obj: (work@dut.CSR_END), line:425:22, endln:425:29
+                      |vpiParent:
+                      \_assignment: , line:425:9, endln:425:29
+                      |vpiName:CSR_END
+                      |vpiFullName:work@dut.CSR_END
+                      |vpiActual:
+                      \_enum_const: (CSR_END), line:152:3, endln:152:31
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.csr_addr_i), line:425:9, endln:425:19
+                      |vpiParent:
+                      \_assignment: , line:425:9, endln:425:29
+                      |vpiName:csr_addr_i
+                      |vpiFullName:work@dut.csr_addr_i
+                      |vpiActual:
+                      \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+              |vpiStmt:
+              \_assignment: , line:427:7, endln:427:30
+                |vpiParent:
+                \_begin: (work@dut), line:421:31, endln:430:8
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_constant: , line:427:25, endln:427:30
+                |vpiLhs:
+                \_ref_obj: (work@dut.mhpmcounter_idx), line:427:7, endln:427:22
+                  |vpiParent:
+                  \_assignment: , line:427:7, endln:427:30
+                  |vpiName:mhpmcounter_idx
+                  |vpiFullName:work@dut.mhpmcounter_idx
+                  |vpiActual:
+                  \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+              |vpiStmt:
+              \_immediate_assert: , line:428:7, endln:428:43
+                |vpiParent:
+                \_begin: (work@dut), line:421:31, endln:430:8
+                |vpiExpr:
+                \_operation: , line:428:14, endln:428:41
+                  |vpiParent:
+                  \_immediate_assert: , line:428:7, endln:428:43
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.mhpmcounter_idx), line:428:14, endln:428:29
+                    |vpiParent:
+                    \_operation: , line:428:14, endln:428:41
+                    |vpiName:mhpmcounter_idx
+                    |vpiFullName:work@dut.mhpmcounter_idx
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                  |vpiOperand:
+                  \_constant: , line:428:33, endln:428:41
+              |vpiStmt:
+              \_immediate_assert: , line:429:7, endln:429:58
+                |vpiParent:
+                \_begin: (work@dut), line:421:31, endln:430:8
+                |vpiExpr:
+                \_operation: , line:429:14, endln:429:56
+                  |vpiParent:
+                  \_immediate_assert: , line:429:7, endln:429:58
+                  |vpiOpType:14
+                  |vpiOperand:
+                  \_bit_select: (work@dut.mhpmevent), line:429:14, endln:429:40
+                    |vpiParent:
+                    \_ref_obj: (work@dut.mhpmevent)
+                      |vpiParent:
+                      \_operation: , line:429:14, endln:429:56
+                      |vpiName:mhpmevent
+                      |vpiFullName:work@dut.mhpmevent
+                      |vpiActual:
+                      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                    |vpiName:mhpmevent
+                    |vpiFullName:work@dut.mhpmevent
+                    |vpiIndex:
+                    \_ref_obj: (work@dut.mhpmevent.mhpmcounter_idx), line:429:24, endln:429:39
+                      |vpiParent:
+                      \_bit_select: (work@dut.mhpmevent), line:429:14, endln:429:40
+                      |vpiName:mhpmcounter_idx
+                      |vpiFullName:work@dut.mhpmevent.mhpmcounter_idx
+                      |vpiActual:
+                      \_logic_var: (work@dut.mhpmcounter_idx), line:315:14, endln:315:29
+                    |vpiActual:
+                    \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
+                  |vpiOperand:
+                  \_constant: , line:429:44, endln:429:56
+          |vpiCaseItem:
+          \_case_item: , line:432:5, endln:435:10
+            |vpiParent:
+            \_case_stmt: , line:332:3, endln:436:10
+            |vpiStmt:
+            \_begin: (work@dut), line:432:14, endln:435:10
+              |vpiParent:
+              \_case_item: , line:432:5, endln:435:10
+              |vpiFullName:work@dut
+              |vpiStmt:
+              \_assignment: , line:433:7, endln:433:25
+                |vpiParent:
+                \_begin: (work@dut), line:432:14, endln:435:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_constant: , line:433:21, endln:433:25
+                |vpiLhs:
+                \_ref_obj: (work@dut.illegal_csr), line:433:7, endln:433:18
+                  |vpiParent:
+                  \_assignment: , line:433:7, endln:433:25
+                  |vpiName:illegal_csr
+                  |vpiFullName:work@dut.illegal_csr
+                  |vpiActual:
+                  \_logic_var: (work@dut.illegal_csr), line:299:14, endln:299:25
+              |vpiStmt:
+              \_assignment: , line:434:7, endln:434:31
+                |vpiParent:
+                \_begin: (work@dut), line:432:14, endln:435:10
+                |vpiOpType:82
+                |vpiBlocking:1
+                |vpiRhs:
+                \_ref_obj: (work@dut.CSR_MHARTID), line:434:20, endln:434:31
+                  |vpiParent:
+                  \_assignment: , line:434:7, endln:434:31
+                  |vpiName:CSR_MHARTID
+                  |vpiFullName:work@dut.CSR_MHARTID
+                  |vpiActual:
+                  \_enum_const: (CSR_MHARTID), line:4:3, endln:4:26
+                |vpiLhs:
+                \_ref_obj: (work@dut.csr_addr_i), line:434:7, endln:434:17
+                  |vpiParent:
+                  \_assignment: , line:434:7, endln:434:31
+                  |vpiName:csr_addr_i
+                  |vpiFullName:work@dut.csr_addr_i
+                  |vpiActual:
+                  \_enum_var: (work@dut.csr_addr_i), line:274:13, endln:274:23
+    |vpiAlwaysType:1
   |vpiContAssign:
   \_cont_assign: , line:239:8, endln:239:39
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: 
       |vpiParent:
@@ -10418,13 +13297,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.xdebugver), line:239:8, endln:239:24
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (xdebugver)
         |vpiParent:
         \_hier_path: (dcsr_q.xdebugver), line:239:8, endln:239:24
         |vpiName:xdebugver
+        |vpiActual:
+        \_typespec_member: (xdebugver), line:221:19, endln:221:28
   |vpiContAssign:
   \_cont_assign: , line:240:8, endln:240:39
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:240:23, endln:240:39
     |vpiLhs:
@@ -10437,13 +13322,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.zero2), line:240:8, endln:240:20
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (zero2)
         |vpiParent:
         \_hier_path: (dcsr_q.zero2), line:240:8, endln:240:20
         |vpiName:zero2
+        |vpiActual:
+        \_typespec_member: (zero2), line:222:19, endln:222:24
   |vpiContAssign:
   \_cont_assign: , line:241:8, endln:241:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:241:25, endln:241:29
     |vpiLhs:
@@ -10456,13 +13347,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.ebreakm), line:241:8, endln:241:22
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (ebreakm)
         |vpiParent:
         \_hier_path: (dcsr_q.ebreakm), line:241:8, endln:241:22
         |vpiName:ebreakm
+        |vpiActual:
+        \_typespec_member: (ebreakm), line:223:19, endln:223:26
   |vpiContAssign:
   \_cont_assign: , line:242:8, endln:242:27
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:242:23, endln:242:27
     |vpiLhs:
@@ -10475,13 +13372,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.zero1), line:242:8, endln:242:20
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (zero1)
         |vpiParent:
         \_hier_path: (dcsr_q.zero1), line:242:8, endln:242:20
         |vpiName:zero1
+        |vpiActual:
+        \_typespec_member: (zero1), line:224:19, endln:224:24
   |vpiContAssign:
   \_cont_assign: , line:243:8, endln:243:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:243:25, endln:243:29
     |vpiLhs:
@@ -10494,13 +13397,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.ebreaks), line:243:8, endln:243:22
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (ebreaks)
         |vpiParent:
         \_hier_path: (dcsr_q.ebreaks), line:243:8, endln:243:22
         |vpiName:ebreaks
+        |vpiActual:
+        \_typespec_member: (ebreaks), line:225:19, endln:225:26
   |vpiContAssign:
   \_cont_assign: , line:244:8, endln:244:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:244:25, endln:244:29
     |vpiLhs:
@@ -10513,13 +13422,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.ebreaku), line:244:8, endln:244:22
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (ebreaku)
         |vpiParent:
         \_hier_path: (dcsr_q.ebreaku), line:244:8, endln:244:22
         |vpiName:ebreaku
+        |vpiActual:
+        \_typespec_member: (ebreaku), line:226:19, endln:226:26
   |vpiContAssign:
   \_cont_assign: , line:245:8, endln:245:28
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:245:24, endln:245:28
     |vpiLhs:
@@ -10532,13 +13447,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.stepie), line:245:8, endln:245:21
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (stepie)
         |vpiParent:
         \_hier_path: (dcsr_q.stepie), line:245:8, endln:245:21
         |vpiName:stepie
+        |vpiActual:
+        \_typespec_member: (stepie), line:227:19, endln:227:25
   |vpiContAssign:
   \_cont_assign: , line:246:8, endln:246:31
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:246:27, endln:246:31
     |vpiLhs:
@@ -10551,13 +13472,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.stopcount), line:246:8, endln:246:24
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (stopcount)
         |vpiParent:
         \_hier_path: (dcsr_q.stopcount), line:246:8, endln:246:24
         |vpiName:stopcount
+        |vpiActual:
+        \_typespec_member: (stopcount), line:228:19, endln:228:28
   |vpiContAssign:
   \_cont_assign: , line:247:8, endln:247:30
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:247:26, endln:247:30
     |vpiLhs:
@@ -10570,13 +13497,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.stoptime), line:247:8, endln:247:23
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (stoptime)
         |vpiParent:
         \_hier_path: (dcsr_q.stoptime), line:247:8, endln:247:23
         |vpiName:stoptime
+        |vpiActual:
+        \_typespec_member: (stoptime), line:229:19, endln:229:27
   |vpiContAssign:
   \_cont_assign: , line:248:8, endln:248:37
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: 
       |vpiParent:
@@ -10595,13 +13528,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.cause), line:248:8, endln:248:20
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (cause)
         |vpiParent:
         \_hier_path: (dcsr_q.cause), line:248:8, endln:248:20
         |vpiName:cause
+        |vpiActual:
+        \_typespec_member: (cause), line:230:19, endln:230:24
   |vpiContAssign:
   \_cont_assign: , line:249:8, endln:249:27
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:249:23, endln:249:27
     |vpiLhs:
@@ -10614,13 +13553,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.zero0), line:249:8, endln:249:20
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (zero0)
         |vpiParent:
         \_hier_path: (dcsr_q.zero0), line:249:8, endln:249:20
         |vpiName:zero0
+        |vpiActual:
+        \_typespec_member: (zero0), line:231:19, endln:231:24
   |vpiContAssign:
   \_cont_assign: , line:250:8, endln:250:28
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:250:24, endln:250:28
     |vpiLhs:
@@ -10633,13 +13578,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.mprven), line:250:8, endln:250:21
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (mprven)
         |vpiParent:
         \_hier_path: (dcsr_q.mprven), line:250:8, endln:250:21
         |vpiName:mprven
+        |vpiActual:
+        \_typespec_member: (mprven), line:232:19, endln:232:25
   |vpiContAssign:
   \_cont_assign: , line:251:8, endln:251:26
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:251:22, endln:251:26
     |vpiLhs:
@@ -10652,13 +13603,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.nmip), line:251:8, endln:251:19
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (nmip)
         |vpiParent:
         \_hier_path: (dcsr_q.nmip), line:251:8, endln:251:19
         |vpiName:nmip
+        |vpiActual:
+        \_typespec_member: (nmip), line:233:19, endln:233:23
   |vpiContAssign:
   \_cont_assign: , line:252:8, endln:252:26
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:252:22, endln:252:26
     |vpiLhs:
@@ -10671,13 +13628,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.step), line:252:8, endln:252:19
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (step)
         |vpiParent:
         \_hier_path: (dcsr_q.step), line:252:8, endln:252:19
         |vpiName:step
+        |vpiActual:
+        \_typespec_member: (step), line:234:19, endln:234:23
   |vpiContAssign:
   \_cont_assign: , line:253:8, endln:253:31
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: 
       |vpiParent:
@@ -10696,13 +13659,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (dcsr_q.prv), line:253:8, endln:253:18
         |vpiName:dcsr_q
+        |vpiActual:
+        \_struct_var: (work@dut.dcsr_q), line:238:14, endln:238:20
       |vpiActual:
       \_ref_obj: (prv)
         |vpiParent:
         \_hier_path: (dcsr_q.prv), line:253:8, endln:253:18
         |vpiName:prv
+        |vpiActual:
+        \_typespec_member: (prv), line:235:19, endln:235:22
   |vpiContAssign:
   \_cont_assign: , line:279:8, endln:279:33
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:279:29, endln:279:33
     |vpiLhs:
@@ -10715,13 +13684,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mie_q.irq_software), line:279:8, endln:279:26
         |vpiName:mie_q
+        |vpiActual:
+        \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
       |vpiActual:
       \_ref_obj: (irq_software)
         |vpiParent:
         \_hier_path: (mie_q.irq_software), line:279:8, endln:279:26
         |vpiName:irq_software
+        |vpiActual:
+        \_typespec_member: (irq_software), line:181:16, endln:181:28
   |vpiContAssign:
   \_cont_assign: , line:280:8, endln:280:33
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:280:29, endln:280:33
     |vpiLhs:
@@ -10734,13 +13709,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mie_q.irq_timer), line:280:8, endln:280:23
         |vpiName:mie_q
+        |vpiActual:
+        \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
       |vpiActual:
       \_ref_obj: (irq_timer)
         |vpiParent:
         \_hier_path: (mie_q.irq_timer), line:280:8, endln:280:23
         |vpiName:irq_timer
+        |vpiActual:
+        \_typespec_member: (irq_timer), line:182:16, endln:182:25
   |vpiContAssign:
   \_cont_assign: , line:281:8, endln:281:33
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:281:29, endln:281:33
     |vpiLhs:
@@ -10753,13 +13734,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mie_q.irq_external), line:281:8, endln:281:26
         |vpiName:mie_q
+        |vpiActual:
+        \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
       |vpiActual:
       \_ref_obj: (irq_external)
         |vpiParent:
         \_hier_path: (mie_q.irq_external), line:281:8, endln:281:26
         |vpiName:irq_external
+        |vpiActual:
+        \_typespec_member: (irq_external), line:183:16, endln:183:28
   |vpiContAssign:
   \_cont_assign: , line:282:8, endln:282:48
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:282:29, endln:282:48
     |vpiLhs:
@@ -10772,13 +13759,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mie_q.irq_fast), line:282:8, endln:282:22
         |vpiName:mie_q
+        |vpiActual:
+        \_struct_net: (work@dut.mie_q), line:276:14, endln:276:19
       |vpiActual:
       \_ref_obj: (irq_fast)
         |vpiParent:
         \_hier_path: (mie_q.irq_fast), line:282:8, endln:282:22
         |vpiName:irq_fast
+        |vpiActual:
+        \_typespec_member: (irq_fast), line:184:16, endln:184:24
   |vpiContAssign:
   \_cont_assign: , line:284:8, endln:284:31
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:284:27, endln:284:31
     |vpiLhs:
@@ -10791,13 +13784,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mip.irq_software), line:284:8, endln:284:24
         |vpiName:mip
+        |vpiActual:
+        \_struct_net: (work@dut.mip), line:277:14, endln:277:17
       |vpiActual:
       \_ref_obj: (irq_software)
         |vpiParent:
         \_hier_path: (mip.irq_software), line:284:8, endln:284:24
         |vpiName:irq_software
+        |vpiActual:
+        \_typespec_member: (irq_software), line:181:16, endln:181:28
   |vpiContAssign:
   \_cont_assign: , line:285:8, endln:285:31
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:285:27, endln:285:31
     |vpiLhs:
@@ -10810,13 +13809,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mip.irq_timer), line:285:8, endln:285:21
         |vpiName:mip
+        |vpiActual:
+        \_struct_net: (work@dut.mip), line:277:14, endln:277:17
       |vpiActual:
       \_ref_obj: (irq_timer)
         |vpiParent:
         \_hier_path: (mip.irq_timer), line:285:8, endln:285:21
         |vpiName:irq_timer
+        |vpiActual:
+        \_typespec_member: (irq_timer), line:182:16, endln:182:25
   |vpiContAssign:
   \_cont_assign: , line:286:8, endln:286:31
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:286:27, endln:286:31
     |vpiLhs:
@@ -10829,13 +13834,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mip.irq_external), line:286:8, endln:286:24
         |vpiName:mip
+        |vpiActual:
+        \_struct_net: (work@dut.mip), line:277:14, endln:277:17
       |vpiActual:
       \_ref_obj: (irq_external)
         |vpiParent:
         \_hier_path: (mip.irq_external), line:286:8, endln:286:24
         |vpiName:irq_external
+        |vpiActual:
+        \_typespec_member: (irq_external), line:183:16, endln:183:28
   |vpiContAssign:
   \_cont_assign: , line:287:8, endln:287:46
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:287:27, endln:287:46
     |vpiLhs:
@@ -10848,13 +13859,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mip.irq_fast), line:287:8, endln:287:20
         |vpiName:mip
+        |vpiActual:
+        \_struct_net: (work@dut.mip), line:277:14, endln:277:17
       |vpiActual:
       \_ref_obj: (irq_fast)
         |vpiParent:
         \_hier_path: (mip.irq_fast), line:287:8, endln:287:20
         |vpiName:irq_fast
+        |vpiActual:
+        \_typespec_member: (irq_fast), line:184:16, endln:184:24
   |vpiContAssign:
   \_cont_assign: , line:289:8, endln:289:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:289:25, endln:289:29
     |vpiLhs:
@@ -10867,13 +13884,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mstatus_q.mie), line:289:8, endln:289:21
         |vpiName:mstatus_q
+        |vpiActual:
+        \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
       |vpiActual:
       \_ref_obj: (mie)
         |vpiParent:
         \_hier_path: (mstatus_q.mie), line:289:8, endln:289:21
         |vpiName:mie
+        |vpiActual:
+        \_typespec_member: (mie), line:213:14, endln:213:17
   |vpiContAssign:
   \_cont_assign: , line:290:8, endln:290:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:290:25, endln:290:29
     |vpiLhs:
@@ -10886,13 +13909,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mstatus_q.mpie), line:290:8, endln:290:22
         |vpiName:mstatus_q
+        |vpiActual:
+        \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
       |vpiActual:
       \_ref_obj: (mpie)
         |vpiParent:
         \_hier_path: (mstatus_q.mpie), line:290:8, endln:290:22
         |vpiName:mpie
+        |vpiActual:
+        \_typespec_member: (mpie), line:214:14, endln:214:18
   |vpiContAssign:
   \_cont_assign: , line:291:8, endln:291:35
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: 
       |vpiParent:
@@ -10911,13 +13940,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mstatus_q.mpp), line:291:8, endln:291:21
         |vpiName:mstatus_q
+        |vpiActual:
+        \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
       |vpiActual:
       \_ref_obj: (mpp)
         |vpiParent:
         \_hier_path: (mstatus_q.mpp), line:291:8, endln:291:21
         |vpiName:mpp
+        |vpiActual:
+        \_typespec_member: (mpp), line:215:14, endln:215:17
   |vpiContAssign:
   \_cont_assign: , line:292:8, endln:292:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:292:25, endln:292:29
     |vpiLhs:
@@ -10930,13 +13965,19 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mstatus_q.mprv), line:292:8, endln:292:22
         |vpiName:mstatus_q
+        |vpiActual:
+        \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
       |vpiActual:
       \_ref_obj: (mprv)
         |vpiParent:
         \_hier_path: (mstatus_q.mprv), line:292:8, endln:292:22
         |vpiName:mprv
+        |vpiActual:
+        \_typespec_member: (mprv), line:216:14, endln:216:18
   |vpiContAssign:
   \_cont_assign: , line:293:8, endln:293:29
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:293:25, endln:293:29
     |vpiLhs:
@@ -10949,50 +13990,75 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (mstatus_q.tw), line:293:8, endln:293:20
         |vpiName:mstatus_q
+        |vpiActual:
+        \_struct_var: (work@dut.mstatus_q), line:275:14, endln:275:23
       |vpiActual:
       \_ref_obj: (tw)
         |vpiParent:
         \_hier_path: (mstatus_q.tw), line:293:8, endln:293:20
         |vpiName:tw
+        |vpiActual:
+        \_typespec_member: (tw), line:217:14, endln:217:16
   |vpiContAssign:
   \_cont_assign: , line:298:8, endln:298:32
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:298:20, endln:298:32
     |vpiLhs:
-    \_ref_obj: (hart_id_i), line:298:8, endln:298:17
+    \_ref_obj: (work@dut.hart_id_i), line:298:8, endln:298:17
       |vpiParent:
       \_cont_assign: , line:298:8, endln:298:32
       |vpiName:hart_id_i
+      |vpiFullName:work@dut.hart_id_i
+      |vpiActual:
+      \_logic_var: (work@dut.hart_id_i), line:297:14, endln:297:23
   |vpiContAssign:
   \_cont_assign: , line:301:8, endln:301:28
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:301:19, endln:301:28
     |vpiLhs:
-    \_ref_obj: (mcause_q), line:301:8, endln:301:16
+    \_ref_obj: (work@dut.mcause_q), line:301:8, endln:301:16
       |vpiParent:
       \_cont_assign: , line:301:8, endln:301:28
       |vpiName:mcause_q
+      |vpiFullName:work@dut.mcause_q
+      |vpiActual:
+      \_logic_var: (work@dut.mcause_q), line:300:14, endln:300:22
   |vpiContAssign:
   \_cont_assign: , line:303:8, endln:303:27
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:303:23, endln:303:27
     |vpiLhs:
-    \_ref_obj: (debug_mode_i), line:303:8, endln:303:20
+    \_ref_obj: (work@dut.debug_mode_i), line:303:8, endln:303:20
       |vpiParent:
       \_cont_assign: , line:303:8, endln:303:27
       |vpiName:debug_mode_i
+      |vpiFullName:work@dut.debug_mode_i
+      |vpiActual:
+      \_logic_var: (work@dut.debug_mode_i), line:302:14, endln:302:26
   |vpiContAssign:
   \_cont_assign: , line:308:8, endln:308:38
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:308:27, endln:308:38
     |vpiLhs:
-    \_bit_select: (pmp_cfg_rdata), line:308:8, endln:308:24
+    \_bit_select: (work@dut.pmp_cfg_rdata), line:308:8, endln:308:24
       |vpiParent:
-      \_ref_obj: (pmp_cfg_rdata)
+      \_ref_obj: (work@dut.pmp_cfg_rdata)
         |vpiParent:
         \_cont_assign: , line:308:8, endln:308:38
         |vpiName:pmp_cfg_rdata
+        |vpiFullName:work@dut.pmp_cfg_rdata
+        |vpiActual:
+        \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
       |vpiName:pmp_cfg_rdata
+      |vpiFullName:work@dut.pmp_cfg_rdata
       |vpiIndex:
       \_constant: , line:308:22, endln:308:23
         |vpiParent:
@@ -11001,18 +14067,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:0
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
   |vpiContAssign:
   \_cont_assign: , line:309:8, endln:309:38
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:309:27, endln:309:38
     |vpiLhs:
-    \_bit_select: (pmp_cfg_rdata), line:309:8, endln:309:24
+    \_bit_select: (work@dut.pmp_cfg_rdata), line:309:8, endln:309:24
       |vpiParent:
-      \_ref_obj: (pmp_cfg_rdata)
+      \_ref_obj: (work@dut.pmp_cfg_rdata)
         |vpiParent:
         \_cont_assign: , line:309:8, endln:309:38
         |vpiName:pmp_cfg_rdata
+        |vpiFullName:work@dut.pmp_cfg_rdata
+        |vpiActual:
+        \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
       |vpiName:pmp_cfg_rdata
+      |vpiFullName:work@dut.pmp_cfg_rdata
       |vpiIndex:
       \_constant: , line:309:22, endln:309:23
         |vpiParent:
@@ -11021,18 +14095,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:1
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
   |vpiContAssign:
   \_cont_assign: , line:310:8, endln:310:38
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:310:27, endln:310:38
     |vpiLhs:
-    \_bit_select: (pmp_cfg_rdata), line:310:8, endln:310:24
+    \_bit_select: (work@dut.pmp_cfg_rdata), line:310:8, endln:310:24
       |vpiParent:
-      \_ref_obj: (pmp_cfg_rdata)
+      \_ref_obj: (work@dut.pmp_cfg_rdata)
         |vpiParent:
         \_cont_assign: , line:310:8, endln:310:38
         |vpiName:pmp_cfg_rdata
+        |vpiFullName:work@dut.pmp_cfg_rdata
+        |vpiActual:
+        \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
       |vpiName:pmp_cfg_rdata
+      |vpiFullName:work@dut.pmp_cfg_rdata
       |vpiIndex:
       \_constant: , line:310:22, endln:310:23
         |vpiParent:
@@ -11041,18 +14123,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:2
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
   |vpiContAssign:
   \_cont_assign: , line:311:8, endln:311:38
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:311:27, endln:311:38
     |vpiLhs:
-    \_bit_select: (pmp_cfg_rdata), line:311:8, endln:311:24
+    \_bit_select: (work@dut.pmp_cfg_rdata), line:311:8, endln:311:24
       |vpiParent:
-      \_ref_obj: (pmp_cfg_rdata)
+      \_ref_obj: (work@dut.pmp_cfg_rdata)
         |vpiParent:
         \_cont_assign: , line:311:8, endln:311:38
         |vpiName:pmp_cfg_rdata
+        |vpiFullName:work@dut.pmp_cfg_rdata
+        |vpiActual:
+        \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
       |vpiName:pmp_cfg_rdata
+      |vpiFullName:work@dut.pmp_cfg_rdata
       |vpiIndex:
       \_constant: , line:311:22, endln:311:23
         |vpiParent:
@@ -11061,18 +14151,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:3
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
   |vpiContAssign:
   \_cont_assign: , line:312:8, endln:312:39
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:312:28, endln:312:39
     |vpiLhs:
-    \_bit_select: (pmp_cfg_rdata), line:312:8, endln:312:25
+    \_bit_select: (work@dut.pmp_cfg_rdata), line:312:8, endln:312:25
       |vpiParent:
-      \_ref_obj: (pmp_cfg_rdata)
+      \_ref_obj: (work@dut.pmp_cfg_rdata)
         |vpiParent:
         \_cont_assign: , line:312:8, endln:312:39
         |vpiName:pmp_cfg_rdata
+        |vpiFullName:work@dut.pmp_cfg_rdata
+        |vpiActual:
+        \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
       |vpiName:pmp_cfg_rdata
+      |vpiFullName:work@dut.pmp_cfg_rdata
       |vpiIndex:
       \_constant: , line:312:22, endln:312:24
         |vpiParent:
@@ -11081,18 +14179,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:15
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.pmp_cfg_rdata), line:306:51, endln:306:64
   |vpiContAssign:
   \_cont_assign: , line:317:8, endln:317:35
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:317:23, endln:317:35
     |vpiLhs:
-    \_bit_select: (mhpmevent), line:317:8, endln:317:20
+    \_bit_select: (work@dut.mhpmevent), line:317:8, endln:317:20
       |vpiParent:
-      \_ref_obj: (mhpmevent)
+      \_ref_obj: (work@dut.mhpmevent)
         |vpiParent:
         \_cont_assign: , line:317:8, endln:317:35
         |vpiName:mhpmevent
+        |vpiFullName:work@dut.mhpmevent
+        |vpiActual:
+        \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
       |vpiName:mhpmevent
+      |vpiFullName:work@dut.mhpmevent
       |vpiIndex:
       \_constant: , line:317:18, endln:317:19
         |vpiParent:
@@ -11101,18 +14207,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:0
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
   |vpiContAssign:
   \_cont_assign: , line:318:8, endln:318:35
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:318:23, endln:318:35
     |vpiLhs:
-    \_bit_select: (mhpmevent), line:318:8, endln:318:20
+    \_bit_select: (work@dut.mhpmevent), line:318:8, endln:318:20
       |vpiParent:
-      \_ref_obj: (mhpmevent)
+      \_ref_obj: (work@dut.mhpmevent)
         |vpiParent:
         \_cont_assign: , line:318:8, endln:318:35
         |vpiName:mhpmevent
+        |vpiFullName:work@dut.mhpmevent
+        |vpiActual:
+        \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
       |vpiName:mhpmevent
+      |vpiFullName:work@dut.mhpmevent
       |vpiIndex:
       \_constant: , line:318:18, endln:318:19
         |vpiParent:
@@ -11121,18 +14235,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:1
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
   |vpiContAssign:
   \_cont_assign: , line:319:8, endln:319:35
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:319:23, endln:319:35
     |vpiLhs:
-    \_bit_select: (mhpmevent), line:319:8, endln:319:20
+    \_bit_select: (work@dut.mhpmevent), line:319:8, endln:319:20
       |vpiParent:
-      \_ref_obj: (mhpmevent)
+      \_ref_obj: (work@dut.mhpmevent)
         |vpiParent:
         \_cont_assign: , line:319:8, endln:319:35
         |vpiName:mhpmevent
+        |vpiFullName:work@dut.mhpmevent
+        |vpiActual:
+        \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
       |vpiName:mhpmevent
+      |vpiFullName:work@dut.mhpmevent
       |vpiIndex:
       \_constant: , line:319:18, endln:319:19
         |vpiParent:
@@ -11141,18 +14263,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:2
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
   |vpiContAssign:
   \_cont_assign: , line:320:8, endln:320:35
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:320:23, endln:320:35
     |vpiLhs:
-    \_bit_select: (mhpmevent), line:320:8, endln:320:20
+    \_bit_select: (work@dut.mhpmevent), line:320:8, endln:320:20
       |vpiParent:
-      \_ref_obj: (mhpmevent)
+      \_ref_obj: (work@dut.mhpmevent)
         |vpiParent:
         \_cont_assign: , line:320:8, endln:320:35
         |vpiName:mhpmevent
+        |vpiFullName:work@dut.mhpmevent
+        |vpiActual:
+        \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
       |vpiName:mhpmevent
+      |vpiFullName:work@dut.mhpmevent
       |vpiIndex:
       \_constant: , line:320:18, endln:320:19
         |vpiParent:
@@ -11161,18 +14291,26 @@ design: (work@dut)
         |vpiSize:64
         |UINT:3
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
   |vpiContAssign:
   \_cont_assign: , line:321:8, endln:321:36
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/cs_registers/dut.sv, line:209:1, endln:439:10
     |vpiRhs:
     \_constant: , line:321:24, endln:321:36
     |vpiLhs:
-    \_bit_select: (mhpmevent), line:321:8, endln:321:21
+    \_bit_select: (work@dut.mhpmevent), line:321:8, endln:321:21
       |vpiParent:
-      \_ref_obj: (mhpmevent)
+      \_ref_obj: (work@dut.mhpmevent)
         |vpiParent:
         \_cont_assign: , line:321:8, endln:321:36
         |vpiName:mhpmevent
+        |vpiFullName:work@dut.mhpmevent
+        |vpiActual:
+        \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
       |vpiName:mhpmevent
+      |vpiFullName:work@dut.mhpmevent
       |vpiIndex:
       \_constant: , line:321:18, endln:321:20
         |vpiParent:
@@ -11181,6 +14319,8 @@ design: (work@dut)
         |vpiSize:64
         |UINT:31
         |vpiConstType:9
+      |vpiActual:
+      \_logic_var: (work@dut.mhpmevent), line:314:20, endln:314:29
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object 'ibex_pkg' of type 'package'

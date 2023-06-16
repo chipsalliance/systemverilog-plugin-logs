@@ -121,12 +121,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 6
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -195,6 +198,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -234,6 +239,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -250,6 +257,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -264,6 +273,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -284,6 +295,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -298,6 +311,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -318,6 +333,8 @@ design: (work@top)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -332,30 +349,40 @@ design: (work@top)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -388,6 +415,39 @@ design: (work@top)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -452,6 +512,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -475,6 +537,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -498,6 +562,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -527,6 +593,8 @@ design: (work@top)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1221,6 +1289,8 @@ design: (work@top)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@top.data_i), line:5:19, endln:5:25
+      |vpiParent:
+      \_port: (data_i), line:5:19, endln:5:25
       |vpiName:data_i
       |vpiFullName:work@top.data_i
       |vpiActual:
@@ -1247,6 +1317,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ReadmemhInGenblock/top.sv, line:1:1, endln:43:10
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.gen_test_a[0]), line:16:42, endln:26:6
     |vpiParent:
@@ -1329,6 +1401,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[0].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -1359,6 +1433,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -1413,6 +1489,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -1468,6 +1546,8 @@ design: (work@top)
                       \_cont_assign: , line:22:18, endln:22:41
                       |vpiName:data_buf_c
                       |vpiFullName:work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[0].gen_buf.data_buf_c
+                      |vpiActual:
+                      \_array_var: (work@top.data_buf_c), line:11:18, endln:11:32
           |vpiGenScopeArray:
           \_gen_scope_array: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[1]), line:18:46, endln:24:10
             |vpiParent:
@@ -1508,6 +1588,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[1].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -1538,6 +1620,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -1592,6 +1676,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -1679,6 +1765,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[0].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -1709,6 +1797,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -1763,6 +1853,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -1829,6 +1921,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[1].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -1859,6 +1953,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -1913,6 +2009,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -2021,6 +2119,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[0].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -2051,6 +2151,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -2105,6 +2207,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -2171,6 +2275,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[1].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -2201,6 +2307,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -2255,6 +2363,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -2342,6 +2452,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[0].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -2372,6 +2484,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -2426,6 +2540,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -2492,6 +2608,8 @@ design: (work@top)
                 |vpiVisibility:1
                 |vpiRange:
                 \_range: , line:19:15, endln:19:22
+                  |vpiParent:
+                  \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[1].req_buf_a), line:19:23, endln:19:32
                   |vpiLeftRange:
                   \_constant: , line:19:16, endln:19:17
                     |vpiParent:
@@ -2522,6 +2640,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:20:36, endln:20:37
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:38
                   |vpiLeftRange:
                   \_constant: , line:20:36, endln:20:37
                     |vpiParent:
@@ -2576,6 +2696,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_a
                   |vpiRange:
                   \_range: , line:20:15, endln:20:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_a[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_a), line:20:24, endln:20:34
                     |vpiLeftRange:
                     \_constant: , line:20:16, endln:20:18
                       |vpiParent:
@@ -2627,6 +2749,8 @@ design: (work@top)
         |vpiArrayType:1
         |vpiRange:
         \_range: , line:29:33, endln:29:34
+          |vpiParent:
+          \_array_var: (work@top.gen_test_b[0].data_buf_da), line:29:20, endln:29:35
           |vpiLeftRange:
           \_constant: , line:29:33, endln:29:34
             |vpiParent:
@@ -2681,6 +2805,8 @@ design: (work@top)
           |vpiFullName:work@top.gen_test_b[0].data_buf_da
           |vpiRange:
           \_range: , line:29:11, endln:29:19
+            |vpiParent:
+            \_logic_var: (work@top.gen_test_b[0].data_buf_da), line:29:20, endln:29:31
             |vpiLeftRange:
             \_constant: , line:29:12, endln:29:14
               |vpiParent:
@@ -2732,6 +2858,8 @@ design: (work@top)
             |vpiArrayType:1
             |vpiRange:
             \_range: , line:31:35, endln:31:36
+              |vpiParent:
+              \_array_var: (work@top.gen_test_b[0].gen_input_bufs[0].data_buf_db), line:31:22, endln:31:37
               |vpiLeftRange:
               \_constant: , line:31:35, endln:31:36
                 |vpiParent:
@@ -2786,6 +2914,8 @@ design: (work@top)
               |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].data_buf_db
               |vpiRange:
               \_range: , line:31:13, endln:31:21
+                |vpiParent:
+                \_logic_var: (work@top.gen_test_b[0].gen_input_bufs[0].data_buf_db), line:31:22, endln:31:33
                 |vpiLeftRange:
                 \_constant: , line:31:14, endln:31:16
                   |vpiParent:
@@ -2837,6 +2967,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -2891,6 +3023,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -2927,14 +3061,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -2943,6 +3083,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -2951,6 +3093,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -2959,6 +3103,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -2990,6 +3136,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -3044,6 +3192,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -3080,14 +3230,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3096,6 +3252,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3104,6 +3262,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3112,6 +3272,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3143,6 +3305,8 @@ design: (work@top)
             |vpiArrayType:1
             |vpiRange:
             \_range: , line:31:35, endln:31:36
+              |vpiParent:
+              \_array_var: (work@top.gen_test_b[0].gen_input_bufs[1].data_buf_db), line:31:22, endln:31:37
               |vpiLeftRange:
               \_constant: , line:31:35, endln:31:36
                 |vpiParent:
@@ -3197,6 +3361,8 @@ design: (work@top)
               |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].data_buf_db
               |vpiRange:
               \_range: , line:31:13, endln:31:21
+                |vpiParent:
+                \_logic_var: (work@top.gen_test_b[0].gen_input_bufs[1].data_buf_db), line:31:22, endln:31:33
                 |vpiLeftRange:
                 \_constant: , line:31:14, endln:31:16
                   |vpiParent:
@@ -3248,6 +3414,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -3302,6 +3470,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -3338,14 +3508,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3354,6 +3530,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3362,6 +3540,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3370,6 +3550,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3401,6 +3583,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -3455,6 +3639,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -3491,14 +3677,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3507,6 +3699,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3515,6 +3709,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3523,6 +3719,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[0].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3554,6 +3752,8 @@ design: (work@top)
         |vpiArrayType:1
         |vpiRange:
         \_range: , line:29:33, endln:29:34
+          |vpiParent:
+          \_array_var: (work@top.gen_test_b[1].data_buf_da), line:29:20, endln:29:35
           |vpiLeftRange:
           \_constant: , line:29:33, endln:29:34
             |vpiParent:
@@ -3608,6 +3808,8 @@ design: (work@top)
           |vpiFullName:work@top.gen_test_b[1].data_buf_da
           |vpiRange:
           \_range: , line:29:11, endln:29:19
+            |vpiParent:
+            \_logic_var: (work@top.gen_test_b[1].data_buf_da), line:29:20, endln:29:31
             |vpiLeftRange:
             \_constant: , line:29:12, endln:29:14
               |vpiParent:
@@ -3659,6 +3861,8 @@ design: (work@top)
             |vpiArrayType:1
             |vpiRange:
             \_range: , line:31:35, endln:31:36
+              |vpiParent:
+              \_array_var: (work@top.gen_test_b[1].gen_input_bufs[0].data_buf_db), line:31:22, endln:31:37
               |vpiLeftRange:
               \_constant: , line:31:35, endln:31:36
                 |vpiParent:
@@ -3713,6 +3917,8 @@ design: (work@top)
               |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].data_buf_db
               |vpiRange:
               \_range: , line:31:13, endln:31:21
+                |vpiParent:
+                \_logic_var: (work@top.gen_test_b[1].gen_input_bufs[0].data_buf_db), line:31:22, endln:31:33
                 |vpiLeftRange:
                 \_constant: , line:31:14, endln:31:16
                   |vpiParent:
@@ -3764,6 +3970,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -3818,6 +4026,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -3854,14 +4064,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3870,6 +4086,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3878,6 +4096,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3886,6 +4106,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -3917,6 +4139,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -3971,6 +4195,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -4007,14 +4233,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4023,6 +4255,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4031,6 +4265,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4039,6 +4275,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[0].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4070,6 +4308,8 @@ design: (work@top)
             |vpiArrayType:1
             |vpiRange:
             \_range: , line:31:35, endln:31:36
+              |vpiParent:
+              \_array_var: (work@top.gen_test_b[1].gen_input_bufs[1].data_buf_db), line:31:22, endln:31:37
               |vpiLeftRange:
               \_constant: , line:31:35, endln:31:36
                 |vpiParent:
@@ -4124,6 +4364,8 @@ design: (work@top)
               |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].data_buf_db
               |vpiRange:
               \_range: , line:31:13, endln:31:21
+                |vpiParent:
+                \_logic_var: (work@top.gen_test_b[1].gen_input_bufs[1].data_buf_db), line:31:22, endln:31:33
                 |vpiLeftRange:
                 \_constant: , line:31:14, endln:31:16
                   |vpiParent:
@@ -4175,6 +4417,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -4229,6 +4473,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -4265,14 +4511,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4281,6 +4533,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4289,6 +4543,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4297,6 +4553,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[0])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4328,6 +4586,8 @@ design: (work@top)
                 |vpiArrayType:1
                 |vpiRange:
                 \_range: , line:33:37, endln:33:38
+                  |vpiParent:
+                  \_array_var: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:39
                   |vpiLeftRange:
                   \_constant: , line:33:37, endln:33:38
                     |vpiParent:
@@ -4382,6 +4642,8 @@ design: (work@top)
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_dc
                   |vpiRange:
                   \_range: , line:33:15, endln:33:23
+                    |vpiParent:
+                    \_logic_var: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_dc), line:33:24, endln:33:35
                     |vpiLeftRange:
                     \_constant: , line:33:16, endln:33:18
                       |vpiParent:
@@ -4418,14 +4680,20 @@ design: (work@top)
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:mem
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1].mem
+                  |vpiActual:
+                  \_array_var: (work@top.mem), line:9:18, endln:9:25
                 |vpiLhs:
                 \_ref_obj: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_b), line:38:20, endln:38:30
                   |vpiParent:
                   \_cont_assign: , line:38:20, endln:38:36
                   |vpiName:data_buf_b
                   |vpiFullName:work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1].data_buf_b
+                  |vpiActual:
+                  \_array_var: (work@top.data_buf_b), line:10:18, endln:10:32
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:34:13, endln:34:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4434,6 +4702,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:35:13, endln:35:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4442,6 +4712,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:36:13, endln:36:52
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"
@@ -4450,6 +4722,8 @@ design: (work@top)
                 |vpiName:readmemh
               |vpiSysTaskCall:
               \_sys_task_call: (readmemh), line:37:13, endln:37:51
+                |vpiParent:
+                \_gen_scope: (work@top.gen_test_b[1].gen_input_bufs[1].gen_data_bufs[1])
                 |vpiArgument:
                 \_constant: 
                   |vpiDecompile:"mem_file.txt"

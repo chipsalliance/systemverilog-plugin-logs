@@ -63,12 +63,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 6
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -137,6 +140,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
+      |vpiParent:
+      \_function: (work@mailbox::new)
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
@@ -176,6 +181,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -192,6 +199,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_put)
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
@@ -206,6 +215,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -226,6 +237,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_get)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -240,6 +253,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_task: (work@mailbox::peek)
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
@@ -260,6 +275,8 @@ design: (work@dut)
     \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
+      |vpiParent:
+      \_function: (work@mailbox::try_peek)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
@@ -274,30 +291,40 @@ design: (work@dut)
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (RUNNING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (WAITING)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (SUSPENDED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
     \_enum_const: (KILLED)
+      |vpiParent:
+      \_enum_typespec: (state)
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
@@ -330,6 +357,39 @@ design: (work@dut)
     \_enum_var: 
       |vpiTypespec:
       \_enum_typespec: (state)
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED)
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING)
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING)
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED)
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED)
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
     |vpiParent:
     \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
@@ -394,6 +454,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::new)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -417,6 +479,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::put)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -440,6 +504,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_task: (work@semaphore::get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -469,6 +535,8 @@ design: (work@dut)
     \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
+      |vpiParent:
+      \_function: (work@semaphore::try_get)
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
@@ -1171,12 +1239,16 @@ design: (work@dut)
     |vpiDirection:1
     |vpiLowConn:
     \_ref_obj: (work@dut.a), line:1:13, endln:1:14
+      |vpiParent:
+      \_port: (a), line:1:13, endln:1:14
       |vpiName:a
       |vpiFullName:work@dut.a
       |vpiActual:
       \_logic_net: (work@dut.a), line:1:13, endln:1:14
     |vpiTypedef:
     \_logic_typespec: , line:2:9, endln:2:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
   |vpiPort:
   \_port: (b), line:1:16, endln:1:17
     |vpiParent:
@@ -1185,6 +1257,8 @@ design: (work@dut)
     |vpiDirection:2
     |vpiLowConn:
     \_ref_obj: (work@dut.b), line:1:16, endln:1:17
+      |vpiParent:
+      \_port: (b), line:1:16, endln:1:17
       |vpiName:b
       |vpiFullName:work@dut.b
       |vpiActual:
@@ -1211,16 +1285,315 @@ design: (work@dut)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
   |vpiProcess:
   \_always: , line:17:3, endln:25:6
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    |vpiStmt:
+    \_event_control: , line:17:10, endln:17:14
+      |vpiParent:
+      \_always: , line:17:3, endln:25:6
+      |vpiCondition:
+      \_ref_obj: (work@dut.a), line:17:12, endln:17:13
+        |vpiParent:
+        \_event_control: , line:17:10, endln:17:14
+        |vpiName:a
+        |vpiFullName:work@dut.a
+        |vpiActual:
+        \_logic_net: (work@dut.a), line:1:13, endln:1:14
+      |vpiStmt:
+      \_begin: (work@dut), line:17:15, endln:25:6
+        |vpiParent:
+        \_event_control: , line:17:10, endln:17:14
+        |vpiFullName:work@dut
+        |vpiStmt:
+        \_if_else: , line:18:5, endln:24:8
+          |vpiParent:
+          \_begin: (work@dut), line:17:15, endln:25:6
+          |vpiCondition:
+          \_operation: , line:18:9, endln:18:18
+            |vpiParent:
+            \_if_else: , line:18:5, endln:24:8
+            |vpiOpType:14
+            |vpiOperand:
+            \_ref_obj: (work@dut.a), line:18:9, endln:18:10
+              |vpiParent:
+              \_operation: , line:18:9, endln:18:18
+              |vpiName:a
+              |vpiFullName:work@dut.a
+              |vpiActual:
+              \_logic_net: (work@dut.a), line:1:13, endln:1:14
+            |vpiOperand:
+            \_constant: , line:18:14, endln:18:18
+          |vpiStmt:
+          \_begin: (work@dut), line:18:21, endln:21:8
+            |vpiParent:
+            \_if_else: , line:18:5, endln:24:8
+            |vpiFullName:work@dut
+            |vpiStmt:
+            \_assignment: , line:19:7, endln:19:19
+              |vpiParent:
+              \_begin: (work@dut), line:18:21, endln:21:8
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_constant: , line:19:18, endln:19:19
+              |vpiLhs:
+              \_hier_path: (mem.addr), line:19:7, endln:19:15
+                |vpiParent:
+                \_assignment: , line:19:7, endln:19:19
+                |vpiName:mem.addr
+                |vpiActual:
+                \_ref_obj: (mem)
+                  |vpiParent:
+                  \_hier_path: (mem.addr), line:19:7, endln:19:15
+                  |vpiName:mem
+                  |vpiActual:
+                  \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+                |vpiActual:
+                \_ref_obj: (addr)
+                  |vpiParent:
+                  \_hier_path: (mem.addr), line:19:7, endln:19:15
+                  |vpiName:addr
+                  |vpiActual:
+                  \_typespec_member: (addr), line:6:17, endln:6:21
+            |vpiStmt:
+            \_assignment: , line:20:7, endln:20:19
+              |vpiParent:
+              \_begin: (work@dut), line:18:21, endln:21:8
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_constant: , line:20:18, endln:20:19
+              |vpiLhs:
+              \_hier_path: (mem.data), line:20:7, endln:20:15
+                |vpiParent:
+                \_assignment: , line:20:7, endln:20:19
+                |vpiName:mem.data
+                |vpiActual:
+                \_ref_obj: (mem)
+                  |vpiParent:
+                  \_hier_path: (mem.data), line:20:7, endln:20:15
+                  |vpiName:mem
+                  |vpiActual:
+                  \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+                |vpiActual:
+                \_ref_obj: (data)
+                  |vpiParent:
+                  \_hier_path: (mem.data), line:20:7, endln:20:15
+                  |vpiName:data
+                  |vpiActual:
+                  \_typespec_member: (data), line:7:17, endln:7:21
+          |vpiElseStmt:
+          \_begin: (work@dut), line:21:14, endln:24:8
+            |vpiParent:
+            \_if_else: , line:18:5, endln:24:8
+            |vpiFullName:work@dut
+            |vpiStmt:
+            \_assignment: , line:22:7, endln:22:21
+              |vpiParent:
+              \_begin: (work@dut), line:21:14, endln:24:8
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_constant: , line:22:18, endln:22:21
+              |vpiLhs:
+              \_hier_path: (mem.addr), line:22:7, endln:22:15
+                |vpiParent:
+                \_assignment: , line:22:7, endln:22:21
+                |vpiName:mem.addr
+                |vpiActual:
+                \_ref_obj: (mem)
+                  |vpiParent:
+                  \_hier_path: (mem.addr), line:22:7, endln:22:15
+                  |vpiName:mem
+                  |vpiActual:
+                  \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+                |vpiActual:
+                \_ref_obj: (addr)
+                  |vpiParent:
+                  \_hier_path: (mem.addr), line:22:7, endln:22:15
+                  |vpiName:addr
+                  |vpiActual:
+                  \_typespec_member: (addr), line:6:17, endln:6:21
+            |vpiStmt:
+            \_assignment: , line:23:7, endln:23:21
+              |vpiParent:
+              \_begin: (work@dut), line:21:14, endln:24:8
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_constant: , line:23:18, endln:23:21
+              |vpiLhs:
+              \_hier_path: (mem.data), line:23:7, endln:23:15
+                |vpiParent:
+                \_assignment: , line:23:7, endln:23:21
+                |vpiName:mem.data
+                |vpiActual:
+                \_ref_obj: (mem)
+                  |vpiParent:
+                  \_hier_path: (mem.data), line:23:7, endln:23:15
+                  |vpiName:mem
+                  |vpiActual:
+                  \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+                |vpiActual:
+                \_ref_obj: (data)
+                  |vpiParent:
+                  \_hier_path: (mem.data), line:23:7, endln:23:15
+                  |vpiName:data
+                  |vpiActual:
+                  \_typespec_member: (data), line:7:17, endln:7:21
+    |vpiAlwaysType:1
   |vpiContAssign:
   \_cont_assign: , line:27:10, endln:27:20
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    |vpiRhs:
+    \_ref_obj: (work@dut.a), line:27:19, endln:27:20
+      |vpiParent:
+      \_cont_assign: , line:27:10, endln:27:20
+      |vpiName:a
+      |vpiFullName:work@dut.a
+      |vpiActual:
+      \_logic_net: (work@dut.a), line:1:13, endln:1:14
+    |vpiLhs:
+    \_hier_path: (mem.wr), line:27:10, endln:27:16
+      |vpiParent:
+      \_cont_assign: , line:27:10, endln:27:20
+      |vpiName:mem.wr
+      |vpiActual:
+      \_ref_obj: (mem)
+        |vpiParent:
+        \_hier_path: (mem.wr), line:27:10, endln:27:16
+        |vpiName:mem
+        |vpiActual:
+        \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+      |vpiActual:
+      \_ref_obj: (wr)
+        |vpiParent:
+        \_hier_path: (mem.wr), line:27:10, endln:27:16
+        |vpiName:wr
+        |vpiActual:
+        \_typespec_member: (wr), line:8:11, endln:8:13
   |vpiContAssign:
   \_cont_assign: , line:28:10, endln:28:24
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    |vpiRhs:
+    \_hier_path: (mem.wr), line:28:18, endln:28:24
+      |vpiParent:
+      \_cont_assign: , line:28:10, endln:28:24
+      |vpiName:mem.wr
+      |vpiActual:
+      \_ref_obj: (mem), line:28:18, endln:28:21
+        |vpiParent:
+        \_hier_path: (mem.wr), line:28:18, endln:28:24
+        |vpiName:mem
+        |vpiActual:
+        \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+      |vpiActual:
+      \_ref_obj: (wr), line:28:22, endln:28:24
+        |vpiParent:
+        \_hier_path: (mem.wr), line:28:18, endln:28:24
+        |vpiName:wr
+        |vpiActual:
+        \_typespec_member: (wr), line:8:11, endln:8:13
+    |vpiLhs:
+    \_bit_select: (work@dut.b), line:28:10, endln:28:15
+      |vpiParent:
+      \_ref_obj: (work@dut.b)
+        |vpiParent:
+        \_cont_assign: , line:28:10, endln:28:24
+        |vpiName:b
+        |vpiFullName:work@dut.b
+        |vpiActual:
+        \_logic_net: (work@dut.b), line:1:16, endln:1:17
+      |vpiName:b
+      |vpiFullName:work@dut.b
+      |vpiIndex:
+      \_constant: , line:28:12, endln:28:14
+      |vpiActual:
+      \_logic_net: (work@dut.b), line:1:16, endln:1:17
   |vpiContAssign:
   \_cont_assign: , line:29:10, endln:29:28
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    |vpiRhs:
+    \_hier_path: (mem.data), line:29:20, endln:29:28
+      |vpiParent:
+      \_cont_assign: , line:29:10, endln:29:28
+      |vpiName:mem.data
+      |vpiActual:
+      \_ref_obj: (mem), line:29:20, endln:29:23
+        |vpiParent:
+        \_hier_path: (mem.data), line:29:20, endln:29:28
+        |vpiName:mem
+        |vpiActual:
+        \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+      |vpiActual:
+      \_ref_obj: (data), line:29:24, endln:29:28
+        |vpiParent:
+        \_hier_path: (mem.data), line:29:20, endln:29:28
+        |vpiName:data
+        |vpiActual:
+        \_typespec_member: (data), line:7:17, endln:7:21
+    |vpiLhs:
+    \_part_select: , line:29:10, endln:29:17
+      |vpiParent:
+      \_ref_obj: b (work@dut.b)
+        |vpiParent:
+        \_cont_assign: , line:29:10, endln:29:28
+        |vpiName:b
+        |vpiFullName:work@dut.b
+        |vpiDefName:b
+        |vpiActual:
+        \_logic_net: (work@dut.b), line:1:16, endln:1:17
+      |vpiConstantSelect:1
+      |vpiLeftRange:
+      \_constant: , line:29:12, endln:29:14
+      |vpiRightRange:
+      \_constant: , line:29:15, endln:29:16
   |vpiContAssign:
   \_cont_assign: , line:30:10, endln:30:27
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    |vpiRhs:
+    \_hier_path: (mem.addr), line:30:19, endln:30:27
+      |vpiParent:
+      \_cont_assign: , line:30:10, endln:30:27
+      |vpiName:mem.addr
+      |vpiActual:
+      \_ref_obj: (mem), line:30:19, endln:30:22
+        |vpiParent:
+        \_hier_path: (mem.addr), line:30:19, endln:30:27
+        |vpiName:mem
+        |vpiActual:
+        \_struct_net: (work@dut.mem), line:15:9, endln:15:12
+      |vpiActual:
+      \_ref_obj: (addr), line:30:23, endln:30:27
+        |vpiParent:
+        \_hier_path: (mem.addr), line:30:19, endln:30:27
+        |vpiName:addr
+        |vpiActual:
+        \_typespec_member: (addr), line:6:17, endln:6:21
+    |vpiLhs:
+    \_part_select: , line:30:10, endln:30:16
+      |vpiParent:
+      \_ref_obj: b (work@dut.b)
+        |vpiParent:
+        \_cont_assign: , line:30:10, endln:30:27
+        |vpiName:b
+        |vpiFullName:work@dut.b
+        |vpiDefName:b
+        |vpiActual:
+        \_logic_net: (work@dut.b), line:1:16, endln:1:17
+      |vpiConstantSelect:1
+      |vpiLeftRange:
+      \_constant: , line:30:12, endln:30:13
+      |vpiRightRange:
+      \_constant: , line:30:14, endln:30:15
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'
