@@ -1287,7 +1287,10 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:16.25-16.45> str='\PadTypeInGeneric' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:14.43-14.44> str='\o' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:14.43-14.44> str='\o' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:17.4-24.9> str='\gen_inner_if_true'
         AST_ASSIGN <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:19.16-19.21>
           AST_IDENTIFIER <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:19.16-19.17> str='\o'
@@ -1329,7 +1332,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1 (o);
       /** AST_PARAMETER **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_GENBLOCK **/
@@ -1359,7 +1362,10 @@ Dumping AST after simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:16.25-16.45> str='\PadTypeInGeneric' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:14.43-14.44> str='\o' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:14.43-14.44> str='\o' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:17.4-24.9> str='\gen_inner_if_true' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
@@ -1401,7 +1407,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1 (o);
       /** AST_PARAMETER **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_GENBLOCK **/
@@ -1439,7 +1445,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:40.25-40.26> str='\o' output logic port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:40.25-40.26> str='\o' output logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:44.4-48.6> str='\u_prim_pad_attr'
         AST_CELLTYPE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> str='$paramod\prim_pad_attr\PadType=1'1'
         AST_ARGUMENT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:44.4-48.6> str='\o'
@@ -1482,7 +1491,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       (* wiretype = "\target_cfg_t" *)
       /** AST_PARAMETER **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
@@ -1521,7 +1530,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:40.25-40.26> str='\o' output logic basic_prep port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:40.25-40.26> str='\o' output logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:44.4-48.6> str='\u_prim_pad_attr' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> str='$paramod\prim_pad_attr\PadType=1'1' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:44.4-48.6> str='\o' basic_prep
@@ -1564,7 +1576,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       (* wiretype = "\target_cfg_t" *)
       /** AST_PARAMETER **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
@@ -1594,7 +1606,10 @@ Dumping AST before simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:29.25-29.36> str='\PadType' range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:27.35-27.36> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:27.35-27.36> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:31.4-37.7> str='\gen_outer_if'
         AST_CELL <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:32.8-36.10> str='\u_impl_generic'
           AST_CELLTYPE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=1'1'
@@ -1637,7 +1652,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\prim_pad_attr\PadType=1'1 (o);
       /** AST_PARAMETER **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_GENBLOCK **/
@@ -1667,7 +1682,10 @@ Dumping AST after simplification:
             AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:29.25-29.36> str='\PadType' basic_prep range=[0:0]
         AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:27.35-27.36> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:27.35-27.36> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:31.4-37.7> str='\gen_outer_if' basic_prep
       AST_ENUM <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:2.4-4.17> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <UHDM-integration-tests/tests/SubmoduleInGenScopeWithGenScopeParametrizedByParameterFromTopModule/top.sv:3.7-3.22> str='\pinmux_pkg::BidirStd' logic basic_prep range=[0:0]
@@ -1710,7 +1728,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\prim_pad_attr\PadType=1'1 (o);
       /** AST_PARAMETER **/
-      output o;
+      output [0:0] o;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_GENBLOCK **/

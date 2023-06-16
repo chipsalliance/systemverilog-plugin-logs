@@ -805,7 +805,10 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
         AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
@@ -829,14 +832,17 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(a);
       /** AST_PARAMETER **/
-      output a;
+      output [0:0] a;
       /** AST_FUNCTION **/
       assign a = 1'b 1;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
         AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
@@ -860,7 +866,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(a);
       /** AST_PARAMETER **/
-      output a;
+      output [0:0] a;
       /** AST_FUNCTION **/
       assign a = 1'b 1;
     endmodule

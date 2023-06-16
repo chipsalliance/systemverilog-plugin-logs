@@ -886,8 +886,14 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19> str='\b' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> str='\struct_b' bits='010111000111001101110100011100100111010101100011011101000101111101100010'(72) basic_prep range=[71:0] int=1668570978
@@ -948,8 +954,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(i, o);
-      input i;
-      output o;
+      input [0:0] i;
+      output [0:0] o;
       (* wiretype = "\struct_b" *)
       wire [1:0] b;
       assign b[(0)+((((0)-(0))+(1))*(1)):(0)+((((0)-(0))+(1))*(1))] = i;
@@ -960,8 +966,14 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19> str='\b' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> str='\struct_b' bits='010111000111001101110100011100100111010101100011011101000101111101100010'(72) basic_prep range=[71:0] int=1668570978
@@ -990,8 +1002,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(i, o);
-      input i;
-      output o;
+      input [0:0] i;
+      output [0:0] o;
       (* wiretype = "\struct_b" *)
       wire [1:0] b;
       assign b[1:1] = i;

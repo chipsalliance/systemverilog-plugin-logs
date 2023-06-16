@@ -1154,7 +1154,10 @@ Dumping AST before simplification:
           AST_SUB <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
             AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_WIRE <UHDM-integration-tests/tests/EnumConcat/dut.v:7.12-7.14> str='\a0' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumConcat/dut.v:7.12-7.14> str='\a0' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/EnumConcat/dut.v:14.33-18.5> str='\genblk1[0]'
         AST_LOCALPARAM <UHDM-integration-tests/tests/EnumConcat/dut.v:14.0-14.0> str='\i' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
           AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:14.0-14.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0]
@@ -1242,7 +1245,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module dut(a0);
       memory [3:0] c [0:(4)-(1)];
-      input a0;
+      input [0:0] a0;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_GENBLOCK **/
@@ -1271,7 +1274,10 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/EnumConcat/dut.v:2.21-2.26> basic_prep range=[3:0]
             AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
             AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumConcat/dut.v:7.12-7.14> str='\a0' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumConcat/dut.v:7.12-7.14> str='\a0' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/EnumConcat/dut.v:14.33-18.5> str='\genblk1[0]' basic_prep
       AST_GENBLOCK <UHDM-integration-tests/tests/EnumConcat/dut.v:14.33-18.5> str='\genblk1[1]' basic_prep
       AST_GENBLOCK <UHDM-integration-tests/tests/EnumConcat/dut.v:14.33-18.5> str='\genblk1[2]' basic_prep
@@ -1366,7 +1372,7 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      input a0;
+      input [0:0] a0;
       reg [3:0] \c[0] ;
       reg [3:0] \c[1] ;
       reg [3:0] \c[2] ;
