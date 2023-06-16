@@ -1089,17 +1089,11 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'sout' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'sout' of type 'ref_obj'
       Object 'mem' of type 'bit_select'
@@ -1126,7 +1120,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic port=2 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.33-2.38> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
@@ -1211,7 +1208,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(ck, sin, sout);
       /** AST_PARAMETER **/
-      input ck;
+      input [0:0] ck;
       input [3:0] sin;
       output [3:0] sout;
       wire [31:0] mem;
@@ -1231,7 +1228,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic basic_prep port=2 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/MemorySlice/top.sv:2.33-2.38> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
@@ -1276,7 +1276,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(ck, sin, sout);
       /** AST_PARAMETER **/
-      input ck;
+      input [0:0] ck;
       input [3:0] sin;
       output [3:0] sout;
       reg [31:0] mem;

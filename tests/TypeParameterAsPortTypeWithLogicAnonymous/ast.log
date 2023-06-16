@@ -1055,7 +1055,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
@@ -1065,7 +1068,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
       input [1:0] a_in;
-      output a;
+      output [0:0] a;
       assign a = a_in[0];
     endmodule
 --- END OF AST DUMP ---
@@ -1075,7 +1078,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
@@ -1085,15 +1091,21 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
       input [1:0] a_in;
-      output a;
+      output [0:0] a;
       assign a = a_in[0:0];
     endmodule
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic port=5 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic port=5 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic port=6 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic
         AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14>
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
@@ -1118,8 +1130,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
-      output a;
-      output b;
+      output [0:0] a;
+      output [0:0] b;
       wire [3:0] val;
       /** AST_CELL **/
       /** AST_CELL **/
@@ -1129,8 +1141,14 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic basic_prep port=5 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic basic_prep port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic basic_prep port=5 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic basic_prep port=6 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic reg basic_prep range=[3:0]
         AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
@@ -1155,8 +1173,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
-      output a;
-      output b;
+      output [0:0] a;
+      output [0:0] b;
       reg [3:0] val;
       /** AST_CELL **/
       /** AST_CELL **/
@@ -1171,7 +1189,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
@@ -1181,7 +1202,7 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
       input [3:0] a_in;
-      output a;
+      output [0:0] a;
       assign a = a_in[0];
     endmodule
 --- END OF AST DUMP ---
@@ -1191,7 +1212,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
@@ -1201,7 +1225,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
       input [3:0] a_in;
-      output a;
+      output [0:0] a;
       assign a = a_in[0:0];
     endmodule
 --- END OF AST DUMP ---

@@ -1136,8 +1136,14 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2'
         AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22>
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out'
@@ -1147,8 +1153,8 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
       /** AST_PARAMETER **/
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       /** AST_GENBLOCK **/
     endmodule
 --- END OF AST DUMP ---
@@ -1159,8 +1165,14 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out' basic_prep
@@ -1170,8 +1182,8 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
       /** AST_PARAMETER **/
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       /** AST_GENBLOCK **/
       assign out = ~(inp);
     endmodule
@@ -1184,8 +1196,14 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1'
         AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21>
           AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out'
@@ -1194,8 +1212,8 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
       /** AST_PARAMETER **/
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       /** AST_GENBLOCK **/
     endmodule
 --- END OF AST DUMP ---
@@ -1206,8 +1224,14 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out' basic_prep
@@ -1216,8 +1240,8 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
       /** AST_PARAMETER **/
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       /** AST_GENBLOCK **/
       assign out = inp;
     endmodule
@@ -1225,9 +1249,18 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic port=5 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg port=6 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg port=7 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic port=5 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg port=6 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg port=7 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0'
         AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp'
@@ -1243,18 +1276,27 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(i, o1, o2);
-      input i;
-      output reg o1;
-      output reg o2;
+      input [0:0] i;
+      output reg [0:0] o1;
+      output reg [0:0] o2;
       /** AST_CELL **/
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic basic_prep port=5 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg basic_prep port=6 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg basic_prep port=7 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic basic_prep port=5 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg basic_prep port=6 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg basic_prep port=7 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp' basic_prep
@@ -1270,9 +1312,9 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(i, o1, o2);
-      input i;
-      output reg o1;
-      output reg o2;
+      input [0:0] i;
+      output reg [0:0] o1;
+      output reg [0:0] o2;
       /** AST_CELL **/
       /** AST_CELL **/
     endmodule
