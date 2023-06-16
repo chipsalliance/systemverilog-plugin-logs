@@ -1817,8 +1817,8 @@ Warning: Removing unelaborated module: \almost_top from the design.
 Generating RTLIL representation for module `$paramod\prim_generic_pad_attr\PadTypeInGeneric=s32'00000000000000000000000000000010'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:19.1-22.34> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=s32'00000000000000000000000000000010'
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:20.18-20.38> str='\prim_generic_pad_attr.PadTypeInGeneric' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:20.18-20.38> str='\PadTypeInGeneric' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1826,11 +1826,6 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:20.18-20.38> str='\PadTypeInGeneric' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:21.11-21.31>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:21.11-21.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
@@ -1874,7 +1869,6 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=s32'00000000000000000000000000000010 (o);
       /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       output signed [31:0] o;
       assign o = 2;
       /** AST_ENUM **/
@@ -1887,17 +1881,12 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:19.1-22.34> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=s32'00000000000000000000000000000010' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:20.18-20.38> str='\prim_generic_pad_attr.PadTypeInGeneric' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:20.18-20.38> str='\PadTypeInGeneric' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:19.41-19.42> str='\o' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:20.18-20.38> str='\PadTypeInGeneric' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1944,7 +1933,6 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\prim_generic_pad_attr\PadTypeInGeneric=s32'00000000000000000000000000000010 (o);
       /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       output signed [31:0] o;
       assign o = 2;
       /** AST_ENUM **/
@@ -1958,8 +1946,8 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod\prim_submodule\PadType=s32'00000000000000000000000000000010'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:24.1-32.10> str='$paramod\prim_submodule\PadType=s32'00000000000000000000000000000010'
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:25.18-25.29> str='\prim_submodule.PadType' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:25.18-25.29> str='\PadType' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1967,11 +1955,6 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:25.18-25.29> str='\PadType' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:27.4-31.6> str='\u_impl_generic'
         AST_CELLTYPE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\PadTypeInGeneric=s32'00000000000000000000000000000010'
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:27.4-31.6> str='\o'
@@ -2016,7 +1999,6 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\prim_submodule\PadType=s32'00000000000000000000000000000010 (o);
       /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       output signed [31:0] o;
       /** AST_CELL **/
       /** AST_ENUM **/
@@ -2029,17 +2011,12 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:24.1-32.10> str='$paramod\prim_submodule\PadType=s32'00000000000000000000000000000010' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:25.18-25.29> str='\prim_submodule.PadType' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:25.18-25.29> str='\PadType' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:24.34-24.35> str='\o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:25.18-25.29> str='\PadType' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -2087,7 +2064,6 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module \$paramod\prim_submodule\PadType=s32'00000000000000000000000000000010 (o);
       /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       output signed [31:0] o;
       /** AST_CELL **/
       /** AST_ENUM **/
@@ -2133,22 +2109,6 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> str='\struct2_t'
         AST_STRUCT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:15.15-15.27> str='dio_pad_type' basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:36.24-36.37> str='\prim_pad_attr.TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:37.18-37.29> str='\prim_pad_attr.PadType' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:34.33-34.34> str='\o' output signed port=3 range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0>
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:36.24-36.37> str='\TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
@@ -2161,6 +2121,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:34.33-34.34> str='\o' output signed port=3 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:39.4-43.6> str='\u_submodule'
         AST_CELLTYPE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='$paramod\prim_submodule\PadType=s32'00000000000000000000000000000010'
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:39.4-43.6> str='\o'
@@ -2204,9 +2168,6 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$9706800b09b3250026643399cb5729a804f27899\prim_pad_attr (o);
-      (* wiretype = "\struct1_t" *)
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       (* wiretype = "\struct1_t" *)
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
@@ -2264,22 +2225,6 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> str='\struct2_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:15.15-15.27> str='dio_pad_type' basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:36.24-36.37> str='\prim_pad_attr.TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:37.18-37.29> str='\prim_pad_attr.PadType' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:34.33-34.34> str='\o' output signed basic_prep port=3 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:36.24-36.37> str='\TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
@@ -2289,6 +2234,10 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:37.18-37.29> str='\PadType' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:34.33-34.34> str='\o' output signed basic_prep port=3 range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -2335,9 +2284,6 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$9706800b09b3250026643399cb5729a804f27899\prim_pad_attr (o);
-      (* wiretype = "\struct1_t" *)
-      /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       (* wiretype = "\struct1_t" *)
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
@@ -2392,17 +2338,6 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> str='\struct2_t'
         AST_STRUCT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:15.15-15.27> str='dio_pad_type' basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:48.24-48.37> str='\almost_top.TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:46.30-46.31> str='\o' output signed port=4 range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0>
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:48.24-48.37> str='\TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
@@ -2410,6 +2345,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:46.30-46.31> str='\o' output signed port=4 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:50.4-54.6> str='\u_prim_pad_attr'
         AST_CELLTYPE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='$paramod$9706800b09b3250026643399cb5729a804f27899\prim_pad_attr'
         AST_ARGUMENT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:50.4-54.6> str='\o'
@@ -2453,8 +2392,6 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\almost_top\TargetCfg=32'00000000000000000000000000000010 (o);
-      (* wiretype = "\struct1_t" *)
-      /** AST_PARAMETER **/
       (* wiretype = "\struct1_t" *)
       /** AST_PARAMETER **/
       output signed [31:0] o;
@@ -2511,21 +2448,14 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> str='\struct2_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:14.12-14.18> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:15.15-15.27> str='dio_pad_type' basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:48.24-48.37> str='\almost_top.TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
-        AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:46.30-46.31> str='\o' output signed basic_prep port=4 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:48.24-48.37> str='\TargetCfg' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> str='\struct1_t' bits='01011100011100110111010001110010011101010110001101110100001100010101111101110100'(80) basic_prep range=[79:0] int=1949392756
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:46.30-46.31> str='\o' output signed basic_prep port=4 range=[31:0]
         AST_RANGE <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ParameterInitializedInTopOf5LevelHierarchyWithUnusedParamInTheMiddle/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -2572,8 +2502,6 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\almost_top\TargetCfg=32'00000000000000000000000000000010 (o);
-      (* wiretype = "\struct1_t" *)
-      /** AST_PARAMETER **/
       (* wiretype = "\struct1_t" *)
       /** AST_PARAMETER **/
       output signed [31:0] o;

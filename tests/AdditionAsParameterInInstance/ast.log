@@ -873,8 +873,8 @@ Warning: Removing unelaborated module: \dut from the design.
 Generating RTLIL representation for module `$paramod\dut\P=s32'00000000000000000000000000000011'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:1.1-4.10> str='$paramod\dut\P=s32'00000000000000000000000000000011'
-      AST_PARAMETER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:2.18-2.23> str='\dut.P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:2.18-2.23> str='\P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
         AST_RANGE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -882,11 +882,6 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:2.18-2.23> str='\P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-        AST_RANGE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:3.11-3.16>
         AST_IDENTIFIER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:3.11-3.12> str='\a'
         AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
@@ -894,24 +889,18 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module \$paramod\dut\P=s32'00000000000000000000000000000011 (a);
       /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       output signed [31:0] a;
       assign a = 3;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:1.1-4.10> str='$paramod\dut\P=s32'00000000000000000000000000000011' basic_prep
-      AST_PARAMETER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:2.18-2.23> str='\dut.P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:2.18-2.23> str='\P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
         AST_RANGE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:1.23-1.24> str='\a' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:2.18-2.23> str='\P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
         AST_RANGE <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/AdditionAsParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -921,7 +910,6 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\dut\P=s32'00000000000000000000000000000011 (a);
-      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output signed [31:0] a;
       assign a = 3;

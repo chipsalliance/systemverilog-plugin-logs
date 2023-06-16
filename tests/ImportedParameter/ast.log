@@ -779,11 +779,6 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedParameter/top.sv:2.18-2.29> str='\top.TxWidth' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
-        AST_RANGE <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/ImportedParameter/top.sv:5.23-5.24> str='\o' output signed port=1 range=[0:0]
         AST_RANGE <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0>
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
@@ -801,7 +796,6 @@ Dumping Verilog AST before simplification:
     module top(o);
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
-      /** AST_PARAMETER **/
       output signed [31:0] o;
       assign o = 4;
     endmodule
@@ -809,11 +803,6 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ImportedParameter/top.sv:5.1-8.10> str='\top' basic_prep
       AST_PARAMETER <UHDM-integration-tests/tests/ImportedParameter/top.sv:2.18-2.29> str='\TxWidth' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-        AST_RANGE <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <UHDM-integration-tests/tests/ImportedParameter/top.sv:2.18-2.29> str='\top.TxWidth' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
         AST_RANGE <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ImportedParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
@@ -833,7 +822,6 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
       output signed [31:0] o;
