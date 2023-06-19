@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -354,6 +357,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -771,6 +817,156 @@ design: (work@top)
   |vpiTop:1
   |vpiTaskFunc:
   \_function: (work@top.test_while), line:2:4, endln:10:15
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakContinueWhile/top.sv, line:1:1, endln:12:10
+    |vpiName:test_while
+    |vpiFullName:work@top.test_while
+    |vpiVisibility:1
+    |vpiAutomatic:1
+    |vpiReturn:
+    \_int_var: (work@top.test_while), line:2:23, endln:2:26
+    |vpiIODecl:
+    \_io_decl: (x), line:2:42, endln:2:43
+      |vpiParent:
+      \_function: (work@top.test_while), line:2:4, endln:10:15
+      |vpiDirection:1
+      |vpiName:x
+      |vpiTypedef:
+      \_int_typespec: , line:2:38, endln:2:41
+    |vpiStmt:
+    \_begin: (work@top.test_while), line:9:8, endln:9:17
+      |vpiParent:
+      \_function: (work@top.test_while), line:2:4, endln:10:15
+      |vpiFullName:work@top.test_while
+      |vpiStmt:
+      \_while_stmt: , line:3:8, endln:3:13
+        |vpiParent:
+        \_begin: (work@top.test_while), line:9:8, endln:9:17
+        |vpiCondition:
+        \_constant: , line:3:15, endln:3:16
+        |vpiStmt:
+        \_begin: (work@top.test_while), line:3:18, endln:8:11
+          |vpiParent:
+          \_while_stmt: , line:3:8, endln:3:13
+          |vpiFullName:work@top.test_while
+          |vpiStmt:
+          \_if_stmt: , line:4:12, endln:4:31
+            |vpiParent:
+            \_begin: (work@top.test_while), line:3:18, endln:8:11
+            |vpiCondition:
+            \_operation: , line:4:16, endln:4:23
+              |vpiParent:
+              \_if_stmt: , line:4:12, endln:4:31
+              |vpiOpType:18
+              |vpiOperand:
+              \_ref_obj: (work@top.test_while.x), line:4:16, endln:4:17
+                |vpiParent:
+                \_operation: , line:4:16, endln:4:23
+                |vpiName:x
+                |vpiFullName:work@top.test_while.x
+                |vpiActual:
+                \_io_decl: (x), line:2:42, endln:2:43
+              |vpiOperand:
+              \_constant: , line:4:20, endln:4:23
+            |vpiStmt:
+            \_break_stmt: , line:4:25, endln:4:30
+              |vpiParent:
+              \_if_stmt: , line:4:12, endln:4:31
+          |vpiStmt:
+          \_assignment: , line:5:12, endln:5:22
+            |vpiParent:
+            \_begin: (work@top.test_while), line:3:18, endln:8:11
+            |vpiOpType:82
+            |vpiBlocking:1
+            |vpiRhs:
+            \_operation: , line:5:16, endln:5:22
+              |vpiParent:
+              \_assignment: , line:5:12, endln:5:22
+              |vpiOpType:22
+              |vpiOperand:
+              \_ref_obj: (work@top.test_while.x), line:5:16, endln:5:17
+                |vpiParent:
+                \_operation: , line:5:16, endln:5:22
+                |vpiName:x
+                |vpiFullName:work@top.test_while.x
+                |vpiActual:
+                \_io_decl: (x), line:2:42, endln:2:43
+              |vpiOperand:
+              \_constant: , line:5:21, endln:5:22
+            |vpiLhs:
+            \_ref_obj: (work@top.test_while.x), line:5:12, endln:5:13
+              |vpiParent:
+              \_assignment: , line:5:12, endln:5:22
+              |vpiName:x
+              |vpiFullName:work@top.test_while.x
+              |vpiActual:
+              \_io_decl: (x), line:2:42, endln:2:43
+          |vpiStmt:
+          \_if_stmt: , line:6:12, endln:6:33
+            |vpiParent:
+            \_begin: (work@top.test_while), line:3:18, endln:8:11
+            |vpiCondition:
+            \_operation: , line:6:16, endln:6:22
+              |vpiParent:
+              \_if_stmt: , line:6:12, endln:6:33
+              |vpiOpType:18
+              |vpiOperand:
+              \_ref_obj: (work@top.test_while.x), line:6:16, endln:6:17
+                |vpiParent:
+                \_operation: , line:6:16, endln:6:22
+                |vpiName:x
+                |vpiFullName:work@top.test_while.x
+                |vpiActual:
+                \_io_decl: (x), line:2:42, endln:2:43
+              |vpiOperand:
+              \_constant: , line:6:20, endln:6:22
+            |vpiStmt:
+            \_continue_stmt: , line:6:24, endln:6:32
+              |vpiParent:
+              \_if_stmt: , line:6:12, endln:6:33
+          |vpiStmt:
+          \_assignment: , line:7:12, endln:7:21
+            |vpiParent:
+            \_begin: (work@top.test_while), line:3:18, endln:8:11
+            |vpiOpType:82
+            |vpiBlocking:1
+            |vpiRhs:
+            \_operation: , line:7:16, endln:7:21
+              |vpiParent:
+              \_assignment: , line:7:12, endln:7:21
+              |vpiOpType:24
+              |vpiOperand:
+              \_ref_obj: (work@top.test_while.x), line:7:16, endln:7:17
+                |vpiParent:
+                \_operation: , line:7:16, endln:7:21
+                |vpiName:x
+                |vpiFullName:work@top.test_while.x
+                |vpiActual:
+                \_io_decl: (x), line:2:42, endln:2:43
+              |vpiOperand:
+              \_constant: , line:7:20, endln:7:21
+            |vpiLhs:
+            \_ref_obj: (work@top.test_while.x), line:7:12, endln:7:13
+              |vpiParent:
+              \_assignment: , line:7:12, endln:7:21
+              |vpiName:x
+              |vpiFullName:work@top.test_while.x
+              |vpiActual:
+              \_io_decl: (x), line:2:42, endln:2:43
+      |vpiStmt:
+      \_return_stmt: , line:9:8, endln:9:14
+        |vpiParent:
+        \_begin: (work@top.test_while), line:9:8, endln:9:17
+        |vpiCondition:
+        \_ref_obj: (work@top.test_while.x), line:9:15, endln:9:16
+          |vpiParent:
+          \_return_stmt: , line:9:8, endln:9:14
+          |vpiName:x
+          |vpiFullName:work@top.test_while.x
+          |vpiActual:
+          \_io_decl: (x), line:2:42, endln:2:43
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakContinueWhile/top.sv, line:1:1, endln:12:10
   |vpiTopModule:1
   |vpiPort:
   \_port: (a), line:1:23, endln:1:24
@@ -789,8 +985,35 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:1:19, endln:1:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakContinueWhile/top.sv, line:1:1, endln:12:10
   |vpiProcess:
   \_initial: , line:11:4, endln:11:30
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/BreakContinueWhile/top.sv, line:1:1, endln:12:10
+    |vpiStmt:
+    \_assignment: , line:11:12, endln:11:29
+      |vpiParent:
+      \_initial: , line:11:4, endln:11:30
+      |vpiOpType:82
+      |vpiBlocking:1
+      |vpiRhs:
+      \_func_call: (test_while), line:11:16, endln:11:29
+        |vpiParent:
+        \_assignment: , line:11:12, endln:11:29
+        |vpiArgument:
+        \_constant: , line:11:27, endln:11:28
+        |vpiName:test_while
+        |vpiFunction:
+        \_function: (work@top.test_while), line:2:4, endln:10:15
+      |vpiLhs:
+      \_ref_obj: (work@top.a), line:11:12, endln:11:13
+        |vpiParent:
+        \_assignment: , line:11:12, endln:11:29
+        |vpiName:a
+        |vpiFullName:work@top.a
+        |vpiActual:
+        \_int_var: (work@top.a), line:1:23, endln:1:24
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

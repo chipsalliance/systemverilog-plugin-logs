@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -354,6 +357,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -1291,6 +1337,8 @@ design: (work@top)
       \_struct_net: (work@top.status_out00), line:7:21, endln:7:33
     |vpiTypedef:
     \_struct_typespec: (status_t), line:1:9, endln:4:2
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
   |vpiPort:
   \_port: (status_out01), line:8:21, endln:8:33
     |vpiParent:
@@ -1307,6 +1355,8 @@ design: (work@top)
       \_struct_net: (work@top.status_out01), line:8:21, endln:8:33
     |vpiTypedef:
     \_struct_typespec: (status_t), line:1:9, endln:4:2
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
   |vpiPort:
   \_port: (status_out10), line:9:21, endln:9:33
     |vpiParent:
@@ -1323,6 +1373,8 @@ design: (work@top)
       \_struct_net: (work@top.status_out10), line:9:21, endln:9:33
     |vpiTypedef:
     \_struct_typespec: (status_t), line:1:9, endln:4:2
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
   |vpiPort:
   \_port: (status_out11), line:10:21, endln:10:33
     |vpiParent:
@@ -1339,6 +1391,8 @@ design: (work@top)
       \_struct_net: (work@top.status_out11), line:10:21, endln:10:33
     |vpiTypedef:
     \_struct_typespec: (status_t), line:1:9, endln:4:2
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
   |vpiContAssign:
   \_cont_assign: , line:15:10, endln:15:37
     |vpiParent:
@@ -1356,6 +1410,8 @@ design: (work@top)
         \_hier_path: (group_status[0][0].a), line:15:10, endln:15:22
         |vpiName:group_status
         |vpiFullName:group_status[0]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:15:23, endln:15:24
           |vpiParent:
@@ -1383,6 +1439,8 @@ design: (work@top)
         \_hier_path: (group_status[0][0].a), line:15:10, endln:15:22
         |vpiName:a
         |vpiFullName:group_status[0][0].a
+        |vpiActual:
+        \_typespec_member: (a), line:2:9, endln:2:10
   |vpiContAssign:
   \_cont_assign: , line:16:10, endln:16:37
     |vpiParent:
@@ -1400,6 +1458,8 @@ design: (work@top)
         \_hier_path: (group_status[0][0].b), line:16:10, endln:16:22
         |vpiName:group_status
         |vpiFullName:group_status[0]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:16:23, endln:16:24
           |vpiParent:
@@ -1427,8 +1487,32 @@ design: (work@top)
         \_hier_path: (group_status[0][0].b), line:16:10, endln:16:22
         |vpiName:b
         |vpiFullName:group_status[0][0].b
+        |vpiActual:
+        \_typespec_member: (b), line:3:9, endln:3:10
   |vpiContAssign:
   \_cont_assign: , line:17:10, endln:17:43
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
+    |vpiRhs:
+    \_var_select: (work@top.group_status), line:17:25, endln:17:43
+      |vpiParent:
+      \_cont_assign: , line:17:10, endln:17:43
+      |vpiName:group_status
+      |vpiFullName:work@top.group_status
+      |vpiActual:
+      \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
+      |vpiIndex:
+      \_constant: , line:17:38, endln:17:39
+      |vpiIndex:
+      \_constant: , line:17:41, endln:17:42
+    |vpiLhs:
+    \_ref_obj: (work@top.status_out00), line:17:10, endln:17:22
+      |vpiParent:
+      \_cont_assign: , line:17:10, endln:17:43
+      |vpiName:status_out00
+      |vpiFullName:work@top.status_out00
+      |vpiActual:
+      \_struct_net: (work@top.status_out00), line:7:21, endln:7:33
   |vpiContAssign:
   \_cont_assign: , line:19:10, endln:19:37
     |vpiParent:
@@ -1446,6 +1530,8 @@ design: (work@top)
         \_hier_path: (group_status[0][1].a), line:19:10, endln:19:22
         |vpiName:group_status
         |vpiFullName:group_status[0]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:19:23, endln:19:24
           |vpiParent:
@@ -1473,6 +1559,8 @@ design: (work@top)
         \_hier_path: (group_status[0][1].a), line:19:10, endln:19:22
         |vpiName:a
         |vpiFullName:group_status[0][1].a
+        |vpiActual:
+        \_typespec_member: (a), line:2:9, endln:2:10
   |vpiContAssign:
   \_cont_assign: , line:20:10, endln:20:37
     |vpiParent:
@@ -1490,6 +1578,8 @@ design: (work@top)
         \_hier_path: (group_status[0][1].b), line:20:10, endln:20:22
         |vpiName:group_status
         |vpiFullName:group_status[0]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:20:23, endln:20:24
           |vpiParent:
@@ -1517,8 +1607,32 @@ design: (work@top)
         \_hier_path: (group_status[0][1].b), line:20:10, endln:20:22
         |vpiName:b
         |vpiFullName:group_status[0][1].b
+        |vpiActual:
+        \_typespec_member: (b), line:3:9, endln:3:10
   |vpiContAssign:
   \_cont_assign: , line:21:10, endln:21:43
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
+    |vpiRhs:
+    \_var_select: (work@top.group_status), line:21:25, endln:21:43
+      |vpiParent:
+      \_cont_assign: , line:21:10, endln:21:43
+      |vpiName:group_status
+      |vpiFullName:work@top.group_status
+      |vpiActual:
+      \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
+      |vpiIndex:
+      \_constant: , line:21:38, endln:21:39
+      |vpiIndex:
+      \_constant: , line:21:41, endln:21:42
+    |vpiLhs:
+    \_ref_obj: (work@top.status_out01), line:21:10, endln:21:22
+      |vpiParent:
+      \_cont_assign: , line:21:10, endln:21:43
+      |vpiName:status_out01
+      |vpiFullName:work@top.status_out01
+      |vpiActual:
+      \_struct_net: (work@top.status_out01), line:8:21, endln:8:33
   |vpiContAssign:
   \_cont_assign: , line:23:10, endln:23:37
     |vpiParent:
@@ -1536,6 +1650,8 @@ design: (work@top)
         \_hier_path: (group_status[1][0].a), line:23:10, endln:23:22
         |vpiName:group_status
         |vpiFullName:group_status[1]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:23:23, endln:23:24
           |vpiParent:
@@ -1563,6 +1679,8 @@ design: (work@top)
         \_hier_path: (group_status[1][0].a), line:23:10, endln:23:22
         |vpiName:a
         |vpiFullName:group_status[1][0].a
+        |vpiActual:
+        \_typespec_member: (a), line:2:9, endln:2:10
   |vpiContAssign:
   \_cont_assign: , line:24:10, endln:24:37
     |vpiParent:
@@ -1580,6 +1698,8 @@ design: (work@top)
         \_hier_path: (group_status[1][0].b), line:24:10, endln:24:22
         |vpiName:group_status
         |vpiFullName:group_status[1]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:24:23, endln:24:24
           |vpiParent:
@@ -1607,8 +1727,32 @@ design: (work@top)
         \_hier_path: (group_status[1][0].b), line:24:10, endln:24:22
         |vpiName:b
         |vpiFullName:group_status[1][0].b
+        |vpiActual:
+        \_typespec_member: (b), line:3:9, endln:3:10
   |vpiContAssign:
   \_cont_assign: , line:25:10, endln:25:43
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
+    |vpiRhs:
+    \_var_select: (work@top.group_status), line:25:25, endln:25:43
+      |vpiParent:
+      \_cont_assign: , line:25:10, endln:25:43
+      |vpiName:group_status
+      |vpiFullName:work@top.group_status
+      |vpiActual:
+      \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
+      |vpiIndex:
+      \_constant: , line:25:38, endln:25:39
+      |vpiIndex:
+      \_constant: , line:25:41, endln:25:42
+    |vpiLhs:
+    \_ref_obj: (work@top.status_out10), line:25:10, endln:25:22
+      |vpiParent:
+      \_cont_assign: , line:25:10, endln:25:43
+      |vpiName:status_out10
+      |vpiFullName:work@top.status_out10
+      |vpiActual:
+      \_struct_net: (work@top.status_out10), line:9:21, endln:9:33
   |vpiContAssign:
   \_cont_assign: , line:27:10, endln:27:37
     |vpiParent:
@@ -1626,6 +1770,8 @@ design: (work@top)
         \_hier_path: (group_status[1][1].a), line:27:10, endln:27:22
         |vpiName:group_status
         |vpiFullName:group_status[1]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:27:23, endln:27:24
           |vpiParent:
@@ -1653,6 +1799,8 @@ design: (work@top)
         \_hier_path: (group_status[1][1].a), line:27:10, endln:27:22
         |vpiName:a
         |vpiFullName:group_status[1][1].a
+        |vpiActual:
+        \_typespec_member: (a), line:2:9, endln:2:10
   |vpiContAssign:
   \_cont_assign: , line:28:10, endln:28:37
     |vpiParent:
@@ -1670,6 +1818,8 @@ design: (work@top)
         \_hier_path: (group_status[1][1].b), line:28:10, endln:28:22
         |vpiName:group_status
         |vpiFullName:group_status[1]
+        |vpiActual:
+        \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
         |vpiIndex:
         \_constant: , line:28:23, endln:28:24
           |vpiParent:
@@ -1697,8 +1847,32 @@ design: (work@top)
         \_hier_path: (group_status[1][1].b), line:28:10, endln:28:22
         |vpiName:b
         |vpiFullName:group_status[1][1].b
+        |vpiActual:
+        \_typespec_member: (b), line:3:9, endln:3:10
   |vpiContAssign:
   \_cont_assign: , line:29:10, endln:29:43
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/DotMultirange/top.sv, line:6:1, endln:31:16
+    |vpiRhs:
+    \_var_select: (work@top.group_status), line:29:25, endln:29:43
+      |vpiParent:
+      \_cont_assign: , line:29:10, endln:29:43
+      |vpiName:group_status
+      |vpiFullName:work@top.group_status
+      |vpiActual:
+      \_packed_array_var: (work@top.group_status), line:13:23, endln:13:35
+      |vpiIndex:
+      \_constant: , line:29:38, endln:29:39
+      |vpiIndex:
+      \_constant: , line:29:41, endln:29:42
+    |vpiLhs:
+    \_ref_obj: (work@top.status_out11), line:29:10, endln:29:22
+      |vpiParent:
+      \_cont_assign: , line:29:10, endln:29:43
+      |vpiName:status_out11
+      |vpiFullName:work@top.status_out11
+      |vpiActual:
+      \_struct_net: (work@top.status_out11), line:10:21, endln:10:33
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

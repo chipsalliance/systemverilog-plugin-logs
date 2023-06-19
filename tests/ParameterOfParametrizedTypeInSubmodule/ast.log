@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -358,6 +361,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -555,6 +601,8 @@ design: (work@top)
               \_operation: , line:3:19, endln:3:22
               |vpiName:X
               |vpiFullName:work@submodule.my_type_t.X
+              |vpiActual:
+              \_parameter: (work@top.u_sub_default.X), line:2:18, endln:2:19
             |vpiOperand:
             \_constant: , line:3:21, endln:3:22
               |vpiParent:
@@ -888,6 +936,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:8:19, endln:8:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:8:1, endln:12:10
   |vpiPort:
   \_port: (p), line:8:37, endln:8:38
     |vpiParent:
@@ -905,6 +955,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:8:33, endln:8:36
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:8:1, endln:12:10
   |vpiPort:
   \_port: (r), line:8:51, endln:8:52
     |vpiParent:
@@ -922,6 +974,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:8:47, endln:8:50
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:8:1, endln:12:10
   |vpiModule:
   \_module_inst: work@submodule (work@top.u_sub_default), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:9:4, endln:9:35
     |vpiParent:
@@ -984,6 +1038,8 @@ design: (work@top)
                 \_operation: , line:3:19, endln:3:22
                 |vpiName:X
                 |vpiFullName:work@top.u_sub_default.Y.my_type_t.my_type_t.X
+                |vpiActual:
+                \_parameter: (work@top.u_sub_default.X), line:2:18, endln:2:19
               |vpiOperand:
               \_constant: , line:3:21, endln:3:22
                 |vpiParent:
@@ -1015,6 +1071,8 @@ design: (work@top)
               \_operation: , line:3:19, endln:3:22
               |vpiName:X
               |vpiFullName:work@top.u_sub_default.Y.my_type_t.X
+              |vpiActual:
+              \_parameter: (work@top.u_sub_default.X), line:2:18, endln:2:19
             |vpiOperand:
             \_constant: , line:3:21, endln:3:22
               |vpiParent:
@@ -1107,6 +1165,8 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:1:25, endln:1:28
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@submodule (work@top.u_sub_default), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:9:4, endln:9:35
     |vpiContAssign:
     \_cont_assign: , line:5:11, endln:5:22
       |vpiParent:
@@ -1187,6 +1247,8 @@ design: (work@top)
                 \_operation: , line:3:19, endln:3:22
                 |vpiName:X
                 |vpiFullName:work@top.u_sub_5.Y.my_type_t.my_type_t.X
+                |vpiActual:
+                \_parameter: (work@top.u_sub_5.X), line:2:18, endln:2:19
               |vpiOperand:
               \_constant: , line:3:21, endln:3:22
                 |vpiParent:
@@ -1218,6 +1280,8 @@ design: (work@top)
               \_operation: , line:3:19, endln:3:22
               |vpiName:X
               |vpiFullName:work@top.u_sub_5.Y.my_type_t.X
+              |vpiActual:
+              \_parameter: (work@top.u_sub_5.X), line:2:18, endln:2:19
             |vpiOperand:
             \_constant: , line:3:21, endln:3:22
               |vpiParent:
@@ -1312,6 +1376,8 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:1:25, endln:1:28
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@submodule (work@top.u_sub_5), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:10:4, endln:10:38
     |vpiContAssign:
     \_cont_assign: , line:5:11, endln:5:22
       |vpiParent:
@@ -1392,6 +1458,8 @@ design: (work@top)
                 \_operation: , line:3:19, endln:3:22
                 |vpiName:X
                 |vpiFullName:work@top.u_sub_10.Y.my_type_t.my_type_t.X
+                |vpiActual:
+                \_parameter: (work@top.u_sub_10.X), line:2:18, endln:2:19
               |vpiOperand:
               \_constant: , line:3:21, endln:3:22
                 |vpiParent:
@@ -1423,6 +1491,8 @@ design: (work@top)
               \_operation: , line:3:19, endln:3:22
               |vpiName:X
               |vpiFullName:work@top.u_sub_10.Y.my_type_t.X
+              |vpiActual:
+              \_parameter: (work@top.u_sub_10.X), line:2:18, endln:2:19
             |vpiOperand:
             \_constant: , line:3:21, endln:3:22
               |vpiParent:
@@ -1517,6 +1587,8 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:1:25, endln:1:28
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@submodule (work@top.u_sub_10), file:UHDM-integration-tests/tests/ParameterOfParametrizedTypeInSubmodule/top.sv, line:11:4, endln:11:40
     |vpiContAssign:
     \_cont_assign: , line:5:11, endln:5:22
       |vpiParent:

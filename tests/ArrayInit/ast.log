@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -354,6 +357,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -775,8 +821,72 @@ design: (work@top)
       \_logic_net: (work@top.a), line:1:23, endln:1:24
     |vpiTypedef:
     \_logic_typespec: , line:1:19, endln:1:22
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ArrayInit/top.sv, line:1:1, endln:10:10
   |vpiProcess:
   \_initial: , line:4:4, endln:9:7
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ArrayInit/top.sv, line:1:1, endln:10:10
+    |vpiStmt:
+    \_begin: (work@top), line:4:12, endln:9:7
+      |vpiParent:
+      \_initial: , line:4:4, endln:9:7
+      |vpiFullName:work@top
+      |vpiStmt:
+      \_if_else: , line:5:7, endln:8:16
+        |vpiParent:
+        \_begin: (work@top), line:4:12, endln:9:7
+        |vpiCondition:
+        \_operation: , line:5:11, endln:5:23
+          |vpiParent:
+          \_if_else: , line:5:7, endln:8:16
+          |vpiOpType:14
+          |vpiOperand:
+          \_var_select: (work@top.n), line:5:11, endln:5:18
+            |vpiParent:
+            \_operation: , line:5:11, endln:5:23
+            |vpiName:n
+            |vpiFullName:work@top.n
+            |vpiActual:
+            \_array_var: (work@top.n), line:2:8, endln:2:9
+            |vpiIndex:
+            \_constant: , line:5:13, endln:5:14
+            |vpiIndex:
+            \_constant: , line:5:16, endln:5:17
+          |vpiOperand:
+          \_constant: , line:5:22, endln:5:23
+        |vpiStmt:
+        \_assignment: , line:6:10, endln:6:15
+          |vpiParent:
+          \_if_else: , line:5:7, endln:8:16
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:6:14, endln:6:15
+          |vpiLhs:
+          \_ref_obj: (work@top.a), line:6:10, endln:6:11
+            |vpiParent:
+            \_assignment: , line:6:10, endln:6:15
+            |vpiName:a
+            |vpiFullName:work@top.a
+            |vpiActual:
+            \_logic_net: (work@top.a), line:1:23, endln:1:24
+        |vpiElseStmt:
+        \_assignment: , line:8:10, endln:8:15
+          |vpiParent:
+          \_if_else: , line:5:7, endln:8:16
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:8:14, endln:8:15
+          |vpiLhs:
+          \_ref_obj: (work@top.a), line:8:10, endln:8:11
+            |vpiParent:
+            \_assignment: , line:8:10, endln:8:15
+            |vpiName:a
+            |vpiFullName:work@top.a
+            |vpiActual:
+            \_logic_net: (work@top.a), line:1:23, endln:1:24
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

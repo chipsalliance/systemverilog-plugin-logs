@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -354,6 +357,49 @@ design: (work@dut)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -969,10 +1015,221 @@ design: (work@dut)
     |vpiTypedef:
     \_int_typespec: , line:1:19, endln:1:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnionInsideStruct/dut.sv, line:1:1, endln:32:10
   |vpiProcess:
   \_always: , line:23:3, endln:28:6
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnionInsideStruct/dut.sv, line:1:1, endln:32:10
+    |vpiStmt:
+    \_begin: (work@dut), line:23:15, endln:28:6
+      |vpiParent:
+      \_always: , line:23:3, endln:28:6
+      |vpiFullName:work@dut
+      |vpiStmt:
+      \_assignment: , line:24:5, endln:24:29
+        |vpiParent:
+        \_begin: (work@dut), line:23:15, endln:28:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_constant: , line:24:24, endln:24:29
+        |vpiLhs:
+        \_hier_path: (bar.foo.bytes.b0), line:24:5, endln:24:21
+          |vpiParent:
+          \_assignment: , line:24:5, endln:24:29
+          |vpiName:bar.foo.bytes.b0
+          |vpiActual:
+          \_ref_obj: (bar), line:24:9, endln:24:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b0), line:24:5, endln:24:21
+            |vpiName:bar
+            |vpiActual:
+            \_struct_var: (work@dut.bar), line:21:9, endln:21:12
+          |vpiActual:
+          \_ref_obj: (foo), line:24:9, endln:24:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b0), line:24:5, endln:24:21
+            |vpiName:foo
+            |vpiActual:
+            \_typespec_member: (foo), line:17:11, endln:17:14
+          |vpiActual:
+          \_ref_obj: (bytes), line:24:13, endln:24:18
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b0), line:24:5, endln:24:21
+            |vpiName:bytes
+            |vpiActual:
+            \_typespec_member: (bytes), line:11:17, endln:11:22
+          |vpiActual:
+          \_ref_obj: (b0), line:24:19, endln:24:21
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b0), line:24:5, endln:24:21
+            |vpiName:b0
+            |vpiActual:
+            \_typespec_member: (b0), line:4:10, endln:4:12
+      |vpiStmt:
+      \_assignment: , line:25:5, endln:25:29
+        |vpiParent:
+        \_begin: (work@dut), line:23:15, endln:28:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_constant: , line:25:24, endln:25:29
+        |vpiLhs:
+        \_hier_path: (bar.foo.bytes.b1), line:25:5, endln:25:21
+          |vpiParent:
+          \_assignment: , line:25:5, endln:25:29
+          |vpiName:bar.foo.bytes.b1
+          |vpiActual:
+          \_ref_obj: (bar), line:25:9, endln:25:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b1), line:25:5, endln:25:21
+            |vpiName:bar
+            |vpiActual:
+            \_struct_var: (work@dut.bar), line:21:9, endln:21:12
+          |vpiActual:
+          \_ref_obj: (foo), line:25:9, endln:25:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b1), line:25:5, endln:25:21
+            |vpiName:foo
+            |vpiActual:
+            \_typespec_member: (foo), line:17:11, endln:17:14
+          |vpiActual:
+          \_ref_obj: (bytes), line:25:13, endln:25:18
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b1), line:25:5, endln:25:21
+            |vpiName:bytes
+            |vpiActual:
+            \_typespec_member: (bytes), line:11:17, endln:11:22
+          |vpiActual:
+          \_ref_obj: (b1), line:25:19, endln:25:21
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b1), line:25:5, endln:25:21
+            |vpiName:b1
+            |vpiActual:
+            \_typespec_member: (b1), line:5:10, endln:5:12
+      |vpiStmt:
+      \_assignment: , line:26:5, endln:26:29
+        |vpiParent:
+        \_begin: (work@dut), line:23:15, endln:28:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_constant: , line:26:24, endln:26:29
+        |vpiLhs:
+        \_hier_path: (bar.foo.bytes.b2), line:26:5, endln:26:21
+          |vpiParent:
+          \_assignment: , line:26:5, endln:26:29
+          |vpiName:bar.foo.bytes.b2
+          |vpiActual:
+          \_ref_obj: (bar), line:26:9, endln:26:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b2), line:26:5, endln:26:21
+            |vpiName:bar
+            |vpiActual:
+            \_struct_var: (work@dut.bar), line:21:9, endln:21:12
+          |vpiActual:
+          \_ref_obj: (foo), line:26:9, endln:26:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b2), line:26:5, endln:26:21
+            |vpiName:foo
+            |vpiActual:
+            \_typespec_member: (foo), line:17:11, endln:17:14
+          |vpiActual:
+          \_ref_obj: (bytes), line:26:13, endln:26:18
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b2), line:26:5, endln:26:21
+            |vpiName:bytes
+            |vpiActual:
+            \_typespec_member: (bytes), line:11:17, endln:11:22
+          |vpiActual:
+          \_ref_obj: (b2), line:26:19, endln:26:21
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b2), line:26:5, endln:26:21
+            |vpiName:b2
+            |vpiActual:
+            \_typespec_member: (b2), line:6:10, endln:6:12
+      |vpiStmt:
+      \_assignment: , line:27:5, endln:27:29
+        |vpiParent:
+        \_begin: (work@dut), line:23:15, endln:28:6
+        |vpiOpType:82
+        |vpiBlocking:1
+        |vpiRhs:
+        \_constant: , line:27:24, endln:27:29
+        |vpiLhs:
+        \_hier_path: (bar.foo.bytes.b3), line:27:5, endln:27:21
+          |vpiParent:
+          \_assignment: , line:27:5, endln:27:29
+          |vpiName:bar.foo.bytes.b3
+          |vpiActual:
+          \_ref_obj: (bar), line:27:9, endln:27:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b3), line:27:5, endln:27:21
+            |vpiName:bar
+            |vpiActual:
+            \_struct_var: (work@dut.bar), line:21:9, endln:21:12
+          |vpiActual:
+          \_ref_obj: (foo), line:27:9, endln:27:12
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b3), line:27:5, endln:27:21
+            |vpiName:foo
+            |vpiActual:
+            \_typespec_member: (foo), line:17:11, endln:17:14
+          |vpiActual:
+          \_ref_obj: (bytes), line:27:13, endln:27:18
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b3), line:27:5, endln:27:21
+            |vpiName:bytes
+            |vpiActual:
+            \_typespec_member: (bytes), line:11:17, endln:11:22
+          |vpiActual:
+          \_ref_obj: (b3), line:27:19, endln:27:21
+            |vpiParent:
+            \_hier_path: (bar.foo.bytes.b3), line:27:5, endln:27:21
+            |vpiName:b3
+            |vpiActual:
+            \_typespec_member: (b3), line:7:10, endln:7:12
+    |vpiAlwaysType:2
   |vpiContAssign:
   \_cont_assign: , line:30:10, endln:30:23
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnionInsideStruct/dut.sv, line:1:1, endln:32:10
+    |vpiRhs:
+    \_hier_path: (bar.foo.i), line:30:14, endln:30:23
+      |vpiParent:
+      \_cont_assign: , line:30:10, endln:30:23
+      |vpiName:bar.foo.i
+      |vpiActual:
+      \_ref_obj: (bar), line:30:14, endln:30:17
+        |vpiParent:
+        \_hier_path: (bar.foo.i), line:30:14, endln:30:23
+        |vpiName:bar
+        |vpiActual:
+        \_struct_var: (work@dut.bar), line:21:9, endln:21:12
+      |vpiActual:
+      \_ref_obj: (foo), line:30:18, endln:30:21
+        |vpiParent:
+        \_hier_path: (bar.foo.i), line:30:14, endln:30:23
+        |vpiName:foo
+        |vpiActual:
+        \_typespec_member: (foo), line:17:11, endln:17:14
+      |vpiActual:
+      \_ref_obj: (work@dut.i), line:30:22, endln:30:23
+        |vpiParent:
+        \_hier_path: (bar.foo.i), line:30:14, endln:30:23
+        |vpiName:i
+        |vpiFullName:work@dut.i
+        |vpiActual:
+        \_typespec_member: (i), line:12:9, endln:12:10
+    |vpiLhs:
+    \_ref_obj: (work@dut.o), line:30:10, endln:30:11
+      |vpiParent:
+      \_cont_assign: , line:30:10, endln:30:23
+      |vpiName:o
+      |vpiFullName:work@dut.o
+      |vpiActual:
+      \_int_var: (work@dut.o), line:1:23, endln:1:24
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'
@@ -1126,7 +1383,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.10-30.23>
         AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.10-30.11> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.14-30.23> str='\bar' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.14-30.17> str='\bar' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100010'(32) signed range=[31:0] int=34
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
@@ -1135,25 +1392,25 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
         AST_BLOCK <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:23.15-28.6>
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:24.5-24.29>
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:24.5-24.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:24.9-24.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100010'(32) signed range=[31:0] int=34
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000011011'(32) signed range=[31:0] int=27
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00010000'(8) range=[7:0] int=16
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:25.5-25.29>
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:25.5-25.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:25.9-25.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000011010'(32) signed range=[31:0] int=26
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed range=[31:0] int=19
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00010001'(8) range=[7:0] int=17
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:26.5-26.29>
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:26.5-26.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:26.9-26.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed range=[31:0] int=18
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00010011'(8) range=[7:0] int=19
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:27.5-27.29>
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:27.5-27.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:27.9-27.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) signed range=[31:0] int=10
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
@@ -1217,7 +1474,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.10-30.23> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.10-30.11> str='\o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.14-30.23> str='\bar' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:30.14-30.17> str='\bar' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> basic_prep range=[34:3]
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100010'(32) signed basic_prep range=[31:0] int=34
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
@@ -1226,25 +1483,25 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
         AST_BLOCK <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:23.15-28.6> basic_prep
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:24.5-24.29> basic_prep
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:24.5-24.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:24.9-24.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> basic_prep range=[34:27]
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100010'(32) signed basic_prep range=[31:0] int=34
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000011011'(32) signed basic_prep range=[31:0] int=27
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00010000'(8) basic_prep range=[7:0] int=16
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:25.5-25.29> basic_prep
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:25.5-25.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:25.9-25.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> basic_prep range=[26:19]
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000011010'(32) signed basic_prep range=[31:0] int=26
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed basic_prep range=[31:0] int=19
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00010001'(8) basic_prep range=[7:0] int=17
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:26.5-26.29> basic_prep
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:26.5-26.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:26.9-26.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> basic_prep range=[18:11]
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11
             AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00010011'(8) basic_prep range=[7:0] int=19
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:27.5-27.29> basic_prep
-            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:27.5-27.21> str='\bar' basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:27.9-27.12> str='\bar' basic_prep
               AST_RANGE <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> basic_prep range=[10:3]
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) signed basic_prep range=[31:0] int=10
                 AST_CONSTANT <UHDM-integration-tests/tests/UnionInsideStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3

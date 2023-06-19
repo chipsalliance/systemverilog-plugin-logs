@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -95,7 +98,7 @@ design: (work@top)
     |vpiVariables:
     \_integer_var: (prim_util_pkg::_clog2::result), line:3:15, endln:3:21
       |vpiParent:
-      \_begin: (prim_util_pkg::_clog2), line:5:7, endln:7:10
+      \_function: (prim_util_pkg::_clog2), line:2:4, endln:9:15
       |vpiTypespec:
       \_integer_typespec: , line:3:7, endln:3:14
         |vpiInstance:
@@ -135,6 +138,13 @@ design: (work@top)
       |vpiFullName:prim_util_pkg::_clog2
       |vpiVariables:
       \_integer_var: (prim_util_pkg::_clog2::result), line:3:15, endln:3:21
+        |vpiParent:
+        \_begin: (prim_util_pkg::_clog2), line:5:7, endln:7:10
+        |vpiTypespec:
+        \_integer_typespec: , line:3:7, endln:3:14
+        |vpiName:result
+        |vpiFullName:prim_util_pkg::_clog2::result
+        |vpiSigned:1
       |vpiStmt:
       \_for_stmt: (prim_util_pkg::_clog2), line:5:7, endln:5:10
         |vpiParent:
@@ -158,6 +168,8 @@ design: (work@top)
             \_assign_stmt: , line:5:12, endln:5:22
             |vpiName:result
             |vpiFullName:prim_util_pkg::_clog2::result
+            |vpiActual:
+            \_integer_var: (prim_util_pkg::_clog2::result), line:3:15, endln:3:21
         |vpiForIncStmt:
         \_operation: , line:5:35, endln:5:43
           |vpiParent:
@@ -301,7 +313,7 @@ design: (work@top)
     |vpiVariables:
     \_integer_var: (prim_util_pkg::_clog2::result), line:3:15, endln:3:21
       |vpiParent:
-      \_begin: (prim_util_pkg::_clog2), line:5:7, endln:7:10
+      \_function: (prim_util_pkg::_clog2), line:2:4, endln:9:15
       |vpiTypespec:
       \_integer_typespec: , line:3:7, endln:3:14
         |vpiInstance:
@@ -341,6 +353,13 @@ design: (work@top)
       |vpiFullName:prim_util_pkg::_clog2
       |vpiVariables:
       \_integer_var: (prim_util_pkg::_clog2::result), line:3:15, endln:3:21
+        |vpiParent:
+        \_begin: (prim_util_pkg::_clog2), line:5:7, endln:7:10
+        |vpiTypespec:
+        \_integer_typespec: , line:3:7, endln:3:14
+        |vpiName:result
+        |vpiFullName:prim_util_pkg::_clog2::result
+        |vpiSigned:1
       |vpiStmt:
       \_for_stmt: (prim_util_pkg::_clog2), line:5:7, endln:5:10
         |vpiParent:
@@ -364,6 +383,8 @@ design: (work@top)
             \_assign_stmt: , line:5:12, endln:5:22
             |vpiName:result
             |vpiFullName:prim_util_pkg::_clog2::result
+            |vpiActual:
+            \_integer_var: (prim_util_pkg::_clog2::result), line:3:15, endln:3:21
         |vpiForIncStmt:
         \_operation: , line:5:35, endln:5:43
           |vpiParent:
@@ -693,6 +714,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -932,6 +996,8 @@ design: (work@top)
     |vpiTypedef:
     \_integer_typespec: , line:12:19, endln:12:26
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/VarInFor/top.sv, line:12:1, endln:14:10
   |vpiContAssign:
   \_cont_assign: , line:13:11, endln:13:40
     |vpiParent:
@@ -951,7 +1017,7 @@ design: (work@top)
       |vpiName:o
       |vpiFullName:work@top.o
       |vpiActual:
-      \_logic_net: (work@top.o), line:12:27, endln:12:28
+      \_integer_var: (work@top.o), line:12:27, endln:12:28
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object 'prim_util_pkg' of type 'package'

@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -358,6 +361,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -686,6 +732,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:6:19, endln:6:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceParameter/top.sv, line:6:1, endln:9:10
   |vpiInterface:
   \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:UHDM-integration-tests/tests/InterfaceParameter/top.sv, line:7:4, endln:7:32
     |vpiParent:
@@ -809,12 +857,16 @@ design: (work@top)
           |vpiParent:
           \_hier_path: (u_sim_sram_if.start_addr), line:8:20, endln:8:44
           |vpiName:u_sim_sram_if
+          |vpiActual:
+          \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:UHDM-integration-tests/tests/InterfaceParameter/top.sv, line:7:4, endln:7:32
         |vpiActual:
         \_ref_obj: (work@top.start_addr), line:8:34, endln:8:44
           |vpiParent:
           \_hier_path: (u_sim_sram_if.start_addr), line:8:20, endln:8:44
           |vpiName:start_addr
           |vpiFullName:work@top.start_addr
+          |vpiActual:
+          \_logic_var: (work@top.u_sim_sram_if.start_addr), line:3:18, endln:3:33
     |vpiLhs:
     \_ref_obj: (work@top.o), line:8:11, endln:8:12
       |vpiParent:
@@ -876,7 +928,7 @@ Dumping AST before simplification:
         AST_CELLTYPE <UHDM-integration-tests/tests/InterfaceParameter/top.sv:0.0-0.0> str='\sim_sram_if'
       AST_ASSIGN <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.11-8.45>
         AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.11-8.12> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.20-8.44> str='\u_sim_sram_if.start_addr'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.20-8.33> str='\u_sim_sram_if.start_addr'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -903,7 +955,7 @@ Dumping AST after simplification:
         AST_CELLTYPE <UHDM-integration-tests/tests/InterfaceParameter/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.11-8.45> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.11-8.12> str='\o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.20-8.44> str='\u_sim_sram_if.start_addr' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceParameter/top.sv:8.20-8.33> str='\u_sim_sram_if.start_addr' basic_prep
       AST_AUTOWIRE <UHDM-integration-tests/tests/InterfaceParameter/top.sv:0.0-0.0> str='\start_addr' basic_prep
       AST_AUTOWIRE <UHDM-integration-tests/tests/InterfaceParameter/top.sv:0.0-0.0> str='\u_sim_sram_if.start_addr' basic_prep
 --- END OF AST DUMP ---

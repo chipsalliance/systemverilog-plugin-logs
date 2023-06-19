@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -354,6 +357,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -640,6 +686,8 @@ design: (work@top)
           \_operation: , line:5:14, endln:5:25
           |vpiName:w
           |vpiFullName:work@top.element_sum.w
+          |vpiActual:
+          \_io_decl: (w), line:4:57, endln:4:58
           |vpiIndex:
           \_constant: , line:5:16, endln:5:17
             |vpiParent:
@@ -654,6 +702,8 @@ design: (work@top)
           \_operation: , line:5:14, endln:5:25
           |vpiName:w
           |vpiFullName:work@top.element_sum.w
+          |vpiActual:
+          \_io_decl: (w), line:4:57, endln:4:58
           |vpiIndex:
           \_constant: , line:5:23, endln:5:24
             |vpiParent:
@@ -752,6 +802,53 @@ design: (work@top)
   |vpiTop:1
   |vpiTaskFunc:
   \_function: (work@top.element_sum), line:4:4, endln:6:15
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefedRangedFunctionArgument/top.sv, line:1:1, endln:9:10
+    |vpiName:element_sum
+    |vpiFullName:work@top.element_sum
+    |vpiVisibility:1
+    |vpiAutomatic:1
+    |vpiReturn:
+    \_logic_var: (work@top.element_sum), line:4:23, endln:4:27
+    |vpiIODecl:
+    \_io_decl: (w), line:4:57, endln:4:58
+      |vpiParent:
+      \_function: (work@top.element_sum), line:4:4, endln:6:15
+      |vpiDirection:1
+      |vpiName:w
+      |vpiTypedef:
+      \_logic_typespec: , line:4:46, endln:4:56
+    |vpiStmt:
+    \_return_stmt: , line:5:7, endln:5:13
+      |vpiParent:
+      \_function: (work@top.element_sum), line:4:4, endln:6:15
+      |vpiCondition:
+      \_operation: , line:5:14, endln:5:25
+        |vpiParent:
+        \_return_stmt: , line:5:7, endln:5:13
+        |vpiOpType:24
+        |vpiOperand:
+        \_bit_select: (work@top.element_sum.w), line:5:16, endln:5:17
+          |vpiParent:
+          \_operation: , line:5:14, endln:5:25
+          |vpiName:w
+          |vpiFullName:work@top.element_sum.w
+          |vpiActual:
+          \_io_decl: (w), line:4:57, endln:4:58
+          |vpiIndex:
+          \_constant: , line:5:16, endln:5:17
+        |vpiOperand:
+        \_bit_select: (work@top.element_sum.w), line:5:23, endln:5:24
+          |vpiParent:
+          \_operation: , line:5:14, endln:5:25
+          |vpiName:w
+          |vpiFullName:work@top.element_sum.w
+          |vpiActual:
+          \_io_decl: (w), line:4:57, endln:4:58
+          |vpiIndex:
+          \_constant: , line:5:23, endln:5:24
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefedRangedFunctionArgument/top.sv, line:1:1, endln:9:10
   |vpiNet:
   \_logic_net: (work@top.o), line:1:32, endln:1:33
     |vpiParent:
@@ -818,6 +915,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefedRangedFunctionArgument/top.sv, line:1:1, endln:9:10
   |vpiContAssign:
   \_cont_assign: , line:8:11, endln:8:48
     |vpiParent:

@@ -73,12 +73,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -366,6 +369,49 @@ design: (work@dut)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -2724,6 +2770,8 @@ design: (work@dut)
           |vpiName:counter
           |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:41:9, endln:41:15
             |vpiParent:
@@ -2775,6 +2823,8 @@ design: (work@dut)
           |vpiName:counter_upd
           |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_upd
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:42:9, endln:42:27
             |vpiParent:
@@ -2826,6 +2876,8 @@ design: (work@dut)
           |vpiName:counter_load
           |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:43:9, endln:43:15
             |vpiParent:
@@ -2857,6 +2909,8 @@ design: (work@dut)
           |vpiName:we
           |vpiFullName:work@dut.gen_modules[0].module_in_genscope.we
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiVariables:
         \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:45:28, endln:45:37
           |vpiParent:
@@ -2888,6 +2942,8 @@ design: (work@dut)
           |vpiName:counter_d
           |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_d
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:45:9, endln:45:27
             |vpiParent:
@@ -2939,6 +2995,8 @@ design: (work@dut)
           |vpiName:counter_q
           |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_q
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:80:9, endln:80:27
             |vpiParent:
@@ -2962,7 +3020,7 @@ design: (work@dut)
         |vpiParameter:
         \_parameter: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:29:17, endln:29:29
           |vpiParent:
-          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          \_param_assign: , line:29:17, endln:29:34
           |UINT:32
           |vpiTypespec:
           \_int_typespec: , line:29:13, endln:29:16
@@ -3131,6 +3189,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[0].module_in_genscope.clk_i), line:31:23, endln:31:28
           |vpiTypedef:
           \_logic_typespec: , line:31:10, endln:31:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (rst_ni), line:32:23, endln:32:29
           |vpiParent:
@@ -3155,6 +3215,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[0].module_in_genscope.rst_ni), line:32:23, endln:32:29
           |vpiTypedef:
           \_logic_typespec: , line:32:10, endln:32:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_inc_i), line:34:23, endln:34:36
           |vpiParent:
@@ -3167,6 +3229,8 @@ design: (work@dut)
             \_port: (counter_inc_i), line:34:23, endln:34:36
             |vpiName:counter_inc_i
             |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_inc_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_inc_i), line:34:23, endln:34:36
             |vpiIndex:
             \_constant: , line:16:64, endln:16:65
               |vpiParent:
@@ -3185,6 +3249,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_inc_i), line:34:23, endln:34:36
           |vpiTypedef:
           \_logic_typespec: , line:34:10, endln:34:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counterh_we_i), line:35:23, endln:35:36
           |vpiParent:
@@ -3197,6 +3263,8 @@ design: (work@dut)
             \_port: (counterh_we_i), line:35:23, endln:35:36
             |vpiName:counterh_we_i
             |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counterh_we_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
             |vpiIndex:
             \_constant: , line:17:64, endln:17:65
               |vpiParent:
@@ -3215,6 +3283,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
           |vpiTypedef:
           \_logic_typespec: , line:35:10, endln:35:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_we_i), line:36:23, endln:36:35
           |vpiParent:
@@ -3227,6 +3297,8 @@ design: (work@dut)
             \_port: (counter_we_i), line:36:23, endln:36:35
             |vpiName:counter_we_i
             |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_we_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_we_i), line:36:23, endln:36:35
             |vpiIndex:
             \_constant: , line:18:62, endln:18:63
               |vpiParent:
@@ -3245,6 +3317,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_we_i), line:36:23, endln:36:35
           |vpiTypedef:
           \_logic_typespec: , line:36:10, endln:36:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_val_i), line:37:23, endln:37:36
           |vpiParent:
@@ -3257,6 +3331,8 @@ design: (work@dut)
             \_port: (counter_val_i), line:37:23, endln:37:36
             |vpiName:counter_val_i
             |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_val_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_val_i), line:37:23, endln:37:36
             |vpiIndex:
             \_constant: , line:19:64, endln:19:65
               |vpiParent:
@@ -3295,6 +3371,8 @@ design: (work@dut)
                 |vpiSize:64
                 |UINT:0
                 |vpiConstType:9
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_val_o), line:38:23, endln:38:36
           |vpiParent:
@@ -3307,6 +3385,8 @@ design: (work@dut)
             \_port: (counter_val_o), line:38:23, endln:38:36
             |vpiName:counter_val_o
             |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_val_o
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_val_o), line:38:23, endln:38:36
             |vpiIndex:
             \_constant: , line:20:64, endln:20:65
               |vpiParent:
@@ -3345,10 +3425,550 @@ design: (work@dut)
                 |vpiSize:64
                 |UINT:0
                 |vpiConstType:9
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiProcess:
         \_always: , line:48:3, endln:70:6
+          |vpiParent:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          |vpiStmt:
+          \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+            |vpiParent:
+            \_always: , line:48:3, endln:70:6
+            |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+            |vpiStmt:
+            \_assignment: , line:51:5, endln:51:38
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_operation: , line:51:10, endln:51:38
+                |vpiParent:
+                \_assignment: , line:51:5, endln:51:38
+                |vpiOpType:29
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_we_i), line:51:10, endln:51:22
+                  |vpiParent:
+                  \_operation: , line:51:10, endln:51:38
+                  |vpiName:counter_we_i
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_we_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_we_i), line:36:23, endln:36:35
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counterh_we_i), line:51:25, endln:51:38
+                  |vpiParent:
+                  \_operation: , line:51:10, endln:51:38
+                  |vpiName:counterh_we_i
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counterh_we_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
+              |vpiLhs:
+              \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.we), line:51:5, endln:51:7
+                |vpiParent:
+                \_assignment: , line:51:5, endln:51:38
+                |vpiName:we
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.we
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.we), line:44:28, endln:44:30
+            |vpiStmt:
+            \_assignment: , line:52:5, endln:52:41
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.counter), line:52:27, endln:52:41
+                |vpiParent:
+                \_assignment: , line:52:5, endln:52:41
+                |vpiName:counter
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter
+                |vpiDefName:counter
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:52:35, endln:52:37
+                |vpiRightRange:
+                \_constant: , line:52:38, endln:52:40
+              |vpiLhs:
+              \_part_select: counter_load (work@dut.gen_modules[0].module_in_genscope.counter_load), line:52:5, endln:52:24
+                |vpiParent:
+                \_assignment: , line:52:5, endln:52:41
+                |vpiName:counter_load
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load
+                |vpiDefName:counter_load
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_load), line:43:28, endln:43:40
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:52:18, endln:52:20
+                |vpiRightRange:
+                \_constant: , line:52:21, endln:52:23
+            |vpiStmt:
+            \_assignment: , line:53:5, endln:53:40
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_val_i), line:53:27, endln:53:40
+                |vpiParent:
+                \_assignment: , line:53:5, endln:53:40
+                |vpiName:counter_val_i
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_val_i
+                |vpiActual:
+                \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_val_i), line:37:23, endln:37:36
+              |vpiLhs:
+              \_part_select: counter_load (work@dut.gen_modules[0].module_in_genscope.counter_load), line:53:5, endln:53:23
+                |vpiParent:
+                \_assignment: , line:53:5, endln:53:40
+                |vpiName:counter_load
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load
+                |vpiDefName:counter_load
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_load), line:43:28, endln:43:40
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:53:18, endln:53:20
+                |vpiRightRange:
+                \_constant: , line:53:21, endln:53:22
+            |vpiStmt:
+            \_if_stmt: , line:54:5, endln:57:8
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+              |vpiCondition:
+              \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counterh_we_i), line:54:9, endln:54:22
+                |vpiParent:
+                \_if_stmt: , line:54:5, endln:57:8
+                |vpiName:counterh_we_i
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counterh_we_i
+                |vpiActual:
+                \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
+              |vpiStmt:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:54:24, endln:57:8
+                |vpiParent:
+                \_if_stmt: , line:54:5, endln:57:8
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+                |vpiStmt:
+                \_assignment: , line:55:7, endln:55:42
+                  |vpiParent:
+                  \_begin: (work@dut.gen_modules[0].module_in_genscope), line:54:24, endln:57:8
+                  |vpiOpType:82
+                  |vpiBlocking:1
+                  |vpiRhs:
+                  \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_val_i), line:55:29, endln:55:42
+                    |vpiParent:
+                    \_assignment: , line:55:7, endln:55:42
+                    |vpiName:counter_val_i
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_val_i
+                    |vpiActual:
+                    \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_val_i), line:37:23, endln:37:36
+                  |vpiLhs:
+                  \_part_select: counter_load (work@dut.gen_modules[0].module_in_genscope.counter_load), line:55:7, endln:55:26
+                    |vpiParent:
+                    \_assignment: , line:55:7, endln:55:42
+                    |vpiName:counter_load
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load
+                    |vpiDefName:counter_load
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_load), line:43:28, endln:43:40
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:55:20, endln:55:22
+                    |vpiRightRange:
+                    \_constant: , line:55:23, endln:55:25
+                |vpiStmt:
+                \_assignment: , line:56:7, endln:56:42
+                  |vpiParent:
+                  \_begin: (work@dut.gen_modules[0].module_in_genscope), line:54:24, endln:57:8
+                  |vpiOpType:82
+                  |vpiBlocking:1
+                  |vpiRhs:
+                  \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.counter), line:56:29, endln:56:42
+                    |vpiParent:
+                    \_assignment: , line:56:7, endln:56:42
+                    |vpiName:counter
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter
+                    |vpiDefName:counter
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:56:37, endln:56:39
+                    |vpiRightRange:
+                    \_constant: , line:56:40, endln:56:41
+                  |vpiLhs:
+                  \_part_select: counter_load (work@dut.gen_modules[0].module_in_genscope.counter_load), line:56:7, endln:56:25
+                    |vpiParent:
+                    \_assignment: , line:56:7, endln:56:42
+                    |vpiName:counter_load
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load
+                    |vpiDefName:counter_load
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_load), line:43:28, endln:43:40
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:56:20, endln:56:22
+                    |vpiRightRange:
+                    \_constant: , line:56:23, endln:56:24
+            |vpiStmt:
+            \_assignment: , line:60:5, endln:60:76
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_operation: , line:60:19, endln:60:76
+                |vpiParent:
+                \_assignment: , line:60:5, endln:60:76
+                |vpiOpType:24
+                |vpiOperand:
+                \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.counter), line:60:19, endln:60:44
+                  |vpiParent:
+                  \_operation: , line:60:19, endln:60:76
+                  |vpiName:counter
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter
+                  |vpiDefName:counter
+                  |vpiActual:
+                  \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
+                  |vpiConstantSelect:1
+                  |vpiLeftRange:
+                  \_operation: , line:60:27, endln:60:41
+                    |vpiParent:
+                    \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.counter), line:60:19, endln:60:44
+                    |vpiOpType:11
+                    |vpiOperand:
+                    \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter.CounterWidth), line:60:27, endln:60:39
+                      |vpiParent:
+                      \_operation: , line:60:27, endln:60:41
+                      |vpiName:CounterWidth
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter.CounterWidth
+                      |vpiActual:
+                      \_parameter: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                    |vpiOperand:
+                    \_constant: , line:60:40, endln:60:41
+                  |vpiRightRange:
+                  \_constant: , line:60:42, endln:60:43
+                |vpiOperand:
+                \_operation: , line:60:47, endln:60:76
+                  |vpiParent:
+                  \_operation: , line:60:19, endln:60:76
+                  |vpiOpType:33
+                  |vpiOperand:
+                  \_operation: , line:60:48, endln:60:70
+                    |vpiParent:
+                    \_operation: , line:60:47, endln:60:76
+                    |vpiOpType:34
+                    |vpiOperand:
+                    \_operation: , line:60:49, endln:60:63
+                      |vpiParent:
+                      \_operation: , line:60:48, endln:60:70
+                      |vpiOpType:11
+                      |vpiOperand:
+                      \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:60:49, endln:60:61
+                        |vpiParent:
+                        \_operation: , line:60:49, endln:60:63
+                        |vpiName:CounterWidth
+                        |vpiFullName:work@dut.gen_modules[0].module_in_genscope.CounterWidth
+                        |vpiActual:
+                        \_parameter: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                      |vpiOperand:
+                      \_constant: , line:60:62, endln:60:63
+                    |vpiOperand:
+                    \_operation: , line:60:63, endln:60:69
+                      |vpiParent:
+                      \_operation: , line:60:48, endln:60:70
+                      |vpiOpType:33
+                      |vpiOperand:
+                      \_constant: , line:60:64, endln:60:68
+                  |vpiOperand:
+                  \_constant: , line:60:71, endln:60:75
+              |vpiLhs:
+              \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_upd), line:60:5, endln:60:16
+                |vpiParent:
+                \_assignment: , line:60:5, endln:60:76
+                |vpiName:counter_upd
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_upd
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_upd), line:42:28, endln:42:39
+            |vpiStmt:
+            \_if_else: , line:63:5, endln:69:8
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:48:15, endln:70:6
+              |vpiCondition:
+              \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.we), line:63:9, endln:63:11
+                |vpiParent:
+                \_if_else: , line:63:5, endln:69:8
+                |vpiName:we
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope.we
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.we), line:44:28, endln:44:30
+              |vpiStmt:
+              \_begin: (work@dut.gen_modules[0].module_in_genscope), line:63:13, endln:65:8
+                |vpiParent:
+                \_if_else: , line:63:5, endln:69:8
+                |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+                |vpiStmt:
+                \_assignment: , line:64:7, endln:64:49
+                  |vpiParent:
+                  \_begin: (work@dut.gen_modules[0].module_in_genscope), line:63:13, endln:65:8
+                  |vpiOpType:82
+                  |vpiBlocking:1
+                  |vpiRhs:
+                  \_part_select: counter_load (work@dut.gen_modules[0].module_in_genscope.counter_load), line:64:19, endln:64:49
+                    |vpiParent:
+                    \_assignment: , line:64:7, endln:64:49
+                    |vpiName:counter_load
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load
+                    |vpiDefName:counter_load
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_load), line:43:28, endln:43:40
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_operation: , line:64:32, endln:64:46
+                      |vpiParent:
+                      \_part_select: counter_load (work@dut.gen_modules[0].module_in_genscope.counter_load), line:64:19, endln:64:49
+                      |vpiOpType:11
+                      |vpiOperand:
+                      \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_load.CounterWidth), line:64:32, endln:64:44
+                        |vpiParent:
+                        \_operation: , line:64:32, endln:64:46
+                        |vpiName:CounterWidth
+                        |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_load.CounterWidth
+                        |vpiActual:
+                        \_parameter: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                      |vpiOperand:
+                      \_constant: , line:64:45, endln:64:46
+                    |vpiRightRange:
+                    \_constant: , line:64:47, endln:64:48
+                  |vpiLhs:
+                  \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:64:7, endln:64:16
+                    |vpiParent:
+                    \_assignment: , line:64:7, endln:64:49
+                    |vpiName:counter_d
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_d
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:45:28, endln:45:37
+              |vpiElseStmt:
+              \_if_else: , line:65:14, endln:69:8
+                |vpiParent:
+                \_if_else: , line:63:5, endln:69:8
+                |vpiCondition:
+                \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_inc_i), line:65:18, endln:65:31
+                  |vpiParent:
+                  \_if_else: , line:65:14, endln:69:8
+                  |vpiName:counter_inc_i
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_inc_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_inc_i), line:34:23, endln:34:36
+                |vpiStmt:
+                \_begin: (work@dut.gen_modules[0].module_in_genscope), line:65:32, endln:67:8
+                  |vpiParent:
+                  \_if_else: , line:65:14, endln:69:8
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:66:7, endln:66:48
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[0].module_in_genscope), line:65:32, endln:67:8
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_part_select: counter_upd (work@dut.gen_modules[0].module_in_genscope.counter_upd), line:66:19, endln:66:48
+                      |vpiParent:
+                      \_assignment: , line:66:7, endln:66:48
+                      |vpiName:counter_upd
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_upd
+                      |vpiDefName:counter_upd
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_upd), line:42:28, endln:42:39
+                      |vpiConstantSelect:1
+                      |vpiLeftRange:
+                      \_operation: , line:66:31, endln:66:45
+                        |vpiParent:
+                        \_part_select: counter_upd (work@dut.gen_modules[0].module_in_genscope.counter_upd), line:66:19, endln:66:48
+                        |vpiOpType:11
+                        |vpiOperand:
+                        \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_upd.CounterWidth), line:66:31, endln:66:43
+                          |vpiParent:
+                          \_operation: , line:66:31, endln:66:45
+                          |vpiName:CounterWidth
+                          |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_upd.CounterWidth
+                          |vpiActual:
+                          \_parameter: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                        |vpiOperand:
+                        \_constant: , line:66:44, endln:66:45
+                      |vpiRightRange:
+                      \_constant: , line:66:46, endln:66:47
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:66:7, endln:66:16
+                      |vpiParent:
+                      \_assignment: , line:66:7, endln:66:48
+                      |vpiName:counter_d
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_d
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:45:28, endln:45:37
+                |vpiElseStmt:
+                \_begin: (work@dut.gen_modules[0].module_in_genscope), line:67:14, endln:69:8
+                  |vpiParent:
+                  \_if_else: , line:65:14, endln:69:8
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:68:7, endln:68:44
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[0].module_in_genscope), line:67:14, endln:69:8
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.counter), line:68:19, endln:68:44
+                      |vpiParent:
+                      \_assignment: , line:68:7, endln:68:44
+                      |vpiName:counter
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter
+                      |vpiDefName:counter
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
+                      |vpiConstantSelect:1
+                      |vpiLeftRange:
+                      \_operation: , line:68:27, endln:68:41
+                        |vpiParent:
+                        \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.counter), line:68:19, endln:68:44
+                        |vpiOpType:11
+                        |vpiOperand:
+                        \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter.CounterWidth), line:68:27, endln:68:39
+                          |vpiParent:
+                          \_operation: , line:68:27, endln:68:41
+                          |vpiName:CounterWidth
+                          |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter.CounterWidth
+                          |vpiActual:
+                          \_parameter: (work@dut.gen_modules[0].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                        |vpiOperand:
+                        \_constant: , line:68:40, endln:68:41
+                      |vpiRightRange:
+                      \_constant: , line:68:42, endln:68:43
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:68:7, endln:68:16
+                      |vpiParent:
+                      \_assignment: , line:68:7, endln:68:44
+                      |vpiName:counter_d
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_d
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:45:28, endln:45:37
+          |vpiAlwaysType:2
         |vpiProcess:
         \_always: , line:86:3, endln:92:6
+          |vpiParent:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          |vpiStmt:
+          \_event_control: , line:86:13, endln:86:47
+            |vpiParent:
+            \_always: , line:86:3, endln:92:6
+            |vpiCondition:
+            \_operation: , line:86:15, endln:86:46
+              |vpiParent:
+              \_event_control: , line:86:13, endln:86:47
+              |vpiOpType:35
+              |vpiOperand:
+              \_operation: , line:86:15, endln:86:28
+                |vpiParent:
+                \_operation: , line:86:15, endln:86:46
+                |vpiOpType:39
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.clk_i), line:86:23, endln:86:28
+                  |vpiParent:
+                  \_operation: , line:86:15, endln:86:28
+                  |vpiName:clk_i
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope.clk_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[0].module_in_genscope.clk_i), line:31:23, endln:31:28
+              |vpiOperand:
+              \_operation: , line:86:32, endln:86:46
+                |vpiParent:
+                \_operation: , line:86:15, endln:86:46
+                |vpiOpType:40
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.rst_ni), line:86:40, endln:86:46
+                  |vpiParent:
+                  \_operation: , line:86:32, endln:86:46
+                  |vpiName:rst_ni
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope.rst_ni
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[0].module_in_genscope.rst_ni), line:32:23, endln:32:29
+            |vpiStmt:
+            \_begin: (work@dut.gen_modules[0].module_in_genscope), line:86:48, endln:92:6
+              |vpiParent:
+              \_event_control: , line:86:13, endln:86:47
+              |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+              |vpiStmt:
+              \_if_else: , line:87:5, endln:91:8
+                |vpiParent:
+                \_begin: (work@dut.gen_modules[0].module_in_genscope), line:86:48, endln:92:6
+                |vpiCondition:
+                \_operation: , line:87:9, endln:87:16
+                  |vpiParent:
+                  \_if_else: , line:87:5, endln:91:8
+                  |vpiOpType:3
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.rst_ni), line:87:10, endln:87:16
+                    |vpiParent:
+                    \_operation: , line:87:9, endln:87:16
+                    |vpiName:rst_ni
+                    |vpiFullName:work@dut.gen_modules[0].module_in_genscope.rst_ni
+                    |vpiActual:
+                    \_logic_net: (work@dut.gen_modules[0].module_in_genscope.rst_ni), line:32:23, endln:32:29
+                |vpiStmt:
+                \_begin: (work@dut.gen_modules[0].module_in_genscope), line:87:18, endln:89:8
+                  |vpiParent:
+                  \_if_else: , line:87:5, endln:91:8
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:88:7, endln:88:22
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[0].module_in_genscope), line:87:18, endln:89:8
+                    |vpiOpType:82
+                    |vpiRhs:
+                    \_constant: , line:88:20, endln:88:22
+                      |vpiParent:
+                      \_assignment: , line:88:7, endln:88:22
+                      |vpiDecompile:'0
+                      |vpiSize:-1
+                      |BIN:0
+                      |vpiConstType:3
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_q), line:88:7, endln:88:16
+                      |vpiParent:
+                      \_assignment: , line:88:7, endln:88:22
+                      |vpiName:counter_q
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_q
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_q), line:80:28, endln:80:37
+                |vpiElseStmt:
+                \_begin: (work@dut.gen_modules[0].module_in_genscope), line:89:14, endln:91:8
+                  |vpiParent:
+                  \_if_else: , line:87:5, endln:91:8
+                  |vpiFullName:work@dut.gen_modules[0].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:90:7, endln:90:29
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[0].module_in_genscope), line:89:14, endln:91:8
+                    |vpiOpType:82
+                    |vpiRhs:
+                    \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:90:20, endln:90:29
+                      |vpiParent:
+                      \_assignment: , line:90:7, endln:90:29
+                      |vpiName:counter_d
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_d
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_d), line:45:28, endln:45:37
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_q), line:90:7, endln:90:16
+                      |vpiParent:
+                      \_assignment: , line:90:7, endln:90:29
+                      |vpiName:counter_q
+                      |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_q
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_q), line:80:28, endln:80:37
+          |vpiAlwaysType:3
         |vpiGenScopeArray:
         \_gen_scope_array: (work@dut.gen_modules[0].module_in_genscope.g_counter_narrow), line:94:3, endln:102:6
           |vpiParent:
@@ -3421,6 +4041,8 @@ design: (work@dut)
                 \_cont_assign: , line:97:12, endln:97:49
                 |vpiName:counter_q
                 |vpiFullName:work@dut.gen_modules[0].module_in_genscope.g_counter_narrow.counter_q
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_q), line:80:28, endln:80:37
               |vpiLhs:
               \_part_select: counter (work@dut.gen_modules[0].module_in_genscope.g_counter_narrow.counter), line:97:12, endln:97:37
                 |vpiParent:
@@ -3428,6 +4050,8 @@ design: (work@dut)
                 |vpiName:counter
                 |vpiFullName:work@dut.gen_modules[0].module_in_genscope.g_counter_narrow.counter
                 |vpiDefName:counter
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
                 |vpiConstantSelect:1
                 |vpiLeftRange:
                 \_operation: , line:97:20, endln:97:34
@@ -3480,6 +4104,8 @@ design: (work@dut)
                 |vpiName:counter
                 |vpiFullName:work@dut.gen_modules[0].module_in_genscope.g_counter_narrow.counter
                 |vpiDefName:counter
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
                 |vpiConstantSelect:1
                 |vpiLeftRange:
                 \_constant: , line:98:20, endln:98:22
@@ -3513,6 +4139,8 @@ design: (work@dut)
                 |vpiName:counter_load
                 |vpiFullName:work@dut.gen_modules[0].module_in_genscope.g_counter_narrow.counter_load
                 |vpiDefName:counter_load
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter_load), line:43:28, endln:43:40
                 |vpiConstantSelect:1
                 |vpiLeftRange:
                 \_constant: , line:99:53, endln:99:55
@@ -3543,6 +4171,24 @@ design: (work@dut)
                 \_logic_var: (work@dut.gen_modules[0].module_in_genscope.g_counter_narrow.unused_counter_load), line:95:29, endln:95:48
         |vpiContAssign:
         \_cont_assign: , line:104:10, endln:104:33
+          |vpiParent:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[0].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          |vpiRhs:
+          \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter), line:104:26, endln:104:33
+            |vpiParent:
+            \_cont_assign: , line:104:10, endln:104:33
+            |vpiName:counter
+            |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter
+            |vpiActual:
+            \_logic_var: (work@dut.gen_modules[0].module_in_genscope.counter), line:41:28, endln:41:35
+          |vpiLhs:
+          \_ref_obj: (work@dut.gen_modules[0].module_in_genscope.counter_val_o), line:104:10, endln:104:23
+            |vpiParent:
+            \_cont_assign: , line:104:10, endln:104:33
+            |vpiName:counter_val_o
+            |vpiFullName:work@dut.gen_modules[0].module_in_genscope.counter_val_o
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[0].module_in_genscope.counter_val_o), line:38:23, endln:38:36
   |vpiGenScopeArray:
   \_gen_scope_array: (work@dut.gen_modules[1]), line:12:41, endln:22:4
     |vpiParent:
@@ -3601,6 +4247,8 @@ design: (work@dut)
           |vpiName:counter
           |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:41:9, endln:41:15
             |vpiParent:
@@ -3652,6 +4300,8 @@ design: (work@dut)
           |vpiName:counter_upd
           |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_upd
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:42:9, endln:42:27
             |vpiParent:
@@ -3703,6 +4353,8 @@ design: (work@dut)
           |vpiName:counter_load
           |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:43:9, endln:43:15
             |vpiParent:
@@ -3734,6 +4386,8 @@ design: (work@dut)
           |vpiName:we
           |vpiFullName:work@dut.gen_modules[1].module_in_genscope.we
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiVariables:
         \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:45:28, endln:45:37
           |vpiParent:
@@ -3765,6 +4419,8 @@ design: (work@dut)
           |vpiName:counter_d
           |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_d
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:45:9, endln:45:27
             |vpiParent:
@@ -3816,6 +4472,8 @@ design: (work@dut)
           |vpiName:counter_q
           |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_q
           |vpiVisibility:1
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
           |vpiRange:
           \_range: , line:80:9, endln:80:27
             |vpiParent:
@@ -3839,7 +4497,7 @@ design: (work@dut)
         |vpiParameter:
         \_parameter: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:29:17, endln:29:29
           |vpiParent:
-          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          \_param_assign: , line:29:17, endln:29:34
           |UINT:32
           |vpiTypespec:
           \_int_typespec: , line:29:13, endln:29:16
@@ -4008,6 +4666,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[1].module_in_genscope.clk_i), line:31:23, endln:31:28
           |vpiTypedef:
           \_logic_typespec: , line:31:10, endln:31:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (rst_ni), line:32:23, endln:32:29
           |vpiParent:
@@ -4032,6 +4692,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[1].module_in_genscope.rst_ni), line:32:23, endln:32:29
           |vpiTypedef:
           \_logic_typespec: , line:32:10, endln:32:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_inc_i), line:34:23, endln:34:36
           |vpiParent:
@@ -4044,6 +4706,8 @@ design: (work@dut)
             \_port: (counter_inc_i), line:34:23, endln:34:36
             |vpiName:counter_inc_i
             |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_inc_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_inc_i), line:34:23, endln:34:36
             |vpiIndex:
             \_constant: , line:16:64, endln:16:65
               |vpiParent:
@@ -4062,6 +4726,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_inc_i), line:34:23, endln:34:36
           |vpiTypedef:
           \_logic_typespec: , line:34:10, endln:34:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counterh_we_i), line:35:23, endln:35:36
           |vpiParent:
@@ -4074,6 +4740,8 @@ design: (work@dut)
             \_port: (counterh_we_i), line:35:23, endln:35:36
             |vpiName:counterh_we_i
             |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counterh_we_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
             |vpiIndex:
             \_constant: , line:17:64, endln:17:65
               |vpiParent:
@@ -4092,6 +4760,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
           |vpiTypedef:
           \_logic_typespec: , line:35:10, endln:35:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_we_i), line:36:23, endln:36:35
           |vpiParent:
@@ -4104,6 +4774,8 @@ design: (work@dut)
             \_port: (counter_we_i), line:36:23, endln:36:35
             |vpiName:counter_we_i
             |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_we_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_we_i), line:36:23, endln:36:35
             |vpiIndex:
             \_constant: , line:18:62, endln:18:63
               |vpiParent:
@@ -4122,6 +4794,8 @@ design: (work@dut)
             \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_we_i), line:36:23, endln:36:35
           |vpiTypedef:
           \_logic_typespec: , line:36:10, endln:36:15
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_val_i), line:37:23, endln:37:36
           |vpiParent:
@@ -4134,6 +4808,8 @@ design: (work@dut)
             \_port: (counter_val_i), line:37:23, endln:37:36
             |vpiName:counter_val_i
             |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_val_i
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_val_i), line:37:23, endln:37:36
             |vpiIndex:
             \_constant: , line:19:64, endln:19:65
               |vpiParent:
@@ -4172,6 +4848,8 @@ design: (work@dut)
                 |vpiSize:64
                 |UINT:0
                 |vpiConstType:9
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiPort:
         \_port: (counter_val_o), line:38:23, endln:38:36
           |vpiParent:
@@ -4184,6 +4862,8 @@ design: (work@dut)
             \_port: (counter_val_o), line:38:23, endln:38:36
             |vpiName:counter_val_o
             |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_val_o
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_val_o), line:38:23, endln:38:36
             |vpiIndex:
             \_constant: , line:20:64, endln:20:65
               |vpiParent:
@@ -4222,10 +4902,550 @@ design: (work@dut)
                 |vpiSize:64
                 |UINT:0
                 |vpiConstType:9
+          |vpiInstance:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
         |vpiProcess:
         \_always: , line:48:3, endln:70:6
+          |vpiParent:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          |vpiStmt:
+          \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+            |vpiParent:
+            \_always: , line:48:3, endln:70:6
+            |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+            |vpiStmt:
+            \_assignment: , line:51:5, endln:51:38
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_operation: , line:51:10, endln:51:38
+                |vpiParent:
+                \_assignment: , line:51:5, endln:51:38
+                |vpiOpType:29
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_we_i), line:51:10, endln:51:22
+                  |vpiParent:
+                  \_operation: , line:51:10, endln:51:38
+                  |vpiName:counter_we_i
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_we_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_we_i), line:36:23, endln:36:35
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counterh_we_i), line:51:25, endln:51:38
+                  |vpiParent:
+                  \_operation: , line:51:10, endln:51:38
+                  |vpiName:counterh_we_i
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counterh_we_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
+              |vpiLhs:
+              \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.we), line:51:5, endln:51:7
+                |vpiParent:
+                \_assignment: , line:51:5, endln:51:38
+                |vpiName:we
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.we
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.we), line:44:28, endln:44:30
+            |vpiStmt:
+            \_assignment: , line:52:5, endln:52:41
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.counter), line:52:27, endln:52:41
+                |vpiParent:
+                \_assignment: , line:52:5, endln:52:41
+                |vpiName:counter
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter
+                |vpiDefName:counter
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:52:35, endln:52:37
+                |vpiRightRange:
+                \_constant: , line:52:38, endln:52:40
+              |vpiLhs:
+              \_part_select: counter_load (work@dut.gen_modules[1].module_in_genscope.counter_load), line:52:5, endln:52:24
+                |vpiParent:
+                \_assignment: , line:52:5, endln:52:41
+                |vpiName:counter_load
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load
+                |vpiDefName:counter_load
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_load), line:43:28, endln:43:40
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:52:18, endln:52:20
+                |vpiRightRange:
+                \_constant: , line:52:21, endln:52:23
+            |vpiStmt:
+            \_assignment: , line:53:5, endln:53:40
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_val_i), line:53:27, endln:53:40
+                |vpiParent:
+                \_assignment: , line:53:5, endln:53:40
+                |vpiName:counter_val_i
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_val_i
+                |vpiActual:
+                \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_val_i), line:37:23, endln:37:36
+              |vpiLhs:
+              \_part_select: counter_load (work@dut.gen_modules[1].module_in_genscope.counter_load), line:53:5, endln:53:23
+                |vpiParent:
+                \_assignment: , line:53:5, endln:53:40
+                |vpiName:counter_load
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load
+                |vpiDefName:counter_load
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_load), line:43:28, endln:43:40
+                |vpiConstantSelect:1
+                |vpiLeftRange:
+                \_constant: , line:53:18, endln:53:20
+                |vpiRightRange:
+                \_constant: , line:53:21, endln:53:22
+            |vpiStmt:
+            \_if_stmt: , line:54:5, endln:57:8
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+              |vpiCondition:
+              \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counterh_we_i), line:54:9, endln:54:22
+                |vpiParent:
+                \_if_stmt: , line:54:5, endln:57:8
+                |vpiName:counterh_we_i
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counterh_we_i
+                |vpiActual:
+                \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counterh_we_i), line:35:23, endln:35:36
+              |vpiStmt:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:54:24, endln:57:8
+                |vpiParent:
+                \_if_stmt: , line:54:5, endln:57:8
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+                |vpiStmt:
+                \_assignment: , line:55:7, endln:55:42
+                  |vpiParent:
+                  \_begin: (work@dut.gen_modules[1].module_in_genscope), line:54:24, endln:57:8
+                  |vpiOpType:82
+                  |vpiBlocking:1
+                  |vpiRhs:
+                  \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_val_i), line:55:29, endln:55:42
+                    |vpiParent:
+                    \_assignment: , line:55:7, endln:55:42
+                    |vpiName:counter_val_i
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_val_i
+                    |vpiActual:
+                    \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_val_i), line:37:23, endln:37:36
+                  |vpiLhs:
+                  \_part_select: counter_load (work@dut.gen_modules[1].module_in_genscope.counter_load), line:55:7, endln:55:26
+                    |vpiParent:
+                    \_assignment: , line:55:7, endln:55:42
+                    |vpiName:counter_load
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load
+                    |vpiDefName:counter_load
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_load), line:43:28, endln:43:40
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:55:20, endln:55:22
+                    |vpiRightRange:
+                    \_constant: , line:55:23, endln:55:25
+                |vpiStmt:
+                \_assignment: , line:56:7, endln:56:42
+                  |vpiParent:
+                  \_begin: (work@dut.gen_modules[1].module_in_genscope), line:54:24, endln:57:8
+                  |vpiOpType:82
+                  |vpiBlocking:1
+                  |vpiRhs:
+                  \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.counter), line:56:29, endln:56:42
+                    |vpiParent:
+                    \_assignment: , line:56:7, endln:56:42
+                    |vpiName:counter
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter
+                    |vpiDefName:counter
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:56:37, endln:56:39
+                    |vpiRightRange:
+                    \_constant: , line:56:40, endln:56:41
+                  |vpiLhs:
+                  \_part_select: counter_load (work@dut.gen_modules[1].module_in_genscope.counter_load), line:56:7, endln:56:25
+                    |vpiParent:
+                    \_assignment: , line:56:7, endln:56:42
+                    |vpiName:counter_load
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load
+                    |vpiDefName:counter_load
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_load), line:43:28, endln:43:40
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_constant: , line:56:20, endln:56:22
+                    |vpiRightRange:
+                    \_constant: , line:56:23, endln:56:24
+            |vpiStmt:
+            \_assignment: , line:60:5, endln:60:76
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+              |vpiOpType:82
+              |vpiBlocking:1
+              |vpiRhs:
+              \_operation: , line:60:19, endln:60:76
+                |vpiParent:
+                \_assignment: , line:60:5, endln:60:76
+                |vpiOpType:24
+                |vpiOperand:
+                \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.counter), line:60:19, endln:60:44
+                  |vpiParent:
+                  \_operation: , line:60:19, endln:60:76
+                  |vpiName:counter
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter
+                  |vpiDefName:counter
+                  |vpiActual:
+                  \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
+                  |vpiConstantSelect:1
+                  |vpiLeftRange:
+                  \_operation: , line:60:27, endln:60:41
+                    |vpiParent:
+                    \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.counter), line:60:19, endln:60:44
+                    |vpiOpType:11
+                    |vpiOperand:
+                    \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter.CounterWidth), line:60:27, endln:60:39
+                      |vpiParent:
+                      \_operation: , line:60:27, endln:60:41
+                      |vpiName:CounterWidth
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter.CounterWidth
+                      |vpiActual:
+                      \_parameter: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                    |vpiOperand:
+                    \_constant: , line:60:40, endln:60:41
+                  |vpiRightRange:
+                  \_constant: , line:60:42, endln:60:43
+                |vpiOperand:
+                \_operation: , line:60:47, endln:60:76
+                  |vpiParent:
+                  \_operation: , line:60:19, endln:60:76
+                  |vpiOpType:33
+                  |vpiOperand:
+                  \_operation: , line:60:48, endln:60:70
+                    |vpiParent:
+                    \_operation: , line:60:47, endln:60:76
+                    |vpiOpType:34
+                    |vpiOperand:
+                    \_operation: , line:60:49, endln:60:63
+                      |vpiParent:
+                      \_operation: , line:60:48, endln:60:70
+                      |vpiOpType:11
+                      |vpiOperand:
+                      \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:60:49, endln:60:61
+                        |vpiParent:
+                        \_operation: , line:60:49, endln:60:63
+                        |vpiName:CounterWidth
+                        |vpiFullName:work@dut.gen_modules[1].module_in_genscope.CounterWidth
+                        |vpiActual:
+                        \_parameter: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                      |vpiOperand:
+                      \_constant: , line:60:62, endln:60:63
+                    |vpiOperand:
+                    \_operation: , line:60:63, endln:60:69
+                      |vpiParent:
+                      \_operation: , line:60:48, endln:60:70
+                      |vpiOpType:33
+                      |vpiOperand:
+                      \_constant: , line:60:64, endln:60:68
+                  |vpiOperand:
+                  \_constant: , line:60:71, endln:60:75
+              |vpiLhs:
+              \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_upd), line:60:5, endln:60:16
+                |vpiParent:
+                \_assignment: , line:60:5, endln:60:76
+                |vpiName:counter_upd
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_upd
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_upd), line:42:28, endln:42:39
+            |vpiStmt:
+            \_if_else: , line:63:5, endln:69:8
+              |vpiParent:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:48:15, endln:70:6
+              |vpiCondition:
+              \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.we), line:63:9, endln:63:11
+                |vpiParent:
+                \_if_else: , line:63:5, endln:69:8
+                |vpiName:we
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope.we
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.we), line:44:28, endln:44:30
+              |vpiStmt:
+              \_begin: (work@dut.gen_modules[1].module_in_genscope), line:63:13, endln:65:8
+                |vpiParent:
+                \_if_else: , line:63:5, endln:69:8
+                |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+                |vpiStmt:
+                \_assignment: , line:64:7, endln:64:49
+                  |vpiParent:
+                  \_begin: (work@dut.gen_modules[1].module_in_genscope), line:63:13, endln:65:8
+                  |vpiOpType:82
+                  |vpiBlocking:1
+                  |vpiRhs:
+                  \_part_select: counter_load (work@dut.gen_modules[1].module_in_genscope.counter_load), line:64:19, endln:64:49
+                    |vpiParent:
+                    \_assignment: , line:64:7, endln:64:49
+                    |vpiName:counter_load
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load
+                    |vpiDefName:counter_load
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_load), line:43:28, endln:43:40
+                    |vpiConstantSelect:1
+                    |vpiLeftRange:
+                    \_operation: , line:64:32, endln:64:46
+                      |vpiParent:
+                      \_part_select: counter_load (work@dut.gen_modules[1].module_in_genscope.counter_load), line:64:19, endln:64:49
+                      |vpiOpType:11
+                      |vpiOperand:
+                      \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_load.CounterWidth), line:64:32, endln:64:44
+                        |vpiParent:
+                        \_operation: , line:64:32, endln:64:46
+                        |vpiName:CounterWidth
+                        |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_load.CounterWidth
+                        |vpiActual:
+                        \_parameter: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                      |vpiOperand:
+                      \_constant: , line:64:45, endln:64:46
+                    |vpiRightRange:
+                    \_constant: , line:64:47, endln:64:48
+                  |vpiLhs:
+                  \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:64:7, endln:64:16
+                    |vpiParent:
+                    \_assignment: , line:64:7, endln:64:49
+                    |vpiName:counter_d
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_d
+                    |vpiActual:
+                    \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:45:28, endln:45:37
+              |vpiElseStmt:
+              \_if_else: , line:65:14, endln:69:8
+                |vpiParent:
+                \_if_else: , line:63:5, endln:69:8
+                |vpiCondition:
+                \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_inc_i), line:65:18, endln:65:31
+                  |vpiParent:
+                  \_if_else: , line:65:14, endln:69:8
+                  |vpiName:counter_inc_i
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_inc_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_inc_i), line:34:23, endln:34:36
+                |vpiStmt:
+                \_begin: (work@dut.gen_modules[1].module_in_genscope), line:65:32, endln:67:8
+                  |vpiParent:
+                  \_if_else: , line:65:14, endln:69:8
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:66:7, endln:66:48
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[1].module_in_genscope), line:65:32, endln:67:8
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_part_select: counter_upd (work@dut.gen_modules[1].module_in_genscope.counter_upd), line:66:19, endln:66:48
+                      |vpiParent:
+                      \_assignment: , line:66:7, endln:66:48
+                      |vpiName:counter_upd
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_upd
+                      |vpiDefName:counter_upd
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_upd), line:42:28, endln:42:39
+                      |vpiConstantSelect:1
+                      |vpiLeftRange:
+                      \_operation: , line:66:31, endln:66:45
+                        |vpiParent:
+                        \_part_select: counter_upd (work@dut.gen_modules[1].module_in_genscope.counter_upd), line:66:19, endln:66:48
+                        |vpiOpType:11
+                        |vpiOperand:
+                        \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_upd.CounterWidth), line:66:31, endln:66:43
+                          |vpiParent:
+                          \_operation: , line:66:31, endln:66:45
+                          |vpiName:CounterWidth
+                          |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_upd.CounterWidth
+                          |vpiActual:
+                          \_parameter: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                        |vpiOperand:
+                        \_constant: , line:66:44, endln:66:45
+                      |vpiRightRange:
+                      \_constant: , line:66:46, endln:66:47
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:66:7, endln:66:16
+                      |vpiParent:
+                      \_assignment: , line:66:7, endln:66:48
+                      |vpiName:counter_d
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_d
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:45:28, endln:45:37
+                |vpiElseStmt:
+                \_begin: (work@dut.gen_modules[1].module_in_genscope), line:67:14, endln:69:8
+                  |vpiParent:
+                  \_if_else: , line:65:14, endln:69:8
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:68:7, endln:68:44
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[1].module_in_genscope), line:67:14, endln:69:8
+                    |vpiOpType:82
+                    |vpiBlocking:1
+                    |vpiRhs:
+                    \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.counter), line:68:19, endln:68:44
+                      |vpiParent:
+                      \_assignment: , line:68:7, endln:68:44
+                      |vpiName:counter
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter
+                      |vpiDefName:counter
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
+                      |vpiConstantSelect:1
+                      |vpiLeftRange:
+                      \_operation: , line:68:27, endln:68:41
+                        |vpiParent:
+                        \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.counter), line:68:19, endln:68:44
+                        |vpiOpType:11
+                        |vpiOperand:
+                        \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter.CounterWidth), line:68:27, endln:68:39
+                          |vpiParent:
+                          \_operation: , line:68:27, endln:68:41
+                          |vpiName:CounterWidth
+                          |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter.CounterWidth
+                          |vpiActual:
+                          \_parameter: (work@dut.gen_modules[1].module_in_genscope.CounterWidth), line:29:17, endln:29:29
+                        |vpiOperand:
+                        \_constant: , line:68:40, endln:68:41
+                      |vpiRightRange:
+                      \_constant: , line:68:42, endln:68:43
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:68:7, endln:68:16
+                      |vpiParent:
+                      \_assignment: , line:68:7, endln:68:44
+                      |vpiName:counter_d
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_d
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:45:28, endln:45:37
+          |vpiAlwaysType:2
         |vpiProcess:
         \_always: , line:86:3, endln:92:6
+          |vpiParent:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          |vpiStmt:
+          \_event_control: , line:86:13, endln:86:47
+            |vpiParent:
+            \_always: , line:86:3, endln:92:6
+            |vpiCondition:
+            \_operation: , line:86:15, endln:86:46
+              |vpiParent:
+              \_event_control: , line:86:13, endln:86:47
+              |vpiOpType:35
+              |vpiOperand:
+              \_operation: , line:86:15, endln:86:28
+                |vpiParent:
+                \_operation: , line:86:15, endln:86:46
+                |vpiOpType:39
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.clk_i), line:86:23, endln:86:28
+                  |vpiParent:
+                  \_operation: , line:86:15, endln:86:28
+                  |vpiName:clk_i
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope.clk_i
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[1].module_in_genscope.clk_i), line:31:23, endln:31:28
+              |vpiOperand:
+              \_operation: , line:86:32, endln:86:46
+                |vpiParent:
+                \_operation: , line:86:15, endln:86:46
+                |vpiOpType:40
+                |vpiOperand:
+                \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.rst_ni), line:86:40, endln:86:46
+                  |vpiParent:
+                  \_operation: , line:86:32, endln:86:46
+                  |vpiName:rst_ni
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope.rst_ni
+                  |vpiActual:
+                  \_logic_net: (work@dut.gen_modules[1].module_in_genscope.rst_ni), line:32:23, endln:32:29
+            |vpiStmt:
+            \_begin: (work@dut.gen_modules[1].module_in_genscope), line:86:48, endln:92:6
+              |vpiParent:
+              \_event_control: , line:86:13, endln:86:47
+              |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+              |vpiStmt:
+              \_if_else: , line:87:5, endln:91:8
+                |vpiParent:
+                \_begin: (work@dut.gen_modules[1].module_in_genscope), line:86:48, endln:92:6
+                |vpiCondition:
+                \_operation: , line:87:9, endln:87:16
+                  |vpiParent:
+                  \_if_else: , line:87:5, endln:91:8
+                  |vpiOpType:3
+                  |vpiOperand:
+                  \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.rst_ni), line:87:10, endln:87:16
+                    |vpiParent:
+                    \_operation: , line:87:9, endln:87:16
+                    |vpiName:rst_ni
+                    |vpiFullName:work@dut.gen_modules[1].module_in_genscope.rst_ni
+                    |vpiActual:
+                    \_logic_net: (work@dut.gen_modules[1].module_in_genscope.rst_ni), line:32:23, endln:32:29
+                |vpiStmt:
+                \_begin: (work@dut.gen_modules[1].module_in_genscope), line:87:18, endln:89:8
+                  |vpiParent:
+                  \_if_else: , line:87:5, endln:91:8
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:88:7, endln:88:22
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[1].module_in_genscope), line:87:18, endln:89:8
+                    |vpiOpType:82
+                    |vpiRhs:
+                    \_constant: , line:88:20, endln:88:22
+                      |vpiParent:
+                      \_assignment: , line:88:7, endln:88:22
+                      |vpiDecompile:'0
+                      |vpiSize:-1
+                      |BIN:0
+                      |vpiConstType:3
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_q), line:88:7, endln:88:16
+                      |vpiParent:
+                      \_assignment: , line:88:7, endln:88:22
+                      |vpiName:counter_q
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_q
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_q), line:80:28, endln:80:37
+                |vpiElseStmt:
+                \_begin: (work@dut.gen_modules[1].module_in_genscope), line:89:14, endln:91:8
+                  |vpiParent:
+                  \_if_else: , line:87:5, endln:91:8
+                  |vpiFullName:work@dut.gen_modules[1].module_in_genscope
+                  |vpiStmt:
+                  \_assignment: , line:90:7, endln:90:29
+                    |vpiParent:
+                    \_begin: (work@dut.gen_modules[1].module_in_genscope), line:89:14, endln:91:8
+                    |vpiOpType:82
+                    |vpiRhs:
+                    \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:90:20, endln:90:29
+                      |vpiParent:
+                      \_assignment: , line:90:7, endln:90:29
+                      |vpiName:counter_d
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_d
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_d), line:45:28, endln:45:37
+                    |vpiLhs:
+                    \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_q), line:90:7, endln:90:16
+                      |vpiParent:
+                      \_assignment: , line:90:7, endln:90:29
+                      |vpiName:counter_q
+                      |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_q
+                      |vpiActual:
+                      \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_q), line:80:28, endln:80:37
+          |vpiAlwaysType:3
         |vpiGenScopeArray:
         \_gen_scope_array: (work@dut.gen_modules[1].module_in_genscope.g_counter_narrow), line:94:3, endln:102:6
           |vpiParent:
@@ -4298,6 +5518,8 @@ design: (work@dut)
                 \_cont_assign: , line:97:12, endln:97:49
                 |vpiName:counter_q
                 |vpiFullName:work@dut.gen_modules[1].module_in_genscope.g_counter_narrow.counter_q
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_q), line:80:28, endln:80:37
               |vpiLhs:
               \_part_select: counter (work@dut.gen_modules[1].module_in_genscope.g_counter_narrow.counter), line:97:12, endln:97:37
                 |vpiParent:
@@ -4305,6 +5527,8 @@ design: (work@dut)
                 |vpiName:counter
                 |vpiFullName:work@dut.gen_modules[1].module_in_genscope.g_counter_narrow.counter
                 |vpiDefName:counter
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
                 |vpiConstantSelect:1
                 |vpiLeftRange:
                 \_operation: , line:97:20, endln:97:34
@@ -4357,6 +5581,8 @@ design: (work@dut)
                 |vpiName:counter
                 |vpiFullName:work@dut.gen_modules[1].module_in_genscope.g_counter_narrow.counter
                 |vpiDefName:counter
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
                 |vpiConstantSelect:1
                 |vpiLeftRange:
                 \_constant: , line:98:20, endln:98:22
@@ -4390,6 +5616,8 @@ design: (work@dut)
                 |vpiName:counter_load
                 |vpiFullName:work@dut.gen_modules[1].module_in_genscope.g_counter_narrow.counter_load
                 |vpiDefName:counter_load
+                |vpiActual:
+                \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter_load), line:43:28, endln:43:40
                 |vpiConstantSelect:1
                 |vpiLeftRange:
                 \_constant: , line:99:53, endln:99:55
@@ -4420,6 +5648,24 @@ design: (work@dut)
                 \_logic_var: (work@dut.gen_modules[1].module_in_genscope.g_counter_narrow.unused_counter_load), line:95:29, endln:95:48
         |vpiContAssign:
         \_cont_assign: , line:104:10, endln:104:33
+          |vpiParent:
+          \_module_inst: work@ibex_counter (work@dut.gen_modules[1].module_in_genscope), file:UHDM-integration-tests/tests/genscope_cells/dut.sv, line:13:3, endln:21:35
+          |vpiRhs:
+          \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter), line:104:26, endln:104:33
+            |vpiParent:
+            \_cont_assign: , line:104:10, endln:104:33
+            |vpiName:counter
+            |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter
+            |vpiActual:
+            \_logic_var: (work@dut.gen_modules[1].module_in_genscope.counter), line:41:28, endln:41:35
+          |vpiLhs:
+          \_ref_obj: (work@dut.gen_modules[1].module_in_genscope.counter_val_o), line:104:10, endln:104:23
+            |vpiParent:
+            \_cont_assign: , line:104:10, endln:104:33
+            |vpiName:counter_val_o
+            |vpiFullName:work@dut.gen_modules[1].module_in_genscope.counter_val_o
+            |vpiActual:
+            \_logic_net: (work@dut.gen_modules[1].module_in_genscope.counter_val_o), line:38:23, endln:38:36
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -680,6 +683,49 @@ design: (work@dut)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -1113,6 +1159,8 @@ design: (work@dut)
       \_logic_net: (work@dut.clk), line:17:19, endln:17:22
     |vpiTypedef:
     \_logic_typespec: , line:17:19, endln:17:19
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/TypedefAlias/dut.v, line:17:1, endln:26:10
   |vpiPort:
   \_port: (a), line:17:42, endln:17:43
     |vpiParent:
@@ -1129,6 +1177,8 @@ design: (work@dut)
       \_enum_var: (work@dut.a), line:17:42, endln:17:43
     |vpiTypedef:
     \_enum_typespec: (pkg::enum_t), line:2:3, endln:6:12
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/TypedefAlias/dut.v, line:17:1, endln:26:10
   |vpiPort:
   \_port: (b), line:17:65, endln:17:66
     |vpiParent:
@@ -1145,12 +1195,68 @@ design: (work@dut)
       \_enum_var: (work@dut.b), line:17:65, endln:17:66
     |vpiTypedef:
     \_enum_typespec: (pkg::alias_t), line:2:3, endln:6:12
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/TypedefAlias/dut.v, line:17:1, endln:26:10
   |vpiContAssign:
   \_cont_assign: , line:23:11, endln:23:16
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/TypedefAlias/dut.v, line:17:1, endln:26:10
+    |vpiRhs:
+    \_ref_obj: (work@dut.a), line:23:15, endln:23:16
+      |vpiParent:
+      \_cont_assign: , line:23:11, endln:23:16
+      |vpiName:a
+      |vpiFullName:work@dut.a
+      |vpiActual:
+      \_enum_var: (work@dut.a), line:17:42, endln:17:43
+    |vpiLhs:
+    \_ref_obj: (work@dut.c), line:23:11, endln:23:12
+      |vpiParent:
+      \_cont_assign: , line:23:11, endln:23:16
+      |vpiName:c
+      |vpiFullName:work@dut.c
+      |vpiActual:
+      \_struct_net: (work@dut.c), line:21:19, endln:21:20
   |vpiContAssign:
   \_cont_assign: , line:24:11, endln:24:16
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/TypedefAlias/dut.v, line:17:1, endln:26:10
+    |vpiRhs:
+    \_ref_obj: (work@dut.c), line:24:15, endln:24:16
+      |vpiParent:
+      \_cont_assign: , line:24:11, endln:24:16
+      |vpiName:c
+      |vpiFullName:work@dut.c
+      |vpiActual:
+      \_struct_net: (work@dut.c), line:21:19, endln:21:20
+    |vpiLhs:
+    \_ref_obj: (work@dut.d), line:24:11, endln:24:12
+      |vpiParent:
+      \_cont_assign: , line:24:11, endln:24:16
+      |vpiName:d
+      |vpiFullName:work@dut.d
+      |vpiActual:
+      \_logic_var: (work@dut.d), line:22:23, endln:22:24
   |vpiContAssign:
   \_cont_assign: , line:25:11, endln:25:16
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/TypedefAlias/dut.v, line:17:1, endln:26:10
+    |vpiRhs:
+    \_ref_obj: (work@dut.d), line:25:15, endln:25:16
+      |vpiParent:
+      \_cont_assign: , line:25:11, endln:25:16
+      |vpiName:d
+      |vpiFullName:work@dut.d
+      |vpiActual:
+      \_logic_var: (work@dut.d), line:22:23, endln:22:24
+    |vpiLhs:
+    \_ref_obj: (work@dut.b), line:25:11, endln:25:12
+      |vpiParent:
+      \_cont_assign: , line:25:11, endln:25:16
+      |vpiName:b
+      |vpiFullName:work@dut.b
+      |vpiActual:
+      \_enum_var: (work@dut.b), line:17:65, endln:17:66
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object 'pkg' of type 'package'

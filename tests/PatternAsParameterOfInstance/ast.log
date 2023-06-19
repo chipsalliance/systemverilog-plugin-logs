@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -358,6 +361,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -897,6 +943,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv, line:6:1, endln:13:10
   |vpiModule:
   \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv, line:8:4, endln:12:6
     |vpiParent:
@@ -1027,8 +1075,28 @@ design: (work@top)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
+      |vpiInstance:
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv, line:8:4, endln:12:6
     |vpiContAssign:
     \_cont_assign: , line:3:11, endln:3:16
+      |vpiParent:
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/PatternAsParameterOfInstance/top.sv, line:8:4, endln:12:6
+      |vpiRhs:
+      \_ref_obj: (work@top.u_dut.P), line:3:15, endln:3:16
+        |vpiParent:
+        \_cont_assign: , line:3:11, endln:3:16
+        |vpiName:P
+        |vpiFullName:work@top.u_dut.P
+        |vpiActual:
+        \_parameter: (work@top.u_dut.P), line:2:26, endln:2:27
+      |vpiLhs:
+      \_ref_obj: (work@top.u_dut.a), line:3:11, endln:3:12
+        |vpiParent:
+        \_cont_assign: , line:3:11, endln:3:16
+        |vpiName:a
+        |vpiFullName:work@top.u_dut.a
+        |vpiActual:
+        \_logic_net: (work@top.u_dut.a), line:1:31, endln:1:32
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

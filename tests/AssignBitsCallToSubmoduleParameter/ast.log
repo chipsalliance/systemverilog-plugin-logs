@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -358,6 +361,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -914,6 +960,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:10:19, endln:10:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv, line:10:1, endln:20:10
   |vpiModule:
   \_module_inst: work@aes_reg_status (work@top.u_reg_status_key_init), file:UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv, line:14:4, endln:19:6
     |vpiParent:
@@ -1014,6 +1062,8 @@ design: (work@top)
           \_operation: , line:17:13, endln:17:45
           |vpiName:key_init_we
           |vpiFullName:work@top.u_reg_status_key_init.we_i.key_init_we
+          |vpiActual:
+          \_array_var: (work@top.key_init_we), line:11:16, endln:11:27
           |vpiIndex:
           \_constant: , line:17:26, endln:17:27
             |vpiParent:
@@ -1028,6 +1078,8 @@ design: (work@top)
           \_operation: , line:17:13, endln:17:45
           |vpiName:key_init_we
           |vpiFullName:work@top.u_reg_status_key_init.we_i.key_init_we
+          |vpiActual:
+          \_array_var: (work@top.key_init_we), line:11:16, endln:11:27
           |vpiIndex:
           \_constant: , line:17:42, endln:17:43
             |vpiParent:
@@ -1066,6 +1118,8 @@ design: (work@top)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
+      |vpiInstance:
+      \_module_inst: work@aes_reg_status (work@top.u_reg_status_key_init), file:UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv, line:14:4, endln:19:6
     |vpiPort:
     \_port: (we_o), line:5:15, endln:5:19
       |vpiParent:
@@ -1091,6 +1145,8 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:5:11, endln:5:14
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@aes_reg_status (work@top.u_reg_status_key_init), file:UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv, line:14:4, endln:19:6
     |vpiContAssign:
     \_cont_assign: , line:7:11, endln:7:28
       |vpiParent:
@@ -1112,7 +1168,7 @@ design: (work@top)
           |vpiName:we_i
           |vpiFullName:work@top.u_reg_status_key_init.we_i
           |vpiActual:
-          \_logic_net: (work@aes_reg_status.we_i), line:4:28, endln:4:32
+          \_logic_net: (work@top.u_reg_status_key_init.we_i), line:4:28, endln:4:32
       |vpiLhs:
       \_ref_obj: (work@top.u_reg_status_key_init.we_o), line:7:11, endln:7:15
         |vpiParent:
@@ -1127,12 +1183,20 @@ design: (work@top)
     \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignBitsCallToSubmoduleParameter/top.sv, line:10:1, endln:20:10
     |vpiRhs:
     \_constant: , line:12:28, endln:12:30
+      |vpiParent:
+      \_cont_assign: , line:12:11, endln:12:30
+      |vpiDecompile:'1
+      |vpiSize:-1
+      |BIN:1
+      |vpiConstType:3
     |vpiLhs:
     \_bit_select: (work@top.key_init_we), line:12:11, endln:12:25
       |vpiParent:
       \_cont_assign: , line:12:11, endln:12:30
       |vpiName:key_init_we
       |vpiFullName:work@top.key_init_we
+      |vpiActual:
+      \_array_var: (work@top.key_init_we), line:11:16, endln:11:27
       |vpiIndex:
       \_constant: , line:12:23, endln:12:24
         |vpiParent:

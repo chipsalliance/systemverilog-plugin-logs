@@ -93,12 +93,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 6
 [   NOTE] : 11
 design: (work@top_za)
+|vpiElaborated:1
 |vpiName:work@top_za
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -386,6 +389,49 @@ design: (work@top_za)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -2017,6 +2063,8 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_za (work@top_za), file:UHDM-integration-tests/tests/Casezx/top.sv, line:1:1, endln:9:10
   |vpiPort:
   \_port: (y), line:1:55, endln:1:56
     |vpiParent:
@@ -2053,8 +2101,112 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_za (work@top_za), file:UHDM-integration-tests/tests/Casezx/top.sv, line:1:1, endln:9:10
   |vpiProcess:
   \_always: , line:2:1, endln:8:9
+    |vpiParent:
+    \_module_inst: work@top_za (work@top_za), file:UHDM-integration-tests/tests/Casezx/top.sv, line:1:1, endln:9:10
+    |vpiStmt:
+    \_case_stmt: , line:3:2, endln:8:9
+      |vpiParent:
+      \_always: , line:2:1, endln:8:9
+      |vpiCaseType:3
+      |vpiCondition:
+      \_ref_obj: (work@top_za.s), line:3:9, endln:3:10
+        |vpiParent:
+        \_case_stmt: , line:3:2, endln:8:9
+        |vpiName:s
+        |vpiFullName:work@top_za.s
+        |vpiActual:
+        \_logic_net: (work@top_za.s), line:1:33, endln:1:34
+      |vpiCaseItem:
+      \_case_item: , line:4:3, endln:4:22
+        |vpiParent:
+        \_case_stmt: , line:3:2, endln:8:9
+        |vpiExpr:
+        \_constant: , line:4:3, endln:4:9
+        |vpiStmt:
+        \_assignment: , line:4:12, endln:4:21
+          |vpiParent:
+          \_case_item: , line:4:3, endln:4:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:4:16, endln:4:21
+          |vpiLhs:
+          \_ref_obj: (work@top_za.y), line:4:12, endln:4:13
+            |vpiParent:
+            \_assignment: , line:4:12, endln:4:21
+            |vpiName:y
+            |vpiFullName:work@top_za.y
+            |vpiActual:
+            \_logic_net: (work@top_za.y), line:1:55, endln:1:56
+      |vpiCaseItem:
+      \_case_item: , line:5:3, endln:5:22
+        |vpiParent:
+        \_case_stmt: , line:3:2, endln:8:9
+        |vpiExpr:
+        \_constant: , line:5:3, endln:5:9
+        |vpiStmt:
+        \_assignment: , line:5:12, endln:5:21
+          |vpiParent:
+          \_case_item: , line:5:3, endln:5:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:5:16, endln:5:21
+          |vpiLhs:
+          \_ref_obj: (work@top_za.y), line:5:12, endln:5:13
+            |vpiParent:
+            \_assignment: , line:5:12, endln:5:21
+            |vpiName:y
+            |vpiFullName:work@top_za.y
+            |vpiActual:
+            \_logic_net: (work@top_za.y), line:1:55, endln:1:56
+      |vpiCaseItem:
+      \_case_item: , line:6:3, endln:6:22
+        |vpiParent:
+        \_case_stmt: , line:3:2, endln:8:9
+        |vpiExpr:
+        \_constant: , line:6:3, endln:6:9
+        |vpiStmt:
+        \_assignment: , line:6:12, endln:6:21
+          |vpiParent:
+          \_case_item: , line:6:3, endln:6:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:6:16, endln:6:21
+          |vpiLhs:
+          \_ref_obj: (work@top_za.y), line:6:12, endln:6:13
+            |vpiParent:
+            \_assignment: , line:6:12, endln:6:21
+            |vpiName:y
+            |vpiFullName:work@top_za.y
+            |vpiActual:
+            \_logic_net: (work@top_za.y), line:1:55, endln:1:56
+      |vpiCaseItem:
+      \_case_item: , line:7:3, endln:7:22
+        |vpiParent:
+        \_case_stmt: , line:3:2, endln:8:9
+        |vpiStmt:
+        \_assignment: , line:7:13, endln:7:21
+          |vpiParent:
+          \_case_item: , line:7:3, endln:7:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:7:16, endln:7:21
+          |vpiLhs:
+          \_ref_obj: (work@top_za.y), line:7:13, endln:7:14
+            |vpiParent:
+            \_assignment: , line:7:13, endln:7:21
+            |vpiName:y
+            |vpiFullName:work@top_za.y
+            |vpiActual:
+            \_logic_net: (work@top_za.y), line:1:55, endln:1:56
+    |vpiAlwaysType:2
 |uhdmtopModules:
 \_module_inst: work@top_zz (work@top_zz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:11:1, endln:19:10
   |vpiName:work@top_zz
@@ -2159,6 +2311,8 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_zz (work@top_zz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:11:1, endln:19:10
   |vpiPort:
   \_port: (y), line:11:55, endln:11:56
     |vpiParent:
@@ -2195,8 +2349,112 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_zz (work@top_zz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:11:1, endln:19:10
   |vpiProcess:
   \_always: , line:12:1, endln:18:9
+    |vpiParent:
+    \_module_inst: work@top_zz (work@top_zz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:11:1, endln:19:10
+    |vpiStmt:
+    \_case_stmt: , line:13:2, endln:18:9
+      |vpiParent:
+      \_always: , line:12:1, endln:18:9
+      |vpiCaseType:3
+      |vpiCondition:
+      \_ref_obj: (work@top_zz.s), line:13:9, endln:13:10
+        |vpiParent:
+        \_case_stmt: , line:13:2, endln:18:9
+        |vpiName:s
+        |vpiFullName:work@top_zz.s
+        |vpiActual:
+        \_logic_net: (work@top_zz.s), line:11:33, endln:11:34
+      |vpiCaseItem:
+      \_case_item: , line:14:3, endln:14:22
+        |vpiParent:
+        \_case_stmt: , line:13:2, endln:18:9
+        |vpiExpr:
+        \_constant: , line:14:3, endln:14:9
+        |vpiStmt:
+        \_assignment: , line:14:12, endln:14:21
+          |vpiParent:
+          \_case_item: , line:14:3, endln:14:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:14:16, endln:14:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zz.y), line:14:12, endln:14:13
+            |vpiParent:
+            \_assignment: , line:14:12, endln:14:21
+            |vpiName:y
+            |vpiFullName:work@top_zz.y
+            |vpiActual:
+            \_logic_net: (work@top_zz.y), line:11:55, endln:11:56
+      |vpiCaseItem:
+      \_case_item: , line:15:3, endln:15:22
+        |vpiParent:
+        \_case_stmt: , line:13:2, endln:18:9
+        |vpiExpr:
+        \_constant: , line:15:3, endln:15:9
+        |vpiStmt:
+        \_assignment: , line:15:12, endln:15:21
+          |vpiParent:
+          \_case_item: , line:15:3, endln:15:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:15:16, endln:15:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zz.y), line:15:12, endln:15:13
+            |vpiParent:
+            \_assignment: , line:15:12, endln:15:21
+            |vpiName:y
+            |vpiFullName:work@top_zz.y
+            |vpiActual:
+            \_logic_net: (work@top_zz.y), line:11:55, endln:11:56
+      |vpiCaseItem:
+      \_case_item: , line:16:3, endln:16:22
+        |vpiParent:
+        \_case_stmt: , line:13:2, endln:18:9
+        |vpiExpr:
+        \_constant: , line:16:3, endln:16:9
+        |vpiStmt:
+        \_assignment: , line:16:12, endln:16:21
+          |vpiParent:
+          \_case_item: , line:16:3, endln:16:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:16:16, endln:16:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zz.y), line:16:12, endln:16:13
+            |vpiParent:
+            \_assignment: , line:16:12, endln:16:21
+            |vpiName:y
+            |vpiFullName:work@top_zz.y
+            |vpiActual:
+            \_logic_net: (work@top_zz.y), line:11:55, endln:11:56
+      |vpiCaseItem:
+      \_case_item: , line:17:3, endln:17:22
+        |vpiParent:
+        \_case_stmt: , line:13:2, endln:18:9
+        |vpiStmt:
+        \_assignment: , line:17:13, endln:17:21
+          |vpiParent:
+          \_case_item: , line:17:3, endln:17:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:17:16, endln:17:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zz.y), line:17:13, endln:17:14
+            |vpiParent:
+            \_assignment: , line:17:13, endln:17:21
+            |vpiName:y
+            |vpiFullName:work@top_zz.y
+            |vpiActual:
+            \_logic_net: (work@top_zz.y), line:11:55, endln:11:56
+    |vpiAlwaysType:2
 |uhdmtopModules:
 \_module_inst: work@top_zx (work@top_zx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:21:1, endln:29:10
   |vpiName:work@top_zx
@@ -2301,6 +2559,8 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_zx (work@top_zx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:21:1, endln:29:10
   |vpiPort:
   \_port: (y), line:21:55, endln:21:56
     |vpiParent:
@@ -2337,8 +2597,112 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_zx (work@top_zx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:21:1, endln:29:10
   |vpiProcess:
   \_always: , line:22:1, endln:28:9
+    |vpiParent:
+    \_module_inst: work@top_zx (work@top_zx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:21:1, endln:29:10
+    |vpiStmt:
+    \_case_stmt: , line:23:2, endln:28:9
+      |vpiParent:
+      \_always: , line:22:1, endln:28:9
+      |vpiCaseType:3
+      |vpiCondition:
+      \_ref_obj: (work@top_zx.s), line:23:9, endln:23:10
+        |vpiParent:
+        \_case_stmt: , line:23:2, endln:28:9
+        |vpiName:s
+        |vpiFullName:work@top_zx.s
+        |vpiActual:
+        \_logic_net: (work@top_zx.s), line:21:33, endln:21:34
+      |vpiCaseItem:
+      \_case_item: , line:24:3, endln:24:22
+        |vpiParent:
+        \_case_stmt: , line:23:2, endln:28:9
+        |vpiExpr:
+        \_constant: , line:24:3, endln:24:9
+        |vpiStmt:
+        \_assignment: , line:24:12, endln:24:21
+          |vpiParent:
+          \_case_item: , line:24:3, endln:24:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:24:16, endln:24:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zx.y), line:24:12, endln:24:13
+            |vpiParent:
+            \_assignment: , line:24:12, endln:24:21
+            |vpiName:y
+            |vpiFullName:work@top_zx.y
+            |vpiActual:
+            \_logic_net: (work@top_zx.y), line:21:55, endln:21:56
+      |vpiCaseItem:
+      \_case_item: , line:25:3, endln:25:22
+        |vpiParent:
+        \_case_stmt: , line:23:2, endln:28:9
+        |vpiExpr:
+        \_constant: , line:25:3, endln:25:9
+        |vpiStmt:
+        \_assignment: , line:25:12, endln:25:21
+          |vpiParent:
+          \_case_item: , line:25:3, endln:25:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:25:16, endln:25:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zx.y), line:25:12, endln:25:13
+            |vpiParent:
+            \_assignment: , line:25:12, endln:25:21
+            |vpiName:y
+            |vpiFullName:work@top_zx.y
+            |vpiActual:
+            \_logic_net: (work@top_zx.y), line:21:55, endln:21:56
+      |vpiCaseItem:
+      \_case_item: , line:26:3, endln:26:22
+        |vpiParent:
+        \_case_stmt: , line:23:2, endln:28:9
+        |vpiExpr:
+        \_constant: , line:26:3, endln:26:9
+        |vpiStmt:
+        \_assignment: , line:26:12, endln:26:21
+          |vpiParent:
+          \_case_item: , line:26:3, endln:26:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:26:16, endln:26:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zx.y), line:26:12, endln:26:13
+            |vpiParent:
+            \_assignment: , line:26:12, endln:26:21
+            |vpiName:y
+            |vpiFullName:work@top_zx.y
+            |vpiActual:
+            \_logic_net: (work@top_zx.y), line:21:55, endln:21:56
+      |vpiCaseItem:
+      \_case_item: , line:27:3, endln:27:22
+        |vpiParent:
+        \_case_stmt: , line:23:2, endln:28:9
+        |vpiStmt:
+        \_assignment: , line:27:13, endln:27:21
+          |vpiParent:
+          \_case_item: , line:27:3, endln:27:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:27:16, endln:27:21
+          |vpiLhs:
+          \_ref_obj: (work@top_zx.y), line:27:13, endln:27:14
+            |vpiParent:
+            \_assignment: , line:27:13, endln:27:21
+            |vpiName:y
+            |vpiFullName:work@top_zx.y
+            |vpiActual:
+            \_logic_net: (work@top_zx.y), line:21:55, endln:21:56
+    |vpiAlwaysType:2
 |uhdmtopModules:
 \_module_inst: work@top_xa (work@top_xa), file:UHDM-integration-tests/tests/Casezx/top.sv, line:31:1, endln:39:10
   |vpiName:work@top_xa
@@ -2443,6 +2807,8 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_xa (work@top_xa), file:UHDM-integration-tests/tests/Casezx/top.sv, line:31:1, endln:39:10
   |vpiPort:
   \_port: (y), line:31:55, endln:31:56
     |vpiParent:
@@ -2479,8 +2845,112 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_xa (work@top_xa), file:UHDM-integration-tests/tests/Casezx/top.sv, line:31:1, endln:39:10
   |vpiProcess:
   \_always: , line:32:1, endln:38:9
+    |vpiParent:
+    \_module_inst: work@top_xa (work@top_xa), file:UHDM-integration-tests/tests/Casezx/top.sv, line:31:1, endln:39:10
+    |vpiStmt:
+    \_case_stmt: , line:33:2, endln:38:9
+      |vpiParent:
+      \_always: , line:32:1, endln:38:9
+      |vpiCaseType:2
+      |vpiCondition:
+      \_ref_obj: (work@top_xa.s), line:33:9, endln:33:10
+        |vpiParent:
+        \_case_stmt: , line:33:2, endln:38:9
+        |vpiName:s
+        |vpiFullName:work@top_xa.s
+        |vpiActual:
+        \_logic_net: (work@top_xa.s), line:31:33, endln:31:34
+      |vpiCaseItem:
+      \_case_item: , line:34:3, endln:34:22
+        |vpiParent:
+        \_case_stmt: , line:33:2, endln:38:9
+        |vpiExpr:
+        \_constant: , line:34:3, endln:34:9
+        |vpiStmt:
+        \_assignment: , line:34:12, endln:34:21
+          |vpiParent:
+          \_case_item: , line:34:3, endln:34:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:34:16, endln:34:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xa.y), line:34:12, endln:34:13
+            |vpiParent:
+            \_assignment: , line:34:12, endln:34:21
+            |vpiName:y
+            |vpiFullName:work@top_xa.y
+            |vpiActual:
+            \_logic_net: (work@top_xa.y), line:31:55, endln:31:56
+      |vpiCaseItem:
+      \_case_item: , line:35:3, endln:35:22
+        |vpiParent:
+        \_case_stmt: , line:33:2, endln:38:9
+        |vpiExpr:
+        \_constant: , line:35:3, endln:35:9
+        |vpiStmt:
+        \_assignment: , line:35:12, endln:35:21
+          |vpiParent:
+          \_case_item: , line:35:3, endln:35:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:35:16, endln:35:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xa.y), line:35:12, endln:35:13
+            |vpiParent:
+            \_assignment: , line:35:12, endln:35:21
+            |vpiName:y
+            |vpiFullName:work@top_xa.y
+            |vpiActual:
+            \_logic_net: (work@top_xa.y), line:31:55, endln:31:56
+      |vpiCaseItem:
+      \_case_item: , line:36:3, endln:36:22
+        |vpiParent:
+        \_case_stmt: , line:33:2, endln:38:9
+        |vpiExpr:
+        \_constant: , line:36:3, endln:36:9
+        |vpiStmt:
+        \_assignment: , line:36:12, endln:36:21
+          |vpiParent:
+          \_case_item: , line:36:3, endln:36:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:36:16, endln:36:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xa.y), line:36:12, endln:36:13
+            |vpiParent:
+            \_assignment: , line:36:12, endln:36:21
+            |vpiName:y
+            |vpiFullName:work@top_xa.y
+            |vpiActual:
+            \_logic_net: (work@top_xa.y), line:31:55, endln:31:56
+      |vpiCaseItem:
+      \_case_item: , line:37:3, endln:37:22
+        |vpiParent:
+        \_case_stmt: , line:33:2, endln:38:9
+        |vpiStmt:
+        \_assignment: , line:37:13, endln:37:21
+          |vpiParent:
+          \_case_item: , line:37:3, endln:37:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:37:16, endln:37:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xa.y), line:37:13, endln:37:14
+            |vpiParent:
+            \_assignment: , line:37:13, endln:37:21
+            |vpiName:y
+            |vpiFullName:work@top_xa.y
+            |vpiActual:
+            \_logic_net: (work@top_xa.y), line:31:55, endln:31:56
+    |vpiAlwaysType:2
 |uhdmtopModules:
 \_module_inst: work@top_xx (work@top_xx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:41:1, endln:49:10
   |vpiName:work@top_xx
@@ -2585,6 +3055,8 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_xx (work@top_xx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:41:1, endln:49:10
   |vpiPort:
   \_port: (y), line:41:55, endln:41:56
     |vpiParent:
@@ -2621,8 +3093,112 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_xx (work@top_xx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:41:1, endln:49:10
   |vpiProcess:
   \_always: , line:42:1, endln:48:9
+    |vpiParent:
+    \_module_inst: work@top_xx (work@top_xx), file:UHDM-integration-tests/tests/Casezx/top.sv, line:41:1, endln:49:10
+    |vpiStmt:
+    \_case_stmt: , line:43:2, endln:48:9
+      |vpiParent:
+      \_always: , line:42:1, endln:48:9
+      |vpiCaseType:2
+      |vpiCondition:
+      \_ref_obj: (work@top_xx.s), line:43:9, endln:43:10
+        |vpiParent:
+        \_case_stmt: , line:43:2, endln:48:9
+        |vpiName:s
+        |vpiFullName:work@top_xx.s
+        |vpiActual:
+        \_logic_net: (work@top_xx.s), line:41:33, endln:41:34
+      |vpiCaseItem:
+      \_case_item: , line:44:3, endln:44:22
+        |vpiParent:
+        \_case_stmt: , line:43:2, endln:48:9
+        |vpiExpr:
+        \_constant: , line:44:3, endln:44:9
+        |vpiStmt:
+        \_assignment: , line:44:12, endln:44:21
+          |vpiParent:
+          \_case_item: , line:44:3, endln:44:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:44:16, endln:44:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xx.y), line:44:12, endln:44:13
+            |vpiParent:
+            \_assignment: , line:44:12, endln:44:21
+            |vpiName:y
+            |vpiFullName:work@top_xx.y
+            |vpiActual:
+            \_logic_net: (work@top_xx.y), line:41:55, endln:41:56
+      |vpiCaseItem:
+      \_case_item: , line:45:3, endln:45:22
+        |vpiParent:
+        \_case_stmt: , line:43:2, endln:48:9
+        |vpiExpr:
+        \_constant: , line:45:3, endln:45:9
+        |vpiStmt:
+        \_assignment: , line:45:12, endln:45:21
+          |vpiParent:
+          \_case_item: , line:45:3, endln:45:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:45:16, endln:45:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xx.y), line:45:12, endln:45:13
+            |vpiParent:
+            \_assignment: , line:45:12, endln:45:21
+            |vpiName:y
+            |vpiFullName:work@top_xx.y
+            |vpiActual:
+            \_logic_net: (work@top_xx.y), line:41:55, endln:41:56
+      |vpiCaseItem:
+      \_case_item: , line:46:3, endln:46:22
+        |vpiParent:
+        \_case_stmt: , line:43:2, endln:48:9
+        |vpiExpr:
+        \_constant: , line:46:3, endln:46:9
+        |vpiStmt:
+        \_assignment: , line:46:12, endln:46:21
+          |vpiParent:
+          \_case_item: , line:46:3, endln:46:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:46:16, endln:46:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xx.y), line:46:12, endln:46:13
+            |vpiParent:
+            \_assignment: , line:46:12, endln:46:21
+            |vpiName:y
+            |vpiFullName:work@top_xx.y
+            |vpiActual:
+            \_logic_net: (work@top_xx.y), line:41:55, endln:41:56
+      |vpiCaseItem:
+      \_case_item: , line:47:3, endln:47:22
+        |vpiParent:
+        \_case_stmt: , line:43:2, endln:48:9
+        |vpiStmt:
+        \_assignment: , line:47:13, endln:47:21
+          |vpiParent:
+          \_case_item: , line:47:3, endln:47:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:47:16, endln:47:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xx.y), line:47:13, endln:47:14
+            |vpiParent:
+            \_assignment: , line:47:13, endln:47:21
+            |vpiName:y
+            |vpiFullName:work@top_xx.y
+            |vpiActual:
+            \_logic_net: (work@top_xx.y), line:41:55, endln:41:56
+    |vpiAlwaysType:2
 |uhdmtopModules:
 \_module_inst: work@top_xz (work@top_xz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:51:1, endln:59:10
   |vpiName:work@top_xz
@@ -2727,6 +3303,8 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_xz (work@top_xz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:51:1, endln:59:10
   |vpiPort:
   \_port: (y), line:51:55, endln:51:56
     |vpiParent:
@@ -2763,8 +3341,112 @@ design: (work@top_za)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top_xz (work@top_xz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:51:1, endln:59:10
   |vpiProcess:
   \_always: , line:52:1, endln:58:9
+    |vpiParent:
+    \_module_inst: work@top_xz (work@top_xz), file:UHDM-integration-tests/tests/Casezx/top.sv, line:51:1, endln:59:10
+    |vpiStmt:
+    \_case_stmt: , line:53:2, endln:58:9
+      |vpiParent:
+      \_always: , line:52:1, endln:58:9
+      |vpiCaseType:2
+      |vpiCondition:
+      \_ref_obj: (work@top_xz.s), line:53:9, endln:53:10
+        |vpiParent:
+        \_case_stmt: , line:53:2, endln:58:9
+        |vpiName:s
+        |vpiFullName:work@top_xz.s
+        |vpiActual:
+        \_logic_net: (work@top_xz.s), line:51:33, endln:51:34
+      |vpiCaseItem:
+      \_case_item: , line:54:3, endln:54:22
+        |vpiParent:
+        \_case_stmt: , line:53:2, endln:58:9
+        |vpiExpr:
+        \_constant: , line:54:3, endln:54:9
+        |vpiStmt:
+        \_assignment: , line:54:12, endln:54:21
+          |vpiParent:
+          \_case_item: , line:54:3, endln:54:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:54:16, endln:54:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xz.y), line:54:12, endln:54:13
+            |vpiParent:
+            \_assignment: , line:54:12, endln:54:21
+            |vpiName:y
+            |vpiFullName:work@top_xz.y
+            |vpiActual:
+            \_logic_net: (work@top_xz.y), line:51:55, endln:51:56
+      |vpiCaseItem:
+      \_case_item: , line:55:3, endln:55:22
+        |vpiParent:
+        \_case_stmt: , line:53:2, endln:58:9
+        |vpiExpr:
+        \_constant: , line:55:3, endln:55:9
+        |vpiStmt:
+        \_assignment: , line:55:12, endln:55:21
+          |vpiParent:
+          \_case_item: , line:55:3, endln:55:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:55:16, endln:55:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xz.y), line:55:12, endln:55:13
+            |vpiParent:
+            \_assignment: , line:55:12, endln:55:21
+            |vpiName:y
+            |vpiFullName:work@top_xz.y
+            |vpiActual:
+            \_logic_net: (work@top_xz.y), line:51:55, endln:51:56
+      |vpiCaseItem:
+      \_case_item: , line:56:3, endln:56:22
+        |vpiParent:
+        \_case_stmt: , line:53:2, endln:58:9
+        |vpiExpr:
+        \_constant: , line:56:3, endln:56:9
+        |vpiStmt:
+        \_assignment: , line:56:12, endln:56:21
+          |vpiParent:
+          \_case_item: , line:56:3, endln:56:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:56:16, endln:56:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xz.y), line:56:12, endln:56:13
+            |vpiParent:
+            \_assignment: , line:56:12, endln:56:21
+            |vpiName:y
+            |vpiFullName:work@top_xz.y
+            |vpiActual:
+            \_logic_net: (work@top_xz.y), line:51:55, endln:51:56
+      |vpiCaseItem:
+      \_case_item: , line:57:3, endln:57:22
+        |vpiParent:
+        \_case_stmt: , line:53:2, endln:58:9
+        |vpiStmt:
+        \_assignment: , line:57:13, endln:57:21
+          |vpiParent:
+          \_case_item: , line:57:3, endln:57:22
+          |vpiOpType:82
+          |vpiBlocking:1
+          |vpiRhs:
+          \_constant: , line:57:16, endln:57:21
+          |vpiLhs:
+          \_ref_obj: (work@top_xz.y), line:57:13, endln:57:14
+            |vpiParent:
+            \_assignment: , line:57:13, endln:57:21
+            |vpiName:y
+            |vpiFullName:work@top_xz.y
+            |vpiActual:
+            \_logic_net: (work@top_xz.y), line:51:55, endln:51:56
+    |vpiAlwaysType:2
 Object 'work@top_za' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

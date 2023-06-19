@@ -61,12 +61,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -354,6 +357,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -1033,6 +1079,8 @@ design: (work@top)
       \_logic_net: (work@top.ck), line:2:17, endln:2:19
     |vpiTypedef:
     \_logic_typespec: , line:2:11, endln:2:16
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemorySlice/top.sv, line:1:1, endln:11:10
   |vpiPort:
   \_port: (sin), line:2:39, endln:2:42
     |vpiParent:
@@ -1069,6 +1117,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemorySlice/top.sv, line:1:1, endln:11:10
   |vpiPort:
   \_port: (sout), line:3:24, endln:3:28
     |vpiParent:
@@ -1105,10 +1155,152 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemorySlice/top.sv, line:1:1, endln:11:10
   |vpiProcess:
   \_always: , line:6:1, endln:10:4
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemorySlice/top.sv, line:1:1, endln:11:10
+    |vpiStmt:
+    \_event_control: , line:6:11, endln:6:25
+      |vpiParent:
+      \_always: , line:6:1, endln:10:4
+      |vpiCondition:
+      \_operation: , line:6:14, endln:6:24
+        |vpiParent:
+        \_event_control: , line:6:11, endln:6:25
+        |vpiOpType:39
+        |vpiOperand:
+        \_ref_obj: (work@top.ck), line:6:22, endln:6:24
+          |vpiParent:
+          \_operation: , line:6:14, endln:6:24
+          |vpiName:ck
+          |vpiFullName:work@top.ck
+          |vpiActual:
+          \_logic_net: (work@top.ck), line:2:17, endln:2:19
+      |vpiStmt:
+      \_begin: (work@top), line:7:1, endln:10:4
+        |vpiParent:
+        \_event_control: , line:6:11, endln:6:25
+        |vpiFullName:work@top
+        |vpiStmt:
+        \_assignment: , line:8:3, endln:8:29
+          |vpiParent:
+          \_begin: (work@top), line:7:1, endln:10:4
+          |vpiOpType:82
+          |vpiRhs:
+          \_part_select: mem (work@top.mem), line:8:18, endln:8:29
+            |vpiParent:
+            \_assignment: , line:8:3, endln:8:29
+            |vpiName:mem
+            |vpiFullName:work@top.mem
+            |vpiDefName:mem
+            |vpiActual:
+            \_array_var: (work@top.mem), line:4:13, endln:4:16
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_operation: , line:8:23, endln:8:26
+              |vpiParent:
+              \_part_select: mem (work@top.mem), line:8:18, endln:8:29
+              |vpiOpType:11
+              |vpiOperand:
+              \_ref_obj: (work@top.mem.N), line:8:23, endln:8:24
+                |vpiParent:
+                \_operation: , line:8:23, endln:8:26
+                |vpiName:N
+                |vpiFullName:work@top.mem.N
+                |vpiActual:
+                \_parameter: (work@top.N), line:1:24, endln:1:25
+              |vpiOperand:
+              \_constant: , line:8:25, endln:8:26
+            |vpiRightRange:
+            \_constant: , line:8:27, endln:8:28
+          |vpiLhs:
+          \_part_select: mem (work@top.mem), line:8:3, endln:8:14
+            |vpiParent:
+            \_assignment: , line:8:3, endln:8:29
+            |vpiName:mem
+            |vpiFullName:work@top.mem
+            |vpiDefName:mem
+            |vpiActual:
+            \_array_var: (work@top.mem), line:4:13, endln:4:16
+            |vpiConstantSelect:1
+            |vpiLeftRange:
+            \_operation: , line:8:8, endln:8:11
+              |vpiParent:
+              \_part_select: mem (work@top.mem), line:8:3, endln:8:14
+              |vpiOpType:11
+              |vpiOperand:
+              \_ref_obj: (work@top.mem.N), line:8:8, endln:8:9
+                |vpiParent:
+                \_operation: , line:8:8, endln:8:11
+                |vpiName:N
+                |vpiFullName:work@top.mem.N
+                |vpiActual:
+                \_parameter: (work@top.N), line:1:24, endln:1:25
+              |vpiOperand:
+              \_constant: , line:8:10, endln:8:11
+            |vpiRightRange:
+            \_constant: , line:8:12, endln:8:13
+        |vpiStmt:
+        \_assignment: , line:9:3, endln:9:17
+          |vpiParent:
+          \_begin: (work@top), line:7:1, endln:10:4
+          |vpiOpType:82
+          |vpiRhs:
+          \_ref_obj: (work@top.sin), line:9:14, endln:9:17
+            |vpiParent:
+            \_assignment: , line:9:3, endln:9:17
+            |vpiName:sin
+            |vpiFullName:work@top.sin
+            |vpiActual:
+            \_logic_net: (work@top.sin), line:2:39, endln:2:42
+          |vpiLhs:
+          \_bit_select: (work@top.mem), line:9:3, endln:9:10
+            |vpiParent:
+            \_assignment: , line:9:3, endln:9:17
+            |vpiName:mem
+            |vpiFullName:work@top.mem
+            |vpiActual:
+            \_array_var: (work@top.mem), line:4:13, endln:4:16
+            |vpiIndex:
+            \_constant: , line:9:8, endln:9:9
+    |vpiAlwaysType:3
   |vpiContAssign:
   \_cont_assign: , line:5:8, endln:5:23
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemorySlice/top.sv, line:1:1, endln:11:10
+    |vpiRhs:
+    \_bit_select: (work@top.mem), line:5:19, endln:5:22
+      |vpiParent:
+      \_cont_assign: , line:5:8, endln:5:23
+      |vpiName:mem
+      |vpiFullName:work@top.mem
+      |vpiActual:
+      \_array_var: (work@top.mem), line:4:13, endln:4:16
+      |vpiIndex:
+      \_operation: , line:5:19, endln:5:22
+        |vpiParent:
+        \_bit_select: (work@top.mem), line:5:19, endln:5:22
+        |vpiOpType:11
+        |vpiOperand:
+        \_ref_obj: (work@top.mem.N), line:5:19, endln:5:20
+          |vpiParent:
+          \_operation: , line:5:19, endln:5:22
+          |vpiName:N
+          |vpiFullName:work@top.mem.N
+          |vpiActual:
+          \_parameter: (work@top.N), line:1:24, endln:1:25
+        |vpiOperand:
+        \_constant: , line:5:21, endln:5:22
+    |vpiLhs:
+    \_ref_obj: (work@top.sout), line:5:8, endln:5:12
+      |vpiParent:
+      \_cont_assign: , line:5:8, endln:5:23
+      |vpiName:sout
+      |vpiFullName:work@top.sout
+      |vpiActual:
+      \_logic_net: (work@top.sout), line:3:24, endln:3:28
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

@@ -81,12 +81,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -374,6 +377,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -941,8 +987,37 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemoryPort/top.sv, line:1:1, endln:10:10
   |vpiProcess:
   \_always: , line:7:3, endln:9:6
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemoryPort/top.sv, line:1:1, endln:10:10
+    |vpiStmt:
+    \_begin: (work@top), line:7:15, endln:9:6
+      |vpiParent:
+      \_always: , line:7:3, endln:9:6
+      |vpiFullName:work@top
+      |vpiStmt:
+      \_immediate_assert: , line:8:5, endln:8:55
+        |vpiParent:
+        \_begin: (work@top), line:7:15, endln:9:6
+        |vpiExpr:
+        \_operation: , line:8:12, endln:8:53
+          |vpiParent:
+          \_immediate_assert: , line:8:5, endln:8:55
+          |vpiOpType:14
+          |vpiOperand:
+          \_ref_obj: (work@top.b), line:8:12, endln:8:13
+            |vpiParent:
+            \_operation: , line:8:12, endln:8:53
+            |vpiName:b
+            |vpiFullName:work@top.b
+            |vpiActual:
+            \_logic_var: (work@top.b), line:2:16, endln:2:17
+          |vpiOperand:
+          \_constant: , line:8:17, endln:8:53
+    |vpiAlwaysType:2
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[0]), line:3:34, endln:5:6
     |vpiParent:
@@ -982,12 +1057,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[0].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[0].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[0].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[0].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[0].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[1]), line:3:34, endln:5:6
     |vpiParent:
@@ -1027,12 +1106,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[1].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[1].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[1].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[1].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[1].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[2]), line:3:34, endln:5:6
     |vpiParent:
@@ -1072,12 +1155,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[2].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[2].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[2].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[2].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[2].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[3]), line:3:34, endln:5:6
     |vpiParent:
@@ -1117,12 +1204,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[3].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[3].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[3].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[3].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[3].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[4]), line:3:34, endln:5:6
     |vpiParent:
@@ -1162,12 +1253,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[4].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[4].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[4].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[4].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[4].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[5]), line:3:34, endln:5:6
     |vpiParent:
@@ -1207,12 +1302,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[5].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[5].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[5].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[5].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[5].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[6]), line:3:34, endln:5:6
     |vpiParent:
@@ -1252,12 +1351,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[6].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[6].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[6].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[6].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[6].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[7]), line:3:34, endln:5:6
     |vpiParent:
@@ -1297,12 +1400,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[7].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[7].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[7].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[7].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[7].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[8]), line:3:34, endln:5:6
     |vpiParent:
@@ -1342,12 +1449,16 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[8].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[8].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[8].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[8].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[8].i), line:3:0
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.genblk1[9]), line:3:34, endln:5:6
     |vpiParent:
@@ -1387,14 +1498,38 @@ design: (work@top)
           \_cont_assign: , line:4:13, endln:4:21
           |vpiName:a
           |vpiFullName:work@top.genblk1[9].a
+          |vpiActual:
+          \_array_net: (work@top.a), line:1:32, endln:1:33
           |vpiIndex:
           \_ref_obj: (work@top.genblk1[9].i), line:4:15, endln:4:16
             |vpiParent:
             \_bit_select: (work@top.genblk1[9].a), line:4:13, endln:4:17
             |vpiName:i
             |vpiFullName:work@top.genblk1[9].i
+            |vpiActual:
+            \_parameter: (work@top.genblk1[9].i), line:3:0
   |vpiContAssign:
   \_cont_assign: , line:6:10, endln:6:18
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MemoryPort/top.sv, line:1:1, endln:10:10
+    |vpiRhs:
+    \_bit_select: (work@top.a), line:6:16, endln:6:17
+      |vpiParent:
+      \_cont_assign: , line:6:10, endln:6:18
+      |vpiName:a
+      |vpiFullName:work@top.a
+      |vpiActual:
+      \_array_net: (work@top.a), line:1:32, endln:1:33
+      |vpiIndex:
+      \_constant: , line:6:16, endln:6:17
+    |vpiLhs:
+    \_ref_obj: (work@top.b), line:6:10, endln:6:11
+      |vpiParent:
+      \_cont_assign: , line:6:10, endln:6:18
+      |vpiName:b
+      |vpiFullName:work@top.b
+      |vpiActual:
+      \_logic_var: (work@top.b), line:2:16, endln:2:17
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

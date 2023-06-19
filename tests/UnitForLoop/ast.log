@@ -63,12 +63,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 6
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -356,6 +359,49 @@ design: (work@dut)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -715,8 +761,112 @@ design: (work@dut)
   |vpiTop:1
   |vpiTaskFunc:
   \_function: (work@dut.f2), line:3:1, endln:4:12
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
+    |vpiName:f2
+    |vpiFullName:work@dut.f2
+    |vpiVisibility:1
+    |vpiReturn:
+    \_logic_var: (work@dut.f2)
+    |vpiIODecl:
+    \_io_decl: (i), line:3:18, endln:3:19
+      |vpiParent:
+      \_function: (work@dut.f2), line:3:1, endln:4:12
+      |vpiDirection:1
+      |vpiName:i
+      |vpiTypedef:
+      \_int_typespec: , line:3:14, endln:3:17
+    |vpiIODecl:
+    \_io_decl: (j), line:3:25, endln:3:26
+      |vpiParent:
+      \_function: (work@dut.f2), line:3:1, endln:4:12
+      |vpiDirection:1
+      |vpiName:j
+      |vpiTypedef:
+      \_int_typespec: , line:3:21, endln:3:24
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
   |vpiTaskFunc:
   \_function: (work@dut.f1), line:9:1, endln:13:12
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
+    |vpiName:f1
+    |vpiFullName:work@dut.f1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_logic_var: (work@dut.f1)
+    |vpiStmt:
+    \_for_stmt: (work@dut.f1), line:10:4, endln:10:7
+      |vpiParent:
+      \_function: (work@dut.f1), line:9:1, endln:13:12
+      |vpiFullName:work@dut.f1
+      |vpiForInitStmt:
+      \_assign_stmt: , line:10:10, endln:10:17
+        |vpiParent:
+        \_for_stmt: (work@dut.f1), line:10:4, endln:10:7
+        |vpiRhs:
+        \_constant: , line:10:16, endln:10:17
+        |vpiLhs:
+        \_int_var: (work@dut.f1.i), line:10:14, endln:10:15
+          |vpiParent:
+          \_assign_stmt: , line:10:10, endln:10:17
+          |vpiTypespec:
+          \_int_typespec: , line:10:10, endln:10:13
+          |vpiName:i
+          |vpiFullName:work@dut.f1.i
+          |vpiSigned:1
+      |vpiForIncStmt:
+      \_operation: , line:10:23, endln:10:26
+        |vpiParent:
+        \_for_stmt: (work@dut.f1), line:10:4, endln:10:7
+        |vpiOpType:62
+        |vpiOperand:
+        \_ref_obj: (work@dut.f1.i), line:10:23, endln:10:24
+          |vpiParent:
+          \_operation: , line:10:23, endln:10:26
+          |vpiName:i
+          |vpiFullName:work@dut.f1.i
+          |vpiActual:
+          \_int_var: (work@dut.f1.i), line:10:14, endln:10:15
+      |vpiCondition:
+      \_operation: , line:10:18, endln:10:21
+        |vpiParent:
+        \_for_stmt: (work@dut.f1), line:10:4, endln:10:7
+        |vpiOpType:20
+        |vpiOperand:
+        \_ref_obj: (work@dut.f1.i), line:10:18, endln:10:19
+          |vpiParent:
+          \_operation: , line:10:18, endln:10:21
+          |vpiName:i
+          |vpiFullName:work@dut.f1.i
+          |vpiActual:
+          \_int_var: (work@dut.f1.i), line:10:14, endln:10:15
+        |vpiOperand:
+        \_constant: , line:10:20, endln:10:21
+      |vpiStmt:
+      \_begin: (work@dut.f1), line:10:28, endln:12:7
+        |vpiParent:
+        \_for_stmt: (work@dut.f1), line:10:4, endln:10:7
+        |vpiFullName:work@dut.f1
+        |vpiStmt:
+        \_func_call: (f2), line:11:7, endln:11:14
+          |vpiParent:
+          \_begin: (work@dut.f1), line:10:28, endln:12:7
+          |vpiArgument:
+          \_ref_obj: (work@dut.f1.i), line:11:10, endln:11:11
+            |vpiParent:
+            \_func_call: (f2), line:11:7, endln:11:14
+            |vpiName:i
+            |vpiFullName:work@dut.f1.i
+            |vpiActual:
+            \_int_var: (work@dut.f1.i), line:10:14, endln:10:15
+          |vpiArgument:
+          \_constant: , line:11:12, endln:11:13
+          |vpiName:f2
+          |vpiFunction:
+          \_function: (work@dut.f2), line:3:1, endln:4:12
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
   |vpiNet:
   \_logic_net: (work@dut.a), line:1:18, endln:1:19
     |vpiParent:
@@ -752,6 +902,8 @@ design: (work@dut)
       \_logic_net: (work@dut.a), line:1:18, endln:1:19
     |vpiTypedef:
     \_logic_typespec: , line:1:18, endln:1:18
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
   |vpiPort:
   \_port: (b), line:1:28, endln:1:29
     |vpiParent:
@@ -768,8 +920,28 @@ design: (work@dut)
       \_logic_net: (work@dut.b), line:1:28, endln:1:29
     |vpiTypedef:
     \_logic_typespec: , line:1:28, endln:1:28
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
   |vpiContAssign:
   \_cont_assign: , line:15:8, endln:15:13
+    |vpiParent:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/UnitForLoop/dut.v, line:1:1, endln:17:10
+    |vpiRhs:
+    \_ref_obj: (work@dut.a), line:15:12, endln:15:13
+      |vpiParent:
+      \_cont_assign: , line:15:8, endln:15:13
+      |vpiName:a
+      |vpiFullName:work@dut.a
+      |vpiActual:
+      \_logic_net: (work@dut.a), line:1:18, endln:1:19
+    |vpiLhs:
+    \_ref_obj: (work@dut.b), line:15:8, endln:15:9
+      |vpiParent:
+      \_cont_assign: , line:15:8, endln:15:13
+      |vpiName:b
+      |vpiFullName:work@dut.b
+      |vpiActual:
+      \_logic_net: (work@dut.b), line:1:28, endln:1:29
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

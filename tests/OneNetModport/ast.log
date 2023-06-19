@@ -73,12 +73,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 4
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -366,6 +369,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -909,6 +955,8 @@ design: (work@top)
       \_logic_net: (work@top.a), line:34:23, endln:34:24
     |vpiTypedef:
     \_logic_typespec: , line:34:18, endln:34:22
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
   |vpiPort:
   \_port: (b), line:34:37, endln:34:38
     |vpiParent:
@@ -925,6 +973,8 @@ design: (work@top)
       \_logic_net: (work@top.b), line:34:37, endln:34:38
     |vpiTypedef:
     \_logic_typespec: , line:34:33, endln:34:36
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
   |vpiInterface:
   \_interface_inst: work@ConnectTB (work@top.conntb), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
     |vpiParent:
@@ -1020,7 +1070,7 @@ design: (work@top)
         |vpiName:conntb
         |vpiFullName:work@top.conntb
         |vpiActual:
-        \_interface_inst: work@ConnectTB (work@top.conntb), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:0
+        \_interface_inst: work@ConnectTB (work@top.conntb), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
       |vpiLowConn:
       \_ref_obj: (work@top.dut.intf), line:38:11, endln:38:17
         |vpiParent:
@@ -1034,6 +1084,8 @@ design: (work@top)
         \_interface_typespec: (ConnectTB), line:26:13, endln:26:22
         |vpiName:dut
         |vpiIsModPort:1
+      |vpiInstance:
+      \_module_inst: work@DUT (work@top.dut), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
     |vpiInterface:
     \_interface_inst: work@ConnectTB (work@top.dut.intf), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
       |vpiParent:
@@ -1126,17 +1178,26 @@ design: (work@top)
           |vpiName:intf.drive
           |vpiExpr:
           \_ref_obj: (work@top.dut.intf), line:38:11, endln:38:17
+            |vpiParent:
+            \_port: (intf), line:26:27, endln:26:31
+            |vpiFullName:work@top.dut.intf
+            |vpiActual:
+            \_modport: (dut), line:16:11, endln:16:14
           |vpiActual:
           \_ref_obj: (intf), line:27:17, endln:27:21
             |vpiParent:
             \_hier_path: (intf.drive), line:27:17, endln:27:27
             |vpiName:intf
+            |vpiActual:
+            \_interface_inst: work@ConnectTB (work@top.dut.intf), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
           |vpiActual:
           \_ref_obj: (work@top.dut.sub1.inp.drive), line:27:22, endln:27:27
             |vpiParent:
             \_hier_path: (intf.drive), line:27:17, endln:27:27
             |vpiName:drive
             |vpiFullName:work@top.dut.sub1.inp.drive
+            |vpiActual:
+            \_logic_var: (work@top.dut.intf.dut.drive.drive), line:14:9, endln:14:14
           |vpiExpr:
           \_ref_obj: (work@top.dut.intf), line:38:11, endln:38:17
         |vpiLowConn:
@@ -1149,6 +1210,8 @@ design: (work@top)
           \_logic_net: (work@top.dut.sub1.inp), line:30:24, endln:30:27
         |vpiTypedef:
         \_logic_typespec: , line:30:19, endln:30:23
+        |vpiInstance:
+        \_module_inst: work@SUB (work@top.dut.sub1), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
       |vpiPort:
       \_port: (out), line:30:40, endln:30:43
         |vpiParent:
@@ -1167,12 +1230,16 @@ design: (work@top)
             |vpiParent:
             \_hier_path: (intf.observe), line:27:35, endln:27:47
             |vpiName:intf
+            |vpiActual:
+            \_interface_inst: work@ConnectTB (work@top.dut.intf), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
           |vpiActual:
           \_ref_obj: (work@top.dut.sub1.out.observe), line:27:40, endln:27:47
             |vpiParent:
             \_hier_path: (intf.observe), line:27:35, endln:27:47
             |vpiName:observe
             |vpiFullName:work@top.dut.sub1.out.observe
+            |vpiActual:
+            \_logic_var: (work@top.dut.intf.dut.observe.observe), line:15:9, endln:15:16
           |vpiExpr:
           \_ref_obj: (work@top.dut.intf), line:38:11, endln:38:17
         |vpiLowConn:
@@ -1185,12 +1252,91 @@ design: (work@top)
           \_logic_net: (work@top.dut.sub1.out), line:30:40, endln:30:43
         |vpiTypedef:
         \_logic_typespec: , line:30:36, endln:30:39
+        |vpiInstance:
+        \_module_inst: work@SUB (work@top.dut.sub1), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
       |vpiContAssign:
       \_cont_assign: , line:31:10, endln:31:19
+        |vpiParent:
+        \_module_inst: work@SUB (work@top.dut.sub1), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
+        |vpiRhs:
+        \_ref_obj: (work@top.dut.sub1.inp), line:31:16, endln:31:19
+          |vpiParent:
+          \_cont_assign: , line:31:10, endln:31:19
+          |vpiName:inp
+          |vpiFullName:work@top.dut.sub1.inp
+          |vpiActual:
+          \_logic_net: (work@top.dut.sub1.inp), line:30:24, endln:30:27
+        |vpiLhs:
+        \_ref_obj: (work@top.dut.sub1.out), line:31:10, endln:31:13
+          |vpiParent:
+          \_cont_assign: , line:31:10, endln:31:19
+          |vpiName:out
+          |vpiFullName:work@top.dut.sub1.out
+          |vpiActual:
+          \_logic_net: (work@top.dut.sub1.out), line:30:40, endln:30:43
   |vpiContAssign:
   \_cont_assign: , line:36:10, endln:36:26
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    |vpiRhs:
+    \_ref_obj: (work@top.a), line:36:25, endln:36:26
+      |vpiParent:
+      \_cont_assign: , line:36:10, endln:36:26
+      |vpiName:a
+      |vpiFullName:work@top.a
+      |vpiActual:
+      \_logic_net: (work@top.a), line:34:23, endln:34:24
+    |vpiLhs:
+    \_hier_path: (conntb.drive), line:36:10, endln:36:22
+      |vpiParent:
+      \_cont_assign: , line:36:10, endln:36:26
+      |vpiName:conntb.drive
+      |vpiActual:
+      \_ref_obj: (conntb), line:36:17, endln:36:22
+        |vpiParent:
+        \_hier_path: (conntb.drive), line:36:10, endln:36:22
+        |vpiName:conntb
+        |vpiActual:
+        \_interface_inst: work@ConnectTB (work@top.conntb), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      |vpiActual:
+      \_ref_obj: (drive), line:36:17, endln:36:22
+        |vpiParent:
+        \_hier_path: (conntb.drive), line:36:10, endln:36:22
+        |vpiName:drive
+        |vpiActual:
+        \_logic_var: (work@top.conntb.drive), line:14:9, endln:14:14
   |vpiContAssign:
   \_cont_assign: , line:37:10, endln:37:28
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    |vpiRhs:
+    \_hier_path: (conntb.observe), line:37:14, endln:37:28
+      |vpiParent:
+      \_cont_assign: , line:37:10, endln:37:28
+      |vpiName:conntb.observe
+      |vpiActual:
+      \_ref_obj: (conntb), line:37:14, endln:37:20
+        |vpiParent:
+        \_hier_path: (conntb.observe), line:37:14, endln:37:28
+        |vpiName:conntb
+        |vpiActual:
+        \_interface_inst: work@ConnectTB (work@top.conntb), file:UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      |vpiActual:
+      \_ref_obj: (work@top.observe), line:37:21, endln:37:28
+        |vpiParent:
+        \_hier_path: (conntb.observe), line:37:14, endln:37:28
+        |vpiName:observe
+        |vpiFullName:work@top.observe
+        |vpiActual:
+        \_logic_var: (work@top.conntb.observe), line:15:9, endln:15:16
+    |vpiLhs:
+    \_ref_obj: (work@top.b), line:37:10, endln:37:11
+      |vpiParent:
+      \_cont_assign: , line:37:10, endln:37:28
+      |vpiName:b
+      |vpiFullName:work@top.b
+      |vpiActual:
+      \_logic_net: (work@top.b), line:34:37, endln:34:38
 Object 'work@top' of type 'design'
   Object '' of type 'interface_inst'
     Object 'drive' of type 'logic_net'
@@ -1272,11 +1418,11 @@ Dumping AST before simplification:
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf'
           AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:38.11-38.17> str='\conntb'
       AST_ASSIGN <UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.26>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.22> str='\conntb.drive'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:36.17-36.22> str='\conntb.drive'
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:36.25-36.26> str='\a'
       AST_ASSIGN <UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.11> str='\b'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.28> str='\conntb.observe'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.20> str='\conntb.observe'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
@@ -1300,11 +1446,11 @@ Dumping AST after simplification:
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf' basic_prep
           AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:38.11-38.17> str='\conntb' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.26> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.22> str='\conntb.drive' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:36.17-36.22> str='\conntb.drive' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:36.25-36.26> str='\a' basic_prep
       AST_ASSIGN <UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.11> str='\b' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.28> str='\conntb.observe' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.20> str='\conntb.observe' basic_prep
       AST_AUTOWIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.drive' basic_prep
       AST_AUTOWIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.observe' basic_prep
 --- END OF AST DUMP ---
@@ -1362,9 +1508,9 @@ Dumping AST before simplification:
       AST_CELL <UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\sub1'
         AST_CELLTYPE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\SUB'
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\inp'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.27> str='\intf.drive'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.21> str='\intf.drive'
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\out'
-          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.47> str='\intf.observe'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.39> str='\intf.observe'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module DUT();
@@ -1380,9 +1526,9 @@ Dumping AST after simplification:
       AST_CELL <UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\sub1' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\SUB' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\inp' basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.27> str='\intf.drive' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.21> str='\intf.drive' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\out' basic_prep
-          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.47> str='\intf.observe' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.39> str='\intf.observe' basic_prep
       AST_AUTOWIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\intf.drive' basic_prep
       AST_AUTOWIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\intf.observe' basic_prep
 --- END OF AST DUMP ---

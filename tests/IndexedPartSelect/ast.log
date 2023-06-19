@@ -64,12 +64,15 @@ there are 1 more instances of this message.
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 1
 [   NOTE] : 6
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -357,6 +360,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -836,6 +882,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/IndexedPartSelect/top.sv, line:1:1, endln:6:10
   |vpiPort:
   \_port: (c), line:1:41, endln:1:42
     |vpiParent:
@@ -872,6 +920,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/IndexedPartSelect/top.sv, line:1:1, endln:6:10
   |vpiContAssign:
   \_cont_assign: , line:3:11, endln:3:20
     |vpiParent:
@@ -888,8 +938,58 @@ design: (work@top)
       \_logic_net: (work@top.a), line:2:14, endln:2:15
   |vpiContAssign:
   \_cont_assign: , line:4:11, endln:4:22
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/IndexedPartSelect/top.sv, line:1:1, endln:6:10
+    |vpiRhs:
+    \_indexed_part_select: a (work@top.a), line:4:17, endln:4:21
+      |vpiParent:
+      \_cont_assign: , line:4:11, endln:4:22
+      |vpiName:a
+      |vpiFullName:work@top.a
+      |vpiDefName:a
+      |vpiActual:
+      \_logic_net: (work@top.a), line:2:14, endln:2:15
+      |vpiConstantSelect:1
+      |vpiIndexedPartSelectType:1
+      |vpiBaseExpr:
+      \_constant: , line:4:17, endln:4:18
+      |vpiWidthExpr:
+      \_constant: , line:4:20, endln:4:21
+    |vpiLhs:
+    \_ref_obj: (work@top.b), line:4:11, endln:4:12
+      |vpiParent:
+      \_cont_assign: , line:4:11, endln:4:22
+      |vpiName:b
+      |vpiFullName:work@top.b
+      |vpiActual:
+      \_logic_net: (work@top.b), line:1:25, endln:1:26
   |vpiContAssign:
   \_cont_assign: , line:5:11, endln:5:22
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/IndexedPartSelect/top.sv, line:1:1, endln:6:10
+    |vpiRhs:
+    \_indexed_part_select: a (work@top.a), line:5:17, endln:5:21
+      |vpiParent:
+      \_cont_assign: , line:5:11, endln:5:22
+      |vpiName:a
+      |vpiFullName:work@top.a
+      |vpiDefName:a
+      |vpiActual:
+      \_logic_net: (work@top.a), line:2:14, endln:2:15
+      |vpiConstantSelect:1
+      |vpiIndexedPartSelectType:2
+      |vpiBaseExpr:
+      \_constant: , line:5:17, endln:5:18
+      |vpiWidthExpr:
+      \_constant: , line:5:20, endln:5:21
+    |vpiLhs:
+    \_ref_obj: (work@top.c), line:5:11, endln:5:12
+      |vpiParent:
+      \_cont_assign: , line:5:11, endln:5:22
+      |vpiName:c
+      |vpiFullName:work@top.c
+      |vpiActual:
+      \_logic_net: (work@top.c), line:1:41, endln:1:42
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

@@ -73,12 +73,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 3
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -241,6 +244,8 @@ design: (work@top)
                 \_operation: , line:18:12, endln:18:30
                 |vpiName:OtpByteAddrWidth
                 |vpiFullName:otp_ctrl_part_pkg::otp_ctrl_part_pkg::part_info_t::offset::OtpByteAddrWidth
+                |vpiActual:
+                \_parameter: (otp_ctrl_part_pkg::OtpByteAddrWidth), line:3:17, endln:3:33
               |vpiOperand:
               \_constant: , line:18:29, endln:18:30
                 |vpiParent:
@@ -288,6 +293,8 @@ design: (work@top)
                 \_operation: , line:19:12, endln:19:30
                 |vpiName:OtpByteAddrWidth
                 |vpiFullName:otp_ctrl_part_pkg::otp_ctrl_part_pkg::part_info_t::size::OtpByteAddrWidth
+                |vpiActual:
+                \_parameter: (otp_ctrl_part_pkg::OtpByteAddrWidth), line:3:17, endln:3:33
               |vpiOperand:
               \_constant: , line:19:29, endln:19:30
                 |vpiParent:
@@ -339,6 +346,8 @@ design: (work@top)
                   |vpiParent:
                   \_operation: , line:5:23, endln:5:38
                   |vpiName:ConstSelWidth
+                  |vpiActual:
+                  \_parameter: (otp_ctrl_part_pkg::ConstSelWidth), line:4:17, endln:4:30
                 |vpiOperand:
                 \_constant: , line:5:37, endln:5:38
                   |vpiParent:
@@ -498,6 +507,8 @@ design: (work@top)
             \_operation: , line:41:36, endln:41:43
             |vpiName:NumPart
             |vpiFullName:otp_ctrl_part_pkg::PartInfo::NumPart
+            |vpiActual:
+            \_parameter: (otp_ctrl_part_pkg::NumPart), line:2:17, endln:2:24
           |vpiOperand:
           \_constant: 
             |vpiSize:64
@@ -5074,6 +5085,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -16562,7 +16616,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.ConstSelWidth), line:4:17, endln:4:30
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:4:17, endln:4:34
           |UINT:3
           |vpiTypespec:
           \_int_typespec: , line:4:13, endln:4:16
@@ -16578,7 +16632,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.NumPart), line:2:17, endln:2:24
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:2:17, endln:2:28
           |UINT:2
           |vpiTypespec:
           \_int_typespec: , line:2:13, endln:2:16
@@ -16594,7 +16648,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.OtpByteAddrWidth), line:3:17, endln:3:33
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:3:17, endln:3:38
           |UINT:11
           |vpiTypespec:
           \_int_typespec: , line:3:13, endln:3:16
@@ -16610,7 +16664,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.PartInfo), line:41:26, endln:41:34
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:41:26, endln:138:4
           |vpiSize:1
           |vpiTypespec:
           \_array_typespec: , line:41:14, endln:41:44
@@ -16995,7 +17049,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.PartInfoDefault), line:30:25, endln:30:40
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:30:25, endln:40:4
           |vpiTypespec:
           \_struct_typespec: (otp_ctrl_part_pkg::part_info_t), line:15:11, endln:28:4
             |vpiParent:
@@ -17296,7 +17350,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.PartInvDefault), line:140:29, endln:140:43
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:140:29, endln:230:9
           |vpiTypespec:
           \_logic_typespec: , line:140:13, endln:140:28
             |vpiParent:
@@ -17329,7 +17383,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.Info), line:236:37, endln:236:41
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:236:37, endln:236:59
           |vpiTypespec:
           \_struct_typespec: (otp_ctrl_part_pkg::part_info_t), line:15:11, endln:28:4
             |vpiParent:
@@ -17629,7 +17683,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[0].u_part_buf.DataDefault), line:237:37, endln:237:48
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[0].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:237:37, endln:237:53
           |BIN:0
           |vpiTypespec:
           \_logic_typespec: , line:237:13, endln:237:36
@@ -17659,6 +17713,8 @@ design: (work@top)
                       |vpiParent:
                       \_hier_path: (Info.size), line:237:20, endln:237:29
                       |vpiName:Info
+                      |vpiActual:
+                      \_parameter: (work@top.gen_block[0].u_part_buf.Info), line:236:37, endln:236:41
                     |vpiActual:
                     \_ref_obj: (size), line:237:25, endln:237:29
                       |vpiParent:
@@ -18080,6 +18136,8 @@ design: (work@top)
             |vpiName:PartInvDefault
             |vpiFullName:work@top.gen_block[0].u_part_buf.PartInvDefault
             |vpiDefName:PartInvDefault
+            |vpiActual:
+            \_parameter: (work@top.gen_block[0].u_part_buf.PartInvDefault), line:140:29, endln:140:43
             |vpiConstantSelect:1
             |vpiIndexedPartSelectType:1
             |vpiBaseExpr:
@@ -20919,7 +20977,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.ConstSelWidth), line:4:17, endln:4:30
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:4:17, endln:4:34
           |UINT:3
           |vpiTypespec:
           \_int_typespec: , line:4:13, endln:4:16
@@ -20935,7 +20993,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.NumPart), line:2:17, endln:2:24
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:2:17, endln:2:28
           |UINT:2
           |vpiTypespec:
           \_int_typespec: , line:2:13, endln:2:16
@@ -20951,7 +21009,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.OtpByteAddrWidth), line:3:17, endln:3:33
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:3:17, endln:3:38
           |UINT:11
           |vpiTypespec:
           \_int_typespec: , line:3:13, endln:3:16
@@ -20967,7 +21025,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.PartInfo), line:41:26, endln:41:34
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:41:26, endln:138:4
           |vpiSize:1
           |vpiTypespec:
           \_array_typespec: , line:41:14, endln:41:44
@@ -21352,7 +21410,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.PartInfoDefault), line:30:25, endln:30:40
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:30:25, endln:40:4
           |vpiTypespec:
           \_struct_typespec: (otp_ctrl_part_pkg::part_info_t), line:15:11, endln:28:4
             |vpiParent:
@@ -21653,7 +21711,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.PartInvDefault), line:140:29, endln:140:43
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:140:29, endln:230:9
           |vpiTypespec:
           \_logic_typespec: , line:140:13, endln:140:28
             |vpiParent:
@@ -21686,7 +21744,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.Info), line:236:37, endln:236:41
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:236:37, endln:236:59
           |vpiTypespec:
           \_struct_typespec: (otp_ctrl_part_pkg::part_info_t), line:15:11, endln:28:4
             |vpiParent:
@@ -21986,7 +22044,7 @@ design: (work@top)
         |vpiParameter:
         \_parameter: (work@top.gen_block[1].u_part_buf.DataDefault), line:237:37, endln:237:48
           |vpiParent:
-          \_module_inst: work@otp_ctrl_part_buf (work@top.gen_block[1].u_part_buf), file:UHDM-integration-tests/tests/ParameterRangeUsingDot/top.sv, line:244:3, endln:247:19
+          \_param_assign: , line:237:37, endln:237:53
           |BIN:0
           |vpiTypespec:
           \_logic_typespec: , line:237:13, endln:237:36
@@ -22016,6 +22074,8 @@ design: (work@top)
                       |vpiParent:
                       \_hier_path: (Info.size), line:237:20, endln:237:29
                       |vpiName:Info
+                      |vpiActual:
+                      \_parameter: (work@top.gen_block[1].u_part_buf.Info), line:236:37, endln:236:41
                     |vpiActual:
                     \_ref_obj: (size), line:237:25, endln:237:29
                       |vpiParent:
@@ -22436,6 +22496,8 @@ design: (work@top)
             |vpiName:PartInvDefault
             |vpiFullName:work@top.gen_block[1].u_part_buf.PartInvDefault
             |vpiDefName:PartInvDefault
+            |vpiActual:
+            \_parameter: (work@top.gen_block[1].u_part_buf.PartInvDefault), line:140:29, endln:140:43
             |vpiConstantSelect:1
             |vpiIndexedPartSelectType:1
             |vpiBaseExpr:

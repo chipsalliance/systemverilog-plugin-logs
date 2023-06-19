@@ -105,12 +105,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -398,6 +401,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -980,6 +1026,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:5:1, endln:17:10
   |vpiPort:
   \_port: (o), line:7:28, endln:7:29
     |vpiParent:
@@ -1036,6 +1084,8 @@ design: (work@top)
           |vpiSize:64
           |UINT:0
           |vpiConstType:9
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:5:1, endln:17:10
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.gen_sbox_j[0]), line:9:35, endln:16:7
     |vpiParent:
@@ -1114,11 +1164,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1145,6 +1197,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1152,11 +1206,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1183,8 +1239,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[0].gen_sbox_i[1]), line:10:38, endln:15:10
         |vpiParent:
@@ -1242,11 +1318,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1273,6 +1351,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1280,11 +1360,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1311,8 +1393,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[0].gen_sbox_i[2]), line:10:38, endln:15:10
         |vpiParent:
@@ -1370,11 +1472,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1401,6 +1505,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1408,11 +1514,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1439,8 +1547,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[0].gen_sbox_i[3]), line:10:38, endln:15:10
         |vpiParent:
@@ -1498,11 +1626,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1529,6 +1659,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1536,11 +1668,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1567,8 +1701,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[0].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.gen_sbox_j[1]), line:9:35, endln:16:7
     |vpiParent:
@@ -1647,11 +1801,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1678,6 +1834,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1685,11 +1843,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1716,8 +1876,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[1].gen_sbox_i[1]), line:10:38, endln:15:10
         |vpiParent:
@@ -1775,11 +1955,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1806,6 +1988,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1813,11 +1997,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1844,8 +2030,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[1].gen_sbox_i[2]), line:10:38, endln:15:10
         |vpiParent:
@@ -1903,11 +2109,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -1934,6 +2142,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -1941,11 +2151,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -1972,8 +2184,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[1].gen_sbox_i[3]), line:10:38, endln:15:10
         |vpiParent:
@@ -2031,11 +2263,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2062,6 +2296,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2069,11 +2305,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2100,8 +2338,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[1].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.gen_sbox_j[2]), line:9:35, endln:16:7
     |vpiParent:
@@ -2180,11 +2438,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2211,6 +2471,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2218,11 +2480,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2249,8 +2513,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[2].gen_sbox_i[1]), line:10:38, endln:15:10
         |vpiParent:
@@ -2308,11 +2592,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2339,6 +2625,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2346,11 +2634,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2377,8 +2667,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[2].gen_sbox_i[2]), line:10:38, endln:15:10
         |vpiParent:
@@ -2436,11 +2746,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2467,6 +2779,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2474,11 +2788,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2505,8 +2821,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[2].gen_sbox_i[3]), line:10:38, endln:15:10
         |vpiParent:
@@ -2564,11 +2900,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2595,6 +2933,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2602,11 +2942,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2633,8 +2975,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[2].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
   |vpiGenScopeArray:
   \_gen_scope_array: (work@top.gen_sbox_j[3]), line:9:35, endln:16:7
     |vpiParent:
@@ -2713,11 +3075,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2744,6 +3108,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2751,11 +3117,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2782,8 +3150,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[0].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[3].gen_sbox_i[1]), line:10:38, endln:15:10
         |vpiParent:
@@ -2841,11 +3229,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -2872,6 +3262,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -2879,11 +3271,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -2910,8 +3304,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[1].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[3].gen_sbox_i[2]), line:10:38, endln:15:10
         |vpiParent:
@@ -2969,11 +3383,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -3000,6 +3416,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -3007,11 +3425,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -3038,8 +3458,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[2].u_sub.o), line:1:45, endln:1:46
       |vpiGenScopeArray:
       \_gen_scope_array: (work@top.gen_sbox_j[3].gen_sbox_i[3]), line:10:38, endln:15:10
         |vpiParent:
@@ -3097,11 +3537,13 @@ design: (work@top)
               |vpiName:data_i
               |vpiDirection:1
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i.data_i), line:12:21, endln:12:33
+              \_var_select: (work@top.data_i), line:12:21, endln:12:33
                 |vpiParent:
                 \_port: (data_i), line:1:24, endln:1:30
                 |vpiName:data_i
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i.data_i
+                |vpiFullName:work@top.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
                 |vpiIndex:
                 \_constant: , line:12:28, endln:12:29
                   |vpiParent:
@@ -3128,6 +3570,8 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
               |vpiTypedef:
               \_logic_typespec: , line:1:18, endln:1:23
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiPort:
             \_port: (o), line:1:45, endln:1:46
               |vpiParent:
@@ -3135,11 +3579,13 @@ design: (work@top)
               |vpiName:o
               |vpiDirection:2
               |vpiHighConn:
-              \_var_select: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o.o), line:13:16, endln:13:23
+              \_var_select: (work@top.o), line:13:16, endln:13:23
                 |vpiParent:
                 \_port: (o), line:1:45, endln:1:46
                 |vpiName:o
-                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o.o
+                |vpiFullName:work@top.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
                 |vpiIndex:
                 \_constant: , line:13:18, endln:13:19
                   |vpiParent:
@@ -3166,8 +3612,28 @@ design: (work@top)
                 \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
               |vpiTypedef:
               \_logic_typespec: , line:1:39, endln:1:44
+              |vpiInstance:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
             |vpiContAssign:
             \_cont_assign: , line:2:11, endln:2:21
+              |vpiParent:
+              \_module_inst: work@sub (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub), file:UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv, line:11:10, endln:14:12
+              |vpiRhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i), line:2:15, endln:2:21
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:data_i
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.data_i), line:1:24, endln:1:30
+              |vpiLhs:
+              \_ref_obj: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o), line:2:11, endln:2:12
+                |vpiParent:
+                \_cont_assign: , line:2:11, endln:2:21
+                |vpiName:o
+                |vpiFullName:work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o
+                |vpiActual:
+                \_logic_net: (work@top.gen_sbox_j[3].gen_sbox_i[3].u_sub.o), line:1:45, endln:1:46
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'

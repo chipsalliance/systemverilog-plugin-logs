@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -358,6 +361,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -682,6 +728,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:6:19, endln:6:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
   |vpiModule:
   \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
     |vpiParent:
@@ -764,7 +812,7 @@ design: (work@top)
         |vpiName:o
         |vpiFullName:work@top.o
         |vpiActual:
-        \_int_var: (work@top.o), line:6:23, endln:6:24
+        \_int_var: (work@top.u_dut.o), line:1:23, endln:1:24
       |vpiLowConn:
       \_ref_obj: (work@top.u_dut.o), line:9:13, endln:9:14
         |vpiParent:
@@ -776,6 +824,8 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:1:19, endln:1:22
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
     |vpiContAssign:
     \_cont_assign: , line:3:11, endln:3:27
       |vpiParent:

@@ -65,12 +65,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -358,6 +361,49 @@ design: (work@top)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -840,6 +886,8 @@ design: (work@top)
         |vpiParent:
         \_hier_path: (Info.x), line:13:37, endln:13:43
         |vpiName:Info
+        |vpiActual:
+        \_parameter: (work@top.Info), line:12:26, endln:12:30
       |vpiActual:
       \_ref_obj: (x), line:13:42, endln:13:43
         |vpiParent:
@@ -869,6 +917,8 @@ design: (work@top)
     |vpiTypedef:
     \_int_typespec: , line:7:19, endln:7:22
       |vpiSigned:1
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv, line:7:1, endln:19:16
   |vpiModule:
   \_module_inst: work@otp_ctrl_ecc_reg (work@top.u_otp_ctrl_ecc_reg), file:UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv, line:15:4, endln:18:14
     |vpiParent:
@@ -929,6 +979,8 @@ design: (work@top)
           |vpiParent:
           \_hier_path: (Info.x), line:16:15, endln:16:30
           |vpiName:Info
+          |vpiActual:
+          \_parameter: (work@top.Info), line:12:26, endln:12:30
         |vpiActual:
         \_ref_obj: (x), line:13:42, endln:13:43
           |vpiParent:
@@ -959,6 +1011,8 @@ design: (work@top)
             |vpiParent:
             \_hier_path: (Info.x), line:3:31, endln:3:36
             |vpiName:Info
+            |vpiActual:
+            \_parameter: (work@top.Info), line:12:26, endln:12:30
           |vpiActual:
           \_ref_obj: (x), line:13:42, endln:13:43
             |vpiParent:
@@ -997,8 +1051,28 @@ design: (work@top)
       |vpiTypedef:
       \_int_typespec: , line:1:32, endln:1:35
         |vpiSigned:1
+      |vpiInstance:
+      \_module_inst: work@otp_ctrl_ecc_reg (work@top.u_otp_ctrl_ecc_reg), file:UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv, line:15:4, endln:18:14
     |vpiContAssign:
     \_cont_assign: , line:4:11, endln:4:17
+      |vpiParent:
+      \_module_inst: work@otp_ctrl_ecc_reg (work@top.u_otp_ctrl_ecc_reg), file:UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv, line:15:4, endln:18:14
+      |vpiRhs:
+      \_ref_obj: (work@top.u_otp_ctrl_ecc_reg.Aw), line:4:15, endln:4:17
+        |vpiParent:
+        \_cont_assign: , line:4:11, endln:4:17
+        |vpiName:Aw
+        |vpiFullName:work@top.u_otp_ctrl_ecc_reg.Aw
+        |vpiActual:
+        \_parameter: (work@top.u_otp_ctrl_ecc_reg.Aw), line:3:19, endln:3:21
+      |vpiLhs:
+      \_ref_obj: (work@top.u_otp_ctrl_ecc_reg.a), line:4:11, endln:4:12
+        |vpiParent:
+        \_cont_assign: , line:4:11, endln:4:17
+        |vpiName:a
+        |vpiFullName:work@top.u_otp_ctrl_ecc_reg.a
+        |vpiActual:
+        \_int_var: (work@top.u_otp_ctrl_ecc_reg.a), line:1:36, endln:1:37
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object '' of type 'module_inst'
@@ -1087,7 +1161,7 @@ Generating RTLIL representation for module `$paramod\otp_ctrl_ecc_reg\Depth=32'0
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:1.1-5.29> str='$paramod\otp_ctrl_ecc_reg\Depth=32'00000000000000000000000000001111'
       AST_PARAMETER <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:2.19-2.28> str='\Depth' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:16.15-16.30> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
+        AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.42-13.43> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
         AST_RANGE <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1115,7 +1189,7 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:1.1-5.29> str='$paramod\otp_ctrl_ecc_reg\Depth=32'00000000000000000000000000001111' basic_prep
       AST_PARAMETER <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:2.19-2.28> str='\Depth' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:16.15-16.30> bits='00000000000000000000000000001111'(32) basic_prep range=[31:0] int=15
+        AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.42-13.43> bits='00000000000000000000000000001111'(32) basic_prep range=[31:0] int=15
         AST_RANGE <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -1154,7 +1228,7 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000001111111111'(32) signed range=[31:0] int=1023
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.19-13.43> str='\NumScrmblBlocks' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_IDENTIFIER <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.37-13.43> str='\Info' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.42-13.43> str='\Info' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
             AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -1193,7 +1267,7 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000001111111111'(32) signed basic_prep range=[31:0] int=1023
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_LOCALPARAM <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.19-13.43> str='\NumScrmblBlocks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.37-13.43> bits='00000000000000000000000000001111'(32) basic_prep range=[31:0] int=15
+        AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:13.42-13.43> bits='00000000000000000000000000001111'(32) basic_prep range=[31:0] int=15
         AST_RANGE <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/ClogOfParamOfInstanceInitializedByStructMember/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]

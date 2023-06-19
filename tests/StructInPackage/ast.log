@@ -69,12 +69,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 3
 [   NOTE] : 5
 design: (work@dut)
+|vpiElaborated:1
 |vpiName:work@dut
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -568,6 +571,49 @@ design: (work@dut)
       \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
       \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
       |vpiFullName:work@process::status
   |vpiMethod:
   \_task: (work@process::kill), line:40:5, endln:41:12
@@ -962,6 +1008,8 @@ design: (work@dut)
       \_struct_net: (work@dut.var1), line:13:12, endln:13:16
     |vpiTypedef:
     \_struct_typespec: (pkg1::struct1), line:2:13, endln:4:6
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StructInPackage/dut.sv, line:13:1, endln:25:10
   |vpiPort:
   \_port: (var2), line:13:18, endln:13:22
     |vpiParent:
@@ -978,6 +1026,8 @@ design: (work@dut)
       \_struct_net: (work@dut.var2), line:13:18, endln:13:22
     |vpiTypedef:
     \_struct_typespec: (pkg2::struct1), line:8:13, endln:10:6
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StructInPackage/dut.sv, line:13:1, endln:25:10
   |vpiPort:
   \_port: (var3), line:13:24, endln:13:28
     |vpiParent:
@@ -994,6 +1044,8 @@ design: (work@dut)
       \_struct_net: (work@dut.var3), line:13:24, endln:13:28
     |vpiTypedef:
     \_struct_typespec: (struct2), line:14:13, endln:16:6
+    |vpiInstance:
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/StructInPackage/dut.sv, line:13:1, endln:25:10
   |vpiContAssign:
   \_cont_assign: , line:22:12, endln:22:28
     |vpiParent:
@@ -1010,11 +1062,15 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (var1.first), line:22:12, endln:22:22
         |vpiName:var1
+        |vpiActual:
+        \_struct_net: (work@dut.var1), line:13:12, endln:13:16
       |vpiActual:
       \_ref_obj: (first), line:22:17, endln:22:22
         |vpiParent:
         \_hier_path: (var1.first), line:22:12, endln:22:22
         |vpiName:first
+        |vpiActual:
+        \_typespec_member: (first), line:3:21, endln:3:26
   |vpiContAssign:
   \_cont_assign: , line:23:12, endln:23:29
     |vpiParent:
@@ -1031,11 +1087,15 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (var2.second), line:23:12, endln:23:23
         |vpiName:var2
+        |vpiActual:
+        \_struct_net: (work@dut.var2), line:13:18, endln:13:22
       |vpiActual:
       \_ref_obj: (second), line:23:17, endln:23:23
         |vpiParent:
         \_hier_path: (var2.second), line:23:12, endln:23:23
         |vpiName:second
+        |vpiActual:
+        \_typespec_member: (second), line:9:21, endln:9:27
   |vpiContAssign:
   \_cont_assign: , line:24:12, endln:24:27
     |vpiParent:
@@ -1052,11 +1112,15 @@ design: (work@dut)
         |vpiParent:
         \_hier_path: (var3.third), line:24:12, endln:24:22
         |vpiName:var3
+        |vpiActual:
+        \_struct_net: (work@dut.var3), line:13:24, endln:13:28
       |vpiActual:
       \_ref_obj: (third), line:24:17, endln:24:22
         |vpiParent:
         \_hier_path: (var3.third), line:24:12, endln:24:22
         |vpiName:third
+        |vpiActual:
+        \_typespec_member: (third), line:15:21, endln:15:26
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
   Object 'pkg1' of type 'package'
@@ -1157,19 +1221,19 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
           AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructInPackage/dut.sv:22.12-22.28>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:22.12-22.22> str='\var1' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:22.17-22.22> str='\var1' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed range=[31:0] int=255
       AST_ASSIGN <UHDM-integration-tests/tests/StructInPackage/dut.sv:23.12-23.29>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:23.12-23.23> str='\var2' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:23.17-23.23> str='\var2' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
         AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed range=[31:0] int=127
       AST_ASSIGN <UHDM-integration-tests/tests/StructInPackage/dut.sv:24.12-24.27>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:24.12-24.22> str='\var3' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:24.17-24.22> str='\var3' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0>
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -1221,19 +1285,19 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
           AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructInPackage/dut.sv:22.12-22.28> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:22.12-22.22> str='\var1' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:22.17-22.22> str='\var1' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> basic_prep range=[7:0]
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
       AST_ASSIGN <UHDM-integration-tests/tests/StructInPackage/dut.sv:23.12-23.29> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:23.12-23.23> str='\var2' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:23.17-23.23> str='\var2' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> basic_prep range=[6:0]
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed basic_prep range=[31:0] int=127
       AST_ASSIGN <UHDM-integration-tests/tests/StructInPackage/dut.sv:24.12-24.27> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:24.12-24.22> str='\var3' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructInPackage/dut.sv:24.17-24.22> str='\var3' basic_prep
           AST_RANGE <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> basic_prep range=[5:0]
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
             AST_CONSTANT <UHDM-integration-tests/tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
