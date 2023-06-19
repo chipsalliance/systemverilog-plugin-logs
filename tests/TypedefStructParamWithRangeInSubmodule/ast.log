@@ -69,12 +69,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 3
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -95,7 +98,7 @@ design: (work@top)
     \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
     |UINT:8
     |vpiTypespec:
-    \_int_typespec: 
+    \_int_typespec: , line:2:3, endln:2:26
     |vpiName:MpRegions
     |vpiFullName:top_pkg::MpRegions
   |vpiParameter:
@@ -103,7 +106,7 @@ design: (work@top)
     |vpiParent:
     \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
     |vpiTypespec:
-    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
       |vpiParent:
       \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
       |vpiName:top_pkg::flash_req_t
@@ -113,10 +116,10 @@ design: (work@top)
       |vpiTypespecMember:
       \_typespec_member: (region_cfgs), line:10:35, endln:10:46
         |vpiParent:
-        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiName:region_cfgs
         |vpiTypespec:
-        \_packed_array_typespec: , line:10:5, endln:10:20
+        \_packed_array_typespec: , line:10:5, endln:10:34
           |vpiParent:
           \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiInstance:
@@ -124,13 +127,15 @@ design: (work@top)
           |vpiRange:
           \_range: , line:10:21, endln:10:34
             |vpiParent:
-            \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+            \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiLeftRange:
-            \_ref_obj: (top_pkg::top_pkg::flash_req_t::MpRegions), line:10:22, endln:10:31
+            \_ref_obj: (top_pkg::top_pkg::flash_req_t::region_cfgs::MpRegions), line:10:22, endln:10:31
               |vpiParent:
               \_range: , line:10:21, endln:10:34
               |vpiName:MpRegions
-              |vpiFullName:top_pkg::top_pkg::flash_req_t::MpRegions
+              |vpiFullName:top_pkg::top_pkg::flash_req_t::region_cfgs::MpRegions
+              |vpiActual:
+              \_parameter: (top_pkg::MpRegions), line:2:13, endln:2:22
             |vpiRightRange:
             \_constant: , line:10:32, endln:10:33
               |vpiParent:
@@ -140,7 +145,7 @@ design: (work@top)
               |UINT:0
               |vpiConstType:9
           |vpiElemTypespec:
-          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
             |vpiParent:
             \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
             |vpiName:top_pkg::mp_region_cfg_t
@@ -150,7 +155,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (base), line:5:17, endln:5:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:base
               |vpiTypespec:
               \_logic_typespec: , line:5:5, endln:5:16
@@ -161,7 +166,7 @@ design: (work@top)
                 |vpiRange:
                 \_range: , line:5:11, endln:5:16
                   |vpiParent:
-                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                  \_logic_typespec: , line:5:5, endln:5:16
                   |vpiLeftRange:
                   \_constant: , line:5:12, endln:5:13
                     |vpiParent:
@@ -186,7 +191,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (size), line:6:17, endln:6:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:size
               |vpiTypespec:
               \_logic_typespec: , line:6:5, endln:6:16
@@ -197,7 +202,7 @@ design: (work@top)
                 |vpiRange:
                 \_range: , line:6:11, endln:6:16
                   |vpiParent:
-                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                  \_logic_typespec: , line:6:5, endln:6:16
                   |vpiLeftRange:
                   \_constant: , line:6:12, endln:6:13
                     |vpiParent:
@@ -232,11 +237,13 @@ design: (work@top)
     \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
     |vpiRhs:
     \_constant: , line:2:25, endln:2:26
+      |vpiParent:
+      \_param_assign: , line:2:13, endln:2:26
       |vpiDecompile:8
       |vpiSize:32
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
       |vpiConstType:9
     |vpiLhs:
     \_parameter: (top_pkg::MpRegions), line:2:13, endln:2:22
@@ -246,9 +253,13 @@ design: (work@top)
     \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
     |vpiRhs:
     \_operation: , line:13:45, endln:15:4
+      |vpiParent:
+      \_param_assign: , line:13:25, endln:15:4
       |vpiOpType:75
       |vpiOperand:
       \_tagged_pattern: , line:14:20, endln:14:22
+        |vpiParent:
+        \_operation: , line:13:45, endln:15:4
         |vpiPattern:
         \_constant: , line:14:20, endln:14:22
           |vpiDecompile:'0
@@ -257,13 +268,15 @@ design: (work@top)
           |vpiConstType:3
         |vpiTypespec:
         \_string_typespec: (region_cfgs), line:14:5, endln:14:16
+          |vpiParent:
+          \_tagged_pattern: , line:14:20, endln:14:22
           |vpiName:region_cfgs
     |vpiLhs:
     \_parameter: (top_pkg::FLASH_REQ_DEFAULT), line:13:25, endln:13:42
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
   |vpiDefName:top_pkg
 |uhdmtopPackages:
 \_package: builtin (builtin::)
@@ -315,7 +328,7 @@ design: (work@top)
     \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
     |UINT:8
     |vpiTypespec:
-    \_int_typespec: 
+    \_int_typespec: , line:2:3, endln:2:26
     |vpiName:MpRegions
     |vpiFullName:top_pkg::MpRegions
   |vpiParameter:
@@ -323,7 +336,7 @@ design: (work@top)
     |vpiParent:
     \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
     |vpiTypespec:
-    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
       |vpiParent:
       \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
       |vpiName:top_pkg::flash_req_t
@@ -333,10 +346,10 @@ design: (work@top)
       |vpiTypespecMember:
       \_typespec_member: (region_cfgs), line:10:35, endln:10:46
         |vpiParent:
-        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiName:region_cfgs
         |vpiTypespec:
-        \_packed_array_typespec: , line:10:5, endln:10:20
+        \_packed_array_typespec: , line:10:5, endln:10:34
           |vpiParent:
           \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiInstance:
@@ -344,7 +357,7 @@ design: (work@top)
           |vpiRange:
           \_range: , line:10:21, endln:10:34
             |vpiParent:
-            \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+            \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiLeftRange:
             \_constant: , line:10:22, endln:10:31
               |vpiParent:
@@ -353,7 +366,7 @@ design: (work@top)
               |vpiSize:32
               |UINT:8
               |vpiTypespec:
-              \_int_typespec: 
+              \_int_typespec: , line:2:3, endln:2:26
                 |vpiParent:
                 \_constant: , line:10:22, endln:10:31
               |vpiConstType:9
@@ -366,7 +379,7 @@ design: (work@top)
               |UINT:0
               |vpiConstType:9
           |vpiElemTypespec:
-          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
             |vpiParent:
             \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
             |vpiName:top_pkg::mp_region_cfg_t
@@ -376,551 +389,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (base), line:5:17, endln:5:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
-              |vpiName:base
-              |vpiTypespec:
-              \_logic_typespec: , line:5:5, endln:5:16
-                |vpiParent:
-                \_typespec_member: (base), line:5:17, endln:5:21
-                |vpiInstance:
-                \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-                |vpiRange:
-                \_range: , line:5:11, endln:5:16
-                  |vpiParent:
-                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
-                  |vpiLeftRange:
-                  \_constant: , line:5:12, endln:5:13
-                    |vpiParent:
-                    \_range: , line:5:11, endln:5:16
-                    |vpiDecompile:8
-                    |vpiSize:64
-                    |UINT:8
-                    |vpiConstType:9
-                  |vpiRightRange:
-                  \_constant: , line:5:14, endln:5:15
-                    |vpiParent:
-                    \_range: , line:5:11, endln:5:16
-                    |vpiDecompile:0
-                    |vpiSize:64
-                    |UINT:0
-                    |vpiConstType:9
-              |vpiRefFile:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv
-              |vpiRefLineNo:5
-              |vpiRefColumnNo:5
-              |vpiRefEndLineNo:5
-              |vpiRefEndColumnNo:16
-            |vpiTypespecMember:
-            \_typespec_member: (size), line:6:17, endln:6:21
-              |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
-              |vpiName:size
-              |vpiTypespec:
-              \_logic_typespec: , line:6:5, endln:6:16
-                |vpiParent:
-                \_typespec_member: (size), line:6:17, endln:6:21
-                |vpiInstance:
-                \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-                |vpiRange:
-                \_range: , line:6:11, endln:6:16
-                  |vpiParent:
-                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
-                  |vpiLeftRange:
-                  \_constant: , line:6:12, endln:6:13
-                    |vpiParent:
-                    \_range: , line:6:11, endln:6:16
-                    |vpiDecompile:9
-                    |vpiSize:64
-                    |UINT:9
-                    |vpiConstType:9
-                  |vpiRightRange:
-                  \_constant: , line:6:14, endln:6:15
-                    |vpiParent:
-                    \_range: , line:6:11, endln:6:16
-                    |vpiDecompile:0
-                    |vpiSize:64
-                    |UINT:0
-                    |vpiConstType:9
-              |vpiRefFile:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv
-              |vpiRefLineNo:6
-              |vpiRefColumnNo:5
-              |vpiRefEndLineNo:6
-              |vpiRefEndColumnNo:16
-        |vpiRefFile:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv
-        |vpiRefLineNo:10
-        |vpiRefColumnNo:5
-        |vpiRefEndLineNo:10
-        |vpiRefEndColumnNo:34
-    |vpiName:FLASH_REQ_DEFAULT
-    |vpiFullName:top_pkg::FLASH_REQ_DEFAULT
-  |vpiParamAssign:
-  \_param_assign: , line:2:13, endln:2:26
-    |vpiParent:
-    \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-    |vpiRhs:
-    \_constant: , line:2:25, endln:2:26
-      |vpiDecompile:8
-      |vpiSize:32
-      |UINT:8
-      |vpiTypespec:
-      \_int_typespec: 
-      |vpiConstType:9
-    |vpiLhs:
-    \_parameter: (top_pkg::MpRegions), line:2:13, endln:2:22
-  |vpiParamAssign:
-  \_param_assign: , line:13:25, endln:15:4
-    |vpiParent:
-    \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-    |vpiRhs:
-    \_operation: , line:13:45, endln:15:4
-      |vpiOpType:75
-      |vpiOperand:
-      \_tagged_pattern: , line:14:20, endln:14:22
-        |vpiPattern:
-        \_constant: , line:14:20, endln:14:22
-          |vpiDecompile:'0
-          |vpiSize:-1
-          |BIN:0
-          |vpiConstType:3
-        |vpiTypespec:
-        \_string_typespec: (region_cfgs), line:14:5, endln:14:16
-          |vpiName:region_cfgs
-    |vpiLhs:
-    \_parameter: (top_pkg::FLASH_REQ_DEFAULT), line:13:25, endln:13:42
-  |vpiTypedef:
-  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
-  |vpiTypedef:
-  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
-  |vpiDefName:top_pkg
-  |vpiTop:1
-|uhdmallClasses:
-\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-  |vpiParent:
-  \_design: (work@top)
-  |vpiName:work@mailbox
-  |vpiMethod:
-  \_function: (work@mailbox::new)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:new
-    |vpiFullName:work@mailbox::new
-    |vpiMethod:1
-    |vpiReturn:
-    \_class_var: 
-      |vpiTypespec:
-      \_class_typespec: 
-        |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (bound)
-      |vpiDirection:1
-      |vpiName:bound
-      |vpiExpr:
-      \_constant: 
-        |vpiDecompile:0
-        |vpiSize:64
-        |UINT:0
-        |vpiConstType:9
-      |vpiTypedef:
-      \_int_typespec: 
-        |vpiSigned:1
-  |vpiMethod:
-  \_function: (work@mailbox::num)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:num
-    |vpiFullName:work@mailbox::num
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_int_var: 
-      |vpiTypespec:
-      \_int_typespec: 
-        |vpiSigned:1
-      |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-  |vpiMethod:
-  \_task: (work@mailbox::put)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:put
-    |vpiFullName:work@mailbox::put
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (message)
-      |vpiDirection:1
-      |vpiName:message
-  |vpiMethod:
-  \_function: (work@mailbox::try_put)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:try_put
-    |vpiFullName:work@mailbox::try_put
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_logic_var: 
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (message)
-      |vpiDirection:1
-      |vpiName:message
-  |vpiMethod:
-  \_task: (work@mailbox::get)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:get
-    |vpiFullName:work@mailbox::get
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (message)
-      |vpiDirection:6
-      |vpiName:message
-  |vpiMethod:
-  \_function: (work@mailbox::try_get)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:try_get
-    |vpiFullName:work@mailbox::try_get
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_int_var: 
-      |vpiTypespec:
-      \_int_typespec: 
-        |vpiSigned:1
-      |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (message)
-      |vpiDirection:6
-      |vpiName:message
-  |vpiMethod:
-  \_task: (work@mailbox::peek)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:peek
-    |vpiFullName:work@mailbox::peek
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (message)
-      |vpiDirection:6
-      |vpiName:message
-  |vpiMethod:
-  \_function: (work@mailbox::try_peek)
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:try_peek
-    |vpiFullName:work@mailbox::try_peek
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_int_var: 
-      |vpiTypespec:
-      \_int_typespec: 
-        |vpiSigned:1
-      |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (message)
-      |vpiDirection:6
-      |vpiName:message
-|uhdmallClasses:
-\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-  |vpiParent:
-  \_design: (work@top)
-  |vpiName:work@process
-  |vpiTypedef:
-  \_enum_typespec: (state)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:state
-    |vpiEnumConst:
-    \_enum_const: (FINISHED)
-      |vpiName:FINISHED
-      |INT:0
-      |vpiDecompile:0
-      |vpiSize:64
-    |vpiEnumConst:
-    \_enum_const: (RUNNING)
-      |vpiName:RUNNING
-      |INT:1
-      |vpiDecompile:1
-      |vpiSize:64
-    |vpiEnumConst:
-    \_enum_const: (WAITING)
-      |vpiName:WAITING
-      |INT:2
-      |vpiDecompile:2
-      |vpiSize:64
-    |vpiEnumConst:
-    \_enum_const: (SUSPENDED)
-      |vpiName:SUSPENDED
-      |INT:3
-      |vpiDecompile:3
-      |vpiSize:64
-    |vpiEnumConst:
-    \_enum_const: (KILLED)
-      |vpiName:KILLED
-      |INT:4
-      |vpiDecompile:4
-      |vpiSize:64
-  |vpiMethod:
-  \_function: (work@process::self)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:self
-    |vpiFullName:work@process::self
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_class_var: 
-      |vpiTypespec:
-      \_class_typespec: 
-        |vpiClassDefn:
-        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-  |vpiMethod:
-  \_function: (work@process::status)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:status
-    |vpiFullName:work@process::status
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_enum_var: 
-      |vpiTypespec:
-      \_enum_typespec: (state)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-  |vpiMethod:
-  \_task: (work@process::kill)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:kill
-    |vpiFullName:work@process::kill
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-  |vpiMethod:
-  \_task: (work@process::await)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:await
-    |vpiFullName:work@process::await
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-  |vpiMethod:
-  \_task: (work@process::suspend)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:suspend
-    |vpiFullName:work@process::suspend
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-  |vpiMethod:
-  \_task: (work@process::resume)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:resume
-    |vpiFullName:work@process::resume
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-|uhdmallClasses:
-\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-  |vpiParent:
-  \_design: (work@top)
-  |vpiName:work@semaphore
-  |vpiMethod:
-  \_function: (work@semaphore::new)
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:new
-    |vpiFullName:work@semaphore::new
-    |vpiMethod:1
-    |vpiReturn:
-    \_class_var: 
-      |vpiTypespec:
-      \_class_typespec: 
-        |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (keyCount)
-      |vpiDirection:1
-      |vpiName:keyCount
-      |vpiExpr:
-      \_constant: 
-        |vpiDecompile:0
-        |vpiSize:64
-        |UINT:0
-        |vpiConstType:9
-      |vpiTypedef:
-      \_int_typespec: 
-        |vpiSigned:1
-  |vpiMethod:
-  \_task: (work@semaphore::put)
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:put
-    |vpiFullName:work@semaphore::put
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (keyCount)
-      |vpiDirection:1
-      |vpiName:keyCount
-      |vpiExpr:
-      \_constant: 
-        |vpiDecompile:1
-        |vpiSize:64
-        |UINT:1
-        |vpiConstType:9
-      |vpiTypedef:
-      \_int_typespec: 
-        |vpiSigned:1
-  |vpiMethod:
-  \_task: (work@semaphore::get)
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:get
-    |vpiFullName:work@semaphore::get
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (keyCount)
-      |vpiDirection:1
-      |vpiName:keyCount
-      |vpiExpr:
-      \_constant: 
-        |vpiDecompile:1
-        |vpiSize:64
-        |UINT:1
-        |vpiConstType:9
-      |vpiTypedef:
-      \_int_typespec: 
-        |vpiSigned:1
-  |vpiMethod:
-  \_function: (work@semaphore::try_get)
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiName:try_get
-    |vpiFullName:work@semaphore::try_get
-    |vpiMethod:1
-    |vpiVisibility:1
-    |vpiReturn:
-    \_int_var: 
-      |vpiTypespec:
-      \_int_typespec: 
-        |vpiSigned:1
-      |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiIODecl:
-    \_io_decl: (keyCount)
-      |vpiDirection:1
-      |vpiName:keyCount
-      |vpiExpr:
-      \_constant: 
-        |vpiDecompile:1
-        |vpiSize:64
-        |UINT:1
-        |vpiConstType:9
-      |vpiTypedef:
-      \_int_typespec: 
-        |vpiSigned:1
-|uhdmallModules:
-\_module_inst: work@flash_ctrl_arb (work@flash_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:18:1, endln:20:10
-  |vpiParent:
-  \_design: (work@top)
-  |vpiFullName:work@flash_ctrl_arb
-  |vpiParameter:
-  \_parameter: (work@flash_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
-    |vpiParent:
-    \_module_inst: work@flash_ctrl_arb (work@flash_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:18:1, endln:20:10
-    |vpiTypespec:
-    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
-      |vpiParent:
-      \_parameter: (work@flash_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
-      |vpiName:top_pkg::flash_req_t
-      |vpiInstance:
-      \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-      |vpiPacked:1
-      |vpiTypespecMember:
-      \_typespec_member: (region_cfgs), line:10:35, endln:10:46
-        |vpiParent:
-        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
-        |vpiName:region_cfgs
-        |vpiTypespec:
-        \_packed_array_typespec: , line:10:5, endln:10:20
-          |vpiParent:
-          \_typespec_member: (region_cfgs), line:10:35, endln:10:46
-          |vpiInstance:
-          \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-          |vpiRange:
-          \_range: , line:10:21, endln:10:34
-            |vpiParent:
-            \_packed_array_typespec: , line:10:5, endln:10:20
-            |vpiLeftRange:
-            \_constant: , line:10:22, endln:10:31
-              |vpiParent:
-              \_range: , line:10:21, endln:10:34
-              |vpiDecompile:8
-              |vpiSize:32
-              |UINT:8
-              |vpiTypespec:
-              \_int_typespec: 
-                |vpiParent:
-                \_constant: , line:10:22, endln:10:31
-              |vpiConstType:9
-            |vpiRightRange:
-            \_constant: , line:10:32, endln:10:33
-              |vpiParent:
-              \_range: , line:10:21, endln:10:34
-              |vpiDecompile:0
-              |vpiSize:64
-              |UINT:0
-              |vpiConstType:9
-          |vpiElemTypespec:
-          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
-            |vpiParent:
-            \_packed_array_typespec: , line:10:5, endln:10:20
-            |vpiName:top_pkg::mp_region_cfg_t
-            |vpiInstance:
-            \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
-            |vpiPacked:1
-            |vpiTypespecMember:
-            \_typespec_member: (base), line:5:17, endln:5:21
-              |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:base
               |vpiTypespec:
               \_logic_typespec: , line:5:5, endln:5:16
@@ -956,7 +425,625 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (size), line:6:17, endln:6:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
+              |vpiName:size
+              |vpiTypespec:
+              \_logic_typespec: , line:6:5, endln:6:16
+                |vpiParent:
+                \_typespec_member: (size), line:6:17, endln:6:21
+                |vpiInstance:
+                \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+                |vpiRange:
+                \_range: , line:6:11, endln:6:16
+                  |vpiParent:
+                  \_logic_typespec: , line:6:5, endln:6:16
+                  |vpiLeftRange:
+                  \_constant: , line:6:12, endln:6:13
+                    |vpiParent:
+                    \_range: , line:6:11, endln:6:16
+                    |vpiDecompile:9
+                    |vpiSize:64
+                    |UINT:9
+                    |vpiConstType:9
+                  |vpiRightRange:
+                  \_constant: , line:6:14, endln:6:15
+                    |vpiParent:
+                    \_range: , line:6:11, endln:6:16
+                    |vpiDecompile:0
+                    |vpiSize:64
+                    |UINT:0
+                    |vpiConstType:9
+              |vpiRefFile:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv
+              |vpiRefLineNo:6
+              |vpiRefColumnNo:5
+              |vpiRefEndLineNo:6
+              |vpiRefEndColumnNo:16
+        |vpiRefFile:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv
+        |vpiRefLineNo:10
+        |vpiRefColumnNo:5
+        |vpiRefEndLineNo:10
+        |vpiRefEndColumnNo:34
+    |vpiName:FLASH_REQ_DEFAULT
+    |vpiFullName:top_pkg::FLASH_REQ_DEFAULT
+  |vpiParamAssign:
+  \_param_assign: , line:2:13, endln:2:26
+    |vpiParent:
+    \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+    |vpiRhs:
+    \_constant: , line:2:25, endln:2:26
+      |vpiParent:
+      \_param_assign: , line:2:13, endln:2:26
+      |vpiDecompile:8
+      |vpiSize:32
+      |UINT:8
+      |vpiTypespec:
+      \_int_typespec: , line:2:3, endln:2:26
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (top_pkg::MpRegions), line:2:13, endln:2:22
+  |vpiParamAssign:
+  \_param_assign: , line:13:25, endln:15:4
+    |vpiParent:
+    \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+    |vpiRhs:
+    \_operation: , line:13:45, endln:15:4
+      |vpiParent:
+      \_param_assign: , line:13:25, endln:15:4
+      |vpiOpType:75
+      |vpiOperand:
+      \_tagged_pattern: , line:14:20, endln:14:22
+        |vpiParent:
+        \_operation: , line:13:45, endln:15:4
+        |vpiPattern:
+        \_constant: , line:14:20, endln:14:22
+          |vpiDecompile:'0
+          |vpiSize:-1
+          |BIN:0
+          |vpiConstType:3
+        |vpiTypespec:
+        \_string_typespec: (region_cfgs), line:14:5, endln:14:16
+          |vpiParent:
+          \_tagged_pattern: , line:14:20, endln:14:22
+          |vpiName:region_cfgs
+    |vpiLhs:
+    \_parameter: (top_pkg::FLASH_REQ_DEFAULT), line:13:25, endln:13:42
+  |vpiTypedef:
+  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
+  |vpiTypedef:
+  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
+  |vpiDefName:top_pkg
+  |vpiTop:1
+|uhdmallClasses:
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:work@mailbox
+  |vpiMethod:
+  \_function: (work@mailbox::new), line:3:5, endln:4:16
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:new
+    |vpiFullName:work@mailbox::new
+    |vpiMethod:1
+    |vpiReturn:
+    \_class_var: (work@mailbox::new), line:3:23, endln:3:28
+      |vpiParent:
+      \_function: (work@mailbox::new), line:3:5, endln:4:16
+      |vpiTypespec:
+      \_class_typespec: 
+        |vpiClassDefn:
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+      |vpiFullName:work@mailbox::new
+    |vpiIODecl:
+    \_io_decl: (bound), line:3:23, endln:3:28
+      |vpiParent:
+      \_function: (work@mailbox::new), line:3:5, endln:4:16
+      |vpiDirection:1
+      |vpiName:bound
+      |vpiExpr:
+      \_constant: , line:3:31, endln:3:32
+        |vpiDecompile:0
+        |vpiSize:64
+        |UINT:0
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: , line:3:19, endln:3:22
+        |vpiSigned:1
+  |vpiMethod:
+  \_function: (work@mailbox::num), line:6:5, endln:7:16
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:num
+    |vpiFullName:work@mailbox::num
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: (work@mailbox::num), line:6:14, endln:6:17
+      |vpiParent:
+      \_function: (work@mailbox::num), line:6:5, endln:7:16
+      |vpiTypespec:
+      \_int_typespec: , line:6:14, endln:6:17
+        |vpiSigned:1
+      |vpiFullName:work@mailbox::num
+      |vpiSigned:1
+  |vpiMethod:
+  \_task: (work@mailbox::put), line:9:5, endln:10:12
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:put
+    |vpiFullName:work@mailbox::put
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiIODecl:
+    \_io_decl: (message), line:9:15, endln:9:22
+      |vpiParent:
+      \_task: (work@mailbox::put), line:9:5, endln:10:12
+      |vpiDirection:1
+      |vpiName:message
+  |vpiMethod:
+  \_function: (work@mailbox::try_put), line:12:5, endln:13:16
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:try_put
+    |vpiFullName:work@mailbox::try_put
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_logic_var: (work@mailbox::try_put)
+      |vpiParent:
+      \_function: (work@mailbox::try_put), line:12:5, endln:13:16
+      |vpiFullName:work@mailbox::try_put
+    |vpiIODecl:
+    \_io_decl: (message), line:12:23, endln:12:30
+      |vpiParent:
+      \_function: (work@mailbox::try_put), line:12:5, endln:13:16
+      |vpiDirection:1
+      |vpiName:message
+  |vpiMethod:
+  \_task: (work@mailbox::get), line:15:5, endln:16:12
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:get
+    |vpiFullName:work@mailbox::get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiIODecl:
+    \_io_decl: (message), line:15:19, endln:15:26
+      |vpiParent:
+      \_task: (work@mailbox::get), line:15:5, endln:16:12
+      |vpiDirection:6
+      |vpiName:message
+  |vpiMethod:
+  \_function: (work@mailbox::try_get), line:18:5, endln:19:16
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:try_get
+    |vpiFullName:work@mailbox::try_get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: (work@mailbox::try_get), line:18:14, endln:18:17
+      |vpiParent:
+      \_function: (work@mailbox::try_get), line:18:5, endln:19:16
+      |vpiTypespec:
+      \_int_typespec: , line:18:14, endln:18:17
+        |vpiSigned:1
+      |vpiFullName:work@mailbox::try_get
+      |vpiSigned:1
+    |vpiIODecl:
+    \_io_decl: (message), line:18:31, endln:18:38
+      |vpiParent:
+      \_function: (work@mailbox::try_get), line:18:5, endln:19:16
+      |vpiDirection:6
+      |vpiName:message
+  |vpiMethod:
+  \_task: (work@mailbox::peek), line:21:5, endln:22:12
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:peek
+    |vpiFullName:work@mailbox::peek
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiIODecl:
+    \_io_decl: (message), line:21:20, endln:21:27
+      |vpiParent:
+      \_task: (work@mailbox::peek), line:21:5, endln:22:12
+      |vpiDirection:6
+      |vpiName:message
+  |vpiMethod:
+  \_function: (work@mailbox::try_peek), line:24:5, endln:25:16
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+    |vpiName:try_peek
+    |vpiFullName:work@mailbox::try_peek
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: (work@mailbox::try_peek), line:24:14, endln:24:17
+      |vpiParent:
+      \_function: (work@mailbox::try_peek), line:24:5, endln:25:16
+      |vpiTypespec:
+      \_int_typespec: , line:24:14, endln:24:17
+        |vpiSigned:1
+      |vpiFullName:work@mailbox::try_peek
+      |vpiSigned:1
+    |vpiIODecl:
+    \_io_decl: (message), line:24:31, endln:24:38
+      |vpiParent:
+      \_function: (work@mailbox::try_peek), line:24:5, endln:25:16
+      |vpiDirection:6
+      |vpiName:message
+|uhdmallClasses:
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:work@process
+  |vpiTypedef:
+  \_enum_typespec: (state), line:32:5, endln:32:74
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:state
+    |vpiEnumConst:
+    \_enum_const: (FINISHED), line:32:20, endln:32:28
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
+      |vpiName:FINISHED
+      |INT:0
+      |vpiDecompile:0
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (RUNNING), line:32:30, endln:32:37
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
+      |vpiName:RUNNING
+      |INT:1
+      |vpiDecompile:1
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (WAITING), line:32:39, endln:32:46
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
+      |vpiName:WAITING
+      |INT:2
+      |vpiDecompile:2
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
+      |vpiName:SUSPENDED
+      |INT:3
+      |vpiDecompile:3
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (KILLED), line:32:59, endln:32:65
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
+      |vpiName:KILLED
+      |INT:4
+      |vpiDecompile:4
+      |vpiSize:64
+  |vpiMethod:
+  \_function: (work@process::self), line:34:5, endln:34:11
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:self
+    |vpiFullName:work@process::self
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_class_var: (work@process::self), line:34:21, endln:34:28
+      |vpiParent:
+      \_function: (work@process::self), line:34:5, endln:34:11
+      |vpiTypespec:
+      \_class_typespec: , line:34:21, endln:34:28
+        |vpiClassDefn:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+      |vpiFullName:work@process::self
+  |vpiMethod:
+  \_function: (work@process::status), line:37:5, endln:38:16
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:status
+    |vpiFullName:work@process::status
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_enum_var: (work@process::status), line:37:14, endln:37:19
+      |vpiParent:
+      \_function: (work@process::status), line:37:5, endln:38:16
+      |vpiTypespec:
+      \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
+      |vpiFullName:work@process::status
+  |vpiMethod:
+  \_task: (work@process::kill), line:40:5, endln:41:12
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:kill
+    |vpiFullName:work@process::kill
+    |vpiMethod:1
+    |vpiVisibility:1
+  |vpiMethod:
+  \_task: (work@process::await), line:43:5, endln:44:12
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:await
+    |vpiFullName:work@process::await
+    |vpiMethod:1
+    |vpiVisibility:1
+  |vpiMethod:
+  \_task: (work@process::suspend), line:46:5, endln:47:12
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:suspend
+    |vpiFullName:work@process::suspend
+    |vpiMethod:1
+    |vpiVisibility:1
+  |vpiMethod:
+  \_task: (work@process::resume), line:49:5, endln:50:12
+    |vpiParent:
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+    |vpiName:resume
+    |vpiFullName:work@process::resume
+    |vpiMethod:1
+    |vpiVisibility:1
+|uhdmallClasses:
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:work@semaphore
+  |vpiMethod:
+  \_function: (work@semaphore::new), line:57:5, endln:58:16
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+    |vpiName:new
+    |vpiFullName:work@semaphore::new
+    |vpiMethod:1
+    |vpiReturn:
+    \_class_var: (work@semaphore::new), line:57:22, endln:57:30
+      |vpiParent:
+      \_function: (work@semaphore::new), line:57:5, endln:58:16
+      |vpiTypespec:
+      \_class_typespec: 
+        |vpiClassDefn:
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+      |vpiFullName:work@semaphore::new
+    |vpiIODecl:
+    \_io_decl: (keyCount), line:57:22, endln:57:30
+      |vpiParent:
+      \_function: (work@semaphore::new), line:57:5, endln:58:16
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: , line:57:33, endln:57:34
+        |vpiDecompile:0
+        |vpiSize:64
+        |UINT:0
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: , line:57:18, endln:57:21
+        |vpiSigned:1
+  |vpiMethod:
+  \_task: (work@semaphore::put), line:60:5, endln:61:12
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+    |vpiName:put
+    |vpiFullName:work@semaphore::put
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiIODecl:
+    \_io_decl: (keyCount), line:60:18, endln:60:26
+      |vpiParent:
+      \_task: (work@semaphore::put), line:60:5, endln:61:12
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: , line:60:29, endln:60:30
+        |vpiDecompile:1
+        |vpiSize:64
+        |UINT:1
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: , line:60:14, endln:60:17
+        |vpiSigned:1
+  |vpiMethod:
+  \_task: (work@semaphore::get), line:63:5, endln:64:12
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+    |vpiName:get
+    |vpiFullName:work@semaphore::get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiIODecl:
+    \_io_decl: (keyCount), line:63:18, endln:63:26
+      |vpiParent:
+      \_task: (work@semaphore::get), line:63:5, endln:64:12
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: , line:63:29, endln:63:30
+        |vpiDecompile:1
+        |vpiSize:64
+        |UINT:1
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: , line:63:14, endln:63:17
+        |vpiSigned:1
+  |vpiMethod:
+  \_function: (work@semaphore::try_get), line:66:5, endln:67:16
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+    |vpiName:try_get
+    |vpiFullName:work@semaphore::try_get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: (work@semaphore::try_get), line:66:14, endln:66:17
+      |vpiParent:
+      \_function: (work@semaphore::try_get), line:66:5, endln:67:16
+      |vpiTypespec:
+      \_int_typespec: , line:66:14, endln:66:17
+        |vpiSigned:1
+      |vpiFullName:work@semaphore::try_get
+      |vpiSigned:1
+    |vpiIODecl:
+    \_io_decl: (keyCount), line:66:30, endln:66:38
+      |vpiParent:
+      \_function: (work@semaphore::try_get), line:66:5, endln:67:16
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: , line:66:41, endln:66:42
+        |vpiDecompile:1
+        |vpiSize:64
+        |UINT:1
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: , line:66:26, endln:66:29
+        |vpiSigned:1
+|uhdmallModules:
+\_module_inst: work@flash_ctrl_arb (work@flash_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:18:1, endln:20:10
+  |vpiParent:
+  \_design: (work@top)
+  |vpiFullName:work@flash_ctrl_arb
+  |vpiParameter:
+  \_parameter: (work@flash_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
+    |vpiParent:
+    \_module_inst: work@flash_ctrl_arb (work@flash_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:18:1, endln:20:10
+    |vpiTypespec:
+    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
+      |vpiParent:
+      \_parameter: (work@flash_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
+      |vpiName:top_pkg::flash_req_t
+      |vpiInstance:
+      \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+      |vpiPacked:1
+      |vpiTypespecMember:
+      \_typespec_member: (region_cfgs), line:10:35, endln:10:46
+        |vpiParent:
+        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
+        |vpiName:region_cfgs
+        |vpiTypespec:
+        \_packed_array_typespec: , line:10:5, endln:10:34
+          |vpiParent:
+          \_typespec_member: (region_cfgs), line:10:35, endln:10:46
+          |vpiInstance:
+          \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+          |vpiRange:
+          \_range: , line:10:21, endln:10:34
+            |vpiParent:
+            \_packed_array_typespec: , line:10:5, endln:10:34
+            |vpiLeftRange:
+            \_constant: , line:10:22, endln:10:31
+              |vpiParent:
+              \_range: , line:10:21, endln:10:34
+              |vpiDecompile:8
+              |vpiSize:32
+              |UINT:8
+              |vpiTypespec:
+              \_int_typespec: , line:2:3, endln:2:26
+                |vpiParent:
+                \_constant: , line:10:22, endln:10:31
+              |vpiConstType:9
+            |vpiRightRange:
+            \_constant: , line:10:32, endln:10:33
+              |vpiParent:
+              \_range: , line:10:21, endln:10:34
+              |vpiDecompile:0
+              |vpiSize:64
+              |UINT:0
+              |vpiConstType:9
+          |vpiElemTypespec:
+          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
+            |vpiParent:
+            \_packed_array_typespec: , line:10:5, endln:10:34
+            |vpiName:top_pkg::mp_region_cfg_t
+            |vpiInstance:
+            \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+            |vpiPacked:1
+            |vpiTypespecMember:
+            \_typespec_member: (base), line:5:17, endln:5:21
+              |vpiParent:
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
+              |vpiName:base
+              |vpiTypespec:
+              \_logic_typespec: , line:5:5, endln:5:16
+                |vpiParent:
+                \_typespec_member: (base), line:5:17, endln:5:21
+                |vpiInstance:
+                \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
+                |vpiRange:
+                \_range: , line:5:11, endln:5:16
+                  |vpiParent:
+                  \_logic_typespec: , line:5:5, endln:5:16
+                  |vpiLeftRange:
+                  \_constant: , line:5:12, endln:5:13
+                    |vpiParent:
+                    \_range: , line:5:11, endln:5:16
+                    |vpiDecompile:8
+                    |vpiSize:64
+                    |UINT:8
+                    |vpiConstType:9
+                  |vpiRightRange:
+                  \_constant: , line:5:14, endln:5:15
+                    |vpiParent:
+                    \_range: , line:5:11, endln:5:16
+                    |vpiDecompile:0
+                    |vpiSize:64
+                    |UINT:0
+                    |vpiConstType:9
+              |vpiRefFile:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv
+              |vpiRefLineNo:5
+              |vpiRefColumnNo:5
+              |vpiRefEndLineNo:5
+              |vpiRefEndColumnNo:16
+            |vpiTypespecMember:
+            \_typespec_member: (size), line:6:17, endln:6:21
+              |vpiParent:
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:size
               |vpiTypespec:
               \_logic_typespec: , line:6:5, endln:6:16
@@ -1003,7 +1090,7 @@ design: (work@top)
     \_module_inst: work@flash_ctrl_arb (work@flash_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:18:1, endln:20:10
     |UINT:8
     |vpiTypespec:
-    \_int_typespec: 
+    \_int_typespec: , line:2:3, endln:2:26
       |vpiParent:
       \_parameter: (work@flash_ctrl_arb.MpRegions), line:2:13, endln:2:22
     |vpiName:MpRegions
@@ -1021,7 +1108,7 @@ design: (work@top)
       |vpiSize:32
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
         |vpiParent:
         \_constant: , line:2:25, endln:2:26
       |vpiConstType:9
@@ -1031,7 +1118,7 @@ design: (work@top)
       \_param_assign: , line:2:13, endln:2:26
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
         |vpiParent:
         \_parameter: (work@flash_ctrl_arb.MpRegions), line:2:13, endln:2:22
       |vpiName:MpRegions
@@ -1068,7 +1155,7 @@ design: (work@top)
       |vpiParent:
       \_param_assign: , line:13:25, endln:15:4
       |vpiTypespec:
-      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiParent:
         \_parameter: (work@flash_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
         |vpiName:top_pkg::flash_req_t
@@ -1078,10 +1165,10 @@ design: (work@top)
         |vpiTypespecMember:
         \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiParent:
-          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
           |vpiName:region_cfgs
           |vpiTypespec:
-          \_packed_array_typespec: , line:10:5, endln:10:20
+          \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiParent:
             \_typespec_member: (region_cfgs), line:10:35, endln:10:46
             |vpiInstance:
@@ -1089,7 +1176,7 @@ design: (work@top)
             |vpiRange:
             \_range: , line:10:21, endln:10:34
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiLeftRange:
               \_constant: , line:10:22, endln:10:31
                 |vpiParent:
@@ -1098,7 +1185,7 @@ design: (work@top)
                 |vpiSize:32
                 |UINT:8
                 |vpiTypespec:
-                \_int_typespec: 
+                \_int_typespec: , line:2:3, endln:2:26
                   |vpiParent:
                   \_constant: , line:10:22, endln:10:31
                 |vpiConstType:9
@@ -1111,9 +1198,9 @@ design: (work@top)
                 |UINT:0
                 |vpiConstType:9
             |vpiElemTypespec:
-            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiName:top_pkg::mp_region_cfg_t
               |vpiInstance:
               \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -1121,7 +1208,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (base), line:5:17, endln:5:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:base
                 |vpiTypespec:
                 \_logic_typespec: , line:5:5, endln:5:16
@@ -1157,7 +1244,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (size), line:6:17, endln:6:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:size
                 |vpiTypespec:
                 \_logic_typespec: , line:6:5, endln:6:16
@@ -1199,9 +1286,9 @@ design: (work@top)
       |vpiFullName:work@flash_ctrl_arb.FLASH_REQ_DEFAULT
       |vpiImported:top_pkg
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
   |vpiTypedef:
   \_import_typespec: (top_pkg), line:18:30, endln:18:40
   |vpiDefName:work@flash_ctrl_arb
@@ -1215,7 +1302,7 @@ design: (work@top)
     |vpiParent:
     \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
     |vpiTypespec:
-    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
       |vpiParent:
       \_parameter: (work@top.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
       |vpiName:top_pkg::flash_req_t
@@ -1225,10 +1312,10 @@ design: (work@top)
       |vpiTypespecMember:
       \_typespec_member: (region_cfgs), line:10:35, endln:10:46
         |vpiParent:
-        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiName:region_cfgs
         |vpiTypespec:
-        \_packed_array_typespec: , line:10:5, endln:10:20
+        \_packed_array_typespec: , line:10:5, endln:10:34
           |vpiParent:
           \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiInstance:
@@ -1236,7 +1323,7 @@ design: (work@top)
           |vpiRange:
           \_range: , line:10:21, endln:10:34
             |vpiParent:
-            \_packed_array_typespec: , line:10:5, endln:10:20
+            \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiLeftRange:
             \_constant: , line:10:22, endln:10:31
               |vpiParent:
@@ -1245,7 +1332,7 @@ design: (work@top)
               |vpiSize:32
               |UINT:8
               |vpiTypespec:
-              \_int_typespec: 
+              \_int_typespec: , line:2:3, endln:2:26
                 |vpiParent:
                 \_constant: , line:10:22, endln:10:31
               |vpiConstType:9
@@ -1258,9 +1345,9 @@ design: (work@top)
               |UINT:0
               |vpiConstType:9
           |vpiElemTypespec:
-          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
             |vpiParent:
-            \_packed_array_typespec: , line:10:5, endln:10:20
+            \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiName:top_pkg::mp_region_cfg_t
             |vpiInstance:
             \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -1268,7 +1355,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (base), line:5:17, endln:5:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:base
               |vpiTypespec:
               \_logic_typespec: , line:5:5, endln:5:16
@@ -1304,7 +1391,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (size), line:6:17, endln:6:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:size
               |vpiTypespec:
               \_logic_typespec: , line:6:5, endln:6:16
@@ -1351,7 +1438,7 @@ design: (work@top)
     \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
     |UINT:8
     |vpiTypespec:
-    \_int_typespec: 
+    \_int_typespec: , line:2:3, endln:2:26
       |vpiParent:
       \_parameter: (work@top.MpRegions), line:2:13, endln:2:22
     |vpiName:MpRegions
@@ -1369,7 +1456,7 @@ design: (work@top)
       |vpiSize:32
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
         |vpiParent:
         \_constant: , line:2:25, endln:2:26
       |vpiConstType:9
@@ -1379,7 +1466,7 @@ design: (work@top)
       \_param_assign: , line:2:13, endln:2:26
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
         |vpiParent:
         \_parameter: (work@top.MpRegions), line:2:13, endln:2:22
       |vpiName:MpRegions
@@ -1416,7 +1503,7 @@ design: (work@top)
       |vpiParent:
       \_param_assign: , line:13:25, endln:15:4
       |vpiTypespec:
-      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiParent:
         \_parameter: (work@top.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
         |vpiName:top_pkg::flash_req_t
@@ -1426,10 +1513,10 @@ design: (work@top)
         |vpiTypespecMember:
         \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiParent:
-          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
           |vpiName:region_cfgs
           |vpiTypespec:
-          \_packed_array_typespec: , line:10:5, endln:10:20
+          \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiParent:
             \_typespec_member: (region_cfgs), line:10:35, endln:10:46
             |vpiInstance:
@@ -1437,7 +1524,7 @@ design: (work@top)
             |vpiRange:
             \_range: , line:10:21, endln:10:34
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiLeftRange:
               \_constant: , line:10:22, endln:10:31
                 |vpiParent:
@@ -1446,7 +1533,7 @@ design: (work@top)
                 |vpiSize:32
                 |UINT:8
                 |vpiTypespec:
-                \_int_typespec: 
+                \_int_typespec: , line:2:3, endln:2:26
                   |vpiParent:
                   \_constant: , line:10:22, endln:10:31
                 |vpiConstType:9
@@ -1459,9 +1546,9 @@ design: (work@top)
                 |UINT:0
                 |vpiConstType:9
             |vpiElemTypespec:
-            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiName:top_pkg::mp_region_cfg_t
               |vpiInstance:
               \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -1469,7 +1556,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (base), line:5:17, endln:5:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:base
                 |vpiTypespec:
                 \_logic_typespec: , line:5:5, endln:5:16
@@ -1505,7 +1592,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (size), line:6:17, endln:6:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:size
                 |vpiTypespec:
                 \_logic_typespec: , line:6:5, endln:6:16
@@ -1547,9 +1634,9 @@ design: (work@top)
       |vpiFullName:work@top.FLASH_REQ_DEFAULT
       |vpiImported:top_pkg
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
   |vpiTypedef:
   \_import_typespec: (top_pkg), line:23:10, endln:23:20
   |vpiDefName:work@top
@@ -1569,7 +1656,7 @@ design: (work@top)
     |vpiParent:
     \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
     |vpiTypespec:
-    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
       |vpiParent:
       \_parameter: (work@top.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
       |vpiName:top_pkg::flash_req_t
@@ -1579,10 +1666,10 @@ design: (work@top)
       |vpiTypespecMember:
       \_typespec_member: (region_cfgs), line:10:35, endln:10:46
         |vpiParent:
-        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiName:region_cfgs
         |vpiTypespec:
-        \_packed_array_typespec: , line:10:5, endln:10:20
+        \_packed_array_typespec: , line:10:5, endln:10:34
           |vpiParent:
           \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiInstance:
@@ -1590,7 +1677,7 @@ design: (work@top)
           |vpiRange:
           \_range: , line:10:21, endln:10:34
             |vpiParent:
-            \_packed_array_typespec: , line:10:5, endln:10:20
+            \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiLeftRange:
             \_constant: , line:10:22, endln:10:31
               |vpiParent:
@@ -1599,7 +1686,7 @@ design: (work@top)
               |vpiSize:32
               |UINT:8
               |vpiTypespec:
-              \_int_typespec: 
+              \_int_typespec: , line:2:3, endln:2:26
                 |vpiParent:
                 \_constant: , line:10:22, endln:10:31
               |vpiConstType:9
@@ -1612,9 +1699,9 @@ design: (work@top)
               |UINT:0
               |vpiConstType:9
           |vpiElemTypespec:
-          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+          \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
             |vpiParent:
-            \_packed_array_typespec: , line:10:5, endln:10:20
+            \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiName:top_pkg::mp_region_cfg_t
             |vpiInstance:
             \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -1622,7 +1709,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (base), line:5:17, endln:5:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:base
               |vpiTypespec:
               \_logic_typespec: , line:5:5, endln:5:16
@@ -1658,7 +1745,7 @@ design: (work@top)
             |vpiTypespecMember:
             \_typespec_member: (size), line:6:17, endln:6:21
               |vpiParent:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiName:size
               |vpiTypespec:
               \_logic_typespec: , line:6:5, endln:6:16
@@ -1705,7 +1792,7 @@ design: (work@top)
     \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
     |UINT:8
     |vpiTypespec:
-    \_int_typespec: 
+    \_int_typespec: , line:2:3, endln:2:26
       |vpiParent:
       \_parameter: (work@top.MpRegions), line:2:13, endln:2:22
     |vpiName:MpRegions
@@ -1717,11 +1804,13 @@ design: (work@top)
     \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:22:1, endln:29:10
     |vpiRhs:
     \_constant: , line:2:25, endln:2:26
+      |vpiParent:
+      \_param_assign: , line:2:13, endln:2:26
       |vpiDecompile:8
       |vpiSize:32
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
       |vpiConstType:9
     |vpiLhs:
     \_parameter: (work@top.MpRegions), line:2:13, endln:2:22
@@ -1734,7 +1823,7 @@ design: (work@top)
       |vpiParent:
       \_param_assign: , line:13:25, endln:15:4
       |vpiTypespec:
-      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiParent:
         \_operation: , line:13:45, endln:15:4
         |vpiName:top_pkg::flash_req_t
@@ -1744,10 +1833,10 @@ design: (work@top)
         |vpiTypespecMember:
         \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiParent:
-          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
           |vpiName:region_cfgs
           |vpiTypespec:
-          \_packed_array_typespec: , line:10:5, endln:10:20
+          \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiParent:
             \_typespec_member: (region_cfgs), line:10:35, endln:10:46
             |vpiInstance:
@@ -1755,7 +1844,7 @@ design: (work@top)
             |vpiRange:
             \_range: , line:10:21, endln:10:34
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiLeftRange:
               \_constant: , line:10:22, endln:10:31
                 |vpiParent:
@@ -1764,7 +1853,7 @@ design: (work@top)
                 |vpiSize:32
                 |UINT:8
                 |vpiTypespec:
-                \_int_typespec: 
+                \_int_typespec: , line:2:3, endln:2:26
                   |vpiParent:
                   \_constant: , line:10:22, endln:10:31
                 |vpiConstType:9
@@ -1777,9 +1866,9 @@ design: (work@top)
                 |UINT:0
                 |vpiConstType:9
             |vpiElemTypespec:
-            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiName:top_pkg::mp_region_cfg_t
               |vpiInstance:
               \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -1787,7 +1876,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (base), line:5:17, endln:5:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:base
                 |vpiTypespec:
                 \_logic_typespec: , line:5:5, endln:5:16
@@ -1823,7 +1912,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (size), line:6:17, endln:6:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:size
                 |vpiTypespec:
                 \_logic_typespec: , line:6:5, endln:6:16
@@ -1865,7 +1954,7 @@ design: (work@top)
       |vpiOperand:
       \_constant: , line:14:20, endln:14:22
         |vpiParent:
-        \_tagged_pattern: , line:14:20, endln:14:22
+        \_operation: , line:13:45, endln:15:4
         |vpiDecompile:0
         |vpiSize:171
         |UINT:0
@@ -1873,9 +1962,9 @@ design: (work@top)
     |vpiLhs:
     \_parameter: (work@top.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+  \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
   |vpiTypedef:
-  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
   |vpiTypedef:
   \_import_typespec: (top_pkg), line:23:10, endln:23:20
   |vpiDefName:work@top
@@ -1892,7 +1981,7 @@ design: (work@top)
       |vpiParent:
       \_module_inst: work@flash_ctrl_arb (work@top.u_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:26:3, endln:27:5
       |vpiTypespec:
-      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+      \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
         |vpiParent:
         \_parameter: (work@top.u_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
         |vpiName:top_pkg::flash_req_t
@@ -1902,10 +1991,10 @@ design: (work@top)
         |vpiTypespecMember:
         \_typespec_member: (region_cfgs), line:10:35, endln:10:46
           |vpiParent:
-          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+          \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
           |vpiName:region_cfgs
           |vpiTypespec:
-          \_packed_array_typespec: , line:10:5, endln:10:20
+          \_packed_array_typespec: , line:10:5, endln:10:34
             |vpiParent:
             \_typespec_member: (region_cfgs), line:10:35, endln:10:46
             |vpiInstance:
@@ -1913,7 +2002,7 @@ design: (work@top)
             |vpiRange:
             \_range: , line:10:21, endln:10:34
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiLeftRange:
               \_constant: , line:10:22, endln:10:31
                 |vpiParent:
@@ -1922,7 +2011,7 @@ design: (work@top)
                 |vpiSize:32
                 |UINT:8
                 |vpiTypespec:
-                \_int_typespec: 
+                \_int_typespec: , line:2:3, endln:2:26
                   |vpiParent:
                   \_constant: , line:10:22, endln:10:31
                 |vpiConstType:9
@@ -1935,9 +2024,9 @@ design: (work@top)
                 |UINT:0
                 |vpiConstType:9
             |vpiElemTypespec:
-            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+            \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
               |vpiParent:
-              \_packed_array_typespec: , line:10:5, endln:10:20
+              \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiName:top_pkg::mp_region_cfg_t
               |vpiInstance:
               \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -1945,7 +2034,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (base), line:5:17, endln:5:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:base
                 |vpiTypespec:
                 \_logic_typespec: , line:5:5, endln:5:16
@@ -1981,7 +2070,7 @@ design: (work@top)
               |vpiTypespecMember:
               \_typespec_member: (size), line:6:17, endln:6:21
                 |vpiParent:
-                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiName:size
                 |vpiTypespec:
                 \_logic_typespec: , line:6:5, endln:6:16
@@ -2028,7 +2117,7 @@ design: (work@top)
       \_module_inst: work@flash_ctrl_arb (work@top.u_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:26:3, endln:27:5
       |UINT:8
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:2:3, endln:2:26
         |vpiParent:
         \_parameter: (work@top.u_ctrl_arb.MpRegions), line:2:13, endln:2:22
       |vpiName:MpRegions
@@ -2040,11 +2129,13 @@ design: (work@top)
       \_module_inst: work@flash_ctrl_arb (work@top.u_ctrl_arb), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:26:3, endln:27:5
       |vpiRhs:
       \_constant: , line:2:25, endln:2:26
+        |vpiParent:
+        \_param_assign: , line:2:13, endln:2:26
         |vpiDecompile:8
         |vpiSize:32
         |UINT:8
         |vpiTypespec:
-        \_int_typespec: 
+        \_int_typespec: , line:2:3, endln:2:26
         |vpiConstType:9
       |vpiLhs:
       \_parameter: (work@top.u_ctrl_arb.MpRegions), line:2:13, endln:2:22
@@ -2057,7 +2148,7 @@ design: (work@top)
         |vpiParent:
         \_param_assign: , line:13:25, endln:15:4
         |vpiTypespec:
-        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+        \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
           |vpiParent:
           \_operation: , line:13:45, endln:15:4
           |vpiName:top_pkg::flash_req_t
@@ -2067,10 +2158,10 @@ design: (work@top)
           |vpiTypespecMember:
           \_typespec_member: (region_cfgs), line:10:35, endln:10:46
             |vpiParent:
-            \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+            \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
             |vpiName:region_cfgs
             |vpiTypespec:
-            \_packed_array_typespec: , line:10:5, endln:10:20
+            \_packed_array_typespec: , line:10:5, endln:10:34
               |vpiParent:
               \_typespec_member: (region_cfgs), line:10:35, endln:10:46
               |vpiInstance:
@@ -2078,7 +2169,7 @@ design: (work@top)
               |vpiRange:
               \_range: , line:10:21, endln:10:34
                 |vpiParent:
-                \_packed_array_typespec: , line:10:5, endln:10:20
+                \_packed_array_typespec: , line:10:5, endln:10:34
                 |vpiLeftRange:
                 \_constant: , line:10:22, endln:10:31
                   |vpiParent:
@@ -2087,7 +2178,7 @@ design: (work@top)
                   |vpiSize:32
                   |UINT:8
                   |vpiTypespec:
-                  \_int_typespec: 
+                  \_int_typespec: , line:2:3, endln:2:26
                     |vpiParent:
                     \_constant: , line:10:22, endln:10:31
                   |vpiConstType:9
@@ -2100,9 +2191,9 @@ design: (work@top)
                   |UINT:0
                   |vpiConstType:9
               |vpiElemTypespec:
-              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+              \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                 |vpiParent:
-                \_packed_array_typespec: , line:10:5, endln:10:20
+                \_packed_array_typespec: , line:10:5, endln:10:34
                 |vpiName:top_pkg::mp_region_cfg_t
                 |vpiInstance:
                 \_package: top_pkg (top_pkg::), file:UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv, line:1:1, endln:16:21
@@ -2110,7 +2201,7 @@ design: (work@top)
                 |vpiTypespecMember:
                 \_typespec_member: (base), line:5:17, endln:5:21
                   |vpiParent:
-                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                   |vpiName:base
                   |vpiTypespec:
                   \_logic_typespec: , line:5:5, endln:5:16
@@ -2146,7 +2237,7 @@ design: (work@top)
                 |vpiTypespecMember:
                 \_typespec_member: (size), line:6:17, endln:6:21
                   |vpiParent:
-                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+                  \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
                   |vpiName:size
                   |vpiTypespec:
                   \_logic_typespec: , line:6:5, endln:6:16
@@ -2188,7 +2279,7 @@ design: (work@top)
         |vpiOperand:
         \_constant: , line:14:20, endln:14:22
           |vpiParent:
-          \_tagged_pattern: , line:14:20, endln:14:22
+          \_operation: , line:13:45, endln:15:4
           |vpiDecompile:0
           |vpiSize:171
           |UINT:0
@@ -2196,9 +2287,9 @@ design: (work@top)
       |vpiLhs:
       \_parameter: (work@top.u_ctrl_arb.FLASH_REQ_DEFAULT), line:13:25, endln:13:42
     |vpiTypedef:
-    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:9:17
+    \_struct_typespec: (top_pkg::flash_req_t), line:9:11, endln:11:4
     |vpiTypedef:
-    \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:4:17
+    \_struct_typespec: (top_pkg::mp_region_cfg_t), line:4:11, endln:7:4
     |vpiTypedef:
     \_import_typespec: (top_pkg), line:18:30, endln:18:40
     |vpiDefName:work@flash_ctrl_arb
@@ -2511,13 +2602,13 @@ Warning: Removing unelaborated module: \flash_ctrl_arb from the design.
 Generating RTLIL representation for module `$paramod$45b056d77437f442438600689ccd918fcc10f068\flash_ctrl_arb'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:18.1-20.10> str='$paramod$45b056d77437f442438600689ccd918fcc10f068\flash_ctrl_arb'
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\flash_req_t'
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\flash_req_t'
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\mp_region_cfg_t'
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\mp_region_cfg_t'
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:13.25-15.4> str='\FLASH_REQ_DEFAULT' logic basic_prep range=[18:0] multirange=[ 0 19 ] multirange_swapped=[ 0 ]
@@ -2532,13 +2623,13 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\top_pkg::flash_req_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\top_pkg::flash_req_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\top_pkg::mp_region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\top_pkg::mp_region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:2.13-2.26> str='\top_pkg::MpRegions' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -2570,13 +2661,13 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:18.1-20.10> str='$paramod$45b056d77437f442438600689ccd918fcc10f068\flash_ctrl_arb' basic_prep
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\flash_req_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\flash_req_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\mp_region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\mp_region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:13.25-15.4> str='\FLASH_REQ_DEFAULT' logic basic_prep range=[18:0] multirange=[ 0 19 ] multirange_swapped=[ 0 ]
@@ -2591,13 +2682,13 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\top_pkg::flash_req_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\top_pkg::flash_req_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\top_pkg::mp_region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\top_pkg::mp_region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:2.13-2.26> str='\top_pkg::MpRegions' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -2630,13 +2721,13 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:22.1-29.10> str='\top'
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\flash_req_t'
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\flash_req_t'
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\mp_region_cfg_t'
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\mp_region_cfg_t'
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:13.25-15.4> str='\FLASH_REQ_DEFAULT' logic basic_prep range=[18:0] multirange=[ 0 19 ] multirange_swapped=[ 0 ]
@@ -2653,13 +2744,13 @@ Dumping AST before simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:26.3-27.5> str='\u_ctrl_arb'
         AST_CELLTYPE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> str='$paramod$45b056d77437f442438600689ccd918fcc10f068\flash_ctrl_arb'
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\top_pkg::flash_req_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\top_pkg::flash_req_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\top_pkg::mp_region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\top_pkg::mp_region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:2.13-2.26> str='\top_pkg::MpRegions' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -2692,13 +2783,13 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:22.1-29.10> str='\top' basic_prep
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\flash_req_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\flash_req_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\mp_region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\mp_region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:13.25-15.4> str='\FLASH_REQ_DEFAULT' logic basic_prep range=[18:0] multirange=[ 0 19 ] multirange_swapped=[ 0 ]
@@ -2715,13 +2806,13 @@ Dumping AST after simplification:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:26.3-27.5> str='\u_ctrl_arb' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:0.0-0.0> str='$paramod$45b056d77437f442438600689ccd918fcc10f068\flash_ctrl_arb' basic_prep
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> str='\top_pkg::flash_req_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-9.17> basic_prep
-          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> str='\top_pkg::flash_req_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:9.11-11.4> basic_prep
+          AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='region_cfgs' basic_prep range=[170:0] multirange=[ 0 9 ] multirange_swapped=[ 0 ]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> str='\top_pkg::mp_region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-4.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> str='\top_pkg::mp_region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:4.11-7.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:5.17-5.21> str='base' logic basic_prep range=[18:10]
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:6.17-6.21> str='size' logic basic_prep range=[9:0]
       AST_PARAMETER <UHDM-integration-tests/tests/TypedefStructParamWithRangeInSubmodule/top.sv:2.13-2.26> str='\top_pkg::MpRegions' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]

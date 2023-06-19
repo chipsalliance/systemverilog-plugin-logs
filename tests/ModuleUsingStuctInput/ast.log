@@ -73,12 +73,15 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
+[INF:UH0707] Elaborating UHDM...
+
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 4
 [   NOTE] : 5
 design: (work@top)
+|vpiElaborated:1
 |vpiName:work@top
 |uhdmallPackages:
 \_package: builtin (builtin::)
@@ -129,6 +132,8 @@ design: (work@top)
     \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:2:25, endln:2:26
+      |vpiParent:
+      \_param_assign: , line:2:17, endln:2:26
       |vpiDecompile:2
       |vpiSize:32
       |UINT:2
@@ -143,6 +148,8 @@ design: (work@top)
     \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:3:32, endln:3:34
+      |vpiParent:
+      \_param_assign: , line:3:17, endln:3:34
       |vpiDecompile:64
       |vpiSize:32
       |UINT:64
@@ -202,8 +209,11 @@ design: (work@top)
     |vpiParent:
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
-    \_ref_obj: (ctrl_pkg::Banks), line:7:44, endln:7:54
+    \_ref_obj: (pkg::ctrl_pkg::Banks), line:7:44, endln:7:59
+      |vpiParent:
+      \_param_assign: , line:7:26, endln:7:59
       |vpiName:ctrl_pkg::Banks
+      |vpiFullName:pkg::ctrl_pkg::Banks
       |vpiActual:
       \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
     |vpiLhs:
@@ -213,8 +223,11 @@ design: (work@top)
     |vpiParent:
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
-    \_ref_obj: (ctrl_pkg::PagesPerBank), line:8:44, endln:8:54
+    \_ref_obj: (pkg::ctrl_pkg::PagesPerBank), line:8:44, endln:8:66
+      |vpiParent:
+      \_param_assign: , line:8:26, endln:8:66
       |vpiName:ctrl_pkg::PagesPerBank
+      |vpiFullName:pkg::ctrl_pkg::PagesPerBank
       |vpiActual:
       \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
     |vpiLhs:
@@ -225,6 +238,8 @@ design: (work@top)
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:9:25, endln:9:26
+      |vpiParent:
+      \_param_assign: , line:9:17, endln:9:26
       |vpiDecompile:4
       |vpiSize:32
       |UINT:4
@@ -246,6 +261,8 @@ design: (work@top)
       \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:10:22, endln:10:33
+        |vpiParent:
+        \_logic_typespec: , line:10:16, endln:10:33
         |vpiLeftRange:
         \_operation: , line:10:23, endln:10:30
           |vpiParent:
@@ -256,6 +273,8 @@ design: (work@top)
             |vpiParent:
             \_operation: , line:10:23, endln:10:30
             |vpiName:Width
+            |vpiActual:
+            \_parameter: (pkg::Width), line:9:17, endln:9:22
           |vpiOperand:
           \_constant: , line:10:29, endln:10:30
             |vpiParent:
@@ -274,12 +293,16 @@ design: (work@top)
           |vpiConstType:9
     |vpiEnumConst:
     \_enum_const: (true_e), line:11:5, endln:11:18
+      |vpiParent:
+      \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
       |vpiName:true_e
       |HEX:6
       |vpiDecompile:4'h6
       |vpiSize:4
     |vpiEnumConst:
     \_enum_const: (false_e), line:12:5, endln:12:19
+      |vpiParent:
+      \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
       |vpiName:false_e
       |HEX:9
       |vpiDecompile:4'h9
@@ -297,6 +320,8 @@ design: (work@top)
       \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:14:22, endln:14:27
+        |vpiParent:
+        \_logic_typespec: , line:14:16, endln:14:27
         |vpiLeftRange:
         \_constant: , line:14:23, endln:14:24
           |vpiParent:
@@ -315,30 +340,38 @@ design: (work@top)
           |vpiConstType:9
     |vpiEnumConst:
     \_enum_const: (seed_e), line:15:5, endln:15:11
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:seed_e
       |INT:0
       |vpiDecompile:0
       |vpiSize:2
     |vpiEnumConst:
     \_enum_const: (rma_e), line:16:5, endln:16:10
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:rma_e
       |INT:1
       |vpiDecompile:1
       |vpiSize:2
     |vpiEnumConst:
     \_enum_const: (none_e), line:17:5, endln:17:11
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:none_e
       |INT:2
       |vpiDecompile:2
       |vpiSize:2
     |vpiEnumConst:
     \_enum_const: (invalid_e), line:18:5, endln:18:14
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:invalid_e
       |INT:3
       |vpiDecompile:3
       |vpiSize:2
   |vpiTypedef:
-  \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+  \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
     |vpiParent:
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::region_attr_t
@@ -348,7 +381,7 @@ design: (work@top)
     |vpiTypespecMember:
     \_typespec_member: (phase), line:24:15, endln:24:20
       |vpiParent:
-      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
       |vpiName:phase
       |vpiTypespec:
       \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
@@ -360,10 +393,10 @@ design: (work@top)
     |vpiTypespecMember:
     \_typespec_member: (cfg), line:25:18, endln:25:21
       |vpiParent:
-      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
       |vpiName:cfg
       |vpiTypespec:
-      \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+      \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:22:4
         |vpiParent:
         \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
         |vpiName:pkg::region_cfg_t
@@ -373,7 +406,7 @@ design: (work@top)
         |vpiTypespecMember:
         \_typespec_member: (en), line:21:12, endln:21:14
           |vpiParent:
-          \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+          \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:22:4
           |vpiName:en
           |vpiTypespec:
           \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
@@ -388,7 +421,7 @@ design: (work@top)
       |vpiRefEndLineNo:25
       |vpiRefEndColumnNo:17
   |vpiTypedef:
-  \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+  \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:22:4
   |vpiDefName:pkg
 |uhdmtopPackages:
 \_package: builtin (builtin::)
@@ -470,6 +503,8 @@ design: (work@top)
     \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:2:25, endln:2:26
+      |vpiParent:
+      \_param_assign: , line:2:17, endln:2:26
       |vpiDecompile:2
       |vpiSize:32
       |UINT:2
@@ -484,6 +519,8 @@ design: (work@top)
     \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:3:32, endln:3:34
+      |vpiParent:
+      \_param_assign: , line:3:17, endln:3:34
       |vpiDecompile:64
       |vpiSize:32
       |UINT:64
@@ -547,6 +584,8 @@ design: (work@top)
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:7:44, endln:7:54
+      |vpiParent:
+      \_param_assign: , line:7:26, endln:7:59
       |vpiDecompile:2
       |vpiSize:32
       |UINT:2
@@ -561,6 +600,8 @@ design: (work@top)
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:8:44, endln:8:54
+      |vpiParent:
+      \_param_assign: , line:8:26, endln:8:66
       |vpiDecompile:64
       |vpiSize:32
       |UINT:64
@@ -575,6 +616,8 @@ design: (work@top)
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:9:25, endln:9:26
+      |vpiParent:
+      \_param_assign: , line:9:17, endln:9:26
       |vpiDecompile:4
       |vpiSize:32
       |UINT:4
@@ -596,6 +639,8 @@ design: (work@top)
       \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:10:22, endln:10:33
+        |vpiParent:
+        \_logic_typespec: , line:10:16, endln:10:33
         |vpiLeftRange:
         \_constant: , line:10:23, endln:10:28
           |vpiParent:
@@ -614,12 +659,16 @@ design: (work@top)
           |vpiConstType:9
     |vpiEnumConst:
     \_enum_const: (true_e), line:11:5, endln:11:18
+      |vpiParent:
+      \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
       |vpiName:true_e
       |HEX:6
       |vpiDecompile:4'h6
       |vpiSize:4
     |vpiEnumConst:
     \_enum_const: (false_e), line:12:5, endln:12:19
+      |vpiParent:
+      \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
       |vpiName:false_e
       |HEX:9
       |vpiDecompile:4'h9
@@ -637,6 +686,8 @@ design: (work@top)
       \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:14:22, endln:14:27
+        |vpiParent:
+        \_logic_typespec: , line:14:16, endln:14:27
         |vpiLeftRange:
         \_constant: , line:14:23, endln:14:24
           |vpiParent:
@@ -655,30 +706,38 @@ design: (work@top)
           |vpiConstType:9
     |vpiEnumConst:
     \_enum_const: (seed_e), line:15:5, endln:15:11
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:seed_e
       |INT:0
       |vpiDecompile:0
       |vpiSize:2
     |vpiEnumConst:
     \_enum_const: (rma_e), line:16:5, endln:16:10
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:rma_e
       |INT:1
       |vpiDecompile:1
       |vpiSize:2
     |vpiEnumConst:
     \_enum_const: (none_e), line:17:5, endln:17:11
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:none_e
       |INT:2
       |vpiDecompile:2
       |vpiSize:2
     |vpiEnumConst:
     \_enum_const: (invalid_e), line:18:5, endln:18:14
+      |vpiParent:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
       |vpiName:invalid_e
       |INT:3
       |vpiDecompile:3
       |vpiSize:2
   |vpiTypedef:
-  \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+  \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
     |vpiParent:
     \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::region_attr_t
@@ -688,7 +747,7 @@ design: (work@top)
     |vpiTypespecMember:
     \_typespec_member: (phase), line:24:15, endln:24:20
       |vpiParent:
-      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
       |vpiName:phase
       |vpiTypespec:
       \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
@@ -700,10 +759,10 @@ design: (work@top)
     |vpiTypespecMember:
     \_typespec_member: (cfg), line:25:18, endln:25:21
       |vpiParent:
-      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
       |vpiName:cfg
       |vpiTypespec:
-      \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+      \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:22:4
         |vpiParent:
         \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
         |vpiName:pkg::region_cfg_t
@@ -713,7 +772,7 @@ design: (work@top)
         |vpiTypespecMember:
         \_typespec_member: (en), line:21:12, endln:21:14
           |vpiParent:
-          \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+          \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:22:4
           |vpiName:en
           |vpiTypespec:
           \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
@@ -728,373 +787,439 @@ design: (work@top)
       |vpiRefEndLineNo:25
       |vpiRefEndColumnNo:17
   |vpiTypedef:
-  \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+  \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:22:4
   |vpiDefName:pkg
   |vpiTop:1
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
-  \_function: (work@mailbox::new)
+  \_function: (work@mailbox::new), line:3:5, endln:4:16
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
     |vpiReturn:
-    \_class_var: 
+    \_class_var: (work@mailbox::new), line:3:23, endln:3:28
+      |vpiParent:
+      \_function: (work@mailbox::new), line:3:5, endln:4:16
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
+      |vpiFullName:work@mailbox::new
     |vpiIODecl:
-    \_io_decl: (bound)
+    \_io_decl: (bound), line:3:23, endln:3:28
+      |vpiParent:
+      \_function: (work@mailbox::new), line:3:5, endln:4:16
       |vpiDirection:1
       |vpiName:bound
       |vpiExpr:
-      \_constant: 
+      \_constant: , line:3:31, endln:3:32
         |vpiDecompile:0
         |vpiSize:64
         |UINT:0
         |vpiConstType:9
       |vpiTypedef:
-      \_int_typespec: 
+      \_int_typespec: , line:3:19, endln:3:22
         |vpiSigned:1
   |vpiMethod:
-  \_function: (work@mailbox::num)
+  \_function: (work@mailbox::num), line:6:5, endln:7:16
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_int_var: 
+    \_int_var: (work@mailbox::num), line:6:14, endln:6:17
+      |vpiParent:
+      \_function: (work@mailbox::num), line:6:5, endln:7:16
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:6:14, endln:6:17
         |vpiSigned:1
+      |vpiFullName:work@mailbox::num
       |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
-  \_task: (work@mailbox::put)
+  \_task: (work@mailbox::put), line:9:5, endln:10:12
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (message)
+    \_io_decl: (message), line:9:15, endln:9:22
+      |vpiParent:
+      \_task: (work@mailbox::put), line:9:5, endln:10:12
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
-  \_function: (work@mailbox::try_put)
+  \_function: (work@mailbox::try_put), line:12:5, endln:13:16
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_logic_var: 
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_logic_var: (work@mailbox::try_put)
+      |vpiParent:
+      \_function: (work@mailbox::try_put), line:12:5, endln:13:16
+      |vpiFullName:work@mailbox::try_put
     |vpiIODecl:
-    \_io_decl: (message)
+    \_io_decl: (message), line:12:23, endln:12:30
+      |vpiParent:
+      \_function: (work@mailbox::try_put), line:12:5, endln:13:16
       |vpiDirection:1
       |vpiName:message
   |vpiMethod:
-  \_task: (work@mailbox::get)
+  \_task: (work@mailbox::get), line:15:5, endln:16:12
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (message)
+    \_io_decl: (message), line:15:19, endln:15:26
+      |vpiParent:
+      \_task: (work@mailbox::get), line:15:5, endln:16:12
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
-  \_function: (work@mailbox::try_get)
+  \_function: (work@mailbox::try_get), line:18:5, endln:19:16
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_int_var: 
+    \_int_var: (work@mailbox::try_get), line:18:14, endln:18:17
+      |vpiParent:
+      \_function: (work@mailbox::try_get), line:18:5, endln:19:16
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:18:14, endln:18:17
         |vpiSigned:1
+      |vpiFullName:work@mailbox::try_get
       |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (message)
+    \_io_decl: (message), line:18:31, endln:18:38
+      |vpiParent:
+      \_function: (work@mailbox::try_get), line:18:5, endln:19:16
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
-  \_task: (work@mailbox::peek)
+  \_task: (work@mailbox::peek), line:21:5, endln:22:12
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (message)
+    \_io_decl: (message), line:21:20, endln:21:27
+      |vpiParent:
+      \_task: (work@mailbox::peek), line:21:5, endln:22:12
       |vpiDirection:6
       |vpiName:message
   |vpiMethod:
-  \_function: (work@mailbox::try_peek)
+  \_function: (work@mailbox::try_peek), line:24:5, endln:25:16
     |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_int_var: 
+    \_int_var: (work@mailbox::try_peek), line:24:14, endln:24:17
+      |vpiParent:
+      \_function: (work@mailbox::try_peek), line:24:5, endln:25:16
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:24:14, endln:24:17
         |vpiSigned:1
+      |vpiFullName:work@mailbox::try_peek
       |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (message)
+    \_io_decl: (message), line:24:31, endln:24:38
+      |vpiParent:
+      \_function: (work@mailbox::try_peek), line:24:5, endln:25:16
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
-  \_enum_typespec: (state)
+  \_enum_typespec: (state), line:32:5, endln:32:74
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:state
     |vpiEnumConst:
-    \_enum_const: (FINISHED)
+    \_enum_const: (FINISHED), line:32:20, endln:32:28
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
       |vpiName:FINISHED
       |INT:0
       |vpiDecompile:0
       |vpiSize:64
     |vpiEnumConst:
-    \_enum_const: (RUNNING)
+    \_enum_const: (RUNNING), line:32:30, endln:32:37
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
       |vpiName:RUNNING
       |INT:1
       |vpiDecompile:1
       |vpiSize:64
     |vpiEnumConst:
-    \_enum_const: (WAITING)
+    \_enum_const: (WAITING), line:32:39, endln:32:46
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
       |vpiName:WAITING
       |INT:2
       |vpiDecompile:2
       |vpiSize:64
     |vpiEnumConst:
-    \_enum_const: (SUSPENDED)
+    \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
       |vpiName:SUSPENDED
       |INT:3
       |vpiDecompile:3
       |vpiSize:64
     |vpiEnumConst:
-    \_enum_const: (KILLED)
+    \_enum_const: (KILLED), line:32:59, endln:32:65
+      |vpiParent:
+      \_enum_typespec: (state), line:32:5, endln:32:74
       |vpiName:KILLED
       |INT:4
       |vpiDecompile:4
       |vpiSize:64
   |vpiMethod:
-  \_function: (work@process::self)
+  \_function: (work@process::self), line:34:5, endln:34:11
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_class_var: 
+    \_class_var: (work@process::self), line:34:21, endln:34:28
+      |vpiParent:
+      \_function: (work@process::self), line:34:5, endln:34:11
       |vpiTypespec:
-      \_class_typespec: 
+      \_class_typespec: , line:34:21, endln:34:28
         |vpiClassDefn:
-        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+      |vpiFullName:work@process::self
   |vpiMethod:
-  \_function: (work@process::status)
+  \_function: (work@process::status), line:37:5, endln:38:16
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_enum_var: 
+    \_enum_var: (work@process::status), line:37:14, endln:37:19
+      |vpiParent:
+      \_function: (work@process::status), line:37:5, endln:38:16
       |vpiTypespec:
-      \_enum_typespec: (state)
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+      \_enum_typespec: (state), line:32:5, endln:32:74
+        |vpiParent:
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
+        |vpiName:state
+        |vpiEnumConst:
+        \_enum_const: (FINISHED), line:32:20, endln:32:28
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:FINISHED
+          |INT:0
+          |vpiDecompile:0
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (RUNNING), line:32:30, endln:32:37
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:RUNNING
+          |INT:1
+          |vpiDecompile:1
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (WAITING), line:32:39, endln:32:46
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:WAITING
+          |INT:2
+          |vpiDecompile:2
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (SUSPENDED), line:32:48, endln:32:57
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:SUSPENDED
+          |INT:3
+          |vpiDecompile:3
+          |vpiSize:64
+        |vpiEnumConst:
+        \_enum_const: (KILLED), line:32:59, endln:32:65
+          |vpiParent:
+          \_enum_typespec: (state), line:32:5, endln:32:74
+          |vpiName:KILLED
+          |INT:4
+          |vpiDecompile:4
+          |vpiSize:64
+      |vpiFullName:work@process::status
   |vpiMethod:
-  \_task: (work@process::kill)
+  \_task: (work@process::kill), line:40:5, endln:41:12
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
-  \_task: (work@process::await)
+  \_task: (work@process::await), line:43:5, endln:44:12
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
-  \_task: (work@process::suspend)
+  \_task: (work@process::suspend), line:46:5, endln:47:12
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
-  \_task: (work@process::resume)
+  \_task: (work@process::resume), line:49:5, endln:50:12
     |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv, line:30:3, endln:52:11
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
-  \_function: (work@semaphore::new)
+  \_function: (work@semaphore::new), line:57:5, endln:58:16
     |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
     |vpiReturn:
-    \_class_var: 
+    \_class_var: (work@semaphore::new), line:57:22, endln:57:30
+      |vpiParent:
+      \_function: (work@semaphore::new), line:57:5, endln:58:16
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
+      |vpiFullName:work@semaphore::new
     |vpiIODecl:
-    \_io_decl: (keyCount)
+    \_io_decl: (keyCount), line:57:22, endln:57:30
+      |vpiParent:
+      \_function: (work@semaphore::new), line:57:5, endln:58:16
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
-      \_constant: 
+      \_constant: , line:57:33, endln:57:34
         |vpiDecompile:0
         |vpiSize:64
         |UINT:0
         |vpiConstType:9
       |vpiTypedef:
-      \_int_typespec: 
+      \_int_typespec: , line:57:18, endln:57:21
         |vpiSigned:1
   |vpiMethod:
-  \_task: (work@semaphore::put)
+  \_task: (work@semaphore::put), line:60:5, endln:61:12
     |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (keyCount)
+    \_io_decl: (keyCount), line:60:18, endln:60:26
+      |vpiParent:
+      \_task: (work@semaphore::put), line:60:5, endln:61:12
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
-      \_constant: 
+      \_constant: , line:60:29, endln:60:30
         |vpiDecompile:1
         |vpiSize:64
         |UINT:1
         |vpiConstType:9
       |vpiTypedef:
-      \_int_typespec: 
+      \_int_typespec: , line:60:14, endln:60:17
         |vpiSigned:1
   |vpiMethod:
-  \_task: (work@semaphore::get)
+  \_task: (work@semaphore::get), line:63:5, endln:64:12
     |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (keyCount)
+    \_io_decl: (keyCount), line:63:18, endln:63:26
+      |vpiParent:
+      \_task: (work@semaphore::get), line:63:5, endln:64:12
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
-      \_constant: 
+      \_constant: , line:63:29, endln:63:30
         |vpiDecompile:1
         |vpiSize:64
         |UINT:1
         |vpiConstType:9
       |vpiTypedef:
-      \_int_typespec: 
+      \_int_typespec: , line:63:14, endln:63:17
         |vpiSigned:1
   |vpiMethod:
-  \_function: (work@semaphore::try_get)
+  \_function: (work@semaphore::try_get), line:66:5, endln:67:16
     |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv, line:55:3, endln:69:11
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiReturn:
-    \_int_var: 
+    \_int_var: (work@semaphore::try_get), line:66:14, endln:66:17
+      |vpiParent:
+      \_function: (work@semaphore::try_get), line:66:5, endln:67:16
       |vpiTypespec:
-      \_int_typespec: 
+      \_int_typespec: , line:66:14, endln:66:17
         |vpiSigned:1
+      |vpiFullName:work@semaphore::try_get
       |vpiSigned:1
-    |vpiParent:
-    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
-    \_io_decl: (keyCount)
+    \_io_decl: (keyCount), line:66:30, endln:66:38
+      |vpiParent:
+      \_function: (work@semaphore::try_get), line:66:5, endln:67:16
       |vpiDirection:1
       |vpiName:keyCount
       |vpiExpr:
-      \_constant: 
+      \_constant: , line:66:41, endln:66:42
         |vpiDecompile:1
         |vpiSize:64
         |UINT:1
         |vpiConstType:9
       |vpiTypedef:
-      \_int_typespec: 
+      \_int_typespec: , line:66:26, endln:66:29
         |vpiSigned:1
 |uhdmallModules:
 \_module_inst: work@foo (work@foo), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
@@ -1115,11 +1240,15 @@ design: (work@top)
     |vpiName:DATA_REG
     |vpiDirection:1
     |vpiLowConn:
-    \_ref_obj: 
+    \_ref_obj: (work@foo.DATA_REG.DATA_REG), line:30:37, endln:30:45
+      |vpiParent:
+      \_port: (DATA_REG), line:30:37, endln:30:45
+      |vpiName:DATA_REG
+      |vpiFullName:work@foo.DATA_REG.DATA_REG
       |vpiActual:
       \_logic_net: (work@foo.DATA_REG), line:30:37, endln:30:45
     |vpiTypedef:
-    \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+    \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
 |uhdmallModules:
 \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
   |vpiParent:
@@ -1136,6 +1265,8 @@ design: (work@top)
     \_module_inst: work@foo (work@foo), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
     |vpiPort:
     \_port: (DATA_REG), line:34:7, endln:34:27
+      |vpiParent:
+      \_ref_module: work@foo (f), line:34:5, endln:34:6
       |vpiName:DATA_REG
       |vpiHighConn:
       \_constant: , line:34:17, endln:34:26
@@ -1160,7 +1291,7 @@ design: (work@top)
       |vpiParent:
       \_module_inst: work@foo (work@top.f), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
       |vpiTypespec:
-      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
       |vpiName:DATA_REG
       |vpiFullName:work@top.f.DATA_REG
       |vpiVisibility:1
@@ -1177,18 +1308,24 @@ design: (work@top)
       |vpiDirection:1
       |vpiHighConn:
       \_constant: , line:34:17, endln:34:26
+        |vpiParent:
+        \_port: (DATA_REG), line:30:37, endln:30:45
         |vpiDecompile:6'b111111
         |vpiSize:6
         |BIN:111111
         |vpiConstType:3
       |vpiLowConn:
       \_ref_obj: (work@top.f.DATA_REG), line:34:8, endln:34:16
+        |vpiParent:
+        \_port: (DATA_REG), line:30:37, endln:30:45
         |vpiName:DATA_REG
         |vpiFullName:work@top.f.DATA_REG
         |vpiActual:
         \_struct_var: (work@top.f.DATA_REG), line:30:37, endln:30:45
       |vpiTypedef:
-      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:26:4
+      |vpiInstance:
+      \_module_inst: work@foo (work@top.f), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
   Object 'ctrl_pkg' of type 'package'
@@ -1386,13 +1523,13 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='cfg' basic_prep range=[3:0]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
@@ -1503,13 +1640,13 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='cfg' basic_prep range=[3:0]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
@@ -1619,13 +1756,13 @@ Dumping AST before simplification:
           AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='cfg' basic_prep range=[3:0]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
@@ -1733,13 +1870,13 @@ Dumping AST after simplification:
           AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-26.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='cfg' basic_prep range=[3:0]
             AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-22.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
       AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
