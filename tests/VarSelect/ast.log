@@ -730,9 +730,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
@@ -741,12 +738,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'a' of type 'ref_obj'
       Object '' of type 'constant'
@@ -764,7 +755,7 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/VarSelect/top.sv:1.19-1.24> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/VarSelect/top.sv:2.19-2.20> str='\a' reg multirange=[ 0 8 0 1 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/VarSelect/top.sv:2.19-2.20> str='\a' reg multirange=[ 0 1 0 8 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> range=[7:0]
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -780,7 +771,7 @@ Dumping AST before simplification:
                 AST_ADD <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0>
                   AST_MUL <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0>
                     AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                    AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                   AST_MUL <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0>
                     AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                     AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
@@ -797,7 +788,7 @@ Dumping AST before simplification:
             AST_ADD <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0>
               AST_MUL <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
+                AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
               AST_MUL <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0>
                 AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                 AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
@@ -807,7 +798,7 @@ Dumping Verilog AST before simplification:
       output [3:0] b;
       reg [7:0] a;
       assign a = 8'b 00001111;
-      assign b = a[((((0)*(8))+((3)*(1)))+((((6)+(1))*(1))-(1)))-((3)*(1)):((0)*(8))+((3)*(1))];
+      assign b = a[((((0)*(1))+((3)*(1)))+((((6)+(1))*(1))-(1)))-((3)*(1)):((0)*(1))+((3)*(1))];
     endmodule
 --- END OF AST DUMP ---
 Warning: reg '\a' is assigned in a continuous assignment at UHDM-integration-tests/tests/VarSelect/top.sv:3.11-3.20.
@@ -817,7 +808,7 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/VarSelect/top.sv:1.19-1.24> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/VarSelect/top.sv:2.19-2.20> str='\a' reg basic_prep range=[7:0] multirange=[ 0 8 0 1 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <UHDM-integration-tests/tests/VarSelect/top.sv:2.19-2.20> str='\a' reg basic_prep range=[7:0] multirange=[ 0 1 0 8 ] multirange_swapped=[ 0 0 ]
         AST_RANGE <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> basic_prep range=[7:0]
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
           AST_CONSTANT <UHDM-integration-tests/tests/VarSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]

@@ -858,9 +858,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a0' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object 'a1' of type 'logic_net'
@@ -883,10 +880,22 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:4.6-4.11> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.12-1.14> str='\a0' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.16-1.18> str='\a1' input logic port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.20-1.22> str='\a2' input logic port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.24-1.26> str='\a3' input logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.12-1.14> str='\a0' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.16-1.18> str='\a1' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.20-1.22> str='\a2' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.24-1.26> str='\a3' input logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneConcat/dut.v:5.9-5.29>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneConcat/dut.v:5.9-5.10> str='\b'
         AST_CONCAT <UHDM-integration-tests/tests/OneConcat/dut.v:5.13-5.29>
@@ -898,10 +907,10 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module dut(b, a0, a1, a2, a3);
       output reg [3:0] b;
-      input a0;
-      input a1;
-      input a2;
-      input a3;
+      input [0:0] a0;
+      input [0:0] a1;
+      input [0:0] a2;
+      input [0:0] a3;
       assign b = {a3, a2, a1, a0};
     endmodule
 --- END OF AST DUMP ---
@@ -912,10 +921,22 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:4.6-4.11> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.12-1.14> str='\a0' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.16-1.18> str='\a1' input logic basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.20-1.22> str='\a2' input logic basic_prep port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.24-1.26> str='\a3' input logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.12-1.14> str='\a0' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.16-1.18> str='\a1' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.20-1.22> str='\a2' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneConcat/dut.v:1.24-1.26> str='\a3' input logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneConcat/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneConcat/dut.v:5.9-5.29> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneConcat/dut.v:5.9-5.10> str='\b' basic_prep
         AST_CONCAT <UHDM-integration-tests/tests/OneConcat/dut.v:5.13-5.29> basic_prep
@@ -927,10 +948,10 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module dut(b, a0, a1, a2, a3);
       output reg [3:0] b;
-      input a0;
-      input a1;
-      input a2;
-      input a3;
+      input [0:0] a0;
+      input [0:0] a1;
+      input [0:0] a2;
+      input [0:0] a3;
       assign b = {a3, a2, a1, a0};
     endmodule
 --- END OF AST DUMP ---

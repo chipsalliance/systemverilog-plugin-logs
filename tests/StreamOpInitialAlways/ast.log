@@ -3365,109 +3365,73 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o1_4' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o2_4' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o3_4' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o4_4' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o5_4' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o6_4' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o1_8' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o2_8' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o3_8' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o4_8' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o5_8' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o6_8' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:1.1-63.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:2.9-2.12> str='\clk' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:2.9-2.12> str='\clk' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:3.15-3.16> str='\i' input logic port=2 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:3.9-3.14> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
@@ -4936,7 +4900,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(clk, i, o1_4, o2_4, o3_4, o4_4, o5_4, o6_4, o1_8, o2_8, o3_8, o4_8, o5_8, o6_8);
-      input clk;
+      input [0:0] clk;
       input [3:0] i;
       output [7:0] o1_4;
       output [7:0] o2_4;
@@ -5143,7 +5107,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:1.1-63.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:2.9-2.12> str='\clk' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:2.9-2.12> str='\clk' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:3.15-3.16> str='\i' input logic basic_prep port=2 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:3.9-3.14> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StreamOpInitialAlways/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
@@ -7008,7 +6975,7 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
-      input clk;
+      input [0:0] clk;
       input [3:0] i;
       output reg [7:0] o1_4;
       output reg [7:0] o2_4;

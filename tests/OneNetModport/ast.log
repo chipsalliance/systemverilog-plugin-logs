@@ -1142,8 +1142,14 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic port=4 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg port=5 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\dut'
         AST_CELLTYPE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\DUT'
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf'
@@ -1159,8 +1165,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
-      input a;
-      output reg b;
+      input [0:0] a;
+      output reg [0:0] b;
       /** AST_CELL **/
       /** AST_CELL **/
       assign \conntb.drive  = a;
@@ -1170,8 +1176,14 @@ Dumping Verilog AST before simplification:
 Warning: reg '\b' is assigned in a continuous assignment at UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic basic_prep port=4 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg basic_prep port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg basic_prep port=5 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\dut' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\DUT' basic_prep
         AST_ARGUMENT <UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf' basic_prep
@@ -1189,8 +1201,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
-      input a;
-      output reg b;
+      input [0:0] a;
+      output reg [0:0] b;
       /** AST_AUTOWIRE **/
       /** AST_AUTOWIRE **/
       /** AST_CELL **/
@@ -1204,31 +1216,43 @@ UHDM-integration-tests/tests/OneNetModport/top.sv:37: Warning: Identifier `\conn
 Generating RTLIL representation for module `\SUB'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10> str='\SUB'
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.13> str='\out'
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:31.16-31.19> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module SUB(inp, out);
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       assign out = inp;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10> str='\SUB' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.13> str='\out' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneNetModport/top.sv:31.16-31.19> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module SUB(inp, out);
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       assign out = inp;
     endmodule
 --- END OF AST DUMP ---
