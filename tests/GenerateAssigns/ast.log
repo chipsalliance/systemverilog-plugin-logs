@@ -842,9 +842,18 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.18-1.19> str='\a' input logic port=1 range=[0:0]
-      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.27-1.28> str='\b' input logic port=2 range=[0:0]
-      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.37-1.38> str='\y' output logic port=3 range=[0:0]
+      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.18-1.19> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.27-1.28> str='\b' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.37-1.38> str='\y' output logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <Surelog/tests/GenerateAssigns/top.v:28.5-41.8> str='\u2'
         AST_GENBLOCK <Surelog/tests/GenerateAssigns/top.v:29.7-40.14> str='\u1'
           AST_ASSIGN <Surelog/tests/GenerateAssigns/top.v:38.20-38.30>
@@ -857,9 +866,9 @@ Dumping Verilog AST before simplification:
     module dut(a, b, y);
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
-      input a;
-      input b;
-      output y;
+      input [0:0] a;
+      input [0:0] b;
+      output [0:0] y;
       /** AST_GENBLOCK **/
     endmodule
 --- END OF AST DUMP ---
@@ -875,9 +884,18 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.18-1.19> str='\a' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.27-1.28> str='\b' input logic basic_prep port=2 range=[0:0]
-      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.37-1.38> str='\y' output logic basic_prep port=3 range=[0:0]
+      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.18-1.19> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.27-1.28> str='\b' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/GenerateAssigns/top.v:1.37-1.38> str='\y' output logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/GenerateAssigns/top.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_GENBLOCK <Surelog/tests/GenerateAssigns/top.v:28.5-41.8> str='\u2' basic_prep
       AST_ASSIGN <Surelog/tests/GenerateAssigns/top.v:38.20-38.30> basic_prep
         AST_IDENTIFIER <Surelog/tests/GenerateAssigns/top.v:38.20-38.21> str='\y' basic_prep
@@ -890,9 +908,9 @@ Dumping Verilog AST after simplification:
     module dut(a, b, y);
       /** AST_PARAMETER **/
       /** AST_PARAMETER **/
-      input a;
-      input b;
-      output y;
+      input [0:0] a;
+      input [0:0] b;
+      output [0:0] y;
       /** AST_GENBLOCK **/
       assign y = (a)~^(b);
       /** AST_GENBLOCK **/

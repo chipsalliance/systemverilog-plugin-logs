@@ -700,9 +700,18 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <Surelog/tests/OneAnd/dut.v:1.1-5.10> str='\dut'
-      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.24-1.25> str='\a' input logic port=1 range=[0:0]
-      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.39-1.40> str='\b' input logic port=2 range=[0:0]
-      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.55-1.56> str='\o' output logic port=3 range=[0:0]
+      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.24-1.25> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.39-1.40> str='\b' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.55-1.56> str='\o' output logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <Surelog/tests/OneAnd/dut.v:3.10-3.19>
         AST_IDENTIFIER <Surelog/tests/OneAnd/dut.v:3.10-3.11> str='\o'
         AST_BIT_AND <Surelog/tests/OneAnd/dut.v:3.14-3.19>
@@ -711,17 +720,26 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, b, o);
-      input a;
-      input b;
-      output o;
+      input [0:0] a;
+      input [0:0] b;
+      output [0:0] o;
       assign o = (a)&(b);
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <Surelog/tests/OneAnd/dut.v:1.1-5.10> str='\dut' basic_prep
-      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.24-1.25> str='\a' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.39-1.40> str='\b' input logic basic_prep port=2 range=[0:0]
-      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.55-1.56> str='\o' output logic basic_prep port=3 range=[0:0]
+      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.24-1.25> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.39-1.40> str='\b' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneAnd/dut.v:1.55-1.56> str='\o' output logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneAnd/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <Surelog/tests/OneAnd/dut.v:3.10-3.19> basic_prep
         AST_IDENTIFIER <Surelog/tests/OneAnd/dut.v:3.10-3.11> str='\o' basic_prep
         AST_BIT_AND <Surelog/tests/OneAnd/dut.v:3.14-3.19> basic_prep
@@ -730,9 +748,9 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b, o);
-      input a;
-      input b;
-      output o;
+      input [0:0] a;
+      input [0:0] b;
+      output [0:0] o;
       assign o = (a)&(b);
     endmodule
 --- END OF AST DUMP ---

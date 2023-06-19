@@ -661,7 +661,10 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:1.1-4.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:1.25-1.26> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:1.25-1.26> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:2.17-2.29> str='\a' logic
         AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:2.10-2.16>
           AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
@@ -682,7 +685,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output o;
+      output [0:0] o;
       wire [15:0] a;
       assign o = a[a[3:0]];
       initial
@@ -691,7 +694,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:2.17-2.29> str='\a' logic reg basic_prep range=[15:0]
         AST_RANGE <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:2.10-2.16> basic_prep range=[15:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SelfPartSelectInBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
@@ -712,7 +718,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output o;
+      output [0:0] o;
       reg [15:0] a;
       assign o = a[a[3:0]];
       initial

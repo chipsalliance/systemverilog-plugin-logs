@@ -806,8 +806,14 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.1-16.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.24-14.25> str='\i' input logic port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.40-14.41> str='\o' output logic port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.24-14.25> str='\i' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.40-14.41> str='\o' output logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15.10-15.40>
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15.10-15.11> str='\o'
         AST_FCALL <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15.14-15.26> str='\test_package::test_true'
@@ -854,8 +860,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(i, o);
-      input i;
-      output o;
+      input [0:0] i;
+      output [0:0] o;
       /** AST_FUNCTION **/
       assign o = /** AST_FCALL **/;
       /** AST_ENUM **/
@@ -864,8 +870,14 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.1-16.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.24-14.25> str='\i' input logic basic_prep port=2 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.40-14.41> str='\o' output logic basic_prep port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.24-14.25> str='\i' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:14.40-14.41> str='\o' output logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15.10-15.40> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15.10-15.11> str='\o' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15.14-15.26> str='\test_package::test_true$func$UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15$1.$result' basic_prep
@@ -940,8 +952,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(i, o);
-      input i;
-      output o;
+      input [0:0] i;
+      output [0:0] o;
       reg \test_package::test_true$func$UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15$1.$result ;
       (* nosync = 1 *)
       reg \test_package::test_true$func$UHDM-integration-tests/tests/EnumVariantInPackage/top.sv:15$2.$result ;
