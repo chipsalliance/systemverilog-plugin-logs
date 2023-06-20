@@ -1,0 +1,1786 @@
+make: Entering directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
+rm -rf /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
+mkdir -p /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
+(export TOP_FILE="/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build && LD_PRELOAD=/root/yosys-systemverilog/yosys-systemverilog/image/lib/libfakedlclose.so /root/yosys-systemverilog/yosys-systemverilog/image/bin/yosys -Q -c /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/yosys_script.tcl)
+Using Yosys read_systemverilog command
+[TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `exec' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `read' -> skip.
+[TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
+
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/slpp_all/surelog.log.
+
+[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:1:1: No timescale set for "ctrl_pkg".
+
+[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:6:1: No timescale set for "pkg".
+
+[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30:1: No timescale set for "foo".
+
+[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: No timescale set for "top".
+
+[INF:CP0300] Compilation...
+
+[INF:CP0301] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:1:1: Compile package "ctrl_pkg".
+
+[INF:CP0301] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:6:1: Compile package "pkg".
+
+[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30:1: Compile module "work@foo".
+
+[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: Compile module "work@top".
+
+[INF:CP0302] Compile class "work@mailbox".
+
+[INF:CP0302] Compile class "work@process".
+
+[INF:CP0302] Compile class "work@semaphore".
+
+[INF:EL0526] Design Elaboration...
+
+[NTE:EL0503] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: Top level module "work@top".
+
+[NTE:EL0508] Nb Top level modules: 1.
+
+[NTE:EL0509] Max instance depth: 2.
+
+[NTE:EL0510] Nb instances: 2.
+
+[NTE:EL0511] Nb leaf instances: 1.
+
+[INF:UH0706] Creating UHDM Model...
+
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 4
+[   NOTE] : 5
+design: (work@top)
+|vpiName:work@top
+|uhdmallPackages:
+\_package: builtin (builtin::)
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:builtin
+  |vpiFullName:builtin::
+  |vpiDefName:builtin
+|uhdmallPackages:
+\_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:ctrl_pkg
+  |vpiFullName:ctrl_pkg::
+  |vpiParameter:
+  \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |UINT:2
+    |vpiTypespec:
+    \_int_typespec: , line:2:13, endln:2:16
+      |vpiParent:
+      \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+      |vpiInstance:
+      \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      |vpiSigned:1
+    |vpiSigned:1
+    |vpiName:Banks
+    |vpiFullName:ctrl_pkg::Banks
+  |vpiParameter:
+  \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |UINT:64
+    |vpiTypespec:
+    \_int_typespec: , line:3:13, endln:3:16
+      |vpiParent:
+      \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+      |vpiInstance:
+      \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      |vpiSigned:1
+    |vpiSigned:1
+    |vpiName:PagesPerBank
+    |vpiFullName:ctrl_pkg::PagesPerBank
+  |vpiParamAssign:
+  \_param_assign: , line:2:17, endln:2:26
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |vpiRhs:
+    \_constant: , line:2:25, endln:2:26
+      |vpiDecompile:2
+      |vpiSize:32
+      |UINT:2
+      |vpiTypespec:
+      \_int_typespec: , line:2:13, endln:2:16
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+  |vpiParamAssign:
+  \_param_assign: , line:3:17, endln:3:34
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |vpiRhs:
+    \_constant: , line:3:32, endln:3:34
+      |vpiDecompile:64
+      |vpiSize:32
+      |UINT:64
+      |vpiTypespec:
+      \_int_typespec: , line:3:13, endln:3:16
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+  |vpiDefName:ctrl_pkg
+|uhdmallPackages:
+\_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:pkg
+  |vpiFullName:pkg::
+  |vpiParameter:
+  \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiTypespec:
+    \_int_typespec: , line:7:13, endln:7:25
+      |vpiParent:
+      \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:NumBanks
+    |vpiFullName:pkg::NumBanks
+  |vpiParameter:
+  \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiTypespec:
+    \_int_typespec: , line:8:13, endln:8:25
+      |vpiParent:
+      \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:PagesPerBank
+    |vpiFullName:pkg::PagesPerBank
+  |vpiParameter:
+  \_parameter: (pkg::Width), line:9:17, endln:9:22
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |UINT:4
+    |vpiTypespec:
+    \_int_typespec: , line:9:13, endln:9:16
+      |vpiParent:
+      \_parameter: (pkg::Width), line:9:17, endln:9:22
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      |vpiSigned:1
+    |vpiSigned:1
+    |vpiName:Width
+    |vpiFullName:pkg::Width
+  |vpiParamAssign:
+  \_param_assign: , line:7:26, endln:7:59
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiRhs:
+    \_ref_obj: (ctrl_pkg::Banks), line:7:44, endln:7:54
+      |vpiName:ctrl_pkg::Banks
+      |vpiActual:
+      \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+    |vpiLhs:
+    \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
+  |vpiParamAssign:
+  \_param_assign: , line:8:26, endln:8:66
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiRhs:
+    \_ref_obj: (ctrl_pkg::PagesPerBank), line:8:44, endln:8:54
+      |vpiName:ctrl_pkg::PagesPerBank
+      |vpiActual:
+      \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+    |vpiLhs:
+    \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
+  |vpiParamAssign:
+  \_param_assign: , line:9:17, endln:9:26
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiRhs:
+    \_constant: , line:9:25, endln:9:26
+      |vpiDecompile:4
+      |vpiSize:32
+      |UINT:4
+      |vpiTypespec:
+      \_int_typespec: , line:9:13, endln:9:16
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (pkg::Width), line:9:17, endln:9:22
+  |vpiTypedef:
+  \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:pkg::enum_t
+    |vpiInstance:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiBaseTypespec:
+    \_logic_typespec: , line:10:16, endln:10:33
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      |vpiRange:
+      \_range: , line:10:22, endln:10:33
+        |vpiLeftRange:
+        \_operation: , line:10:23, endln:10:30
+          |vpiParent:
+          \_range: , line:10:22, endln:10:33
+          |vpiOpType:11
+          |vpiOperand:
+          \_ref_obj: (Width), line:10:23, endln:10:28
+            |vpiParent:
+            \_operation: , line:10:23, endln:10:30
+            |vpiName:Width
+          |vpiOperand:
+          \_constant: , line:10:29, endln:10:30
+            |vpiParent:
+            \_operation: , line:10:23, endln:10:30
+            |vpiDecompile:1
+            |vpiSize:64
+            |UINT:1
+            |vpiConstType:9
+        |vpiRightRange:
+        \_constant: , line:10:31, endln:10:32
+          |vpiParent:
+          \_range: , line:10:22, endln:10:33
+          |vpiDecompile:0
+          |vpiSize:64
+          |UINT:0
+          |vpiConstType:9
+    |vpiEnumConst:
+    \_enum_const: (true_e), line:11:5, endln:11:18
+      |vpiName:true_e
+      |HEX:6
+      |vpiDecompile:4'h6
+      |vpiSize:4
+    |vpiEnumConst:
+    \_enum_const: (false_e), line:12:5, endln:12:19
+      |vpiName:false_e
+      |HEX:9
+      |vpiDecompile:4'h9
+      |vpiSize:4
+  |vpiTypedef:
+  \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:pkg::phase_t
+    |vpiInstance:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiBaseTypespec:
+    \_logic_typespec: , line:14:16, endln:14:27
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      |vpiRange:
+      \_range: , line:14:22, endln:14:27
+        |vpiLeftRange:
+        \_constant: , line:14:23, endln:14:24
+          |vpiParent:
+          \_range: , line:14:22, endln:14:27
+          |vpiDecompile:1
+          |vpiSize:64
+          |UINT:1
+          |vpiConstType:9
+        |vpiRightRange:
+        \_constant: , line:14:25, endln:14:26
+          |vpiParent:
+          \_range: , line:14:22, endln:14:27
+          |vpiDecompile:0
+          |vpiSize:64
+          |UINT:0
+          |vpiConstType:9
+    |vpiEnumConst:
+    \_enum_const: (seed_e), line:15:5, endln:15:11
+      |vpiName:seed_e
+      |INT:0
+      |vpiDecompile:0
+      |vpiSize:2
+    |vpiEnumConst:
+    \_enum_const: (rma_e), line:16:5, endln:16:10
+      |vpiName:rma_e
+      |INT:1
+      |vpiDecompile:1
+      |vpiSize:2
+    |vpiEnumConst:
+    \_enum_const: (none_e), line:17:5, endln:17:11
+      |vpiName:none_e
+      |INT:2
+      |vpiDecompile:2
+      |vpiSize:2
+    |vpiEnumConst:
+    \_enum_const: (invalid_e), line:18:5, endln:18:14
+      |vpiName:invalid_e
+      |INT:3
+      |vpiDecompile:3
+      |vpiSize:2
+  |vpiTypedef:
+  \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:pkg::region_attr_t
+    |vpiInstance:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiPacked:1
+    |vpiTypespecMember:
+    \_typespec_member: (phase), line:24:15, endln:24:20
+      |vpiParent:
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      |vpiName:phase
+      |vpiTypespec:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
+      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefLineNo:24
+      |vpiRefColumnNo:5
+      |vpiRefEndLineNo:24
+      |vpiRefEndColumnNo:12
+    |vpiTypespecMember:
+    \_typespec_member: (cfg), line:25:18, endln:25:21
+      |vpiParent:
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      |vpiName:cfg
+      |vpiTypespec:
+      \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+        |vpiParent:
+        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        |vpiName:pkg::region_cfg_t
+        |vpiInstance:
+        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        |vpiPacked:1
+        |vpiTypespecMember:
+        \_typespec_member: (en), line:21:12, endln:21:14
+          |vpiParent:
+          \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+          |vpiName:en
+          |vpiTypespec:
+          \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
+          |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+          |vpiRefLineNo:21
+          |vpiRefColumnNo:5
+          |vpiRefEndLineNo:21
+          |vpiRefEndColumnNo:11
+      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefLineNo:25
+      |vpiRefColumnNo:5
+      |vpiRefEndLineNo:25
+      |vpiRefEndColumnNo:17
+  |vpiTypedef:
+  \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+  |vpiDefName:pkg
+|uhdmtopPackages:
+\_package: builtin (builtin::)
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:builtin
+  |vpiFullName:builtin::
+  |vpiDefName:builtin
+  |vpiTop:1
+  |vpiClassDefn:
+  \_class_defn: (builtin::any_sverilog_class)
+    |vpiParent:
+    \_package: builtin (builtin::)
+    |vpiName:any_sverilog_class
+    |vpiFullName:builtin::any_sverilog_class
+  |vpiClassDefn:
+  \_class_defn: (builtin::array)
+    |vpiParent:
+    \_package: builtin (builtin::)
+    |vpiName:array
+    |vpiFullName:builtin::array
+  |vpiClassDefn:
+  \_class_defn: (builtin::queue)
+    |vpiParent:
+    \_package: builtin (builtin::)
+    |vpiName:queue
+    |vpiFullName:builtin::queue
+  |vpiClassDefn:
+  \_class_defn: (builtin::string)
+    |vpiParent:
+    \_package: builtin (builtin::)
+    |vpiName:string
+    |vpiFullName:builtin::string
+  |vpiClassDefn:
+  \_class_defn: (builtin::system)
+    |vpiParent:
+    \_package: builtin (builtin::)
+    |vpiName:system
+    |vpiFullName:builtin::system
+|uhdmtopPackages:
+\_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:ctrl_pkg
+  |vpiFullName:ctrl_pkg::
+  |vpiParameter:
+  \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |UINT:2
+    |vpiTypespec:
+    \_int_typespec: , line:2:13, endln:2:16
+      |vpiParent:
+      \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+      |vpiInstance:
+      \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      |vpiSigned:1
+    |vpiSigned:1
+    |vpiName:Banks
+    |vpiFullName:ctrl_pkg::Banks
+  |vpiParameter:
+  \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |UINT:64
+    |vpiTypespec:
+    \_int_typespec: , line:3:13, endln:3:16
+      |vpiParent:
+      \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+      |vpiInstance:
+      \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      |vpiSigned:1
+    |vpiSigned:1
+    |vpiName:PagesPerBank
+    |vpiFullName:ctrl_pkg::PagesPerBank
+  |vpiParamAssign:
+  \_param_assign: , line:2:17, endln:2:26
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |vpiRhs:
+    \_constant: , line:2:25, endln:2:26
+      |vpiDecompile:2
+      |vpiSize:32
+      |UINT:2
+      |vpiTypespec:
+      \_int_typespec: , line:2:13, endln:2:16
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
+  |vpiParamAssign:
+  \_param_assign: , line:3:17, endln:3:34
+    |vpiParent:
+    \_package: ctrl_pkg (ctrl_pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    |vpiRhs:
+    \_constant: , line:3:32, endln:3:34
+      |vpiDecompile:64
+      |vpiSize:32
+      |UINT:64
+      |vpiTypespec:
+      \_int_typespec: , line:3:13, endln:3:16
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
+  |vpiDefName:ctrl_pkg
+  |vpiTop:1
+|uhdmtopPackages:
+\_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:pkg
+  |vpiFullName:pkg::
+  |vpiParameter:
+  \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |UINT:2
+    |vpiTypespec:
+    \_int_typespec: , line:7:13, endln:7:25
+      |vpiParent:
+      \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:NumBanks
+    |vpiFullName:pkg::NumBanks
+  |vpiParameter:
+  \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |UINT:64
+    |vpiTypespec:
+    \_int_typespec: , line:8:13, endln:8:25
+      |vpiParent:
+      \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:PagesPerBank
+    |vpiFullName:pkg::PagesPerBank
+  |vpiParameter:
+  \_parameter: (pkg::Width), line:9:17, endln:9:22
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |UINT:4
+    |vpiTypespec:
+    \_int_typespec: , line:9:13, endln:9:16
+      |vpiParent:
+      \_parameter: (pkg::Width), line:9:17, endln:9:22
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      |vpiSigned:1
+    |vpiSigned:1
+    |vpiName:Width
+    |vpiFullName:pkg::Width
+  |vpiParamAssign:
+  \_param_assign: , line:7:26, endln:7:59
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiRhs:
+    \_constant: , line:7:44, endln:7:54
+      |vpiDecompile:2
+      |vpiSize:32
+      |UINT:2
+      |vpiTypespec:
+      \_int_typespec: , line:7:13, endln:7:25
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
+  |vpiParamAssign:
+  \_param_assign: , line:8:26, endln:8:66
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiRhs:
+    \_constant: , line:8:44, endln:8:54
+      |vpiDecompile:64
+      |vpiSize:32
+      |UINT:64
+      |vpiTypespec:
+      \_int_typespec: , line:8:13, endln:8:25
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
+  |vpiParamAssign:
+  \_param_assign: , line:9:17, endln:9:26
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiRhs:
+    \_constant: , line:9:25, endln:9:26
+      |vpiDecompile:4
+      |vpiSize:32
+      |UINT:4
+      |vpiTypespec:
+      \_int_typespec: , line:9:13, endln:9:16
+      |vpiConstType:9
+    |vpiLhs:
+    \_parameter: (pkg::Width), line:9:17, endln:9:22
+  |vpiTypedef:
+  \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:pkg::enum_t
+    |vpiInstance:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiBaseTypespec:
+    \_logic_typespec: , line:10:16, endln:10:33
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      |vpiRange:
+      \_range: , line:10:22, endln:10:33
+        |vpiLeftRange:
+        \_constant: , line:10:23, endln:10:28
+          |vpiParent:
+          \_range: , line:10:22, endln:10:33
+          |vpiDecompile:3
+          |vpiSize:64
+          |INT:3
+          |vpiConstType:7
+        |vpiRightRange:
+        \_constant: , line:10:31, endln:10:32
+          |vpiParent:
+          \_range: , line:10:22, endln:10:33
+          |vpiDecompile:0
+          |vpiSize:64
+          |UINT:0
+          |vpiConstType:9
+    |vpiEnumConst:
+    \_enum_const: (true_e), line:11:5, endln:11:18
+      |vpiName:true_e
+      |HEX:6
+      |vpiDecompile:4'h6
+      |vpiSize:4
+    |vpiEnumConst:
+    \_enum_const: (false_e), line:12:5, endln:12:19
+      |vpiName:false_e
+      |HEX:9
+      |vpiDecompile:4'h9
+      |vpiSize:4
+  |vpiTypedef:
+  \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:pkg::phase_t
+    |vpiInstance:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiBaseTypespec:
+    \_logic_typespec: , line:14:16, endln:14:27
+      |vpiInstance:
+      \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      |vpiRange:
+      \_range: , line:14:22, endln:14:27
+        |vpiLeftRange:
+        \_constant: , line:14:23, endln:14:24
+          |vpiParent:
+          \_range: , line:14:22, endln:14:27
+          |vpiDecompile:1
+          |vpiSize:64
+          |UINT:1
+          |vpiConstType:9
+        |vpiRightRange:
+        \_constant: , line:14:25, endln:14:26
+          |vpiParent:
+          \_range: , line:14:22, endln:14:27
+          |vpiDecompile:0
+          |vpiSize:64
+          |UINT:0
+          |vpiConstType:9
+    |vpiEnumConst:
+    \_enum_const: (seed_e), line:15:5, endln:15:11
+      |vpiName:seed_e
+      |INT:0
+      |vpiDecompile:0
+      |vpiSize:2
+    |vpiEnumConst:
+    \_enum_const: (rma_e), line:16:5, endln:16:10
+      |vpiName:rma_e
+      |INT:1
+      |vpiDecompile:1
+      |vpiSize:2
+    |vpiEnumConst:
+    \_enum_const: (none_e), line:17:5, endln:17:11
+      |vpiName:none_e
+      |INT:2
+      |vpiDecompile:2
+      |vpiSize:2
+    |vpiEnumConst:
+    \_enum_const: (invalid_e), line:18:5, endln:18:14
+      |vpiName:invalid_e
+      |INT:3
+      |vpiDecompile:3
+      |vpiSize:2
+  |vpiTypedef:
+  \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+    |vpiParent:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiName:pkg::region_attr_t
+    |vpiInstance:
+    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    |vpiPacked:1
+    |vpiTypespecMember:
+    \_typespec_member: (phase), line:24:15, endln:24:20
+      |vpiParent:
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      |vpiName:phase
+      |vpiTypespec:
+      \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
+      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefLineNo:24
+      |vpiRefColumnNo:5
+      |vpiRefEndLineNo:24
+      |vpiRefEndColumnNo:12
+    |vpiTypespecMember:
+    \_typespec_member: (cfg), line:25:18, endln:25:21
+      |vpiParent:
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      |vpiName:cfg
+      |vpiTypespec:
+      \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+        |vpiParent:
+        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        |vpiName:pkg::region_cfg_t
+        |vpiInstance:
+        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        |vpiPacked:1
+        |vpiTypespecMember:
+        \_typespec_member: (en), line:21:12, endln:21:14
+          |vpiParent:
+          \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+          |vpiName:en
+          |vpiTypespec:
+          \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
+          |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+          |vpiRefLineNo:21
+          |vpiRefColumnNo:5
+          |vpiRefEndLineNo:21
+          |vpiRefEndColumnNo:11
+      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefLineNo:25
+      |vpiRefColumnNo:5
+      |vpiRefEndLineNo:25
+      |vpiRefEndColumnNo:17
+  |vpiTypedef:
+  \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
+  |vpiDefName:pkg
+  |vpiTop:1
+|uhdmallClasses:
+\_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:work@mailbox
+  |vpiMethod:
+  \_function: (work@mailbox::new)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:new
+    |vpiFullName:work@mailbox::new
+    |vpiMethod:1
+    |vpiReturn:
+    \_class_var: 
+      |vpiTypespec:
+      \_class_typespec: 
+        |vpiClassDefn:
+        \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (bound)
+      |vpiDirection:1
+      |vpiName:bound
+      |vpiExpr:
+      \_constant: 
+        |vpiDecompile:0
+        |vpiSize:64
+        |UINT:0
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: 
+        |vpiSigned:1
+  |vpiMethod:
+  \_function: (work@mailbox::num)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:num
+    |vpiFullName:work@mailbox::num
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: 
+      |vpiTypespec:
+      \_int_typespec: 
+        |vpiSigned:1
+      |vpiSigned:1
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiMethod:
+  \_task: (work@mailbox::put)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:put
+    |vpiFullName:work@mailbox::put
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (message)
+      |vpiDirection:1
+      |vpiName:message
+  |vpiMethod:
+  \_function: (work@mailbox::try_put)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:try_put
+    |vpiFullName:work@mailbox::try_put
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_logic_var: 
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (message)
+      |vpiDirection:1
+      |vpiName:message
+  |vpiMethod:
+  \_task: (work@mailbox::get)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:get
+    |vpiFullName:work@mailbox::get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (message)
+      |vpiDirection:6
+      |vpiName:message
+  |vpiMethod:
+  \_function: (work@mailbox::try_get)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:try_get
+    |vpiFullName:work@mailbox::try_get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: 
+      |vpiTypespec:
+      \_int_typespec: 
+        |vpiSigned:1
+      |vpiSigned:1
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (message)
+      |vpiDirection:6
+      |vpiName:message
+  |vpiMethod:
+  \_task: (work@mailbox::peek)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:peek
+    |vpiFullName:work@mailbox::peek
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (message)
+      |vpiDirection:6
+      |vpiName:message
+  |vpiMethod:
+  \_function: (work@mailbox::try_peek)
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:try_peek
+    |vpiFullName:work@mailbox::try_peek
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: 
+      |vpiTypespec:
+      \_int_typespec: 
+        |vpiSigned:1
+      |vpiSigned:1
+    |vpiParent:
+    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (message)
+      |vpiDirection:6
+      |vpiName:message
+|uhdmallClasses:
+\_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:work@process
+  |vpiTypedef:
+  \_enum_typespec: (state)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:state
+    |vpiEnumConst:
+    \_enum_const: (FINISHED)
+      |vpiName:FINISHED
+      |INT:0
+      |vpiDecompile:0
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (RUNNING)
+      |vpiName:RUNNING
+      |INT:1
+      |vpiDecompile:1
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (WAITING)
+      |vpiName:WAITING
+      |INT:2
+      |vpiDecompile:2
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (SUSPENDED)
+      |vpiName:SUSPENDED
+      |INT:3
+      |vpiDecompile:3
+      |vpiSize:64
+    |vpiEnumConst:
+    \_enum_const: (KILLED)
+      |vpiName:KILLED
+      |INT:4
+      |vpiDecompile:4
+      |vpiSize:64
+  |vpiMethod:
+  \_function: (work@process::self)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:self
+    |vpiFullName:work@process::self
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_class_var: 
+      |vpiTypespec:
+      \_class_typespec: 
+        |vpiClassDefn:
+        \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiMethod:
+  \_function: (work@process::status)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:status
+    |vpiFullName:work@process::status
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_enum_var: 
+      |vpiTypespec:
+      \_enum_typespec: (state)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiMethod:
+  \_task: (work@process::kill)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:kill
+    |vpiFullName:work@process::kill
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiMethod:
+  \_task: (work@process::await)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:await
+    |vpiFullName:work@process::await
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiMethod:
+  \_task: (work@process::suspend)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:suspend
+    |vpiFullName:work@process::suspend
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiMethod:
+  \_task: (work@process::resume)
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:resume
+    |vpiFullName:work@process::resume
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+|uhdmallClasses:
+\_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+  |vpiParent:
+  \_design: (work@top)
+  |vpiName:work@semaphore
+  |vpiMethod:
+  \_function: (work@semaphore::new)
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:new
+    |vpiFullName:work@semaphore::new
+    |vpiMethod:1
+    |vpiReturn:
+    \_class_var: 
+      |vpiTypespec:
+      \_class_typespec: 
+        |vpiClassDefn:
+        \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (keyCount)
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: 
+        |vpiDecompile:0
+        |vpiSize:64
+        |UINT:0
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: 
+        |vpiSigned:1
+  |vpiMethod:
+  \_task: (work@semaphore::put)
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:put
+    |vpiFullName:work@semaphore::put
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (keyCount)
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: 
+        |vpiDecompile:1
+        |vpiSize:64
+        |UINT:1
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: 
+        |vpiSigned:1
+  |vpiMethod:
+  \_task: (work@semaphore::get)
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:get
+    |vpiFullName:work@semaphore::get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (keyCount)
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: 
+        |vpiDecompile:1
+        |vpiSize:64
+        |UINT:1
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: 
+        |vpiSigned:1
+  |vpiMethod:
+  \_function: (work@semaphore::try_get)
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiName:try_get
+    |vpiFullName:work@semaphore::try_get
+    |vpiMethod:1
+    |vpiVisibility:1
+    |vpiReturn:
+    \_int_var: 
+      |vpiTypespec:
+      \_int_typespec: 
+        |vpiSigned:1
+      |vpiSigned:1
+    |vpiParent:
+    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    |vpiIODecl:
+    \_io_decl: (keyCount)
+      |vpiDirection:1
+      |vpiName:keyCount
+      |vpiExpr:
+      \_constant: 
+        |vpiDecompile:1
+        |vpiSize:64
+        |UINT:1
+        |vpiConstType:9
+      |vpiTypedef:
+      \_int_typespec: 
+        |vpiSigned:1
+|uhdmallModules:
+\_module_inst: work@foo (work@foo), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+  |vpiParent:
+  \_design: (work@top)
+  |vpiFullName:work@foo
+  |vpiDefName:work@foo
+  |vpiNet:
+  \_logic_net: (work@foo.DATA_REG), line:30:37, endln:30:45
+    |vpiParent:
+    \_module_inst: work@foo (work@foo), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+    |vpiName:DATA_REG
+    |vpiFullName:work@foo.DATA_REG
+  |vpiPort:
+  \_port: (DATA_REG), line:30:37, endln:30:45
+    |vpiParent:
+    \_module_inst: work@foo (work@foo), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+    |vpiName:DATA_REG
+    |vpiDirection:1
+    |vpiLowConn:
+    \_ref_obj: 
+      |vpiActual:
+      \_logic_net: (work@foo.DATA_REG), line:30:37, endln:30:45
+    |vpiTypedef:
+    \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+|uhdmallModules:
+\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+  |vpiParent:
+  \_design: (work@top)
+  |vpiFullName:work@top
+  |vpiDefName:work@top
+  |vpiRefModule:
+  \_ref_module: work@foo (f), line:34:5, endln:34:6
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+    |vpiName:f
+    |vpiDefName:work@foo
+    |vpiActual:
+    \_module_inst: work@foo (work@foo), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+    |vpiPort:
+    \_port: (DATA_REG), line:34:7, endln:34:27
+      |vpiName:DATA_REG
+      |vpiHighConn:
+      \_constant: , line:34:17, endln:34:26
+        |vpiDecompile:6'b111111
+        |vpiSize:6
+        |BIN:111111
+        |vpiConstType:3
+|uhdmtopModules:
+\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+  |vpiName:work@top
+  |vpiDefName:work@top
+  |vpiTop:1
+  |vpiTopModule:1
+  |vpiModule:
+  \_module_inst: work@foo (work@top.f), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+    |vpiName:f
+    |vpiFullName:work@top.f
+    |vpiVariables:
+    \_struct_var: (work@top.f.DATA_REG), line:30:37, endln:30:45
+      |vpiParent:
+      \_module_inst: work@foo (work@top.f), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
+      |vpiTypespec:
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+      |vpiName:DATA_REG
+      |vpiFullName:work@top.f.DATA_REG
+      |vpiVisibility:1
+    |vpiDefName:work@foo
+    |vpiDefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+    |vpiDefLineNo:30
+    |vpiInstance:
+    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+    |vpiPort:
+    \_port: (DATA_REG), line:30:37, endln:30:45
+      |vpiParent:
+      \_module_inst: work@foo (work@top.f), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
+      |vpiName:DATA_REG
+      |vpiDirection:1
+      |vpiHighConn:
+      \_constant: , line:34:17, endln:34:26
+        |vpiDecompile:6'b111111
+        |vpiSize:6
+        |BIN:111111
+        |vpiConstType:3
+      |vpiLowConn:
+      \_ref_obj: (work@top.f.DATA_REG), line:34:8, endln:34:16
+        |vpiName:DATA_REG
+        |vpiFullName:work@top.f.DATA_REG
+        |vpiActual:
+        \_struct_var: (work@top.f.DATA_REG), line:30:37, endln:30:45
+      |vpiTypedef:
+      \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'ctrl_pkg' of type 'package'
+    Object 'Banks' of type 'parameter'
+    Object 'PagesPerBank' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'Banks' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'PagesPerBank' of type 'parameter'
+      Object '' of type 'constant'
+  Object 'pkg' of type 'package'
+    Object 'pkg::enum_t' of type 'enum_typespec'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object 'true_e' of type 'enum_const'
+      Object 'false_e' of type 'enum_const'
+    Object 'pkg::phase_t' of type 'enum_typespec'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object 'seed_e' of type 'enum_const'
+      Object 'rma_e' of type 'enum_const'
+      Object 'none_e' of type 'enum_const'
+      Object 'invalid_e' of type 'enum_const'
+    Object 'pkg::region_attr_t' of type 'struct_typespec'
+      Object 'phase' of type 'typespec_member'
+        Object 'pkg::phase_t' of type 'enum_typespec'
+          Object '' of type 'logic_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+          Object 'seed_e' of type 'enum_const'
+          Object 'rma_e' of type 'enum_const'
+          Object 'none_e' of type 'enum_const'
+          Object 'invalid_e' of type 'enum_const'
+      Object 'cfg' of type 'typespec_member'
+        Object 'pkg::region_cfg_t' of type 'struct_typespec'
+          Object 'en' of type 'typespec_member'
+            Object 'pkg::enum_t' of type 'enum_typespec'
+              Object '' of type 'logic_typespec'
+                Object '' of type 'range'
+                  Object '' of type 'constant'
+                  Object '' of type 'constant'
+              Object 'true_e' of type 'enum_const'
+              Object 'false_e' of type 'enum_const'
+    Object 'pkg::region_cfg_t' of type 'struct_typespec'
+      Object 'en' of type 'typespec_member'
+        Object 'pkg::enum_t' of type 'enum_typespec'
+          Object '' of type 'logic_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+          Object 'true_e' of type 'enum_const'
+          Object 'false_e' of type 'enum_const'
+    Object 'NumBanks' of type 'parameter'
+    Object 'PagesPerBank' of type 'parameter'
+    Object 'Width' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'NumBanks' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'PagesPerBank' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'Width' of type 'parameter'
+      Object '' of type 'constant'
+  Object '' of type 'module_inst'
+    Object 'DATA_REG' of type 'logic_net'
+  Object '' of type 'module_inst'
+  Object 'work@top' of type 'module_inst'
+    Object 'f' of type 'module_inst'
+      Object 'DATA_REG' of type 'struct_var'
+        Object 'pkg::region_attr_t' of type 'struct_typespec'
+          Object 'phase' of type 'typespec_member'
+            Object 'pkg::phase_t' of type 'enum_typespec'
+              Object '' of type 'logic_typespec'
+                Object '' of type 'range'
+                  Object '' of type 'constant'
+                  Object '' of type 'constant'
+              Object 'seed_e' of type 'enum_const'
+              Object 'rma_e' of type 'enum_const'
+              Object 'none_e' of type 'enum_const'
+              Object 'invalid_e' of type 'enum_const'
+          Object 'cfg' of type 'typespec_member'
+            Object 'pkg::region_cfg_t' of type 'struct_typespec'
+              Object 'en' of type 'typespec_member'
+                Object 'pkg::enum_t' of type 'enum_typespec'
+                  Object '' of type 'logic_typespec'
+                    Object '' of type 'range'
+                      Object '' of type 'constant'
+                      Object '' of type 'constant'
+                  Object 'true_e' of type 'enum_const'
+                  Object 'false_e' of type 'enum_const'
+      Object 'DATA_REG' of type 'port'
+        Object 'pkg::region_attr_t' of type 'struct_typespec'
+          Object 'phase' of type 'typespec_member'
+            Object 'pkg::phase_t' of type 'enum_typespec'
+              Object '' of type 'logic_typespec'
+                Object '' of type 'range'
+                  Object '' of type 'constant'
+                  Object '' of type 'constant'
+              Object 'seed_e' of type 'enum_const'
+              Object 'rma_e' of type 'enum_const'
+              Object 'none_e' of type 'enum_const'
+              Object 'invalid_e' of type 'enum_const'
+          Object 'cfg' of type 'typespec_member'
+            Object 'pkg::region_cfg_t' of type 'struct_typespec'
+              Object 'en' of type 'typespec_member'
+                Object 'pkg::enum_t' of type 'enum_typespec'
+                  Object '' of type 'logic_typespec'
+                    Object '' of type 'range'
+                      Object '' of type 'constant'
+                      Object '' of type 'constant'
+                  Object 'true_e' of type 'enum_const'
+                  Object 'false_e' of type 'enum_const'
+      Object '' of type 'constant'
+Generating RTLIL representation for module `\foo'.
+Dumping AST before simplification:
+    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10> str='\foo'
+      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45> str='\DATA_REG' input logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\region_attr_t' bits='0101110001110010011001010110011101101001011011110110111001011111011000010111010001110100011100100101111101110100'(112) basic_prep range=[111:0] int=1953652596
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[5:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module foo(DATA_REG);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      (* wiretype = "\region_attr_t" *)
+      input [5:0] DATA_REG;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10> str='\foo' basic_prep
+      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45> str='\DATA_REG' input logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\region_attr_t' bits='0101110001110010011001010110011101101001011011110110111001011111011000010111010001110100011100100101111101110100'(112) basic_prep range=[111:0] int=1953652596
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[5:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module foo(DATA_REG);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      (* wiretype = "\region_attr_t" *)
+      input [5:0] DATA_REG;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10> str='\top'
+      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\f'
+        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\foo'
+        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\DATA_REG'
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='111111'(6) range=[5:0] int=63
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top();
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10> str='\top' basic_prep
+      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\f' basic_prep
+        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\foo' basic_prep
+        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\DATA_REG' basic_prep
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='111111'(6) basic_prep range=[5:0] int=63
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+          ATTR \enum_type:
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top();
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing Verilog backend.
+
+2.1. Executing BMUXMAP pass.
+
+2.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\foo'.
+
+(* cells_not_processed =  1  *)
+(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10" *)
+module foo(DATA_REG);
+  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45" *)
+  (* wiretype = "\\region_attr_t" *)
+  input [5:0] DATA_REG;
+  wire [5:0] DATA_REG;
+endmodule
+Dumping module `\top'.
+
+(* cells_not_processed =  1  *)
+(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10" *)
+module top();
+  (* module_not_derived = 32'd1 *)
+  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29" *)
+  foo f (
+    .DATA_REG(6'h3f)
+  );
+endmodule
+
+End of script. Logfile hash: 062a25fdd0, CPU: user 1.25s system 0.10s, MEM: 184.79 MB peak
+Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Time spent: 98% 2x read_systemverilog (1 sec), 1% 1x plugin (0 sec), ...
+make: Leaving directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
