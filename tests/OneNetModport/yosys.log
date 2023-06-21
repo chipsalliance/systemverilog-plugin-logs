@@ -1,8 +1,7 @@
-make: Entering directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
-rm -rf /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
-mkdir -p /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
-(export TOP_FILE="/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build && LD_PRELOAD=/root/yosys-systemverilog/yosys-systemverilog/image/lib/libfakedlclose.so /root/yosys-systemverilog/yosys-systemverilog/image/bin/yosys -Q -c /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/yosys_script.tcl)
+rm -rf /UHDM-integration-tests/build
+mkdir -p /UHDM-integration-tests/build
+(export TOP_FILE="/UHDM-integration-tests/tests/OneNetModport/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/OneNetModport/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -11,25 +10,25 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:13:1: No timescale set for "ConnectTB".
+[WRN:PA0205] /UHDM-integration-tests/tests/OneNetModport/top.sv:13:1: No timescale set for "ConnectTB".
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26:1: No timescale set for "DUT".
+[WRN:PA0205] /UHDM-integration-tests/tests/OneNetModport/top.sv:26:1: No timescale set for "DUT".
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30:1: No timescale set for "SUB".
+[WRN:PA0205] /UHDM-integration-tests/tests/OneNetModport/top.sv:30:1: No timescale set for "SUB".
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34:1: No timescale set for "top".
+[WRN:PA0205] /UHDM-integration-tests/tests/OneNetModport/top.sv:34:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0304] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:13:1: Compile interface "work@ConnectTB".
+[INF:CP0304] /UHDM-integration-tests/tests/OneNetModport/top.sv:13:1: Compile interface "work@ConnectTB".
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26:1: Compile module "work@DUT".
+[INF:CP0303] /UHDM-integration-tests/tests/OneNetModport/top.sv:26:1: Compile module "work@DUT".
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30:1: Compile module "work@SUB".
+[INF:CP0303] /UHDM-integration-tests/tests/OneNetModport/top.sv:30:1: Compile module "work@SUB".
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34:1: Compile module "work@top".
+[INF:CP0303] /UHDM-integration-tests/tests/OneNetModport/top.sv:34:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -39,7 +38,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34:1: Top level module "work@top".
+[NTE:EL0503] /UHDM-integration-tests/tests/OneNetModport/top.sv:34:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -104,14 +103,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -120,9 +119,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -139,7 +138,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -151,17 +150,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -169,7 +168,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -177,7 +176,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -185,13 +184,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -199,7 +198,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -211,7 +210,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -219,13 +218,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -233,7 +232,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -245,20 +244,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -293,7 +292,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -303,13 +302,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -319,56 +318,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -377,9 +376,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -396,13 +395,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -419,13 +418,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -442,7 +441,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -454,7 +453,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -469,7 +468,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallInterfaces:
-\_interface_inst: work@ConnectTB (work@ConnectTB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
+\_interface_inst: work@ConnectTB (work@ConnectTB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@ConnectTB
@@ -477,21 +476,21 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@ConnectTB.drive), line:14:9, endln:14:14
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
     |vpiName:drive
     |vpiFullName:work@ConnectTB.drive
     |vpiNetType:36
   |vpiNet:
   \_logic_net: (work@ConnectTB.observe), line:15:9, endln:15:16
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
     |vpiName:observe
     |vpiFullName:work@ConnectTB.observe
     |vpiNetType:36
   |vpiModport:
   \_modport: (dut), line:16:11, endln:16:14
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
     |vpiName:dut
     |vpiIODecl:
     \_io_decl: (drive), line:17:11, endln:17:16
@@ -504,7 +503,7 @@ design: (work@top)
   |vpiModport:
   \_modport: (tb), line:20:11, endln:20:13
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
     |vpiName:tb
     |vpiIODecl:
     \_io_decl: (drive), line:21:12, endln:21:17
@@ -515,7 +514,7 @@ design: (work@top)
       |vpiDirection:1
       |vpiName:observe
 |uhdmallModules:
-\_module_inst: work@DUT (work@DUT), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
+\_module_inst: work@DUT (work@DUT), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@DUT
@@ -523,13 +522,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@DUT.intf), line:26:27, endln:26:31
     |vpiParent:
-    \_module_inst: work@DUT (work@DUT), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
+    \_module_inst: work@DUT (work@DUT), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
     |vpiName:intf
     |vpiFullName:work@DUT.intf
   |vpiPort:
   \_port: (intf), line:26:27, endln:26:31
     |vpiParent:
-    \_module_inst: work@DUT (work@DUT), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
+    \_module_inst: work@DUT (work@DUT), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
     |vpiName:intf
     |vpiDirection:3
     |vpiLowConn:
@@ -545,11 +544,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@SUB (sub1), line:27:7, endln:27:11
     |vpiParent:
-    \_module_inst: work@DUT (work@DUT), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
+    \_module_inst: work@DUT (work@DUT), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
     |vpiName:sub1
     |vpiDefName:work@SUB
     |vpiActual:
-    \_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+    \_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
     |vpiPort:
     \_port: (inp), line:27:12, endln:27:28
       |vpiName:inp
@@ -583,7 +582,7 @@ design: (work@top)
           \_hier_path: (intf.observe), line:27:35, endln:27:47
           |vpiName:observe
 |uhdmallModules:
-\_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+\_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@SUB
@@ -591,21 +590,21 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@SUB.inp), line:30:24, endln:30:27
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+    \_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
     |vpiName:inp
     |vpiFullName:work@SUB.inp
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@SUB.out), line:30:40, endln:30:43
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+    \_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
     |vpiName:out
     |vpiFullName:work@SUB.out
     |vpiNetType:48
   |vpiPort:
   \_port: (inp), line:30:24, endln:30:27
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+    \_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
     |vpiName:inp
     |vpiDirection:1
     |vpiLowConn:
@@ -617,7 +616,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out), line:30:40, endln:30:43
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+    \_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
     |vpiName:out
     |vpiDirection:2
     |vpiLowConn:
@@ -629,7 +628,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:31:10, endln:31:19
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
+    \_module_inst: work@SUB (work@SUB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:30:1, endln:32:10
     |vpiRhs:
     \_ref_obj: (work@SUB.inp), line:31:16, endln:31:19
       |vpiParent:
@@ -647,7 +646,7 @@ design: (work@top)
       |vpiActual:
       \_logic_net: (work@top.dut.sub1.out), line:30:40, endln:30:43
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -655,21 +654,21 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.a), line:34:23, endln:34:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:a
     |vpiFullName:work@top.a
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@top.b), line:34:37, endln:34:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:b
     |vpiFullName:work@top.b
     |vpiNetType:48
   |vpiPort:
   \_port: (a), line:34:23, endln:34:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -681,7 +680,7 @@ design: (work@top)
   |vpiPort:
   \_port: (b), line:34:37, endln:34:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -693,7 +692,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:36:10, endln:36:26
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiRhs:
     \_ref_obj: (work@top.a), line:36:25, endln:36:26
       |vpiParent:
@@ -720,7 +719,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:37:10, endln:37:28
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiRhs:
     \_hier_path: (conntb.observe), line:37:14, endln:37:28
       |vpiParent:
@@ -747,35 +746,35 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@ConnectTB (conntb), line:35:13, endln:35:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:conntb
     |vpiDefName:work@ConnectTB
     |vpiActual:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:13:1, endln:24:13
   |vpiRefModule:
   \_ref_module: work@DUT (dut), line:38:7, endln:38:10
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:dut
     |vpiDefName:work@DUT
     |vpiActual:
-    \_module_inst: work@DUT (work@DUT), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
+    \_module_inst: work@DUT (work@DUT), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:26:1, endln:28:10
     |vpiPort:
     \_port: , line:38:11, endln:38:17
       |vpiHighConn:
       \_ref_obj: (conntb), line:38:11, endln:38:17
         |vpiName:conntb
         |vpiActual:
-        \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+        \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
   |vpiName:work@top
   |vpiDefName:work@top
   |vpiTop:1
   |vpiNet:
   \_logic_net: (work@top.a), line:34:23, endln:34:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiTypespec:
     \_logic_typespec: , line:34:18, endln:34:22
     |vpiName:a
@@ -784,7 +783,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.b), line:34:37, endln:34:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiTypespec:
     \_logic_typespec: , line:34:33, endln:34:36
     |vpiName:b
@@ -794,7 +793,7 @@ design: (work@top)
   |vpiPort:
   \_port: (a), line:34:23, endln:34:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -808,7 +807,7 @@ design: (work@top)
   |vpiPort:
   \_port: (b), line:34:37, endln:34:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -820,15 +819,15 @@ design: (work@top)
     |vpiTypedef:
     \_logic_typespec: , line:34:33, endln:34:36
   |vpiInterface:
-  \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+  \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:conntb
     |vpiFullName:work@top.conntb
     |vpiVariables:
     \_logic_var: (work@top.conntb.drive), line:14:9, endln:14:14
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
       |vpiTypespec:
       \_logic_typespec: , line:14:3, endln:14:8
       |vpiName:drive
@@ -837,21 +836,21 @@ design: (work@top)
     |vpiVariables:
     \_logic_var: (work@top.conntb.observe), line:15:9, endln:15:16
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
       |vpiTypespec:
       \_logic_typespec: , line:15:3, endln:15:8
       |vpiName:observe
       |vpiFullName:work@top.conntb.observe
       |vpiVisibility:1
     |vpiDefName:work@ConnectTB
-    |vpiDefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv
+    |vpiDefFile:/UHDM-integration-tests/tests/OneNetModport/top.sv
     |vpiDefLineNo:13
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiModport:
     \_modport: (dut), line:16:11, endln:16:14
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
       |vpiName:dut
       |vpiIODecl:
       \_io_decl: (drive), line:17:11, endln:17:16
@@ -866,11 +865,11 @@ design: (work@top)
         |vpiDirection:2
         |vpiName:observe
       |vpiInterface:
-      \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
     |vpiModport:
     \_modport: (tb), line:20:11, endln:20:13
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
       |vpiName:tb
       |vpiIODecl:
       \_io_decl: (drive), line:21:12, endln:21:17
@@ -885,22 +884,22 @@ design: (work@top)
         |vpiDirection:1
         |vpiName:observe
       |vpiInterface:
-      \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
+      \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:3, endln:35:22
   |vpiModule:
-  \_module_inst: work@DUT (work@top.dut), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
+  \_module_inst: work@DUT (work@top.dut), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiName:dut
     |vpiFullName:work@top.dut
     |vpiDefName:work@DUT
-    |vpiDefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv
+    |vpiDefFile:/UHDM-integration-tests/tests/OneNetModport/top.sv
     |vpiDefLineNo:26
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:34:1, endln:40:10
     |vpiPort:
     \_port: (intf), line:26:27, endln:26:31
       |vpiParent:
-      \_module_inst: work@DUT (work@top.dut), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
+      \_module_inst: work@DUT (work@top.dut), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
       |vpiName:intf
       |vpiDirection:3
       |vpiHighConn:
@@ -908,7 +907,7 @@ design: (work@top)
         |vpiName:conntb
         |vpiFullName:work@top.conntb
         |vpiActual:
-        \_interface_inst: work@ConnectTB (work@top.conntb), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:0
+        \_interface_inst: work@ConnectTB (work@top.conntb), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:35:0
       |vpiLowConn:
       \_ref_obj: (work@top.dut.intf), line:38:11, endln:38:17
         |vpiFullName:work@top.dut.intf
@@ -921,16 +920,16 @@ design: (work@top)
         |vpiName:dut
         |vpiIsModPort:1
     |vpiInterface:
-    \_interface_inst: work@ConnectTB (work@top.dut.intf), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
+    \_interface_inst: work@ConnectTB (work@top.dut.intf), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
       |vpiParent:
-      \_module_inst: work@DUT (work@top.dut), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
+      \_module_inst: work@DUT (work@top.dut), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
       |vpiName:intf
       |vpiFullName:work@top.dut.intf
       |vpiDefName:work@ConnectTB
       |vpiModport:
       \_modport: (dut), line:16:11, endln:16:14
         |vpiParent:
-        \_interface_inst: work@ConnectTB (work@top.dut.intf), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
+        \_interface_inst: work@ConnectTB (work@top.dut.intf), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
         |vpiName:dut
         |vpiIODecl:
         \_io_decl: (drive), line:17:11, endln:17:16
@@ -953,20 +952,20 @@ design: (work@top)
             |vpiName:observe
             |vpiVisibility:1
         |vpiInterface:
-        \_interface_inst: work@ConnectTB (work@top.dut.intf), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
+        \_interface_inst: work@ConnectTB (work@top.dut.intf), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:0
     |vpiModule:
-    \_module_inst: work@SUB (work@top.dut.sub1), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
+    \_module_inst: work@SUB (work@top.dut.sub1), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
       |vpiParent:
-      \_module_inst: work@DUT (work@top.dut), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
+      \_module_inst: work@DUT (work@top.dut), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
       |vpiName:sub1
       |vpiFullName:work@top.dut.sub1
       |vpiDefName:work@SUB
-      |vpiDefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv
+      |vpiDefFile:/UHDM-integration-tests/tests/OneNetModport/top.sv
       |vpiDefLineNo:30
       |vpiNet:
       \_logic_net: (work@top.dut.sub1.inp), line:30:24, endln:30:27
         |vpiParent:
-        \_module_inst: work@SUB (work@top.dut.sub1), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
+        \_module_inst: work@SUB (work@top.dut.sub1), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
         |vpiTypespec:
         \_logic_typespec: , line:30:19, endln:30:23
         |vpiName:inp
@@ -975,18 +974,18 @@ design: (work@top)
       |vpiNet:
       \_logic_net: (work@top.dut.sub1.out), line:30:40, endln:30:43
         |vpiParent:
-        \_module_inst: work@SUB (work@top.dut.sub1), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
+        \_module_inst: work@SUB (work@top.dut.sub1), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
         |vpiTypespec:
         \_logic_typespec: , line:30:36, endln:30:39
         |vpiName:out
         |vpiFullName:work@top.dut.sub1.out
         |vpiNetType:48
       |vpiInstance:
-      \_module_inst: work@DUT (work@top.dut), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
+      \_module_inst: work@DUT (work@top.dut), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:38:3, endln:38:19
       |vpiPort:
       \_port: (inp), line:30:24, endln:30:27
         |vpiParent:
-        \_module_inst: work@SUB (work@top.dut.sub1), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
+        \_module_inst: work@SUB (work@top.dut.sub1), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
         |vpiName:inp
         |vpiDirection:1
         |vpiHighConn:
@@ -1017,7 +1016,7 @@ design: (work@top)
       |vpiPort:
       \_port: (out), line:30:40, endln:30:43
         |vpiParent:
-        \_module_inst: work@SUB (work@top.dut.sub1), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
+        \_module_inst: work@SUB (work@top.dut.sub1), file:/UHDM-integration-tests/tests/OneNetModport/top.sv, line:27:3, endln:27:50
         |vpiName:out
         |vpiDirection:2
         |vpiHighConn:
@@ -1119,21 +1118,21 @@ Object 'work@top' of type 'design'
         Object 'observe' of type 'ref_obj'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10> str='\top'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic port=4 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg port=5 range=[0:0]
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\dut'
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\DUT'
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf'
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.11-38.17> str='\conntb'
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:35.3-35.22> str='\conntb'
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB'
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.26>
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.22> str='\conntb.drive'
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36.25-36.26> str='\a'
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28>
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.11> str='\b'
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.28> str='\conntb.observe'
+    AST_MODULE </UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10> str='\top'
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic port=4 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg port=5 range=[0:0]
+      AST_CELL </UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\dut'
+        AST_CELLTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\DUT'
+        AST_ARGUMENT </UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf'
+          AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:38.11-38.17> str='\conntb'
+      AST_CELL </UHDM-integration-tests/tests/OneNetModport/top.sv:35.3-35.22> str='\conntb'
+        AST_CELLTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB'
+      AST_ASSIGN </UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.26>
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.22> str='\conntb.drive'
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:36.25-36.26> str='\a'
+      AST_ASSIGN </UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28>
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.11> str='\b'
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.28> str='\conntb.observe'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
@@ -1145,25 +1144,25 @@ Dumping Verilog AST before simplification:
       assign b = \conntb.observe ;
     endmodule
 --- END OF AST DUMP ---
-Warning: reg '\b' is assigned in a continuous assignment at /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28.
+Warning: reg '\b' is assigned in a continuous assignment at /UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28.
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10> str='\top' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic basic_prep port=4 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg basic_prep port=5 range=[0:0]
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\dut' basic_prep
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\DUT' basic_prep
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf' basic_prep
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.11-38.17> str='\conntb' basic_prep
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:35.3-35.22> str='\conntb' basic_prep
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB' basic_prep
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.26> basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.22> str='\conntb.drive' basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36.25-36.26> str='\a' basic_prep
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28> basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.11> str='\b' basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.28> str='\conntb.observe' basic_prep
-      AST_AUTOWIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.drive' basic_prep
-      AST_AUTOWIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.observe' basic_prep
+    AST_MODULE </UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10> str='\top' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic basic_prep port=4 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg basic_prep port=5 range=[0:0]
+      AST_CELL </UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\dut' basic_prep
+        AST_CELLTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\DUT' basic_prep
+        AST_ARGUMENT </UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19> str='\intf' basic_prep
+          AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:38.11-38.17> str='\conntb' basic_prep
+      AST_CELL </UHDM-integration-tests/tests/OneNetModport/top.sv:35.3-35.22> str='\conntb' basic_prep
+        AST_CELLTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB' basic_prep
+      AST_ASSIGN </UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.26> basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:36.10-36.22> str='\conntb.drive' basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:36.25-36.26> str='\a' basic_prep
+      AST_ASSIGN </UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28> basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.11> str='\b' basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:37.14-37.28> str='\conntb.observe' basic_prep
+      AST_AUTOWIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.drive' basic_prep
+      AST_AUTOWIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.observe' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
@@ -1177,16 +1176,16 @@ Dumping Verilog AST after simplification:
       assign b = \conntb.observe ;
     endmodule
 --- END OF AST DUMP ---
-/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:36: Warning: Identifier `\conntb.drive' is implicitly declared.
-/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37: Warning: Identifier `\conntb.observe' is implicitly declared.
+/UHDM-integration-tests/tests/OneNetModport/top.sv:36: Warning: Identifier `\conntb.drive' is implicitly declared.
+/UHDM-integration-tests/tests/OneNetModport/top.sv:37: Warning: Identifier `\conntb.observe' is implicitly declared.
 Generating RTLIL representation for module `\SUB'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10> str='\SUB'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic port=1 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic port=2 range=[0:0]
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.19>
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.13> str='\out'
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:31.16-31.19> str='\inp'
+    AST_MODULE </UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10> str='\SUB'
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic port=1 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic port=2 range=[0:0]
+      AST_ASSIGN </UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.19>
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.13> str='\out'
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:31.16-31.19> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module SUB(inp, out);
@@ -1196,12 +1195,12 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10> str='\SUB' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic basic_prep port=2 range=[0:0]
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.19> basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.13> str='\out' basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:31.16-31.19> str='\inp' basic_prep
+    AST_MODULE </UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10> str='\SUB' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic basic_prep port=2 range=[0:0]
+      AST_ASSIGN </UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.19> basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:31.10-31.13> str='\out' basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:31.16-31.19> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module SUB(inp, out);
@@ -1212,16 +1211,16 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\DUT'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26.1-28.10> str='\DUT'
-      AST_INTERFACEPORT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26.27-26.31> str='\intf' input output port=3
-        AST_WIRETYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\dut'
-        AST_INTERFACEPORTTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB.dut'
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\sub1'
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\SUB'
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\inp'
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.27> str='\intf.drive'
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\out'
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.47> str='\intf.observe'
+    AST_MODULE </UHDM-integration-tests/tests/OneNetModport/top.sv:26.1-28.10> str='\DUT'
+      AST_INTERFACEPORT </UHDM-integration-tests/tests/OneNetModport/top.sv:26.27-26.31> str='\intf' input output port=3
+        AST_WIRETYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\dut'
+        AST_INTERFACEPORTTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB.dut'
+      AST_CELL </UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\sub1'
+        AST_CELLTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\SUB'
+        AST_ARGUMENT </UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\inp'
+          AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.27> str='\intf.drive'
+        AST_ARGUMENT </UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\out'
+          AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.47> str='\intf.observe'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module DUT();
@@ -1230,18 +1229,18 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26.1-28.10> str='\DUT' basic_prep
-      AST_INTERFACEPORT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26.27-26.31> str='\intf' input output basic_prep port=3
-        AST_WIRETYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\dut' basic_prep
-        AST_INTERFACEPORTTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB.dut' basic_prep
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\sub1' basic_prep
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\SUB' basic_prep
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\inp' basic_prep
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.27> str='\intf.drive' basic_prep
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\out' basic_prep
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.47> str='\intf.observe' basic_prep
-      AST_AUTOWIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\intf.drive' basic_prep
-      AST_AUTOWIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\intf.observe' basic_prep
+    AST_MODULE </UHDM-integration-tests/tests/OneNetModport/top.sv:26.1-28.10> str='\DUT' basic_prep
+      AST_INTERFACEPORT </UHDM-integration-tests/tests/OneNetModport/top.sv:26.27-26.31> str='\intf' input output basic_prep port=3
+        AST_WIRETYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\dut' basic_prep
+        AST_INTERFACEPORTTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB.dut' basic_prep
+      AST_CELL </UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\sub1' basic_prep
+        AST_CELLTYPE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\SUB' basic_prep
+        AST_ARGUMENT </UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\inp' basic_prep
+          AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:27.17-27.27> str='\intf.drive' basic_prep
+        AST_ARGUMENT </UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50> str='\out' basic_prep
+          AST_IDENTIFIER </UHDM-integration-tests/tests/OneNetModport/top.sv:27.35-27.47> str='\intf.observe' basic_prep
+      AST_AUTOWIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\intf.drive' basic_prep
+      AST_AUTOWIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\intf.observe' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module DUT();
@@ -1251,33 +1250,33 @@ Dumping Verilog AST after simplification:
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
-/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27: Warning: Identifier `\intf.drive' is implicitly declared.
-/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27: Warning: Identifier `\intf.observe' is implicitly declared.
+/UHDM-integration-tests/tests/OneNetModport/top.sv:27: Warning: Identifier `\intf.drive' is implicitly declared.
+/UHDM-integration-tests/tests/OneNetModport/top.sv:27: Warning: Identifier `\intf.observe' is implicitly declared.
 Generating RTLIL representation for module `\ConnectTB'.
 Dumping AST before simplification:
-    AST_INTERFACE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic range=[0:0]
-      AST_MODPORT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:16.11-16.14> str='\dut'
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:17.11-17.16> str='\drive' input
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:18.12-18.19> str='\observe' output
-      AST_MODPORT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:20.11-20.13> str='\tb'
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:21.12-21.17> str='\drive' output
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:22.11-22.18> str='\observe' input
+    AST_INTERFACE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB'
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic range=[0:0]
+      AST_MODPORT </UHDM-integration-tests/tests/OneNetModport/top.sv:16.11-16.14> str='\dut'
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:17.11-17.16> str='\drive' input
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:18.12-18.19> str='\observe' output
+      AST_MODPORT </UHDM-integration-tests/tests/OneNetModport/top.sv:20.11-20.13> str='\tb'
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:21.12-21.17> str='\drive' output
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:22.11-22.18> str='\observe' input
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     /** AST_INTERFACE **/
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_INTERFACE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic basic_prep range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic basic_prep range=[0:0]
-      AST_MODPORT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:16.11-16.14> str='\dut' basic_prep
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:17.11-17.16> str='\drive' input basic_prep
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:18.12-18.19> str='\observe' output basic_prep
-      AST_MODPORT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:20.11-20.13> str='\tb' basic_prep
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:21.12-21.17> str='\drive' output basic_prep
-        AST_MODPORTMEMBER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:22.11-22.18> str='\observe' input basic_prep
+    AST_INTERFACE </UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic basic_prep range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic basic_prep range=[0:0]
+      AST_MODPORT </UHDM-integration-tests/tests/OneNetModport/top.sv:16.11-16.14> str='\dut' basic_prep
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:17.11-17.16> str='\drive' input basic_prep
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:18.12-18.19> str='\observe' output basic_prep
+      AST_MODPORT </UHDM-integration-tests/tests/OneNetModport/top.sv:20.11-20.13> str='\tb' basic_prep
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:21.12-21.17> str='\drive' output basic_prep
+        AST_MODPORTMEMBER </UHDM-integration-tests/tests/OneNetModport/top.sv:22.11-22.18> str='\observe' input basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     /** AST_INTERFACE **/
@@ -1293,7 +1292,7 @@ Used module:     \ConnectTB
 Used module:     \DUT
 Used module:         \SUB
 Generating RTLIL representation for module `\top'.
-Warning: reg '\b' is assigned in a continuous assignment at /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28.
+Warning: reg '\b' is assigned in a continuous assignment at /UHDM-integration-tests/tests/OneNetModport/top.sv:37.10-37.28.
 Generating RTLIL representation for module `\DUT'.
 
 2.1.2. Analyzing design hierarchy..
@@ -1544,22 +1543,22 @@ Found and reported 0 problems.
 Dumping module `\ConnectTB'.
 
 (* is_interface =  1  *)
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
+(* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
 module ConnectTB();
 endmodule
 Dumping module `\DUT$interfaces$ConnectTB'.
 
 (* interfaces_replaced_in_module =  1  *)
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:26.1-28.10" *)
+(* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:26.1-28.10" *)
 module \DUT$interfaces$ConnectTB (\intf.drive , \intf.observe );
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
   input \intf.drive ;
   wire \intf.drive ;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
   output \intf.observe ;
   wire \intf.observe ;
   (* module_not_derived = 32'd1 *)
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:27.3-27.50" *)
   SUB sub1 (
     .inp(\intf.drive ),
     .out(\intf.observe )
@@ -1567,12 +1566,12 @@ module \DUT$interfaces$ConnectTB (\intf.drive , \intf.observe );
 endmodule
 Dumping module `\SUB'.
 
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10" *)
+(* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:30.1-32.10" *)
 module SUB(inp, out);
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:30.24-30.27" *)
   input inp;
   wire inp;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:30.40-30.43" *)
   output out;
   wire out;
   assign out = inp;
@@ -1581,19 +1580,19 @@ Dumping module `\top'.
 
 (* top =  1  *)
 (* interfaces_replaced_in_module =  1  *)
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10" *)
+(* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:34.1-40.10" *)
 module top(a, b);
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:34.23-34.24" *)
   input a;
   wire a;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:34.37-34.38" *)
   output b;
   wire b;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
   wire \conntb.drive ;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:0.0-0.0" *)
   wire \conntb.observe ;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19" *)
+  (* src = "/UHDM-integration-tests/tests/OneNetModport/top.sv:38.3-38.19" *)
   \DUT$interfaces$ConnectTB  dut (
     .\intf.drive (a),
     .\intf.observe (\conntb.observe )
@@ -1656,7 +1655,6 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 5 unique messages, 6 total
-End of script. Logfile hash: c16cf87192, CPU: user 3.73s system 0.23s, MEM: 356.32 MB peak
+
 Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
-Time spent: 96% 2x read_systemverilog (3 sec), 0% 5x opt_expr (0 sec), ...
-make: Leaving directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
+

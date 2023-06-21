@@ -1,8 +1,7 @@
-make: Entering directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
-rm -rf /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
-mkdir -p /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
-(export TOP_FILE="/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build && LD_PRELOAD=/root/yosys-systemverilog/yosys-systemverilog/image/lib/libfakedlclose.so /root/yosys-systemverilog/yosys-systemverilog/image/bin/yosys -Q -c /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/yosys_script.tcl)
+rm -rf /UHDM-integration-tests/build
+mkdir -p /UHDM-integration-tests/build
+(export TOP_FILE="/UHDM-integration-tests/tests/PackedArray/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/PackedArray/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -11,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:1:1: No timescale set for "pkg".
+[WRN:PA0205] /UHDM-integration-tests/tests/PackedArray/top.sv:1:1: No timescale set for "pkg".
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12:1: No timescale set for "top".
+[WRN:PA0205] /UHDM-integration-tests/tests/PackedArray/top.sv:12:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0301] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:1:1: Compile package "pkg".
+[INF:CP0301] /UHDM-integration-tests/tests/PackedArray/top.sv:1:1: Compile package "pkg".
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12:1: Compile module "work@top".
+[INF:CP0303] /UHDM-integration-tests/tests/PackedArray/top.sv:12:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -29,11 +28,11 @@ Using Yosys read_systemverilog command
 
 [INF:CP0302] Compile class "work@semaphore".
 
-[NTE:CP0309] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12:28: Implicit port type (wire) for "o".
+[NTE:CP0309] /UHDM-integration-tests/tests/PackedArray/top.sv:12:28: Implicit port type (wire) for "o".
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12:1: Top level module "work@top".
+[NTE:EL0503] /UHDM-integration-tests/tests/PackedArray/top.sv:12:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -60,7 +59,7 @@ design: (work@top)
   |vpiFullName:builtin::
   |vpiDefName:builtin
 |uhdmallPackages:
-\_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+\_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:pkg
@@ -68,10 +67,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (pkg::struct_a), line:2:11, endln:2:17
     |vpiParent:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiName:pkg::struct_a
     |vpiInstance:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (x), line:3:18, endln:3:19
@@ -83,8 +82,8 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (x), line:3:18, endln:3:19
         |vpiInstance:
-        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
-      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv
+        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+      |vpiRefFile:/UHDM-integration-tests/tests/PackedArray/top.sv
       |vpiRefLineNo:3
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:3
@@ -92,10 +91,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (pkg::struct_b), line:6:11, endln:6:17
     |vpiParent:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiName:pkg::struct_b
     |vpiInstance:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (a), line:7:20, endln:7:21
@@ -107,7 +106,7 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (a), line:7:20, endln:7:21
         |vpiInstance:
-        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
         |vpiRange:
         \_range: , line:7:14, endln:7:19
           |vpiParent:
@@ -130,7 +129,7 @@ design: (work@top)
             |vpiConstType:9
         |vpiElemTypespec:
         \_struct_typespec: (pkg::struct_a), line:2:11, endln:2:17
-      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv
+      |vpiRefFile:/UHDM-integration-tests/tests/PackedArray/top.sv
       |vpiRefLineNo:7
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:7
@@ -175,7 +174,7 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmtopPackages:
-\_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+\_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:pkg
@@ -183,10 +182,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (pkg::struct_a), line:2:11, endln:2:17
     |vpiParent:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiName:pkg::struct_a
     |vpiInstance:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (x), line:3:18, endln:3:19
@@ -198,8 +197,8 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (x), line:3:18, endln:3:19
         |vpiInstance:
-        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
-      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv
+        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+      |vpiRefFile:/UHDM-integration-tests/tests/PackedArray/top.sv
       |vpiRefLineNo:3
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:3
@@ -207,10 +206,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (pkg::struct_b), line:6:11, endln:6:17
     |vpiParent:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiName:pkg::struct_b
     |vpiInstance:
-    \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (a), line:7:20, endln:7:21
@@ -222,7 +221,7 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (a), line:7:20, endln:7:21
         |vpiInstance:
-        \_package: pkg (pkg::), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
+        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:1:1, endln:10:11
         |vpiRange:
         \_range: , line:7:14, endln:7:19
           |vpiParent:
@@ -245,7 +244,7 @@ design: (work@top)
             |vpiConstType:9
         |vpiElemTypespec:
         \_struct_typespec: (pkg::struct_a), line:2:11, endln:2:17
-      |vpiRefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv
+      |vpiRefFile:/UHDM-integration-tests/tests/PackedArray/top.sv
       |vpiRefLineNo:7
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:7
@@ -253,14 +252,14 @@ design: (work@top)
   |vpiDefName:pkg
   |vpiTop:1
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -269,9 +268,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -288,7 +287,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -300,17 +299,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -318,7 +317,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -326,7 +325,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -334,13 +333,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -348,7 +347,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -360,7 +359,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -368,13 +367,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -382,7 +381,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -394,20 +393,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -442,7 +441,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -452,13 +451,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -468,56 +467,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -526,9 +525,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -545,13 +544,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -568,13 +567,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -591,7 +590,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -603,7 +602,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -618,7 +617,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -626,25 +625,25 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.i), line:12:18, endln:12:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:i
     |vpiFullName:work@top.i
   |vpiNet:
   \_logic_net: (work@top.o), line:12:28, endln:12:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:o
     |vpiFullName:work@top.o
   |vpiNet:
   \_logic_net: (work@top.b), line:13:18, endln:13:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:b
     |vpiFullName:work@top.b
   |vpiPort:
   \_port: (i), line:12:18, endln:12:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:i
     |vpiDirection:1
     |vpiLowConn:
@@ -656,7 +655,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:12:28, endln:12:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -668,7 +667,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:14:11, endln:14:23
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiRhs:
     \_ref_obj: (work@top.i), line:14:22, endln:14:23
       |vpiParent:
@@ -710,7 +709,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:15:11, endln:15:23
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiRhs:
     \_hier_path: (b.a[1].x), line:15:15, endln:15:23
       |vpiParent:
@@ -750,12 +749,12 @@ design: (work@top)
       |vpiActual:
       \_logic_net: (work@top.o), line:12:28, endln:12:29
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
   |vpiName:work@top
   |vpiVariables:
   \_struct_var: (work@top.b), line:13:18, endln:13:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiTypespec:
     \_struct_typespec: (pkg::struct_b), line:6:11, endln:6:17
     |vpiName:b
@@ -766,7 +765,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.i), line:12:18, endln:12:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiTypespec:
     \_logic_typespec: , line:12:18, endln:12:18
     |vpiName:i
@@ -774,7 +773,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:12:28, endln:12:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiTypespec:
     \_logic_typespec: , line:12:28, endln:12:28
     |vpiName:o
@@ -783,7 +782,7 @@ design: (work@top)
   |vpiPort:
   \_port: (i), line:12:18, endln:12:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:i
     |vpiDirection:1
     |vpiLowConn:
@@ -797,7 +796,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:12:28, endln:12:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PackedArray/top.sv, line:12:1, endln:17:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -863,66 +862,66 @@ Object 'work@top' of type 'design'
               Object 'x' of type 'typespec_member'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10> str='\top'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic port=1 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic port=2 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19> str='\b' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+    AST_MODULE </UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10> str='\top'
+      AST_WIRE </UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic port=1 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic port=2 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19> str='\b' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> str='\struct_b' bits='010111000111001101110100011100100111010101100011011101000101111101100010'(72) basic_prep range=[71:0] int=1668570978
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:0]
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.23>
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.19> str='\b' basic_prep
-          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-            AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-              AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_MUL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                  AST_SUB </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-            AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-              AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_MUL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                  AST_SUB </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:14.22-14.23> str='\i'
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.23>
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.12> str='\o'
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:15.15-15.23> str='\b' basic_prep
-          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-            AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-              AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_MUL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                  AST_SUB </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-            AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-              AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_MUL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                AST_ADD </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                  AST_SUB </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='\pkg::struct_a' basic_prep
-        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> basic_prep
-          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
-      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> str='\pkg::struct_b' basic_prep
-        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> basic_prep
-          AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='a' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-            AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> str='\struct_b' bits='010111000111001101110100011100100111010101100011011101000101111101100010'(72) basic_prep range=[71:0] int=1668570978
+        AST_RANGE </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN </UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.23>
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.19> str='\b' basic_prep
+          AST_RANGE </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+            AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+              AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_MUL </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                  AST_SUB </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+            AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+              AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_MUL </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                  AST_SUB </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:14.22-14.23> str='\i'
+      AST_ASSIGN </UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.23>
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.12> str='\o'
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:15.15-15.23> str='\b' basic_prep
+          AST_RANGE </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+            AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+              AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_MUL </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                  AST_SUB </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+            AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+              AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_MUL </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                AST_ADD </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                  AST_SUB </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0>
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_TYPEDEF </UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='\pkg::struct_a' basic_prep
+        AST_STRUCT </UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> basic_prep
+          AST_STRUCT_ITEM </UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
+      AST_TYPEDEF </UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> str='\pkg::struct_b' basic_prep
+        AST_STRUCT </UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> basic_prep
+          AST_STRUCT </UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='a' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+            AST_STRUCT_ITEM </UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(i, o);
@@ -937,34 +936,34 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10> str='\top' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic basic_prep port=2 range=[0:0]
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19> str='\b' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+    AST_MODULE </UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10> str='\top' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19> str='\i' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29> str='\o' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE </UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19> str='\b' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> str='\struct_b' bits='010111000111001101110100011100100111010101100011011101000101111101100010'(72) basic_prep range=[71:0] int=1668570978
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:0]
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.23> basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.19> str='\b' basic_prep
-          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:1]
-            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:14.22-14.23> str='\i' basic_prep
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.23> basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.12> str='\o' basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:15.15-15.23> str='\b' basic_prep
-          AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:1]
-            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='\pkg::struct_a' basic_prep
-        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> basic_prep
-          AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
-      AST_TYPEDEF </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> str='\pkg::struct_b' basic_prep
-        AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> basic_prep
-          AST_STRUCT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='a' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-            AST_STRUCT_ITEM </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> str='\struct_b' bits='010111000111001101110100011100100111010101100011011101000101111101100010'(72) basic_prep range=[71:0] int=1668570978
+        AST_RANGE </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN </UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.23> basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:14.11-14.19> str='\b' basic_prep
+          AST_RANGE </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:1]
+            AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:14.22-14.23> str='\i' basic_prep
+      AST_ASSIGN </UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.23> basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:15.11-15.12> str='\o' basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/PackedArray/top.sv:15.15-15.23> str='\b' basic_prep
+          AST_RANGE </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> basic_prep range=[1:1]
+            AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT </UHDM-integration-tests/tests/PackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_TYPEDEF </UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='\pkg::struct_a' basic_prep
+        AST_STRUCT </UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> basic_prep
+          AST_STRUCT_ITEM </UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
+      AST_TYPEDEF </UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> str='\pkg::struct_b' basic_prep
+        AST_STRUCT </UHDM-integration-tests/tests/PackedArray/top.sv:6.11-6.17> basic_prep
+          AST_STRUCT </UHDM-integration-tests/tests/PackedArray/top.sv:2.11-2.17> str='a' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+            AST_STRUCT_ITEM </UHDM-integration-tests/tests/PackedArray/top.sv:3.18-3.19> str='x' logic basic_prep range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(i, o);
@@ -1111,16 +1110,16 @@ Found and reported 0 problems.
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10" *)
+(* src = "/UHDM-integration-tests/tests/PackedArray/top.sv:12.1-17.10" *)
 module top(i, o);
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19" *)
+  (* src = "/UHDM-integration-tests/tests/PackedArray/top.sv:13.18-13.19" *)
   (* unused_bits = "0" *)
   (* wiretype = "\\struct_b" *)
   wire [1:0] b;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19" *)
+  (* src = "/UHDM-integration-tests/tests/PackedArray/top.sv:12.18-12.19" *)
   input i;
   wire i;
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29" *)
+  (* src = "/UHDM-integration-tests/tests/PackedArray/top.sv:12.28-12.29" *)
   output o;
   wire o;
   assign b[1] = i;
@@ -1177,7 +1176,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-End of script. Logfile hash: fc22b06664, CPU: user 1.51s system 0.12s, MEM: 219.75 MB peak
+
 Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
-Time spent: 95% 2x read_systemverilog (1 sec), 1% 5x opt_expr (0 sec), ...
-make: Leaving directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
+

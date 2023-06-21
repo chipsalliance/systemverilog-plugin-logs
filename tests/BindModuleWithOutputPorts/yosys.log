@@ -1,8 +1,7 @@
-make: Entering directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
-rm -rf /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
-mkdir -p /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build
-(export TOP_FILE="/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build && LD_PRELOAD=/root/yosys-systemverilog/yosys-systemverilog/image/lib/libfakedlclose.so /root/yosys-systemverilog/yosys-systemverilog/image/bin/yosys -Q -c /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/yosys_script.tcl)
+rm -rf /UHDM-integration-tests/build
+mkdir -p /UHDM-integration-tests/build
+(export TOP_FILE="/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/BindModuleWithOutputPorts/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -11,21 +10,21 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1:1: No timescale set for "rv_dm".
+[WRN:PA0205] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1:1: No timescale set for "rv_dm".
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4:1: No timescale set for "dmidpi".
+[WRN:PA0205] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4:1: No timescale set for "dmidpi".
 
-[WRN:PA0205] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8:1: No timescale set for "top".
+[WRN:PA0205] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4:1: Compile module "work@dmidpi".
+[INF:CP0303] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4:1: Compile module "work@dmidpi".
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1:1: Compile module "work@rv_dm".
+[INF:CP0303] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1:1: Compile module "work@rv_dm".
 
-[INF:CP0303] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8:1: Compile module "work@top".
+[INF:CP0303] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -35,7 +34,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8:1: Top level module "work@top".
+[NTE:EL0503] /UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -100,14 +99,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -116,9 +115,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -135,7 +134,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -147,17 +146,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -165,7 +164,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -173,7 +172,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -181,13 +180,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -195,7 +194,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -207,7 +206,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -215,13 +214,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -229,7 +228,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -241,20 +240,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -289,7 +288,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -299,13 +298,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -315,56 +314,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -373,9 +372,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -392,13 +391,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -415,13 +414,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -438,7 +437,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -450,7 +449,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -465,7 +464,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@dmidpi (work@dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
+\_module_inst: work@dmidpi (work@dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@dmidpi
@@ -473,13 +472,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@dmidpi.b), line:4:26, endln:4:27
     |vpiParent:
-    \_module_inst: work@dmidpi (work@dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
+    \_module_inst: work@dmidpi (work@dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
     |vpiName:b
     |vpiFullName:work@dmidpi.b
   |vpiPort:
   \_port: (b), line:4:26, endln:4:27
     |vpiParent:
-    \_module_inst: work@dmidpi (work@dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
+    \_module_inst: work@dmidpi (work@dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -492,7 +491,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:5:11, endln:5:17
     |vpiParent:
-    \_module_inst: work@dmidpi (work@dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
+    \_module_inst: work@dmidpi (work@dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:4:1, endln:6:10
     |vpiRhs:
     \_constant: , line:5:15, endln:5:17
       |vpiParent:
@@ -510,7 +509,7 @@ design: (work@top)
       |vpiActual:
       \_int_var: (work@top.u_rv_dm.u_dmidpi.b), line:4:26, endln:4:27
 |uhdmallModules:
-\_module_inst: work@rv_dm (work@rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
+\_module_inst: work@rv_dm (work@rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@rv_dm
@@ -518,13 +517,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@rv_dm.a), line:1:25, endln:1:26
     |vpiParent:
-    \_module_inst: work@rv_dm (work@rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
+    \_module_inst: work@rv_dm (work@rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
     |vpiName:a
     |vpiFullName:work@rv_dm.a
   |vpiPort:
   \_port: (a), line:1:25, endln:1:26
     |vpiParent:
-    \_module_inst: work@rv_dm (work@rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
+    \_module_inst: work@rv_dm (work@rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -535,7 +534,7 @@ design: (work@top)
     \_int_typespec: , line:1:21, endln:1:24
       |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -543,13 +542,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:8:23, endln:8:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiName:o
     |vpiFullName:work@top.o
   |vpiPort:
   \_port: (o), line:8:23, endln:8:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -562,11 +561,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@rv_dm (u_rv_dm), line:10:10, endln:10:17
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiName:u_rv_dm
     |vpiDefName:work@rv_dm
     |vpiActual:
-    \_module_inst: work@rv_dm (work@rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
+    \_module_inst: work@rv_dm (work@rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:1:1, endln:2:10
     |vpiPort:
     \_port: (a), line:10:18, endln:10:23
       |vpiName:a
@@ -576,12 +575,12 @@ design: (work@top)
         |vpiActual:
         \_int_var: (work@top.o), line:8:23, endln:8:24
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.o), line:8:23, endln:8:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiTypespec:
     \_int_typespec: , line:8:19, endln:8:22
       |vpiSigned:1
@@ -595,7 +594,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:8:23, endln:8:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -608,15 +607,15 @@ design: (work@top)
     \_int_typespec: , line:8:19, endln:8:22
       |vpiSigned:1
   |vpiModule:
-  \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
+  \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiName:u_rv_dm
     |vpiFullName:work@top.u_rv_dm
     |vpiVariables:
     \_int_var: (work@top.u_rv_dm.a), line:1:25, endln:1:26
       |vpiParent:
-      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
+      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
       |vpiTypespec:
       \_int_typespec: , line:1:21, endln:1:24
         |vpiSigned:1
@@ -625,14 +624,14 @@ design: (work@top)
       |vpiSigned:1
       |vpiVisibility:1
     |vpiDefName:work@rv_dm
-    |vpiDefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv
+    |vpiDefFile:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv
     |vpiDefLineNo:1
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
+    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:8:1, endln:11:10
     |vpiPort:
     \_port: (a), line:1:25, endln:1:26
       |vpiParent:
-      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
+      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
       |vpiName:a
       |vpiDirection:2
       |vpiHighConn:
@@ -651,15 +650,15 @@ design: (work@top)
       \_int_typespec: , line:1:21, endln:1:24
         |vpiSigned:1
     |vpiModule:
-    \_module_inst: work@dmidpi (work@top.u_dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:9:15, endln:9:38
+    \_module_inst: work@dmidpi (work@top.u_dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:9:15, endln:9:38
       |vpiParent:
-      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
+      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
       |vpiName:u_dmidpi
       |vpiFullName:work@top.u_dmidpi
       |vpiVariables:
       \_int_var: (work@top.u_rv_dm.u_dmidpi.b), line:4:26, endln:4:27
         |vpiParent:
-        \_module_inst: work@dmidpi (work@top.u_dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:9:15, endln:9:38
+        \_module_inst: work@dmidpi (work@top.u_dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:9:15, endln:9:38
         |vpiTypespec:
         \_int_typespec: , line:4:22, endln:4:25
           |vpiSigned:1
@@ -668,14 +667,14 @@ design: (work@top)
         |vpiSigned:1
         |vpiVisibility:1
       |vpiDefName:work@dmidpi
-      |vpiDefFile:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv
+      |vpiDefFile:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv
       |vpiDefLineNo:4
       |vpiInstance:
-      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
+      \_module_inst: work@rv_dm (work@top.u_rv_dm), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:10:4, endln:10:25
       |vpiPort:
       \_port: (b), line:4:26, endln:4:27
         |vpiParent:
-        \_module_inst: work@dmidpi (work@top.u_dmidpi), file:/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:9:15, endln:9:38
+        \_module_inst: work@dmidpi (work@top.u_dmidpi), file:/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv, line:9:15, endln:9:38
         |vpiName:b
         |vpiDirection:2
         |vpiHighConn:
@@ -735,15 +734,15 @@ Object 'work@top' of type 'design'
     Object 'o' of type 'int_var'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.1-11.10> str='\top'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.23-8.24> str='\o' output signed port=3 range=[0:0]
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0>
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\u_rv_dm'
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\rv_dm'
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\a'
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.21-10.22> str='\o'
+    AST_MODULE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.1-11.10> str='\top'
+      AST_WIRE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.23-8.24> str='\o' output signed port=3 range=[0:0]
+        AST_RANGE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0>
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\u_rv_dm'
+        AST_CELLTYPE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\rv_dm'
+        AST_ARGUMENT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\a'
+          AST_IDENTIFIER </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.21-10.22> str='\o'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -752,15 +751,15 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.1-11.10> str='\top' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.23-8.24> str='\o' output signed basic_prep port=3 range=[31:0]
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\u_rv_dm' basic_prep
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\rv_dm' basic_prep
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\a' basic_prep
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.21-10.22> str='\o' basic_prep
+    AST_MODULE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.1-11.10> str='\top' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.23-8.24> str='\o' output signed basic_prep port=3 range=[31:0]
+        AST_RANGE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\u_rv_dm' basic_prep
+        AST_CELLTYPE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\rv_dm' basic_prep
+        AST_ARGUMENT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25> str='\a' basic_prep
+          AST_IDENTIFIER </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.21-10.22> str='\o' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -770,15 +769,15 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\rv_dm'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.1-2.10> str='\rv_dm'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.25-1.26> str='\a' output signed port=2 range=[0:0]
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0>
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\u_dmidpi'
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\dmidpi'
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\b'
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.34-9.35> str='\a'
+    AST_MODULE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.1-2.10> str='\rv_dm'
+      AST_WIRE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.25-1.26> str='\a' output signed port=2 range=[0:0]
+        AST_RANGE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0>
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\u_dmidpi'
+        AST_CELLTYPE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\dmidpi'
+        AST_ARGUMENT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\b'
+          AST_IDENTIFIER </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.34-9.35> str='\a'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module rv_dm(a);
@@ -787,15 +786,15 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.1-2.10> str='\rv_dm' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.25-1.26> str='\a' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\u_dmidpi' basic_prep
-        AST_CELLTYPE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\dmidpi' basic_prep
-        AST_ARGUMENT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\b' basic_prep
-          AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.34-9.35> str='\a' basic_prep
+    AST_MODULE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.1-2.10> str='\rv_dm' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.25-1.26> str='\a' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\u_dmidpi' basic_prep
+        AST_CELLTYPE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> str='\dmidpi' basic_prep
+        AST_ARGUMENT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38> str='\b' basic_prep
+          AST_IDENTIFIER </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.34-9.35> str='\a' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module rv_dm(a);
@@ -805,14 +804,14 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\dmidpi'.
 Dumping AST before simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.1-6.10> str='\dmidpi'
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.26-4.27> str='\b' output signed port=1 range=[0:0]
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0>
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.17>
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.12> str='\b'
-        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
+    AST_MODULE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.1-6.10> str='\dmidpi'
+      AST_WIRE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.26-4.27> str='\b' output signed port=1 range=[0:0]
+        AST_RANGE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0>
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.17>
+        AST_IDENTIFIER </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.12> str='\b'
+        AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dmidpi(b);
@@ -821,14 +820,14 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.1-6.10> str='\dmidpi' basic_prep
-      AST_WIRE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.26-4.27> str='\b' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.17> basic_prep
-        AST_IDENTIFIER </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.12> str='\b' basic_prep
-        AST_CONSTANT </root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
+    AST_MODULE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.1-6.10> str='\dmidpi' basic_prep
+      AST_WIRE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.26-4.27> str='\b' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.17> basic_prep
+        AST_IDENTIFIER </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:5.11-5.12> str='\b' basic_prep
+        AST_CONSTANT </UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dmidpi(b);
@@ -1047,22 +1046,22 @@ Found and reported 0 problems.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dmidpi'.
 
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.1-6.10" *)
+(* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.1-6.10" *)
 module dmidpi(b);
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.26-4.27" *)
+  (* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:4.26-4.27" *)
   output [31:0] b;
   wire [31:0] b;
   assign b = 32'd10;
 endmodule
 Dumping module `\rv_dm'.
 
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.1-2.10" *)
+(* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.1-2.10" *)
 module rv_dm(a);
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.25-1.26" *)
+  (* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:1.25-1.26" *)
   output [31:0] a;
   wire [31:0] a;
   (* module_not_derived = 32'd1 *)
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38" *)
+  (* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:9.15-9.38" *)
   dmidpi u_dmidpi (
     .b(a)
   );
@@ -1070,13 +1069,13 @@ endmodule
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.1-11.10" *)
+(* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.1-11.10" *)
 module top(o);
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.23-8.24" *)
+  (* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:8.23-8.24" *)
   output [31:0] o;
   wire [31:0] o;
   (* module_not_derived = 32'd1 *)
-  (* src = "/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25" *)
+  (* src = "/UHDM-integration-tests/tests/BindModuleWithOutputPorts/top.sv:10.4-10.25" *)
   rv_dm u_rv_dm (
     .a(o)
   );
@@ -1134,7 +1133,6 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-End of script. Logfile hash: 225d04f619, CPU: user 1.85s system 0.12s, MEM: 232.02 MB peak
+
 Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
-Time spent: 94% 2x read_systemverilog (1 sec), 1% 5x opt_expr (0 sec), ...
-make: Leaving directory '/root/yosys-systemverilog/yosys-systemverilog/UHDM-integration-tests'
+
