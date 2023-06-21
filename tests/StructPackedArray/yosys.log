@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/StructPackedArray/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/StructPackedArray/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/StructPackedArray/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/StructPackedArray/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,13 +10,13 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/StructPackedArray/top.sv:1:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/StructPackedArray/top.sv:1:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/StructPackedArray/top.sv:1:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/StructPackedArray/top.sv:1:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -26,7 +26,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/StructPackedArray/top.sv:1:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/StructPackedArray/top.sv:1:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -91,14 +91,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -107,9 +107,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -126,7 +126,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -138,17 +138,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -156,7 +156,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -164,7 +164,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -172,13 +172,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -186,7 +186,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -198,7 +198,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -206,13 +206,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -220,7 +220,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -232,20 +232,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -280,7 +280,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -290,13 +290,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -306,56 +306,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -364,9 +364,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -383,13 +383,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -406,13 +406,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -429,7 +429,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -441,7 +441,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -456,17 +456,17 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
   |vpiTypedef:
   \_struct_typespec: (filter_ctl_t), line:2:12, endln:2:18
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiName:filter_ctl_t
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (min_v), line:3:19, endln:3:24
@@ -497,7 +497,7 @@ design: (work@top)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
-      |vpiRefFile:/UHDM-integration-tests/tests/StructPackedArray/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/StructPackedArray/top.sv
       |vpiRefLineNo:3
       |vpiRefColumnNo:7
       |vpiRefEndLineNo:3
@@ -506,20 +506,20 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:1:31, endln:1:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiName:o
     |vpiFullName:work@top.o
     |vpiNetType:36
   |vpiNet:
   \_logic_net: (work@top.a), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiName:a
     |vpiFullName:work@top.a
   |vpiPort:
   \_port: (o), line:1:31, endln:1:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -549,7 +549,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:7:11, endln:7:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiRhs:
     \_bit_select: (work@top.a), line:7:15, endln:7:19
       |vpiParent:
@@ -577,12 +577,12 @@ design: (work@top)
       |vpiActual:
       \_logic_net: (work@top.o), line:1:31, endln:1:32
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
   |vpiName:work@top
   |vpiVariables:
   \_packed_array_var: (work@top.a), line:6:23, endln:6:43
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiName:a
     |vpiFullName:work@top.a
     |vpiVisibility:1
@@ -635,7 +635,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:1:31, endln:1:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiTypespec:
     \_logic_typespec: , line:1:19, endln:1:30
       |vpiRange:
@@ -663,7 +663,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:1:31, endln:1:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/StructPackedArray/top.sv, line:1:1, endln:8:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -738,41 +738,41 @@ Object 'work@top' of type 'design'
         Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/StructPackedArray/top.sv:1.1-8.10> str='\top'
-      AST_TYPEDEF </UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> str='\filter_ctl_t'
-        AST_STRUCT </UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/StructPackedArray/top.sv:3.19-3.24> str='min_v' logic basic_prep range=[9:0]
-      AST_WIRE </UHDM-integration-tests/tests/StructPackedArray/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 10 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/StructPackedArray/top.sv:1.25-1.30> basic_prep range=[9:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/StructPackedArray/top.sv:6.23-6.43> str='\a' logic basic_prep range=[9:0] multirange=[ 0 10 0 2 ] multirange_swapped=[ 0 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/StructPackedArray/top.sv:1.1-8.10> str='\top'
+      AST_TYPEDEF <UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> str='\filter_ctl_t'
+        AST_STRUCT <UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructPackedArray/top.sv:3.19-3.24> str='min_v' logic basic_prep range=[9:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructPackedArray/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 10 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:1.25-1.30> basic_prep range=[9:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructPackedArray/top.sv:6.23-6.43> str='\a' logic basic_prep range=[9:0] multirange=[ 0 10 0 2 ] multirange_swapped=[ 0 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\filter_ctl_t' bits='01011100011001100110100101101100011101000110010101110010010111110110001101110100011011000101111101110100'(104) basic_prep range=[103:0] int=1953259380
-        AST_RANGE </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> range=[19:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed range=[31:0] int=19
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.19>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-            AST_SUB </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-              AST_MUL </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-                AST_ADD </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-                  AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                  AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
-              AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-            AST_MUL </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-              AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
-      AST_INITIAL </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-        AST_BLOCK </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\a'
-            AST_CONCAT </UHDM-integration-tests/tests/StructPackedArray/top.sv:6.27-6.43>
-              AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='0000000000'(10) range=[9:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='0000001111'(10) range=[9:0] int=15
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\filter_ctl_t' bits='01011100011001100110100101101100011101000110010101110010010111110110001101110100011011000101111101110100'(104) basic_prep range=[103:0] int=1953259380
+        AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> range=[19:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed range=[31:0] int=19
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.19>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+            AST_SUB <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                  AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+            AST_MUL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) range=[31:0] int=10
+      AST_INITIAL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+        AST_BLOCK <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\a'
+            AST_CONCAT <UHDM-integration-tests/tests/StructPackedArray/top.sv:6.27-6.43>
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='0000000000'(10) range=[9:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='0000001111'(10) range=[9:0] int=15
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -786,31 +786,31 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/StructPackedArray/top.sv:1.1-8.10> str='\top' basic_prep
-      AST_TYPEDEF </UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> str='\filter_ctl_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/StructPackedArray/top.sv:3.19-3.24> str='min_v' logic basic_prep range=[9:0]
-      AST_WIRE </UHDM-integration-tests/tests/StructPackedArray/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[9:0] multirange=[ 0 10 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/StructPackedArray/top.sv:1.25-1.30> basic_prep range=[9:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/StructPackedArray/top.sv:6.23-6.43> str='\a' logic reg basic_prep range=[19:0] multirange=[ 0 10 0 2 ] multirange_swapped=[ 0 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/StructPackedArray/top.sv:1.1-8.10> str='\top' basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> str='\filter_ctl_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/StructPackedArray/top.sv:2.12-2.18> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/StructPackedArray/top.sv:3.19-3.24> str='min_v' logic basic_prep range=[9:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructPackedArray/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[9:0] multirange=[ 0 10 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:1.25-1.30> basic_prep range=[9:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructPackedArray/top.sv:6.23-6.43> str='\a' logic reg basic_prep range=[19:0] multirange=[ 0 10 0 2 ] multirange_swapped=[ 0 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\filter_ctl_t' bits='01011100011001100110100101101100011101000110010101110010010111110110001101110100011011000101111101110100'(104) basic_prep range=[103:0] int=1953259380
-        AST_RANGE </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep range=[19:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed basic_prep range=[31:0] int=19
-          AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.19> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep range=[19:10]
-            AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) basic_prep range=[31:0] int=19
-            AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
-      AST_INITIAL </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
-        AST_BLOCK </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\a' basic_prep
-            AST_CONSTANT </UHDM-integration-tests/tests/StructPackedArray/top.sv:6.27-6.43> bits='00000011110000000000'(20) basic_prep range=[19:0] int=15360
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\filter_ctl_t' bits='01011100011001100110100101101100011101000110010101110010010111110110001101110100011011000101111101110100'(104) basic_prep range=[103:0] int=1953259380
+        AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep range=[19:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed basic_prep range=[31:0] int=19
+          AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.19> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.11-7.12> str='\o' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:7.15-7.19> str='\a' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep range=[19:10]
+            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) basic_prep range=[31:0] int=19
+            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
+      AST_INITIAL <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
+        AST_BLOCK <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/StructPackedArray/top.sv:0.0-0.0> str='\a' basic_prep
+            AST_CONSTANT <UHDM-integration-tests/tests/StructPackedArray/top.sv:6.27-6.43> bits='00000011110000000000'(20) basic_prep range=[19:0] int=15360
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -855,17 +855,17 @@ Promoted 1 assignment to connection.
 Converted 0 switches.
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\top.$proc$/UHDM-integration-tests/tests/StructPackedArray/top.sv:0$1'.
+Creating decoders for process `\top.$proc$UHDM-integration-tests/tests/StructPackedArray/top.sv:0$1'.
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\top.\a' from process `\top.$proc$/UHDM-integration-tests/tests/StructPackedArray/top.sv:0$1'.
+No latch inferred for signal `\top.\a' from process `\top.$proc$UHDM-integration-tests/tests/StructPackedArray/top.sv:0$1'.
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `top.$proc$/UHDM-integration-tests/tests/StructPackedArray/top.sv:0$1'.
+Removing empty process `top.$proc$UHDM-integration-tests/tests/StructPackedArray/top.sv:0$1'.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
@@ -961,12 +961,12 @@ Found and reported 0 problems.
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/StructPackedArray/top.sv:1.1-8.10" *)
+(* src = "UHDM-integration-tests/tests/StructPackedArray/top.sv:1.1-8.10" *)
 module top(o);
-  (* src = "/UHDM-integration-tests/tests/StructPackedArray/top.sv:6.23-6.43" *)
+  (* src = "UHDM-integration-tests/tests/StructPackedArray/top.sv:6.23-6.43" *)
   (* wiretype = "\\filter_ctl_t" *)
   wire [19:0] a;
-  (* src = "/UHDM-integration-tests/tests/StructPackedArray/top.sv:1.31-1.32" *)
+  (* src = "UHDM-integration-tests/tests/StructPackedArray/top.sv:1.31-1.32" *)
   output [9:0] o;
   wire [9:0] o;
   assign a = 20'h03c00;

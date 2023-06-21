@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,21 +10,21 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:1:1: No timescale set for "sim_sram_if".
+[WRN:PA0205] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:1:1: No timescale set for "sim_sram_if".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5:1: No timescale set for "dut".
+[WRN:PA0205] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5:1: No timescale set for "dut".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5:1: Compile module "work@dut".
+[INF:CP0303] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5:1: Compile module "work@dut".
 
-[INF:CP0304] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:1:1: Compile interface "work@sim_sram_if".
+[INF:CP0304] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:1:1: Compile interface "work@sim_sram_if".
 
-[INF:CP0303] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -34,7 +34,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -99,14 +99,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -115,9 +115,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -134,7 +134,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -146,17 +146,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -164,7 +164,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -172,7 +172,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -180,13 +180,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -194,7 +194,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -206,7 +206,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -214,13 +214,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -228,7 +228,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -240,20 +240,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -288,7 +288,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -298,13 +298,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -314,56 +314,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -372,9 +372,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -391,13 +391,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -414,13 +414,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -437,7 +437,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -449,7 +449,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -464,7 +464,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallInterfaces:
-\_interface_inst: work@sim_sram_if (work@sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
+\_interface_inst: work@sim_sram_if (work@sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@sim_sram_if
@@ -472,11 +472,11 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@sim_sram_if.start_addr), line:2:8, endln:2:18
     |vpiParent:
-    \_interface_inst: work@sim_sram_if (work@sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
+    \_interface_inst: work@sim_sram_if (work@sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
     |vpiName:start_addr
     |vpiFullName:work@sim_sram_if.start_addr
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@dut
@@ -484,26 +484,26 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@dut.ss_if), line:5:24, endln:5:29
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
     |vpiName:ss_if
     |vpiFullName:work@dut.ss_if
   |vpiPort:
   \_port: (ss_if), line:5:24, endln:5:29
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
     |vpiName:ss_if
     |vpiDirection:3
     |vpiLowConn:
     \_ref_obj: 
       |vpiActual:
-      \_interface_inst: work@sim_sram_if (work@sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
+      \_interface_inst: work@sim_sram_if (work@sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
     |vpiTypedef:
     \_interface_typespec: (sim_sram_if), line:5:12, endln:5:23
       |vpiName:sim_sram_if
   |vpiContAssign:
   \_cont_assign: , line:6:11, endln:6:38
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
     |vpiRhs:
     \_constant: , line:6:30, endln:6:38
       |vpiParent:
@@ -528,7 +528,7 @@ design: (work@top)
         \_hier_path: (ss_if.start_addr), line:6:11, endln:6:27
         |vpiName:start_addr
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -536,13 +536,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:9:23, endln:9:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:o
     |vpiFullName:work@top.o
   |vpiPort:
   \_port: (o), line:9:23, endln:9:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -555,7 +555,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:14:11, endln:14:39
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiRhs:
     \_hier_path: (u_sim_sram_if.start_addr), line:14:15, endln:14:39
       |vpiParent:
@@ -582,19 +582,19 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@sim_sram_if (u_sim_sram_if), line:10:16, endln:10:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:u_sim_sram_if
     |vpiDefName:work@sim_sram_if
     |vpiActual:
-    \_interface_inst: work@sim_sram_if (work@sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
+    \_interface_inst: work@sim_sram_if (work@sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:1:1, endln:3:13
   |vpiRefModule:
   \_ref_module: work@dut (u_dut), line:12:8, endln:12:13
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:u_dut
     |vpiDefName:work@dut
     |vpiActual:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:5:1, endln:7:10
     |vpiPort:
     \_port: (ss_if), line:12:14, endln:12:35
       |vpiName:ss_if
@@ -602,14 +602,14 @@ design: (work@top)
       \_ref_obj: (u_sim_sram_if), line:12:21, endln:12:34
         |vpiName:u_sim_sram_if
         |vpiActual:
-        \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:4, endln:10:32
+        \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:4, endln:10:32
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.o), line:9:23, endln:9:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiTypespec:
     \_int_typespec: , line:9:19, endln:9:22
       |vpiSigned:1
@@ -623,7 +623,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:9:23, endln:9:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -636,15 +636,15 @@ design: (work@top)
     \_int_typespec: , line:9:19, endln:9:22
       |vpiSigned:1
   |vpiInterface:
-  \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:4, endln:10:32
+  \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:4, endln:10:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:u_sim_sram_if
     |vpiFullName:work@top.u_sim_sram_if
     |vpiVariables:
     \_int_var: (work@top.u_sim_sram_if.start_addr), line:2:8, endln:2:18
       |vpiParent:
-      \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:4, endln:10:32
+      \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:4, endln:10:32
       |vpiTypespec:
       \_int_typespec: , line:2:4, endln:2:7
         |vpiSigned:1
@@ -652,25 +652,25 @@ design: (work@top)
       |vpiFullName:work@top.u_sim_sram_if.start_addr
       |vpiVisibility:1
     |vpiDefName:work@sim_sram_if
-    |vpiDefFile:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv
     |vpiDefLineNo:1
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
   |vpiModule:
-  \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:4, endln:12:37
+  \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:4, endln:12:37
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiName:u_dut
     |vpiFullName:work@top.u_dut
     |vpiDefName:work@dut
-    |vpiDefFile:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv
     |vpiDefLineNo:5
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:9:1, endln:15:10
     |vpiPort:
     \_port: (ss_if), line:5:24, endln:5:29
       |vpiParent:
-      \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:4, endln:12:37
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:4, endln:12:37
       |vpiName:ss_if
       |vpiDirection:3
       |vpiHighConn:
@@ -678,24 +678,24 @@ design: (work@top)
         |vpiName:u_sim_sram_if
         |vpiFullName:work@top.u_sim_sram_if
         |vpiActual:
-        \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:0
+        \_interface_inst: work@sim_sram_if (work@top.u_sim_sram_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:10:0
       |vpiLowConn:
       \_ref_obj: (work@top.u_dut.ss_if), line:12:15, endln:12:20
         |vpiFullName:work@top.u_dut.ss_if
         |vpiActual:
-        \_interface_inst: work@sim_sram_if (work@top.u_dut.ss_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:0
+        \_interface_inst: work@sim_sram_if (work@top.u_dut.ss_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:0
       |vpiTypedef:
       \_interface_typespec: (sim_sram_if), line:5:12, endln:5:23
         |vpiName:sim_sram_if
     |vpiInterface:
-    \_interface_inst: work@sim_sram_if (work@top.u_dut.ss_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:0
+    \_interface_inst: work@sim_sram_if (work@top.u_dut.ss_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:0
       |vpiParent:
-      \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:4, endln:12:37
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:4, endln:12:37
       |vpiName:ss_if
       |vpiFullName:work@top.u_dut.ss_if
       |vpiDefName:work@sim_sram_if
     |vpiInterface:
-    \_interface_inst: work@sim_sram_if (work@top.u_dut.ss_if), file:/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:0
+    \_interface_inst: work@sim_sram_if (work@top.u_dut.ss_if), file:UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv, line:12:0
     |vpiContAssign:
     \_cont_assign: , line:6:11, endln:6:38
       |vpiRhs:
@@ -749,20 +749,20 @@ Object 'work@top' of type 'design'
     Object 'o' of type 'int_var'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24> str='\o' output signed port=2 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\u_dut'
-        AST_CELLTYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\dut'
-        AST_ARGUMENT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\ss_if'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.21-12.34> str='\u_sim_sram_if'
-      AST_CELL </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:10.4-10.32> str='\u_sim_sram_if'
-        AST_CELLTYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
-      AST_ASSIGN </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.39>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.15-14.39> str='\u_sim_sram_if.start_addr'
+    AST_MODULE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24> str='\o' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\u_dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\dut'
+        AST_ARGUMENT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\ss_if'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.21-12.34> str='\u_sim_sram_if'
+      AST_CELL <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:10.4-10.32> str='\u_sim_sram_if'
+        AST_CELLTYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
+      AST_ASSIGN <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.39>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.15-14.39> str='\u_sim_sram_if.start_addr'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -773,21 +773,21 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24> str='\o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\u_dut' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\dut' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\ss_if' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.21-12.34> str='\u_sim_sram_if' basic_prep
-      AST_CELL </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:10.4-10.32> str='\u_sim_sram_if' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
-      AST_ASSIGN </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.39> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.15-14.39> str='\u_sim_sram_if.start_addr' basic_prep
-      AST_AUTOWIRE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\u_sim_sram_if.start_addr' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24> str='\o' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\u_dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\dut' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\ss_if' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.21-12.34> str='\u_sim_sram_if' basic_prep
+      AST_CELL <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:10.4-10.32> str='\u_sim_sram_if' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
+      AST_ASSIGN <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.39> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.15-14.39> str='\u_sim_sram_if.start_addr' basic_prep
+      AST_AUTOWIRE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\u_sim_sram_if.start_addr' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -798,16 +798,16 @@ Dumping Verilog AST after simplification:
       assign o = \u_sim_sram_if.start_addr ;
     endmodule
 --- END OF AST DUMP ---
-/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14: Warning: Identifier `\u_sim_sram_if.start_addr' is implicitly declared.
+UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14: Warning: Identifier `\u_sim_sram_if.start_addr' is implicitly declared.
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.1-7.10> str='\dut'
-      AST_INTERFACEPORT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.24-5.29> str='\ss_if' input output port=1
-        AST_WIRETYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
-        AST_INTERFACEPORTTYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
-      AST_ASSIGN </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.38>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.27> str='\ss_if.start_addr'
-        AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000001001000110100'(32) range=[31:0] int=4660
+    AST_MODULE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.1-7.10> str='\dut'
+      AST_INTERFACEPORT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.24-5.29> str='\ss_if' input output port=1
+        AST_WIRETYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
+        AST_INTERFACEPORTTYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
+      AST_ASSIGN <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.38>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.27> str='\ss_if.start_addr'
+        AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000001001000110100'(32) range=[31:0] int=4660
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut();
@@ -816,14 +816,14 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.1-7.10> str='\dut' basic_prep
-      AST_INTERFACEPORT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.24-5.29> str='\ss_if' input output basic_prep port=1
-        AST_WIRETYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
-        AST_INTERFACEPORTTYPE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
-      AST_ASSIGN </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.38> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.27> str='\ss_if.start_addr' basic_prep
-        AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000001001000110100'(32) basic_prep range=[31:0] int=4660
-      AST_AUTOWIRE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\ss_if.start_addr' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.1-7.10> str='\dut' basic_prep
+      AST_INTERFACEPORT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.24-5.29> str='\ss_if' input output basic_prep port=1
+        AST_WIRETYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
+        AST_INTERFACEPORTTYPE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
+      AST_ASSIGN <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.38> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.27> str='\ss_if.start_addr' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000001001000110100'(32) basic_prep range=[31:0] int=4660
+      AST_AUTOWIRE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\ss_if.start_addr' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut();
@@ -832,24 +832,24 @@ Dumping Verilog AST after simplification:
       assign \ss_if.start_addr  = 4660;
     endmodule
 --- END OF AST DUMP ---
-/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6: Warning: Identifier `\ss_if.start_addr' is implicitly declared.
+UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6: Warning: Identifier `\ss_if.start_addr' is implicitly declared.
 Generating RTLIL representation for module `\sim_sram_if'.
 Dumping AST before simplification:
-    AST_INTERFACE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
-      AST_WIRE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_INTERFACE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
+      AST_WIRE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     /** AST_INTERFACE **/
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_INTERFACE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' basic_prep range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_INTERFACE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' basic_prep range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     /** AST_INTERFACE **/
@@ -1080,9 +1080,9 @@ Found and reported 0 problems.
 Dumping module `\dut$interfaces$sim_sram_if'.
 
 (* interfaces_replaced_in_module =  1  *)
-(* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.1-7.10" *)
+(* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5.1-7.10" *)
 module \dut$interfaces$sim_sram_if (\ss_if.start_addr );
-  (* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0" *)
+  (* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0" *)
   inout [31:0] \ss_if.start_addr ;
   wire [31:0] \ss_if.start_addr ;
   assign \ss_if.start_addr  = 32'd4660;
@@ -1090,21 +1090,21 @@ endmodule
 Dumping module `\sim_sram_if'.
 
 (* is_interface =  1  *)
-(* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0" *)
+(* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0" *)
 module sim_sram_if();
 endmodule
 Dumping module `\top'.
 
 (* top =  1  *)
 (* interfaces_replaced_in_module =  1  *)
-(* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10" *)
+(* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10" *)
 module top(o);
-  (* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24" *)
+  (* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24" *)
   output [31:0] o;
   wire [31:0] o;
-  (* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0" *)
+  (* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0" *)
   wire [31:0] \u_sim_sram_if.start_addr ;
-  (* src = "/UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37" *)
+  (* src = "UHDM-integration-tests/tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37" *)
   \dut$interfaces$sim_sram_if  u_dut (
     .\ss_if.start_addr (\u_sim_sram_if.start_addr )
   );

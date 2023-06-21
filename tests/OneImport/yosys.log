@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/OneImport/pkg.sv /UHDM-integration-tests/tests/OneImport/dut.sv" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/OneImport/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/OneImport/pkg.sv UHDM-integration-tests/tests/OneImport/dut.sv" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/OneImport/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/OneImport/pkg.sv:1:1: No timescale set for "my_pkg".
+[WRN:PA0205] UHDM-integration-tests/tests/OneImport/pkg.sv:1:1: No timescale set for "my_pkg".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/OneImport/dut.sv:1:1: No timescale set for "dut".
+[WRN:PA0205] UHDM-integration-tests/tests/OneImport/dut.sv:1:1: No timescale set for "dut".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0301] /UHDM-integration-tests/tests/OneImport/pkg.sv:1:1: Compile package "my_pkg".
+[INF:CP0301] UHDM-integration-tests/tests/OneImport/pkg.sv:1:1: Compile package "my_pkg".
 
-[INF:CP0303] /UHDM-integration-tests/tests/OneImport/dut.sv:1:1: Compile module "work@dut".
+[INF:CP0303] UHDM-integration-tests/tests/OneImport/dut.sv:1:1: Compile module "work@dut".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -30,7 +30,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/OneImport/dut.sv:1:1: Top level module "work@dut".
+[NTE:EL0503] UHDM-integration-tests/tests/OneImport/dut.sv:1:1: Top level module "work@dut".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -57,7 +57,7 @@ design: (work@dut)
   |vpiFullName:builtin::
   |vpiDefName:builtin
 |uhdmallPackages:
-\_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+\_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
   |vpiParent:
   \_design: (work@dut)
   |vpiName:my_pkg
@@ -65,20 +65,20 @@ design: (work@dut)
   |vpiParameter:
   \_parameter: (my_pkg::PMP_CFG_W), line:7:24, endln:7:33
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:7:11, endln:7:23
       |vpiParent:
       \_parameter: (my_pkg::PMP_CFG_W), line:7:24, endln:7:33
       |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiName:PMP_CFG_W
     |vpiFullName:my_pkg::PMP_CFG_W
   |vpiParamAssign:
   \_param_assign: , line:7:24, endln:7:37
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiRhs:
     \_constant: , line:7:36, endln:7:37
       |vpiDecompile:2
@@ -92,14 +92,14 @@ design: (work@dut)
   |vpiTypedef:
   \_enum_typespec: (my_pkg::opcode_e), line:2:3, endln:5:14
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiName:my_pkg::opcode_e
     |vpiInstance:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiBaseTypespec:
     \_logic_typespec: , line:2:16, endln:2:27
       |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
       |vpiRange:
       \_range: , line:2:22, endln:2:27
         |vpiLeftRange:
@@ -170,7 +170,7 @@ design: (work@dut)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmtopPackages:
-\_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+\_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
   |vpiParent:
   \_design: (work@dut)
   |vpiName:my_pkg
@@ -178,20 +178,20 @@ design: (work@dut)
   |vpiParameter:
   \_parameter: (my_pkg::PMP_CFG_W), line:7:24, endln:7:33
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:7:11, endln:7:23
       |vpiParent:
       \_parameter: (my_pkg::PMP_CFG_W), line:7:24, endln:7:33
       |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiName:PMP_CFG_W
     |vpiFullName:my_pkg::PMP_CFG_W
   |vpiParamAssign:
   \_param_assign: , line:7:24, endln:7:37
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiRhs:
     \_constant: , line:7:36, endln:7:37
       |vpiDecompile:2
@@ -205,14 +205,14 @@ design: (work@dut)
   |vpiTypedef:
   \_enum_typespec: (my_pkg::opcode_e), line:2:3, endln:5:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:my_pkg::opcode_e
     |vpiInstance:
-    \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiBaseTypespec:
     \_logic_typespec: , line:2:16, endln:2:27
       |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
       |vpiRange:
       \_range: , line:2:22, endln:2:27
         |vpiLeftRange:
@@ -246,14 +246,14 @@ design: (work@dut)
   |vpiDefName:my_pkg
   |vpiTop:1
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -262,9 +262,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -281,7 +281,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -293,17 +293,17 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -311,7 +311,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -319,7 +319,7 @@ design: (work@dut)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -327,13 +327,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -341,7 +341,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -353,7 +353,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -361,13 +361,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -375,7 +375,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -387,20 +387,20 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -435,7 +435,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -445,13 +445,13 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -461,56 +461,56 @@ design: (work@dut)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -519,9 +519,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -538,13 +538,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -561,13 +561,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -584,7 +584,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -596,7 +596,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -611,28 +611,28 @@ design: (work@dut)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@dut
   |vpiParameter:
   \_parameter: (work@dut.PMP_CFG_W), line:7:24, endln:7:33
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:7:11, endln:7:23
       |vpiParent:
       \_parameter: (work@dut.PMP_CFG_W), line:7:24, endln:7:33
       |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiName:PMP_CFG_W
     |vpiFullName:work@dut.PMP_CFG_W
     |vpiImported:my_pkg
   |vpiParamAssign:
   \_param_assign: , line:7:24, endln:7:37
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiRhs:
     \_constant: , line:7:36, endln:7:37
       |vpiParent:
@@ -645,7 +645,7 @@ design: (work@dut)
         |vpiParent:
         \_constant: , line:7:36, endln:7:37
         |vpiInstance:
-        \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+        \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
       |vpiConstType:9
     |vpiLhs:
     \_parameter: (work@dut.PMP_CFG_W), line:7:24, endln:7:33
@@ -657,7 +657,7 @@ design: (work@dut)
         |vpiParent:
         \_parameter: (work@dut.PMP_CFG_W), line:7:24, endln:7:33
         |vpiInstance:
-        \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+        \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
       |vpiName:PMP_CFG_W
       |vpiFullName:work@dut.PMP_CFG_W
       |vpiImported:my_pkg
@@ -675,21 +675,21 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.a), line:6:14, endln:6:15
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:a
     |vpiFullName:work@dut.a
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@dut.b), line:7:13, endln:7:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:b
     |vpiFullName:work@dut.b
     |vpiNetType:48
   |vpiPort:
   \_port: (a), line:1:13, endln:1:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -719,7 +719,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:1:16, endln:1:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -749,7 +749,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:8:10, endln:9:36
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiRhs:
     \_operation: , line:8:14, endln:9:36
       |vpiParent:
@@ -809,26 +809,26 @@ design: (work@dut)
       |vpiActual:
       \_logic_net: (work@dut.b), line:7:13, endln:7:14
 |uhdmtopModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
   |vpiName:work@dut
   |vpiParameter:
   \_parameter: (work@dut.PMP_CFG_W), line:7:24, endln:7:33
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:7:11, endln:7:23
       |vpiParent:
       \_parameter: (work@dut.PMP_CFG_W), line:7:24, endln:7:33
       |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:/UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
+      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/OneImport/pkg.sv, line:1:1, endln:9:11
     |vpiName:PMP_CFG_W
     |vpiFullName:work@dut.PMP_CFG_W
     |vpiImported:my_pkg
   |vpiParamAssign:
   \_param_assign: , line:7:24, endln:7:37
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiRhs:
     \_constant: , line:7:36, endln:7:37
       |vpiDecompile:2
@@ -854,7 +854,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.a), line:6:14, endln:6:15
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiTypespec:
     \_logic_typespec: , line:6:3, endln:6:13
       |vpiRange:
@@ -881,7 +881,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.b), line:7:13, endln:7:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiTypespec:
     \_logic_typespec: , line:7:3, endln:7:12
       |vpiRange:
@@ -909,7 +909,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (a), line:1:13, endln:1:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -943,7 +943,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:1:16, endln:1:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneImport/dut.sv, line:1:1, endln:10:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -1105,72 +1105,72 @@ Object 'work@dut' of type 'design'
             Object 'OPCODE_LOAD' of type 'ref_obj'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/OneImport/dut.sv:1.1-10.10> str='\dut'
-      AST_ENUM </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum1' logic
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\OPCODE_LOAD' logic range=[-1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) range=[5:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\OPCODE_STORE' logic range=[-1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) range=[5:0] int=19
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\opcode_e'
-        AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg
+    AST_MODULE <UHDM-integration-tests/tests/OneImport/dut.sv:1.1-10.10> str='\dut'
+      AST_ENUM <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum1' logic
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\OPCODE_LOAD' logic range=[-1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) range=[5:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\OPCODE_STORE' logic range=[-1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) range=[5:0] int=19
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\opcode_e'
+        AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) range=[47:0] int=1853189425
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\PMP_CFG_W' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:6.14-6.15> str='\a' input logic port=1 multirange=[ 0 6 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:6.8-6.13> basic_prep range=[5:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:7.13-7.14> str='\b' output reg port=2 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:7.7-7.12> basic_prep range=[2:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/OneImport/dut.sv:8.10-9.36>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneImport/dut.sv:8.10-8.11> str='\b'
-        AST_BIT_OR </UHDM-integration-tests/tests/OneImport/dut.sv:8.14-9.36>
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
-          AST_EQ </UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.35>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.20> str='\a'
-            AST_IDENTIFIER </UHDM-integration-tests/tests/OneImport/dut.sv:9.24-9.35> str='\OPCODE_LOAD'
-      AST_ENUM </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\my_pkg::OPCODE_LOAD' logic basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\PMP_CFG_W' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:6.14-6.15> str='\a' input logic port=1 multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:6.8-6.13> basic_prep range=[5:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:7.13-7.14> str='\b' output reg port=2 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:7.7-7.12> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/OneImport/dut.sv:8.10-9.36>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneImport/dut.sv:8.10-8.11> str='\b'
+        AST_BIT_OR <UHDM-integration-tests/tests/OneImport/dut.sv:8.14-9.36>
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
+          AST_EQ <UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.35>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.20> str='\a'
+            AST_IDENTIFIER <UHDM-integration-tests/tests/OneImport/dut.sv:9.24-9.35> str='\OPCODE_LOAD'
+      AST_ENUM <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\my_pkg::OPCODE_LOAD' logic basic_prep range=[5:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\my_pkg::OPCODE_STORE' logic basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\my_pkg::OPCODE_STORE' logic basic_prep range=[5:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\my_pkg::opcode_e' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\my_pkg::opcode_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, b);
@@ -1185,78 +1185,78 @@ Dumping Verilog AST before simplification:
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
-Warning: reg '\b' is assigned in a continuous assignment at /UHDM-integration-tests/tests/OneImport/dut.sv:8.10-9.36.
+Warning: reg '\b' is assigned in a continuous assignment at UHDM-integration-tests/tests/OneImport/dut.sv:8.10-9.36.
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/OneImport/dut.sv:1.1-10.10> str='\dut' basic_prep
-      AST_ENUM </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\OPCODE_LOAD' logic basic_prep range=[5:0]
+    AST_MODULE <UHDM-integration-tests/tests/OneImport/dut.sv:1.1-10.10> str='\dut' basic_prep
+      AST_ENUM <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\OPCODE_LOAD' logic basic_prep range=[5:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\OPCODE_STORE' logic basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\OPCODE_STORE' logic basic_prep range=[5:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\opcode_e' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\opcode_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:6.14-6.15> str='\a' input logic basic_prep port=1 range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:6.8-6.13> basic_prep range=[5:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:7.13-7.14> str='\b' output reg basic_prep port=2 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:7.7-7.12> basic_prep range=[2:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/OneImport/dut.sv:8.10-9.36> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneImport/dut.sv:8.10-8.11> str='\b' basic_prep
-        AST_BIT_OR </UHDM-integration-tests/tests/OneImport/dut.sv:8.14-9.36> basic_prep
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-          AST_EQ </UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.35> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.20> str='\a' basic_prep
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:9.24-9.35> bits='000011'(6) basic_prep range=[5:0] int=3
-      AST_ENUM </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\my_pkg::OPCODE_LOAD' logic basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:6.14-6.15> str='\a' input logic basic_prep port=1 range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:6.8-6.13> basic_prep range=[5:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:7.13-7.14> str='\b' output reg basic_prep port=2 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:7.7-7.12> basic_prep range=[2:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/OneImport/dut.sv:8.10-9.36> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneImport/dut.sv:8.10-8.11> str='\b' basic_prep
+        AST_BIT_OR <UHDM-integration-tests/tests/OneImport/dut.sv:8.14-9.36> basic_prep
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+          AST_EQ <UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.35> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/OneImport/dut.sv:9.19-9.20> str='\a' basic_prep
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:9.24-9.35> bits='000011'(6) basic_prep range=[5:0] int=3
+      AST_ENUM <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> str='\my_pkg::OPCODE_LOAD' logic basic_prep range=[5:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\my_pkg::OPCODE_STORE' logic basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> str='\my_pkg::OPCODE_STORE' logic basic_prep range=[5:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\my_pkg::opcode_e' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/pkg.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/OneImport/pkg.sv:2.3-5.14> str='\my_pkg::opcode_e' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE </UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/OneImport/pkg.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/OneImport/pkg.sv:7.24-7.37> str='\my_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/OneImport/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);

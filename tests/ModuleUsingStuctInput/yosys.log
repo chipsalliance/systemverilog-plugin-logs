@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/ModuleUsingStuctInput/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/ModuleUsingStuctInput/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,25 +10,25 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:1:1: No timescale set for "ctrl_pkg".
+[WRN:PA0205] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:1:1: No timescale set for "ctrl_pkg".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:6:1: No timescale set for "pkg".
+[WRN:PA0205] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:6:1: No timescale set for "pkg".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30:1: No timescale set for "foo".
+[WRN:PA0205] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30:1: No timescale set for "foo".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0301] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:1:1: Compile package "ctrl_pkg".
+[INF:CP0301] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:1:1: Compile package "ctrl_pkg".
 
-[INF:CP0301] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:6:1: Compile package "pkg".
+[INF:CP0301] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:6:1: Compile package "pkg".
 
-[INF:CP0303] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30:1: Compile module "work@foo".
+[INF:CP0303] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30:1: Compile module "work@foo".
 
-[INF:CP0303] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -38,7 +38,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -65,7 +65,7 @@ design: (work@top)
   |vpiFullName:builtin::
   |vpiDefName:builtin
 |uhdmallPackages:
-\_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+\_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:ctrl_pkg
@@ -73,14 +73,14 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:2:13, endln:2:16
       |vpiParent:
       \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
       |vpiInstance:
-      \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
       |vpiSigned:1
     |vpiSigned:1
     |vpiName:Banks
@@ -88,14 +88,14 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |UINT:64
     |vpiTypespec:
     \_int_typespec: , line:3:13, endln:3:16
       |vpiParent:
       \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
       |vpiInstance:
-      \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
       |vpiSigned:1
     |vpiSigned:1
     |vpiName:PagesPerBank
@@ -103,7 +103,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:2:17, endln:2:26
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:2:25, endln:2:26
       |vpiDecompile:2
@@ -117,7 +117,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:3:17, endln:3:34
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:3:32, endln:3:34
       |vpiDecompile:64
@@ -130,7 +130,7 @@ design: (work@top)
     \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
   |vpiDefName:ctrl_pkg
 |uhdmallPackages:
-\_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+\_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:pkg
@@ -138,38 +138,38 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiTypespec:
     \_int_typespec: , line:7:13, endln:7:25
       |vpiParent:
       \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:NumBanks
     |vpiFullName:pkg::NumBanks
   |vpiParameter:
   \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiTypespec:
     \_int_typespec: , line:8:13, endln:8:25
       |vpiParent:
       \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:PagesPerBank
     |vpiFullName:pkg::PagesPerBank
   |vpiParameter:
   \_parameter: (pkg::Width), line:9:17, endln:9:22
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |UINT:4
     |vpiTypespec:
     \_int_typespec: , line:9:13, endln:9:16
       |vpiParent:
       \_parameter: (pkg::Width), line:9:17, endln:9:22
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiSigned:1
     |vpiSigned:1
     |vpiName:Width
@@ -177,7 +177,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:7:26, endln:7:59
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_ref_obj: (ctrl_pkg::Banks), line:7:44, endln:7:54
       |vpiName:ctrl_pkg::Banks
@@ -188,7 +188,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:8:26, endln:8:66
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_ref_obj: (ctrl_pkg::PagesPerBank), line:8:44, endln:8:54
       |vpiName:ctrl_pkg::PagesPerBank
@@ -199,7 +199,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:9:17, endln:9:26
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:9:25, endln:9:26
       |vpiDecompile:4
@@ -213,14 +213,14 @@ design: (work@top)
   |vpiTypedef:
   \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::enum_t
     |vpiInstance:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiBaseTypespec:
     \_logic_typespec: , line:10:16, endln:10:33
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:10:22, endln:10:33
         |vpiLeftRange:
@@ -264,14 +264,14 @@ design: (work@top)
   |vpiTypedef:
   \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::phase_t
     |vpiInstance:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiBaseTypespec:
     \_logic_typespec: , line:14:16, endln:14:27
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:14:22, endln:14:27
         |vpiLeftRange:
@@ -317,10 +317,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::region_attr_t
     |vpiInstance:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (phase), line:24:15, endln:24:20
@@ -329,7 +329,7 @@ design: (work@top)
       |vpiName:phase
       |vpiTypespec:
       \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
-      |vpiRefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
       |vpiRefLineNo:24
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:24
@@ -342,10 +342,10 @@ design: (work@top)
       |vpiTypespec:
       \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
         |vpiParent:
-        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
         |vpiName:pkg::region_cfg_t
         |vpiInstance:
-        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
         |vpiPacked:1
         |vpiTypespecMember:
         \_typespec_member: (en), line:21:12, endln:21:14
@@ -354,12 +354,12 @@ design: (work@top)
           |vpiName:en
           |vpiTypespec:
           \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
-          |vpiRefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+          |vpiRefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
           |vpiRefLineNo:21
           |vpiRefColumnNo:5
           |vpiRefEndLineNo:21
           |vpiRefEndColumnNo:11
-      |vpiRefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
       |vpiRefLineNo:25
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:25
@@ -406,7 +406,7 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmtopPackages:
-\_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+\_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:ctrl_pkg
@@ -414,14 +414,14 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:2:13, endln:2:16
       |vpiParent:
       \_parameter: (ctrl_pkg::Banks), line:2:17, endln:2:22
       |vpiInstance:
-      \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
       |vpiSigned:1
     |vpiSigned:1
     |vpiName:Banks
@@ -429,14 +429,14 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |UINT:64
     |vpiTypespec:
     \_int_typespec: , line:3:13, endln:3:16
       |vpiParent:
       \_parameter: (ctrl_pkg::PagesPerBank), line:3:17, endln:3:29
       |vpiInstance:
-      \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+      \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
       |vpiSigned:1
     |vpiSigned:1
     |vpiName:PagesPerBank
@@ -444,7 +444,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:2:17, endln:2:26
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:2:25, endln:2:26
       |vpiDecompile:2
@@ -458,7 +458,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:3:17, endln:3:34
     |vpiParent:
-    \_package: ctrl_pkg (ctrl_pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
+    \_package: ctrl_pkg (ctrl_pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:1:1, endln:4:11
     |vpiRhs:
     \_constant: , line:3:32, endln:3:34
       |vpiDecompile:64
@@ -472,7 +472,7 @@ design: (work@top)
   |vpiDefName:ctrl_pkg
   |vpiTop:1
 |uhdmtopPackages:
-\_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+\_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:pkg
@@ -480,40 +480,40 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |UINT:2
     |vpiTypespec:
     \_int_typespec: , line:7:13, endln:7:25
       |vpiParent:
       \_parameter: (pkg::NumBanks), line:7:26, endln:7:34
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:NumBanks
     |vpiFullName:pkg::NumBanks
   |vpiParameter:
   \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |UINT:64
     |vpiTypespec:
     \_int_typespec: , line:8:13, endln:8:25
       |vpiParent:
       \_parameter: (pkg::PagesPerBank), line:8:26, endln:8:38
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:PagesPerBank
     |vpiFullName:pkg::PagesPerBank
   |vpiParameter:
   \_parameter: (pkg::Width), line:9:17, endln:9:22
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |UINT:4
     |vpiTypespec:
     \_int_typespec: , line:9:13, endln:9:16
       |vpiParent:
       \_parameter: (pkg::Width), line:9:17, endln:9:22
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiSigned:1
     |vpiSigned:1
     |vpiName:Width
@@ -521,7 +521,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:7:26, endln:7:59
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:7:44, endln:7:54
       |vpiDecompile:2
@@ -535,7 +535,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:8:26, endln:8:66
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:8:44, endln:8:54
       |vpiDecompile:64
@@ -549,7 +549,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:9:17, endln:9:26
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiRhs:
     \_constant: , line:9:25, endln:9:26
       |vpiDecompile:4
@@ -563,14 +563,14 @@ design: (work@top)
   |vpiTypedef:
   \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::enum_t
     |vpiInstance:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiBaseTypespec:
     \_logic_typespec: , line:10:16, endln:10:33
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:10:22, endln:10:33
         |vpiLeftRange:
@@ -604,14 +604,14 @@ design: (work@top)
   |vpiTypedef:
   \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::phase_t
     |vpiInstance:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiBaseTypespec:
     \_logic_typespec: , line:14:16, endln:14:27
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
       |vpiRange:
       \_range: , line:14:22, endln:14:27
         |vpiLeftRange:
@@ -657,10 +657,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiName:pkg::region_attr_t
     |vpiInstance:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (phase), line:24:15, endln:24:20
@@ -669,7 +669,7 @@ design: (work@top)
       |vpiName:phase
       |vpiTypespec:
       \_enum_typespec: (pkg::phase_t), line:14:3, endln:19:13
-      |vpiRefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
       |vpiRefLineNo:24
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:24
@@ -682,10 +682,10 @@ design: (work@top)
       |vpiTypespec:
       \_struct_typespec: (pkg::region_cfg_t), line:20:11, endln:20:17
         |vpiParent:
-        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
         |vpiName:pkg::region_cfg_t
         |vpiInstance:
-        \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
+        \_package: pkg (pkg::), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:6:1, endln:28:11
         |vpiPacked:1
         |vpiTypespecMember:
         \_typespec_member: (en), line:21:12, endln:21:14
@@ -694,12 +694,12 @@ design: (work@top)
           |vpiName:en
           |vpiTypespec:
           \_enum_typespec: (pkg::enum_t), line:10:3, endln:13:12
-          |vpiRefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+          |vpiRefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
           |vpiRefLineNo:21
           |vpiRefColumnNo:5
           |vpiRefEndLineNo:21
           |vpiRefEndColumnNo:11
-      |vpiRefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
       |vpiRefLineNo:25
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:25
@@ -709,14 +709,14 @@ design: (work@top)
   |vpiDefName:pkg
   |vpiTop:1
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -725,9 +725,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -744,7 +744,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -756,17 +756,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -774,7 +774,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -782,7 +782,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -790,13 +790,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -804,7 +804,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -816,7 +816,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -824,13 +824,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -838,7 +838,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -850,20 +850,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -898,7 +898,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -908,13 +908,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -924,56 +924,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -982,9 +982,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -1001,13 +1001,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -1024,13 +1024,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -1047,7 +1047,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -1059,7 +1059,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -1074,7 +1074,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@foo (work@foo), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+\_module_inst: work@foo (work@foo), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@foo
@@ -1082,13 +1082,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@foo.DATA_REG), line:30:37, endln:30:45
     |vpiParent:
-    \_module_inst: work@foo (work@foo), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+    \_module_inst: work@foo (work@foo), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
     |vpiName:DATA_REG
     |vpiFullName:work@foo.DATA_REG
   |vpiPort:
   \_port: (DATA_REG), line:30:37, endln:30:45
     |vpiParent:
-    \_module_inst: work@foo (work@foo), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+    \_module_inst: work@foo (work@foo), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
     |vpiName:DATA_REG
     |vpiDirection:1
     |vpiLowConn:
@@ -1098,7 +1098,7 @@ design: (work@top)
     |vpiTypedef:
     \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -1106,11 +1106,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@foo (f), line:34:5, endln:34:6
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
     |vpiName:f
     |vpiDefName:work@foo
     |vpiActual:
-    \_module_inst: work@foo (work@foo), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
+    \_module_inst: work@foo (work@foo), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:30:1, endln:31:10
     |vpiPort:
     \_port: (DATA_REG), line:34:7, endln:34:27
       |vpiName:DATA_REG
@@ -1121,35 +1121,35 @@ design: (work@top)
         |BIN:111111
         |vpiConstType:3
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
   |vpiName:work@top
   |vpiDefName:work@top
   |vpiTop:1
   |vpiTopModule:1
   |vpiModule:
-  \_module_inst: work@foo (work@top.f), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
+  \_module_inst: work@foo (work@top.f), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
     |vpiName:f
     |vpiFullName:work@top.f
     |vpiVariables:
     \_struct_var: (work@top.f.DATA_REG), line:30:37, endln:30:45
       |vpiParent:
-      \_module_inst: work@foo (work@top.f), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
+      \_module_inst: work@foo (work@top.f), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
       |vpiTypespec:
       \_struct_typespec: (pkg::region_attr_t), line:23:11, endln:23:17
       |vpiName:DATA_REG
       |vpiFullName:work@top.f.DATA_REG
       |vpiVisibility:1
     |vpiDefName:work@foo
-    |vpiDefFile:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv
     |vpiDefLineNo:30
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:33:1, endln:35:10
     |vpiPort:
     \_port: (DATA_REG), line:30:37, endln:30:45
       |vpiParent:
-      \_module_inst: work@foo (work@top.f), file:/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
+      \_module_inst: work@foo (work@top.f), file:UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv, line:34:1, endln:34:29
       |vpiName:DATA_REG
       |vpiDirection:1
       |vpiHighConn:
@@ -1288,104 +1288,104 @@ Object 'work@top' of type 'design'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\foo'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10> str='\foo'
-      AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45> str='\DATA_REG' input logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10> str='\foo'
+      AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45> str='\DATA_REG' input logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\region_attr_t' bits='0101110001110010011001010110011101101001011011110110111001011111011000010111010001110100011100100101111101110100'(112) basic_prep range=[111:0] int=1953652596
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\region_attr_t' bits='0101110001110010011001010110011101101001011011110110111001011111011000010111010001110100011100100101111101110100'(112) basic_prep range=[111:0] int=1953652596
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[5:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module foo(DATA_REG);
@@ -1405,104 +1405,104 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10> str='\foo' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45> str='\DATA_REG' input logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10> str='\foo' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45> str='\DATA_REG' input logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\region_attr_t' bits='0101110001110010011001010110011101101001011011110110111001011111011000010111010001110100011100100101111101110100'(112) basic_prep range=[111:0] int=1953652596
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\region_attr_t' bits='0101110001110010011001010110011101101001011011110110111001011111011000010111010001110100011100100101111101110100'(112) basic_prep range=[111:0] int=1953652596
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[5:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module foo(DATA_REG);
@@ -1523,102 +1523,102 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10> str='\top'
-      AST_CELL </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\f'
-        AST_CELLTYPE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\foo'
-        AST_ARGUMENT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\DATA_REG'
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='111111'(6) range=[5:0] int=63
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+    AST_MODULE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10> str='\top'
+      AST_CELL <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\f'
+        AST_CELLTYPE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\foo'
+        AST_ARGUMENT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\DATA_REG'
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='111111'(6) range=[5:0] int=63
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top();
@@ -1637,102 +1637,102 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10> str='\top' basic_prep
-      AST_CELL </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\f' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\foo' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\DATA_REG' basic_prep
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='111111'(6) basic_prep range=[5:0] int=63
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
+    AST_MODULE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10> str='\top' basic_prep
+      AST_CELL <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\f' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='\foo' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29> str='\DATA_REG' basic_prep
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='111111'(6) basic_prep range=[5:0] int=63
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:2.17-2.26> str='\ctrl_pkg::Banks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:3.17-3.34> str='\ctrl_pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> str='\pkg::true_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:11.5-11.18> bits='0110'(4) basic_prep range=[3:0] int=6
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> str='\pkg::false_e' logic basic_prep range=[3:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:12.5-12.19> bits='1001'(4) basic_prep range=[3:0] int=9
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.3-13.12> str='\pkg::enum_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[3:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ENUM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:10.22-10.33> basic_prep range=[3:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ENUM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> str='\pkg::seed_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:15.5-15.11> bits='00'(2) basic_prep range=[1:0]
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> str='\pkg::rma_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:16.5-16.10> bits='01'(2) basic_prep range=[1:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> str='\pkg::none_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ENUM_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:17.5-17.11> bits='10'(2) basic_prep range=[1:0] int=2
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> str='\pkg::invalid_e' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
-        AST_WIRE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:18.5-18.14> bits='11'(2) basic_prep range=[1:0] int=3
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.3-19.13> str='\pkg::phase_t' basic_prep
+        AST_WIRE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> reg basic_prep range=[1:0]
           ATTR \enum_type:
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
-          AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-        AST_RANGE </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+          AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:14.22-14.27> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> str='\pkg::region_attr_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:23.11-23.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:24.15-24.20> str='phase' basic_prep range=[5:4]
+          AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='cfg' basic_prep range=[3:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> str='\pkg::region_cfg_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:20.11-20.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:21.12-21.14> str='en' basic_prep range=[3:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:7.26-7.59> str='\pkg::NumBanks' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:8.26-8.66> str='\pkg::PagesPerBank' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000001000000'(32) basic_prep range=[31:0] int=64
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:9.17-9.26> str='\pkg::Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+        AST_RANGE <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top();
@@ -1760,9 +1760,9 @@ Dumping Verilog AST after simplification:
 Dumping module `\foo'.
 
 (* cells_not_processed =  1  *)
-(* src = "/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10" *)
+(* src = "UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.1-31.10" *)
 module foo(DATA_REG);
-  (* src = "/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45" *)
+  (* src = "UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:30.37-30.45" *)
   (* wiretype = "\\region_attr_t" *)
   input [5:0] DATA_REG;
   wire [5:0] DATA_REG;
@@ -1770,10 +1770,10 @@ endmodule
 Dumping module `\top'.
 
 (* cells_not_processed =  1  *)
-(* src = "/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10" *)
+(* src = "UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:33.1-35.10" *)
 module top();
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29" *)
+  (* src = "UHDM-integration-tests/tests/ModuleUsingStuctInput/top.sv:34.1-34.29" *)
   foo f (
     .DATA_REG(6'h3f)
   );

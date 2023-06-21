@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/OneStruct/dut.sv" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/OneStruct/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/OneStruct/dut.sv" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/OneStruct/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,13 +10,13 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/OneStruct/dut.sv:1:1: No timescale set for "dut".
+[WRN:PA0205] UHDM-integration-tests/tests/OneStruct/dut.sv:1:1: No timescale set for "dut".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/OneStruct/dut.sv:1:1: Compile module "work@dut".
+[INF:CP0303] UHDM-integration-tests/tests/OneStruct/dut.sv:1:1: Compile module "work@dut".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -24,11 +24,11 @@ Using Yosys read_systemverilog command
 
 [INF:CP0302] Compile class "work@semaphore".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/OneStruct/dut.sv:1:16: Implicit port type (wire) for "b".
+[NTE:CP0309] UHDM-integration-tests/tests/OneStruct/dut.sv:1:16: Implicit port type (wire) for "b".
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/OneStruct/dut.sv:1:1: Top level module "work@dut".
+[NTE:EL0503] UHDM-integration-tests/tests/OneStruct/dut.sv:1:1: Top level module "work@dut".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -93,14 +93,14 @@ design: (work@dut)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -109,9 +109,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -128,7 +128,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -140,17 +140,17 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -158,7 +158,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -166,7 +166,7 @@ design: (work@dut)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -174,13 +174,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -188,7 +188,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -200,7 +200,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -208,13 +208,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -222,7 +222,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -234,20 +234,20 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -282,7 +282,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -292,13 +292,13 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -308,56 +308,56 @@ design: (work@dut)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -366,9 +366,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -385,13 +385,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -408,13 +408,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -431,7 +431,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -443,7 +443,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -458,17 +458,17 @@ design: (work@dut)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@dut
   |vpiTypedef:
   \_struct_typespec: (mem_s), line:5:11, endln:5:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:mem_s
     |vpiInstance:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiPacked:1
     |vpiTypespecMember:
     \_typespec_member: (addr), line:6:17, endln:6:21
@@ -499,7 +499,7 @@ design: (work@dut)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
-      |vpiRefFile:/UHDM-integration-tests/tests/OneStruct/dut.sv
+      |vpiRefFile:UHDM-integration-tests/tests/OneStruct/dut.sv
       |vpiRefLineNo:6
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:6
@@ -533,7 +533,7 @@ design: (work@dut)
             |vpiSize:64
             |UINT:0
             |vpiConstType:9
-      |vpiRefFile:/UHDM-integration-tests/tests/OneStruct/dut.sv
+      |vpiRefFile:UHDM-integration-tests/tests/OneStruct/dut.sv
       |vpiRefLineNo:7
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:7
@@ -547,7 +547,7 @@ design: (work@dut)
       \_logic_typespec: , line:8:5, endln:8:10
         |vpiParent:
         \_typespec_member: (wr), line:8:11, endln:8:13
-      |vpiRefFile:/UHDM-integration-tests/tests/OneStruct/dut.sv
+      |vpiRefFile:UHDM-integration-tests/tests/OneStruct/dut.sv
       |vpiRefLineNo:8
       |vpiRefColumnNo:5
       |vpiRefEndLineNo:8
@@ -556,43 +556,43 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.packed_mem), line:11:15, endln:11:25
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:packed_mem
     |vpiFullName:work@dut.packed_mem
   |vpiNet:
   \_logic_net: (work@dut.memArray), line:12:9, endln:12:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:memArray
     |vpiFullName:work@dut.memArray
   |vpiNet:
   \_logic_net: (work@dut.memMulti), line:13:9, endln:13:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:memMulti
     |vpiFullName:work@dut.memMulti
   |vpiNet:
   \_logic_net: (work@dut.mem), line:15:9, endln:15:12
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:mem
     |vpiFullName:work@dut.mem
   |vpiNet:
   \_logic_net: (work@dut.a), line:1:13, endln:1:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:a
     |vpiFullName:work@dut.a
   |vpiNet:
   \_logic_net: (work@dut.b), line:1:16, endln:1:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:b
     |vpiFullName:work@dut.b
   |vpiPort:
   \_port: (a), line:1:13, endln:1:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -604,7 +604,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:1:16, endln:1:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -634,7 +634,7 @@ design: (work@dut)
   |vpiProcess:
   \_always: , line:17:3, endln:25:6
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiStmt:
     \_event_control: , line:17:10, endln:17:14
       |vpiParent:
@@ -807,7 +807,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:27:10, endln:27:20
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiRhs:
     \_ref_obj: (work@dut.a), line:27:19, endln:27:20
       |vpiParent:
@@ -834,7 +834,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:28:10, endln:28:24
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiRhs:
     \_hier_path: (mem.wr), line:28:18, endln:28:24
       |vpiParent:
@@ -871,7 +871,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:29:10, endln:29:28
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiRhs:
     \_hier_path: (mem.data), line:29:20, endln:29:28
       |vpiParent:
@@ -912,7 +912,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:30:10, endln:30:27
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiRhs:
     \_hier_path: (mem.addr), line:30:19, endln:30:27
       |vpiParent:
@@ -951,12 +951,12 @@ design: (work@dut)
         |UINT:0
         |vpiConstType:9
 |uhdmtopModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
   |vpiName:work@dut
   |vpiVariables:
   \_packed_array_var: (work@dut.packed_mem), line:11:15, endln:11:25
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:packed_mem
     |vpiFullName:work@dut.packed_mem
     |vpiVisibility:1
@@ -992,7 +992,7 @@ design: (work@dut)
   |vpiNet:
   \_struct_net: (work@dut.mem), line:15:9, endln:15:12
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiTypespec:
     \_struct_typespec: (mem_s), line:5:11, endln:5:17
     |vpiName:mem
@@ -1000,7 +1000,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.a), line:1:13, endln:1:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiTypespec:
     \_logic_typespec: , line:2:9, endln:2:9
     |vpiName:a
@@ -1008,7 +1008,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.b), line:1:16, endln:1:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiTypespec:
     \_logic_typespec: , line:3:10, endln:3:16
       |vpiRange:
@@ -1034,7 +1034,7 @@ design: (work@dut)
   |vpiArrayNet:
   \_array_net: (work@dut.memArray), line:12:9, endln:12:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiSize:8
     |vpiName:memArray
     |vpiFullName:work@dut.memArray
@@ -1075,7 +1075,7 @@ design: (work@dut)
   |vpiArrayNet:
   \_array_net: (work@dut.memMulti), line:13:9, endln:13:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiSize:200
     |vpiName:memMulti
     |vpiFullName:work@dut.memMulti
@@ -1143,7 +1143,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (a), line:1:13, endln:1:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -1157,7 +1157,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:1:16, endln:1:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/OneStruct/dut.sv, line:1:1, endln:32:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -1354,114 +1354,114 @@ Object 'work@dut' of type 'design'
         Object '' of type 'constant'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/OneStruct/dut.sv:1.1-32.10> str='\dut'
-      AST_TYPEDEF </UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> str='\mem_s'
-        AST_STRUCT </UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/OneStruct/dut.sv:6.17-6.21> str='addr' logic basic_prep range=[16:9]
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/OneStruct/dut.sv:7.17-7.21> str='data' logic basic_prep range=[8:1]
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/OneStruct/dut.sv:8.11-8.13> str='wr' logic basic_prep range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[16:0] multirange=[ 0 17 0 2 ] multirange_swapped=[ 0 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.1-32.10> str='\dut'
+      AST_TYPEDEF <UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> str='\mem_s'
+        AST_STRUCT <UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/OneStruct/dut.sv:6.17-6.21> str='addr' logic basic_prep range=[16:9]
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/OneStruct/dut.sv:7.17-7.21> str='data' logic basic_prep range=[8:1]
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/OneStruct/dut.sv:8.11-8.13> str='wr' logic basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[16:0] multirange=[ 0 17 0 2 ] multirange_swapped=[ 0 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> range=[33:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed range=[31:0] int=33
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[16:0] multirange=[ 0 17 0 8 ] multirange_swapped=[ 0 1 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> range=[33:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed range=[31:0] int=33
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[16:0] multirange=[ 0 17 0 8 ] multirange_swapped=[ 0 1 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> range=[135:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed range=[31:0] int=135
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[16:0] multirange=[ 0 17 0 10 0 20 ] multirange_swapped=[ 0 1 1 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> range=[135:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed range=[31:0] int=135
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[16:0] multirange=[ 0 17 0 10 0 20 ] multirange_swapped=[ 0 1 1 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> range=[3399:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed range=[31:0] int=3399
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic basic_prep range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> range=[3399:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed range=[31:0] int=3399
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic basic_prep range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 multirange=[ 0 17 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.20>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.16> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:27.19-27.20> str='\a'
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.24>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15> str='\b'
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:28.18-28.24> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.28>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17> str='\b'
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:29.20-29.28> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.27>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16> str='\b'
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:30.19-30.27> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
-      AST_ALWAYS </UHDM-integration-tests/tests/OneStruct/dut.sv:17.3-25.6>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:17.12-17.13> str='\a'
-        AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:17.10-17.14>
-          AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:17.15-25.6>
-            AST_CASE </UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8>
-              AST_REDUCE_BOOL </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                AST_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.18>
-                  AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.10> str='\a'
-                  AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='0'(1) range=[0:0]
-              AST_COND </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-                AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                  AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:18.21-21.8>
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.19>
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.19>
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_COND </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                AST_DEFAULT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                  AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:21.14-24.8>
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.21>
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000000'(32) signed range=[31:0] int=128
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.21>
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 multirange=[ 0 17 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.20>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.16> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:27.19-27.20> str='\a'
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.24>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15> str='\b'
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:28.18-28.24> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.28>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17> str='\b'
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:29.20-29.28> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.27>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16> str='\b'
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:30.19-30.27> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
+      AST_ALWAYS <UHDM-integration-tests/tests/OneStruct/dut.sv:17.3-25.6>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:17.12-17.13> str='\a'
+        AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:17.10-17.14>
+          AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:17.15-25.6>
+            AST_CASE <UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8>
+              AST_REDUCE_BOOL <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                AST_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.18>
+                  AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.10> str='\a'
+                  AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='0'(1) range=[0:0]
+              AST_COND <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+                AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                  AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:18.21-21.8>
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.19>
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.19>
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_COND <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                AST_DEFAULT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                  AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:21.14-24.8>
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.21>
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000000'(32) signed range=[31:0] int=128
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.21>
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0>
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed range=[31:0] int=255
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, b);
@@ -1496,114 +1496,114 @@ a        case (|((a)==(1'b 0)))
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/OneStruct/dut.sv:1.1-32.10> str='\dut' basic_prep
-      AST_TYPEDEF </UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> str='\mem_s' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/OneStruct/dut.sv:6.17-6.21> str='addr' logic basic_prep range=[16:9]
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/OneStruct/dut.sv:7.17-7.21> str='data' logic basic_prep range=[8:1]
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/OneStruct/dut.sv:8.11-8.13> str='wr' logic basic_prep range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[33:0] multirange=[ 0 17 0 2 ] multirange_swapped=[ 0 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.1-32.10> str='\dut' basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> str='\mem_s' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/OneStruct/dut.sv:5.11-5.17> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/OneStruct/dut.sv:6.17-6.21> str='addr' logic basic_prep range=[16:9]
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/OneStruct/dut.sv:7.17-7.21> str='data' logic basic_prep range=[8:1]
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/OneStruct/dut.sv:8.11-8.13> str='wr' logic basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[33:0] multirange=[ 0 17 0 2 ] multirange_swapped=[ 0 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[33:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[135:0] multirange=[ 0 17 0 8 ] multirange_swapped=[ 0 1 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[33:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[135:0] multirange=[ 0 17 0 8 ] multirange_swapped=[ 0 1 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[135:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed basic_prep range=[31:0] int=135
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[3399:0] multirange=[ 0 17 0 10 0 20 ] multirange_swapped=[ 0 1 1 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[135:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed basic_prep range=[31:0] int=135
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[3399:0] multirange=[ 0 17 0 10 0 20 ] multirange_swapped=[ 0 1 1 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[3399:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed basic_prep range=[31:0] int=3399
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic reg basic_prep range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[3399:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed basic_prep range=[31:0] int=3399
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic reg basic_prep range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.20> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.16> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:27.19-27.20> str='\a' basic_prep
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.24> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15> str='\b' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15> basic_prep range=[16:16]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:28.18-28.24> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.28> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17> str='\b' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17> basic_prep range=[15:8]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:29.20-29.28> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.27> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16> str='\b' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16> basic_prep range=[7:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:30.19-30.27> str='\mem' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-            AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
-      AST_ALWAYS </UHDM-integration-tests/tests/OneStruct/dut.sv:17.3-25.6> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:17.12-17.13> str='\a' basic_prep
-        AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:17.10-17.14> basic_prep
-          AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:17.15-25.6> basic_prep
-            AST_CASE </UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8> basic_prep
-              AST_REDUCE_BOOL </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
-                AST_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.18> basic_prep
-                  AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.10> str='\a' basic_prep
-                  AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
-              AST_COND </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
-                AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-                AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
-                  AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:18.21-21.8> basic_prep
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.19> basic_prep
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.19> basic_prep
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-              AST_COND </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
-                AST_DEFAULT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
-                AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
-                  AST_BLOCK </UHDM-integration-tests/tests/OneStruct/dut.sv:21.14-24.8> basic_prep
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.21> basic_prep
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000000'(32) signed basic_prep range=[31:0] int=128
-                    AST_ASSIGN_EQ </UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.21> basic_prep
-                      AST_IDENTIFIER </UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.15> str='\mem' basic_prep
-                        AST_RANGE </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
-                          AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-                      AST_CONSTANT </UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.20> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:27.10-27.16> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:27.19-27.20> str='\a' basic_prep
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.24> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15> str='\b' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:28.10-28.15> basic_prep range=[16:16]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:28.18-28.24> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.28> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17> str='\b' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:29.10-29.17> basic_prep range=[15:8]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:29.20-29.28> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.27> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16> str='\b' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:30.10-30.16> basic_prep range=[7:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:30.19-30.27> str='\mem' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+            AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+      AST_ALWAYS <UHDM-integration-tests/tests/OneStruct/dut.sv:17.3-25.6> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:17.12-17.13> str='\a' basic_prep
+        AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:17.10-17.14> basic_prep
+          AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:17.15-25.6> basic_prep
+            AST_CASE <UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8> basic_prep
+              AST_REDUCE_BOOL <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
+                AST_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.18> basic_prep
+                  AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:18.9-18.10> str='\a' basic_prep
+                  AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
+              AST_COND <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
+                AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+                AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
+                  AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:18.21-21.8> basic_prep
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.19> basic_prep
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:19.7-19.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.19> basic_prep
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:20.7-20.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+              AST_COND <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
+                AST_DEFAULT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
+                AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep
+                  AST_BLOCK <UHDM-integration-tests/tests/OneStruct/dut.sv:21.14-24.8> basic_prep
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.21> basic_prep
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:22.7-22.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000000'(32) signed basic_prep range=[31:0] int=128
+                    AST_ASSIGN_EQ <UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.21> basic_prep
+                      AST_IDENTIFIER <UHDM-integration-tests/tests/OneStruct/dut.sv:23.7-23.15> str='\mem' basic_prep
+                        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
+                          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+                      AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);
@@ -1655,7 +1655,7 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$/UHDM-integration-tests/tests/OneStruct/dut.sv:17$1 in module dut.
+Marked 1 switch rules as full_case in process $proc$UHDM-integration-tests/tests/OneStruct/dut.sv:17$1 in module dut.
 Removed a total of 0 dead cases.
 
 2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
@@ -1671,20 +1671,20 @@ Converted 0 switches.
 <suppressed ~1 debug messages>
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\dut.$proc$/UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
+Creating decoders for process `\dut.$proc$UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
      1/2: $1\mem[16:1] [7:0]
      2/2: $1\mem[16:1] [15:8]
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\dut.\mem [16:1]' from process `\dut.$proc$/UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
+No latch inferred for signal `\dut.\mem [16:1]' from process `\dut.$proc$UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 1 empty switch in `\dut.$proc$/UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
-Removing empty process `dut.$proc$/UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
+Found and cleaned up 1 empty switch in `\dut.$proc$UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
+Removing empty process `dut.$proc$UHDM-integration-tests/tests/OneStruct/dut.sv:17$1'.
 Cleaned up 1 empty switch.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
@@ -1784,19 +1784,19 @@ Found and reported 0 problems.
 Dumping module `\dut'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/OneStruct/dut.sv:1.1-32.10" *)
+(* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:1.1-32.10" *)
 module dut(a, b);
-  (* src = "/UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14" *)
+  (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14" *)
   input a;
   wire a;
-  (* src = "/UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17" *)
+  (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17" *)
   output [16:0] b;
   wire [16:0] b;
-  (* src = "/UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12" *)
+  (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:15.9-15.12" *)
   (* wiretype = "\\mem_s" *)
   wire [16:0] mem;
-  assign b[15:8] = a ? (* full_case = 32'd1 *) (* src = "/UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0|/UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8" *) 8'hff : 8'h00;
-  assign b[7:0] = a ? (* full_case = 32'd1 *) (* src = "/UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0|/UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8" *) 8'h80 : 8'h00;
+  assign b[15:8] = a ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0|UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8" *) 8'hff : 8'h00;
+  assign b[7:0] = a ? (* full_case = 32'd1 *) (* src = "UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0|UHDM-integration-tests/tests/OneStruct/dut.sv:18.5-24.8" *) 8'h80 : 8'h00;
   assign b[16] = a;
   assign mem = { b[7:0], b[15:8], a };
 endmodule

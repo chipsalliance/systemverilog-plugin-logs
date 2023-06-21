@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/OneDivider/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/OneDivider/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,13 +10,13 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /Surelog/tests/OneDivider/dut.v:1:1: No timescale set for "dut".
+[WRN:PA0205] Surelog/tests/OneDivider/dut.v:1:1: No timescale set for "dut".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /Surelog/tests/OneDivider/dut.v:1:1: Compile module "work@dut".
+[INF:CP0303] Surelog/tests/OneDivider/dut.v:1:1: Compile module "work@dut".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -26,7 +26,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /Surelog/tests/OneDivider/dut.v:1:1: Top level module "work@dut".
+[NTE:EL0503] Surelog/tests/OneDivider/dut.v:1:1: Top level module "work@dut".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -91,14 +91,14 @@ design: (work@dut)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -107,9 +107,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -126,7 +126,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -138,17 +138,17 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -156,7 +156,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -164,7 +164,7 @@ design: (work@dut)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -172,13 +172,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -186,7 +186,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -198,7 +198,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -206,13 +206,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -220,7 +220,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -232,20 +232,20 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -280,7 +280,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -290,13 +290,13 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -306,56 +306,56 @@ design: (work@dut)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -364,9 +364,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -383,13 +383,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -406,13 +406,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -429,7 +429,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -441,7 +441,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -456,7 +456,7 @@ design: (work@dut)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+\_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@dut
@@ -464,28 +464,28 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.rstn), line:1:24, endln:1:28
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:rstn
     |vpiFullName:work@dut.rstn
     |vpiNetType:36
   |vpiNet:
   \_logic_net: (work@dut.clk), line:2:24, endln:2:27
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:clk
     |vpiFullName:work@dut.clk
     |vpiNetType:36
   |vpiNet:
   \_logic_net: (work@dut.div), line:3:23, endln:3:26
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:div
     |vpiFullName:work@dut.div
     |vpiNetType:48
   |vpiPort:
   \_port: (rstn), line:1:24, endln:1:28
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:rstn
     |vpiDirection:1
     |vpiLowConn:
@@ -497,7 +497,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (clk), line:2:24, endln:2:27
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:clk
     |vpiDirection:1
     |vpiLowConn:
@@ -509,7 +509,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (div), line:3:23, endln:3:26
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:div
     |vpiDirection:2
     |vpiLowConn:
@@ -521,7 +521,7 @@ design: (work@dut)
   |vpiProcess:
   \_always: , line:5:1, endln:9:23
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiStmt:
     \_event_control: , line:5:8, endln:5:39
       |vpiParent:
@@ -617,14 +617,14 @@ design: (work@dut)
             \_logic_net: (work@dut.div), line:3:23, endln:3:26
     |vpiAlwaysType:1
 |uhdmtopModules:
-\_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+\_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
   |vpiName:work@dut
   |vpiDefName:work@dut
   |vpiTop:1
   |vpiNet:
   \_logic_net: (work@dut.rstn), line:1:24, endln:1:28
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiTypespec:
     \_logic_typespec: , line:1:18, endln:1:23
     |vpiName:rstn
@@ -633,7 +633,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.clk), line:2:24, endln:2:27
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiTypespec:
     \_logic_typespec: , line:2:18, endln:2:23
     |vpiName:clk
@@ -642,7 +642,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.div), line:3:23, endln:3:26
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiTypespec:
     \_logic_typespec: , line:3:19, endln:3:22
     |vpiName:div
@@ -652,7 +652,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (rstn), line:1:24, endln:1:28
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:rstn
     |vpiDirection:1
     |vpiLowConn:
@@ -666,7 +666,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (clk), line:2:24, endln:2:27
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:clk
     |vpiDirection:1
     |vpiLowConn:
@@ -680,7 +680,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (div), line:3:23, endln:3:26
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneDivider/dut.v, line:1:1, endln:10:10
     |vpiName:div
     |vpiDirection:2
     |vpiLowConn:
@@ -731,33 +731,33 @@ Object 'work@dut' of type 'design'
       Object '' of type 'logic_typespec'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE </Surelog/tests/OneDivider/dut.v:1.1-10.10> str='\dut'
-      AST_WIRE </Surelog/tests/OneDivider/dut.v:1.24-1.28> str='\rstn' input logic port=1 range=[0:0]
-      AST_WIRE </Surelog/tests/OneDivider/dut.v:2.24-2.27> str='\clk' input logic port=2 range=[0:0]
-      AST_WIRE </Surelog/tests/OneDivider/dut.v:3.23-3.26> str='\div' output reg port=3 range=[0:0]
-      AST_ALWAYS </Surelog/tests/OneDivider/dut.v:5.1-9.23>
-        AST_POSEDGE </Surelog/tests/OneDivider/dut.v:5.11-5.22>
-          AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:5.19-5.22> str='\clk'
-        AST_NEGEDGE </Surelog/tests/OneDivider/dut.v:5.26-5.38>
-          AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:5.34-5.38> str='\rstn'
-        AST_BLOCK </Surelog/tests/OneDivider/dut.v:5.8-5.39>
-          AST_CASE </Surelog/tests/OneDivider/dut.v:6.8-9.23>
-            AST_REDUCE_BOOL </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
-              AST_LOGIC_NOT </Surelog/tests/OneDivider/dut.v:6.12-6.17>
-                AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:6.13-6.17> str='\rstn'
-            AST_COND </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
-              AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='1'(1) range=[0:0] int=1
-              AST_BLOCK </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
-                AST_ASSIGN_LE </Surelog/tests/OneDivider/dut.v:7.11-7.19>
-                  AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:7.11-7.14> str='\div'
-                  AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_COND </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
-              AST_DEFAULT </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
-              AST_BLOCK </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
-                AST_ASSIGN_LE </Surelog/tests/OneDivider/dut.v:9.11-9.22>
-                  AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:9.11-9.14> str='\div'
-                  AST_LOGIC_NOT </Surelog/tests/OneDivider/dut.v:9.18-9.22>
-                    AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:9.19-9.22> str='\div'
+    AST_MODULE <Surelog/tests/OneDivider/dut.v:1.1-10.10> str='\dut'
+      AST_WIRE <Surelog/tests/OneDivider/dut.v:1.24-1.28> str='\rstn' input logic port=1 range=[0:0]
+      AST_WIRE <Surelog/tests/OneDivider/dut.v:2.24-2.27> str='\clk' input logic port=2 range=[0:0]
+      AST_WIRE <Surelog/tests/OneDivider/dut.v:3.23-3.26> str='\div' output reg port=3 range=[0:0]
+      AST_ALWAYS <Surelog/tests/OneDivider/dut.v:5.1-9.23>
+        AST_POSEDGE <Surelog/tests/OneDivider/dut.v:5.11-5.22>
+          AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:5.19-5.22> str='\clk'
+        AST_NEGEDGE <Surelog/tests/OneDivider/dut.v:5.26-5.38>
+          AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:5.34-5.38> str='\rstn'
+        AST_BLOCK <Surelog/tests/OneDivider/dut.v:5.8-5.39>
+          AST_CASE <Surelog/tests/OneDivider/dut.v:6.8-9.23>
+            AST_REDUCE_BOOL <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_LOGIC_NOT <Surelog/tests/OneDivider/dut.v:6.12-6.17>
+                AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:6.13-6.17> str='\rstn'
+            AST_COND <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='1'(1) range=[0:0] int=1
+              AST_BLOCK <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
+                AST_ASSIGN_LE <Surelog/tests/OneDivider/dut.v:7.11-7.19>
+                  AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:7.11-7.14> str='\div'
+                  AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_COND <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_DEFAULT <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_BLOCK <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0>
+                AST_ASSIGN_LE <Surelog/tests/OneDivider/dut.v:9.11-9.22>
+                  AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:9.11-9.14> str='\div'
+                  AST_LOGIC_NOT <Surelog/tests/OneDivider/dut.v:9.18-9.22>
+                    AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:9.19-9.22> str='\div'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(rstn, clk, div);
@@ -774,33 +774,33 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </Surelog/tests/OneDivider/dut.v:1.1-10.10> str='\dut' basic_prep
-      AST_WIRE </Surelog/tests/OneDivider/dut.v:1.24-1.28> str='\rstn' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </Surelog/tests/OneDivider/dut.v:2.24-2.27> str='\clk' input logic basic_prep port=2 range=[0:0]
-      AST_WIRE </Surelog/tests/OneDivider/dut.v:3.23-3.26> str='\div' output reg basic_prep port=3 range=[0:0]
-      AST_ALWAYS </Surelog/tests/OneDivider/dut.v:5.1-9.23> basic_prep
-        AST_POSEDGE </Surelog/tests/OneDivider/dut.v:5.11-5.22> basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:5.19-5.22> str='\clk' basic_prep
-        AST_NEGEDGE </Surelog/tests/OneDivider/dut.v:5.26-5.38> basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:5.34-5.38> str='\rstn' basic_prep
-        AST_BLOCK </Surelog/tests/OneDivider/dut.v:5.8-5.39> basic_prep
-          AST_CASE </Surelog/tests/OneDivider/dut.v:6.8-9.23> basic_prep
-            AST_REDUCE_BOOL </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
-              AST_LOGIC_NOT </Surelog/tests/OneDivider/dut.v:6.12-6.17> basic_prep
-                AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:6.13-6.17> str='\rstn' basic_prep
-            AST_COND </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
-              AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-              AST_BLOCK </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
-                AST_ASSIGN_LE </Surelog/tests/OneDivider/dut.v:7.11-7.19> basic_prep
-                  AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:7.11-7.14> str='\div' basic_prep
-                  AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_COND </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
-              AST_DEFAULT </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
-              AST_BLOCK </UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
-                AST_ASSIGN_LE </Surelog/tests/OneDivider/dut.v:9.11-9.22> basic_prep
-                  AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:9.11-9.14> str='\div' basic_prep
-                  AST_LOGIC_NOT </Surelog/tests/OneDivider/dut.v:9.18-9.22> basic_prep
-                    AST_IDENTIFIER </Surelog/tests/OneDivider/dut.v:9.19-9.22> str='\div' basic_prep
+    AST_MODULE <Surelog/tests/OneDivider/dut.v:1.1-10.10> str='\dut' basic_prep
+      AST_WIRE <Surelog/tests/OneDivider/dut.v:1.24-1.28> str='\rstn' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <Surelog/tests/OneDivider/dut.v:2.24-2.27> str='\clk' input logic basic_prep port=2 range=[0:0]
+      AST_WIRE <Surelog/tests/OneDivider/dut.v:3.23-3.26> str='\div' output reg basic_prep port=3 range=[0:0]
+      AST_ALWAYS <Surelog/tests/OneDivider/dut.v:5.1-9.23> basic_prep
+        AST_POSEDGE <Surelog/tests/OneDivider/dut.v:5.11-5.22> basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:5.19-5.22> str='\clk' basic_prep
+        AST_NEGEDGE <Surelog/tests/OneDivider/dut.v:5.26-5.38> basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:5.34-5.38> str='\rstn' basic_prep
+        AST_BLOCK <Surelog/tests/OneDivider/dut.v:5.8-5.39> basic_prep
+          AST_CASE <Surelog/tests/OneDivider/dut.v:6.8-9.23> basic_prep
+            AST_REDUCE_BOOL <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_LOGIC_NOT <Surelog/tests/OneDivider/dut.v:6.12-6.17> basic_prep
+                AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:6.13-6.17> str='\rstn' basic_prep
+            AST_COND <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+              AST_BLOCK <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+                AST_ASSIGN_LE <Surelog/tests/OneDivider/dut.v:7.11-7.19> basic_prep
+                  AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:7.11-7.14> str='\div' basic_prep
+                  AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_COND <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_DEFAULT <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_BLOCK <UHDM-integration-tests/../Surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+                AST_ASSIGN_LE <Surelog/tests/OneDivider/dut.v:9.11-9.22> basic_prep
+                  AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:9.11-9.14> str='\div' basic_prep
+                  AST_LOGIC_NOT <Surelog/tests/OneDivider/dut.v:9.18-9.22> basic_prep
+                    AST_IDENTIFIER <Surelog/tests/OneDivider/dut.v:9.19-9.22> str='\div' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(rstn, clk, div);
@@ -834,7 +834,7 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$/Surelog/tests/OneDivider/dut.v:5$1 in module dut.
+Marked 1 switch rules as full_case in process $proc$Surelog/tests/OneDivider/dut.v:5$1 in module dut.
 Removed a total of 0 dead cases.
 
 2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
@@ -844,25 +844,25 @@ Promoted 0 assignments to connections.
 2.2.4. Executing PROC_INIT pass (extract init attributes).
 
 2.2.5. Executing PROC_ARST pass (detect async resets in processes).
-Found async reset \rstn in `\dut.$proc$/Surelog/tests/OneDivider/dut.v:5$1'.
+Found async reset \rstn in `\dut.$proc$Surelog/tests/OneDivider/dut.v:5$1'.
 
 2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
 Converted 0 switches.
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\dut.$proc$/Surelog/tests/OneDivider/dut.v:5$1'.
+Creating decoders for process `\dut.$proc$Surelog/tests/OneDivider/dut.v:5$1'.
      1/1: $0\div[0:0]
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\dut.\div' using process `\dut.$proc$/Surelog/tests/OneDivider/dut.v:5$1'.
+Creating register for signal `\dut.\div' using process `\dut.$proc$Surelog/tests/OneDivider/dut.v:5$1'.
   created $adff cell `$procdff$4' with positive edge clock and negative level reset.
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `dut.$proc$/Surelog/tests/OneDivider/dut.v:5$1'.
+Removing empty process `dut.$proc$Surelog/tests/OneDivider/dut.v:5$1'.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
@@ -960,21 +960,21 @@ Found and reported 0 problems.
 Dumping module `\dut'.
 
 (* top =  1  *)
-(* src = "/Surelog/tests/OneDivider/dut.v:1.1-10.10" *)
+(* src = "Surelog/tests/OneDivider/dut.v:1.1-10.10" *)
 module dut(rstn, clk, div);
-  (* src = "/Surelog/tests/OneDivider/dut.v:5.1-9.23" *)
+  (* src = "Surelog/tests/OneDivider/dut.v:5.1-9.23" *)
   wire _0_;
-  (* src = "/Surelog/tests/OneDivider/dut.v:2.24-2.27" *)
+  (* src = "Surelog/tests/OneDivider/dut.v:2.24-2.27" *)
   input clk;
   wire clk;
-  (* src = "/Surelog/tests/OneDivider/dut.v:3.23-3.26" *)
+  (* src = "Surelog/tests/OneDivider/dut.v:3.23-3.26" *)
   output div;
   reg div;
-  (* src = "/Surelog/tests/OneDivider/dut.v:1.24-1.28" *)
+  (* src = "Surelog/tests/OneDivider/dut.v:1.24-1.28" *)
   input rstn;
   wire rstn;
-  assign _0_ = ! (* src = "/Surelog/tests/OneDivider/dut.v:9.18-9.22" *) div;
-  (* src = "/Surelog/tests/OneDivider/dut.v:5.1-9.23" *)
+  assign _0_ = ! (* src = "Surelog/tests/OneDivider/dut.v:9.18-9.22" *) div;
+  (* src = "Surelog/tests/OneDivider/dut.v:5.1-9.23" *)
   always @(posedge clk, negedge rstn)
     if (!rstn) div <= 1'h0;
     else div <= _0_;

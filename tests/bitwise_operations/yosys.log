@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/bitwise_operations/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/bitwise_operations/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/bitwise_operations/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/bitwise_operations/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,13 +10,13 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/bitwise_operations/top.sv:1:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/bitwise_operations/top.sv:1:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/bitwise_operations/top.sv:1:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/bitwise_operations/top.sv:1:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -24,12 +24,12 @@ Using Yosys read_systemverilog command
 
 [INF:CP0302] Compile class "work@semaphore".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/bitwise_operations/top.sv:4:12: Implicit port type (wire) for "out_1",
+[NTE:CP0309] UHDM-integration-tests/tests/bitwise_operations/top.sv:4:12: Implicit port type (wire) for "out_1",
 there are 17 more instances of this message.
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/bitwise_operations/top.sv:1:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/bitwise_operations/top.sv:1:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -94,14 +94,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -110,9 +110,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -129,7 +129,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -141,17 +141,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -159,7 +159,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -167,7 +167,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -175,13 +175,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -189,7 +189,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -201,7 +201,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -209,13 +209,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -223,7 +223,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -235,20 +235,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -283,7 +283,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -293,13 +293,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -309,56 +309,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -367,9 +367,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -386,13 +386,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -409,13 +409,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -432,7 +432,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -444,7 +444,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -459,7 +459,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -467,121 +467,121 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:in
     |vpiFullName:work@top.in
   |vpiNet:
   \_logic_net: (work@top.out_1), line:4:12, endln:4:17
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_1
     |vpiFullName:work@top.out_1
   |vpiNet:
   \_logic_net: (work@top.out_2), line:4:19, endln:4:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_2
     |vpiFullName:work@top.out_2
   |vpiNet:
   \_logic_net: (work@top.out_3), line:4:26, endln:4:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_3
     |vpiFullName:work@top.out_3
   |vpiNet:
   \_logic_net: (work@top.out_4), line:4:33, endln:4:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_4
     |vpiFullName:work@top.out_4
   |vpiNet:
   \_logic_net: (work@top.out_5), line:4:40, endln:4:45
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_5
     |vpiFullName:work@top.out_5
   |vpiNet:
   \_logic_net: (work@top.out_6), line:4:47, endln:4:52
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_6
     |vpiFullName:work@top.out_6
   |vpiNet:
   \_logic_net: (work@top.out_7), line:4:54, endln:4:59
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_7
     |vpiFullName:work@top.out_7
   |vpiNet:
   \_logic_net: (work@top.out_8), line:4:61, endln:4:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_8
     |vpiFullName:work@top.out_8
   |vpiNet:
   \_logic_net: (work@top.out_9), line:4:68, endln:4:73
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_9
     |vpiFullName:work@top.out_9
   |vpiNet:
   \_logic_net: (work@top.out_10), line:4:75, endln:4:81
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_10
     |vpiFullName:work@top.out_10
   |vpiNet:
   \_logic_net: (work@top.out_11), line:5:12, endln:5:18
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_11
     |vpiFullName:work@top.out_11
   |vpiNet:
   \_logic_net: (work@top.out_12), line:5:20, endln:5:26
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_12
     |vpiFullName:work@top.out_12
   |vpiNet:
   \_logic_net: (work@top.out_13), line:5:28, endln:5:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_13
     |vpiFullName:work@top.out_13
   |vpiNet:
   \_logic_net: (work@top.out_14), line:5:36, endln:5:42
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_14
     |vpiFullName:work@top.out_14
   |vpiNet:
   \_logic_net: (work@top.out_15), line:5:44, endln:5:50
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_15
     |vpiFullName:work@top.out_15
   |vpiNet:
   \_logic_net: (work@top.out_16), line:5:52, endln:5:58
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_16
     |vpiFullName:work@top.out_16
   |vpiNet:
   \_logic_net: (work@top.out_17), line:5:60, endln:5:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_17
     |vpiFullName:work@top.out_17
   |vpiNet:
   \_logic_net: (work@top.out_18), line:5:68, endln:5:74
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_18
     |vpiFullName:work@top.out_18
   |vpiPort:
   \_port: (in), line:3:17, endln:3:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:in
     |vpiDirection:1
     |vpiLowConn:
@@ -611,7 +611,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_1), line:4:12, endln:4:17
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_1
     |vpiDirection:2
     |vpiLowConn:
@@ -623,7 +623,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_2), line:4:19, endln:4:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_2
     |vpiDirection:2
     |vpiLowConn:
@@ -635,7 +635,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_3), line:4:26, endln:4:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_3
     |vpiDirection:2
     |vpiLowConn:
@@ -647,7 +647,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_4), line:4:33, endln:4:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_4
     |vpiDirection:2
     |vpiLowConn:
@@ -659,7 +659,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_5), line:4:40, endln:4:45
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_5
     |vpiDirection:2
     |vpiLowConn:
@@ -671,7 +671,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_6), line:4:47, endln:4:52
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_6
     |vpiDirection:2
     |vpiLowConn:
@@ -683,7 +683,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_7), line:4:54, endln:4:59
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_7
     |vpiDirection:2
     |vpiLowConn:
@@ -695,7 +695,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_8), line:4:61, endln:4:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_8
     |vpiDirection:2
     |vpiLowConn:
@@ -707,7 +707,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_9), line:4:68, endln:4:73
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_9
     |vpiDirection:2
     |vpiLowConn:
@@ -719,7 +719,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_10), line:4:75, endln:4:81
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_10
     |vpiDirection:2
     |vpiLowConn:
@@ -731,7 +731,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_11), line:5:12, endln:5:18
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_11
     |vpiDirection:2
     |vpiLowConn:
@@ -743,7 +743,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_12), line:5:20, endln:5:26
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_12
     |vpiDirection:2
     |vpiLowConn:
@@ -755,7 +755,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_13), line:5:28, endln:5:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_13
     |vpiDirection:2
     |vpiLowConn:
@@ -767,7 +767,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_14), line:5:36, endln:5:42
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_14
     |vpiDirection:2
     |vpiLowConn:
@@ -779,7 +779,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_15), line:5:44, endln:5:50
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_15
     |vpiDirection:2
     |vpiLowConn:
@@ -791,7 +791,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_16), line:5:52, endln:5:58
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_16
     |vpiDirection:2
     |vpiLowConn:
@@ -803,7 +803,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_17), line:5:60, endln:5:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_17
     |vpiDirection:2
     |vpiLowConn:
@@ -815,7 +815,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_18), line:5:68, endln:5:74
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_18
     |vpiDirection:2
     |vpiLowConn:
@@ -827,7 +827,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:7:12, endln:7:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:7:21, endln:7:34
       |vpiParent:
@@ -880,7 +880,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:8:12, endln:8:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:8:21, endln:8:34
       |vpiParent:
@@ -933,7 +933,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:9:12, endln:9:35
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:9:21, endln:9:35
       |vpiParent:
@@ -986,7 +986,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:10:12, endln:10:35
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:10:21, endln:10:35
       |vpiParent:
@@ -1039,7 +1039,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:11:12, endln:11:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:11:21, endln:11:34
       |vpiParent:
@@ -1092,7 +1092,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:12:12, endln:12:35
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:12:21, endln:12:35
       |vpiParent:
@@ -1145,7 +1145,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:13:12, endln:13:35
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:13:21, endln:13:35
       |vpiParent:
@@ -1198,7 +1198,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:14:12, endln:14:27
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:14:21, endln:14:27
       |vpiParent:
@@ -1233,7 +1233,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:15:12, endln:15:26
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_bit_select: (work@top.in), line:15:21, endln:15:26
       |vpiParent:
@@ -1263,7 +1263,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:16:12, endln:16:28
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:16:22, endln:16:28
       |vpiParent:
@@ -1298,7 +1298,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:17:12, endln:17:28
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:17:22, endln:17:28
       |vpiParent:
@@ -1333,7 +1333,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:18:12, endln:18:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:18:22, endln:18:29
       |vpiParent:
@@ -1368,7 +1368,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:19:12, endln:19:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:19:22, endln:19:29
       |vpiParent:
@@ -1403,7 +1403,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:20:12, endln:20:28
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:20:22, endln:20:28
       |vpiParent:
@@ -1438,7 +1438,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:21:12, endln:21:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:21:22, endln:21:29
       |vpiParent:
@@ -1473,7 +1473,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:22:12, endln:22:29
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:22:22, endln:22:29
       |vpiParent:
@@ -1508,7 +1508,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:23:12, endln:23:41
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:23:22, endln:23:41
       |vpiParent:
@@ -1569,7 +1569,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:24:12, endln:24:41
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiRhs:
     \_operation: , line:24:22, endln:24:41
       |vpiParent:
@@ -1628,14 +1628,14 @@ design: (work@top)
       |vpiActual:
       \_logic_net: (work@top.out_18), line:5:68, endln:5:74
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
   |vpiName:work@top
   |vpiDefName:work@top
   |vpiTop:1
   |vpiNet:
   \_logic_net: (work@top.in), line:3:17, endln:3:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:3:11, endln:3:16
       |vpiRange:
@@ -1661,7 +1661,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_1), line:4:12, endln:4:17
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_1
@@ -1669,7 +1669,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_2), line:4:19, endln:4:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_2
@@ -1677,7 +1677,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_3), line:4:26, endln:4:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_3
@@ -1685,7 +1685,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_4), line:4:33, endln:4:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_4
@@ -1693,7 +1693,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_5), line:4:40, endln:4:45
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_5
@@ -1701,7 +1701,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_6), line:4:47, endln:4:52
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_6
@@ -1709,7 +1709,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_7), line:4:54, endln:4:59
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_7
@@ -1717,7 +1717,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_8), line:4:61, endln:4:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_8
@@ -1725,7 +1725,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_9), line:4:68, endln:4:73
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_9
@@ -1733,7 +1733,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_10), line:4:75, endln:4:81
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_10
@@ -1741,7 +1741,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_11), line:5:12, endln:5:18
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_11
@@ -1749,7 +1749,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_12), line:5:20, endln:5:26
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_12
@@ -1757,7 +1757,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_13), line:5:28, endln:5:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_13
@@ -1765,7 +1765,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_14), line:5:36, endln:5:42
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_14
@@ -1773,7 +1773,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_15), line:5:44, endln:5:50
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_15
@@ -1781,7 +1781,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_16), line:5:52, endln:5:58
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_16
@@ -1789,7 +1789,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_17), line:5:60, endln:5:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_17
@@ -1797,7 +1797,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.out_18), line:5:68, endln:5:74
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiTypespec:
     \_logic_typespec: , line:4:12, endln:4:12
     |vpiName:out_18
@@ -1806,7 +1806,7 @@ design: (work@top)
   |vpiPort:
   \_port: (in), line:3:17, endln:3:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:in
     |vpiDirection:1
     |vpiLowConn:
@@ -1840,7 +1840,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_1), line:4:12, endln:4:17
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_1
     |vpiDirection:2
     |vpiLowConn:
@@ -1854,7 +1854,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_2), line:4:19, endln:4:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_2
     |vpiDirection:2
     |vpiLowConn:
@@ -1868,7 +1868,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_3), line:4:26, endln:4:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_3
     |vpiDirection:2
     |vpiLowConn:
@@ -1882,7 +1882,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_4), line:4:33, endln:4:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_4
     |vpiDirection:2
     |vpiLowConn:
@@ -1896,7 +1896,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_5), line:4:40, endln:4:45
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_5
     |vpiDirection:2
     |vpiLowConn:
@@ -1910,7 +1910,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_6), line:4:47, endln:4:52
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_6
     |vpiDirection:2
     |vpiLowConn:
@@ -1924,7 +1924,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_7), line:4:54, endln:4:59
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_7
     |vpiDirection:2
     |vpiLowConn:
@@ -1938,7 +1938,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_8), line:4:61, endln:4:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_8
     |vpiDirection:2
     |vpiLowConn:
@@ -1952,7 +1952,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_9), line:4:68, endln:4:73
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_9
     |vpiDirection:2
     |vpiLowConn:
@@ -1966,7 +1966,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_10), line:4:75, endln:4:81
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_10
     |vpiDirection:2
     |vpiLowConn:
@@ -1980,7 +1980,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_11), line:5:12, endln:5:18
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_11
     |vpiDirection:2
     |vpiLowConn:
@@ -1994,7 +1994,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_12), line:5:20, endln:5:26
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_12
     |vpiDirection:2
     |vpiLowConn:
@@ -2008,7 +2008,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_13), line:5:28, endln:5:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_13
     |vpiDirection:2
     |vpiLowConn:
@@ -2022,7 +2022,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_14), line:5:36, endln:5:42
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_14
     |vpiDirection:2
     |vpiLowConn:
@@ -2036,7 +2036,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_15), line:5:44, endln:5:50
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_15
     |vpiDirection:2
     |vpiLowConn:
@@ -2050,7 +2050,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_16), line:5:52, endln:5:58
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_16
     |vpiDirection:2
     |vpiLowConn:
@@ -2064,7 +2064,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_17), line:5:60, endln:5:66
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_17
     |vpiDirection:2
     |vpiLowConn:
@@ -2078,7 +2078,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out_18), line:5:68, endln:5:74
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/bitwise_operations/top.sv, line:1:1, endln:26:10
     |vpiName:out_18
     |vpiDirection:2
     |vpiLowConn:
@@ -3002,171 +3002,171 @@ Object 'work@top' of type 'design'
           Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:3.11-3.16> basic_prep range=[3:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17> str='\out_1' output logic port=2 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24> str='\out_2' output logic port=3 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31> str='\out_3' output logic port=4 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.33-4.38> str='\out_4' output logic port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.40-4.45> str='\out_5' output logic port=6 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.47-4.52> str='\out_6' output logic port=7 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.54-4.59> str='\out_7' output logic port=8 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.61-4.66> str='\out_8' output logic port=9 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73> str='\out_9' output logic port=10 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.75-4.81> str='\out_10' output logic port=11 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.12-5.18> str='\out_11' output logic port=12 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.20-5.26> str='\out_12' output logic port=13 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.28-5.34> str='\out_13' output logic port=14 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.36-5.42> str='\out_14' output logic port=15 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.44-5.50> str='\out_15' output logic port=16 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.52-5.58> str='\out_16' output logic port=17 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.60-5.66> str='\out_17' output logic port=18 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.68-5.74> str='\out_18' output logic port=19 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.34>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.17> str='\out_1'
-        AST_BIT_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.34>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.17> str='\out_2'
-        AST_BIT_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.34>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.35>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.17> str='\out_3'
-        AST_BIT_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
-          AST_BIT_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.35>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26> str='\in'
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26>
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35> str='\in'
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35>
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.35>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.17> str='\out_4'
-        AST_BIT_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
-          AST_BIT_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26> str='\in'
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26>
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35> str='\in'
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35>
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.34>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.17> str='\out_5'
-        AST_BIT_XOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.35>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.17> str='\out_6'
-        AST_BIT_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.35>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.17> str='\out_7'
-        AST_BIT_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.35>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.27>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.17> str='\out_8'
-        AST_BIT_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.26>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.17> str='\out_9'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26> str='\in'
-          AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26>
-            AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.28>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.18> str='\out_10'
-        AST_REDUCE_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.22-16.28>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.28>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.18> str='\out_11'
-        AST_REDUCE_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.22-17.28>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.29>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.18> str='\out_12'
-        AST_LOGIC_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
-          AST_REDUCE_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.22-18.29>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29> str='\in'
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29>
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.29>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.18> str='\out_13'
-        AST_LOGIC_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
-          AST_REDUCE_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.22-19.29>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29> str='\in'
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29>
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.28>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.18> str='\out_14'
-        AST_REDUCE_XOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.22-20.28>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.29>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.18> str='\out_15'
-        AST_REDUCE_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.22-21.29>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.29>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.18> str='\out_16'
-        AST_REDUCE_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.22-22.29>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.41>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.18> str='\out_17'
-        AST_LOGIC_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.41>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.18> str='\out_18'
-        AST_LOGIC_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41> str='\in'
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41>
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+    AST_MODULE <UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.11-3.16> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17> str='\out_1' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24> str='\out_2' output logic port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31> str='\out_3' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.33-4.38> str='\out_4' output logic port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.40-4.45> str='\out_5' output logic port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.47-4.52> str='\out_6' output logic port=7 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.54-4.59> str='\out_7' output logic port=8 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.61-4.66> str='\out_8' output logic port=9 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73> str='\out_9' output logic port=10 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.75-4.81> str='\out_10' output logic port=11 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.12-5.18> str='\out_11' output logic port=12 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.20-5.26> str='\out_12' output logic port=13 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.28-5.34> str='\out_13' output logic port=14 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.36-5.42> str='\out_14' output logic port=15 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.44-5.50> str='\out_15' output logic port=16 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.52-5.58> str='\out_16' output logic port=17 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.60-5.66> str='\out_17' output logic port=18 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.68-5.74> str='\out_18' output logic port=19 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.34>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.17> str='\out_1'
+        AST_BIT_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.34>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.17> str='\out_2'
+        AST_BIT_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.34>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.35>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.17> str='\out_3'
+        AST_BIT_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
+          AST_BIT_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.35>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26> str='\in'
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26>
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35> str='\in'
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35>
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.35>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.17> str='\out_4'
+        AST_BIT_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
+          AST_BIT_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26> str='\in'
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26>
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35> str='\in'
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35>
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.34>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.17> str='\out_5'
+        AST_BIT_XOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.35>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.17> str='\out_6'
+        AST_BIT_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.35>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.17> str='\out_7'
+        AST_BIT_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.35>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.27>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.17> str='\out_8'
+        AST_BIT_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.26>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.17> str='\out_9'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26> str='\in'
+          AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26>
+            AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.28>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.18> str='\out_10'
+        AST_REDUCE_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.22-16.28>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.28>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.18> str='\out_11'
+        AST_REDUCE_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.22-17.28>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.29>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.18> str='\out_12'
+        AST_LOGIC_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
+          AST_REDUCE_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.22-18.29>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29> str='\in'
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29>
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.29>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.18> str='\out_13'
+        AST_LOGIC_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0>
+          AST_REDUCE_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.22-19.29>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29> str='\in'
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29>
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.28>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.18> str='\out_14'
+        AST_REDUCE_XOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.22-20.28>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.29>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.18> str='\out_15'
+        AST_REDUCE_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.22-21.29>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.29>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.18> str='\out_16'
+        AST_REDUCE_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.22-22.29>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.41>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.18> str='\out_17'
+        AST_LOGIC_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.41>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.18> str='\out_18'
+        AST_LOGIC_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41> str='\in'
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41>
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, out_10, out_11, out_12, out_13, out_14, out_15, out_16, out_17, out_18);
@@ -3210,171 +3210,171 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:3.11-3.16> basic_prep range=[3:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17> str='\out_1' output logic basic_prep port=2 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24> str='\out_2' output logic basic_prep port=3 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31> str='\out_3' output logic basic_prep port=4 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.33-4.38> str='\out_4' output logic basic_prep port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.40-4.45> str='\out_5' output logic basic_prep port=6 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.47-4.52> str='\out_6' output logic basic_prep port=7 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.54-4.59> str='\out_7' output logic basic_prep port=8 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.61-4.66> str='\out_8' output logic basic_prep port=9 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73> str='\out_9' output logic basic_prep port=10 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:4.75-4.81> str='\out_10' output logic basic_prep port=11 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.12-5.18> str='\out_11' output logic basic_prep port=12 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.20-5.26> str='\out_12' output logic basic_prep port=13 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.28-5.34> str='\out_13' output logic basic_prep port=14 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.36-5.42> str='\out_14' output logic basic_prep port=15 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.44-5.50> str='\out_15' output logic basic_prep port=16 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.52-5.58> str='\out_16' output logic basic_prep port=17 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.60-5.66> str='\out_17' output logic basic_prep port=18 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/bitwise_operations/top.sv:5.68-5.74> str='\out_18' output logic basic_prep port=19 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.34> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.17> str='\out_1' basic_prep
-        AST_BIT_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34> basic_prep range=[1:1]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.34> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.17> str='\out_2' basic_prep
-        AST_BIT_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.34> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34> basic_prep range=[1:1]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.35> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.17> str='\out_3' basic_prep
-        AST_BIT_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
-          AST_BIT_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.35> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26> str='\in' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26> basic_prep range=[0:0]
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35> str='\in' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35> basic_prep range=[1:1]
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.35> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.17> str='\out_4' basic_prep
-        AST_BIT_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
-          AST_BIT_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26> str='\in' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26> basic_prep range=[0:0]
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35> str='\in' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35> basic_prep range=[1:1]
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.34> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.17> str='\out_5' basic_prep
-        AST_BIT_XOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34> basic_prep range=[1:1]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.35> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.17> str='\out_6' basic_prep
-        AST_BIT_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35> basic_prep range=[1:1]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.35> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.17> str='\out_7' basic_prep
-        AST_BIT_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.35> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35> basic_prep range=[1:1]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.27> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.17> str='\out_8' basic_prep
-        AST_BIT_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.26> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.17> str='\out_9' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26> str='\in' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26> basic_prep range=[0:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.28> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.18> str='\out_10' basic_prep
-        AST_REDUCE_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.22-16.28> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.28> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.18> str='\out_11' basic_prep
-        AST_REDUCE_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.22-17.28> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.29> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.18> str='\out_12' basic_prep
-        AST_LOGIC_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
-          AST_REDUCE_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.22-18.29> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29> str='\in' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29> basic_prep range=[0:0]
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.29> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.18> str='\out_13' basic_prep
-        AST_LOGIC_NOT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
-          AST_REDUCE_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.22-19.29> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29> str='\in' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29> basic_prep range=[0:0]
-                AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.28> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.18> str='\out_14' basic_prep
-        AST_REDUCE_XOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.22-20.28> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.29> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.18> str='\out_15' basic_prep
-        AST_REDUCE_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.22-21.29> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.29> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.18> str='\out_16' basic_prep
-        AST_REDUCE_XNOR </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.22-22.29> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29> basic_prep range=[0:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.41> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.18> str='\out_17' basic_prep
-        AST_LOGIC_AND </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29> basic_prep swapped_range=[1:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41> basic_prep swapped_range=[3:2]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-      AST_ASSIGN </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.41> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.18> str='\out_18' basic_prep
-        AST_LOGIC_OR </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29> basic_prep swapped_range=[1:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_IDENTIFIER </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41> str='\in' basic_prep
-            AST_RANGE </UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41> basic_prep swapped_range=[3:2]
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-              AST_CONSTANT </UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+    AST_MODULE <UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19> str='\in' input logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:3.11-3.16> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17> str='\out_1' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24> str='\out_2' output logic basic_prep port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31> str='\out_3' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.33-4.38> str='\out_4' output logic basic_prep port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.40-4.45> str='\out_5' output logic basic_prep port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.47-4.52> str='\out_6' output logic basic_prep port=7 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.54-4.59> str='\out_7' output logic basic_prep port=8 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.61-4.66> str='\out_8' output logic basic_prep port=9 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73> str='\out_9' output logic basic_prep port=10 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:4.75-4.81> str='\out_10' output logic basic_prep port=11 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.12-5.18> str='\out_11' output logic basic_prep port=12 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.20-5.26> str='\out_12' output logic basic_prep port=13 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.28-5.34> str='\out_13' output logic basic_prep port=14 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.36-5.42> str='\out_14' output logic basic_prep port=15 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.44-5.50> str='\out_15' output logic basic_prep port=16 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.52-5.58> str='\out_16' output logic basic_prep port=17 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.60-5.66> str='\out_17' output logic basic_prep port=18 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/bitwise_operations/top.sv:5.68-5.74> str='\out_18' output logic basic_prep port=19 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.34> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.12-7.17> str='\out_1' basic_prep
+        AST_BIT_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.26> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:7.29-7.34> basic_prep range=[1:1]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.34> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.12-8.17> str='\out_2' basic_prep
+        AST_BIT_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.34> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.21-8.26> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:8.29-8.34> basic_prep range=[1:1]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.35> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.12-9.17> str='\out_3' basic_prep
+        AST_BIT_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
+          AST_BIT_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.35> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26> str='\in' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.21-9.26> basic_prep range=[0:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35> str='\in' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:9.30-9.35> basic_prep range=[1:1]
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.35> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.12-10.17> str='\out_4' basic_prep
+        AST_BIT_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
+          AST_BIT_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26> str='\in' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.26> basic_prep range=[0:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35> str='\in' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:10.30-10.35> basic_prep range=[1:1]
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.34> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.12-11.17> str='\out_5' basic_prep
+        AST_BIT_XOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.26> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:11.29-11.34> basic_prep range=[1:1]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.35> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.12-12.17> str='\out_6' basic_prep
+        AST_BIT_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.26> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:12.30-12.35> basic_prep range=[1:1]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.35> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.12-13.17> str='\out_7' basic_prep
+        AST_BIT_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.35> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.21-13.26> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:13.30-13.35> basic_prep range=[1:1]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.27> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.12-14.17> str='\out_8' basic_prep
+        AST_BIT_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:14.22-14.27> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.26> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.12-15.17> str='\out_9' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26> str='\in' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:15.21-15.26> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.28> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.12-16.18> str='\out_10' basic_prep
+        AST_REDUCE_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.22-16.28> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:16.23-16.28> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.28> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.12-17.18> str='\out_11' basic_prep
+        AST_REDUCE_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.22-17.28> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:17.23-17.28> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.29> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.12-18.18> str='\out_12' basic_prep
+        AST_LOGIC_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
+          AST_REDUCE_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.22-18.29> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29> str='\in' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:18.24-18.29> basic_prep range=[0:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.29> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.12-19.18> str='\out_13' basic_prep
+        AST_LOGIC_NOT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> basic_prep
+          AST_REDUCE_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.22-19.29> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29> str='\in' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:19.24-19.29> basic_prep range=[0:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.28> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.12-20.18> str='\out_14' basic_prep
+        AST_REDUCE_XOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.22-20.28> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:20.23-20.28> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.29> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.12-21.18> str='\out_15' basic_prep
+        AST_REDUCE_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.22-21.29> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:21.24-21.29> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.29> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.12-22.18> str='\out_16' basic_prep
+        AST_REDUCE_XNOR <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.22-22.29> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:22.24-22.29> basic_prep range=[0:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.41> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.12-23.18> str='\out_17' basic_prep
+        AST_LOGIC_AND <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.29> basic_prep swapped_range=[1:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:23.33-23.41> basic_prep swapped_range=[3:2]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+      AST_ASSIGN <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.41> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.12-24.18> str='\out_18' basic_prep
+        AST_LOGIC_OR <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.29> basic_prep swapped_range=[1:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_IDENTIFIER <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41> str='\in' basic_prep
+            AST_RANGE <UHDM-integration-tests/tests/bitwise_operations/top.sv:24.33-24.41> basic_prep swapped_range=[3:2]
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+              AST_CONSTANT <UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, out_10, out_11, out_12, out_13, out_14, out_15, out_16, out_17, out_18);
@@ -3586,75 +3586,75 @@ Found and reported 0 problems.
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10" *)
+(* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:1.1-26.10" *)
 module top(in, out_1, out_2, out_3, out_4, out_5, out_6, out_7, out_8, out_9, out_10, out_11, out_12, out_13, out_14, out_15, out_16, out_17, out_18);
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:3.17-3.19" *)
   input [3:0] in;
   wire [3:0] in;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.12-4.17" *)
   output out_1;
   wire out_1;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.75-4.81" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.75-4.81" *)
   output out_10;
   wire out_10;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.12-5.18" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.12-5.18" *)
   output out_11;
   wire out_11;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.20-5.26" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.20-5.26" *)
   output out_12;
   wire out_12;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.28-5.34" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.28-5.34" *)
   output out_13;
   wire out_13;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.36-5.42" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.36-5.42" *)
   output out_14;
   wire out_14;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.44-5.50" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.44-5.50" *)
   output out_15;
   wire out_15;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.52-5.58" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.52-5.58" *)
   output out_16;
   wire out_16;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.60-5.66" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.60-5.66" *)
   output out_17;
   wire out_17;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:5.68-5.74" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:5.68-5.74" *)
   output out_18;
   wire out_18;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.19-4.24" *)
   output out_2;
   wire out_2;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.26-4.31" *)
   output out_3;
   wire out_3;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.33-4.38" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.33-4.38" *)
   output out_4;
   wire out_4;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.40-4.45" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.40-4.45" *)
   output out_5;
   wire out_5;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.47-4.52" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.47-4.52" *)
   output out_6;
   wire out_6;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.54-4.59" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.54-4.59" *)
   output out_7;
   wire out_7;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.61-4.66" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.61-4.66" *)
   output out_8;
   wire out_8;
-  (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73" *)
+  (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:4.68-4.73" *)
   output out_9;
   wire out_9;
-  assign out_1 = in[0] & (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34" *) in[1];
-  assign out_17 = in[1:0] && (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41" *) in[3:2];
-  assign out_12 = ! (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) in[0];
-  assign out_18 = in[1:0] || (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41" *) in[3:2];
-  assign out_3 = ~ (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) out_1;
-  assign out_4 = ~ (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) out_2;
-  assign out_8 = ~ (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27" *) in[0];
-  assign out_2 = in[0] | (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35" *) in[1];
-  assign out_6 = in[0] ~^ (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35" *) in[1];
-  assign out_5 = in[0] ^ (* src = "/UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34" *) in[1];
+  assign out_1 = in[0] & (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:7.21-7.34" *) in[1];
+  assign out_17 = in[1:0] && (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:23.22-23.41" *) in[3:2];
+  assign out_12 = ! (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) in[0];
+  assign out_18 = in[1:0] || (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:24.22-24.41" *) in[3:2];
+  assign out_3 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) out_1;
+  assign out_4 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:0.0-0.0" *) out_2;
+  assign out_8 = ~ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:14.21-14.27" *) in[0];
+  assign out_2 = in[0] | (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:10.21-10.35" *) in[1];
+  assign out_6 = in[0] ~^ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:12.21-12.35" *) in[1];
+  assign out_5 = in[0] ^ (* src = "UHDM-integration-tests/tests/bitwise_operations/top.sv:11.21-11.34" *) in[1];
   assign out_10 = in[0];
   assign out_11 = in[0];
   assign out_13 = out_12;

@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/NegationAsParameterOfInstance/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/NegationAsParameterOfInstance/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1:1: No timescale set for "dut".
+[WRN:PA0205] UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1:1: No timescale set for "dut".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1:1: Compile module "work@dut".
+[INF:CP0303] UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1:1: Compile module "work@dut".
 
-[INF:CP0303] /UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -30,7 +30,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -95,14 +95,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -111,9 +111,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -130,7 +130,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -142,17 +142,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -160,7 +160,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -168,7 +168,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -176,13 +176,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -190,7 +190,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -202,7 +202,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -210,13 +210,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -224,7 +224,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -236,20 +236,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -284,7 +284,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -294,13 +294,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -310,56 +310,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -368,9 +368,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -387,13 +387,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -410,13 +410,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -433,7 +433,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -445,7 +445,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -460,14 +460,14 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@dut
   |vpiParameter:
   \_parameter: (work@dut.RESVAL), line:2:26, endln:2:32
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
     |vpiTypespec:
     \_logic_typespec: , line:2:14, endln:2:25
       |vpiParent:
@@ -495,20 +495,20 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:2:26, endln:2:32
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
     |vpiLhs:
     \_parameter: (work@dut.RESVAL), line:2:26, endln:2:32
   |vpiDefName:work@dut
   |vpiNet:
   \_logic_net: (work@dut.o), line:1:23, endln:1:24
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
     |vpiName:o
     |vpiFullName:work@dut.o
   |vpiPort:
   \_port: (o), line:1:23, endln:1:24
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -521,7 +521,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:3:11, endln:3:27
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
     |vpiRhs:
     \_operation: , line:3:15, endln:3:27
       |vpiParent:
@@ -545,7 +545,7 @@ design: (work@top)
       |vpiActual:
       \_int_var: (work@top.u_dut.o), line:1:23, endln:1:24
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -553,13 +553,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiName:o
     |vpiFullName:work@top.o
   |vpiPort:
   \_port: (o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -572,11 +572,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@dut (u_dut), line:9:6, endln:9:11
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiName:u_dut
     |vpiDefName:work@dut
     |vpiActual:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:1:1, endln:4:10
     |vpiPort:
     \_port: (o), line:9:12, endln:9:17
       |vpiName:o
@@ -586,12 +586,12 @@ design: (work@top)
         |vpiActual:
         \_int_var: (work@top.o), line:6:23, endln:6:24
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiTypespec:
     \_int_typespec: , line:6:19, endln:6:22
       |vpiSigned:1
@@ -605,7 +605,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -618,15 +618,15 @@ design: (work@top)
     \_int_typespec: , line:6:19, endln:6:22
       |vpiSigned:1
   |vpiModule:
-  \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
+  \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiName:u_dut
     |vpiFullName:work@top.u_dut
     |vpiVariables:
     \_int_var: (work@top.u_dut.o), line:1:23, endln:1:24
       |vpiParent:
-      \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
       |vpiTypespec:
       \_int_typespec: , line:1:19, endln:1:22
         |vpiSigned:1
@@ -637,7 +637,7 @@ design: (work@top)
     |vpiParameter:
     \_parameter: (work@top.u_dut.RESVAL), line:2:26, endln:2:32
       |vpiParent:
-      \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
       |vpiTypespec:
       \_logic_typespec: , line:2:14, endln:2:25
         |vpiParent:
@@ -667,7 +667,7 @@ design: (work@top)
     |vpiParamAssign:
     \_param_assign: , line:2:26, endln:2:32
       |vpiParent:
-      \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
       |vpiOverriden:1
       |vpiRhs:
       \_constant: 
@@ -680,14 +680,14 @@ design: (work@top)
       |vpiLhs:
       \_parameter: (work@top.u_dut.RESVAL), line:2:26, endln:2:32
     |vpiDefName:work@dut
-    |vpiDefFile:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv
     |vpiDefLineNo:1
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:6:1, endln:10:10
     |vpiPort:
     \_port: (o), line:1:23, endln:1:24
       |vpiParent:
-      \_module_inst: work@dut (work@top.u_dut), file:/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
+      \_module_inst: work@dut (work@top.u_dut), file:UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv, line:7:4, endln:9:19
       |vpiName:o
       |vpiDirection:2
       |vpiHighConn:
@@ -776,19 +776,19 @@ Object 'work@top' of type 'design'
 Warning: Removing unelaborated module: \dut from the design.
 Generating RTLIL representation for module `$paramod\dut\RESVAL=2'11'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.1-4.10> str='$paramod\dut\RESVAL=2'11'
-      AST_PARAMETER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='11'(2) range=[1:0] int=3
-        AST_RANGE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.27>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.12> str='\o'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.20-3.26> str='\RESVAL'
+    AST_MODULE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.1-4.10> str='$paramod\dut\RESVAL=2'11'
+      AST_PARAMETER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='11'(2) range=[1:0] int=3
+        AST_RANGE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.27>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.12> str='\o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.20-3.26> str='\RESVAL'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\dut\RESVAL=2'11 (o);
@@ -798,19 +798,19 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.1-4.10> str='$paramod\dut\RESVAL=2'11' basic_prep
-      AST_PARAMETER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='11'(2) basic_prep range=[1:0] int=3
-        AST_RANGE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.27> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.12> str='\o' basic_prep
-        AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.20-3.26> bits='11'(2) basic_prep range=[1:0] int=3
+    AST_MODULE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.1-4.10> str='$paramod\dut\RESVAL=2'11' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='11'(2) basic_prep range=[1:0] int=3
+        AST_RANGE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.27> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.11-3.12> str='\o' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:3.20-3.26> bits='11'(2) basic_prep range=[1:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\dut\RESVAL=2'11 (o);
@@ -821,15 +821,15 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.1-10.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed port=2 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\u_dut'
-        AST_CELLTYPE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\RESVAL=2'11'
-        AST_ARGUMENT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\o'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:9.15-9.16> str='\o'
+    AST_MODULE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.1-10.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\u_dut'
+        AST_CELLTYPE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\RESVAL=2'11'
+        AST_ARGUMENT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\o'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:9.15-9.16> str='\o'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -838,15 +838,15 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.1-10.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\u_dut' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\RESVAL=2'11' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\o' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:9.15-9.16> str='\o' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.1-10.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\u_dut' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\RESVAL=2'11' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\o' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:9.15-9.16> str='\o' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -1032,9 +1032,9 @@ Found and reported 0 problems.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\dut\RESVAL=2'11'.
 
-(* src = "/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.1-4.10" *)
+(* src = "UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.1-4.10" *)
 module \$paramod\dut\RESVAL=2'11 (o);
-  (* src = "/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.23-1.24" *)
+  (* src = "UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:1.23-1.24" *)
   output [31:0] o;
   wire [31:0] o;
   assign o = 32'd3;
@@ -1042,13 +1042,13 @@ endmodule
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.1-10.10" *)
+(* src = "UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.1-10.10" *)
 module top(o);
-  (* src = "/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.23-6.24" *)
+  (* src = "UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:6.23-6.24" *)
   output [31:0] o;
   wire [31:0] o;
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19" *)
+  (* src = "UHDM-integration-tests/tests/NegationAsParameterOfInstance/top.sv:7.4-9.19" *)
   \$paramod\dut\RESVAL=2'11  u_dut (
     .o(o)
   );

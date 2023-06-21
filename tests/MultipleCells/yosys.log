@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/MultipleCells/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/MultipleCells/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/MultipleCells/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/MultipleCells/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/MultipleCells/top.sv:1:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/MultipleCells/top.sv:1:1: No timescale set for "top".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/MultipleCells/top.sv:6:1: No timescale set for "assigner".
+[WRN:PA0205] UHDM-integration-tests/tests/MultipleCells/top.sv:6:1: No timescale set for "assigner".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/MultipleCells/top.sv:6:1: Compile module "work@assigner".
+[INF:CP0303] UHDM-integration-tests/tests/MultipleCells/top.sv:6:1: Compile module "work@assigner".
 
-[INF:CP0303] /UHDM-integration-tests/tests/MultipleCells/top.sv:1:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/MultipleCells/top.sv:1:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -30,11 +30,11 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[INF:CP0335] /UHDM-integration-tests/tests/MultipleCells/top.sv:7:3: Compile generate block "work@top.asgn0.genblk1".
+[INF:CP0335] UHDM-integration-tests/tests/MultipleCells/top.sv:7:3: Compile generate block "work@top.asgn0.genblk1".
 
-[INF:CP0335] /UHDM-integration-tests/tests/MultipleCells/top.sv:9:3: Compile generate block "work@top.asgn1.genblk2".
+[INF:CP0335] UHDM-integration-tests/tests/MultipleCells/top.sv:9:3: Compile generate block "work@top.asgn1.genblk2".
 
-[NTE:EL0503] /UHDM-integration-tests/tests/MultipleCells/top.sv:1:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/MultipleCells/top.sv:1:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -99,14 +99,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -115,9 +115,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -134,7 +134,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -146,17 +146,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -164,7 +164,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -172,7 +172,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -180,13 +180,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -194,7 +194,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -206,7 +206,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -214,13 +214,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -228,7 +228,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -240,20 +240,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -288,7 +288,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -298,13 +298,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -314,56 +314,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -372,9 +372,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -391,13 +391,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -414,13 +414,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -437,7 +437,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -449,7 +449,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -464,14 +464,14 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+\_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@assigner
   |vpiParameter:
   \_parameter: (work@assigner.invert), line:6:29, endln:6:35
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |UINT:0
     |vpiTypespec:
     \_int_typespec: 
@@ -480,7 +480,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:6:29, endln:6:39
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiRhs:
     \_constant: , line:6:38, endln:6:39
       |vpiDecompile:0
@@ -495,21 +495,21 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@assigner.inp), line:6:53, endln:6:56
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiName:inp
     |vpiFullName:work@assigner.inp
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@assigner.out), line:6:69, endln:6:72
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiName:out
     |vpiFullName:work@assigner.out
     |vpiNetType:48
   |vpiPort:
   \_port: (inp), line:6:53, endln:6:56
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiName:inp
     |vpiDirection:1
     |vpiLowConn:
@@ -521,7 +521,7 @@ design: (work@top)
   |vpiPort:
   \_port: (out), line:6:69, endln:6:72
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiName:out
     |vpiDirection:2
     |vpiLowConn:
@@ -533,7 +533,7 @@ design: (work@top)
   |vpiGenStmt:
   \_gen_if: , line:7:3, endln:7:5
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiCondition:
     \_operation: , line:7:7, endln:7:14
       |vpiOpType:3
@@ -563,7 +563,7 @@ design: (work@top)
   |vpiGenStmt:
   \_gen_if: , line:9:3, endln:9:5
     |vpiParent:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiCondition:
     \_ref_obj: (invert), line:9:7, endln:9:13
       |vpiName:invert
@@ -591,7 +591,7 @@ design: (work@top)
           |vpiActual:
           \_logic_net: (work@top.asgn0.out), line:6:69, endln:6:72
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -599,28 +599,28 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.i), line:1:24, endln:1:25
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:i
     |vpiFullName:work@top.i
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@top.o1), line:1:38, endln:1:40
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:o1
     |vpiFullName:work@top.o1
     |vpiNetType:48
   |vpiNet:
   \_logic_net: (work@top.o2), line:1:53, endln:1:55
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:o2
     |vpiFullName:work@top.o2
     |vpiNetType:48
   |vpiPort:
   \_port: (i), line:1:24, endln:1:25
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:i
     |vpiDirection:1
     |vpiLowConn:
@@ -632,7 +632,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o1), line:1:38, endln:1:40
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:o1
     |vpiDirection:2
     |vpiLowConn:
@@ -644,7 +644,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o2), line:1:53, endln:1:55
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:o2
     |vpiDirection:2
     |vpiLowConn:
@@ -656,11 +656,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@assigner (asgn0), line:2:27, endln:2:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:asgn0
     |vpiDefName:work@assigner
     |vpiActual:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiPort:
     \_port: (inp), line:2:33, endln:2:40
       |vpiName:inp
@@ -680,11 +680,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@assigner (asgn1), line:3:27, endln:3:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:asgn1
     |vpiDefName:work@assigner
     |vpiActual:
-    \_module_inst: work@assigner (work@assigner), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
+    \_module_inst: work@assigner (work@assigner), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:6:1, endln:11:10
     |vpiPort:
     \_port: (inp), line:3:33, endln:3:40
       |vpiName:inp
@@ -702,14 +702,14 @@ design: (work@top)
         |vpiActual:
         \_logic_net: (work@top.o2), line:1:53, endln:1:55
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
   |vpiName:work@top
   |vpiDefName:work@top
   |vpiTop:1
   |vpiNet:
   \_logic_net: (work@top.i), line:1:24, endln:1:25
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiTypespec:
     \_logic_typespec: , line:1:19, endln:1:23
     |vpiName:i
@@ -718,7 +718,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o1), line:1:38, endln:1:40
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiTypespec:
     \_logic_typespec: , line:1:34, endln:1:37
     |vpiName:o1
@@ -727,7 +727,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o2), line:1:53, endln:1:55
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiTypespec:
     \_logic_typespec: , line:1:49, endln:1:52
     |vpiName:o2
@@ -737,7 +737,7 @@ design: (work@top)
   |vpiPort:
   \_port: (i), line:1:24, endln:1:25
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:i
     |vpiDirection:1
     |vpiLowConn:
@@ -751,7 +751,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o1), line:1:38, endln:1:40
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:o1
     |vpiDirection:2
     |vpiLowConn:
@@ -765,7 +765,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o2), line:1:53, endln:1:55
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:o2
     |vpiDirection:2
     |vpiLowConn:
@@ -777,15 +777,15 @@ design: (work@top)
     |vpiTypedef:
     \_logic_typespec: , line:1:49, endln:1:52
   |vpiModule:
-  \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+  \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:asgn0
     |vpiFullName:work@top.asgn0
     |vpiParameter:
     \_parameter: (work@top.asgn0.invert), line:6:29, endln:6:35
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |UINT:0
       |vpiTypespec:
       \_int_typespec: 
@@ -796,7 +796,7 @@ design: (work@top)
     |vpiParamAssign:
     \_param_assign: , line:6:29, endln:6:39
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |vpiOverriden:1
       |vpiRhs:
       \_constant: , line:6:38, endln:6:39
@@ -809,12 +809,12 @@ design: (work@top)
       |vpiLhs:
       \_parameter: (work@top.asgn0.invert), line:6:29, endln:6:35
     |vpiDefName:work@assigner
-    |vpiDefFile:/UHDM-integration-tests/tests/MultipleCells/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/MultipleCells/top.sv
     |vpiDefLineNo:6
     |vpiNet:
     \_logic_net: (work@top.asgn0.inp), line:6:53, endln:6:56
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |vpiTypespec:
       \_logic_typespec: , line:6:48, endln:6:52
       |vpiName:inp
@@ -823,18 +823,18 @@ design: (work@top)
     |vpiNet:
     \_logic_net: (work@top.asgn0.out), line:6:69, endln:6:72
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |vpiTypespec:
       \_logic_typespec: , line:6:65, endln:6:68
       |vpiName:out
       |vpiFullName:work@top.asgn0.out
       |vpiNetType:48
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiPort:
     \_port: (inp), line:6:53, endln:6:56
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |vpiName:inp
       |vpiDirection:1
       |vpiHighConn:
@@ -854,7 +854,7 @@ design: (work@top)
     |vpiPort:
     \_port: (out), line:6:69, endln:6:72
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |vpiName:out
       |vpiDirection:2
       |vpiHighConn:
@@ -874,7 +874,7 @@ design: (work@top)
     |vpiGenScopeArray:
     \_gen_scope_array: (work@top.asgn0.genblk1), line:7:3, endln:8:22
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn0), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
+      \_module_inst: work@assigner (work@top.asgn0), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:2:4, endln:2:52
       |vpiName:genblk1
       |vpiFullName:work@top.asgn0.genblk1
       |vpiGenScope:
@@ -903,15 +903,15 @@ design: (work@top)
             |vpiActual:
             \_logic_net: (work@top.asgn0.out), line:6:69, endln:6:72
   |vpiModule:
-  \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+  \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiName:asgn1
     |vpiFullName:work@top.asgn1
     |vpiParameter:
     \_parameter: (work@top.asgn1.invert), line:6:29, endln:6:35
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |UINT:0
       |vpiTypespec:
       \_int_typespec: 
@@ -922,7 +922,7 @@ design: (work@top)
     |vpiParamAssign:
     \_param_assign: , line:6:29, endln:6:39
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |vpiOverriden:1
       |vpiRhs:
       \_constant: , line:6:38, endln:6:39
@@ -935,12 +935,12 @@ design: (work@top)
       |vpiLhs:
       \_parameter: (work@top.asgn1.invert), line:6:29, endln:6:35
     |vpiDefName:work@assigner
-    |vpiDefFile:/UHDM-integration-tests/tests/MultipleCells/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/MultipleCells/top.sv
     |vpiDefLineNo:6
     |vpiNet:
     \_logic_net: (work@top.asgn1.inp), line:6:53, endln:6:56
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |vpiTypespec:
       \_logic_typespec: , line:6:48, endln:6:52
       |vpiName:inp
@@ -949,18 +949,18 @@ design: (work@top)
     |vpiNet:
     \_logic_net: (work@top.asgn1.out), line:6:69, endln:6:72
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |vpiTypespec:
       \_logic_typespec: , line:6:65, endln:6:68
       |vpiName:out
       |vpiFullName:work@top.asgn1.out
       |vpiNetType:48
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:1:1, endln:4:10
     |vpiPort:
     \_port: (inp), line:6:53, endln:6:56
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |vpiName:inp
       |vpiDirection:1
       |vpiHighConn:
@@ -980,7 +980,7 @@ design: (work@top)
     |vpiPort:
     \_port: (out), line:6:69, endln:6:72
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |vpiName:out
       |vpiDirection:2
       |vpiHighConn:
@@ -1000,7 +1000,7 @@ design: (work@top)
     |vpiGenScopeArray:
     \_gen_scope_array: (work@top.asgn1.genblk2), line:9:3, endln:10:23
       |vpiParent:
-      \_module_inst: work@assigner (work@top.asgn1), file:/UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
+      \_module_inst: work@assigner (work@top.asgn1), file:UHDM-integration-tests/tests/MultipleCells/top.sv, line:3:4, endln:3:52
       |vpiName:genblk2
       |vpiFullName:work@top.asgn1.genblk2
       |vpiGenScope:
@@ -1107,19 +1107,19 @@ Object 'work@top' of type 'design'
 Warning: Removing unelaborated module: \assigner from the design.
 Generating RTLIL representation for module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000001'
-      AST_PARAMETER </UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=3 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=4 range=[0:0]
-      AST_GENBLOCK </UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2'
-        AST_ASSIGN </UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out'
-          AST_BIT_NOT </UHDM-integration-tests/tests/MultipleCells/top.sv:10.18-10.22>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:10.19-10.22> str='\inp'
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000001'
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=4 range=[0:0]
+      AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2'
+        AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out'
+          AST_BIT_NOT <UHDM-integration-tests/tests/MultipleCells/top.sv:10.18-10.22>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.19-10.22> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
@@ -1130,19 +1130,19 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER </UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=3 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=4 range=[0:0]
-      AST_GENBLOCK </UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2' basic_prep
-      AST_ASSIGN </UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out' basic_prep
-        AST_BIT_NOT </UHDM-integration-tests/tests/MultipleCells/top.sv:10.18-10.22> basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:10.19-10.22> str='\inp' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000001' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=4 range=[0:0]
+      AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:9.3-10.23> str='\genblk2' basic_prep
+      AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.22> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.12-10.15> str='\out' basic_prep
+        AST_BIT_NOT <UHDM-integration-tests/tests/MultipleCells/top.sv:10.18-10.22> basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:10.19-10.22> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
@@ -1155,18 +1155,18 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
-      AST_PARAMETER </UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=1 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=2 range=[0:0]
-      AST_GENBLOCK </UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1'
-        AST_ASSIGN </UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:8.18-8.21> str='\inp'
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic port=2 range=[0:0]
+      AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1'
+        AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.18-8.21> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
@@ -1177,18 +1177,18 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
-      AST_PARAMETER </UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=2 range=[0:0]
-      AST_GENBLOCK </UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1' basic_prep
-      AST_ASSIGN </UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:8.18-8.21> str='\inp' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/MultipleCells/top.sv:6.29-6.39> str='\invert' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56> str='\inp' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72> str='\out' output logic basic_prep port=2 range=[0:0]
+      AST_GENBLOCK <UHDM-integration-tests/tests/MultipleCells/top.sv:7.3-8.22> str='\genblk1' basic_prep
+      AST_ASSIGN <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.21> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.12-8.15> str='\out' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:8.18-8.21> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
@@ -1201,22 +1201,22 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg port=6 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg port=7 range=[0:0]
-      AST_CELL </UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0'
-        AST_CELLTYPE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:2.38-2.39> str='\i'
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\out'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:2.47-2.49> str='\o1'
-      AST_CELL </UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\asgn1'
-        AST_CELLTYPE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000001'
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\inp'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:3.38-3.39> str='\i'
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\out'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:3.47-3.49> str='\o2'
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg port=7 range=[0:0]
+      AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0'
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000'
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.38-2.39> str='\i'
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\out'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.47-2.49> str='\o1'
+      AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\asgn1'
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000001'
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\inp'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:3.38-3.39> str='\i'
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\out'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:3.47-3.49> str='\o2'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(i, o1, o2);
@@ -1228,22 +1228,22 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic basic_prep port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg basic_prep port=6 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg basic_prep port=7 range=[0:0]
-      AST_CELL </UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:2.38-2.39> str='\i' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\out' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:2.47-2.49> str='\o1' basic_prep
-      AST_CELL </UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\asgn1' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000001' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\inp' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:3.38-3.39> str='\i' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\out' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/MultipleCells/top.sv:3.47-3.49> str='\o2' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25> str='\i' input logic basic_prep port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40> str='\o1' output reg basic_prep port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55> str='\o2' output reg basic_prep port=7 range=[0:0]
+      AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\asgn0' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000000' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\inp' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.38-2.39> str='\i' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52> str='\out' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:2.47-2.49> str='\o1' basic_prep
+      AST_CELL <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\asgn1' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/MultipleCells/top.sv:0.0-0.0> str='$paramod\assigner\invert=32'00000000000000000000000000000001' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\inp' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:3.38-3.39> str='\i' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52> str='\out' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/MultipleCells/top.sv:3.47-3.49> str='\o2' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(i, o1, o2);
@@ -1469,50 +1469,50 @@ Found and reported 0 problems.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\assigner\invert=32'00000000000000000000000000000000'.
 
-(* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10" *)
+(* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10" *)
 module \$paramod\assigner\invert=32'00000000000000000000000000000000 (inp, out);
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56" *)
   input inp;
   wire inp;
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72" *)
   output out;
   wire out;
   assign out = inp;
 endmodule
 Dumping module `$paramod\assigner\invert=32'00000000000000000000000000000001'.
 
-(* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10" *)
+(* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.1-11.10" *)
 module \$paramod\assigner\invert=32'00000000000000000000000000000001 (inp, out);
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.53-6.56" *)
   input inp;
   wire inp;
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:6.69-6.72" *)
   output out;
   wire out;
-  assign out = ~ (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:10.18-10.22" *) inp;
+  assign out = ~ (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:10.18-10.22" *) inp;
 endmodule
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10" *)
+(* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:1.1-4.10" *)
 module top(i, o1, o2);
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:1.24-1.25" *)
   input i;
   wire i;
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:1.38-1.40" *)
   output o1;
   wire o1;
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:1.53-1.55" *)
   output o2;
   wire o2;
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:2.4-2.52" *)
   \$paramod\assigner\invert=32'00000000000000000000000000000000  asgn0 (
     .inp(i),
     .out(o1)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52" *)
+  (* src = "UHDM-integration-tests/tests/MultipleCells/top.sv:3.4-3.52" *)
   \$paramod\assigner\invert=32'00000000000000000000000000000001  asgn1 (
     .inp(i),
     .out(o2)

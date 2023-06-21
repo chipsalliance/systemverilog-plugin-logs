@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:1:1: No timescale set for "foo".
+[WRN:PA0205] UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:1:1: No timescale set for "foo".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0301] /UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:1:1: Compile package "foo".
+[INF:CP0301] UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:1:1: Compile package "foo".
 
-[INF:CP0303] /UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -30,7 +30,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -57,7 +57,7 @@ design: (work@top)
   |vpiFullName:builtin::
   |vpiDefName:builtin
 |uhdmallPackages:
-\_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+\_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:foo
@@ -65,10 +65,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (foo::fie_t), line:2:13, endln:2:19
     |vpiParent:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiName:foo::fie_t
     |vpiInstance:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiTypespecMember:
     \_typespec_member: (ld), line:3:13, endln:3:15
       |vpiParent:
@@ -79,9 +79,9 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (ld), line:3:13, endln:3:15
         |vpiInstance:
-        \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+        \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
         |vpiSigned:1
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:3
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:3
@@ -89,10 +89,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (foo::st:r.uct_t), line:6:13, endln:6:19
     |vpiParent:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiName:foo::st:r.uct_t
     |vpiInstance:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiTypespecMember:
     \_typespec_member: (fie.ld), line:7:13, endln:7:25
       |vpiParent:
@@ -103,9 +103,9 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (fie.ld), line:7:13, endln:7:25
         |vpiInstance:
-        \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+        \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
         |vpiSigned:1
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:7
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:7
@@ -117,7 +117,7 @@ design: (work@top)
       |vpiName:fie
       |vpiTypespec:
       \_struct_typespec: (foo::fie_t), line:2:13, endln:2:19
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:8
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:8
@@ -125,10 +125,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (foo::uct_t), line:11:13, endln:11:19
     |vpiParent:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiName:foo::uct_t
     |vpiInstance:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiTypespecMember:
     \_typespec_member: (i), line:12:13, endln:12:14
       |vpiParent:
@@ -139,9 +139,9 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (i), line:12:13, endln:12:14
         |vpiInstance:
-        \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+        \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
         |vpiSigned:1
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:12
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:12
@@ -186,7 +186,7 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmtopPackages:
-\_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+\_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:foo
@@ -194,10 +194,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (foo::fie_t), line:2:13, endln:2:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:foo::fie_t
     |vpiInstance:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiTypespecMember:
     \_typespec_member: (ld), line:3:13, endln:3:15
       |vpiParent:
@@ -208,9 +208,9 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (ld), line:3:13, endln:3:15
         |vpiInstance:
-        \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+        \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
         |vpiSigned:1
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:3
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:3
@@ -218,10 +218,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (foo::st:r.uct_t), line:6:13, endln:6:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:foo::st:r.uct_t
     |vpiInstance:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiTypespecMember:
     \_typespec_member: (fie.ld), line:7:13, endln:7:25
       |vpiParent:
@@ -232,9 +232,9 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (fie.ld), line:7:13, endln:7:25
         |vpiInstance:
-        \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+        \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
         |vpiSigned:1
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:7
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:7
@@ -246,7 +246,7 @@ design: (work@top)
       |vpiName:fie
       |vpiTypespec:
       \_struct_typespec: (foo::fie_t), line:2:13, endln:2:19
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:8
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:8
@@ -254,10 +254,10 @@ design: (work@top)
   |vpiTypedef:
   \_struct_typespec: (foo::uct_t), line:11:13, endln:11:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:foo::uct_t
     |vpiInstance:
-    \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+    \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
     |vpiTypespecMember:
     \_typespec_member: (i), line:12:13, endln:12:14
       |vpiParent:
@@ -268,9 +268,9 @@ design: (work@top)
         |vpiParent:
         \_typespec_member: (i), line:12:13, endln:12:14
         |vpiInstance:
-        \_package: foo (foo::), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
+        \_package: foo (foo::), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:1:1, endln:14:11
         |vpiSigned:1
-      |vpiRefFile:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
+      |vpiRefFile:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv
       |vpiRefLineNo:12
       |vpiRefColumnNo:9
       |vpiRefEndLineNo:12
@@ -278,14 +278,14 @@ design: (work@top)
   |vpiDefName:foo
   |vpiTop:1
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -294,9 +294,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -313,7 +313,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -325,17 +325,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -343,7 +343,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -351,7 +351,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -359,13 +359,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -373,7 +373,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -385,7 +385,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -393,13 +393,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -407,7 +407,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -419,20 +419,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -467,7 +467,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -477,13 +477,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -493,56 +493,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -551,9 +551,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -570,13 +570,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -593,13 +593,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -616,7 +616,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -628,7 +628,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -643,7 +643,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -659,31 +659,31 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o1), line:16:29, endln:16:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o1
     |vpiFullName:work@top.o1
   |vpiNet:
   \_logic_net: (work@top.o2), line:16:44, endln:16:46
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o2
     |vpiFullName:work@top.o2
   |vpiNet:
   \_logic_net: (work@top.o.b.j), line:19:27, endln:19:38
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o.b.j
     |vpiFullName:work@top.o.b.j
   |vpiNet:
   \_logic_net: (work@top.uct_obj), line:20:17, endln:20:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:uct_obj
     |vpiFullName:work@top.uct_obj
   |vpiPort:
   \_port: (o1), line:16:29, endln:16:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o1
     |vpiDirection:2
     |vpiLowConn:
@@ -696,7 +696,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o2), line:16:44, endln:16:46
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o2
     |vpiDirection:2
     |vpiLowConn:
@@ -709,7 +709,7 @@ design: (work@top)
   |vpiProcess:
   \_initial: , line:21:5, endln:24:8
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiStmt:
     \_begin: (work@top), line:21:13, endln:24:8
       |vpiParent:
@@ -788,7 +788,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:26:12, endln:26:41
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiRhs:
     \_hier_path: (o.b.j.fie.ld), line:26:17, endln:26:41
       |vpiParent:
@@ -815,7 +815,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:27:12, endln:27:41
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiRhs:
     \_hier_path: (o.b.j.fie.ld), line:27:17, endln:27:41
       |vpiParent:
@@ -845,12 +845,12 @@ design: (work@top)
       |vpiActual:
       \_int_var: (work@top.o2), line:16:44, endln:16:46
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.o1), line:16:29, endln:16:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiTypespec:
     \_int_typespec: , line:16:25, endln:16:28
       |vpiSigned:1
@@ -861,7 +861,7 @@ design: (work@top)
   |vpiVariables:
   \_int_var: (work@top.o2), line:16:44, endln:16:46
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiTypespec:
     \_int_typespec: , line:16:40, endln:16:43
       |vpiSigned:1
@@ -872,7 +872,7 @@ design: (work@top)
   |vpiVariables:
   \_struct_var: (work@top.o.b.j), line:19:27, endln:19:53
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiTypespec:
     \_struct_typespec: (foo::st:r.uct_t), line:6:13, endln:6:19
     |vpiName:o.b.j
@@ -896,7 +896,7 @@ design: (work@top)
   |vpiVariables:
   \_struct_var: (work@top.uct_obj), line:20:17, endln:20:34
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiTypespec:
     \_struct_typespec: (foo::uct_t), line:11:13, endln:11:19
     |vpiName:uct_obj
@@ -925,7 +925,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o1), line:16:29, endln:16:31
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o1
     |vpiDirection:2
     |vpiLowConn:
@@ -940,7 +940,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o2), line:16:44, endln:16:46
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv, line:16:1, endln:28:10
     |vpiName:o2
     |vpiDirection:2
     |vpiLowConn:
@@ -1034,89 +1034,89 @@ Object 'work@top' of type 'design'
         Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.1-28.10> str='\top'
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\fie_t'
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\st:r.uct_t'
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
-          AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\uct_t'
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.29-16.31> str='\o1' output signed port=1 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.44-16.46> str='\o2' output signed port=2 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.27-19.53> str='\o.b.j' logic basic_prep range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.1-28.10> str='\top'
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\fie_t'
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\st:r.uct_t'
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\uct_t'
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.29-16.31> str='\o1' output signed port=1 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.44-16.46> str='\o2' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.27-19.53> str='\o.b.j' logic basic_prep range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\st:r.uct_t' bits='0101110001110011011101000011101001110010001011100111010101100011011101000101111101110100'(88) basic_prep range=[87:0] int=1668570996
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.17-20.34> str='\uct_obj' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\st:r.uct_t' bits='0101110001110011011101000011101001110010001011100111010101100011011101000101111101110100'(88) basic_prep range=[87:0] int=1668570996
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.17-20.34> str='\uct_obj' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_t' bits='010111000111010101100011011101000101111101110100'(48) basic_prep range=[47:0] int=1668570996
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.41>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.14> str='\o1'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.17-26.41> str='\o.b.j' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
-      AST_ASSIGN </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.41>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.14> str='\o2'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.17-27.41> str='\o.b.j' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_INITIAL </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-        AST_BLOCK </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_obj'
-            AST_CONCAT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.27-20.34>
-              AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000010011100001111'(32) range=[31:0] int=9999
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\o.b.j'
-            AST_CONCAT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.40-19.53>
-              AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000100010101110'(32) signed range=[31:0] int=2222
-              AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000010001010111'(32) signed range=[31:0] int=1111
-      AST_INITIAL </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.5-24.8>
-        AST_BLOCK </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.13-24.8>
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.39>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.33> str='\o.b.j' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000110100000101'(32) signed range=[31:0] int=3333
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.39>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.27> str='\o.b.j' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.30-23.39> str='\uct_obj' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\foo::fie_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\foo::st:r.uct_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
-          AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\foo::uct_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_t' bits='010111000111010101100011011101000101111101110100'(48) basic_prep range=[47:0] int=1668570996
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.41>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.14> str='\o1'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.17-26.41> str='\o.b.j' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+      AST_ASSIGN <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.41>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.14> str='\o2'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.17-27.41> str='\o.b.j' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_INITIAL <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+        AST_BLOCK <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_obj'
+            AST_CONCAT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.27-20.34>
+              AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000010011100001111'(32) range=[31:0] int=9999
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\o.b.j'
+            AST_CONCAT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.40-19.53>
+              AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000100010101110'(32) signed range=[31:0] int=2222
+              AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000010001010111'(32) signed range=[31:0] int=1111
+      AST_INITIAL <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.5-24.8>
+        AST_BLOCK <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.13-24.8>
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.39>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.33> str='\o.b.j' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000110100000101'(32) signed range=[31:0] int=3333
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.39>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.27> str='\o.b.j' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.30-23.39> str='\uct_obj' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\foo::fie_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\foo::st:r.uct_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\foo::uct_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o1, o2);
@@ -1147,86 +1147,86 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.1-28.10> str='\top' basic_prep
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\fie_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\st:r.uct_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
-          AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\uct_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.29-16.31> str='\o1' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.44-16.46> str='\o2' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.27-19.53> str='\o.b.j' logic reg basic_prep range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.1-28.10> str='\top' basic_prep
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\fie_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\st:r.uct_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\uct_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.29-16.31> str='\o1' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:16.44-16.46> str='\o2' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.27-19.53> str='\o.b.j' logic reg basic_prep range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\st:r.uct_t' bits='0101110001110011011101000011101001110010001011100111010101100011011101000101111101110100'(88) basic_prep range=[87:0] int=1668570996
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.17-20.34> str='\uct_obj' logic reg basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\st:r.uct_t' bits='0101110001110011011101000011101001110010001011100111010101100011011101000101111101110100'(88) basic_prep range=[87:0] int=1668570996
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.17-20.34> str='\uct_obj' logic reg basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_t' bits='010111000111010101100011011101000101111101110100'(48) basic_prep range=[47:0] int=1668570996
-        AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.41> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.14> str='\o1' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.17-26.41> str='\o.b.j' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:32]
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
-      AST_ASSIGN </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.41> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.14> str='\o2' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.17-27.41> str='\o.b.j' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_INITIAL </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
-        AST_BLOCK </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_obj' basic_prep
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.27-20.34> bits='00000000000000000010011100001111'(32) basic_prep range=[31:0] int=9999
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\o.b.j' basic_prep
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.40-19.53> bits='0000000000000000000001000101011100000000000000000000100010101110'(64) basic_prep range=[63:0] int=2222
-      AST_INITIAL </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.5-24.8> basic_prep
-        AST_BLOCK </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.13-24.8> basic_prep
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.39> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.33> str='\o.b.j' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:32]
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
-            AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000110100000101'(32) signed basic_prep range=[31:0] int=3333
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.39> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.27> str='\o.b.j' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_IDENTIFIER </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.30-23.39> str='\uct_obj' basic_prep
-              AST_RANGE </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-                AST_CONSTANT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\foo::fie_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\foo::st:r.uct_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
-          AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
-            AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
-      AST_TYPEDEF </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\foo::uct_t' basic_prep
-        AST_STRUCT </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
-          AST_STRUCT_ITEM </UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_t' bits='010111000111010101100011011101000101111101110100'(48) basic_prep range=[47:0] int=1668570996
+        AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.41> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.14> str='\o1' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:26.17-26.41> str='\o.b.j' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:32]
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
+      AST_ASSIGN <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.41> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.14> str='\o2' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:27.17-27.41> str='\o.b.j' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_INITIAL <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+        AST_BLOCK <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_obj' basic_prep
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:20.27-20.34> bits='00000000000000000010011100001111'(32) basic_prep range=[31:0] int=9999
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\o.b.j' basic_prep
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:19.40-19.53> bits='0000000000000000000001000101011100000000000000000000100010101110'(64) basic_prep range=[63:0] int=2222
+      AST_INITIAL <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.5-24.8> basic_prep
+        AST_BLOCK <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:21.13-24.8> basic_prep
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.39> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.33> str='\o.b.j' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:32]
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
+            AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000110100000101'(32) signed basic_prep range=[31:0] int=3333
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.39> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.27> str='\o.b.j' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_IDENTIFIER <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:23.30-23.39> str='\uct_obj' basic_prep
+              AST_RANGE <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+                AST_CONSTANT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='\foo::fie_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> str='\foo::st:r.uct_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:6.13-6.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:2.13-2.19> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> str='\foo::uct_t' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:11.13-11.19> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o1, o2);

@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1:1: No timescale set for "submodule".
+[WRN:PA0205] UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1:1: No timescale set for "submodule".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1:1: Compile module "work@submodule".
+[INF:CP0303] UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1:1: Compile module "work@submodule".
 
-[INF:CP0303] /UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -30,7 +30,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -95,14 +95,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -111,9 +111,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -130,7 +130,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -142,17 +142,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -160,7 +160,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -168,7 +168,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -176,13 +176,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -190,7 +190,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -202,7 +202,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -210,13 +210,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -224,7 +224,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -236,20 +236,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -284,7 +284,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -294,13 +294,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -310,56 +310,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -368,9 +368,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -387,13 +387,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -410,13 +410,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -433,7 +433,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -445,7 +445,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -460,14 +460,14 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+\_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@submodule
   |vpiParameter:
   \_parameter: (work@submodule.P), line:2:18, endln:2:19
     |vpiParent:
-    \_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
     |UINT:1
     |vpiTypespec:
     \_int_typespec: , line:2:14, endln:2:17
@@ -480,7 +480,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:2:18, endln:2:23
     |vpiParent:
-    \_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
     |vpiRhs:
     \_constant: , line:2:22, endln:2:23
       |vpiDecompile:1
@@ -495,13 +495,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@submodule.a), line:1:29, endln:1:30
     |vpiParent:
-    \_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
     |vpiName:a
     |vpiFullName:work@submodule.a
   |vpiPort:
   \_port: (a), line:1:29, endln:1:30
     |vpiParent:
-    \_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -514,7 +514,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:3:11, endln:3:20
     |vpiParent:
-    \_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
     |vpiRhs:
     \_operation: , line:3:15, endln:3:20
       |vpiParent:
@@ -543,7 +543,7 @@ design: (work@top)
       |vpiActual:
       \_int_var: (work@top.u_sub.a), line:1:29, endln:1:30
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -551,13 +551,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiName:o
     |vpiFullName:work@top.o
   |vpiPort:
   \_port: (o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -570,11 +570,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@submodule (u_sub), line:7:14, endln:7:19
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiName:u_sub
     |vpiDefName:work@submodule
     |vpiActual:
-    \_module_inst: work@submodule (work@submodule), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
+    \_module_inst: work@submodule (work@submodule), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:1:1, endln:4:10
     |vpiPort:
     \_port: (a), line:7:20, endln:7:25
       |vpiName:a
@@ -584,12 +584,12 @@ design: (work@top)
         |vpiActual:
         \_int_var: (work@top.o), line:6:23, endln:6:24
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiTypespec:
     \_int_typespec: , line:6:19, endln:6:22
       |vpiSigned:1
@@ -603,7 +603,7 @@ design: (work@top)
   |vpiPort:
   \_port: (o), line:6:23, endln:6:24
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -616,15 +616,15 @@ design: (work@top)
     \_int_typespec: , line:6:19, endln:6:22
       |vpiSigned:1
   |vpiModule:
-  \_module_inst: work@submodule (work@top.u_sub), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
+  \_module_inst: work@submodule (work@top.u_sub), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiName:u_sub
     |vpiFullName:work@top.u_sub
     |vpiVariables:
     \_int_var: (work@top.u_sub.a), line:1:29, endln:1:30
       |vpiParent:
-      \_module_inst: work@submodule (work@top.u_sub), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
+      \_module_inst: work@submodule (work@top.u_sub), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
       |vpiTypespec:
       \_int_typespec: , line:1:25, endln:1:28
         |vpiSigned:1
@@ -635,7 +635,7 @@ design: (work@top)
     |vpiParameter:
     \_parameter: (work@top.u_sub.P), line:2:18, endln:2:19
       |vpiParent:
-      \_module_inst: work@submodule (work@top.u_sub), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
+      \_module_inst: work@submodule (work@top.u_sub), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
       |UINT:1
       |vpiTypespec:
       \_int_typespec: , line:2:14, endln:2:17
@@ -648,7 +648,7 @@ design: (work@top)
     |vpiParamAssign:
     \_param_assign: , line:2:18, endln:2:23
       |vpiParent:
-      \_module_inst: work@submodule (work@top.u_sub), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
+      \_module_inst: work@submodule (work@top.u_sub), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
       |vpiRhs:
       \_constant: , line:2:22, endln:2:23
         |vpiDecompile:1
@@ -660,14 +660,14 @@ design: (work@top)
       |vpiLhs:
       \_parameter: (work@top.u_sub.P), line:2:18, endln:2:19
     |vpiDefName:work@submodule
-    |vpiDefFile:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv
     |vpiDefLineNo:1
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:6:1, endln:8:10
     |vpiPort:
     \_port: (a), line:1:29, endln:1:30
       |vpiParent:
-      \_module_inst: work@submodule (work@top.u_sub), file:/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
+      \_module_inst: work@submodule (work@top.u_sub), file:UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv, line:7:4, endln:7:27
       |vpiName:a
       |vpiDirection:2
       |vpiHighConn:
@@ -746,21 +746,21 @@ Object 'work@top' of type 'design'
 Warning: Removing unelaborated module: \submodule from the design.
 Generating RTLIL representation for module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
-      AST_PARAMETER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30> str='\a' output signed port=1 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.20>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.12> str='\a'
-        AST_ADD </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.16> str='\P'
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\P' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30> str='\a' output signed port=1 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.20>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.12> str='\a'
+        AST_ADD <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.16> str='\P'
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
@@ -770,19 +770,19 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30> str='\a' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.20> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.12> str='\a' basic_prep
-        AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
+    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:2.18-2.23> str='\P' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30> str='\a' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.20> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.11-3.12> str='\a' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:3.15-3.20> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
@@ -793,15 +793,15 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.23-6.24> str='\o' output signed port=2 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\u_sub'
-        AST_CELLTYPE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
-        AST_ARGUMENT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\a'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.23-7.24> str='\o'
+    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.23-6.24> str='\o' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\u_sub'
+        AST_CELLTYPE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001'
+        AST_ARGUMENT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\a'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.23-7.24> str='\o'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -810,15 +810,15 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.23-6.24> str='\o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\u_sub' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\a' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.23-7.24> str='\o' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.23-6.24> str='\o' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\u_sub' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:0.0-0.0> str='$paramod\submodule\P=s32'00000000000000000000000000000001' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27> str='\a' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.23-7.24> str='\o' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -1004,9 +1004,9 @@ Found and reported 0 problems.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\submodule\P=s32'00000000000000000000000000000001'.
 
-(* src = "/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10" *)
+(* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.1-4.10" *)
 module \$paramod\submodule\P=s32'00000000000000000000000000000001 (a);
-  (* src = "/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30" *)
+  (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:1.29-1.30" *)
   output [31:0] a;
   wire [31:0] a;
   assign a = 32'd3;
@@ -1014,13 +1014,13 @@ endmodule
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10" *)
+(* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.1-8.10" *)
 module top(o);
-  (* src = "/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.23-6.24" *)
+  (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:6.23-6.24" *)
   output [31:0] o;
   wire [31:0] o;
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27" *)
+  (* src = "UHDM-integration-tests/tests/AssignSumWithParameterInSubmodule/top.sv:7.4-7.27" *)
   \$paramod\submodule\P=s32'00000000000000000000000000000001  u_sub (
     .a(o)
   );

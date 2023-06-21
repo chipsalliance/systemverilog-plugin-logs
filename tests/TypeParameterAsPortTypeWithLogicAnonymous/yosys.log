@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1:1: No timescale set for "test_module".
+[WRN:PA0205] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1:1: No timescale set for "test_module".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1:1: Compile module "work@test_module".
+[INF:CP0303] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1:1: Compile module "work@test_module".
 
-[INF:CP0303] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -28,14 +28,14 @@ Using Yosys read_systemverilog command
 
 [INF:CP0302] Compile class "work@semaphore".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5:10: Implicit port type (wire) for "a".
+[NTE:CP0309] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5:10: Implicit port type (wire) for "a".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:19: Implicit port type (wire) for "a",
+[NTE:CP0309] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:19: Implicit port type (wire) for "a",
 there are 1 more instances of this message.
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -100,14 +100,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -116,9 +116,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -135,7 +135,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -147,17 +147,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -165,7 +165,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -173,7 +173,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -181,13 +181,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -195,7 +195,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -207,7 +207,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -215,13 +215,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -229,7 +229,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -241,20 +241,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -289,7 +289,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -299,13 +299,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -315,56 +315,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -373,9 +373,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -392,13 +392,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -415,13 +415,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -438,7 +438,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -450,7 +450,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -465,14 +465,14 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+\_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@test_module
   |vpiParameter:
   \_type_parameter: (work@test_module.test_parameter), line:2:18, endln:2:32
     |vpiParent:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiName:test_parameter
     |vpiFullName:work@test_module.test_parameter
     |vpiTypespec:
@@ -503,19 +503,19 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@test_module.a_in), line:4:24, endln:4:28
     |vpiParent:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiName:a_in
     |vpiFullName:work@test_module.a_in
   |vpiNet:
   \_logic_net: (work@test_module.a), line:5:10, endln:5:11
     |vpiParent:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiName:a
     |vpiFullName:work@test_module.a
   |vpiPort:
   \_port: (a_in), line:4:24, endln:4:28
     |vpiParent:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiName:a_in
     |vpiDirection:1
     |vpiLowConn:
@@ -527,7 +527,7 @@ design: (work@top)
   |vpiPort:
   \_port: (a), line:5:10, endln:5:11
     |vpiParent:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -539,7 +539,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:7:10, endln:7:21
     |vpiParent:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiRhs:
     \_bit_select: (work@test_module.a_in), line:7:14, endln:7:21
       |vpiParent:
@@ -567,7 +567,7 @@ design: (work@top)
       |vpiActual:
       \_logic_net: (work@top.inst1.a), line:5:10, endln:5:11
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -575,26 +575,26 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.a), line:10:19, endln:10:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:a
     |vpiFullName:work@top.a
   |vpiNet:
   \_logic_net: (work@top.b), line:10:29, endln:10:30
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:b
     |vpiFullName:work@top.b
   |vpiNet:
   \_logic_net: (work@top.val), line:11:15, endln:11:18
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:val
     |vpiFullName:work@top.val
     |vpiNetType:36
   |vpiPort:
   \_port: (a), line:10:19, endln:10:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -606,7 +606,7 @@ design: (work@top)
   |vpiPort:
   \_port: (b), line:10:29, endln:10:30
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -618,11 +618,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@test_module (inst1), line:12:46, endln:12:51
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:inst1
     |vpiDefName:work@test_module
     |vpiActual:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiPort:
     \_port: (a_in), line:12:52, endln:12:62
       |vpiName:a_in
@@ -642,11 +642,11 @@ design: (work@top)
   |vpiRefModule:
   \_ref_module: work@test_module (inst2), line:13:15, endln:13:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:inst2
     |vpiDefName:work@test_module
     |vpiActual:
-    \_module_inst: work@test_module (work@test_module), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
+    \_module_inst: work@test_module (work@test_module), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:1:1, endln:8:10
     |vpiPort:
     \_port: (a_in), line:13:21, endln:13:31
       |vpiName:a_in
@@ -664,12 +664,12 @@ design: (work@top)
         |vpiActual:
         \_logic_net: (work@top.b), line:10:29, endln:10:30
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
   |vpiName:work@top
   |vpiVariables:
   \_logic_var: (work@top.val), line:11:15, endln:11:22
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiTypespec:
     \_logic_typespec: , line:11:3, endln:11:14
       |vpiRange:
@@ -722,7 +722,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.a), line:10:19, endln:10:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiTypespec:
     \_logic_typespec: , line:10:19, endln:10:19
     |vpiName:a
@@ -730,7 +730,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.b), line:10:29, endln:10:30
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiTypespec:
     \_logic_typespec: , line:10:29, endln:10:29
     |vpiName:b
@@ -739,7 +739,7 @@ design: (work@top)
   |vpiPort:
   \_port: (a), line:10:19, endln:10:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -753,7 +753,7 @@ design: (work@top)
   |vpiPort:
   \_port: (b), line:10:29, endln:10:30
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -765,15 +765,15 @@ design: (work@top)
     |vpiTypedef:
     \_logic_typespec: , line:10:29, endln:10:29
   |vpiModule:
-  \_module_inst: work@test_module (work@top.inst1), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
+  \_module_inst: work@test_module (work@top.inst1), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:inst1
     |vpiFullName:work@top.inst1
     |vpiVariables:
     \_logic_var: (work@top.inst1.a_in), line:4:24, endln:4:28
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst1), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
+      \_module_inst: work@test_module (work@top.inst1), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
       |vpiTypespec:
       \_logic_typespec: , line:12:33, endln:12:43
         |vpiParent:
@@ -802,28 +802,28 @@ design: (work@top)
     |vpiParameter:
     \_type_parameter: (work@top.inst1.test_parameter)
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst1), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
+      \_module_inst: work@test_module (work@top.inst1), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
       |vpiName:test_parameter
       |vpiFullName:work@top.inst1.test_parameter
       |vpiTypespec:
       \_logic_typespec: , line:12:33, endln:12:43
     |vpiDefName:work@test_module
-    |vpiDefFile:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv
     |vpiDefLineNo:1
     |vpiNet:
     \_logic_net: (work@top.inst1.a), line:5:10, endln:5:11
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst1), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
+      \_module_inst: work@test_module (work@top.inst1), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
       |vpiTypespec:
       \_logic_typespec: , line:5:10, endln:5:10
       |vpiName:a
       |vpiFullName:work@top.inst1.a
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiPort:
     \_port: (a_in), line:4:24, endln:4:28
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst1), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
+      \_module_inst: work@test_module (work@top.inst1), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
       |vpiName:a_in
       |vpiDirection:1
       |vpiHighConn:
@@ -843,7 +843,7 @@ design: (work@top)
     |vpiPort:
     \_port: (a), line:5:10, endln:5:11
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst1), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
+      \_module_inst: work@test_module (work@top.inst1), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:12:3, endln:12:71
       |vpiName:a
       |vpiDirection:2
       |vpiHighConn:
@@ -863,15 +863,15 @@ design: (work@top)
     |vpiContAssign:
     \_cont_assign: , line:7:10, endln:7:21
   |vpiModule:
-  \_module_inst: work@test_module (work@top.inst2), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
+  \_module_inst: work@test_module (work@top.inst2), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiName:inst2
     |vpiFullName:work@top.inst2
     |vpiVariables:
     \_logic_var: (work@top.inst2.a_in), line:4:24, endln:4:28
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst2), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
+      \_module_inst: work@test_module (work@top.inst2), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
       |vpiTypespec:
       \_logic_typespec: , line:2:35, endln:2:46
       |vpiName:a_in
@@ -880,22 +880,22 @@ design: (work@top)
     |vpiParameter:
     \_type_parameter: (work@test_module.test_parameter), line:2:18, endln:2:32
     |vpiDefName:work@test_module
-    |vpiDefFile:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv
+    |vpiDefFile:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv
     |vpiDefLineNo:1
     |vpiNet:
     \_logic_net: (work@top.inst2.a), line:5:10, endln:5:11
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst2), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
+      \_module_inst: work@test_module (work@top.inst2), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
       |vpiTypespec:
       \_logic_typespec: , line:5:10, endln:5:10
       |vpiName:a
       |vpiFullName:work@top.inst2.a
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:10:1, endln:14:10
     |vpiPort:
     \_port: (a_in), line:4:24, endln:4:28
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst2), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
+      \_module_inst: work@test_module (work@top.inst2), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
       |vpiName:a_in
       |vpiDirection:1
       |vpiHighConn:
@@ -915,7 +915,7 @@ design: (work@top)
     |vpiPort:
     \_port: (a), line:5:10, endln:5:11
       |vpiParent:
-      \_module_inst: work@test_module (work@top.inst2), file:/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
+      \_module_inst: work@test_module (work@top.inst2), file:UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv, line:13:3, endln:13:40
       |vpiName:a
       |vpiDirection:2
       |vpiHighConn:
@@ -1027,17 +1027,17 @@ Object 'work@top' of type 'design'
 Warning: Removing unelaborated module: \test_module from the design.
 Generating RTLIL representation for module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=2 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
-          AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21>
-            AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=2 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
+          AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21>
+            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
@@ -1047,17 +1047,17 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=2 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> basic_prep range=[0:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=2 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
@@ -1068,30 +1068,30 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic port=6 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic
-        AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14>
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\inst1'
-        AST_CELLTYPE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a_in'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.58-12.61> str='\val'
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.67-12.68> str='\a'
-      AST_CELL </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\inst2'
-        AST_CELLTYPE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a_in'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.27-13.30> str='\val'
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.36-13.37> str='\b'
-      AST_INITIAL </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0>
-        AST_BLOCK </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0>
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0>
-            AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='\val'
-            AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='0101'(4) range=[3:0] int=5
+    AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14>
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\inst1'
+        AST_CELLTYPE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a_in'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.58-12.61> str='\val'
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.67-12.68> str='\a'
+      AST_CELL <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\inst2'
+        AST_CELLTYPE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a_in'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.27-13.30> str='\val'
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.36-13.37> str='\b'
+      AST_INITIAL <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0>
+        AST_BLOCK <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0>
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0>
+            AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='\val'
+            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='0101'(4) range=[3:0] int=5
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
@@ -1105,30 +1105,30 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic basic_prep port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic basic_prep port=6 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic reg basic_prep range=[3:0]
-        AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14> basic_prep range=[3:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\inst1' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a_in' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.58-12.61> str='\val' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.67-12.68> str='\a' basic_prep
-      AST_CELL </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\inst2' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a_in' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.27-13.30> str='\val' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.36-13.37> str='\b' basic_prep
-      AST_INITIAL </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep
-        AST_BLOCK </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep
-          AST_ASSIGN_EQ </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='\val' basic_prep
-            AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='0101'(4) basic_prep range=[3:0] int=5
+    AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic basic_prep port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic basic_prep port=6 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic reg basic_prep range=[3:0]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\inst1' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a_in' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.58-12.61> str='\val' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.67-12.68> str='\a' basic_prep
+      AST_CELL <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\inst2' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a_in' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.27-13.30> str='\val' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.36-13.37> str='\b' basic_prep
+      AST_INITIAL <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep
+        AST_BLOCK <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep
+          AST_ASSIGN_EQ <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='\val' basic_prep
+            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='0101'(4) basic_prep range=[3:0] int=5
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
@@ -1143,17 +1143,17 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=3 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
-          AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21>
-            AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=3 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in'
+          AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21>
+            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
@@ -1163,17 +1163,17 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=3 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
-          AST_RANGE </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> basic_prep range=[0:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=3 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+          AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> str='\a_in' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.14-7.21> basic_prep range=[0:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
@@ -1219,17 +1219,17 @@ Promoted 1 assignment to connection.
 Converted 0 switches.
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\top.$proc$/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0$1'.
+Creating decoders for process `\top.$proc$UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0$1'.
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\top.\val' from process `\top.$proc$/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0$1'.
+No latch inferred for signal `\top.\val' from process `\top.$proc$UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0$1'.
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `top.$proc$/UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0$1'.
+Removing empty process `top.$proc$UHDM-integration-tests/tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0$1'.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).

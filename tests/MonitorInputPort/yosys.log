@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/MonitorInputPort/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/MonitorInputPort/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/MonitorInputPort/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/MonitorInputPort/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,13 +10,13 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/MonitorInputPort/top.sv:1:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/MonitorInputPort/top.sv:1:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/MonitorInputPort/top.sv:1:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/MonitorInputPort/top.sv:1:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -26,7 +26,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/MonitorInputPort/top.sv:1:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/MonitorInputPort/top.sv:1:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -38,7 +38,7 @@ Using Yosys read_systemverilog command
 
 [INF:UH0706] Creating UHDM Model...
 
-[WRN:UH0720] /UHDM-integration-tests/tests/MonitorInputPort/top.sv:3:7: Non-synthesizable construct "$monitor".
+[WRN:UH0720] UHDM-integration-tests/tests/MonitorInputPort/top.sv:3:7: Non-synthesizable construct "$monitor".
 
 [  FATAL] : 0
 [ SYNTAX] : 0
@@ -93,14 +93,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -109,9 +109,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -128,7 +128,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -140,17 +140,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -158,7 +158,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -166,7 +166,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -174,13 +174,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -188,7 +188,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -200,7 +200,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -208,13 +208,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -222,7 +222,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -234,20 +234,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -282,7 +282,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -292,13 +292,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -308,56 +308,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -366,9 +366,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -385,13 +385,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -408,13 +408,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -431,7 +431,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -443,7 +443,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -458,7 +458,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -466,13 +466,13 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.a), line:1:22, endln:1:23
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
     |vpiName:a
     |vpiFullName:work@top.a
   |vpiPort:
   \_port: (a), line:1:22, endln:1:23
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -485,7 +485,7 @@ design: (work@top)
   |vpiProcess:
   \_initial: , line:2:4, endln:4:7
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
     |vpiStmt:
     \_begin: (work@top), line:2:12, endln:4:7
       |vpiParent:
@@ -513,12 +513,12 @@ design: (work@top)
           \_int_var: (work@top.a), line:1:22, endln:1:23
         |vpiName:$monitor
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.a), line:1:22, endln:1:23
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
     |vpiTypespec:
     \_int_typespec: , line:1:18, endln:1:21
       |vpiSigned:1
@@ -532,7 +532,7 @@ design: (work@top)
   |vpiPort:
   \_port: (a), line:1:22, endln:1:23
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/MonitorInputPort/top.sv, line:1:1, endln:5:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -552,20 +552,20 @@ Object 'work@top' of type 'design'
     Object 'a' of type 'logic_net'
     Object '' of type 'initial'
       Object '' of type 'begin'
-Warning: /UHDM-integration-tests/tests/MonitorInputPort/top.sv:3: Skipping non-synthesizable object of type 'sys_func_call'
+Warning: UHDM-integration-tests/tests/MonitorInputPort/top.sv:3: Skipping non-synthesizable object of type 'sys_func_call'
   Object 'work@top' of type 'module_inst'
     Object 'a' of type 'port'
       Object '' of type 'int_typespec'
     Object 'a' of type 'int_var'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.1-5.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.22-1.23> str='\a' input signed port=1 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_INITIAL </UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.4-4.7>
-        AST_BLOCK </UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.12-4.7>
+    AST_MODULE <UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.1-5.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.22-1.23> str='\a' input signed port=1 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_INITIAL <UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.4-4.7>
+        AST_BLOCK <UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.12-4.7>
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a);
@@ -576,13 +576,13 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.1-5.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.22-1.23> str='\a' input signed basic_prep port=1 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_INITIAL </UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.4-4.7> basic_prep
-        AST_BLOCK </UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.12-4.7> basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.1-5.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.22-1.23> str='\a' input signed basic_prep port=1 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_INITIAL <UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.4-4.7> basic_prep
+        AST_BLOCK <UHDM-integration-tests/tests/MonitorInputPort/top.sv:2.12-4.7> basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
@@ -607,7 +607,7 @@ Removed 0 unused modules.
 2.2. Executing PROC pass (convert processes to netlists).
 
 2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `top.$proc$/UHDM-integration-tests/tests/MonitorInputPort/top.sv:2$1'.
+Removing empty process `top.$proc$UHDM-integration-tests/tests/MonitorInputPort/top.sv:2$1'.
 Cleaned up 0 empty switches.
 
 2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
@@ -726,9 +726,9 @@ Found and reported 0 problems.
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.1-5.10" *)
+(* src = "UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.1-5.10" *)
 module top(a);
-  (* src = "/UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.22-1.23" *)
+  (* src = "UHDM-integration-tests/tests/MonitorInputPort/top.sv:1.22-1.23" *)
   input [31:0] a;
   wire [31:0] a;
 endmodule

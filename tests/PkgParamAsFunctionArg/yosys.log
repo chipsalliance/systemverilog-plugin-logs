@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/PkgParamAsFunctionArg/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/PkgParamAsFunctionArg/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:1:1: No timescale set for "pkg".
+[WRN:PA0205] UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:1:1: No timescale set for "pkg".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0301] /UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:1:1: Compile package "pkg".
+[INF:CP0301] UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:1:1: Compile package "pkg".
 
-[INF:CP0303] /UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -28,11 +28,11 @@ Using Yosys read_systemverilog command
 
 [INF:CP0302] Compile class "work@semaphore".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:19: Implicit port type (wire) for "a".
+[NTE:CP0309] UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:19: Implicit port type (wire) for "a".
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -59,7 +59,7 @@ design: (work@top)
   |vpiFullName:builtin::
   |vpiDefName:builtin
 |uhdmallPackages:
-\_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+\_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:pkg
@@ -67,13 +67,13 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (pkg::P), line:3:25, endln:3:26
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
     |vpiTypespec:
     \_logic_typespec: , line:3:13, endln:3:24
       |vpiParent:
       \_parameter: (pkg::P), line:3:25, endln:3:26
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
       |vpiRange:
       \_range: , line:3:19, endln:3:24
         |vpiLeftRange:
@@ -97,7 +97,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:3:25, endln:3:41
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
     |vpiRhs:
     \_operation: , line:3:29, endln:3:41
       |vpiOpType:33
@@ -159,7 +159,7 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmtopPackages:
-\_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+\_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
   |vpiParent:
   \_design: (work@top)
   |vpiName:pkg
@@ -167,13 +167,13 @@ design: (work@top)
   |vpiParameter:
   \_parameter: (pkg::P), line:3:25, endln:3:26
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
     |vpiTypespec:
     \_logic_typespec: , line:3:13, endln:3:24
       |vpiParent:
       \_parameter: (pkg::P), line:3:25, endln:3:26
       |vpiInstance:
-      \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
       |vpiRange:
       \_range: , line:3:19, endln:3:24
         |vpiLeftRange:
@@ -197,7 +197,7 @@ design: (work@top)
   |vpiParamAssign:
   \_param_assign: , line:3:25, endln:3:41
     |vpiParent:
-    \_package: pkg (pkg::), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:1:1, endln:5:11
     |vpiRhs:
     \_operation: , line:3:29, endln:3:41
       |vpiOpType:33
@@ -222,14 +222,14 @@ design: (work@top)
   |vpiDefName:pkg
   |vpiTop:1
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -238,9 +238,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -257,7 +257,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -269,17 +269,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -287,7 +287,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -295,7 +295,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -303,13 +303,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -317,7 +317,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -329,7 +329,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -337,13 +337,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -351,7 +351,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -363,20 +363,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -411,7 +411,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -421,13 +421,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -437,56 +437,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -495,9 +495,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -514,13 +514,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -537,13 +537,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -560,7 +560,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -572,7 +572,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -587,7 +587,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -595,7 +595,7 @@ design: (work@top)
   |vpiTaskFunc:
   \_function: (work@top.get_first), line:10:4, endln:12:15
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiName:get_first
     |vpiFullName:work@top.get_first
     |vpiVisibility:1
@@ -605,7 +605,7 @@ design: (work@top)
       |vpiTypespec:
       \_logic_typespec: , line:10:23, endln:10:28
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiIODecl:
     \_io_decl: (x), line:10:51, endln:10:52
       |vpiDirection:1
@@ -653,17 +653,17 @@ design: (work@top)
           |UINT:1
           |vpiConstType:9
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
   |vpiNet:
   \_logic_net: (work@top.a), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiName:a
     |vpiFullName:work@top.a
   |vpiPort:
   \_port: (a), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -675,7 +675,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:14:11, endln:14:32
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiRhs:
     \_func_call: (get_first), line:14:15, endln:14:32
       |vpiParent:
@@ -699,7 +699,7 @@ design: (work@top)
       |vpiActual:
       \_logic_net: (work@top.a), line:8:19, endln:8:20
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
   |vpiName:work@top
   |vpiDefName:work@top
   |vpiTop:1
@@ -708,7 +708,7 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.a), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiTypespec:
     \_logic_typespec: , line:8:19, endln:8:19
     |vpiName:a
@@ -717,7 +717,7 @@ design: (work@top)
   |vpiPort:
   \_port: (a), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv, line:8:1, endln:16:10
     |vpiName:a
     |vpiDirection:2
     |vpiLowConn:
@@ -781,27 +781,27 @@ Object 'work@top' of type 'design'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic port=1 range=[0:0]
-      AST_FUNCTION </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
-        AST_WIRE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
-        AST_WIRE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-          AST_RANGE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ASSIGN_EQ </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.7-11.13>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18> str='\x'
-            AST_RANGE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18>
-              AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.32>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a'
-        AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_PARAMETER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic port=1 range=[0:0]
+      AST_FUNCTION <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
+        AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ASSIGN_EQ <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.7-11.13>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18> str='\x'
+            AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18>
+              AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.32>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a'
+        AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_PARAMETER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a);
@@ -812,27 +812,27 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic basic_prep port=1 range=[0:0]
-      AST_FUNCTION </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
-        AST_WIRE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
-        AST_WIRE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-          AST_RANGE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0]
-            AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_ASSIGN_EQ </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.7-11.13>
-          AST_IDENTIFIER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18> str='\x'
-            AST_RANGE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18>
-              AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_ASSIGN </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.32> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a' basic_prep
-        AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_PARAMETER </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2
-        AST_RANGE </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT </UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic basic_prep port=1 range=[0:0]
+      AST_FUNCTION <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
+        AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
+        AST_WIRE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+          AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0]
+            AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ASSIGN_EQ <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.7-11.13>
+          AST_IDENTIFIER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18> str='\x'
+            AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:11.14-11.18>
+              AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.32> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_PARAMETER <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2
+        AST_RANGE <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_CONSTANT <UHDM-integration-tests/tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);

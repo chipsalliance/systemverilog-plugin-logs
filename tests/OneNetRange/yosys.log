@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/OneNetRange/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/OneNetRange/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,25 +10,25 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /Surelog/tests/OneNetRange/dut.v:2:1: No timescale set for "dut".
+[WRN:PA0205] Surelog/tests/OneNetRange/dut.v:2:1: No timescale set for "dut".
 
-[WRN:PA0205] /Surelog/tests/OneNetRange/dut.v:8:1: No timescale set for "ConnectTB".
+[WRN:PA0205] Surelog/tests/OneNetRange/dut.v:8:1: No timescale set for "ConnectTB".
 
-[WRN:PA0205] /Surelog/tests/OneNetRange/dut.v:11:1: No timescale set for "middle".
+[WRN:PA0205] Surelog/tests/OneNetRange/dut.v:11:1: No timescale set for "middle".
 
-[WRN:PA0205] /Surelog/tests/OneNetRange/dut.v:15:1: No timescale set for "SUB".
+[WRN:PA0205] Surelog/tests/OneNetRange/dut.v:15:1: No timescale set for "SUB".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0304] /Surelog/tests/OneNetRange/dut.v:8:1: Compile interface "work@ConnectTB".
+[INF:CP0304] Surelog/tests/OneNetRange/dut.v:8:1: Compile interface "work@ConnectTB".
 
-[INF:CP0303] /Surelog/tests/OneNetRange/dut.v:15:1: Compile module "work@SUB".
+[INF:CP0303] Surelog/tests/OneNetRange/dut.v:15:1: Compile module "work@SUB".
 
-[INF:CP0303] /Surelog/tests/OneNetRange/dut.v:2:1: Compile module "work@dut".
+[INF:CP0303] Surelog/tests/OneNetRange/dut.v:2:1: Compile module "work@dut".
 
-[INF:CP0303] /Surelog/tests/OneNetRange/dut.v:11:1: Compile module "work@middle".
+[INF:CP0303] Surelog/tests/OneNetRange/dut.v:11:1: Compile module "work@middle".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -38,7 +38,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /Surelog/tests/OneNetRange/dut.v:2:1: Top level module "work@dut".
+[NTE:EL0503] Surelog/tests/OneNetRange/dut.v:2:1: Top level module "work@dut".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -103,14 +103,14 @@ design: (work@dut)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -119,9 +119,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -138,7 +138,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -150,17 +150,17 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -168,7 +168,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -176,7 +176,7 @@ design: (work@dut)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -184,13 +184,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -198,7 +198,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -210,7 +210,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -218,13 +218,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -232,7 +232,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -244,20 +244,20 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -292,7 +292,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -302,13 +302,13 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -318,56 +318,56 @@ design: (work@dut)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -376,9 +376,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -395,13 +395,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -418,13 +418,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -441,7 +441,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -453,7 +453,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -468,14 +468,14 @@ design: (work@dut)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallInterfaces:
-\_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+\_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@ConnectTB
   |vpiParameter:
   \_parameter: (work@ConnectTB.width), line:8:33, endln:8:38
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |UINT:1
     |vpiTypespec:
     \_int_typespec: 
@@ -484,7 +484,7 @@ design: (work@dut)
   |vpiParamAssign:
   \_param_assign: , line:8:33, endln:8:42
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiRhs:
     \_constant: , line:8:41, endln:8:42
       |vpiDecompile:1
@@ -499,21 +499,21 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@ConnectTB.con_i), line:8:68, endln:8:73
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiName:con_i
     |vpiFullName:work@ConnectTB.con_i
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@ConnectTB.con_o), line:8:98, endln:8:103
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiName:con_o
     |vpiFullName:work@ConnectTB.con_o
     |vpiNetType:48
   |vpiPort:
   \_port: (con_i), line:8:68, endln:8:73
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiName:con_i
     |vpiDirection:1
     |vpiLowConn:
@@ -523,7 +523,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (con_o), line:8:98, endln:8:103
     |vpiParent:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiName:con_o
     |vpiDirection:2
     |vpiLowConn:
@@ -531,14 +531,14 @@ design: (work@dut)
       |vpiActual:
       \_logic_net: (work@ConnectTB.con_o), line:8:98, endln:8:103
 |uhdmallModules:
-\_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+\_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@SUB
   |vpiParameter:
   \_parameter: (work@SUB.width), line:15:24, endln:15:29
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |UINT:1
     |vpiTypespec:
     \_int_typespec: 
@@ -547,7 +547,7 @@ design: (work@dut)
   |vpiParamAssign:
   \_param_assign: , line:15:24, endln:15:33
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiRhs:
     \_constant: , line:15:32, endln:15:33
       |vpiDecompile:1
@@ -562,21 +562,21 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@SUB.inp), line:15:59, endln:15:62
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiName:inp
     |vpiFullName:work@SUB.inp
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@SUB.out), line:15:87, endln:15:90
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiName:out
     |vpiFullName:work@SUB.out
     |vpiNetType:48
   |vpiPort:
   \_port: (inp), line:15:59, endln:15:62
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiName:inp
     |vpiDirection:1
     |vpiLowConn:
@@ -616,7 +616,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (out), line:15:87, endln:15:90
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiName:out
     |vpiDirection:2
     |vpiLowConn:
@@ -656,7 +656,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:16:10, endln:16:19
     |vpiParent:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiRhs:
     \_ref_obj: (work@SUB.inp), line:16:16, endln:16:19
       |vpiParent:
@@ -674,14 +674,14 @@ design: (work@dut)
       |vpiActual:
       \_logic_net: (work@dut.middle1.sub1.out), line:15:87, endln:15:90
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+\_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@dut
   |vpiParameter:
   \_parameter: (work@dut.width), line:2:24, endln:2:29
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |UINT:1
     |vpiTypespec:
     \_int_typespec: 
@@ -690,7 +690,7 @@ design: (work@dut)
   |vpiParamAssign:
   \_param_assign: , line:2:24, endln:2:33
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiRhs:
     \_constant: , line:2:32, endln:2:33
       |vpiDecompile:1
@@ -705,21 +705,21 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.i), line:2:59, endln:2:60
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:i
     |vpiFullName:work@dut.i
     |vpiNetType:1
   |vpiNet:
   \_logic_net: (work@dut.o), line:2:85, endln:2:86
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:o
     |vpiFullName:work@dut.o
     |vpiNetType:48
   |vpiPort:
   \_port: (i), line:2:59, endln:2:60
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:i
     |vpiDirection:1
     |vpiLowConn:
@@ -759,7 +759,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (o), line:2:85, endln:2:86
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -799,11 +799,11 @@ design: (work@dut)
   |vpiRefModule:
   \_ref_module: work@ConnectTB (conntb), line:3:30, endln:3:36
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:conntb
     |vpiDefName:work@ConnectTB
     |vpiActual:
-    \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+    \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiPort:
     \_port: (con_i), line:3:37, endln:3:46
       |vpiName:con_i
@@ -823,27 +823,27 @@ design: (work@dut)
   |vpiRefModule:
   \_ref_module: work@middle (middle1), line:4:27, endln:4:34
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:middle1
     |vpiDefName:work@middle
     |vpiActual:
-    \_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+    \_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
     |vpiPort:
     \_port: , line:4:35, endln:4:41
       |vpiHighConn:
       \_ref_obj: (conntb), line:4:35, endln:4:41
         |vpiName:conntb
         |vpiActual:
-        \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+        \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
 |uhdmallModules:
-\_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+\_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@middle
   |vpiParameter:
   \_parameter: (work@middle.width), line:11:27, endln:11:32
     |vpiParent:
-    \_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+    \_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
     |UINT:1
     |vpiTypespec:
     \_int_typespec: 
@@ -852,7 +852,7 @@ design: (work@dut)
   |vpiParamAssign:
   \_param_assign: , line:11:27, endln:11:36
     |vpiParent:
-    \_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+    \_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
     |vpiRhs:
     \_constant: , line:11:35, endln:11:36
       |vpiDecompile:1
@@ -867,30 +867,30 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@middle.conn), line:11:49, endln:11:53
     |vpiParent:
-    \_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+    \_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
     |vpiName:conn
     |vpiFullName:work@middle.conn
   |vpiPort:
   \_port: (conn), line:11:49, endln:11:53
     |vpiParent:
-    \_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+    \_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
     |vpiName:conn
     |vpiDirection:3
     |vpiLowConn:
     \_ref_obj: 
       |vpiActual:
-      \_interface_inst: work@ConnectTB (work@ConnectTB), file:/Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
+      \_interface_inst: work@ConnectTB (work@ConnectTB), file:Surelog/tests/OneNetRange/dut.v, line:8:1, endln:9:13
     |vpiTypedef:
     \_interface_typespec: (ConnectTB), line:11:39, endln:11:48
       |vpiName:ConnectTB
   |vpiRefModule:
   \_ref_module: work@SUB (sub1), line:12:24, endln:12:28
     |vpiParent:
-    \_module_inst: work@middle (work@middle), file:/Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
+    \_module_inst: work@middle (work@middle), file:Surelog/tests/OneNetRange/dut.v, line:11:1, endln:13:10
     |vpiName:sub1
     |vpiDefName:work@SUB
     |vpiActual:
-    \_module_inst: work@SUB (work@SUB), file:/Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
+    \_module_inst: work@SUB (work@SUB), file:Surelog/tests/OneNetRange/dut.v, line:15:1, endln:17:10
     |vpiPort:
     \_port: (inp), line:12:29, endln:12:45
       |vpiName:inp
@@ -924,12 +924,12 @@ design: (work@dut)
           \_hier_path: (conn.con_o), line:12:51, endln:12:61
           |vpiName:con_o
 |uhdmtopModules:
-\_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+\_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
   |vpiName:work@dut
   |vpiParameter:
   \_parameter: (work@dut.width), line:2:24, endln:2:29
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |UINT:1
     |vpiTypespec:
     \_int_typespec: 
@@ -940,7 +940,7 @@ design: (work@dut)
   |vpiParamAssign:
   \_param_assign: , line:2:24, endln:2:33
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiRhs:
     \_constant: , line:2:32, endln:2:33
       |vpiDecompile:1
@@ -956,7 +956,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.i), line:2:59, endln:2:60
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiTypespec:
     \_logic_typespec: , line:2:42, endln:2:58
       |vpiRange:
@@ -983,7 +983,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.o), line:2:85, endln:2:86
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiTypespec:
     \_logic_typespec: , line:2:69, endln:2:84
       |vpiRange:
@@ -1011,7 +1011,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (i), line:2:59, endln:2:60
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:i
     |vpiDirection:1
     |vpiLowConn:
@@ -1045,7 +1045,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (o), line:2:85, endln:2:86
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
@@ -1077,15 +1077,15 @@ design: (work@dut)
           |UINT:0
           |vpiConstType:9
   |vpiInterface:
-  \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+  \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:conntb
     |vpiFullName:work@dut.conntb
     |vpiParameter:
     \_parameter: (work@dut.conntb.width), line:8:33, endln:8:38
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+      \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
       |UINT:1
       |vpiTypespec:
       \_int_typespec: 
@@ -1096,7 +1096,7 @@ design: (work@dut)
     |vpiParamAssign:
     \_param_assign: , line:8:33, endln:8:42
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+      \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
       |vpiOverriden:1
       |vpiRhs:
       \_constant: , line:8:41, endln:8:42
@@ -1109,12 +1109,12 @@ design: (work@dut)
       |vpiLhs:
       \_parameter: (work@dut.conntb.width), line:8:33, endln:8:38
     |vpiDefName:work@ConnectTB
-    |vpiDefFile:/Surelog/tests/OneNetRange/dut.v
+    |vpiDefFile:Surelog/tests/OneNetRange/dut.v
     |vpiDefLineNo:8
     |vpiNet:
     \_logic_net: (work@dut.conntb.con_i), line:8:68, endln:8:73
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+      \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
       |vpiTypespec:
       \_logic_typespec: , line:8:51, endln:8:67
         |vpiRange:
@@ -1141,7 +1141,7 @@ design: (work@dut)
     |vpiNet:
     \_logic_net: (work@dut.conntb.con_o), line:8:98, endln:8:103
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+      \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
       |vpiTypespec:
       \_logic_typespec: , line:8:82, endln:8:97
         |vpiRange:
@@ -1166,11 +1166,11 @@ design: (work@dut)
       |vpiFullName:work@dut.conntb.con_o
       |vpiNetType:48
     |vpiInstance:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiPort:
     \_port: (con_i), line:8:68, endln:8:73
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+      \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
       |vpiName:con_i
       |vpiDirection:1
       |vpiHighConn:
@@ -1210,7 +1210,7 @@ design: (work@dut)
     |vpiPort:
     \_port: (con_o), line:8:98, endln:8:103
       |vpiParent:
-      \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
+      \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:3, endln:3:58
       |vpiName:con_o
       |vpiDirection:2
       |vpiHighConn:
@@ -1248,15 +1248,15 @@ design: (work@dut)
             |UINT:0
             |vpiConstType:9
   |vpiModule:
-  \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+  \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiName:middle1
     |vpiFullName:work@dut.middle1
     |vpiParameter:
     \_parameter: (work@dut.middle1.width), line:11:27, endln:11:32
       |vpiParent:
-      \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+      \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
       |UINT:1
       |vpiTypespec:
       \_int_typespec: 
@@ -1267,7 +1267,7 @@ design: (work@dut)
     |vpiParamAssign:
     \_param_assign: , line:11:27, endln:11:36
       |vpiParent:
-      \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+      \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
       |vpiOverriden:1
       |vpiRhs:
       \_constant: , line:11:35, endln:11:36
@@ -1280,14 +1280,14 @@ design: (work@dut)
       |vpiLhs:
       \_parameter: (work@dut.middle1.width), line:11:27, endln:11:32
     |vpiDefName:work@middle
-    |vpiDefFile:/Surelog/tests/OneNetRange/dut.v
+    |vpiDefFile:Surelog/tests/OneNetRange/dut.v
     |vpiDefLineNo:11
     |vpiInstance:
-    \_module_inst: work@dut (work@dut), file:/Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
+    \_module_inst: work@dut (work@dut), file:Surelog/tests/OneNetRange/dut.v, line:2:1, endln:5:10
     |vpiPort:
     \_port: (conn), line:11:49, endln:11:53
       |vpiParent:
-      \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+      \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
       |vpiName:conn
       |vpiDirection:3
       |vpiHighConn:
@@ -1295,34 +1295,34 @@ design: (work@dut)
         |vpiName:conntb
         |vpiFullName:work@dut.conntb
         |vpiActual:
-        \_interface_inst: work@ConnectTB (work@dut.conntb), file:/Surelog/tests/OneNetRange/dut.v, line:3:0
+        \_interface_inst: work@ConnectTB (work@dut.conntb), file:Surelog/tests/OneNetRange/dut.v, line:3:0
       |vpiLowConn:
       \_ref_obj: (work@dut.middle1.conn), line:4:35, endln:4:41
         |vpiFullName:work@dut.middle1.conn
         |vpiActual:
-        \_interface_inst: work@ConnectTB (work@dut.middle1.conn), file:/Surelog/tests/OneNetRange/dut.v, line:4:0
+        \_interface_inst: work@ConnectTB (work@dut.middle1.conn), file:Surelog/tests/OneNetRange/dut.v, line:4:0
       |vpiTypedef:
       \_interface_typespec: (ConnectTB), line:11:39, endln:11:48
         |vpiName:ConnectTB
     |vpiInterface:
-    \_interface_inst: work@ConnectTB (work@dut.middle1.conn), file:/Surelog/tests/OneNetRange/dut.v, line:4:0
+    \_interface_inst: work@ConnectTB (work@dut.middle1.conn), file:Surelog/tests/OneNetRange/dut.v, line:4:0
       |vpiParent:
-      \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+      \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
       |vpiName:conn
       |vpiFullName:work@dut.middle1.conn
       |vpiDefName:work@ConnectTB
     |vpiInterface:
-    \_interface_inst: work@ConnectTB (work@dut.middle1.conn), file:/Surelog/tests/OneNetRange/dut.v, line:4:0
+    \_interface_inst: work@ConnectTB (work@dut.middle1.conn), file:Surelog/tests/OneNetRange/dut.v, line:4:0
     |vpiModule:
-    \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+    \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
       |vpiParent:
-      \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+      \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
       |vpiName:sub1
       |vpiFullName:work@dut.middle1.sub1
       |vpiParameter:
       \_parameter: (work@dut.middle1.sub1.width), line:15:24, endln:15:29
         |vpiParent:
-        \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+        \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
         |UINT:1
         |vpiTypespec:
         \_int_typespec: 
@@ -1333,7 +1333,7 @@ design: (work@dut)
       |vpiParamAssign:
       \_param_assign: , line:15:24, endln:15:33
         |vpiParent:
-        \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+        \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
         |vpiOverriden:1
         |vpiRhs:
         \_constant: , line:15:32, endln:15:33
@@ -1346,12 +1346,12 @@ design: (work@dut)
         |vpiLhs:
         \_parameter: (work@dut.middle1.sub1.width), line:15:24, endln:15:29
       |vpiDefName:work@SUB
-      |vpiDefFile:/Surelog/tests/OneNetRange/dut.v
+      |vpiDefFile:Surelog/tests/OneNetRange/dut.v
       |vpiDefLineNo:15
       |vpiNet:
       \_logic_net: (work@dut.middle1.sub1.inp), line:15:59, endln:15:62
         |vpiParent:
-        \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+        \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
         |vpiTypespec:
         \_logic_typespec: , line:15:42, endln:15:58
           |vpiRange:
@@ -1378,7 +1378,7 @@ design: (work@dut)
       |vpiNet:
       \_logic_net: (work@dut.middle1.sub1.out), line:15:87, endln:15:90
         |vpiParent:
-        \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+        \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
         |vpiTypespec:
         \_logic_typespec: , line:15:71, endln:15:86
           |vpiRange:
@@ -1403,11 +1403,11 @@ design: (work@dut)
         |vpiFullName:work@dut.middle1.sub1.out
         |vpiNetType:48
       |vpiInstance:
-      \_module_inst: work@middle (work@dut.middle1), file:/Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
+      \_module_inst: work@middle (work@dut.middle1), file:Surelog/tests/OneNetRange/dut.v, line:4:3, endln:4:43
       |vpiPort:
       \_port: (inp), line:15:59, endln:15:62
         |vpiParent:
-        \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+        \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
         |vpiName:inp
         |vpiDirection:1
         |vpiHighConn:
@@ -1458,7 +1458,7 @@ design: (work@dut)
       |vpiPort:
       \_port: (out), line:15:87, endln:15:90
         |vpiParent:
-        \_module_inst: work@SUB (work@dut.middle1.sub1), file:/Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
+        \_module_inst: work@SUB (work@dut.middle1.sub1), file:Surelog/tests/OneNetRange/dut.v, line:12:3, endln:12:64
         |vpiName:out
         |vpiDirection:2
         |vpiHighConn:
@@ -1639,23 +1639,23 @@ Warning: Removing unelaborated module: \SUB from the design.
 Warning: Removing unelaborated module: \middle from the design.
 Generating RTLIL representation for module `$paramod\SUB\width=32'00000000000000000000000000000001'.
 Dumping AST before simplification:
-    AST_MODULE </Surelog/tests/OneNetRange/dut.v:15.1-17.10> str='$paramod\SUB\width=32'00000000000000000000000000000001'
-      AST_PARAMETER </Surelog/tests/OneNetRange/dut.v:15.24-15.33> str='\width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:15.59-15.62> str='\inp' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:15.47-15.58> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:15.87-15.90> str='\out' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:15.75-15.86> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </Surelog/tests/OneNetRange/dut.v:16.10-16.19>
-        AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:16.10-16.13> str='\out'
-        AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:16.16-16.19> str='\inp'
+    AST_MODULE <Surelog/tests/OneNetRange/dut.v:15.1-17.10> str='$paramod\SUB\width=32'00000000000000000000000000000001'
+      AST_PARAMETER <Surelog/tests/OneNetRange/dut.v:15.24-15.33> str='\width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:15.59-15.62> str='\inp' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:15.47-15.58> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:15.87-15.90> str='\out' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:15.75-15.86> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <Surelog/tests/OneNetRange/dut.v:16.10-16.19>
+        AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:16.10-16.13> str='\out'
+        AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:16.16-16.19> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\SUB\width=32'00000000000000000000000000000001 (inp, out);
@@ -1666,23 +1666,23 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </Surelog/tests/OneNetRange/dut.v:15.1-17.10> str='$paramod\SUB\width=32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER </Surelog/tests/OneNetRange/dut.v:15.24-15.33> str='\width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:15.59-15.62> str='\inp' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:15.47-15.58> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:15.87-15.90> str='\out' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:15.75-15.86> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </Surelog/tests/OneNetRange/dut.v:16.10-16.19> basic_prep
-        AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:16.10-16.13> str='\out' basic_prep
-        AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:16.16-16.19> str='\inp' basic_prep
+    AST_MODULE <Surelog/tests/OneNetRange/dut.v:15.1-17.10> str='$paramod\SUB\width=32'00000000000000000000000000000001' basic_prep
+      AST_PARAMETER <Surelog/tests/OneNetRange/dut.v:15.24-15.33> str='\width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:15.59-15.62> str='\inp' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:15.47-15.58> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:15.87-15.90> str='\out' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:15.75-15.86> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <Surelog/tests/OneNetRange/dut.v:16.10-16.19> basic_prep
+        AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:16.10-16.13> str='\out' basic_prep
+        AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:16.16-16.19> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\SUB\width=32'00000000000000000000000000000001 (inp, out);
@@ -1694,21 +1694,21 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `$paramod\middle\width=32'00000000000000000000000000000001'.
 Dumping AST before simplification:
-    AST_MODULE </Surelog/tests/OneNetRange/dut.v:11.1-13.10> str='$paramod\middle\width=32'00000000000000000000000000000001'
-      AST_PARAMETER </Surelog/tests/OneNetRange/dut.v:11.27-11.36> str='\width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_INTERFACEPORT </Surelog/tests/OneNetRange/dut.v:11.49-11.53> str='\conn' input output port=5
-        AST_WIRETYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
-        AST_INTERFACEPORTTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
-      AST_CELL </Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\sub1'
-        AST_CELLTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\SUB\width=32'00000000000000000000000000000001'
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\inp'
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:12.34-12.44> str='\conn.con_i'
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\out'
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:12.51-12.61> str='\conn.con_o'
+    AST_MODULE <Surelog/tests/OneNetRange/dut.v:11.1-13.10> str='$paramod\middle\width=32'00000000000000000000000000000001'
+      AST_PARAMETER <Surelog/tests/OneNetRange/dut.v:11.27-11.36> str='\width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_INTERFACEPORT <Surelog/tests/OneNetRange/dut.v:11.49-11.53> str='\conn' input output port=5
+        AST_WIRETYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
+        AST_INTERFACEPORTTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
+      AST_CELL <Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\sub1'
+        AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\SUB\width=32'00000000000000000000000000000001'
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\inp'
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:12.34-12.44> str='\conn.con_i'
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\out'
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:12.51-12.61> str='\conn.con_o'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\middle\width=32'00000000000000000000000000000001 ();
@@ -1718,23 +1718,23 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </Surelog/tests/OneNetRange/dut.v:11.1-13.10> str='$paramod\middle\width=32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER </Surelog/tests/OneNetRange/dut.v:11.27-11.36> str='\width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_INTERFACEPORT </Surelog/tests/OneNetRange/dut.v:11.49-11.53> str='\conn' input output basic_prep port=5
-        AST_WIRETYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
-        AST_INTERFACEPORTTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
-      AST_CELL </Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\sub1' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\SUB\width=32'00000000000000000000000000000001' basic_prep
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\inp' basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:12.34-12.44> str='\conn.con_i' basic_prep
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\out' basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:12.51-12.61> str='\conn.con_o' basic_prep
-      AST_AUTOWIRE </Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\conn.con_i' basic_prep
-      AST_AUTOWIRE </Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\conn.con_o' basic_prep
+    AST_MODULE <Surelog/tests/OneNetRange/dut.v:11.1-13.10> str='$paramod\middle\width=32'00000000000000000000000000000001' basic_prep
+      AST_PARAMETER <Surelog/tests/OneNetRange/dut.v:11.27-11.36> str='\width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_INTERFACEPORT <Surelog/tests/OneNetRange/dut.v:11.49-11.53> str='\conn' input output basic_prep port=5
+        AST_WIRETYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
+        AST_INTERFACEPORTTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
+      AST_CELL <Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\sub1' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\SUB\width=32'00000000000000000000000000000001' basic_prep
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\inp' basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:12.34-12.44> str='\conn.con_i' basic_prep
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:12.3-12.64> str='\out' basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:12.51-12.61> str='\conn.con_o' basic_prep
+      AST_AUTOWIRE <Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\conn.con_i' basic_prep
+      AST_AUTOWIRE <Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\conn.con_o' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\middle\width=32'00000000000000000000000000000001 ();
@@ -1745,34 +1745,34 @@ Dumping Verilog AST after simplification:
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
-/Surelog/tests/OneNetRange/dut.v:12: Warning: Identifier `\conn.con_i' is implicitly declared.
-/Surelog/tests/OneNetRange/dut.v:12: Warning: Identifier `\conn.con_o' is implicitly declared.
+Surelog/tests/OneNetRange/dut.v:12: Warning: Identifier `\conn.con_i' is implicitly declared.
+Surelog/tests/OneNetRange/dut.v:12: Warning: Identifier `\conn.con_o' is implicitly declared.
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE </Surelog/tests/OneNetRange/dut.v:2.1-5.10> str='\dut'
-      AST_PARAMETER </Surelog/tests/OneNetRange/dut.v:2.24-2.33> str='\width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:2.59-2.60> str='\i' input logic port=8 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:2.47-2.58> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:2.85-2.86> str='\o' output reg port=9 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:2.73-2.84> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\middle1'
-        AST_CELLTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\middle\width=32'00000000000000000000000000000001'
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\conn'
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:4.35-4.41> str='\conntb'
-      AST_CELL </Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\conntb'
-        AST_CELLTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_i'
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:3.44-3.45> str='\i'
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_o'
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:3.54-3.55> str='\o'
+    AST_MODULE <Surelog/tests/OneNetRange/dut.v:2.1-5.10> str='\dut'
+      AST_PARAMETER <Surelog/tests/OneNetRange/dut.v:2.24-2.33> str='\width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:2.59-2.60> str='\i' input logic port=8 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:2.47-2.58> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:2.85-2.86> str='\o' output reg port=9 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:2.73-2.84> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\middle1'
+        AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\middle\width=32'00000000000000000000000000000001'
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\conn'
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:4.35-4.41> str='\conntb'
+      AST_CELL <Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\conntb'
+        AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_i'
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:3.44-3.45> str='\i'
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_o'
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:3.54-3.55> str='\o'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(i, o);
@@ -1784,30 +1784,30 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </Surelog/tests/OneNetRange/dut.v:2.1-5.10> str='\dut' basic_prep
-      AST_PARAMETER </Surelog/tests/OneNetRange/dut.v:2.24-2.33> str='\width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:2.59-2.60> str='\i' input logic basic_prep port=8 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:2.47-2.58> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:2.85-2.86> str='\o' output reg basic_prep port=9 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE </Surelog/tests/OneNetRange/dut.v:2.73-2.84> basic_prep range=[0:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL </Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\middle1' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\middle\width=32'00000000000000000000000000000001' basic_prep
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\conn' basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:4.35-4.41> str='\conntb' basic_prep
-      AST_CELL </Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\conntb' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_i' basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:3.44-3.45> str='\i' basic_prep
-        AST_ARGUMENT </Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_o' basic_prep
-          AST_IDENTIFIER </Surelog/tests/OneNetRange/dut.v:3.54-3.55> str='\o' basic_prep
+    AST_MODULE <Surelog/tests/OneNetRange/dut.v:2.1-5.10> str='\dut' basic_prep
+      AST_PARAMETER <Surelog/tests/OneNetRange/dut.v:2.24-2.33> str='\width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:2.59-2.60> str='\i' input logic basic_prep port=8 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:2.47-2.58> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:2.85-2.86> str='\o' output reg basic_prep port=9 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <Surelog/tests/OneNetRange/dut.v:2.73-2.84> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_CELL <Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\middle1' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='$paramod\middle\width=32'00000000000000000000000000000001' basic_prep
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:4.3-4.43> str='\conn' basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:4.35-4.41> str='\conntb' basic_prep
+      AST_CELL <Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\conntb' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_i' basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:3.44-3.45> str='\i' basic_prep
+        AST_ARGUMENT <Surelog/tests/OneNetRange/dut.v:3.3-3.58> str='\con_o' basic_prep
+          AST_IDENTIFIER <Surelog/tests/OneNetRange/dut.v:3.54-3.55> str='\o' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(i, o);
@@ -1820,17 +1820,17 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\ConnectTB'.
 Dumping AST before simplification:
-    AST_INTERFACE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:8.68-8.73> str='\con_i' input logic port=1 range=[0:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:8.98-8.103> str='\con_o' output logic port=2 range=[0:0]
+    AST_INTERFACE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB'
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:8.68-8.73> str='\con_i' input logic port=1 range=[0:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:8.98-8.103> str='\con_o' output logic port=2 range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     /** AST_INTERFACE **/
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_INTERFACE </UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:8.68-8.73> str='\con_i' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </Surelog/tests/OneNetRange/dut.v:8.98-8.103> str='\con_o' output logic basic_prep port=2 range=[0:0]
+    AST_INTERFACE <UHDM-integration-tests/../Surelog/tests/OneNetRange/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:8.68-8.73> str='\con_i' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <Surelog/tests/OneNetRange/dut.v:8.98-8.103> str='\con_o' output logic basic_prep port=2 range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     /** AST_INTERFACE **/
@@ -2054,12 +2054,12 @@ Found and reported 0 problems.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\SUB\width=32'00000000000000000000000000000001'.
 
-(* src = "/Surelog/tests/OneNetRange/dut.v:15.1-17.10" *)
+(* src = "Surelog/tests/OneNetRange/dut.v:15.1-17.10" *)
 module \$paramod\SUB\width=32'00000000000000000000000000000001 (inp, out);
-  (* src = "/Surelog/tests/OneNetRange/dut.v:15.59-15.62" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:15.59-15.62" *)
   input inp;
   wire inp;
-  (* src = "/Surelog/tests/OneNetRange/dut.v:15.87-15.90" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:15.87-15.90" *)
   output out;
   wire out;
   assign out = inp;
@@ -2067,16 +2067,16 @@ endmodule
 Dumping module `$paramod\middle\width=32'00000000000000000000000000000001'.
 
 (* interfaces_replaced_in_module =  1  *)
-(* src = "/Surelog/tests/OneNetRange/dut.v:11.1-13.10" *)
+(* src = "Surelog/tests/OneNetRange/dut.v:11.1-13.10" *)
 module \$paramod\middle\width=32'00000000000000000000000000000001 (\conn.con_i , \conn.con_o );
-  (* src = "/Surelog/tests/OneNetRange/dut.v:0.0-0.0" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:0.0-0.0" *)
   inout \conn.con_i ;
   wire \conn.con_i ;
-  (* src = "/Surelog/tests/OneNetRange/dut.v:0.0-0.0" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:0.0-0.0" *)
   inout \conn.con_o ;
   wire \conn.con_o ;
   (* module_not_derived = 32'd1 *)
-  (* src = "/Surelog/tests/OneNetRange/dut.v:12.3-12.64" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:12.3-12.64" *)
   \$paramod\SUB\width=32'00000000000000000000000000000001  sub1 (
     .inp(\conn.con_i ),
     .out(\conn.con_o )
@@ -2085,16 +2085,16 @@ endmodule
 Dumping module `\dut'.
 
 (* top =  1  *)
-(* src = "/Surelog/tests/OneNetRange/dut.v:2.1-5.10" *)
+(* src = "Surelog/tests/OneNetRange/dut.v:2.1-5.10" *)
 module dut(i, o);
-  (* src = "/Surelog/tests/OneNetRange/dut.v:2.59-2.60" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:2.59-2.60" *)
   input i;
   wire i;
-  (* src = "/Surelog/tests/OneNetRange/dut.v:2.85-2.86" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:2.85-2.86" *)
   output o;
   wire o;
   (* module_not_derived = 32'd1 *)
-  (* src = "/Surelog/tests/OneNetRange/dut.v:3.3-3.58" *)
+  (* src = "Surelog/tests/OneNetRange/dut.v:3.3-3.58" *)
   ConnectTB conntb (
     .con_i(i),
     .con_o(o)

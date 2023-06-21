@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/ShiftTernary/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/ShiftTernary/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/ShiftTernary/top.sv" TOP_MODULE="top" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/ShiftTernary/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,13 +10,13 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/ShiftTernary/top.sv:1:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/ShiftTernary/top.sv:1:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/ShiftTernary/top.sv:1:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/ShiftTernary/top.sv:1:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -26,7 +26,7 @@ Using Yosys read_systemverilog command
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/ShiftTernary/top.sv:1:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/ShiftTernary/top.sv:1:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -91,14 +91,14 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -107,9 +107,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -126,7 +126,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -138,17 +138,17 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -156,7 +156,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -164,7 +164,7 @@ design: (work@top)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -172,13 +172,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -186,7 +186,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -198,7 +198,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -206,13 +206,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -220,7 +220,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -232,20 +232,20 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -280,7 +280,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -290,13 +290,13 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -306,56 +306,56 @@ design: (work@top)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@top)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -364,9 +364,9 @@ design: (work@top)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -383,13 +383,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -406,13 +406,13 @@ design: (work@top)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -429,7 +429,7 @@ design: (work@top)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -441,7 +441,7 @@ design: (work@top)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -456,7 +456,7 @@ design: (work@top)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
@@ -464,19 +464,19 @@ design: (work@top)
   |vpiNet:
   \_logic_net: (work@top.oL), line:2:14, endln:2:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiName:oL
     |vpiFullName:work@top.oL
   |vpiNet:
   \_logic_net: (work@top.oR), line:3:14, endln:3:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiName:oR
     |vpiFullName:work@top.oR
   |vpiPort:
   \_port: (oL), line:2:14, endln:2:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiName:oL
     |vpiDirection:2
     |vpiLowConn:
@@ -489,7 +489,7 @@ design: (work@top)
   |vpiPort:
   \_port: (oR), line:3:14, endln:3:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiName:oR
     |vpiDirection:2
     |vpiLowConn:
@@ -502,7 +502,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:5:10, endln:5:33
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiRhs:
     \_operation: , line:5:15, endln:5:33
       |vpiParent:
@@ -556,7 +556,7 @@ design: (work@top)
   |vpiContAssign:
   \_cont_assign: , line:6:10, endln:6:33
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiRhs:
     \_operation: , line:6:15, endln:6:33
       |vpiParent:
@@ -608,12 +608,12 @@ design: (work@top)
       |vpiActual:
       \_int_var: (work@top.oR), line:3:14, endln:3:16
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
   |vpiName:work@top
   |vpiVariables:
   \_int_var: (work@top.oL), line:2:14, endln:2:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiTypespec:
     \_int_typespec: , line:2:10, endln:2:13
       |vpiSigned:1
@@ -624,7 +624,7 @@ design: (work@top)
   |vpiVariables:
   \_int_var: (work@top.oR), line:3:14, endln:3:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiTypespec:
     \_int_typespec: , line:3:10, endln:3:13
       |vpiSigned:1
@@ -638,7 +638,7 @@ design: (work@top)
   |vpiPort:
   \_port: (oL), line:2:14, endln:2:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiName:oL
     |vpiDirection:2
     |vpiLowConn:
@@ -653,7 +653,7 @@ design: (work@top)
   |vpiPort:
   \_port: (oR), line:3:14, endln:3:16
     |vpiParent:
-    \_module_inst: work@top (work@top), file:/UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/ShiftTernary/top.sv, line:1:1, endln:7:10
     |vpiName:oR
     |vpiDirection:2
     |vpiLowConn:
@@ -797,33 +797,33 @@ Object 'work@top' of type 'design'
     Object 'oR' of type 'int_var'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/ShiftTernary/top.sv:1.1-7.10> str='\top'
-      AST_WIRE </UHDM-integration-tests/tests/ShiftTernary/top.sv:2.14-2.16> str='\oL' output signed port=1 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/ShiftTernary/top.sv:3.14-3.16> str='\oR' output signed port=2 range=[0:0]
-        AST_RANGE </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.33>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.12> str='\oL'
-        AST_SHIFT_LEFT </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.15-5.33>
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) signed range=[31:0] int=256
-          AST_TO_UNSIGNED </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
-            AST_TERNARY </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.23-5.32>
-              AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.33>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.12> str='\oR'
-        AST_SHIFT_RIGHT </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.15-6.33>
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) signed range=[31:0] int=256
-          AST_TO_UNSIGNED </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
-            AST_TERNARY </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.23-6.32>
-              AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_MODULE <UHDM-integration-tests/tests/ShiftTernary/top.sv:1.1-7.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/ShiftTernary/top.sv:2.14-2.16> str='\oL' output signed port=1 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ShiftTernary/top.sv:3.14-3.16> str='\oR' output signed port=2 range=[0:0]
+        AST_RANGE <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.33>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.12> str='\oL'
+        AST_SHIFT_LEFT <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.15-5.33>
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) signed range=[31:0] int=256
+          AST_TO_UNSIGNED <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
+            AST_TERNARY <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.23-5.32>
+              AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.33>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.12> str='\oR'
+        AST_SHIFT_RIGHT <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.15-6.33>
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) signed range=[31:0] int=256
+          AST_TO_UNSIGNED <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0>
+            AST_TERNARY <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.23-6.32>
+              AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(oL, oR);
@@ -834,21 +834,21 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/ShiftTernary/top.sv:1.1-7.10> str='\top' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/ShiftTernary/top.sv:2.14-2.16> str='\oL' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/ShiftTernary/top.sv:3.14-3.16> str='\oR' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.33> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.12> str='\oL' basic_prep
-        AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:5.15-5.33> bits='00000000000000000000001000000000'(32) signed basic_prep range=[31:0] int=512
-      AST_ASSIGN </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.33> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.12> str='\oR' basic_prep
-        AST_CONSTANT </UHDM-integration-tests/tests/ShiftTernary/top.sv:6.15-6.33> bits='00000000000000000000000010000000'(32) signed basic_prep range=[31:0] int=128
+    AST_MODULE <UHDM-integration-tests/tests/ShiftTernary/top.sv:1.1-7.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/ShiftTernary/top.sv:2.14-2.16> str='\oL' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/ShiftTernary/top.sv:3.14-3.16> str='\oR' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.33> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.10-5.12> str='\oL' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:5.15-5.33> bits='00000000000000000000001000000000'(32) signed basic_prep range=[31:0] int=512
+      AST_ASSIGN <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.33> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.10-6.12> str='\oR' basic_prep
+        AST_CONSTANT <UHDM-integration-tests/tests/ShiftTernary/top.sv:6.15-6.33> bits='00000000000000000000000010000000'(32) signed basic_prep range=[31:0] int=128
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(oL, oR);
@@ -991,12 +991,12 @@ Found and reported 0 problems.
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/ShiftTernary/top.sv:1.1-7.10" *)
+(* src = "UHDM-integration-tests/tests/ShiftTernary/top.sv:1.1-7.10" *)
 module top(oL, oR);
-  (* src = "/UHDM-integration-tests/tests/ShiftTernary/top.sv:2.14-2.16" *)
+  (* src = "UHDM-integration-tests/tests/ShiftTernary/top.sv:2.14-2.16" *)
   output [31:0] oL;
   wire [31:0] oL;
-  (* src = "/UHDM-integration-tests/tests/ShiftTernary/top.sv:3.14-3.16" *)
+  (* src = "UHDM-integration-tests/tests/ShiftTernary/top.sv:3.14-3.16" *)
   output [31:0] oR;
   wire [31:0] oR;
   assign oL = 32'd512;

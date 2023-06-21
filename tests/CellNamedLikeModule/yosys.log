@@ -1,7 +1,7 @@
-rm -rf /UHDM-integration-tests/build
-mkdir -p /UHDM-integration-tests/build
-(export TOP_FILE="/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
-cd /UHDM-integration-tests/build && LD_PRELOAD=/image/lib/libfakedlclose.so /image/bin/yosys -Q -c /UHDM-integration-tests/tests/CellNamedLikeModule/yosys_script.tcl)
+rm -rf UHDM-integration-tests/build
+mkdir -p UHDM-integration-tests/build
+(export TOP_FILE="UHDM-integration-tests/tests/CellNamedLikeModule/dut.v" TOP_MODULE="dut" PARSER=yosys-plugin SURELOG_FLAGS="" && \
+cd UHDM-integration-tests/build && LD_PRELOAD=image/lib/libfakedlclose.so image/bin/yosys -Q -c UHDM-integration-tests/tests/CellNamedLikeModule/yosys_script.tcl)
 Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `cd' -> skip.
 [TCL: yosys -import] Command name collision: found pre-existing command `eval' -> skip.
@@ -10,17 +10,17 @@ Using Yosys read_systemverilog command
 [TCL: yosys -import] Command name collision: found pre-existing command `trace' -> skip.
 
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file /UHDM-integration-tests/build/slpp_all/surelog.log.
+[INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1:1: No timescale set for "mod".
+[WRN:PA0205] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1:1: No timescale set for "mod".
 
-[WRN:PA0205] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:1: No timescale set for "dut".
+[WRN:PA0205] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:1: No timescale set for "dut".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0303] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:1: Compile module "work@dut".
+[INF:CP0303] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:1: Compile module "work@dut".
 
-[INF:CP0303] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1:1: Compile module "work@mod".
+[INF:CP0303] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1:1: Compile module "work@mod".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -28,13 +28,13 @@ Using Yosys read_systemverilog command
 
 [INF:CP0302] Compile class "work@semaphore".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:16: Implicit port type (wire) for "b".
+[NTE:CP0309] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:16: Implicit port type (wire) for "b".
 
-[NTE:CP0309] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1:28: Implicit port type (wire) for "b".
+[NTE:CP0309] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1:28: Implicit port type (wire) for "b".
 
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] /UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:1: Top level module "work@dut".
+[NTE:EL0503] UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7:1: Top level module "work@dut".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -99,14 +99,14 @@ design: (work@dut)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmallClasses:
-\_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@mailbox
   |vpiMethod:
   \_function: (work@mailbox::new)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@mailbox::new
     |vpiMethod:1
@@ -115,9 +115,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (bound)
       |vpiDirection:1
@@ -134,7 +134,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::num)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:num
     |vpiFullName:work@mailbox::num
     |vpiMethod:1
@@ -146,17 +146,17 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@mailbox::put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@mailbox::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -164,7 +164,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_put)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_put
     |vpiFullName:work@mailbox::try_put
     |vpiMethod:1
@@ -172,7 +172,7 @@ design: (work@dut)
     |vpiReturn:
     \_logic_var: 
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:1
@@ -180,13 +180,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@mailbox::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -194,7 +194,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_get)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@mailbox::try_get
     |vpiMethod:1
@@ -206,7 +206,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -214,13 +214,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@mailbox::peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:peek
     |vpiFullName:work@mailbox::peek
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
@@ -228,7 +228,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@mailbox::try_peek)
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_peek
     |vpiFullName:work@mailbox::try_peek
     |vpiMethod:1
@@ -240,20 +240,20 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@mailbox), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (message)
       |vpiDirection:6
       |vpiName:message
 |uhdmallClasses:
-\_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@process
   |vpiTypedef:
   \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:state
     |vpiEnumConst:
     \_enum_const: (FINISHED)
@@ -288,7 +288,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@process::self)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:self
     |vpiFullName:work@process::self
     |vpiMethod:1
@@ -298,13 +298,13 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_function: (work@process::status)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:status
     |vpiFullName:work@process::status
     |vpiMethod:1
@@ -314,56 +314,56 @@ design: (work@dut)
       |vpiTypespec:
       \_enum_typespec: (state)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::kill)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:kill
     |vpiFullName:work@process::kill
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::await)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:await
     |vpiFullName:work@process::await
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::suspend)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:suspend
     |vpiFullName:work@process::suspend
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
   |vpiMethod:
   \_task: (work@process::resume)
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:resume
     |vpiFullName:work@process::resume
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@process), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@process), file:UHDM-integration-tests/build/builtin.sv
 |uhdmallClasses:
-\_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+\_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
   |vpiParent:
   \_design: (work@dut)
   |vpiName:work@semaphore
   |vpiMethod:
   \_function: (work@semaphore::new)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:new
     |vpiFullName:work@semaphore::new
     |vpiMethod:1
@@ -372,9 +372,9 @@ design: (work@dut)
       |vpiTypespec:
       \_class_typespec: 
         |vpiClassDefn:
-        \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+        \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -391,13 +391,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::put)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:put
     |vpiFullName:work@semaphore::put
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -414,13 +414,13 @@ design: (work@dut)
   |vpiMethod:
   \_task: (work@semaphore::get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:get
     |vpiFullName:work@semaphore::get
     |vpiMethod:1
     |vpiVisibility:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -437,7 +437,7 @@ design: (work@dut)
   |vpiMethod:
   \_function: (work@semaphore::try_get)
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiName:try_get
     |vpiFullName:work@semaphore::try_get
     |vpiMethod:1
@@ -449,7 +449,7 @@ design: (work@dut)
         |vpiSigned:1
       |vpiSigned:1
     |vpiParent:
-    \_class_defn: (work@semaphore), file:/UHDM-integration-tests/build/builtin.sv
+    \_class_defn: (work@semaphore), file:UHDM-integration-tests/build/builtin.sv
     |vpiIODecl:
     \_io_decl: (keyCount)
       |vpiDirection:1
@@ -464,7 +464,7 @@ design: (work@dut)
       \_int_typespec: 
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@dut
@@ -472,26 +472,26 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.c), line:10:8, endln:10:9
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:c
     |vpiFullName:work@dut.c
     |vpiNetType:48
   |vpiNet:
   \_logic_net: (work@dut.a), line:7:13, endln:7:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:a
     |vpiFullName:work@dut.a
   |vpiNet:
   \_logic_net: (work@dut.b), line:7:16, endln:7:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:b
     |vpiFullName:work@dut.b
   |vpiPort:
   \_port: (a), line:7:13, endln:7:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -503,7 +503,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:7:16, endln:7:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -515,11 +515,11 @@ design: (work@dut)
   |vpiRefModule:
   \_ref_module: work@mod (mod), line:12:17, endln:12:20
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:mod
     |vpiDefName:work@mod
     |vpiActual:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiPort:
     \_port: (a), line:12:21, endln:12:26
       |vpiName:a
@@ -539,11 +539,11 @@ design: (work@dut)
   |vpiRefModule:
   \_ref_module: work@mod (mod2), line:13:17, endln:13:21
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:mod2
     |vpiDefName:work@mod
     |vpiActual:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiPort:
     \_port: (a), line:13:22, endln:13:27
       |vpiName:a
@@ -561,14 +561,14 @@ design: (work@dut)
         |vpiActual:
         \_logic_net: (work@dut.b), line:7:16, endln:7:17
 |uhdmallModules:
-\_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+\_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
   |vpiParent:
   \_design: (work@dut)
   |vpiFullName:work@mod
   |vpiParameter:
   \_parameter: (work@mod.x), line:1:18, endln:1:19
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |UINT:0
     |vpiTypespec:
     \_int_typespec: , line:1:14, endln:1:17
@@ -580,7 +580,7 @@ design: (work@dut)
   |vpiParamAssign:
   \_param_assign: , line:1:18, endln:1:23
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiRhs:
     \_constant: , line:1:22, endln:1:23
       |vpiDecompile:0
@@ -595,19 +595,19 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@mod.a), line:1:26, endln:1:27
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiName:a
     |vpiFullName:work@mod.a
   |vpiNet:
   \_logic_net: (work@mod.b), line:1:28, endln:1:29
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiName:b
     |vpiFullName:work@mod.b
   |vpiPort:
   \_port: (a), line:1:26, endln:1:27
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -619,7 +619,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:1:28, endln:1:29
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -631,7 +631,7 @@ design: (work@dut)
   |vpiContAssign:
   \_cont_assign: , line:4:11, endln:4:16
     |vpiParent:
-    \_module_inst: work@mod (work@mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
+    \_module_inst: work@mod (work@mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:1:1, endln:5:10
     |vpiRhs:
     \_ref_obj: (work@mod.a), line:4:15, endln:4:16
       |vpiParent:
@@ -649,14 +649,14 @@ design: (work@dut)
       |vpiActual:
       \_logic_net: (work@dut.mod.b), line:1:28, endln:1:29
 |uhdmtopModules:
-\_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+\_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
   |vpiName:work@dut
   |vpiDefName:work@dut
   |vpiTop:1
   |vpiNet:
   \_logic_net: (work@dut.c), line:10:8, endln:10:9
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiTypespec:
     \_logic_typespec: , line:10:4, endln:10:7
     |vpiName:c
@@ -665,7 +665,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.a), line:7:13, endln:7:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiTypespec:
     \_logic_typespec: , line:8:10, endln:8:10
     |vpiName:a
@@ -673,7 +673,7 @@ design: (work@dut)
   |vpiNet:
   \_logic_net: (work@dut.b), line:7:16, endln:7:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiTypespec:
     \_logic_typespec: , line:9:11, endln:9:11
     |vpiName:b
@@ -682,7 +682,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (a), line:7:13, endln:7:14
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:a
     |vpiDirection:1
     |vpiLowConn:
@@ -696,7 +696,7 @@ design: (work@dut)
   |vpiPort:
   \_port: (b), line:7:16, endln:7:17
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:b
     |vpiDirection:2
     |vpiLowConn:
@@ -708,15 +708,15 @@ design: (work@dut)
     |vpiTypedef:
     \_logic_typespec: , line:9:11, endln:9:11
   |vpiModule:
-  \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+  \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:mod
     |vpiFullName:work@dut.mod
     |vpiParameter:
     \_parameter: (work@dut.mod.x), line:1:18, endln:1:19
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+      \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
       |UINT:0
       |vpiTypespec:
       \_int_typespec: , line:1:14, endln:1:17
@@ -728,7 +728,7 @@ design: (work@dut)
     |vpiParamAssign:
     \_param_assign: , line:1:18, endln:1:23
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+      \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
       |vpiOverriden:1
       |vpiRhs:
       \_constant: , line:1:22, endln:1:23
@@ -741,12 +741,12 @@ design: (work@dut)
       |vpiLhs:
       \_parameter: (work@dut.mod.x), line:1:18, endln:1:19
     |vpiDefName:work@mod
-    |vpiDefFile:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v
+    |vpiDefFile:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v
     |vpiDefLineNo:1
     |vpiNet:
     \_logic_net: (work@dut.mod.a), line:1:26, endln:1:27
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+      \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
       |vpiTypespec:
       \_logic_typespec: , line:2:10, endln:2:10
       |vpiName:a
@@ -754,17 +754,17 @@ design: (work@dut)
     |vpiNet:
     \_logic_net: (work@dut.mod.b), line:1:28, endln:1:29
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+      \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
       |vpiTypespec:
       \_logic_typespec: , line:3:11, endln:3:11
       |vpiName:b
       |vpiFullName:work@dut.mod.b
     |vpiInstance:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiPort:
     \_port: (a), line:1:26, endln:1:27
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+      \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
       |vpiName:a
       |vpiDirection:1
       |vpiHighConn:
@@ -784,7 +784,7 @@ design: (work@dut)
     |vpiPort:
     \_port: (b), line:1:28, endln:1:29
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
+      \_module_inst: work@mod (work@dut.mod), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:12:4, endln:12:35
       |vpiName:b
       |vpiDirection:2
       |vpiHighConn:
@@ -804,15 +804,15 @@ design: (work@dut)
     |vpiContAssign:
     \_cont_assign: , line:4:11, endln:4:16
   |vpiModule:
-  \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+  \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
     |vpiParent:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiName:mod2
     |vpiFullName:work@dut.mod2
     |vpiParameter:
     \_parameter: (work@dut.mod2.x), line:1:18, endln:1:19
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+      \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
       |UINT:0
       |vpiTypespec:
       \_int_typespec: , line:1:14, endln:1:17
@@ -824,7 +824,7 @@ design: (work@dut)
     |vpiParamAssign:
     \_param_assign: , line:1:18, endln:1:23
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+      \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
       |vpiOverriden:1
       |vpiRhs:
       \_constant: , line:1:22, endln:1:23
@@ -837,12 +837,12 @@ design: (work@dut)
       |vpiLhs:
       \_parameter: (work@dut.mod2.x), line:1:18, endln:1:19
     |vpiDefName:work@mod
-    |vpiDefFile:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v
+    |vpiDefFile:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v
     |vpiDefLineNo:1
     |vpiNet:
     \_logic_net: (work@dut.mod2.a), line:1:26, endln:1:27
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+      \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
       |vpiTypespec:
       \_logic_typespec: , line:2:10, endln:2:10
       |vpiName:a
@@ -850,17 +850,17 @@ design: (work@dut)
     |vpiNet:
     \_logic_net: (work@dut.mod2.b), line:1:28, endln:1:29
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+      \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
       |vpiTypespec:
       \_logic_typespec: , line:3:11, endln:3:11
       |vpiName:b
       |vpiFullName:work@dut.mod2.b
     |vpiInstance:
-    \_module_inst: work@dut (work@dut), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
+    \_module_inst: work@dut (work@dut), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:7:1, endln:14:10
     |vpiPort:
     \_port: (a), line:1:26, endln:1:27
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+      \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
       |vpiName:a
       |vpiDirection:1
       |vpiHighConn:
@@ -880,7 +880,7 @@ design: (work@dut)
     |vpiPort:
     \_port: (b), line:1:28, endln:1:29
       |vpiParent:
-      \_module_inst: work@mod (work@dut.mod2), file:/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
+      \_module_inst: work@mod (work@dut.mod2), file:UHDM-integration-tests/tests/CellNamedLikeModule/dut.v, line:13:4, endln:13:36
       |vpiName:b
       |vpiDirection:2
       |vpiHighConn:
@@ -968,17 +968,17 @@ Object 'work@dut' of type 'design'
 Warning: Removing unelaborated module: \mod from the design.
 Generating RTLIL representation for module `$paramod\mod\x=s32'00000000000000000000000000000001'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000001'
-      AST_PARAMETER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic port=3 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic port=4 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a'
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000001'
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic port=4 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\mod\x=s32'00000000000000000000000000000001 (a, b);
@@ -989,17 +989,17 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000001' basic_prep
-      AST_PARAMETER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic basic_prep port=3 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic basic_prep port=4 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000001' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic basic_prep port=3 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic basic_prep port=4 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\mod\x=s32'00000000000000000000000000000001 (a, b);
@@ -1011,17 +1011,17 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `$paramod\mod\x=s32'00000000000000000000000000000000'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000000'
-      AST_PARAMETER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic port=1 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic port=2 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16>
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b'
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a'
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000000'
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic port=2 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
@@ -1032,17 +1032,17 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000000' basic_prep
-      AST_PARAMETER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-        AST_RANGE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic basic_prep port=2 range=[0:0]
-      AST_ASSIGN </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16> basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b' basic_prep
-        AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10> str='$paramod\mod\x=s32'00000000000000000000000000000000' basic_prep
+      AST_PARAMETER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.18-1.23> str='\x' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+        AST_RANGE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29> str='\b' output logic basic_prep port=2 range=[0:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.16> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.11-4.12> str='\b' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:4.15-4.16> str='\a' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
@@ -1054,22 +1054,22 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.1-14.10> str='\dut'
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:10.8-10.9> str='\c' reg range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14> str='\a' input logic port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17> str='\b' output logic port=6 range=[0:0]
-      AST_CELL </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\mod'
-        AST_CELLTYPE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000000'
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\a'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.24-12.25> str='\a'
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\b'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.31-12.32> str='\c'
-      AST_CELL </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\mod2'
-        AST_CELLTYPE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000001'
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\a'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.25-13.26> str='\c'
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\b'
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.32-13.33> str='\b'
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.1-14.10> str='\dut'
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:10.8-10.9> str='\c' reg range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14> str='\a' input logic port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17> str='\b' output logic port=6 range=[0:0]
+      AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\mod'
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000000'
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\a'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.24-12.25> str='\a'
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\b'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.31-12.32> str='\c'
+      AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\mod2'
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000001'
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\a'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.25-13.26> str='\c'
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\b'
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.32-13.33> str='\b'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, b);
@@ -1081,22 +1081,22 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.1-14.10> str='\dut' basic_prep
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:10.8-10.9> str='\c' reg basic_prep range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14> str='\a' input logic basic_prep port=5 range=[0:0]
-      AST_WIRE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17> str='\b' output logic basic_prep port=6 range=[0:0]
-      AST_CELL </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\mod' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000000' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\a' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.24-12.25> str='\a' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\b' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.31-12.32> str='\c' basic_prep
-      AST_CELL </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\mod2' basic_prep
-        AST_CELLTYPE </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000001' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\a' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.25-13.26> str='\c' basic_prep
-        AST_ARGUMENT </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\b' basic_prep
-          AST_IDENTIFIER </UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.32-13.33> str='\b' basic_prep
+    AST_MODULE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.1-14.10> str='\dut' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:10.8-10.9> str='\c' reg basic_prep range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14> str='\a' input logic basic_prep port=5 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17> str='\b' output logic basic_prep port=6 range=[0:0]
+      AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\mod' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000000' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\a' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.24-12.25> str='\a' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35> str='\b' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.31-12.32> str='\c' basic_prep
+      AST_CELL <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\mod2' basic_prep
+        AST_CELLTYPE <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:0.0-0.0> str='$paramod\mod\x=s32'00000000000000000000000000000001' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\a' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.25-13.26> str='\c' basic_prep
+        AST_ARGUMENT <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36> str='\b' basic_prep
+          AST_IDENTIFIER <UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.32-13.33> str='\b' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);
@@ -1318,24 +1318,24 @@ Found and reported 0 problems.
 /* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\mod\x=s32'00000000000000000000000000000000'.
 
-(* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10" *)
+(* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10" *)
 module \$paramod\mod\x=s32'00000000000000000000000000000000 (a, b);
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27" *)
   input a;
   wire a;
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29" *)
   output b;
   wire b;
   assign b = a;
 endmodule
 Dumping module `$paramod\mod\x=s32'00000000000000000000000000000001'.
 
-(* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10" *)
+(* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.1-5.10" *)
 module \$paramod\mod\x=s32'00000000000000000000000000000001 (a, b);
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.26-1.27" *)
   input a;
   wire a;
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:1.28-1.29" *)
   output b;
   wire b;
   assign b = a;
@@ -1343,24 +1343,24 @@ endmodule
 Dumping module `\dut'.
 
 (* top =  1  *)
-(* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.1-14.10" *)
+(* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.1-14.10" *)
 module dut(a, b);
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.13-7.14" *)
   input a;
   wire a;
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:7.16-7.17" *)
   output b;
   wire b;
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:10.8-10.9" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:10.8-10.9" *)
   wire c;
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:12.4-12.35" *)
   \$paramod\mod\x=s32'00000000000000000000000000000000  mod (
     .a(a),
     .b(c)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "/UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36" *)
+  (* src = "UHDM-integration-tests/tests/CellNamedLikeModule/dut.v:13.4-13.36" *)
   \$paramod\mod\x=s32'00000000000000000000000000000001  mod2 (
     .a(c),
     .b(b)
