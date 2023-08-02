@@ -1,15 +1,15 @@
 1. Executing Verilog with UHDM frontend.
 [INF:CM0023] Creating log file UHDM-integration-tests/build/slpp_all/surelog.log.
 
-[WRN:PA0205] UHDM-integration-tests/tests/EnumArray/top.sv:1:1: No timescale set for "my_pkg".
+[WRN:PA0205] UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:1:1: No timescale set for "pkg".
 
-[WRN:PA0205] UHDM-integration-tests/tests/EnumArray/top.sv:7:1: No timescale set for "top".
+[WRN:PA0205] UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8:1: No timescale set for "top".
 
 [INF:CP0300] Compilation...
 
-[INF:CP0301] UHDM-integration-tests/tests/EnumArray/top.sv:1:1: Compile package "my_pkg".
+[INF:CP0301] UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:1:1: Compile package "pkg".
 
-[INF:CP0303] UHDM-integration-tests/tests/EnumArray/top.sv:7:1: Compile module "work@top".
+[INF:CP0303] UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8:1: Compile module "work@top".
 
 [INF:CP0302] Compile class "work@mailbox".
 
@@ -17,9 +17,11 @@
 
 [INF:CP0302] Compile class "work@semaphore".
 
+[NTE:CP0309] UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8:19: Implicit port type (wire) for "o".
+
 [INF:EL0526] Design Elaboration...
 
-[NTE:EL0503] UHDM-integration-tests/tests/EnumArray/top.sv:7:1: Top level module "work@top".
+[NTE:EL0503] UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8:1: Top level module "work@top".
 
 [NTE:EL0508] Nb Top level modules: 1.
 
@@ -37,7 +39,7 @@
 [ SYNTAX] : 0
 [  ERROR] : 0
 [WARNING] : 2
-[   NOTE] : 5
+[   NOTE] : 6
 design: (work@top)
 |vpiElaborated:1
 |vpiName:work@top
@@ -49,51 +51,36 @@ design: (work@top)
   |vpiFullName:builtin::
   |vpiDefName:builtin
 |uhdmallPackages:
-\_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
+\_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
   |vpiParent:
   \_design: (work@top)
-  |vpiName:my_pkg
-  |vpiFullName:my_pkg::
+  |vpiName:pkg
+  |vpiFullName:pkg::
   |vpiTypedef:
-  \_enum_typespec: (my_pkg::lc_tx_t), line:2:4, endln:4:14
+  \_struct_typespec: (pkg::a), line:2:12, endln:4:5
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
-    |vpiName:my_pkg::lc_tx_t
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+    |vpiName:pkg::a
     |vpiInstance:
-    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
-    |vpiBaseTypespec:
-    \_logic_typespec: , line:2:17, endln:2:28
-      |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
-      |vpiRange:
-      \_range: , line:2:23, endln:2:28
-        |vpiParent:
-        \_logic_typespec: , line:2:17, endln:2:28
-        |vpiLeftRange:
-        \_constant: , line:2:24, endln:2:25
-          |vpiParent:
-          \_range: , line:2:23, endln:2:28
-          |vpiDecompile:3
-          |vpiSize:64
-          |UINT:3
-          |vpiConstType:9
-        |vpiRightRange:
-        \_constant: , line:2:26, endln:2:27
-          |vpiParent:
-          \_range: , line:2:23, endln:2:28
-          |vpiDecompile:0
-          |vpiSize:64
-          |UINT:0
-          |vpiConstType:9
-    |vpiEnumConst:
-    \_enum_const: (On), line:3:8, endln:3:20
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+    |vpiPacked:1
+    |vpiTypespecMember:
+    \_typespec_member: (x), line:3:16, endln:3:17
       |vpiParent:
-      \_enum_typespec: (my_pkg::lc_tx_t), line:2:4, endln:4:14
-      |vpiName:On
-      |BIN:1010
-      |vpiDecompile:4'b1010
-      |vpiSize:4
-  |vpiDefName:my_pkg
+      \_struct_typespec: (pkg::a), line:2:12, endln:4:5
+      |vpiName:x
+      |vpiTypespec:
+      \_logic_typespec: , line:3:7, endln:3:12
+        |vpiParent:
+        \_typespec_member: (x), line:3:16, endln:3:17
+        |vpiInstance:
+        \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+      |vpiRefFile:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv
+      |vpiRefLineNo:3
+      |vpiRefColumnNo:7
+      |vpiRefEndLineNo:3
+      |vpiRefEndColumnNo:12
+  |vpiDefName:pkg
 |uhdmtopPackages:
 \_package: builtin (builtin::)
   |vpiParent:
@@ -133,51 +120,87 @@ design: (work@top)
     |vpiName:system
     |vpiFullName:builtin::system
 |uhdmtopPackages:
-\_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
+\_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
   |vpiParent:
   \_design: (work@top)
-  |vpiName:my_pkg
-  |vpiFullName:my_pkg::
+  |vpiName:pkg
+  |vpiFullName:pkg::
   |vpiTypedef:
-  \_enum_typespec: (my_pkg::lc_tx_t), line:2:4, endln:4:14
+  \_struct_typespec: (pkg::a), line:2:12, endln:4:5
     |vpiParent:
-    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
-    |vpiName:my_pkg::lc_tx_t
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+    |vpiName:pkg::a
     |vpiInstance:
-    \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
-    |vpiBaseTypespec:
-    \_logic_typespec: , line:2:17, endln:2:28
-      |vpiInstance:
-      \_package: my_pkg (my_pkg::), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:1:1, endln:5:11
-      |vpiRange:
-      \_range: , line:2:23, endln:2:28
-        |vpiParent:
-        \_logic_typespec: , line:2:17, endln:2:28
-        |vpiLeftRange:
-        \_constant: , line:2:24, endln:2:25
-          |vpiParent:
-          \_range: , line:2:23, endln:2:28
-          |vpiDecompile:3
-          |vpiSize:64
-          |UINT:3
-          |vpiConstType:9
-        |vpiRightRange:
-        \_constant: , line:2:26, endln:2:27
-          |vpiParent:
-          \_range: , line:2:23, endln:2:28
-          |vpiDecompile:0
-          |vpiSize:64
-          |UINT:0
-          |vpiConstType:9
-    |vpiEnumConst:
-    \_enum_const: (On), line:3:8, endln:3:20
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+    |vpiPacked:1
+    |vpiTypespecMember:
+    \_typespec_member: (x), line:3:16, endln:3:17
       |vpiParent:
-      \_enum_typespec: (my_pkg::lc_tx_t), line:2:4, endln:4:14
-      |vpiName:On
-      |BIN:1010
-      |vpiDecompile:4'b1010
-      |vpiSize:4
-  |vpiDefName:my_pkg
+      \_struct_typespec: (pkg::a), line:2:12, endln:4:5
+      |vpiName:x
+      |vpiTypespec:
+      \_logic_typespec: , line:3:7, endln:3:12
+        |vpiParent:
+        \_typespec_member: (x), line:3:16, endln:3:17
+        |vpiInstance:
+        \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+      |vpiRefFile:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv
+      |vpiRefLineNo:3
+      |vpiRefColumnNo:7
+      |vpiRefEndLineNo:3
+      |vpiRefEndColumnNo:12
+  |vpiTypedef:
+  \_array_typespec: (pkg::b), line:5:12, endln:5:20
+    |vpiParent:
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+    |vpiName:pkg::b
+    |vpiInstance:
+    \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+    |vpiRange:
+    \_range: , line:5:15, endln:5:20
+      |vpiParent:
+      \_array_typespec: (pkg::b), line:5:12, endln:5:20
+      |vpiLeftRange:
+      \_constant: , line:5:16, endln:5:17
+        |vpiParent:
+        \_range: , line:5:15, endln:5:20
+        |vpiDecompile:5
+        |vpiSize:64
+        |UINT:5
+        |vpiConstType:9
+      |vpiRightRange:
+      \_constant: , line:5:18, endln:5:19
+        |vpiParent:
+        \_range: , line:5:15, endln:5:20
+        |vpiDecompile:0
+        |vpiSize:64
+        |UINT:0
+        |vpiConstType:9
+    |vpiElemTypespec:
+    \_struct_typespec: (pkg::a), line:2:12, endln:4:5
+      |vpiName:pkg::a
+      |vpiTypedefAlias:
+      \_struct_typespec: (pkg::a), line:2:12, endln:4:5
+      |vpiInstance:
+      \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+      |vpiPacked:1
+      |vpiTypespecMember:
+      \_typespec_member: (x), line:3:16, endln:3:17
+        |vpiParent:
+        \_struct_typespec: (pkg::a), line:2:12, endln:4:5
+        |vpiName:x
+        |vpiTypespec:
+        \_logic_typespec: , line:3:7, endln:3:12
+          |vpiParent:
+          \_typespec_member: (x), line:3:16, endln:3:17
+          |vpiInstance:
+          \_package: pkg (pkg::), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:1:1, endln:6:11
+        |vpiRefFile:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv
+        |vpiRefLineNo:3
+        |vpiRefColumnNo:7
+        |vpiRefEndLineNo:3
+        |vpiRefEndColumnNo:12
+  |vpiDefName:pkg
   |vpiTop:1
 |uhdmallClasses:
 \_class_defn: (work@mailbox), file:UHDM-integration-tests/build/builtin.sv, line:1:3, endln:27:11
@@ -611,347 +634,369 @@ design: (work@top)
       \_int_typespec: , line:66:26, endln:66:29
         |vpiSigned:1
 |uhdmallModules:
-\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
   |vpiParent:
   \_design: (work@top)
   |vpiFullName:work@top
   |vpiDefName:work@top
   |vpiNet:
-  \_logic_net: (work@top.o), line:7:23, endln:7:24
+  \_logic_net: (work@top.o), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiName:o
     |vpiFullName:work@top.o
   |vpiNet:
-  \_logic_net: (work@top.x), line:8:26, endln:8:27
+  \_logic_net: (work@top.c), line:9:11, endln:9:12
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiTypespec:
-    \_packed_array_typespec: 
-      |vpiRange:
-      \_range: , line:8:20, endln:8:25
-        |vpiParent:
-        \_packed_array_typespec: 
-        |vpiLeftRange:
-        \_constant: , line:8:21, endln:8:22
-          |vpiParent:
-          \_range: , line:8:20, endln:8:25
-          |vpiDecompile:7
-          |vpiSize:64
-          |UINT:7
-          |vpiConstType:9
-        |vpiRightRange:
-        \_constant: , line:8:23, endln:8:24
-          |vpiParent:
-          \_range: , line:8:20, endln:8:25
-          |vpiDecompile:0
-          |vpiSize:64
-          |UINT:0
-          |vpiConstType:9
-      |vpiElemTypespec:
-      \_enum_typespec: (my_pkg::lc_tx_t), line:2:4, endln:4:14
-    |vpiName:x
-    |vpiFullName:work@top.x
+    \_array_typespec: (pkg::b), line:5:12, endln:5:20
+    |vpiName:c
+    |vpiFullName:work@top.c
   |vpiPort:
-  \_port: (o), line:7:23, endln:7:24
+  \_port: (o), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
-    \_ref_obj: (work@top.o.o), line:7:23, endln:7:24
+    \_ref_obj: (work@top.o.o), line:8:19, endln:8:20
       |vpiParent:
-      \_port: (o), line:7:23, endln:7:24
+      \_port: (o), line:8:19, endln:8:20
       |vpiName:o
       |vpiFullName:work@top.o.o
       |vpiActual:
-      \_logic_net: (work@top.o), line:7:23, endln:7:24
+      \_logic_net: (work@top.o), line:8:19, endln:8:20
     |vpiTypedef:
-    \_int_typespec: , line:7:19, endln:7:22
-      |vpiSigned:1
+    \_logic_typespec: , line:8:19, endln:8:19
   |vpiContAssign:
-  \_cont_assign: , line:9:11, endln:9:16
+  \_cont_assign: , line:10:11, endln:10:21
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiRhs:
-    \_ref_obj: (work@top.x), line:9:15, endln:9:16
+    \_constant: , line:10:20, endln:10:21
       |vpiParent:
-      \_cont_assign: , line:9:11, endln:9:16
-      |vpiName:x
-      |vpiFullName:work@top.x
-      |vpiActual:
-      \_logic_net: (work@top.x), line:8:26, endln:8:27
+      \_cont_assign: , line:10:11, endln:10:21
+      |vpiDecompile:1
+      |vpiSize:64
+      |UINT:1
+      |vpiConstType:9
     |vpiLhs:
-    \_ref_obj: (work@top.o), line:9:11, endln:9:12
+    \_hier_path: (c[1].x), line:10:11, endln:10:12
       |vpiParent:
-      \_cont_assign: , line:9:11, endln:9:16
+      \_cont_assign: , line:10:11, endln:10:21
+      |vpiName:c[1].x
+      |vpiActual:
+      \_bit_select: (c[1]), line:10:11, endln:10:12
+        |vpiParent:
+        \_hier_path: (c[1].x), line:10:11, endln:10:12
+        |vpiName:c
+        |vpiFullName:c[1]
+        |vpiIndex:
+        \_constant: , line:10:13, endln:10:14
+          |vpiDecompile:1
+          |vpiSize:64
+          |UINT:1
+          |vpiConstType:9
+      |vpiActual:
+      \_ref_obj: (c[1].x), line:10:16, endln:10:17
+        |vpiParent:
+        \_hier_path: (c[1].x), line:10:11, endln:10:12
+        |vpiName:x
+        |vpiFullName:c[1].x
+  |vpiContAssign:
+  \_cont_assign: , line:11:11, endln:11:21
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
+    |vpiRhs:
+    \_hier_path: (c[1].x), line:11:15, endln:11:21
+      |vpiParent:
+      \_cont_assign: , line:11:11, endln:11:21
+      |vpiName:c[1].x
+      |vpiActual:
+      \_bit_select: (c[1]), line:11:15, endln:11:16
+        |vpiParent:
+        \_hier_path: (c[1].x), line:11:15, endln:11:21
+        |vpiName:c
+        |vpiFullName:c[1]
+        |vpiIndex:
+        \_constant: , line:11:17, endln:11:18
+          |vpiDecompile:1
+          |vpiSize:64
+          |UINT:1
+          |vpiConstType:9
+      |vpiActual:
+      \_ref_obj: (work@top.x), line:11:20, endln:11:21
+        |vpiParent:
+        \_hier_path: (c[1].x), line:11:15, endln:11:21
+        |vpiName:x
+        |vpiFullName:work@top.x
+    |vpiLhs:
+    \_ref_obj: (work@top.o), line:11:11, endln:11:12
+      |vpiParent:
+      \_cont_assign: , line:11:11, endln:11:21
       |vpiName:o
       |vpiFullName:work@top.o
       |vpiActual:
-      \_logic_net: (work@top.o), line:7:23, endln:7:24
+      \_logic_net: (work@top.o), line:8:19, endln:8:20
 |uhdmtopModules:
-\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+\_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
   |vpiName:work@top
   |vpiVariables:
-  \_int_var: (work@top.o), line:7:23, endln:7:24
+  \_array_var: (work@top.c), line:9:11, endln:9:12
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiTypespec:
-    \_int_typespec: , line:7:19, endln:7:22
-      |vpiSigned:1
-    |vpiName:o
-    |vpiFullName:work@top.o
-    |vpiSigned:1
+    \_array_typespec: (pkg::b), line:5:12, endln:5:20
+    |vpiName:c
+    |vpiFullName:work@top.c
     |vpiVisibility:1
-  |vpiVariables:
-  \_packed_array_var: (work@top.x), line:8:26, endln:8:46
-    |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
-    |vpiName:x
-    |vpiFullName:work@top.x
-    |vpiVisibility:1
-    |vpiExpr:
-    \_operation: , line:8:30, endln:8:46
-      |vpiParent:
-      \_enum_var: (work@top.x)
-      |vpiOpType:76
-      |vpiOperand:
-      \_constant: , line:8:32, endln:8:33
-        |vpiDecompile:8
-        |vpiSize:32
-        |UINT:8
-        |vpiConstType:9
-      |vpiOperand:
-      \_operation: , line:8:34, endln:8:44
-        |vpiParent:
-        \_operation: , line:8:30, endln:8:46
-        |vpiOpType:33
-        |vpiOperand:
-        \_constant: , line:8:34, endln:8:44
-          |vpiDecompile:4'b1010
-          |vpiSize:4
-          |BIN:1010
-          |vpiConstType:3
-    |vpiRange:
-    \_range: , line:8:20, endln:8:25
-      |vpiParent:
-      \_packed_array_var: (work@top.x), line:8:26, endln:8:46
-      |vpiLeftRange:
-      \_constant: , line:8:21, endln:8:22
-        |vpiParent:
-        \_range: , line:8:20, endln:8:25
-        |vpiDecompile:7
-        |vpiSize:64
-        |UINT:7
-        |vpiConstType:9
-      |vpiRightRange:
-      \_constant: , line:8:23, endln:8:24
-        |vpiParent:
-        \_range: , line:8:20, endln:8:25
-        |vpiDecompile:0
-        |vpiSize:64
-        |UINT:0
-        |vpiConstType:9
-    |vpiElement:
-    \_enum_var: (work@top.x)
-      |vpiParent:
-      \_packed_array_var: (work@top.x), line:8:26, endln:8:46
-      |vpiTypespec:
-      \_enum_typespec: (my_pkg::lc_tx_t), line:2:4, endln:4:14
-      |vpiFullName:work@top.x
-      |vpiExpr:
-      \_operation: , line:8:30, endln:8:46
   |vpiDefName:work@top
   |vpiTop:1
+  |vpiNet:
+  \_logic_net: (work@top.o), line:8:19, endln:8:20
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
+    |vpiTypespec:
+    \_logic_typespec: , line:8:19, endln:8:19
+    |vpiName:o
+    |vpiFullName:work@top.o
   |vpiTopModule:1
   |vpiPort:
-  \_port: (o), line:7:23, endln:7:24
+  \_port: (o), line:8:19, endln:8:20
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiName:o
     |vpiDirection:2
     |vpiLowConn:
-    \_ref_obj: (work@top.o), line:7:23, endln:7:24
+    \_ref_obj: (work@top.o), line:8:19, endln:8:20
       |vpiParent:
-      \_port: (o), line:7:23, endln:7:24
+      \_port: (o), line:8:19, endln:8:20
       |vpiName:o
       |vpiFullName:work@top.o
       |vpiActual:
-      \_int_var: (work@top.o), line:7:23, endln:7:24
+      \_logic_net: (work@top.o), line:8:19, endln:8:20
     |vpiTypedef:
-    \_int_typespec: , line:7:19, endln:7:22
-      |vpiSigned:1
+    \_logic_typespec: , line:8:19, endln:8:19
     |vpiInstance:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
   |vpiContAssign:
-  \_cont_assign: , line:9:11, endln:9:16
+  \_cont_assign: , line:10:11, endln:10:21
     |vpiParent:
-    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/EnumArray/top.sv, line:7:1, endln:10:10
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
     |vpiRhs:
-    \_ref_obj: (work@top.x), line:9:15, endln:9:16
-      |vpiParent:
-      \_cont_assign: , line:9:11, endln:9:16
-      |vpiName:x
-      |vpiFullName:work@top.x
-      |vpiActual:
-      \_packed_array_var: (work@top.x), line:8:26, endln:8:46
+    \_constant: , line:10:20, endln:10:21
     |vpiLhs:
-    \_ref_obj: (work@top.o), line:9:11, endln:9:12
+    \_hier_path: (c[1].x), line:10:11, endln:10:12
       |vpiParent:
-      \_cont_assign: , line:9:11, endln:9:16
+      \_cont_assign: , line:10:11, endln:10:21
+      |vpiName:c[1].x
+      |vpiActual:
+      \_bit_select: (c[1]), line:10:11, endln:10:12
+        |vpiParent:
+        \_hier_path: (c[1].x), line:10:11, endln:10:12
+        |vpiName:c
+        |vpiFullName:c[1]
+        |vpiActual:
+        \_array_var: (work@top.c), line:9:11, endln:9:12
+        |vpiIndex:
+        \_constant: , line:10:13, endln:10:14
+          |vpiParent:
+          \_bit_select: (c[1]), line:10:11, endln:10:12
+          |vpiDecompile:1
+          |vpiSize:64
+          |UINT:1
+          |vpiConstType:9
+      |vpiActual:
+      \_ref_obj: (c[1].x), line:10:16, endln:10:17
+        |vpiParent:
+        \_hier_path: (c[1].x), line:10:11, endln:10:12
+        |vpiName:x
+        |vpiFullName:c[1].x
+        |vpiActual:
+        \_typespec_member: (x), line:3:16, endln:3:17
+  |vpiContAssign:
+  \_cont_assign: , line:11:11, endln:11:21
+    |vpiParent:
+    \_module_inst: work@top (work@top), file:UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv, line:8:1, endln:12:10
+    |vpiRhs:
+    \_hier_path: (c[1].x), line:11:15, endln:11:21
+      |vpiParent:
+      \_cont_assign: , line:11:11, endln:11:21
+      |vpiName:c[1].x
+      |vpiActual:
+      \_bit_select: (c[1]), line:11:15, endln:11:16
+        |vpiParent:
+        \_hier_path: (c[1].x), line:11:15, endln:11:21
+        |vpiName:c
+        |vpiFullName:c[1]
+        |vpiActual:
+        \_array_var: (work@top.c), line:9:11, endln:9:12
+        |vpiIndex:
+        \_constant: , line:11:17, endln:11:18
+      |vpiActual:
+      \_ref_obj: (work@top.x), line:11:20, endln:11:21
+        |vpiParent:
+        \_hier_path: (c[1].x), line:11:15, endln:11:21
+        |vpiName:x
+        |vpiFullName:work@top.x
+        |vpiActual:
+        \_typespec_member: (x), line:3:16, endln:3:17
+    |vpiLhs:
+    \_ref_obj: (work@top.o), line:11:11, endln:11:12
+      |vpiParent:
+      \_cont_assign: , line:11:11, endln:11:21
       |vpiName:o
       |vpiFullName:work@top.o
       |vpiActual:
-      \_int_var: (work@top.o), line:7:23, endln:7:24
+      \_logic_net: (work@top.o), line:8:19, endln:8:20
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object 'my_pkg' of type 'package'
-    Object 'my_pkg::lc_tx_t' of type 'enum_typespec'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object 'On' of type 'enum_const'
+  Object 'pkg' of type 'package'
+    Object 'pkg::a' of type 'struct_typespec'
+      Object 'x' of type 'typespec_member'
+    Object 'pkg::b' of type 'array_typespec'
+      Object 'pkg::a' of type 'struct_typespec'
+        Object 'x' of type 'typespec_member'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
   Object '' of type 'module_inst'
     Object 'o' of type 'logic_net'
-    Object 'x' of type 'logic_net'
-      Object '' of type 'packed_array_typespec'
+    Object 'c' of type 'logic_net'
+      Object 'pkg::b' of type 'array_typespec'
+        Object 'pkg::a' of type 'struct_typespec'
+          Object 'x' of type 'typespec_member'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-        Object 'my_pkg::lc_tx_t' of type 'enum_typespec'
-          Object '' of type 'logic_typespec'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-          Object 'On' of type 'enum_const'
       Object '' of type 'range'
         Object '' of type 'constant'
         Object '' of type 'constant'
   Object 'work@top' of type 'module_inst'
     Object 'o' of type 'port'
-      Object '' of type 'int_typespec'
+      Object '' of type 'logic_typespec'
+    Object 'o' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object '' of type 'cont_assign'
+      Object 'c[1].x' of type 'hier_path'
+        Object 'c' of type 'bit_select'
+          Object '' of type 'constant'
+        Object 'x' of type 'ref_obj'
+      Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
-      Object 'x' of type 'ref_obj'
-    Object 'o' of type 'int_var'
-    Object 'x' of type 'packed_array_var'
-      Object 'my_pkg::lc_tx_t' of type 'enum_typespec'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object 'On' of type 'enum_const'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'operation'
-        Object '' of type 'constant'
-        Object '' of type 'operation'
+      Object 'c[1].x' of type 'hier_path'
+        Object 'c' of type 'bit_select'
+          Object '' of type 'constant'
+        Object 'x' of type 'ref_obj'
+    Object 'c' of type 'array_var'
+      Object 'pkg::b' of type 'array_typespec'
+        Object 'pkg::a' of type 'struct_typespec'
+          Object 'x' of type 'typespec_member'
+        Object '' of type 'range'
+          Object '' of type 'constant'
           Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
-    AST_MODULE <UHDM-integration-tests/tests/EnumArray/top.sv:7.1-10.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/EnumArray/top.sv:7.23-7.24> str='\o' output signed port=1 range=[0:0]
-        AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0>
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumArray/top.sv:8.26-8.46> str='\x' reg basic_prep range=[3:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8.1-12.10> str='\top'
+      AST_WIRE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8.19-8.20> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:9.11-9.12> str='\c' logic basic_prep range=[0:0] multirange=[ 0 6 0 6 ] multirange_swapped=[ 0 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='\lc_tx_t' bits='0101110001101100011000110101111101110100011110000101111101110100'(64) basic_prep range=[63:0] int=1954045812
-        ATTR \enum_value_1010:
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='\On' bits='010111000100111101101110'(24) basic_prep range=[23:0] int=6049646
-        AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_ASSIGN <UHDM-integration-tests/tests/EnumArray/top.sv:9.11-9.16>
-        AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArray/top.sv:9.11-9.12> str='\o'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArray/top.sv:9.15-9.16> str='\x'
-      AST_INITIAL <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0>
-        AST_BLOCK <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0>
-          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0>
-            AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='\x'
-            AST_REPLICATE <UHDM-integration-tests/tests/EnumArray/top.sv:8.30-8.46>
-              AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8
-              AST_CONCAT <UHDM-integration-tests/tests/EnumArray/top.sv:8.34-8.44>
-                AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='1010'(4) range=[3:0] int=10
-      AST_ENUM <UHDM-integration-tests/tests/EnumArray/top.sv:2.4-4.14> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/EnumArray/top.sv:3.8-3.20> str='\my_pkg::On' logic basic_prep range=[3:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:3.8-3.20> bits='1010'(4) basic_prep range=[3:0] int=10
-          AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:2.23-2.28> basic_prep range=[3:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/EnumArray/top.sv:2.4-4.14> str='\my_pkg::lc_tx_t' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> reg basic_prep range=[3:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:2.23-2.28> basic_prep range=[3:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> str='\b' bits='0101110001100010'(16) basic_prep range=[15:0] int=23650
+        AST_RANGE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> range=[35:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000100011'(32) signed range=[31:0] int=35
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:10.11-10.21>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:10.11-10.12> str='\c' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_SUB <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_ADD <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_SUB <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:11.11-11.21>
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:11.11-11.12> str='\o'
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:11.15-11.16> str='\c' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+            AST_ADD <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_SUB <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_ADD <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_SUB <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+                  AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> str='\pkg::a' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:3.16-3.17> str='x' logic basic_prep range=[0:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> str='\pkg::b' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:3.16-3.17> str='x' logic basic_prep range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output signed [31:0] o;
-      (* wiretype = "\lc_tx_t" *)
-      (* enum_value_1010 = "\On" *)
-      reg [31:0] x;
-      assign o = x;
-      initial
-        x = {8{{4'b 1010}}};
-      /** AST_ENUM **/
+      output o;
+      (* wiretype = "\b" *)
+      wire [35:0] c;
+      assign c[((1)*((5)-(1)))+(0):((1)*((5)-(1)))+(0)] = 1;
+      assign o = c[((1)*((5)-(1)))+(0):((1)*((5)-(1)))+(0)];
+      /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <UHDM-integration-tests/tests/EnumArray/top.sv:7.1-10.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/EnumArray/top.sv:7.23-7.24> str='\o' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/EnumArray/top.sv:8.26-8.46> str='\x' reg basic_prep range=[31:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
+    AST_MODULE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8.1-12.10> str='\top' basic_prep
+      AST_WIRE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8.19-8.20> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:9.11-9.12> str='\c' logic basic_prep range=[35:0] multirange=[ 0 6 0 6 ] multirange_swapped=[ 0 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='\lc_tx_t' bits='0101110001101100011000110101111101110100011110000101111101110100'(64) basic_prep range=[63:0] int=1954045812
-        ATTR \enum_value_1010:
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='\On' bits='010111000100111101101110'(24) basic_prep range=[23:0] int=6049646
-        AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_ASSIGN <UHDM-integration-tests/tests/EnumArray/top.sv:9.11-9.16> basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArray/top.sv:9.11-9.12> str='\o' basic_prep
-        AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArray/top.sv:9.15-9.16> str='\x' basic_prep
-      AST_INITIAL <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> basic_prep
-        AST_BLOCK <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> basic_prep
-          AST_ASSIGN_EQ <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='\x' basic_prep
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:8.30-8.46> bits='10101010101010101010101010101010'(32) basic_prep range=[31:0] int=2863311530
-      AST_ENUM <UHDM-integration-tests/tests/EnumArray/top.sv:2.4-4.14> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <UHDM-integration-tests/tests/EnumArray/top.sv:3.8-3.20> str='\my_pkg::On' logic basic_prep range=[3:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:3.8-3.20> bits='1010'(4) basic_prep range=[3:0] int=10
-          AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:2.23-2.28> basic_prep range=[3:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <UHDM-integration-tests/tests/EnumArray/top.sv:2.4-4.14> str='\my_pkg::lc_tx_t' basic_prep
-        AST_WIRE <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> reg basic_prep range=[3:0]
-          ATTR \enum_type:
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <UHDM-integration-tests/tests/EnumArray/top.sv:2.23-2.28> basic_prep range=[3:0]
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-            AST_CONSTANT <UHDM-integration-tests/tests/EnumArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> str='\b' bits='0101110001100010'(16) basic_prep range=[15:0] int=23650
+        AST_RANGE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> basic_prep range=[35:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000100011'(32) signed basic_prep range=[31:0] int=35
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:10.11-10.21> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:10.11-10.12> str='\c' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> basic_prep range=[4:4]
+            AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+        AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:11.11-11.21> basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:11.11-11.12> str='\o' basic_prep
+        AST_IDENTIFIER <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:11.15-11.16> str='\c' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> basic_prep range=[4:4]
+            AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+            AST_CONSTANT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> str='\pkg::a' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:3.16-3.17> str='x' logic basic_prep range=[0:0]
+      AST_TYPEDEF <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> str='\pkg::b' basic_prep
+        AST_STRUCT <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:2.12-4.5> basic_prep
+          AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:3.16-3.17> str='x' logic basic_prep range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output signed [31:0] o;
-      (* wiretype = "\lc_tx_t" *)
-      (* enum_value_1010 = "\On" *)
-      reg [31:0] x;
-      assign o = x;
-      initial
-        x = -1431655766;
-      /** AST_ENUM **/
+      output o;
+      (* wiretype = "\b" *)
+      wire [35:0] c;
+      assign c[4:4] = 1;
+      assign o = c[4:4];
+      /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
@@ -977,7 +1022,7 @@ Removed a total of 0 dead cases.
 
 2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
 Removed 0 redundant assignments.
-Promoted 1 assignment to connection.
+Promoted 0 assignments to connections.
 
 2.2.4. Executing PROC_INIT pass (extract init attributes).
 
@@ -987,17 +1032,14 @@ Promoted 1 assignment to connection.
 Converted 0 switches.
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\top.$proc$UHDM-integration-tests/tests/EnumArray/top.sv:0$1'.
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\top.\x' from process `\top.$proc$UHDM-integration-tests/tests/EnumArray/top.sv:0$1'.
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `top.$proc$UHDM-integration-tests/tests/EnumArray/top.sv:0$1'.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
@@ -1008,8 +1050,6 @@ Optimizing module top.
 
 2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
 
 2.5. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -1072,9 +1112,9 @@ Finding unused cells or wires in module \top..
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             64
+   Number of wire bits:             37
    Number of public wires:           2
-   Number of public wire bits:      64
+   Number of public wire bits:      37
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1093,17 +1133,17 @@ Found and reported 0 problems.
 Dumping module `\top'.
 
 (* top =  1  *)
-(* src = "UHDM-integration-tests/tests/EnumArray/top.sv:7.1-10.10" *)
+(* src = "UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8.1-12.10" *)
 module top(o);
-  (* src = "UHDM-integration-tests/tests/EnumArray/top.sv:7.23-7.24" *)
-  output [31:0] o;
-  wire [31:0] o;
-  (* enum_value_1010 = "\\On" *)
-  (* src = "UHDM-integration-tests/tests/EnumArray/top.sv:8.26-8.46" *)
-  (* wiretype = "\\lc_tx_t" *)
-  wire [31:0] x;
-  assign o = 32'd2863311530;
-  assign x = 32'd2863311530;
+  (* src = "UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:9.11-9.12" *)
+  (* unused_bits = "0 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35" *)
+  (* wiretype = "\\b" *)
+  wire [35:0] c;
+  (* src = "UHDM-integration-tests/tests/TypedefVariableDimensions/top.sv:8.19-8.20" *)
+  output o;
+  wire o;
+  assign c[4] = 1'h1;
+  assign o = 1'h1;
 endmodule
 
 4. Executing Verilog backend.
