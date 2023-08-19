@@ -1279,9 +1279,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
   Object 'work@dut' of type 'module_inst'
     Object 'clk' of type 'port'
       Object '' of type 'logic_typespec'
@@ -1368,7 +1365,10 @@ Dumping AST before simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/TypedefAlias/dut.v:10.11-12.4> str='\second_alias_t'
         AST_STRUCT <UHDM-integration-tests/tests/TypedefAlias/dut.v:10.11-12.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefAlias/dut.v:11.17-11.18> str='x' logic basic_prep range=[7:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypedefAlias/dut.v:17.19-17.22> str='\clk' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefAlias/dut.v:17.19-17.22> str='\clk' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/TypedefAlias/dut.v:17.42-17.43> str='\a' input reg basic_prep port=2 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> str='\enum_t' bits='01011100011001010110111001110101011011010101111101110100'(56) basic_prep range=[55:0] int=1970102132
@@ -1453,7 +1453,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(clk, a, b);
-      input clk;
+      input [0:0] clk;
       (* wiretype = "\enum_t" *)
       (* enum_value_00000000 = "\ONE" *)
       (* enum_value_00000001 = "\TWO" *)
@@ -1482,7 +1482,10 @@ Dumping AST after simplification:
       AST_TYPEDEF <UHDM-integration-tests/tests/TypedefAlias/dut.v:10.11-12.4> str='\second_alias_t' basic_prep
         AST_STRUCT <UHDM-integration-tests/tests/TypedefAlias/dut.v:10.11-12.4> basic_prep
           AST_STRUCT_ITEM <UHDM-integration-tests/tests/TypedefAlias/dut.v:11.17-11.18> str='x' logic basic_prep range=[7:0]
-      AST_WIRE <UHDM-integration-tests/tests/TypedefAlias/dut.v:17.19-17.22> str='\clk' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TypedefAlias/dut.v:17.19-17.22> str='\clk' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/TypedefAlias/dut.v:17.42-17.43> str='\a' input reg basic_prep port=2 range=[7:0] multirange=[ 0 8 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/TypedefAlias/dut.v:0.0-0.0> str='\enum_t' bits='01011100011001010110111001110101011011010101111101110100'(56) basic_prep range=[55:0] int=1970102132
@@ -1567,7 +1570,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(clk, a, b);
-      input clk;
+      input [0:0] clk;
       (* wiretype = "\enum_t" *)
       (* enum_value_00000000 = "\ONE" *)
       (* enum_value_00000001 = "\TWO" *)

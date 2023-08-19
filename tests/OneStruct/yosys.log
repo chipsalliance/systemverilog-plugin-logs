@@ -1623,9 +1623,6 @@ Object 'work@dut' of type 'design'
               Object '' of type 'constant'
               Object '' of type 'constant'
           Object 'wr' of type 'typespec_member'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'memArray' of type 'logic_net'
     Object 'memMulti' of type 'logic_net'
     Object 'mem' of type 'logic_net'
@@ -1687,9 +1684,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'memArray' of type 'array_net'
       Object 'mem_s' of type 'struct_typespec'
         Object 'addr' of type 'typespec_member'
@@ -1798,7 +1792,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 multirange=[ 0 17 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
@@ -1887,7 +1884,7 @@ Dumping Verilog AST before simplification:
       wire [3399:0] memMulti;
       (* wiretype = "\mem_s" *)
       wire [16:0] mem;
-      input a;
+      input [0:0] a;
       output [16:0] b;
       /** AST_TYPEDEF **/
       assign mem[0:0] = a;
@@ -1940,7 +1937,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
@@ -2029,7 +2029,7 @@ Dumping Verilog AST after simplification:
       wire [3399:0] memMulti;
       (* wiretype = "\mem_s" *)
       reg [16:0] mem;
-      input a;
+      input [0:0] a;
       output [16:0] b;
       /** AST_TYPEDEF **/
       assign mem[0:0] = a;
