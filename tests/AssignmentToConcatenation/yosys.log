@@ -920,8 +920,14 @@ Dumping AST before simplification:
               AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> str='\c' bits='0101110001100011'(16) basic_prep range=[15:0] int=23651
             ATTR \enum_value_1:
               AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> str='\d' bits='0101110001100100'(16) basic_prep range=[15:0] int=23652
-      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.25-1.26> str='\a' output logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.41-1.42> str='\b' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.25-1.26> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.41-1.42> str='\b' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:8.18-8.29> str='\hw2reg_wrap' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> str='\hw2reg_wrap_t' bits='0101110001101000011101110011001001110010011001010110011101011111011101110111001001100001011100000101111101110100'(112) basic_prep range=[111:0] int=1634754420
@@ -946,8 +952,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
-      output a;
-      output b;
+      output [0:0] a;
+      output [0:0] b;
       (* wiretype = "\hw2reg_wrap_t" *)
       wire [1:0] hw2reg_wrap;
       /** AST_ENUM **/
@@ -991,8 +997,14 @@ Dumping AST after simplification:
               AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> str='\c' bits='0101110001100011'(16) basic_prep range=[15:0] int=23651
             ATTR \enum_value_1:
               AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> str='\d' bits='0101110001100100'(16) basic_prep range=[15:0] int=23652
-      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.25-1.26> str='\a' output logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.41-1.42> str='\b' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.25-1.26> str='\a' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:1.41-1.42> str='\b' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:8.18-8.29> str='\hw2reg_wrap' logic reg basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/AssignmentToConcatenation/top.sv:0.0-0.0> str='\hw2reg_wrap_t' bits='0101110001101000011101110011001001110010011001010110011101011111011101110111001001100001011100000101111101110100'(112) basic_prep range=[111:0] int=1634754420
@@ -1015,8 +1027,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
-      output a;
-      output b;
+      output [0:0] a;
+      output [0:0] b;
       (* wiretype = "\hw2reg_wrap_t" *)
       reg [1:0] hw2reg_wrap;
       /** AST_ENUM **/

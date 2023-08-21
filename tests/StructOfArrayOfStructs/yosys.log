@@ -1118,7 +1118,10 @@ Warning: UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:14: Post-inc
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:11.1-19.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:11.19-11.20> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:11.19-11.20> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:12.28-12.39> str='\ast_alert_o' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='\ast_alert_rsp_t' bits='01011100011000010111001101110100010111110110000101101100011001010111001001110100010111110111001001110011011100000101111101110100'(128) basic_prep range=[127:0] int=1936744308
@@ -1201,7 +1204,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output o;
+      output [0:0] o;
       (* wiretype = "\ast_alert_rsp_t" *)
       wire [1:0] ast_alert_o;
       assign o = ast_alert_o[(0)+((((0)-(0))+(1))*(0)):(0)+((((0)-(0))+(1))*(0))];
@@ -1217,7 +1220,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:11.1-19.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:11.19-11.20> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:11.19-11.20> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:12.28-12.39> str='\ast_alert_o' logic reg basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='\ast_alert_rsp_t' bits='01011100011000010111001101110100010111110110000101101100011001010111001001110100010111110111001001110011011100000101111101110100'(128) basic_prep range=[127:0] int=1936744308
@@ -1264,7 +1270,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_LOCALPARAM **/
-      output o;
+      output [0:0] o;
       (* wiretype = "\ast_alert_rsp_t" *)
       reg [1:0] ast_alert_o;
       (* nosync = 1 *)

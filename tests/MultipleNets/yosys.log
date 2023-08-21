@@ -1561,9 +1561,6 @@ Warning: UHDM-integration-tests/tests/MultipleNets/top.sv:20: Skipping non-synth
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'packed_array_logic_net' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
@@ -1572,12 +1569,6 @@ Warning: UHDM-integration-tests/tests/MultipleNets/top.sv:20: Skipping non-synth
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'struct_net_input' of type 'struct_net'
       Object 'custom::struct1' of type 'struct_typespec'
         Object 'field' of type 'typespec_member'
@@ -1606,7 +1597,10 @@ Warning: UHDM-integration-tests/tests/MultipleNets/top.sv:20: Skipping non-synth
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/MultipleNets/top.sv:11.1-25.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/MultipleNets/top.sv:12.17-12.33> str='\simple_logic_net' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleNets/top.sv:12.17-12.33> str='\simple_logic_net' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleNets/top.sv:13.23-13.39> str='\packed_logic_net' input logic port=2 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/MultipleNets/top.sv:13.17-13.22> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1672,7 +1666,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(simple_logic_net, packed_logic_net, unpacked_logic_net, packed_array_logic_net, unpacked_array_logic_net, enum_net_output, struct_net_input, integer_net_input, time_net_input);
-      input simple_logic_net;
+      input [0:0] simple_logic_net;
       input [2:0] packed_logic_net;
       input [3:0] unpacked_logic_net;
       input [29:0] packed_array_logic_net;
@@ -1692,7 +1686,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/MultipleNets/top.sv:11.1-25.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/MultipleNets/top.sv:12.17-12.33> str='\simple_logic_net' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/MultipleNets/top.sv:12.17-12.33> str='\simple_logic_net' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/MultipleNets/top.sv:13.23-13.39> str='\packed_logic_net' input logic basic_prep port=2 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/MultipleNets/top.sv:13.17-13.22> basic_prep range=[2:0]
           AST_CONSTANT <UHDM-integration-tests/tests/MultipleNets/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1758,7 +1755,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(simple_logic_net, packed_logic_net, unpacked_logic_net, packed_array_logic_net, unpacked_array_logic_net, enum_net_output, struct_net_input, integer_net_input, time_net_input);
-      input simple_logic_net;
+      input [0:0] simple_logic_net;
       input [2:0] packed_logic_net;
       input [3:0] unpacked_logic_net;
       input [29:0] packed_array_logic_net;

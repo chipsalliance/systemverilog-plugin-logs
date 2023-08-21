@@ -3636,12 +3636,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'o' of type 'logic_net'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
@@ -3650,12 +3644,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'gen_sbox_j[0]' of type 'gen_scope_array'
       Object '' of type 'gen_scope'
         Object 'j' of type 'parameter'
@@ -5333,31 +5321,43 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\sub'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.1-3.10> str='\sub'
-      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.21>
         AST_IDENTIFIER <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.12> str='\o'
         AST_IDENTIFIER <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.15-2.21> str='\data_i'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module sub(data_i, o);
-      input data_i;
-      output o;
+      input [0:0] data_i;
+      output [0:0] o;
       assign o = data_i;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.1-3.10> str='\sub' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic basic_prep port=3 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.12> str='\o' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.15-2.21> str='\data_i' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module sub(data_i, o);
-      input data_i;
-      output o;
+      input [0:0] data_i;
+      output [0:0] o;
       assign o = data_i;
     endmodule
 --- END OF AST DUMP ---
