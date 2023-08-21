@@ -845,7 +845,10 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/TaskReturn/top.sv:9.1-14.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:9.25-9.26> str='\o' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:9.25-9.26> str='\o' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_INITIAL <UHDM-integration-tests/tests/TaskReturn/top.sv:10.4-13.7>
         AST_BLOCK <UHDM-integration-tests/tests/TaskReturn/top.sv:10.12-13.7>
           AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskReturn/top.sv:11.7-11.22>
@@ -869,7 +872,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output o;
+      output [0:0] o;
       /** AST_TASK **/
       initial
         begin
@@ -880,7 +883,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/TaskReturn/top.sv:9.1-14.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:9.25-9.26> str='\o' output logic reg basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/TaskReturn/top.sv:9.25-9.26> str='\o' output logic reg basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/TaskReturn/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_INITIAL <UHDM-integration-tests/tests/TaskReturn/top.sv:10.4-13.7> basic_prep
         AST_BLOCK <UHDM-integration-tests/tests/TaskReturn/top.sv:10.12-13.7> basic_prep
           AST_ASSIGN_LE <UHDM-integration-tests/tests/TaskReturn/top.sv:11.7-11.22> basic_prep
@@ -920,7 +926,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output reg o;
+      output reg [0:0] o;
       (* nosync = 1 *)
       reg [0:0] \my_pkg::assign_1$func$UHDM-integration-tests/tests/TaskReturn/top.sv:12$1.x ;
       /** AST_TASK **/
