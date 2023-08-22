@@ -776,7 +776,10 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:11.1-13.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:11.25-11.26> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:11.25-11.26> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:12.11-12.42>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:12.11-12.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -793,7 +796,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output o;
+      output [0:0] o;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       assign o = 1'b 1;
@@ -801,7 +804,10 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:11.1-13.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:11.25-11.26> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:11.25-11.26> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:12.11-12.42> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:12.11-12.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/ReturnFunctionCall/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -818,7 +824,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output o;
+      output [0:0] o;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       assign o = 1'b 1;

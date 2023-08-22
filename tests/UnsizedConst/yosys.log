@@ -1079,9 +1079,6 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'out2' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object 'out3' of type 'struct_net'
@@ -1122,14 +1119,20 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:4.17-4.22> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:5.17-5.21> str='\out2' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:5.17-5.21> str='\out2' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:6.31-6.35> str='\out3' output logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> str='\my_struct_packed_t' bits='01011100011011010111100101011111011100110111010001110010011101010110001101110100010111110111000001100001011000110110101101100101011001000101111101110100'(152) basic_prep range=[151:0] int=1701076852
         AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:7.17-7.21> str='\out4' output logic port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:7.17-7.21> str='\out4' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/UnsizedConst/top.sv:9.10-9.21>
         AST_IDENTIFIER <UHDM-integration-tests/tests/UnsizedConst/top.sv:9.10-9.14> str='\out1'
         AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1111'(4) range=[3:0] int=15
@@ -1156,10 +1159,10 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(out1, out2, out3, out4);
       output [3:0] out1;
-      output out2;
+      output [0:0] out2;
       (* wiretype = "\my_struct_packed_t" *)
       output [3:0] out3;
-      output out4;
+      output [0:0] out4;
       assign out1 = 4'b 1111;
       assign out2 = (out1)==(4'b 1111);
       assign out3[3:0] = 4'b 1111;
@@ -1173,14 +1176,20 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:4.17-4.22> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:5.17-5.21> str='\out2' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:5.17-5.21> str='\out2' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:6.31-6.35> str='\out3' output logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> str='\my_struct_packed_t' bits='01011100011011010111100101011111011100110111010001110010011101010110001101110100010111110111000001100001011000110110101101100101011001000101111101110100'(152) basic_prep range=[151:0] int=1701076852
         AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[3:0]
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
           AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:7.17-7.21> str='\out4' output logic basic_prep port=4 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnsizedConst/top.sv:7.17-7.21> str='\out4' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/UnsizedConst/top.sv:9.10-9.21> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/UnsizedConst/top.sv:9.10-9.14> str='\out1' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/UnsizedConst/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15
@@ -1207,10 +1216,10 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(out1, out2, out3, out4);
       output [3:0] out1;
-      output out2;
+      output [0:0] out2;
       (* wiretype = "\my_struct_packed_t" *)
       output [3:0] out3;
-      output out4;
+      output [0:0] out4;
       assign out1 = 4'b 1111;
       assign out2 = (out1)==(4'b 1111);
       assign out3[3:0] = 4'b 1111;

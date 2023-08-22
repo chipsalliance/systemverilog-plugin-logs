@@ -1296,9 +1296,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'a' of type 'logic_net'
       Object '' of type 'logic_typespec'
     Object '' of type 'cont_assign'
@@ -1347,7 +1344,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:4.7-4.13> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneCast/dut.v:12.10-17.23>
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneCast/dut.v:12.10-12.11> str='\b'
         AST_BIT_OR <UHDM-integration-tests/tests/OneCast/dut.v:12.15-17.23>
@@ -1374,7 +1374,7 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       output reg [31:0] b;
-      input a;
+      input [0:0] a;
       assign b = ((((4)|((a)<<(/** AST_TO_UNSIGNED **/)))|(16))|((ONE)<<(/** AST_TO_UNSIGNED **/)))|(32);
     endmodule
 --- END OF AST DUMP ---
@@ -1407,7 +1407,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:4.7-4.13> basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
           AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/OneCast/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/OneCast/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/OneCast/dut.v:12.10-17.23> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/OneCast/dut.v:12.10-12.11> str='\b' basic_prep
         AST_BIT_OR <UHDM-integration-tests/tests/OneCast/dut.v:12.15-17.23> basic_prep
@@ -1430,7 +1433,7 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       output reg [31:0] b;
-      input a;
+      input [0:0] a;
       assign b = ((((4)|((a)<<(3)))|(16))|(2))|(32);
     endmodule
 --- END OF AST DUMP ---
