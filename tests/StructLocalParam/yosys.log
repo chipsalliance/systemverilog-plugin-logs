@@ -796,7 +796,10 @@ Dumping AST before simplification:
         AST_RANGE <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> basic_prep range=[0:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/StructLocalParam/top.sv:1.25-1.26> str='\o' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructLocalParam/top.sv:1.25-1.26> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructLocalParam/top.sv:8.11-8.18>
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructLocalParam/top.sv:8.11-8.12> str='\o'
         AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -805,7 +808,7 @@ Dumping Verilog AST before simplification:
     module top(o);
       (* wiretype = "\alert_tx_t" *)
       /** AST_LOCALPARAM **/
-      output o;
+      output [0:0] o;
       /** AST_TYPEDEF **/
       assign o = 1'b 1;
     endmodule
@@ -822,7 +825,10 @@ Dumping AST after simplification:
         AST_RANGE <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> basic_prep range=[0:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
           AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <UHDM-integration-tests/tests/StructLocalParam/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/StructLocalParam/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/StructLocalParam/top.sv:8.11-8.18> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/StructLocalParam/top.sv:8.11-8.12> str='\o' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/StructLocalParam/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -831,7 +837,7 @@ Dumping Verilog AST after simplification:
     module top(o);
       (* wiretype = "\alert_tx_t" *)
       /** AST_LOCALPARAM **/
-      output o;
+      output [0:0] o;
       /** AST_TYPEDEF **/
       assign o = 1'b 1;
     endmodule

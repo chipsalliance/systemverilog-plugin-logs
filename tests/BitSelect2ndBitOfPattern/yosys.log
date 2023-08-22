@@ -719,16 +719,28 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:1.1-4.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:1.25-1.26> str='\a' output logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:2.10-2.11> str='\x' logic
-        AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:2.12-2.17>
+      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:1.25-1.26> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:2.10-2.11> str='\x' logic multirange=[ 0 1 0 2 ] multirange_swapped=[ 0 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.11-3.19>
         AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.11-3.12> str='\a'
-        AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.17-3.18> str='\x'
-          AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.17-3.18>
-            AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+        AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.17-3.18> str='\x' basic_prep
+          AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
+            AST_SUB <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
+              AST_MUL <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
+                AST_ADD <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
+                  AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                  AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+            AST_MUL <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
+              AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
       AST_INITIAL <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
         AST_BLOCK <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0>
@@ -739,25 +751,29 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a);
-      output a;
+      output [0:0] a;
       wire [1:0] x;
-      assign a = x[1];
+      assign a = x[(((1)+(1))*(1))-(1):(1)*(1)];
       initial
         x = {1'b 1, 1'b 0};
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:1.25-1.26> str='\a' output logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:2.10-2.11> str='\x' logic reg basic_prep range=[1:0]
-        AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:2.12-2.17> basic_prep range=[1:0]
+      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:1.25-1.26> str='\a' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:2.10-2.11> str='\x' logic reg basic_prep range=[1:0] multirange=[ 0 1 0 2 ] multirange_swapped=[ 0 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep range=[1:0]
           AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.11-3.19> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.11-3.12> str='\a' basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.17-3.18> str='\x' basic_prep
-          AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:3.17-3.18> basic_prep range=[1:1]
-            AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+          AST_RANGE <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep range=[1:1]
+            AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+            AST_CONSTANT <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
       AST_INITIAL <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <UHDM-integration-tests/tests/BitSelect2ndBitOfPattern/top.sv:0.0-0.0> basic_prep
@@ -766,7 +782,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
-      output a;
+      output [0:0] a;
       reg [1:0] x;
       assign a = x[1:1];
       initial
