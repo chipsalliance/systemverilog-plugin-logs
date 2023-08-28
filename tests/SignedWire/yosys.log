@@ -748,16 +748,16 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'xn' of type 'ref_obj'
       Object 'inp' of type 'ref_obj'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/SignedWire/top.sv:1.1-6.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.12-1.15> str='\inp' input logic signed port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.12-1.15> str='\inp' input logic signed port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19> str='\xn' output reg port=2 multirange=[ 0 5 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/SignedWire/top.sv:3.16-3.21> basic_prep range=[4:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
@@ -768,7 +768,7 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(inp, xn);
-      input signed inp;
+      input signed [0:0] inp;
       output reg [4:0] xn;
       assign xn = inp;
     endmodule
@@ -776,7 +776,10 @@ Dumping Verilog AST before simplification:
 Warning: reg '\xn' is assigned in a continuous assignment at UHDM-integration-tests/tests/SignedWire/top.sv:5.12-5.20.
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/SignedWire/top.sv:1.1-6.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.12-1.15> str='\inp' input logic signed basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.12-1.15> str='\inp' input logic signed basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_WIRE <UHDM-integration-tests/tests/SignedWire/top.sv:1.17-1.19> str='\xn' output reg basic_prep port=2 range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
         AST_RANGE <UHDM-integration-tests/tests/SignedWire/top.sv:3.16-3.21> basic_prep range=[4:0]
           AST_CONSTANT <UHDM-integration-tests/tests/SignedWire/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
@@ -787,7 +790,7 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(inp, xn);
-      input signed inp;
+      input signed [0:0] inp;
       output reg [4:0] xn;
       assign xn = inp;
     endmodule

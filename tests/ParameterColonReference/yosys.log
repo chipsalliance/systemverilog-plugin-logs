@@ -763,7 +763,10 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.1-7.10> str='\top'
-      AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.24>
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.12> str='\a'
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
@@ -776,13 +779,16 @@ Dumping AST before simplification:
 Dumping Verilog AST before simplification:
     module top(a);
       /** AST_PARAMETER **/
-      output a;
+      output [0:0] a;
       assign a = 1'b 1;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.1-7.10> str='\top' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.24> basic_prep
         AST_IDENTIFIER <UHDM-integration-tests/tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' basic_prep
         AST_CONSTANT <UHDM-integration-tests/tests/ParameterColonReference/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
@@ -795,7 +801,7 @@ Dumping AST after simplification:
 Dumping Verilog AST after simplification:
     module top(a);
       /** AST_PARAMETER **/
-      output a;
+      output [0:0] a;
       assign a = 1'b 1;
     endmodule
 --- END OF AST DUMP ---

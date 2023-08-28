@@ -25,7 +25,7 @@
 
 [NTE:EL0510] Nb instances: 1.
 
-[NTE:EL0511] Nb leaf instances: 0.
+[NTE:EL0511] Nb leaf instances: 1.
 
 [INF:UH0706] Creating UHDM Model...
 
@@ -950,8 +950,14 @@ Warning: UHDM-integration-tests/tests/UnitForLoop/dut.v:10: Post-incrementation 
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.1-17.10> str='\dut'
-      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.18-1.19> str='\a' input logic port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.28-1.29> str='\b' output logic port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.18-1.19> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.28-1.29> str='\b' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/UnitForLoop/dut.v:3.1-4.12> str='\f2'
         AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> str='\f2' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:3.18-3.19> str='\i' input signed port=3 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -991,8 +997,8 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(a, b);
-      input a;
-      output b;
+      input [0:0] a;
+      output [0:0] b;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       assign b = a;
@@ -1000,8 +1006,14 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.1-17.10> str='\dut' basic_prep
-      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.18-1.19> str='\a' input logic basic_prep port=1 range=[0:0]
-      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.28-1.29> str='\b' output logic basic_prep port=2 range=[0:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.18-1.19> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:1.28-1.29> str='\b' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <UHDM-integration-tests/tests/UnitForLoop/dut.v:3.1-4.12> str='\f2'
         AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:0.0-0.0> str='\f2' logic range=[0:0]
         AST_WIRE <UHDM-integration-tests/tests/UnitForLoop/dut.v:3.18-3.19> str='\i' input signed port=3 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
@@ -1041,8 +1053,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(a, b);
-      input a;
-      output b;
+      input [0:0] a;
+      output [0:0] b;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       assign b = a;

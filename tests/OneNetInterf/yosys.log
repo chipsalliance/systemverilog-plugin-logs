@@ -1265,8 +1265,14 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <Surelog/tests/OneNetInterf/dut.v:2.1-5.10> str='\dut'
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.24-2.25> str='\i' input logic port=12 range=[0:0]
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.38-2.39> str='\o' output reg port=13 range=[0:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.24-2.25> str='\i' input logic port=12 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.38-2.39> str='\o' output reg port=13 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <Surelog/tests/OneNetInterf/dut.v:3.3-3.41> str='\conntb'
         AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> str='\ConnectTB'
         AST_ARGUMENT <Surelog/tests/OneNetInterf/dut.v:3.3-3.41> str='\con_i'
@@ -1280,16 +1286,22 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(i, o);
-      input i;
-      output reg o;
+      input [0:0] i;
+      output reg [0:0] o;
       /** AST_CELL **/
       /** AST_CELL **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <Surelog/tests/OneNetInterf/dut.v:2.1-5.10> str='\dut' basic_prep
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.24-2.25> str='\i' input logic basic_prep port=12 range=[0:0]
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.38-2.39> str='\o' output reg basic_prep port=13 range=[0:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.24-2.25> str='\i' input logic basic_prep port=12 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:2.38-2.39> str='\o' output reg basic_prep port=13 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_CELL <Surelog/tests/OneNetInterf/dut.v:3.3-3.41> str='\conntb' basic_prep
         AST_CELLTYPE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> str='\ConnectTB' basic_prep
         AST_ARGUMENT <Surelog/tests/OneNetInterf/dut.v:3.3-3.41> str='\con_i' basic_prep
@@ -1303,8 +1315,8 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(i, o);
-      input i;
-      output reg o;
+      input [0:0] i;
+      output reg [0:0] o;
       /** AST_CELL **/
       /** AST_CELL **/
     endmodule
@@ -1312,31 +1324,43 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\SUB'.
 Dumping AST before simplification:
     AST_MODULE <Surelog/tests/OneNetInterf/dut.v:14.1-16.10> str='\SUB'
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.24-14.27> str='\inp' input logic port=7 range=[0:0]
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.40-14.43> str='\out' output logic port=8 range=[0:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.24-14.27> str='\inp' input logic port=7 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.40-14.43> str='\out' output logic port=8 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <Surelog/tests/OneNetInterf/dut.v:15.10-15.19>
         AST_IDENTIFIER <Surelog/tests/OneNetInterf/dut.v:15.10-15.13> str='\out'
         AST_IDENTIFIER <Surelog/tests/OneNetInterf/dut.v:15.16-15.19> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module SUB(inp, out);
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       assign out = inp;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <Surelog/tests/OneNetInterf/dut.v:14.1-16.10> str='\SUB' basic_prep
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.24-14.27> str='\inp' input logic basic_prep port=7 range=[0:0]
-      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.40-14.43> str='\out' output logic basic_prep port=8 range=[0:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.24-14.27> str='\inp' input logic basic_prep port=7 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <Surelog/tests/OneNetInterf/dut.v:14.40-14.43> str='\out' output logic basic_prep port=8 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <UHDM-integration-tests/../Surelog/tests/OneNetInterf/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <Surelog/tests/OneNetInterf/dut.v:15.10-15.19> basic_prep
         AST_IDENTIFIER <Surelog/tests/OneNetInterf/dut.v:15.10-15.13> str='\out' basic_prep
         AST_IDENTIFIER <Surelog/tests/OneNetInterf/dut.v:15.16-15.19> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module SUB(inp, out);
-      input inp;
-      output out;
+      input [0:0] inp;
+      output [0:0] out;
       assign out = inp;
     endmodule
 --- END OF AST DUMP ---
