@@ -1,0 +1,340 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
+
+[WRN:PA0205] tests/simple_tests/PatternAsFunctionArgument/top.sv:1:1: No timescale set for "top".
+
+[INF:CP0300] Compilation...
+
+[INF:CP0303] tests/simple_tests/PatternAsFunctionArgument/top.sv:1:1: Compile module "work@top".
+
+[INF:CP0302] Compile class "work@mailbox".
+
+[INF:CP0302] Compile class "work@process".
+
+[INF:CP0302] Compile class "work@semaphore".
+
+[INF:EL0526] Design Elaboration...
+
+[NTE:EL0503] tests/simple_tests/PatternAsFunctionArgument/top.sv:1:1: Top level module "work@top".
+
+[NTE:EL0508] Nb Top level modules: 1.
+
+[NTE:EL0509] Max instance depth: 1.
+
+[NTE:EL0510] Nb instances: 1.
+
+[NTE:EL0511] Nb leaf instances: 1.
+
+[INF:UH0706] Creating UHDM Model...
+
+[INF:UH0707] Elaborating UHDM...
+
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 1
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object '' of type 'module_inst'
+    Object 'o' of type 'logic_net'
+  Object 'work@top' of type 'module_inst'
+    Object 'o' of type 'port'
+      Object '' of type 'int_typespec'
+    Object 'get_a1' of type 'function'
+      Object '' of type 'int_var'
+      Object 'a' of type 'io_decl'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'operation'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+        Object '' of type 'int_typespec'
+      Object '' of type 'return_stmt'
+        Object 'a' of type 'bit_select'
+          Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'o' of type 'ref_obj'
+      Object '' of type 'constant'
+    Object 'o' of type 'int_var'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/PatternAsFunctionArgument/top.sv:1.1-7.10> str='\top'
+      AST_WIRE <tests/simple_tests/PatternAsFunctionArgument/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
+        AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+          AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_FUNCTION <tests/simple_tests/PatternAsFunctionArgument/top.sv:4.4-6.15> str='\get_a1'
+        AST_WIRE <tests/simple_tests/PatternAsFunctionArgument/top.sv:4.23-4.26> str='\get_a1' signed range=[0:0]
+          AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <tests/simple_tests/PatternAsFunctionArgument/top.sv:4.38-4.39> str='\a' input signed port=2 multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 1 ]
+          AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> range=[63:0]
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_ASSIGN_EQ <tests/simple_tests/PatternAsFunctionArgument/top.sv:5.7-5.13>
+          AST_IDENTIFIER <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> str='\get_a1'
+          AST_IDENTIFIER <tests/simple_tests/PatternAsFunctionArgument/top.sv:5.16-5.17> str='\a' basic_prep
+            AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+              AST_SUB <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                AST_MUL <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                    AST_SUB <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                      AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                    AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_MUL <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                AST_SUB <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                  AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+      AST_ASSIGN <tests/simple_tests/PatternAsFunctionArgument/top.sv:2.11-2.30>
+        AST_IDENTIFIER <tests/simple_tests/PatternAsFunctionArgument/top.sv:2.11-2.12> str='\o'
+        AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(o);
+      output signed [31:0] o;
+      /** AST_FUNCTION **/
+      assign o = 1;
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/PatternAsFunctionArgument/top.sv:1.1-7.10> str='\top' basic_prep
+      AST_WIRE <tests/simple_tests/PatternAsFunctionArgument/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_FUNCTION <tests/simple_tests/PatternAsFunctionArgument/top.sv:4.4-6.15> str='\get_a1'
+        AST_WIRE <tests/simple_tests/PatternAsFunctionArgument/top.sv:4.23-4.26> str='\get_a1' signed range=[0:0]
+          AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_WIRE <tests/simple_tests/PatternAsFunctionArgument/top.sv:4.38-4.39> str='\a' input signed port=2 multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 1 ]
+          AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> range=[63:0]
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+            AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_ASSIGN_EQ <tests/simple_tests/PatternAsFunctionArgument/top.sv:5.7-5.13>
+          AST_IDENTIFIER <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> str='\get_a1'
+          AST_IDENTIFIER <tests/simple_tests/PatternAsFunctionArgument/top.sv:5.16-5.17> str='\a' basic_prep
+            AST_RANGE <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+              AST_SUB <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                AST_MUL <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                    AST_SUB <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                      AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                    AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_MUL <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                AST_SUB <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0>
+                  AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+      AST_ASSIGN <tests/simple_tests/PatternAsFunctionArgument/top.sv:2.11-2.30> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/PatternAsFunctionArgument/top.sv:2.11-2.12> str='\o' basic_prep
+        AST_CONSTANT <tests/simple_tests/PatternAsFunctionArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(o);
+      output signed [31:0] o;
+      /** AST_FUNCTION **/
+      assign o = 1;
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \top
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \top
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.5. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+2.6. Executing OPT pass (performing simple optimizations).
+
+2.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.6.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.6.8. Finished OPT passes. (There is nothing left to do.)
+
+2.7. Executing WREDUCE pass (reducing word size of cells).
+
+2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.10. Executing OPT pass (performing simple optimizations).
+
+2.10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.10.4. Finished fast OPT passes.
+
+2.11. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  1
+   Number of wire bits:             32
+   Number of public wires:           1
+   Number of public wire bits:      32
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+2.12. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\top'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/PatternAsFunctionArgument/top.sv:1.1-7.10" *)
+module top(o);
+  (* src = "tests/simple_tests/PatternAsFunctionArgument/top.sv:1.23-1.24" *)
+  output [31:0] o;
+  wire [31:0] o;
+  assign o = 32'd1;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\top'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
