@@ -42,9 +42,7 @@ Object 'work@top' of type 'design'
     Object 'a' of type 'logic_net'
     Object '' of type 'initial'
       Object '' of type 'begin'
-        Object '$monitor' of type 'sys_func_call'
-          Object '' of type 'constant'
-          Object 'a' of type 'ref_obj'
+Warning: tests/simple_tests/MonitorInputPort/top.sv:3: Skipping non-synthesizable object of type 'sys_func_call'
   Object 'work@top' of type 'module_inst'
     Object 'a' of type 'port'
       Object '' of type 'int_typespec'
@@ -58,18 +56,15 @@ Dumping AST before simplification:
           AST_CONSTANT <tests/simple_tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_INITIAL <tests/simple_tests/MonitorInputPort/top.sv:2.4-4.7>
         AST_BLOCK <tests/simple_tests/MonitorInputPort/top.sv:2.12-4.7>
-          AST_TCALL <tests/simple_tests/MonitorInputPort/top.sv:3.7-3.45> str='$monitor'
-            AST_CONSTANT <tests/simple_tests/MonitorInputPort/top.sv:0.0-0.0> str='Input port has value %d' bits='0100100101101110011100000111010101110100001000000111000001101111011100100111010000100000011010000110000101110011001000000111011001100001011011000111010101100101001000000010010101100100'(184) range=[183:0] int=1696605540
-            AST_IDENTIFIER <tests/simple_tests/MonitorInputPort/top.sv:3.43-3.44> str='\a'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a);
       input signed [31:0] a;
       initial
-        /** AST_TCALL **/
+        begin
+        end
     endmodule
 --- END OF AST DUMP ---
-tests/simple_tests/MonitorInputPort/top.sv:3: Warning: Ignoring call to system task $monitor.
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/MonitorInputPort/top.sv:1.1-5.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/MonitorInputPort/top.sv:1.22-1.23> str='\a' input signed basic_prep port=1 range=[31:0]
@@ -78,13 +73,13 @@ Dumping AST after simplification:
           AST_CONSTANT <tests/simple_tests/MonitorInputPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_INITIAL <tests/simple_tests/MonitorInputPort/top.sv:2.4-4.7> basic_prep
         AST_BLOCK <tests/simple_tests/MonitorInputPort/top.sv:2.12-4.7> basic_prep
-          AST_TCALL <tests/simple_tests/MonitorInputPort/top.sv:3.7-3.45> basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
       input signed [31:0] a;
       initial
-        /** AST_TCALL **/
+        begin
+        end
     endmodule
 --- END OF AST DUMP ---
 
