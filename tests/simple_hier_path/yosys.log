@@ -6128,9 +6128,6 @@ Warning: tests/simple_tests/hier_path/dut.sv:151: Post-decrementation operations
           Object '' of type 'constant'
       Object '' of type 'range'
         Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
         Object '' of type 'operation'
           Object '' of type 'constant'
           Object '' of type 'constant'
@@ -6164,9 +6161,6 @@ Warning: tests/simple_tests/hier_path/dut.sv:151: Post-decrementation operations
           Object '' of type 'constant'
       Object '' of type 'range'
         Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
         Object '' of type 'operation'
           Object '' of type 'constant'
           Object '' of type 'constant'
@@ -6178,9 +6172,6 @@ Warning: tests/simple_tests/hier_path/dut.sv:151: Post-decrementation operations
           Object '' of type 'constant'
       Object '' of type 'range'
         Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
         Object '' of type 'operation'
           Object '' of type 'constant'
           Object '' of type 'constant'
@@ -6190,9 +6181,6 @@ Warning: tests/simple_tests/hier_path/dut.sv:151: Post-decrementation operations
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
       Object '' of type 'range'
         Object '' of type 'constant'
         Object '' of type 'operation'
@@ -6451,7 +6439,9 @@ Dumping AST before simplification:
       AST_MEMORY <tests/simple_tests/hier_path/dut.sv:46.45-46.61> str='\region_addr_mask' logic
         AST_RANGE <tests/simple_tests/hier_path/dut.sv:46.7-46.28>
           AST_CONSTANT <tests/simple_tests/hier_path/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed range=[31:0] int=33
-          AST_CONSTANT <tests/simple_tests/hier_path/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+          AST_ADD <tests/simple_tests/hier_path/dut.sv:46.11-46.27>
+            AST_IDENTIFIER <tests/simple_tests/hier_path/dut.sv:46.11-46.25> str='\PMPGranularity'
+            AST_CONSTANT <tests/simple_tests/hier_path/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
         AST_RANGE <tests/simple_tests/hier_path/dut.sv:46.64-46.77>
           AST_CONSTANT <tests/simple_tests/hier_path/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
           AST_SUB <tests/simple_tests/hier_path/dut.sv:46.64-46.77>
@@ -19468,7 +19458,7 @@ Dumping Verilog AST before simplification:
       wire [23:0] csr_pmp_cfg_i;
       memory [33:0] csr_pmp_addr_i [0:(4)-(1)];
       memory [33:0] region_start_addr [0:(4)-(1)];
-      memory [33:2] region_addr_mask [0:(4)-(1)];
+      memory [33:(PMPGranularity)+(2)] region_addr_mask [0:(4)-(1)];
       wire [7:0] region_match_gt;
       wire [7:0] region_match_lt;
       wire [7:0] region_match_eq;

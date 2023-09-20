@@ -276,7 +276,9 @@ Object 'work@fsm_using_function' of type 'design'
               Object '' of type 'constant'
             Object '' of type 'constant'
       Object 'req_0' of type 'io_decl'
+        Object '' of type 'logic_typespec'
       Object 'req_1' of type 'io_decl'
+        Object '' of type 'logic_typespec'
       Object '' of type 'case_stmt'
         Object 'state' of type 'ref_obj'
         Object '' of type 'case_item'
@@ -405,8 +407,14 @@ Dumping AST before simplification:
           AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:33.10-33.20> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:33.11-33.17> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:34.12-34.17> str='\req_0' input port=8 range=[0:0]
-        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:35.12-35.17> str='\req_1' input port=9 range=[0:0]
+        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:34.12-34.17> str='\req_0' input logic port=8 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:35.12-35.17> str='\req_1' input logic port=9 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_CASE <tests/simple_tests/fsm_using_function/dut.v:36.3-55.10>
           AST_IDENTIFIER <tests/simple_tests/fsm_using_function/dut.v:36.8-36.13> str='\state'
           AST_COND <tests/simple_tests/fsm_using_function/dut.v:37.4-43.18>
@@ -710,8 +718,14 @@ Dumping AST after simplification:
           AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:33.10-33.20> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:33.11-33.17> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:34.12-34.17> str='\req_0' input port=8 range=[0:0]
-        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:35.12-35.17> str='\req_1' input port=9 range=[0:0]
+        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:34.12-34.17> str='\req_0' input logic port=8 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:35.12-35.17> str='\req_1' input logic port=9 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_CASE <tests/simple_tests/fsm_using_function/dut.v:36.3-55.10>
           AST_IDENTIFIER <tests/simple_tests/fsm_using_function/dut.v:36.8-36.13> str='\state'
           AST_COND <tests/simple_tests/fsm_using_function/dut.v:37.4-43.18>
@@ -1009,12 +1023,18 @@ Dumping AST after simplification:
         AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:33.10-33.20> basic_prep range=[2:0]
           AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:33.11-33.17> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
           AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:34.12-34.17> str='\fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_0' reg basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:34.12-34.17> str='\fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_0' logic reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
           AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-      AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:35.12-35.17> str='\fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_1' reg basic_prep range=[0:0]
+        AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/fsm_using_function/dut.v:35.12-35.17> str='\fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_1' logic reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
           AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+        AST_RANGE <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/fsm_using_function/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module fsm_using_function(clock, reset, req_0, req_1, gnt_0, gnt_1);
@@ -1036,9 +1056,9 @@ Dumping Verilog AST after simplification:
       (* nosync = 1 *)
       reg [2:0] \fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.state ;
       (* nosync = 1 *)
-      reg \fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_0 ;
+      reg [0:0] \fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_0 ;
       (* nosync = 1 *)
-      reg \fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_1 ;
+      reg [0:0] \fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$2.req_1 ;
       /** AST_FUNCTION **/
       assign next_state = \fsm_function$func$tests/simple_tests/fsm_using_function/dut.v:30$1.$result ;
       always @(posedge clock)
