@@ -1,0 +1,408 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
+
+[WRN:PA0205] tests/simple_tests/conditional_if_else/if_else.sv:6:1: No timescale set for "top".
+
+[INF:CP0300] Compilation...
+
+[INF:CP0303] tests/simple_tests/conditional_if_else/if_else.sv:6:1: Compile module "work@top".
+
+[INF:CP0302] Compile class "work@mailbox".
+
+[INF:CP0302] Compile class "work@process".
+
+[INF:CP0302] Compile class "work@semaphore".
+
+[INF:EL0526] Design Elaboration...
+
+[NTE:EL0503] tests/simple_tests/conditional_if_else/if_else.sv:6:1: Top level module "work@top".
+
+[NTE:EL0508] Nb Top level modules: 1.
+
+[NTE:EL0509] Max instance depth: 1.
+
+[NTE:EL0510] Nb instances: 1.
+
+[NTE:EL0511] Nb leaf instances: 0.
+
+[INF:UH0706] Creating UHDM Model...
+
+[INF:UH0707] Elaborating UHDM...
+
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 1
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object '' of type 'module_inst'
+    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object '' of type 'always'
+      Object '' of type 'event_control'
+        Object '' of type 'begin'
+          Object '' of type 'if_else'
+            Object 'a' of type 'ref_obj'
+            Object '' of type 'assignment'
+              Object 'b' of type 'ref_obj'
+              Object '' of type 'constant'
+            Object '' of type 'assignment'
+              Object 'b' of type 'ref_obj'
+              Object '' of type 'constant'
+  Object 'work@top' of type 'module_inst'
+    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object '' of type 'cont_assign'
+      Object 'a' of type 'logic_net'
+        Object '' of type 'logic_typespec'
+      Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'b' of type 'logic_net'
+        Object '' of type 'logic_typespec'
+      Object '' of type 'constant'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/conditional_if_else/if_else.sv:6.1-13.10> str='\top'
+      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> str='\a' logic
+        AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> range=[0:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.11> str='\b' reg
+        AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> range=[0:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8>
+        AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\a'
+        AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_INITIAL <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
+        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
+          AST_ASSIGN_LE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
+            AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\b'
+            AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='0'(1) range=[0:0]
+      AST_ALWAYS <tests/simple_tests/conditional_if_else/if_else.sv:9.2-12.5>
+        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.9-9.11>
+          AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.12-12.5>
+            AST_CASE <tests/simple_tests/conditional_if_else/if_else.sv:10.3-11.14>
+              AST_REDUCE_BOOL <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0>
+                AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:10.6-10.7> str='\a'
+              AST_COND <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0>
+                AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+                AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0>
+                  AST_ASSIGN_EQ <tests/simple_tests/conditional_if_else/if_else.sv:10.9-10.14>
+                    AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:10.9-10.10> str='\b'
+                    AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_COND <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0>
+                AST_DEFAULT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0>
+                AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0>
+                  AST_ASSIGN_EQ <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.13>
+                    AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.9> str='\b'
+                    AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top();
+      wire [0:0] a;
+      reg [0:0] b;
+      assign a = 1'b 1;
+      initial
+        b <= 1'b 0;
+      always @*
+        case (|(a))
+          1'b 1:
+            b = 1;
+          default:
+            b = 0;
+        endcase
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/conditional_if_else/if_else.sv:6.1-13.10> str='\top' basic_prep
+      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> str='\a' logic basic_prep range=[0:0]
+        AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.11> str='\b' reg basic_prep range=[0:0]
+        AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep range=[0:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\a' basic_prep
+        AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_INITIAL <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
+        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
+          AST_ASSIGN_LE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\b' basic_prep
+            AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
+      AST_ALWAYS <tests/simple_tests/conditional_if_else/if_else.sv:9.2-12.5> basic_prep
+        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.9-9.11> basic_prep
+          AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.12-12.5> basic_prep
+            AST_CASE <tests/simple_tests/conditional_if_else/if_else.sv:10.3-11.14> basic_prep
+              AST_REDUCE_BOOL <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep
+                AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:10.6-10.7> str='\a' basic_prep
+              AST_COND <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep
+                AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+                AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep
+                  AST_ASSIGN_EQ <tests/simple_tests/conditional_if_else/if_else.sv:10.9-10.14> basic_prep
+                    AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:10.9-10.10> str='\b' basic_prep
+                    AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+              AST_COND <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep
+                AST_DEFAULT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep
+                AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep
+                  AST_ASSIGN_EQ <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.13> basic_prep
+                    AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.9> str='\b' basic_prep
+                    AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top();
+      wire [0:0] a;
+      reg [0:0] b;
+      assign a = 1'b 1;
+      initial
+        b <= 1'b 0;
+      always @*
+        case (|(a))
+          1'b 1:
+            b = 1;
+          default:
+            b = 0;
+        endcase
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \top
+
+2.2. Analyzing design hierarchy..
+Top module:  \top
+Removed 0 unused modules.
+
+3. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$tests/simple_tests/conditional_if_else/if_else.sv:9$1 in module top.
+Removed a total of 0 dead cases.
+
+5. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+6. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:8$2'.
+  Set init value: \b = 1'0
+
+7. Executing PROC_ARST pass (detect async resets in processes).
+
+8. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:8$2'.
+Creating decoders for process `\top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:9$1'.
+     1/1: $1\b[0:0]
+
+9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\top.\b' using process `\top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:9$1'.
+  created direct connection (no actual register cell created).
+
+10. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:8$2'.
+Found and cleaned up 1 empty switch in `\top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:9$1'.
+Removing empty process `top.$proc$tests/simple_tests/conditional_if_else/if_else.sv:9$1'.
+Cleaned up 1 empty switch.
+
+11. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+12. Executing OPT pass (performing simple optimizations).
+
+12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+<suppressed ~1 debug messages>
+
+12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+12.16. Finished OPT passes. (There is nothing left to do.)
+
+13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+15. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+16. Executing OPT pass (performing simple optimizations).
+
+16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+16.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+16.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+16.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+16.8. Finished OPT passes. (There is nothing left to do.)
+
+17. Executing WREDUCE pass (reducing word size of cells).
+
+18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+19. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+20. Executing OPT pass (performing simple optimizations).
+
+20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+20.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+20.4. Finished fast OPT passes.
+
+21. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  2
+   Number of wire bits:              2
+   Number of public wires:           2
+   Number of public wire bits:       2
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+22. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+23. Executing Verilog backend.
+
+23.1. Executing BMUXMAP pass.
+
+23.2. Executing DEMUXMAP pass.
+Dumping module `\top'.
+
+24. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.6 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

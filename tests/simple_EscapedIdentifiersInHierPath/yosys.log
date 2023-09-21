@@ -1,0 +1,392 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
+
+[WRN:PA0205] tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:1:1: No timescale set for "foo".
+
+[WRN:PA0205] tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16:1: No timescale set for "top".
+
+[INF:CP0300] Compilation...
+
+[INF:CP0301] tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:1:1: Compile package "foo".
+
+[INF:CP0303] tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16:1: Compile module "work@top".
+
+[INF:CP0302] Compile class "work@mailbox".
+
+[INF:CP0302] Compile class "work@process".
+
+[INF:CP0302] Compile class "work@semaphore".
+
+[INF:EL0526] Design Elaboration...
+
+[NTE:EL0503] tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16:1: Top level module "work@top".
+
+[NTE:EL0508] Nb Top level modules: 1.
+
+[NTE:EL0509] Max instance depth: 1.
+
+[NTE:EL0510] Nb instances: 1.
+
+[NTE:EL0511] Nb leaf instances: 0.
+
+[INF:UH0706] Creating UHDM Model...
+
+[INF:UH0707] Elaborating UHDM...
+
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 2
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'foo' of type 'package'
+    Object 'foo::fie_t' of type 'struct_typespec'
+      Object 'ld' of type 'typespec_member'
+    Object 'foo::st:r.uct_t' of type 'struct_typespec'
+      Object 'fie.ld' of type 'typespec_member'
+      Object 'fie' of type 'typespec_member'
+        Object 'foo::fie_t' of type 'struct_typespec'
+          Object 'ld' of type 'typespec_member'
+    Object 'foo::uct_t' of type 'struct_typespec'
+      Object 'i' of type 'typespec_member'
+  Object '' of type 'module_inst'
+    Object 'foo::fie_t' of type 'struct_typespec'
+      Object 'ld' of type 'typespec_member'
+    Object 'foo::st:r.uct_t' of type 'struct_typespec'
+      Object 'fie.ld' of type 'typespec_member'
+      Object 'fie' of type 'typespec_member'
+        Object 'foo::fie_t' of type 'struct_typespec'
+          Object 'ld' of type 'typespec_member'
+    Object 'foo::uct_t' of type 'struct_typespec'
+      Object 'i' of type 'typespec_member'
+    Object 'foo' of type 'import_typespec'
+    Object 'o1' of type 'logic_net'
+    Object 'o2' of type 'logic_net'
+    Object 'o.b.j' of type 'logic_net'
+      Object 'foo::st:r.uct_t' of type 'struct_typespec'
+        Object 'fie.ld' of type 'typespec_member'
+        Object 'fie' of type 'typespec_member'
+          Object 'foo::fie_t' of type 'struct_typespec'
+            Object 'ld' of type 'typespec_member'
+    Object 'uct_obj' of type 'logic_net'
+      Object 'foo::uct_t' of type 'struct_typespec'
+        Object 'i' of type 'typespec_member'
+    Object '' of type 'initial'
+      Object '' of type 'begin'
+        Object '' of type 'assignment'
+          Object 'o.b.j.fie.ld' of type 'hier_path'
+            Object 'o.b.j' of type 'ref_obj'
+            Object 'fie.ld' of type 'ref_obj'
+          Object '' of type 'constant'
+        Object '' of type 'assignment'
+          Object 'o.b.j.fie.ld' of type 'hier_path'
+            Object 'o.b.j' of type 'ref_obj'
+            Object 'fie' of type 'ref_obj'
+            Object 'ld' of type 'ref_obj'
+          Object 'uct_obj.i' of type 'hier_path'
+            Object 'uct_obj' of type 'ref_obj'
+            Object 'i' of type 'ref_obj'
+  Object 'work@top' of type 'module_inst'
+    Object 'o1' of type 'port'
+      Object '' of type 'int_typespec'
+    Object 'o2' of type 'port'
+      Object '' of type 'int_typespec'
+    Object '' of type 'cont_assign'
+      Object 'o1' of type 'ref_obj'
+      Object 'o.b.j.fie.ld' of type 'hier_path'
+        Object 'o.b.j' of type 'ref_obj'
+        Object 'fie.ld' of type 'ref_obj'
+    Object '' of type 'cont_assign'
+      Object 'o2' of type 'ref_obj'
+      Object 'o.b.j.fie.ld' of type 'hier_path'
+        Object 'o.b.j' of type 'ref_obj'
+        Object 'fie' of type 'ref_obj'
+        Object 'ld' of type 'ref_obj'
+    Object 'o1' of type 'int_var'
+    Object 'o2' of type 'int_var'
+    Object 'o.b.j' of type 'struct_var'
+      Object 'foo::st:r.uct_t' of type 'struct_typespec'
+        Object 'fie.ld' of type 'typespec_member'
+        Object 'fie' of type 'typespec_member'
+          Object 'foo::fie_t' of type 'struct_typespec'
+            Object 'ld' of type 'typespec_member'
+      Object '' of type 'operation'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+    Object 'uct_obj' of type 'struct_var'
+      Object 'foo::uct_t' of type 'struct_typespec'
+        Object 'i' of type 'typespec_member'
+      Object '' of type 'operation'
+        Object '' of type 'constant'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16.1-28.10> str='\top'
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='\fie_t'
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> str='\st:r.uct_t'
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> str='\uct_t'
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16.29-16.31> str='\o1' output signed port=1 range=[0:0]
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16.44-16.46> str='\o2' output signed port=2 range=[0:0]
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:19.27-19.53> str='\o.b.j' logic basic_prep range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\st:r.uct_t' bits='0101110001110011011101000011101001110010001011100111010101100011011101000101111101110100'(88) basic_prep range=[87:0] int=1668570996
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:0]
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:20.17-20.34> str='\uct_obj' logic basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_t' bits='010111000111010101100011011101000101111101110100'(48) basic_prep range=[47:0] int=1668570996
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.41>
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.14> str='\o1'
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:26.17-26.28> str='\o.b.j' basic_prep
+          AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+      AST_ASSIGN <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.41>
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.14> str='\o2'
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:27.17-27.28> str='\o.b.j' basic_prep
+          AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_INITIAL <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+        AST_BLOCK <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_obj'
+            AST_CONCAT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:20.27-20.34>
+              AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000010011100001111'(32) range=[31:0] int=9999
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\o.b.j'
+            AST_CONCAT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:19.40-19.53>
+              AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000100010101110'(32) signed range=[31:0] int=2222
+              AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000010001010111'(32) signed range=[31:0] int=1111
+      AST_INITIAL <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:21.5-24.8>
+        AST_BLOCK <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:21.13-24.8>
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.39>
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:22.21-22.33> str='\o.b.j' basic_prep
+              AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000110100000101'(32) signed range=[31:0] int=3333
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.39>
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:23.21-23.24> str='\o.b.j' basic_prep
+              AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:23.30-23.37> str='\uct_obj' basic_prep
+              AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0>
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='\foo::fie_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> str='\foo::st:r.uct_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> str='\foo::uct_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(o1, o2);
+      output signed [31:0] o1;
+      output signed [31:0] o2;
+      (* wiretype = "\st:r.uct_t" *)
+      wire [63:0] \o.b.j ;
+      (* wiretype = "\uct_t" *)
+      wire [31:0] uct_obj;
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      assign o1 = \o.b.j [63:32];
+      assign o2 = \o.b.j [31:0];
+      initial
+        begin
+          uct_obj = {9999};
+          \o.b.j  = {1111, 2222};
+        end
+      initial
+        begin
+          \o.b.j [63:32] = 3333;
+          \o.b.j [31:0] = uct_obj[31:0];
+        end
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16.1-28.10> str='\top' basic_prep
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='\fie_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> str='\st:r.uct_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> str='\uct_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16.29-16.31> str='\o1' output signed basic_prep port=1 range=[31:0]
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:16.44-16.46> str='\o2' output signed basic_prep port=2 range=[31:0]
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:19.27-19.53> str='\o.b.j' logic reg basic_prep range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\st:r.uct_t' bits='0101110001110011011101000011101001110010001011100111010101100011011101000101111101110100'(88) basic_prep range=[87:0] int=1668570996
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:0]
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:20.17-20.34> str='\uct_obj' logic reg basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_t' bits='010111000111010101100011011101000101111101110100'(48) basic_prep range=[47:0] int=1668570996
+        AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+          AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.41> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:26.12-26.14> str='\o1' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:26.17-26.28> str='\o.b.j' basic_prep
+          AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:32]
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
+      AST_ASSIGN <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.41> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:27.12-27.14> str='\o2' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:27.17-27.28> str='\o.b.j' basic_prep
+          AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_INITIAL <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+        AST_BLOCK <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\uct_obj' basic_prep
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:20.27-20.34> bits='00000000000000000010011100001111'(32) basic_prep range=[31:0] int=9999
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> str='\o.b.j' basic_prep
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:19.40-19.53> bits='0000000000000000000001000101011100000000000000000000100010101110'(64) basic_prep range=[63:0] int=2222
+      AST_INITIAL <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:21.5-24.8> basic_prep
+        AST_BLOCK <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:21.13-24.8> basic_prep
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:22.9-22.39> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:22.21-22.33> str='\o.b.j' basic_prep
+              AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[63:32]
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
+            AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000110100000101'(32) signed basic_prep range=[31:0] int=3333
+          AST_ASSIGN_EQ <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:23.9-23.39> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:23.21-23.24> str='\o.b.j' basic_prep
+              AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_IDENTIFIER <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:23.30-23.37> str='\uct_obj' basic_prep
+              AST_RANGE <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> basic_prep range=[31:0]
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+                AST_CONSTANT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='\foo::fie_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> str='\foo::st:r.uct_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:6.13-19.53> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:7.13-7.25> str='fie.ld' signed basic_prep range=[63:32]
+          AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:2.13-4.6> str='fie' basic_prep range=[31:0]
+            AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:3.13-3.15> str='ld' signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> str='\foo::uct_t' basic_prep
+        AST_STRUCT <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:11.13-20.34> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/EscapedIdentifiersInHierPath/top.sv:12.13-12.14> str='i' signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(o1, o2);
+      output signed [31:0] o1;
+      output signed [31:0] o2;
+      (* wiretype = "\st:r.uct_t" *)
+      reg [63:0] \o.b.j ;
+      (* wiretype = "\uct_t" *)
+      reg [31:0] uct_obj;
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      assign o1 = \o.b.j [63:32];
+      assign o2 = \o.b.j [31:0];
+      initial
+        begin
+          uct_obj = 9999;
+          \o.b.j  = 64'b 0000000000000000000001000101011100000000000000000000100010101110;
+        end
+      initial
+        begin
+          \o.b.j [63:32] = 3333;
+          \o.b.j [31:0] = uct_obj[31:0];
+        end
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing Verilog backend.
+
+2.1. Executing BMUXMAP pass.
+
+2.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.6 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\top'.
+Warning: Module top contains unmapped RTLIL processes. RTLIL processes
+can't always be mapped directly to Verilog always blocks. Unintended
+changes in simulation behavior are possible! Use "proc" to convert
+processes to logic networks and registers.
+
+module top(o1, o2);
+  reg \$auto$verilog_backend.cc:2097:dump_module$3  = 0;
+  reg [63:0] _0_;
+  reg [31:0] _1_;
+  reg [63:0] _2_;
+  reg [63:0] \o.b.j ;
+  output [31:0] o1;
+  wire [31:0] o1;
+  output [31:0] o2;
+  wire [31:0] o2;
+  reg [31:0] uct_obj;
+  always @* begin
+    if (\$auto$verilog_backend.cc:2097:dump_module$3 ) begin end
+    _1_ = 32'd9999;
+    _0_ = 64'h00000457000008ae;
+  end
+  always @* begin
+      \o.b.j  <= _0_;
+      uct_obj <= _1_;
+  end
+  always @* begin
+    if (\$auto$verilog_backend.cc:2097:dump_module$3 ) begin end
+    _2_[63:32] = 32'd3333;
+    _2_[31:0] = uct_obj;
+  end
+  always @* begin
+      \o.b.j  <= _2_;
+  end
+  assign o1 = \o.b.j [63:32];
+  assign o2 = \o.b.j [31:0];
+endmodule
+
+Warnings: 1 unique messages, 1 total
+Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.6 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
