@@ -101,9 +101,7 @@ Object 'work@top' of type 'design'
     Object '' of type 'cont_assign'
       Object 'sout' of type 'ref_obj'
       Object 'mem' of type 'bit_select'
-        Object '' of type 'operation'
-          Object 'N' of type 'ref_obj'
-          Object '' of type 'constant'
+        Object '' of type 'constant'
     Object 'mem' of type 'array_var'
       Object '' of type 'array_typespec'
       Object '' of type 'logic_typespec'
@@ -144,16 +142,12 @@ Dumping AST before simplification:
             AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
               AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
                 AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
-                  AST_SUB <tests/simple_tests/MemorySlice/top.sv:5.19-5.22>
-                    AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:5.19-5.20> str='\N'
-                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
                   AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
               AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
-              AST_SUB <tests/simple_tests/MemorySlice/top.sv:5.19-5.22>
-                AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:5.19-5.20> str='\N'
-                AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
               AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
       AST_ALWAYS <tests/simple_tests/MemorySlice/top.sv:6.1-10.4>
         ATTR \always_ff:
@@ -213,7 +207,7 @@ Dumping Verilog AST before simplification:
       input [3:0] sin;
       output [3:0] sout;
       wire [31:0] mem;
-      assign sout = mem[((((N)-(1))+(1))*(4))-(1):((N)-(1))*(4)];
+      assign sout = mem[(((7)+(1))*(4))-(1):(7)*(4)];
       (* always_ff = 1 *)
       always @(posedge ck)
         begin
