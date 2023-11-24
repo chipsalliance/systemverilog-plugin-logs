@@ -1,38 +1,22 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/conditional_if/if.sv:6:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/conditional_if/if.sv:6:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/conditional_if/if.sv:6:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 0.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -66,24 +50,24 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/conditional_if/if.sv:6.1-12.10> str='\top'
       AST_WIRE <tests/simple_tests/conditional_if/if.sv:7.10-7.11> str='\a' logic
-        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> range=[0:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_WIRE <tests/simple_tests/conditional_if/if.sv:8.9-8.14> str='\b' reg
-        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> range=[0:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/conditional_if/if.sv:7.10-7.11>
-        AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\a'
+        AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\a' in_lvalue
         AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='0'(1) range=[0:0]
       AST_INITIAL <tests/simple_tests/conditional_if/if.sv:8.9-8.10>
         AST_BLOCK <tests/simple_tests/conditional_if/if.sv:8.9-8.10>
           AST_ASSIGN_LE <tests/simple_tests/conditional_if/if.sv:8.9-8.10>
-            AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\b'
+            AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\b' in_lvalue
             AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='0'(1) range=[0:0]
       AST_ALWAYS <tests/simple_tests/conditional_if/if.sv:9.5-11.8>
         ATTR \always_latch:
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/conditional_if/if.sv:9.18-9.20>
           AST_BLOCK <tests/simple_tests/conditional_if/if.sv:9.21-11.8>
             AST_CASE <tests/simple_tests/conditional_if/if.sv:10.9-10.21>
@@ -93,7 +77,7 @@ Dumping AST before simplification:
                 AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
                 AST_BLOCK <tests/simple_tests/conditional_if/if.sv:0.0-0.0>
                   AST_ASSIGN_EQ <tests/simple_tests/conditional_if/if.sv:10.15-10.20>
-                    AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:10.15-10.16> str='\b'
+                    AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:10.15-10.16> str='\b' in_lvalue
                     AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -114,24 +98,24 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/conditional_if/if.sv:6.1-12.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/conditional_if/if.sv:7.10-7.11> str='\a' logic basic_prep range=[0:0]
-        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/conditional_if/if.sv:8.9-8.14> str='\b' reg basic_prep range=[0:0]
-        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/conditional_if/if.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/conditional_if/if.sv:7.10-7.11> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\a' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\a' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
       AST_INITIAL <tests/simple_tests/conditional_if/if.sv:8.9-8.10> basic_prep
         AST_BLOCK <tests/simple_tests/conditional_if/if.sv:8.9-8.10> basic_prep
           AST_ASSIGN_LE <tests/simple_tests/conditional_if/if.sv:8.9-8.10> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\b' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:0.0-0.0> str='\b' basic_prep in_lvalue
             AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
       AST_ALWAYS <tests/simple_tests/conditional_if/if.sv:9.5-11.8> basic_prep
         ATTR \always_latch:
-          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/conditional_if/if.sv:9.18-9.20> basic_prep
           AST_BLOCK <tests/simple_tests/conditional_if/if.sv:9.21-11.8> basic_prep
             AST_CASE <tests/simple_tests/conditional_if/if.sv:10.9-10.21> basic_prep
@@ -141,7 +125,7 @@ Dumping AST after simplification:
                 AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
                 AST_BLOCK <tests/simple_tests/conditional_if/if.sv:0.0-0.0> basic_prep
                   AST_ASSIGN_EQ <tests/simple_tests/conditional_if/if.sv:10.15-10.20> basic_prep
-                    AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:10.15-10.16> str='\b' basic_prep
+                    AST_IDENTIFIER <tests/simple_tests/conditional_if/if.sv:10.15-10.16> str='\b' basic_prep in_lvalue
                     AST_CONSTANT <tests/simple_tests/conditional_if/if.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -392,4 +376,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.35+39 (git sha1 031ad38b5, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
