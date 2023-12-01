@@ -1,44 +1,24 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/StructOfArrayOfStructs/top.sv:1:1: No timescale set for "my_pkg".
-
-[WRN:PA0205] tests/simple_tests/StructOfArrayOfStructs/top.sv:11:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0301] tests/simple_tests/StructOfArrayOfStructs/top.sv:1:1: Compile package "my_pkg".
-
 [INF:CP0303] tests/simple_tests/StructOfArrayOfStructs/top.sv:11:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [NTE:CP0309] tests/simple_tests/StructOfArrayOfStructs/top.sv:11:19: Implicit port type (wire) for "o".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/StructOfArrayOfStructs/top.sv:11:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 0.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 2
+[WARNING] : 0
 [   NOTE] : 6
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -109,17 +89,17 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/StructOfArrayOfStructs/top.sv:11.1-19.10> str='\top'
       AST_WIRE <tests/simple_tests/StructOfArrayOfStructs/top.sv:11.19-11.20> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/StructOfArrayOfStructs/top.sv:12.28-12.39> str='\ast_alert_o' logic basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='\ast_alert_rsp_t' bits='01011100011000010111001101110100010111110110000101101100011001010111001001110100010111110111001001110011011100000101111101110100'(128) basic_prep range=[127:0] int=1936744308
-        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[1:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='\ast_alert_rsp_t' bits='01011100011000010111001101110100010111110110000101101100011001010111001001110100010111110111001001110011011100000101111101110100'(128) basic_prep range=[127:0] int=1936744308 in_param
+        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[1:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.11-18.42>
-        AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.11-18.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.11-18.12> str='\o' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.15-18.26> str='\ast_alert_o' basic_prep
           AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
             AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
@@ -142,47 +122,47 @@ Dumping AST before simplification:
                 AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ALWAYS <tests/simple_tests/StructOfArrayOfStructs/top.sv:13.4-17.7>
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/StructOfArrayOfStructs/top.sv:13.16-17.7>
           AST_BLOCK <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.7-14.10> str='$fordecl_block0'
             AST_WIRE <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.16-14.17> str='\i' logic signed range=[0:0]
-              AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_param
+                AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_FOR <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.7-14.10> str='$loop0'
               AST_ASSIGN_EQ <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.12-14.21>
-                AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.16-14.17> str='\i'
+                AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.16-14.17> str='\i' in_lvalue
                 AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_LT <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.23-14.28>
-                AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.23-14.24> str='\i'
-                AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_LT <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.23-14.28> in_param
+                AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.23-14.24> str='\i' in_param
+                AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_param
               AST_ASSIGN_EQ <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.33>
-                AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.31> str='\i'
+                AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.31> str='\i' in_lvalue
                 AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.33>
                   AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.31> str='\i'
                   AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
               AST_BLOCK <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.35-16.10> str='$loop0'
                 AST_ASSIGN_EQ <tests/simple_tests/StructOfArrayOfStructs/top.sv:15.10-15.44>
-                  AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:15.22-15.32> str='\ast_alert_o' basic_prep
-                    AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                      AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                        AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_MUL <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                          AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                            AST_SUB <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                            AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                      AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                        AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_MUL <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                          AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                            AST_SUB <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0>
-                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                            AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-                          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:15.22-15.32> str='\ast_alert_o' basic_prep in_lvalue
+                    AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                        AST_MUL <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                          AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                            AST_SUB <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                            AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                      AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                        AST_MUL <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                          AST_ADD <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                            AST_SUB <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> in_lvalue
+                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                              AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                            AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
                   AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
       AST_TYPEDEF <tests/simple_tests/StructOfArrayOfStructs/top.sv:6.12-8.5> str='\my_pkg::ast_alert_rsp_t' basic_prep
         AST_STRUCT <tests/simple_tests/StructOfArrayOfStructs/top.sv:6.12-8.5> basic_prep
@@ -211,34 +191,34 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/StructOfArrayOfStructs/top.sv:11.1-19.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/StructOfArrayOfStructs/top.sv:11.19-11.20> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/StructOfArrayOfStructs/top.sv:12.28-12.39> str='\ast_alert_o' logic reg basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='\ast_alert_rsp_t' bits='01011100011000010111001101110100010111110110000101101100011001010111001001110100010111110111001001110011011100000101111101110100'(128) basic_prep range=[127:0] int=1936744308
-        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[1:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='\ast_alert_rsp_t' bits='01011100011000010111001101110100010111110110000101101100011001010111001001110100010111110111001001110011011100000101111101110100'(128) basic_prep range=[127:0] int=1936744308 in_param
+        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[1:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.11-18.42> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.11-18.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.11-18.12> str='\o' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:18.15-18.26> str='\ast_alert_o' basic_prep
           AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0]
             AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ALWAYS <tests/simple_tests/StructOfArrayOfStructs/top.sv:13.4-17.7> basic_prep
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/StructOfArrayOfStructs/top.sv:13.16-17.7> basic_prep
           AST_BLOCK <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.7-14.10> basic_prep
             AST_ASSIGN_EQ <tests/simple_tests/StructOfArrayOfStructs/top.sv:15.10-15.44> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:15.22-15.32> str='\ast_alert_o' basic_prep
-                AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0]
-                  AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:15.22-15.32> str='\ast_alert_o' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[0:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
               AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.33> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.31> str='$fordecl_block0.i' basic_prep
+              AST_IDENTIFIER <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.31> str='$fordecl_block0.i' basic_prep in_lvalue
               AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.30-14.33> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_FOR <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.7-14.10> str='$loop0' basic_prep
       AST_TYPEDEF <tests/simple_tests/StructOfArrayOfStructs/top.sv:6.12-8.5> str='\my_pkg::ast_alert_rsp_t' basic_prep
@@ -250,12 +230,12 @@ Dumping AST after simplification:
           AST_STRUCT_ITEM <tests/simple_tests/StructOfArrayOfStructs/top.sv:3.13-3.14> str='p' logic basic_prep range=[0:0]
       AST_WIRE <tests/simple_tests/StructOfArrayOfStructs/top.sv:14.16-14.17> str='$fordecl_block0.i' logic reg signed basic_prep range=[31:0]
         ATTR \nosync:
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_LOCALPARAM <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='$fordecl_block0.$loop0[0].i' basic_prep
-        AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_LOCALPARAM <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> str='$fordecl_block0.$loop0[0].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/StructOfArrayOfStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -326,71 +306,73 @@ Cleaned up 0 empty switches.
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 Removed 0 unused cells and 3 unused wires.
 <suppressed ~1 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -403,7 +385,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -412,7 +394,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.34+55 (git sha1 672375ed0, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -480,4 +462,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 1 unique messages, 1 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.34+55 (git sha1 672375ed0, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
