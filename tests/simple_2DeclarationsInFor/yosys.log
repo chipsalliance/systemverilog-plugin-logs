@@ -1,38 +1,22 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/2DeclarationsInFor/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/2DeclarationsInFor/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/2DeclarationsInFor/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
-[NTE:EL0511] Nb leaf instances: 0.
-
+[NTE:EL0511] Nb leaf instances: 1.
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -45,7 +29,7 @@ Object 'work@top' of type 'design'
       Object '' of type 'int_var'
       Object '' of type 'begin'
         Object '' of type 'for_stmt'
-          Object '' of type 'assign_stmt'
+          Object '' of type 'assignment'
             Object 'x' of type 'int_var'
             Object '' of type 'constant'
           Object '' of type 'operation'
@@ -77,58 +61,58 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/2DeclarationsInFor/top.sv:1.1-13.16> str='\top'
       AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
-        AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_FUNCTION <tests/simple_tests/2DeclarationsInFor/top.sv:2.4-10.23> str='\theta'
         AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:2.23-2.26> str='\theta' signed range=[0:0]
-          AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:9.7-9.16>
           AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:3.7-3.10> str='$fordecl_block0'
             AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:3.16-3.17> str='\x' logic signed range=[0:0]
-              AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_FOR <tests/simple_tests/2DeclarationsInFor/top.sv:3.7-3.10> str='$loop0'
               AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:3.12-3.21>
-                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.16-3.17> str='\x'
+                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.16-3.17> str='\x' in_lvalue
                 AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_LT <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.29>
-                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.25> str='\x'
-                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+              AST_LT <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.29> in_param
+                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.25> str='\x' in_param
+                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_param
               AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.35>
-                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.33> str='\x'
+                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.33> str='\x' in_lvalue
                 AST_ADD <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.35>
                   AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.33> str='\x'
                   AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
               AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:3.37-8.10> str='$loop0'
                 AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:3.37-8.10> str='$unnamed_block$0'
                   AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:4.14-4.15> str='\a' signed range=[0:0]
-                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
                   AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:4.17-4.18> str='\b' signed range=[0:0]
-                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
                   AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:5.10-5.15>
-                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:5.10-5.11> str='\a'
+                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:5.10-5.11> str='\a' in_lvalue
                     AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:6.10-6.15>
-                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:6.10-6.11> str='\b'
+                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:6.10-6.11> str='\b' in_lvalue
                     AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:7.10-7.16>
-                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta'
+                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta' in_lvalue
                     AST_ADD <tests/simple_tests/2DeclarationsInFor/top.sv:7.17-7.22>
                       AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:7.17-7.18> str='\a'
                       AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:7.21-7.22> str='\b'
           AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:9.7-9.13>
-            AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta'
+            AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta' in_lvalue
             AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <tests/simple_tests/2DeclarationsInFor/top.sv:12.11-12.22>
-        AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:12.11-12.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:12.11-12.12> str='\o' in_lvalue
         AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -141,58 +125,58 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/2DeclarationsInFor/top.sv:1.1-13.16> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_FUNCTION <tests/simple_tests/2DeclarationsInFor/top.sv:2.4-10.23> str='\theta'
         AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:2.23-2.26> str='\theta' signed range=[0:0]
-          AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+            AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:9.7-9.16>
           AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:3.7-3.10> str='$fordecl_block0'
             AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:3.16-3.17> str='\x' logic signed range=[0:0]
-              AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_FOR <tests/simple_tests/2DeclarationsInFor/top.sv:3.7-3.10> str='$loop0'
               AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:3.12-3.21>
-                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.16-3.17> str='\x'
+                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.16-3.17> str='\x' in_lvalue
                 AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-              AST_LT <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.29>
-                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.25> str='\x'
-                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
+              AST_LT <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.29> in_param
+                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.24-3.25> str='\x' in_param
+                AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_param
               AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.35>
-                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.33> str='\x'
+                AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.33> str='\x' in_lvalue
                 AST_ADD <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.35>
                   AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:3.32-3.33> str='\x'
                   AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
               AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:3.37-8.10> str='$loop0'
                 AST_BLOCK <tests/simple_tests/2DeclarationsInFor/top.sv:3.37-8.10> str='$unnamed_block$0'
                   AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:4.14-4.15> str='\a' signed range=[0:0]
-                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
                   AST_WIRE <tests/simple_tests/2DeclarationsInFor/top.sv:4.17-4.18> str='\b' signed range=[0:0]
-                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0>
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_RANGE <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                      AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
                   AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:5.10-5.15>
-                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:5.10-5.11> str='\a'
+                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:5.10-5.11> str='\a' in_lvalue
                     AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:6.10-6.15>
-                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:6.10-6.11> str='\b'
+                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:6.10-6.11> str='\b' in_lvalue
                     AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:7.10-7.16>
-                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta'
+                    AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta' in_lvalue
                     AST_ADD <tests/simple_tests/2DeclarationsInFor/top.sv:7.17-7.22>
                       AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:7.17-7.18> str='\a'
                       AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:7.21-7.22> str='\b'
           AST_ASSIGN_EQ <tests/simple_tests/2DeclarationsInFor/top.sv:9.7-9.13>
-            AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta'
+            AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> str='\theta' in_lvalue
             AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <tests/simple_tests/2DeclarationsInFor/top.sv:12.11-12.22> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:12.11-12.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/2DeclarationsInFor/top.sv:12.11-12.12> str='\o' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/2DeclarationsInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -247,69 +231,71 @@ Cleaned up 0 empty switches.
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -322,7 +308,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -331,7 +317,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.35+102 (git sha1 2ffea67b0, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -394,4 +380,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 1 unique messages, 1 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.35+102 (git sha1 2ffea67b0, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
