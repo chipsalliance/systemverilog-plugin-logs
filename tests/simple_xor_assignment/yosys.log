@@ -1,38 +1,22 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/xor_assignment/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/xor_assignment/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/xor_assignment/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 0.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -55,16 +39,16 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/xor_assignment/top.sv:1.1-6.10> str='\top'
       AST_WIRE <tests/simple_tests/xor_assignment/top.sv:1.25-1.26> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_INITIAL <tests/simple_tests/xor_assignment/top.sv:2.4-5.7>
         AST_BLOCK <tests/simple_tests/xor_assignment/top.sv:2.12-5.7>
           AST_ASSIGN_EQ <tests/simple_tests/xor_assignment/top.sv:3.7-3.13>
-            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:3.7-3.8> str='\a'
+            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:3.7-3.8> str='\a' in_lvalue
             AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
           AST_ASSIGN_EQ <tests/simple_tests/xor_assignment/top.sv:4.7-4.13>
-            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:4.7-4.8> str='\a'
+            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:4.7-4.8> str='\a' in_lvalue
             AST_BIT_XOR <tests/simple_tests/xor_assignment/top.sv:0.0-0.0>
               AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:4.7-4.8> str='\a'
               AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
@@ -82,16 +66,16 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/xor_assignment/top.sv:1.1-6.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/xor_assignment/top.sv:1.25-1.26> str='\a' output logic reg basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_INITIAL <tests/simple_tests/xor_assignment/top.sv:2.4-5.7> basic_prep
         AST_BLOCK <tests/simple_tests/xor_assignment/top.sv:2.12-5.7> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/xor_assignment/top.sv:3.7-3.13> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:3.7-3.8> str='\a' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:3.7-3.8> str='\a' basic_prep in_lvalue
             AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_ASSIGN_EQ <tests/simple_tests/xor_assignment/top.sv:4.7-4.13> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:4.7-4.8> str='\a' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:4.7-4.8> str='\a' basic_prep in_lvalue
             AST_BIT_XOR <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> basic_prep
               AST_IDENTIFIER <tests/simple_tests/xor_assignment/top.sv:4.7-4.8> str='\a' basic_prep
               AST_CONSTANT <tests/simple_tests/xor_assignment/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -245,4 +229,4 @@ Induction step proven: SUCCESS!
                  \____ $$$|__/|________/|__/|_______/|__/
                        \__/                              
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.36+30 (git sha1 1c8e58a73, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
