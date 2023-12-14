@@ -1,42 +1,23 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:1:1: No timescale set for "aes_reg_status".
-
-[WRN:PA0205] tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:1:1: Compile module "work@aes_reg_status".
-
 [INF:CP0303] tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 2.
-
 [NTE:EL0510] Nb instances: 2.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 2
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -101,9 +82,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'constant'
       Object '' of type 'range'
         Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
         Object '' of type 'operation'
           Object '' of type 'constant'
           Object '' of type 'constant'
@@ -111,21 +89,21 @@ Warning: Removing unelaborated module: \aes_reg_status from the design.
 Generating RTLIL representation for module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'
-      AST_PARAMETER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\Width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\Width' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+        AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16 in_param
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32> str='\we_i' input logic port=1 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:5.15-5.19> str='\we_o' output signed port=2 range=[0:0]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.28>
-        AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o'
+        AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.23-7.27> str='\we_i'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -138,21 +116,21 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000' basic_prep
-      AST_PARAMETER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) basic_prep range=[31:0] int=16
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:2.18-2.27> str='\Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+        AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) basic_prep range=[31:0] int=16 in_param
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:4.28-4.32> str='\we_i' input logic basic_prep port=1 range=[15:0] multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:4.16-4.27> basic_prep range=[15:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:5.15-5.19> str='\we_o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.28> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.11-7.15> str='\we_o' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:7.23-7.27> str='\we_i' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -167,9 +145,9 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10.1-20.10> str='\top'
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10.23-10.24> str='\o' output signed port=3 range=[0:0]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_MEMORY <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:11.16-11.27> str='\key_init_we' logic
         AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:11.10-11.15>
           AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
@@ -192,9 +170,9 @@ Dumping AST before simplification:
         AST_ARGUMENT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\we_o'
           AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:18.13-18.14> str='\o'
       AST_ASSIGN <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.30>
-        AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.25> str='\key_init_we'
-          AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.25>
-            AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.25> str='\key_init_we' in_lvalue
+          AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.25> in_lvalue
+            AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='1'(1) unsized range=[0:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -209,9 +187,9 @@ Warning: Replacing memory \key_init_we with list of registers. See tests/simple_
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10.1-20.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:10.23-10.24> str='\o' output signed basic_prep port=3 range=[31:0]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\u_reg_status_key_init' basic_prep
         AST_CELLTYPE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> str='$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000' basic_prep
         AST_ARGUMENT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:14.4-19.6> str='\we_i' basic_prep
@@ -222,17 +200,17 @@ Dumping AST after simplification:
           AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:18.13-18.14> str='\o' basic_prep
       AST_NONE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:11.16-11.27> str='\key_init_we[0]' reg basic_prep range=[7:0]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[7:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:11.16-11.27> str='\key_init_we[1]' reg basic_prep range=[7:0]
-        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[7:0]
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ALWAYS <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.30> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.25> str='\key_init_we[0]' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:12.11-12.25> str='\key_init_we[0]' basic_prep in_lvalue
             AST_CONSTANT <tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:0.0-0.0> bits='1'(1) unsized basic_prep range=[0:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -297,17 +275,19 @@ Cleaned up 0 empty switches.
 Optimizing module top.
 Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
 Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000...
 Checking module top...
 Warning: Wire top.\key_init_we[1] [7] is used but has no driver.
@@ -320,18 +300,18 @@ Warning: Wire top.\key_init_we[1] [1] is used but has no driver.
 Warning: Wire top.\key_init_we[1] [0] is used but has no driver.
 Found and reported 8 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -340,52 +320,52 @@ Running muxtree optimizer on module \top..
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000.
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000..
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000 ===
 
@@ -424,7 +404,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\aes_reg_status\Width=s32'00000000000000000000000000010000...
 Checking module top...
 Warning: Wire top.\key_init_we[1] [7] is used but has no driver.
@@ -442,7 +422,7 @@ Found and reported 8 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.36+40 (git sha1 449e3dbbd, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\aes_reg_status\Width=s32'00000000000000000000000000010000'.
 
 (* src = "tests/simple_tests/AssignBitsCallToSubmoduleParameter/top.sv:1.1-8.10" *)
@@ -528,4 +508,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 10 unique messages, 18 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.36+40 (git sha1 449e3dbbd, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
