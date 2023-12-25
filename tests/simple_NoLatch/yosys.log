@@ -1,0 +1,370 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/NoLatch/dut.sv:1:1: Compile module "work@dut".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/NoLatch/dut.sv:1:1: Top level module "work@dut".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 0.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@dut' of type 'design'
+  Object 'builtin' of type 'package'
+  Object '' of type 'module_inst'
+    Object 'clk' of type 'logic_net'
+    Object 'a' of type 'logic_net'
+    Object 'b' of type 'logic_net'
+    Object '' of type 'always'
+      Object '' of type 'begin'
+        Object 'temp' of type 'logic_var'
+          Object '' of type 'logic_typespec'
+        Object '' of type 'assignment'
+          Object 'temp' of type 'logic_var'
+            Object '' of type 'logic_typespec'
+          Object '' of type 'constant'
+        Object '' of type 'if_stmt'
+          Object 'a' of type 'ref_obj'
+          Object '' of type 'assignment'
+            Object 'temp' of type 'ref_obj'
+            Object 'b' of type 'ref_obj'
+  Object 'work@dut' of type 'module_inst'
+    Object 'clk' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'clk' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+Generating RTLIL representation for module `\dut'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/NoLatch/dut.sv:1.1-13.10> str='\dut'
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:2.17-2.20> str='\clk' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:3.17-3.18> str='\a' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:4.17-4.18> str='\b' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/NoLatch/dut.sv:7.5-11.8>
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/NoLatch/dut.sv:7.17-11.8>
+          AST_BLOCK <tests/simple_tests/NoLatch/dut.sv:7.17-11.8> str='$unnamed_block$0'
+            AST_WIRE <tests/simple_tests/NoLatch/dut.sv:8.15-8.19> str='\temp' logic
+              AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_ASSIGN_EQ <tests/simple_tests/NoLatch/dut.sv:8.15-8.23>
+              AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:8.15-8.19> str='\temp' logic in_lvalue
+              AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CASE <tests/simple_tests/NoLatch/dut.sv:9.9-10.22>
+              AST_REDUCE_BOOL <tests/simple_tests/NoLatch/dut.sv:0.0-0.0>
+                AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:9.13-9.14> str='\a'
+              AST_COND <tests/simple_tests/NoLatch/dut.sv:0.0-0.0>
+                AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+                AST_BLOCK <tests/simple_tests/NoLatch/dut.sv:0.0-0.0>
+                  AST_ASSIGN_EQ <tests/simple_tests/NoLatch/dut.sv:10.13-10.21>
+                    AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:10.13-10.17> str='\temp' in_lvalue
+                    AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:10.20-10.21> str='\b'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(clk, a, b);
+      input [0:0] clk;
+      input [0:0] a;
+      input [0:0] b;
+      (* always_comb = 1 *)
+      always @*
+        begin
+          wire [0:0] temp;
+          temp = 0;
+          case (|(a))
+            1'b 1:
+              temp = b;
+          endcase
+        end
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/NoLatch/dut.sv:1.1-13.10> str='\dut' basic_prep
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:2.17-2.20> str='\clk' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:3.17-3.18> str='\a' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:4.17-4.18> str='\b' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/NoLatch/dut.sv:7.5-11.8> basic_prep
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/NoLatch/dut.sv:7.17-11.8> basic_prep
+          AST_BLOCK <tests/simple_tests/NoLatch/dut.sv:7.17-11.8> basic_prep
+            AST_ASSIGN_EQ <tests/simple_tests/NoLatch/dut.sv:8.15-8.23> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:8.15-8.19> str='$unnamed_block$0.temp' logic basic_prep in_lvalue
+              AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CASE <tests/simple_tests/NoLatch/dut.sv:9.9-10.22> basic_prep
+              AST_REDUCE_BOOL <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep
+                AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:9.13-9.14> str='\a' basic_prep
+              AST_COND <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep
+                AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+                AST_BLOCK <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep
+                  AST_ASSIGN_EQ <tests/simple_tests/NoLatch/dut.sv:10.13-10.21> basic_prep
+                    AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:10.13-10.17> str='$unnamed_block$0.temp' basic_prep in_lvalue
+                    AST_IDENTIFIER <tests/simple_tests/NoLatch/dut.sv:10.20-10.21> str='\b' basic_prep
+      AST_WIRE <tests/simple_tests/NoLatch/dut.sv:8.15-8.19> str='$unnamed_block$0.temp' logic reg basic_prep range=[0:0]
+        ATTR \nosync:
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NoLatch/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(clk, a, b);
+      input [0:0] clk;
+      input [0:0] a;
+      input [0:0] b;
+      (* nosync = 1 *)
+      reg [0:0] \$unnamed_block$0.temp ;
+      (* always_comb = 1 *)
+      always @*
+        begin
+          \$unnamed_block$0.temp  = 0;
+          case (|(a))
+            1'b 1:
+              \$unnamed_block$0.temp  = b;
+          endcase
+        end
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$tests/simple_tests/NoLatch/dut.sv:7$1 in module dut.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dut.$proc$tests/simple_tests/NoLatch/dut.sv:7$1'.
+     1/1: $1$unnamed_block$0.temp[0:0]$3
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\dut.$unnamed_block$0.temp' from process `\dut.$proc$tests/simple_tests/NoLatch/dut.sv:7$1'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dut.$proc$tests/simple_tests/NoLatch/dut.sv:7$1'.
+Removing empty process `dut.$proc$tests/simple_tests/NoLatch/dut.sv:7$1'.
+Cleaned up 1 empty switch.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 1 unused cells and 5 unused wires.
+<suppressed ~2 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                  3
+   Number of wire bits:              3
+   Number of public wires:           3
+   Number of public wire bits:       3
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.34+55 (git sha1 672375ed0, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\dut'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/NoLatch/dut.sv:1.1-13.10" *)
+module dut(clk, a, b);
+  (* src = "tests/simple_tests/NoLatch/dut.sv:3.17-3.18" *)
+  input a;
+  wire a;
+  (* src = "tests/simple_tests/NoLatch/dut.sv:4.17-4.18" *)
+  input b;
+  wire b;
+  (* src = "tests/simple_tests/NoLatch/dut.sv:2.17-2.20" *)
+  input clk;
+  wire clk;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\dut'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Yosys 0.34+55 (git sha1 672375ed0, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
