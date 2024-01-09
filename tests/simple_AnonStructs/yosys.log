@@ -1,40 +1,23 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/AnonStructs/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/AnonStructs/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [NTE:CP0309] tests/simple_tests/AnonStructs/top.sv:1:25: Implicit port type (wire) for "b".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/AnonStructs/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 6
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -77,39 +60,36 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/AnonStructs/top.sv:1.1-18.10> str='\top'
       AST_WIRE <tests/simple_tests/AnonStructs/top.sv:1.25-1.26> str='\b' output logic port=1 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:1.19-1.24> basic_prep range=[3:0]
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:1.19-1.24> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_STRUCT <tests/simple_tests/AnonStructs/top.sv:7.7-7.8> str='\a' basic_prep
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:3.15-3.20> str='first' logic basic_prep range=[3:3]
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:4.15-4.21> str='second' logic basic_prep range=[2:2]
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:5.15-5.20> str='third' logic basic_prep range=[1:1]
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:6.15-6.21> str='fourth' logic basic_prep range=[0:0]
       AST_ASSIGN <tests/simple_tests/AnonStructs/top.sv:9.12-14.6>
-        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:9.12-9.13> str='\a'
+        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:9.12-9.13> str='\a' in_lvalue
         AST_CONCAT <tests/simple_tests/AnonStructs/top.sv:9.16-14.6>
           AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
           AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
           AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
           AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
       AST_ASSIGN <tests/simple_tests/AnonStructs/top.sv:16.12-16.17>
-        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:16.12-16.13> str='\b'
+        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:16.12-16.13> str='\b' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:16.16-16.17> str='\a'
-      AST_WIRE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' logic range=[-1:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' logic range=[-1:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' bits='0101110001100001'(16) range=[15:0] int=23649
-        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> range=[3:0]
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> basic_prep range=[3:0]
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' bits='0101110001100001'(16) range=[15:0] int=23649 in_param
+        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(b);
       output [3:0] b;
       (* wiretype = "\a" *)
-      wire [3:0] [3:0] a;
+      wire [3:0] a;
       /** AST_STRUCT **/
       assign a = {1'b 0, 1'b 1, 1'b 0, 1'b 1};
       assign b = a;
@@ -118,35 +98,32 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/AnonStructs/top.sv:1.1-18.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/AnonStructs/top.sv:1.25-1.26> str='\b' output logic basic_prep port=1 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:1.19-1.24> basic_prep range=[3:0]
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:1.19-1.24> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_STRUCT <tests/simple_tests/AnonStructs/top.sv:7.7-7.8> str='\a' basic_prep
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:3.15-3.20> str='first' logic basic_prep range=[3:3]
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:4.15-4.21> str='second' logic basic_prep range=[2:2]
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:5.15-5.20> str='third' logic basic_prep range=[1:1]
         AST_STRUCT_ITEM <tests/simple_tests/AnonStructs/top.sv:6.15-6.21> str='fourth' logic basic_prep range=[0:0]
       AST_ASSIGN <tests/simple_tests/AnonStructs/top.sv:9.12-14.6> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:9.12-9.13> str='\a' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:9.12-9.13> str='\a' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:9.16-14.6> bits='0101'(4) basic_prep range=[3:0] int=5
       AST_ASSIGN <tests/simple_tests/AnonStructs/top.sv:16.12-16.17> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:16.12-16.13> str='\b' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:16.12-16.13> str='\b' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/AnonStructs/top.sv:16.16-16.17> str='\a' basic_prep
-      AST_WIRE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' logic basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' logic basic_prep range=[3:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' bits='0101110001100001'(16) basic_prep range=[15:0] int=23649
-        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> basic_prep range=[3:0]
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> basic_prep range=[3:0]
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
-          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> str='\a' bits='0101110001100001'(16) basic_prep range=[15:0] int=23649 in_param
+        AST_RANGE <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/AnonStructs/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(b);
       output [3:0] b;
       (* wiretype = "\a" *)
-      wire [3:0] [3:0] a;
+      wire [3:0] a;
       /** AST_STRUCT **/
       assign a = 4'b 0101;
       assign b = a;
@@ -197,69 +174,71 @@ Cleaned up 0 empty switches.
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -272,7 +251,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -281,7 +260,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.36+72 (git sha1 22370ad21, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -347,4 +326,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.36+72 (git sha1 22370ad21, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
