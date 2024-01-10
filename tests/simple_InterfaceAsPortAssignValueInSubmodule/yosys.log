@@ -1,46 +1,24 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:1:1: No timescale set for "sim_sram_if".
-
-[WRN:PA0205] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5:1: No timescale set for "dut".
-
-[WRN:PA0205] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:5:1: Compile module "work@dut".
-
 [INF:CP0304] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:1:1: Compile interface "work@sim_sram_if".
-
 [INF:CP0303] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 2.
-
 [NTE:EL0510] Nb instances: 2.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 3
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object '' of type 'interface_inst'
@@ -80,9 +58,9 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10> str='\top'
       AST_WIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24> str='\o' output signed port=2 range=[0:0]
-        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_CELL <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:10.4-10.32> str='\u_sim_sram_if'
         AST_CELLTYPE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
       AST_CELL <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\u_dut'
@@ -90,7 +68,7 @@ Dumping AST before simplification:
         AST_ARGUMENT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\ss_if'
           AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.21-12.34> str='\u_sim_sram_if'
       AST_ASSIGN <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.39>
-        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.15-14.28> str='\u_sim_sram_if.start_addr'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -104,9 +82,9 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.1-15.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:9.23-9.24> str='\o' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:10.4-10.32> str='\u_sim_sram_if' basic_prep
         AST_CELLTYPE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
       AST_CELL <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\u_dut' basic_prep
@@ -114,7 +92,7 @@ Dumping AST after simplification:
         AST_ARGUMENT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.4-12.37> str='\ss_if' basic_prep
           AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:12.21-12.34> str='\u_sim_sram_if' basic_prep
       AST_ASSIGN <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.39> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.11-14.12> str='\o' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:14.15-14.28> str='\u_sim_sram_if.start_addr' basic_prep
       AST_AUTOWIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\u_sim_sram_if.start_addr' basic_prep
 --- END OF AST DUMP ---
@@ -135,7 +113,7 @@ Dumping AST before simplification:
         AST_WIRETYPE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
         AST_INTERFACEPORTTYPE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
       AST_ASSIGN <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.38>
-        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.17-6.27> str='\ss_if.start_addr'
+        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.17-6.27> str='\ss_if.start_addr' in_lvalue
         AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000001001000110100'(32) range=[31:0] int=4660
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -150,7 +128,7 @@ Dumping AST after simplification:
         AST_WIRETYPE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
         AST_INTERFACEPORTTYPE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
       AST_ASSIGN <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.11-6.38> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.17-6.27> str='\ss_if.start_addr' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6.17-6.27> str='\ss_if.start_addr' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000001001000110100'(32) basic_prep range=[31:0] int=4660
       AST_AUTOWIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\ss_if.start_addr' basic_prep
 --- END OF AST DUMP ---
@@ -165,20 +143,20 @@ tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:6: Warning: Iden
 Generating RTLIL representation for module `\sim_sram_if'.
 Dumping AST before simplification:
     AST_INTERFACE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if'
-      AST_WIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' range=[0:0]
-        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' signed range=[0:0]
+        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     /** AST_INTERFACE **/
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_INTERFACE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> str='\sim_sram_if' basic_prep
-      AST_WIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' basic_prep range=[31:0]
-        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:2.8-2.18> str='\start_addr' signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAsPortAssignValueInSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     /** AST_INTERFACE **/
@@ -253,38 +231,40 @@ Optimizing module dut$interfaces$sim_sram_if.
 Optimizing module top.
 Optimizing module sim_sram_if.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut$interfaces$sim_sram_if.
 Optimizing module top.
 Optimizing module sim_sram_if.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut$interfaces$sim_sram_if..
 Finding unused cells or wires in module \top..
 Finding unused cells or wires in module \sim_sram_if..
 Removed 2 unused cells and 2 unused wires.
 <suppressed ~4 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module dut$interfaces$sim_sram_if...
 Checking module sim_sram_if...
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut$interfaces$sim_sram_if.
 Optimizing module sim_sram_if.
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut$interfaces$sim_sram_if'.
 Finding identical cells in module `\sim_sram_if'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \dut$interfaces$sim_sram_if..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -296,60 +276,60 @@ Running muxtree optimizer on module \top..
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \dut$interfaces$sim_sram_if.
   Optimizing cells in module \sim_sram_if.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut$interfaces$sim_sram_if'.
 Finding identical cells in module `\sim_sram_if'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut$interfaces$sim_sram_if..
 Finding unused cells or wires in module \sim_sram_if..
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut$interfaces$sim_sram_if.
 Optimizing module sim_sram_if.
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut$interfaces$sim_sram_if..
 Finding unused cells or wires in module \sim_sram_if..
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut$interfaces$sim_sram_if.
 Optimizing module sim_sram_if.
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut$interfaces$sim_sram_if'.
 Finding identical cells in module `\sim_sram_if'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut$interfaces$sim_sram_if..
 Finding unused cells or wires in module \sim_sram_if..
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === dut$interfaces$sim_sram_if ===
 
@@ -399,7 +379,7 @@ Finding unused cells or wires in module \top..
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module dut$interfaces$sim_sram_if...
 Checking module sim_sram_if...
 Checking module top...
@@ -410,7 +390,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.36+79 (git sha1 e131a7895, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dut$interfaces$sim_sram_if'.
 
 (* interfaces_replaced_in_module =  1  *)
@@ -498,4 +478,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 2 unique messages, 2 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.36+79 (git sha1 e131a7895, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
