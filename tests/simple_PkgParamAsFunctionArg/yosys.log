@@ -1,44 +1,24 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/PkgParamAsFunctionArg/top.sv:1:1: No timescale set for "pkg".
-
-[WRN:PA0205] tests/simple_tests/PkgParamAsFunctionArg/top.sv:8:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0301] tests/simple_tests/PkgParamAsFunctionArg/top.sv:1:1: Compile package "pkg".
-
 [INF:CP0303] tests/simple_tests/PkgParamAsFunctionArg/top.sv:8:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [NTE:CP0309] tests/simple_tests/PkgParamAsFunctionArg/top.sv:8:19: Implicit port type (wire) for "a".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/PkgParamAsFunctionArg/top.sv:8:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 2
+[WARNING] : 0
 [   NOTE] : 6
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -80,28 +60,31 @@ Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top'
       AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_FUNCTION <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
-        AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
+        AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic
+          AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0]
-            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0] in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_ASSIGN_EQ <tests/simple_tests/PkgParamAsFunctionArg/top.sv:11.7-11.13>
-          AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first'
+          AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first' in_lvalue
           AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:11.16-11.17> str='\x'
             AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:11.16-11.17>
               AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_ASSIGN <tests/simple_tests/PkgParamAsFunctionArg/top.sv:14.11-14.32>
-        AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a'
+        AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a' in_lvalue
         AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_PARAMETER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2
-        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0]
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+        AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0] in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a);
@@ -114,28 +97,31 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:8.1-16.10> str='\top' basic_prep
       AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:8.19-8.20> str='\a' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_FUNCTION <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.4-12.15> str='\get_first'
-        AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic range=[0:0]
+        AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.23-10.28> str='\get_first' logic
+          AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_WIRE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.51-10.52> str='\x' input logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0]
-            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:10.45-10.50> basic_prep range=[1:0] in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+            AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_ASSIGN_EQ <tests/simple_tests/PkgParamAsFunctionArg/top.sv:11.7-11.13>
-          AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first'
+          AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> str='\get_first' in_lvalue
           AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:11.16-11.17> str='\x'
             AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:11.16-11.17>
               AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_ASSIGN <tests/simple_tests/PkgParamAsFunctionArg/top.sv:14.11-14.32> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:14.11-14.12> str='\a' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_PARAMETER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2
-        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0]
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.25-3.41> str='\pkg::P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+        AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.29-3.41> bits='10'(2) basic_prep range=[1:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/PkgParamAsFunctionArg/top.sv:3.19-3.24> basic_prep range=[1:0] in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/PkgParamAsFunctionArg/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a);
@@ -254,4 +240,4 @@ Induction step proven: SUCCESS!
                  \____ $$$|__/|________/|__/|_______/|__/
                        \__/                              
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.36+85 (git sha1 f26495e54, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
