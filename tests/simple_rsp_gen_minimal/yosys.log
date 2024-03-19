@@ -1,46 +1,24 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/rsp_gen_minimal/dut.v:1:1: No timescale set for "prim_secded_64_57_enc".
-
-[WRN:PA0205] tests/simple_tests/rsp_gen_minimal/dut.v:19:1: No timescale set for "tlul_pkg".
-
-[WRN:PA0205] tests/simple_tests/rsp_gen_minimal/dut.v:65:1: No timescale set for "dut".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0301] tests/simple_tests/rsp_gen_minimal/dut.v:19:1: Compile package "tlul_pkg".
-
 [INF:CP0303] tests/simple_tests/rsp_gen_minimal/dut.v:65:1: Compile module "work@dut".
-
 [INF:CP0303] tests/simple_tests/rsp_gen_minimal/dut.v:1:1: Compile module "work@prim_secded_64_57_enc".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/rsp_gen_minimal/dut.v:65:1: Top level module "work@dut".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 2.
-
 [NTE:EL0510] Nb instances: 2.
-
 [NTE:EL0511] Nb leaf instances: 0.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 3
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
@@ -315,34 +293,8 @@ Object 'work@dut' of type 'design'
     Object 'tl_i' of type 'logic_net'
     Object 'tl_o' of type 'logic_net'
     Object 'rsp_intg' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'operation'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-          Object '' of type 'constant'
     Object 'rsp' of type 'logic_net'
-      Object 'tlul_pkg::tl_d2h_rsp_intg_t' of type 'struct_typespec'
-        Object 'opcode' of type 'typespec_member'
-          Object 'tlul_pkg::tl_d_op_e' of type 'enum_typespec'
-            Object '' of type 'logic_typespec'
-              Object '' of type 'range'
-                Object '' of type 'constant'
-                Object '' of type 'constant'
-            Object 'AccessAck' of type 'enum_const'
-            Object 'AccessAckData' of type 'enum_const'
-        Object 'size' of type 'typespec_member'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object 'error' of type 'typespec_member'
     Object 'unused_payload' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'operation'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-          Object '' of type 'constant'
     Object '' of type 'always'
       Object '' of type 'begin'
         Object '' of type 'assignment'
@@ -738,9 +690,6 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
     Object 'rsp' of type 'struct_var'
       Object 'tlul_pkg::tl_d2h_rsp_intg_t' of type 'struct_typespec'
         Object 'opcode' of type 'typespec_member'
@@ -761,79 +710,76 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
 Generating RTLIL representation for module `\prim_secded_64_57_enc'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/rsp_gen_minimal/dut.v:1.1-17.34> str='\prim_secded_64_57_enc'
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:2.23-2.29> str='\data_i' input logic port=2 multirange=[ 0 57 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:2.16-2.22> basic_prep range=[56:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed basic_prep range=[31:0] int=56
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:2.16-2.22> basic_prep range=[56:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed basic_prep range=[31:0] int=56 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:3.23-3.29> str='\data_o' output logic port=3 multirange=[ 0 64 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:3.16-3.22> basic_prep range=[63:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:3.16-3.22> basic_prep range=[63:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ALWAYS <tests/simple_tests/rsp_gen_minimal/dut.v:6.3-15.6>
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:6.23-6.31> str='\p_encode'
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:7.5-7.25>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:7.5-7.11> str='\data_o'
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:7.5-7.11> str='\data_o' in_lvalue
             AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:7.18-7.24> str='\data_i'
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:8.18-8.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:8.20-8.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:8.20-8.26> str='\data_o'
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000100000011111111111111100000000000000000000111111111111111'(64) range=[63:0] int=32767
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:9.18-9.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:9.20-9.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:9.20-9.26> str='\data_o'
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000101111100000111111111100000000001111111111000000000011111'(64) range=[63:0] int=33521695
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111011'(32) signed range=[31:0] int=59
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111011'(32) signed range=[31:0] int=59 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:10.18-10.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:10.20-10.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:10.20-10.26> str='\data_o'
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000110111101111000011111100001111110000001111000000111100001'(64) range=[63:0] int=2114421217
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111100'(32) signed range=[31:0] int=60
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111100'(32) signed range=[31:0] int=60 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:11.18-11.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:11.20-11.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:11.20-11.26> str='\data_o'
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000111011110111011100011101110001110001110001000111000100010'(64) range=[63:0] int=2386071074
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111101'(32) signed range=[31:0] int=61
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111101'(32) signed range=[31:0] int=61 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:12.18-12.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:12.20-12.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:12.20-12.26> str='\data_o'
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000111101111011101101100110110110010110010010011001001000100'(64) range=[63:0] int=2999530052
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:13.18-13.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:13.20-13.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:13.20-13.26> str='\data_o'
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000111110111101110110101011011010101010100100101010010001000'(64) range=[63:0] int=3578942600
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.50>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> str='\data_o'
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> str='\data_o' in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:14.18-14.50>
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:14.20-14.49>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:14.20-14.26> str='\data_o'
@@ -860,14 +806,14 @@ Dumping AST before simplification:
       AST_ENUM <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> str='\tlul_pkg::AccessAck' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> bits='000'(3) basic_prep range=[2:0]
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> str='\tlul_pkg::AccessAckData' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> bits='001'(3) basic_prep range=[2:0] int=1
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -875,10 +821,10 @@ Dumping AST before simplification:
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='\tlul_pkg::tl_d_op_e' basic_prep
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> reg basic_prep range=[2:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> str='\tlul_pkg::tl_d_user_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:26.22-26.30> str='rsp_intg' logic basic_prep range=[13:7]
@@ -886,65 +832,71 @@ Dumping AST before simplification:
       AST_FUNCTION <tests/simple_tests/rsp_gen_minimal/dut.v:52.3-60.14> str='\tlul_pkg::extract_d2h_rsp_intg'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\tlul_pkg::extract_d2h_rsp_intg' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tl' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23>
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> str='$unnamed_block$0'
             AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul' in_lvalue
               AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tl'
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed range=[31:0] int=64
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\payload'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -974,72 +926,72 @@ Dumping Verilog AST before simplification:
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/rsp_gen_minimal/dut.v:1.1-17.34> str='\prim_secded_64_57_enc' basic_prep
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:2.23-2.29> str='\data_i' input logic basic_prep port=2 range=[56:0] multirange=[ 0 57 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:2.16-2.22> basic_prep range=[56:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed basic_prep range=[31:0] int=56
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:2.16-2.22> basic_prep range=[56:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed basic_prep range=[31:0] int=56 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:3.23-3.29> str='\data_o' output logic reg basic_prep port=3 range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:3.16-3.22> basic_prep range=[63:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:3.16-3.22> basic_prep range=[63:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ALWAYS <tests/simple_tests/rsp_gen_minimal/dut.v:6.3-15.6> basic_prep
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:6.23-6.31> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:7.5-7.25> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:7.5-7.11> str='\data_o' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:7.5-7.11> str='\data_o' basic_prep in_lvalue
             AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:7.18-7.24> str='\data_i' basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> basic_prep range=[57:57]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed basic_prep range=[31:0] int=57
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:8.5-8.15> basic_prep range=[57:57] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed basic_prep range=[31:0] int=57 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:8.18-8.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:8.20-8.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:8.20-8.26> str='\data_o' basic_prep
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000100000011111111111111100000000000000000000111111111111111'(64) basic_prep range=[63:0] int=32767
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> basic_prep range=[58:58]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed basic_prep range=[31:0] int=58
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:9.5-9.15> basic_prep range=[58:58] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed basic_prep range=[31:0] int=58 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:9.18-9.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:9.20-9.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:9.20-9.26> str='\data_o' basic_prep
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000101111100000111111111100000000001111111111000000000011111'(64) basic_prep range=[63:0] int=33521695
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> basic_prep range=[59:59]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111011'(32) signed basic_prep range=[31:0] int=59
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:10.5-10.15> basic_prep range=[59:59] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111011'(32) signed basic_prep range=[31:0] int=59 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:10.18-10.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:10.20-10.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:10.20-10.26> str='\data_o' basic_prep
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000110111101111000011111100001111110000001111000000111100001'(64) basic_prep range=[63:0] int=2114421217
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> basic_prep range=[60:60]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111100'(32) signed basic_prep range=[31:0] int=60
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:11.5-11.15> basic_prep range=[60:60] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111100'(32) signed basic_prep range=[31:0] int=60 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:11.18-11.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:11.20-11.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:11.20-11.26> str='\data_o' basic_prep
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000111011110111011100011101110001110001110001000111000100010'(64) basic_prep range=[63:0] int=2386071074
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> basic_prep range=[61:61]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111101'(32) signed basic_prep range=[31:0] int=61
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:12.5-12.15> basic_prep range=[61:61] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111101'(32) signed basic_prep range=[31:0] int=61 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:12.18-12.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:12.20-12.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:12.20-12.26> str='\data_o' basic_prep
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000111101111011101101100110110110010110010010011001001000100'(64) basic_prep range=[63:0] int=2999530052
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> basic_prep range=[62:62]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed basic_prep range=[31:0] int=62
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:13.5-13.15> basic_prep range=[62:62] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed basic_prep range=[31:0] int=62 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:13.18-13.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:13.20-13.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:13.20-13.26> str='\data_o' basic_prep
                 AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='0000000111110111101110110101011011010101010100100101010010001000'(64) basic_prep range=[63:0] int=3578942600
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.50> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> str='\data_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> basic_prep range=[63:63]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> str='\data_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:14.5-14.15> basic_prep range=[63:63] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_lvalue
             AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:14.18-14.50> basic_prep
               AST_BIT_AND <tests/simple_tests/rsp_gen_minimal/dut.v:14.20-14.49> basic_prep
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:14.20-14.26> str='\data_o' basic_prep
@@ -1066,14 +1018,14 @@ Dumping AST after simplification:
       AST_ENUM <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> str='\tlul_pkg::AccessAck' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> bits='000'(3) basic_prep range=[2:0]
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> str='\tlul_pkg::AccessAckData' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> bits='001'(3) basic_prep range=[2:0] int=1
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1081,10 +1033,10 @@ Dumping AST after simplification:
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='\tlul_pkg::tl_d_op_e' basic_prep
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> reg basic_prep range=[2:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> str='\tlul_pkg::tl_d_user_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:26.22-26.30> str='rsp_intg' logic basic_prep range=[13:7]
@@ -1092,65 +1044,71 @@ Dumping AST after simplification:
       AST_FUNCTION <tests/simple_tests/rsp_gen_minimal/dut.v:52.3-60.14> str='\tlul_pkg::extract_d2h_rsp_intg'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\tlul_pkg::extract_d2h_rsp_intg' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tl' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23>
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> str='$unnamed_block$0'
             AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul' in_lvalue
               AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tl'
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed range=[31:0] int=64
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\payload'
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -1213,40 +1171,40 @@ Dumping AST before simplification:
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='\tl_d_op_e'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> reg
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) range=[47:0] int=1853189425
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27>
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) range=[47:0] int=1853189425 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> str='\tl_d_user_t'
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:26.22-26.30> str='rsp_intg' logic basic_prep range=[13:7]
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:27.24-27.33> str='data_intg' logic basic_prep range=[6:0]
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:68.19-68.23> str='\tl_i' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:69.19-69.23> str='\tl_o' output logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:72.17-72.25> str='\rsp_intg' logic
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:72.9-72.16>
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:72.9-72.16> in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:73.21-73.24> str='\rsp' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:74.18-74.32> str='\unused_payload' logic
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:74.9-74.17>
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed range=[31:0] int=56
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:74.9-74.17> in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed range=[31:0] int=56 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_CELL <tests/simple_tests/rsp_gen_minimal/dut.v:78.3-81.5> str='\u_rsp_gen'
         AST_CELLTYPE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\prim_secded_64_57_enc'
         AST_ARGUMENT <tests/simple_tests/rsp_gen_minimal/dut.v:78.3-81.5> str='\data_i'
@@ -1258,79 +1216,85 @@ Dumping AST before simplification:
       AST_FUNCTION <tests/simple_tests/rsp_gen_minimal/dut.v:52.3-60.14> str='\extract_d2h_rsp_intg'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\extract_d2h_rsp_intg' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tl' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23>
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> str='$unnamed_block$1'
             AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul' in_lvalue
               AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tl'
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed range=[31:0] int=64
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\extract_d2h_rsp_intg'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\extract_d2h_rsp_intg' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\payload'
       AST_ASSIGN <tests/simple_tests/rsp_gen_minimal/dut.v:76.10-76.42>
-        AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.10-76.13> str='\rsp'
+        AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.10-76.13> str='\rsp' in_lvalue
         AST_FCALL <tests/simple_tests/rsp_gen_minimal/dut.v:76.16-76.42> str='\tlul_pkg::extract_d2h_rsp_intg'
           AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.37-76.41> str='\tl_i'
       AST_ALWAYS <tests/simple_tests/rsp_gen_minimal/dut.v:83.3-85.6>
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:83.15-85.6>
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:84.5-84.36>
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:84.10-84.16> str='\tl_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:84.10-84.16> str='\tl_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9 in_lvalue
             AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:84.28-84.36> str='\rsp_intg'
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:45.11-49.4> str='\tlul_pkg::tl_d2h_rsp_intg_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:45.11-49.4> basic_prep
@@ -1354,14 +1318,14 @@ Dumping AST before simplification:
       AST_ENUM <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> str='\tlul_pkg::AccessAck' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> bits='000'(3) basic_prep range=[2:0]
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> str='\tlul_pkg::AccessAckData' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> bits='001'(3) basic_prep range=[2:0] int=1
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1369,10 +1333,10 @@ Dumping AST before simplification:
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='\tlul_pkg::tl_d_op_e' basic_prep
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> reg basic_prep range=[2:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> str='\tlul_pkg::tl_d_user_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:26.22-26.30> str='rsp_intg' logic basic_prep range=[13:7]
@@ -1380,65 +1344,71 @@ Dumping AST before simplification:
       AST_FUNCTION <tests/simple_tests/rsp_gen_minimal/dut.v:52.3-60.14> str='\tlul_pkg::extract_d2h_rsp_intg'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\tlul_pkg::extract_d2h_rsp_intg' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tl' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23>
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> str='$unnamed_block$0'
             AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul' in_lvalue
               AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tl'
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed range=[31:0] int=64
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\payload'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -1494,14 +1464,14 @@ Dumping AST after simplification:
       AST_ENUM <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> str='\AccessAck' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> bits='000'(3) basic_prep range=[2:0]
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> str='\AccessAckData' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> bits='001'(3) basic_prep range=[2:0] int=1
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1509,40 +1479,40 @@ Dumping AST after simplification:
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='\tl_d_op_e' basic_prep
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> reg basic_prep range=[2:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> str='\tl_d_user_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:26.22-26.30> str='rsp_intg' logic basic_prep range=[13:7]
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:27.24-27.33> str='data_intg' logic basic_prep range=[6:0]
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:68.19-68.23> str='\tl_i' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:69.19-69.23> str='\tl_o' output logic reg basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:72.17-72.25> str='\rsp_intg' logic basic_prep range=[6:0]
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:72.9-72.16> basic_prep range=[6:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:72.9-72.16> basic_prep range=[6:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:73.21-73.24> str='\rsp' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:74.18-74.32> str='\unused_payload' logic basic_prep range=[56:0]
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:74.9-74.17> basic_prep range=[56:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed basic_prep range=[31:0] int=56
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:74.9-74.17> basic_prep range=[56:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111000'(32) signed basic_prep range=[31:0] int=56 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/rsp_gen_minimal/dut.v:78.3-81.5> str='\u_rsp_gen' basic_prep
         AST_CELLTYPE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\prim_secded_64_57_enc' basic_prep
         AST_ARGUMENT <tests/simple_tests/rsp_gen_minimal/dut.v:78.3-81.5> str='\data_i' basic_prep
@@ -1554,78 +1524,84 @@ Dumping AST after simplification:
       AST_FUNCTION <tests/simple_tests/rsp_gen_minimal/dut.v:52.3-60.14> str='\extract_d2h_rsp_intg'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\extract_d2h_rsp_intg' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tl' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23>
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> str='$unnamed_block$1'
             AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul' in_lvalue
               AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tl'
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed range=[31:0] int=64
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\extract_d2h_rsp_intg'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\extract_d2h_rsp_intg' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\payload'
       AST_ASSIGN <tests/simple_tests/rsp_gen_minimal/dut.v:76.10-76.42> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.10-76.13> str='\rsp' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.10-76.13> str='\rsp' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.16-76.42> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$16.$result' basic_prep
       AST_ALWAYS <tests/simple_tests/rsp_gen_minimal/dut.v:83.3-85.6> basic_prep
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:83.15-85.6> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:84.5-84.36> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:84.10-84.16> str='\tl_o' basic_prep
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[15:9]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:84.10-84.16> str='\tl_o' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[15:9] in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_lvalue
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9 in_lvalue
             AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:84.28-84.36> str='\rsp_intg' basic_prep
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:45.11-49.4> str='\tlul_pkg::tl_d2h_rsp_intg_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:45.11-49.4> basic_prep
@@ -1649,14 +1625,14 @@ Dumping AST after simplification:
       AST_ENUM <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> str='\tlul_pkg::AccessAck' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:22.5-22.25> bits='000'(3) basic_prep range=[2:0]
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> str='\tlul_pkg::AccessAckData' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:23.5-23.25> bits='001'(3) basic_prep range=[2:0] int=1
           AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
             AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
@@ -1664,10 +1640,10 @@ Dumping AST after simplification:
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:21.3-24.15> str='\tlul_pkg::tl_d_op_e' basic_prep
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> reg basic_prep range=[2:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:21.22-21.27> basic_prep range=[2:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_TYPEDEF <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> str='\tlul_pkg::tl_d_user_t' basic_prep
         AST_STRUCT <tests/simple_tests/rsp_gen_minimal/dut.v:25.11-28.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/rsp_gen_minimal/dut.v:26.22-26.30> str='rsp_intg' logic basic_prep range=[13:7]
@@ -1675,150 +1651,162 @@ Dumping AST after simplification:
       AST_FUNCTION <tests/simple_tests/rsp_gen_minimal/dut.v:52.3-60.14> str='\tlul_pkg::extract_d2h_rsp_intg'
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\tlul_pkg::extract_d2h_rsp_intg' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tl' input logic basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
           ATTR \wiretype:
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+          AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23>
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> str='$unnamed_block$0'
             AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\payload' logic basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
               ATTR \wiretype:
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic range=[0:0]
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\unused_tlul' logic
+              AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> range=[0:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\unused_tlul' in_lvalue
               AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22>
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tl'
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed range=[31:0] int=64
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed range=[31:0] int=62
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed range=[31:0] int=58
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed range=[31:0] int=57
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep
-                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\payload' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tl' basic_prep
                 AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
             AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11>
-              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg'
+              AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\payload'
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$16.$result' logic reg basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ALWAYS <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep
         AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' basic_prep in_lvalue
             AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.37-76.41> str='\tl_i' basic_prep
           AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> basic_prep
             AST_BLOCK <tests/simple_tests/rsp_gen_minimal/dut.v:54.5-54.23> basic_prep
               AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.22> basic_prep
-                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.unused_tlul' basic_prep
+                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.5-55.16> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.unused_tlul' basic_prep in_lvalue
                 AST_REDUCE_XOR <tests/simple_tests/rsp_gen_minimal/dut.v:55.19-55.22> basic_prep
                   AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:55.20-55.22> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' basic_prep
               AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:56.5-56.33> basic_prep
-                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep
-                  AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:3]
-                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.13-56.19> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep in_lvalue
+                  AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:3] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_lvalue
+                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_lvalue
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:56.22-56.24> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' basic_prep
                   AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[64:62]
                     AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000000'(32) signed basic_prep range=[31:0] int=64
                     AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111110'(32) signed basic_prep range=[31:0] int=62
               AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:57.5-57.31> basic_prep
-                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep
-                  AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[2:1]
-                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.13-57.17> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep in_lvalue
+                  AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[2:1] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_lvalue
+                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_lvalue
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:57.22-57.24> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' basic_prep
                   AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[58:57]
                     AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111010'(32) signed basic_prep range=[31:0] int=58
                     AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000111001'(32) signed basic_prep range=[31:0] int=57
               AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:58.5-58.32> basic_prep
-                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep
-                  AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[0:0]
-                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.13-58.18> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep in_lvalue
+                  AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[0:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:58.22-58.24> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' basic_prep
                   AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[1:1]
                     AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
                     AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
               AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:59.5-59.11> basic_prep
-                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$result' basic_prep
+                AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$result' basic_prep in_lvalue
                 AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:59.12-59.19> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$16.$result' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$16.$result' basic_prep in_lvalue
             AST_IDENTIFIER <tests/simple_tests/rsp_gen_minimal/dut.v:76.16-76.42> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$result' basic_prep
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.22-52.39> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$result' logic reg basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:52.70-52.72> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.tl' logic reg basic_prep range=[65:0] multirange=[ 0 66 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_t' bits='010111000111010001101100010111110110010000110010011010000101111101110100'(72) basic_prep range=[71:0] int=845700980 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[65:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000001000001'(32) signed basic_prep range=[31:0] int=65 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.payload' logic reg basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \nosync:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.unused_tlul' logic reg basic_prep range=[0:0]
         ATTR \nosync:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:53.23-53.30> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload' logic reg basic_prep range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700
-        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> str='\tl_d2h_rsp_intg_t' bits='010111000111010001101100010111110110010000110010011010000101111101110010011100110111000001011111011010010110111001110100011001110101111101110100'(144) basic_prep range=[143:0] int=1952931700 in_param
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/rsp_gen_minimal/dut.v:54.11-54.22> str='\tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.unused_tlul' logic reg basic_prep range=[0:0]
+        AST_RANGE <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/rsp_gen_minimal/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(tl_i, tl_o);
@@ -1842,10 +1830,10 @@ Dumping Verilog AST after simplification:
       (* wiretype = "\tl_d2h_rsp_intg_t" *)
       reg [5:0] \tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.payload ;
       (* nosync = 1 *)
-      reg \tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.unused_tlul ;
+      reg [0:0] \tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.unused_tlul ;
       (* wiretype = "\tl_d2h_rsp_intg_t" *)
       reg [5:0] \tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.payload ;
-      reg \tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.unused_tlul ;
+      reg [0:0] \tlul_pkg::extract_d2h_rsp_intg$func$tests/simple_tests/rsp_gen_minimal/dut.v:76$17.$unnamed_block$0.unused_tlul ;
       /** AST_FUNCTION **/
       /** AST_FUNCTION **/
       /** AST_TYPEDEF **/
@@ -1940,17 +1928,19 @@ Optimizing module dut.
 Optimizing module prim_secded_64_57_enc.
 <suppressed ~7 debug messages>
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 Optimizing module prim_secded_64_57_enc.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 Finding unused cells or wires in module \prim_secded_64_57_enc..
 Removed 1 unused cells and 28 unused wires.
 <suppressed ~5 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
 Warning: Wire dut.\tl_o [65] is used but has no driver.
 Warning: Wire dut.\tl_o [64] is used but has no driver.
@@ -2014,18 +2004,18 @@ Warning: Wire dut.\tl_o [0] is used but has no driver.
 Checking module prim_secded_64_57_enc...
 Found and reported 59 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 Optimizing module prim_secded_64_57_enc.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut'.
 Finding identical cells in module `\prim_secded_64_57_enc'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \dut..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -2034,52 +2024,52 @@ Running muxtree optimizer on module \prim_secded_64_57_enc..
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \dut.
   Optimizing cells in module \prim_secded_64_57_enc.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut'.
 Finding identical cells in module `\prim_secded_64_57_enc'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 Finding unused cells or wires in module \prim_secded_64_57_enc..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 Optimizing module prim_secded_64_57_enc.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 Finding unused cells or wires in module \prim_secded_64_57_enc..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 Optimizing module prim_secded_64_57_enc.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut'.
 Finding identical cells in module `\prim_secded_64_57_enc'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 Finding unused cells or wires in module \prim_secded_64_57_enc..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === dut ===
 
@@ -2120,7 +2110,7 @@ Finding unused cells or wires in module \prim_secded_64_57_enc..
    Number of cells:                  7
      $reduce_xor                     7
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
 Warning: Wire dut.\tl_o [65] is used but has no driver.
 Warning: Wire dut.\tl_o [64] is used but has no driver.
@@ -2189,7 +2179,7 @@ Found and reported 59 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.36+58 (git sha1 ea7818d31, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dut'.
 
 (* top =  1  *)
@@ -2254,4 +2244,4 @@ Dumping module `\dut'.
 Dumping module `\prim_secded_64_57_enc'.
 
 Warnings: 60 unique messages, 119 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.36+58 (git sha1 ea7818d31, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
