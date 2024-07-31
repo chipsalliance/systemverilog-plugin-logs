@@ -1,0 +1,613 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0301] tests/simple_tests/PackageEnumConstPush/dut.sv:1:1: Compile package "pkg".
+[INF:CP0303] tests/simple_tests/PackageEnumConstPush/dut.sv:17:1: Compile module "work@dut".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/PackageEnumConstPush/dut.sv:17:1: Top level module "work@dut".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@dut' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'pkg' of type 'package'
+    Object 'pkg::test_t' of type 'enum_typespec'
+      Object '' of type 'logic_typespec'
+      Object 'TEST_1' of type 'enum_const'
+      Object 'TEST_2' of type 'enum_const'
+    Object 'swap' of type 'function'
+      Object '' of type 'enum_var'
+        Object 'pkg::test_t' of type 'enum_typespec'
+          Object '' of type 'logic_typespec'
+          Object 'TEST_1' of type 'enum_const'
+          Object 'TEST_2' of type 'enum_const'
+      Object 'test' of type 'io_decl'
+        Object 'pkg::test_t' of type 'enum_typespec'
+          Object '' of type 'logic_typespec'
+          Object 'TEST_1' of type 'enum_const'
+          Object 'TEST_2' of type 'enum_const'
+      Object '' of type 'case_stmt'
+        Object 'test' of type 'ref_obj'
+        Object '' of type 'case_item'
+          Object '' of type 'constant'
+          Object '' of type 'return_stmt'
+            Object '' of type 'constant'
+        Object '' of type 'case_item'
+          Object '' of type 'constant'
+          Object '' of type 'return_stmt'
+            Object '' of type 'constant'
+  Object '' of type 'module_inst'
+    Object 'clk' of type 'logic_net'
+    Object 'a' of type 'logic_net'
+    Object 'b' of type 'logic_net'
+    Object '' of type 'always'
+      Object '' of type 'assignment'
+        Object 'b' of type 'ref_obj'
+        Object 'pkg::swap' of type 'func_call'
+          Object 'a' of type 'ref_obj'
+  Object 'work@dut' of type 'module_inst'
+    Object 'clk' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'port'
+      Object 'pkg::test_t' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+        Object 'TEST_1' of type 'enum_const'
+        Object 'TEST_2' of type 'enum_const'
+    Object 'b' of type 'port'
+      Object 'pkg::test_t' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+        Object 'TEST_1' of type 'enum_const'
+        Object 'TEST_2' of type 'enum_const'
+    Object 'clk' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'enum_var'
+      Object 'pkg::test_t' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+        Object 'TEST_1' of type 'enum_const'
+        Object 'TEST_2' of type 'enum_const'
+    Object 'b' of type 'enum_var'
+      Object 'pkg::test_t' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+        Object 'TEST_1' of type 'enum_const'
+        Object 'TEST_2' of type 'enum_const'
+Generating RTLIL representation for module `\dut'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/PackageEnumConstPush/dut.sv:17.1-23.10> str='\dut'
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:18.17-18.20> str='\clk' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:19.24-19.25> str='\a' input reg basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+        ATTR \enum_value_1:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:20.24-20.25> str='\b' output reg basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+        ATTR \enum_value_1:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/PackageEnumConstPush/dut.sv:22.5-22.34>
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:22.5-22.34>
+          AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:22.17-22.33>
+            AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:22.17-22.18> str='\b' in_lvalue
+            AST_FCALL <tests/simple_tests/PackageEnumConstPush/dut.sv:22.21-22.24> str='\pkg::swap'
+              AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:22.31-22.32> str='\a'
+      AST_ENUM <tests/simple_tests/PackageEnumConstPush/dut.sv:8.26-8.32> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/PackageEnumConstPush/dut.sv:4.9-4.15> str='\pkg::TEST_1' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:4.9-4.15> bits='0'(1) basic_prep range=[0:0]
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <tests/simple_tests/PackageEnumConstPush/dut.sv:5.9-5.15> str='\pkg::TEST_2' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:5.9-5.15> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/PackageEnumConstPush/dut.sv:8.26-8.32> str='\pkg::test_t' basic_prep
+        AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_FUNCTION <tests/simple_tests/PackageEnumConstPush/dut.sv:8.5-13.16> str='\pkg::swap'
+        AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:8.14-8.20> str='\pkg::swap' reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          ATTR \wiretype:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+          ATTR \enum_value_0:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+          ATTR \enum_value_1:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:8.33-8.37> str='\test' input reg basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          ATTR \wiretype:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+          ATTR \enum_value_0:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+          ATTR \enum_value_1:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_CASE <tests/simple_tests/PackageEnumConstPush/dut.sv:9.9-12.16>
+          AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:9.22-9.26> str='\test'
+          AST_COND <tests/simple_tests/PackageEnumConstPush/dut.sv:10.13-10.35>
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='0'(1) range=[0:0]
+            AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0>
+              AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:10.21-10.27>
+                AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap' in_lvalue
+                AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+          AST_COND <tests/simple_tests/PackageEnumConstPush/dut.sv:11.13-11.35>
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+            AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0>
+              AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:11.21-11.27>
+                AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap' in_lvalue
+                AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='0'(1) range=[0:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(clk, a, b);
+      input [0:0] clk;
+      (* wiretype = "\test_t" *)
+      (* enum_value_0 = "\TEST_1" *)
+      (* enum_value_1 = "\TEST_2" *)
+      input reg [0:0] a;
+      (* wiretype = "\test_t" *)
+      (* enum_value_0 = "\TEST_1" *)
+      (* enum_value_1 = "\TEST_2" *)
+      output reg [0:0] b;
+      /** AST_FUNCTION **/
+      (* always_comb = 1 *)
+      always @*
+        b = /** AST_FCALL **/;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/PackageEnumConstPush/dut.sv:17.1-23.10> str='\dut' basic_prep
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:18.17-18.20> str='\clk' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:19.24-19.25> str='\a' input reg basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+        ATTR \enum_value_1:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:20.24-20.25> str='\b' output reg basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+        ATTR \enum_value_1:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/PackageEnumConstPush/dut.sv:22.5-22.34> basic_prep
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:22.5-22.34> basic_prep
+          AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test' basic_prep in_lvalue
+            AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:22.31-22.32> str='\a' basic_prep
+          AST_CASE <tests/simple_tests/PackageEnumConstPush/dut.sv:9.9-12.16> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:9.22-9.26> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test' basic_prep
+            AST_COND <tests/simple_tests/PackageEnumConstPush/dut.sv:10.13-10.35> basic_prep
+              AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
+              AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep
+                AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:10.21-10.27> basic_prep
+                  AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result' basic_prep in_lvalue
+                  AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+            AST_COND <tests/simple_tests/PackageEnumConstPush/dut.sv:11.13-11.35> basic_prep
+              AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+              AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep
+                AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:11.21-11.27> basic_prep
+                  AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result' basic_prep in_lvalue
+                  AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
+          AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:22.17-22.33> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:22.17-22.18> str='\b' basic_prep in_lvalue
+            AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:22.21-22.24> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result' basic_prep
+      AST_ENUM <tests/simple_tests/PackageEnumConstPush/dut.sv:8.26-8.32> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/PackageEnumConstPush/dut.sv:4.9-4.15> str='\pkg::TEST_1' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:4.9-4.15> bits='0'(1) basic_prep range=[0:0]
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <tests/simple_tests/PackageEnumConstPush/dut.sv:5.9-5.15> str='\pkg::TEST_2' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:5.9-5.15> bits='1'(1) basic_prep range=[0:0] int=1
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/PackageEnumConstPush/dut.sv:8.26-8.32> str='\pkg::test_t' basic_prep
+        AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> reg basic_prep range=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_FUNCTION <tests/simple_tests/PackageEnumConstPush/dut.sv:8.5-13.16> str='\pkg::swap'
+        AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:8.14-8.20> str='\pkg::swap' reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          ATTR \wiretype:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+          ATTR \enum_value_0:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+          ATTR \enum_value_1:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:8.33-8.37> str='\test' input reg basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+          ATTR \wiretype:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+          ATTR \enum_value_0:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+          ATTR \enum_value_1:
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+          AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_CASE <tests/simple_tests/PackageEnumConstPush/dut.sv:9.9-12.16>
+          AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:9.22-9.26> str='\test'
+          AST_COND <tests/simple_tests/PackageEnumConstPush/dut.sv:10.13-10.35>
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='0'(1) range=[0:0]
+            AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0>
+              AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:10.21-10.27>
+                AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap' in_lvalue
+                AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+          AST_COND <tests/simple_tests/PackageEnumConstPush/dut.sv:11.13-11.35>
+            AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+            AST_BLOCK <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0>
+              AST_ASSIGN_EQ <tests/simple_tests/PackageEnumConstPush/dut.sv:11.21-11.27>
+                AST_IDENTIFIER <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\pkg::swap' in_lvalue
+                AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='0'(1) range=[0:0]
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:8.14-8.20> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result' reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        ATTR \nosync:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+        ATTR \enum_value_1:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageEnumConstPush/dut.sv:8.33-8.37> str='\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test' reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        ATTR \nosync:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\test_t' bits='01011100011101000110010101110011011101000101111101110100'(56) basic_prep range=[55:0] int=1937006452 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_1' bits='01011100010101000100010101010011010101000101111100110001'(56) basic_prep range=[55:0] int=1398038321 in_param
+        ATTR \enum_value_1:
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> str='\TEST_2' bits='01011100010101000100010101010011010101000101111100110010'(56) basic_prep range=[55:0] int=1398038322 in_param
+        AST_RANGE <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageEnumConstPush/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(clk, a, b);
+      input [0:0] clk;
+      (* wiretype = "\test_t" *)
+      (* enum_value_0 = "\TEST_1" *)
+      (* enum_value_1 = "\TEST_2" *)
+      input reg [0:0] a;
+      (* wiretype = "\test_t" *)
+      (* enum_value_0 = "\TEST_1" *)
+      (* enum_value_1 = "\TEST_2" *)
+      output reg [0:0] b;
+      (* nosync = 1 *)
+      (* wiretype = "\test_t" *)
+      (* enum_value_0 = "\TEST_1" *)
+      (* enum_value_1 = "\TEST_2" *)
+      reg [0:0] \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result ;
+      (* nosync = 1 *)
+      (* wiretype = "\test_t" *)
+      (* enum_value_0 = "\TEST_1" *)
+      (* enum_value_1 = "\TEST_2" *)
+      reg [0:0] \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test ;
+      /** AST_FUNCTION **/
+      (* always_comb = 1 *)
+      always @*
+        begin
+          \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test  = a;
+          case (\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test )
+            1'b 0:
+              \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result  = 1'b 1;
+            1'b 1:
+              \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result  = 1'b 0;
+          endcase
+          b = \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result ;
+        end
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2 in module dut.
+Marked 1 switch rules as full_case in process $proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2 in module dut.
+Removed a total of 1 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dut.$proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2'.
+     1/1: $1\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result[0:0]$5
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\dut.\b' from process `\dut.$proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2'.
+No latch inferred for signal `\dut.\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.$result' from process `\dut.$proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2'.
+No latch inferred for signal `\dut.\pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test' from process `\dut.$proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\dut.$proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2'.
+Removing empty process `dut.$proc$tests/simple_tests/PackageEnumConstPush/dut.sv:22$2'.
+Cleaned up 1 empty switch.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+<suppressed ~1 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                  5
+   Number of wire bits:              5
+   Number of public wires:           4
+   Number of public wire bits:       4
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $not                            1
+     $pmux                           1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.36+85 (git sha1 eeadbb583, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\dut'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:17.1-23.10" *)
+module dut(clk, a, b);
+  wire _0_;
+  (* enum_value_0 = "\\TEST_1" *)
+  (* enum_value_1 = "\\TEST_2" *)
+  (* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:19.24-19.25" *)
+  (* wiretype = "\\test_t" *)
+  input a;
+  wire a;
+  (* enum_value_0 = "\\TEST_1" *)
+  (* enum_value_1 = "\\TEST_2" *)
+  (* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:20.24-20.25" *)
+  (* wiretype = "\\test_t" *)
+  output b;
+  wire b;
+  (* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:18.17-18.20" *)
+  input clk;
+  wire clk;
+  (* enum_value_0 = "\\TEST_1" *)
+  (* enum_value_1 = "\\TEST_2" *)
+  (* nosync = 32'd1 *)
+  (* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:8.33-8.37" *)
+  (* wiretype = "\\test_t" *)
+  wire \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test ;
+  function [0:0] _1_;
+    input [0:0] a;
+    input [1:0] b;
+    input [1:0] s;
+    (* full_case = 32'd1 *)
+    (* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:11.13-11.35|tests/simple_tests/PackageEnumConstPush/dut.sv:9.9-12.16" *)
+    (* parallel_case *)
+    casez (s)
+      2'b?1:
+        _1_ = b[0:0];
+      2'b1?:
+        _1_ = b[1:1];
+      default:
+        _1_ = a;
+    endcase
+  endfunction
+  assign b = _1_(1'hx, 2'h2, { _0_, a });
+  assign _0_ = ~ (* full_case = 32'd1 *) (* src = "tests/simple_tests/PackageEnumConstPush/dut.sv:10.13-10.35|tests/simple_tests/PackageEnumConstPush/dut.sv:9.9-12.16" *) a;
+  assign \pkg::swap$func$tests/simple_tests/PackageEnumConstPush/dut.sv:22$1.test  = 1'hx;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\dut'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Yosys 0.36+85 (git sha1 eeadbb583, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
