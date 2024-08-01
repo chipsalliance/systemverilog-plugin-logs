@@ -369,10 +369,9 @@ Dumping AST before simplification:
         AST_RANGE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_GENBLOCK <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:25.22-27.7> str='\gen_assign'
-        AST_ASSIGN <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.19>
-          AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.15> str='\a' in_lvalue
-          AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+      AST_ASSIGN <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.19>
+        AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.15> str='\a' in_lvalue
+        AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
       AST_ENUM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:4.4-7.17> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:5.7-5.15> str='\pinmux_pkg::A' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
@@ -455,7 +454,7 @@ Dumping Verilog AST before simplification:
       output signed [31:0] a;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
-      /** AST_GENBLOCK **/
+      assign a = 1;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
@@ -498,7 +497,9 @@ Dumping AST after simplification:
         AST_RANGE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_GENBLOCK <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:25.22-27.7> str='\gen_assign' basic_prep
+      AST_ASSIGN <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.19> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.15> str='\a' basic_prep in_lvalue
+        AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
       AST_ENUM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:4.4-7.17> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:5.7-5.15> str='\pinmux_pkg::A' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
@@ -569,9 +570,6 @@ Dumping AST after simplification:
         AST_RANGE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.19> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:26.14-26.15> str='\a' basic_prep in_lvalue
-        AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\prim_generic_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001 (a);
@@ -584,13 +582,12 @@ Dumping Verilog AST after simplification:
       output signed [31:0] a;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
-      /** AST_GENBLOCK **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_TYPEDEF **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
       assign a = 1;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `$paramod\prim_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001'.
@@ -625,11 +622,10 @@ Dumping AST before simplification:
         AST_RANGE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_GENBLOCK <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:34.11-38.7> str='\gen_generic'
-        AST_CELL <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\u_impl_generic'
-          AST_CELLTYPE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001'
-          AST_ARGUMENT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\a'
-            AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:37.27-37.28> str='\b'
+      AST_CELL <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\gen_generic.u_impl_generic'
+        AST_CELLTYPE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001'
+        AST_ARGUMENT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\a'
+          AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:37.27-37.28> str='\b'
       AST_ENUM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:4.4-7.17> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:5.7-5.15> str='\pinmux_pkg::A' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
@@ -712,7 +708,7 @@ Dumping Verilog AST before simplification:
       output signed [31:0] b;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
-      /** AST_GENBLOCK **/
+      /** AST_CELL **/
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
@@ -755,7 +751,10 @@ Dumping AST after simplification:
         AST_RANGE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_GENBLOCK <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:34.11-38.7> str='\gen_generic' basic_prep
+      AST_CELL <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\gen_generic.u_impl_generic' basic_prep
+        AST_CELLTYPE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001' basic_prep
+        AST_ARGUMENT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\a' basic_prep
+          AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:37.27-37.28> str='\b' basic_prep
       AST_ENUM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:4.4-7.17> str='$enum1' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:5.7-5.15> str='\pinmux_pkg::A' logic basic_prep range=[2:0]
           ATTR \enum_base_type:
@@ -826,10 +825,6 @@ Dumping AST after simplification:
         AST_RANGE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_CELL <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\gen_generic.u_impl_generic' basic_prep
-        AST_CELLTYPE <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:0.0-0.0> str='$paramod\prim_generic_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001' basic_prep
-        AST_ARGUMENT <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:35.7-37.31> str='\a' basic_prep
-          AST_IDENTIFIER <tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:37.27-37.28> str='\b' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod\prim_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001 (b);
@@ -842,13 +837,12 @@ Dumping Verilog AST after simplification:
       output signed [31:0] b;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
-      /** AST_GENBLOCK **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_TYPEDEF **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
       /** AST_CELL **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
@@ -1366,7 +1360,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.36+85 (git sha1 7142e20da, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\prim_generic_pad_attr\NDioPads=s32'00000000000000000000000000011000\PadType=3'001'.
 
 (* src = "tests/simple_tests/BitSelectOfParameterPassedToSubmodule/top.sv:22.1-28.34" *)
@@ -1457,4 +1451,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 2 unique messages, 2 total
-Yosys 0.36+85 (git sha1 7142e20da, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
