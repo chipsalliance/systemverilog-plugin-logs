@@ -1,60 +1,30 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/LargeModuleParameter/top.sv:1:1: No timescale set for "dut".
-
-[WRN:PA0205] tests/simple_tests/LargeModuleParameter/top.sv:4:1: No timescale set for "foo".
-
-[WRN:PA0205] tests/simple_tests/LargeModuleParameter/top.sv:7:1: No timescale set for "bar".
-
-[WRN:PA0205] tests/simple_tests/LargeModuleParameter/top.sv:10:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/LargeModuleParameter/top.sv:7:1: Compile module "work@bar".
-
 [INF:CP0303] tests/simple_tests/LargeModuleParameter/top.sv:1:1: Compile module "work@dut".
-
 [INF:CP0303] tests/simple_tests/LargeModuleParameter/top.sv:4:1: Compile module "work@foo".
-
 [INF:CP0303] tests/simple_tests/LargeModuleParameter/top.sv:10:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/LargeModuleParameter/top.sv:10:1: Top level module "work@top".
-
 [WRN:EL0500] tests/simple_tests/LargeModuleParameter/top.sv:19:1: Cannot find a module definition for "work@top::PRIMITIVE".
-
 [WRN:EL0500] tests/simple_tests/LargeModuleParameter/top.sv:20:1: Cannot find a module definition for "work@top::PRIMITIVE".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 2.
-
 [NTE:EL0510] Nb instances: 11.
-
 [NTE:EL0511] Nb leaf instances: 10.
-
 [WRN:EL0512] Nb undefined modules: 1.
-
 [WRN:EL0513] Nb undefined instances: 2.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [WRN:UH0720] tests/simple_tests/LargeModuleParameter/top.sv:4:24: Non-synthesizable construct "".
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 9
+[WARNING] : 5
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -221,9 +191,9 @@ Warning: Removing unelaborated module: \PRIMITIVE from the design.
 Generating RTLIL representation for module `$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:4.1-5.10> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.44> str='\REALPARAM' basic_prep range=[0:0]
-        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00
-        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.44> str='\REALPARAM' basic_prep range=[0:0] in_param
+        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00 in_param
+        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01 in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo ();
@@ -232,9 +202,9 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:4.1-5.10> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.44> str='\REALPARAM' basic_prep range=[0:0]
-        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00
-        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.44> str='\REALPARAM' basic_prep range=[0:0] in_param
+        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=1.500000e+00 in_param
+        AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:4.29-4.38> basic_prep real=5.000000e-01 in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo ();
@@ -244,11 +214,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'(256) range=[255:0]
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'(256) range=[255:0] in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut ();
@@ -257,11 +227,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'(256) basic_prep range=[255:0]
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'(256) basic_prep range=[255:0] in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$e4177dc38243a7c5226fb95dc469f8b0d314bf91\dut ();
@@ -271,11 +241,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) range=[255:0] int=1
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) range=[255:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut ();
@@ -284,11 +254,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) basic_prep range=[255:0] int=1
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001'(256) basic_prep range=[255:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$5669071703d3a6d5417a8c3a4592739241d4a153\dut ();
@@ -298,11 +268,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) range=[255:0] int=4294967295
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) range=[255:0] int=4294967295 in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut ();
@@ -311,11 +281,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) basic_prep range=[255:0] int=4294967295
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(256) basic_prep range=[255:0] int=4294967295 in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut ();
@@ -325,8 +295,8 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$d8fc51ae15930444e081868e48788857029dc064\bar'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:7.1-8.10> str='$paramod$d8fc51ae15930444e081868e48788857029dc064\bar'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:7.31-7.51> str='\STRPARAM' range=[0:0]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) range=[63:0] int=1919509605
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:7.31-7.51> str='\STRPARAM' range=[0:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) range=[63:0] int=1919509605 in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$d8fc51ae15930444e081868e48788857029dc064\bar ();
@@ -335,8 +305,8 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:7.1-8.10> str='$paramod$d8fc51ae15930444e081868e48788857029dc064\bar' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:7.31-7.51> str='\STRPARAM' basic_prep range=[0:0]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) basic_prep range=[63:0] int=1919509605
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:7.31-7.51> str='\STRPARAM' basic_prep range=[0:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='override' bits='0110111101110110011001010111001001110010011010010110010001100101'(64) basic_prep range=[63:0] int=1919509605 in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$d8fc51ae15930444e081868e48788857029dc064\bar ();
@@ -346,11 +316,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) signed range=[255:0] int=4294967295
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) signed range=[255:0] int=4294967295 in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut ();
@@ -359,11 +329,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) basic_prep range=[255:0] int=4294967295
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111111111111111111111111111111'(256) basic_prep range=[255:0] int=4294967295 in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$6d4cabf765aefe553e4007b6c62e462176cc060a\dut ();
@@ -373,11 +343,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000'(256) signed range=[255:0]
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000'(256) signed range=[255:0] in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut ();
@@ -386,11 +356,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000'(256) basic_prep range=[255:0]
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000'(256) basic_prep range=[255:0] in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$7ec6c038788284356d763e15cef367da3c7d4f64\dut ();
@@ -400,11 +370,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut'
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110010000000000000000000000000000000000'(256) signed range=[255:0]
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110010000000000000000000000000000000000'(256) signed range=[255:0] in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut ();
@@ -413,11 +383,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/LargeModuleParameter/top.sv:1.1-2.10> str='$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut' basic_prep
-      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] multirange=[ 0 256 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110010000000000000000000000000000000000'(256) basic_prep range=[255:0]
-        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0]
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/LargeModuleParameter/top.sv:1.38-1.43> str='\PARAM' basic_prep range=[255:0] dimensions=[255:0] in_param
+        AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000110010000000000000000000000000000000000'(256) basic_prep range=[255:0] in_param
+        AST_RANGE <tests/simple_tests/LargeModuleParameter/top.sv:1.30-1.37> basic_prep range=[255:0] in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255 in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module \$paramod$70f81f41ab83f9b19d55b4e6b7cf976ffb8b9822\dut ();
@@ -441,12 +411,12 @@ Dumping AST before simplification:
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut'
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:19.1-19.30> str='\d7'
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\PRIMITIVE'
-        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\WIDTH'
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32
+        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\WIDTH' in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32 in_param
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:20.1-20.31> str='\d8'
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\PRIMITIVE'
-        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\REAL' basic_prep range=[0:0]
-          AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=3.270000e+01
+        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\REAL' basic_prep range=[0:0] in_param
+          AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=3.270000e+01 in_param
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:22.1-22.29> str='\d9'
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo'
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:23.1-23.36> str='\d10'
@@ -482,12 +452,12 @@ Dumping AST after simplification:
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$514c281b2ddcf09c252c68c828d116d56c1e89f9\dut' basic_prep
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:19.1-19.30> str='\d7' basic_prep
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\PRIMITIVE' basic_prep
-        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\WIDTH' basic_prep
-          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32
+        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\WIDTH' basic_prep in_param
+          AST_CONSTANT <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed basic_prep range=[31:0] int=32 in_param
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:20.1-20.31> str='\d8' basic_prep
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\PRIMITIVE' basic_prep
-        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\REAL' basic_prep range=[0:0]
-          AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=3.270000e+01
+        AST_PARASET <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='\REAL' basic_prep range=[0:0] in_param
+          AST_REALVALUE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> basic_prep real=3.270000e+01 in_param
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:22.1-22.29> str='\d9' basic_prep
         AST_CELLTYPE <tests/simple_tests/LargeModuleParameter/top.sv:0.0-0.0> str='$paramod$6265ea2b189eea1b333b037712e18e528b2f3f8c\foo' basic_prep
       AST_CELL <tests/simple_tests/LargeModuleParameter/top.sv:23.1-23.36> str='\d10' basic_prep
@@ -514,7 +484,7 @@ tests/simple_tests/LargeModuleParameter/top.sv:20: Warning: Replacing floating p
 2.1. Executing BMUXMAP pass.
 
 2.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.38+17 (git sha1 cd8e6cbc6, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 module top();
@@ -545,4 +515,4 @@ module top();
 endmodule
 
 Warnings: 5 unique messages, 5 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.38+17 (git sha1 cd8e6cbc6, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
