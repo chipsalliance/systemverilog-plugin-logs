@@ -1,57 +1,30 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/OneNetModport/top.sv:13:1: No timescale set for "ConnectTB".
-
-[WRN:PA0205] tests/simple_tests/OneNetModport/top.sv:26:1: No timescale set for "DUT".
-
-[WRN:PA0205] tests/simple_tests/OneNetModport/top.sv:30:1: No timescale set for "SUB".
-
-[WRN:PA0205] tests/simple_tests/OneNetModport/top.sv:34:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0304] tests/simple_tests/OneNetModport/top.sv:13:1: Compile interface "work@ConnectTB".
-
 [INF:CP0303] tests/simple_tests/OneNetModport/top.sv:26:1: Compile module "work@DUT".
-
 [INF:CP0303] tests/simple_tests/OneNetModport/top.sv:30:1: Compile module "work@SUB".
-
 [INF:CP0303] tests/simple_tests/OneNetModport/top.sv:34:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/OneNetModport/top.sv:34:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 3.
-
 [NTE:EL0510] Nb instances: 3.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 4
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object '' of type 'interface_inst'
     Object 'drive' of type 'logic_net'
-      Object '' of type 'logic_typespec'
     Object 'observe' of type 'logic_net'
-      Object '' of type 'logic_typespec'
     Object 'dut' of type 'modport'
       Object 'drive' of type 'io_decl'
       Object 'observe' of type 'io_decl'
@@ -122,14 +95,14 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/OneNetModport/top.sv:34.1-40.10> str='\top'
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg port=5 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic port=4 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg port=5 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/OneNetModport/top.sv:35.3-35.22> str='\conntb'
         AST_CELLTYPE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB'
       AST_CELL <tests/simple_tests/OneNetModport/top.sv:38.3-38.19> str='\dut'
@@ -137,10 +110,10 @@ Dumping AST before simplification:
         AST_ARGUMENT <tests/simple_tests/OneNetModport/top.sv:38.3-38.19> str='\intf'
           AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:38.11-38.17> str='\conntb'
       AST_ASSIGN <tests/simple_tests/OneNetModport/top.sv:36.10-36.26>
-        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:36.17-36.22> str='\conntb.drive'
+        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:36.17-36.22> str='\conntb.drive' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:36.25-36.26> str='\a'
       AST_ASSIGN <tests/simple_tests/OneNetModport/top.sv:37.10-37.28>
-        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:37.10-37.11> str='\b'
+        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:37.10-37.11> str='\b' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:37.14-37.20> str='\conntb.observe'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -156,14 +129,14 @@ Dumping Verilog AST before simplification:
 Warning: reg '\b' is assigned in a continuous assignment at tests/simple_tests/OneNetModport/top.sv:37.10-37.28.
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/OneNetModport/top.sv:34.1-40.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg basic_prep port=5 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.23-34.24> str='\a' input logic basic_prep port=4 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:34.37-34.38> str='\b' output reg basic_prep port=5 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/OneNetModport/top.sv:35.3-35.22> str='\conntb' basic_prep
         AST_CELLTYPE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB' basic_prep
       AST_CELL <tests/simple_tests/OneNetModport/top.sv:38.3-38.19> str='\dut' basic_prep
@@ -171,10 +144,10 @@ Dumping AST after simplification:
         AST_ARGUMENT <tests/simple_tests/OneNetModport/top.sv:38.3-38.19> str='\intf' basic_prep
           AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:38.11-38.17> str='\conntb' basic_prep
       AST_ASSIGN <tests/simple_tests/OneNetModport/top.sv:36.10-36.26> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:36.17-36.22> str='\conntb.drive' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:36.17-36.22> str='\conntb.drive' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:36.25-36.26> str='\a' basic_prep
       AST_ASSIGN <tests/simple_tests/OneNetModport/top.sv:37.10-37.28> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:37.10-37.11> str='\b' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:37.10-37.11> str='\b' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:37.14-37.20> str='\conntb.observe' basic_prep
       AST_AUTOWIRE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.drive' basic_prep
       AST_AUTOWIRE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> str='\conntb.observe' basic_prep
@@ -196,16 +169,16 @@ tests/simple_tests/OneNetModport/top.sv:37: Warning: Identifier `\conntb.observe
 Generating RTLIL representation for module `\SUB'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/OneNetModport/top.sv:30.1-32.10> str='\SUB'
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic port=2 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/OneNetModport/top.sv:31.10-31.19>
-        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:31.10-31.13> str='\out'
+        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:31.10-31.13> str='\out' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:31.16-31.19> str='\inp'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -217,16 +190,16 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/OneNetModport/top.sv:30.1-32.10> str='\SUB' basic_prep
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.24-30.27> str='\inp' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:30.40-30.43> str='\out' output logic basic_prep port=2 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/OneNetModport/top.sv:31.10-31.19> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:31.10-31.13> str='\out' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:31.10-31.13> str='\out' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneNetModport/top.sv:31.16-31.19> str='\inp' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -283,13 +256,13 @@ Generating RTLIL representation for module `\ConnectTB'.
 Dumping AST before simplification:
     AST_INTERFACE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB'
       AST_WIRE <tests/simple_tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_WIRE <tests/simple_tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_MODPORT <tests/simple_tests/OneNetModport/top.sv:16.11-16.14> str='\dut'
         AST_MODPORTMEMBER <tests/simple_tests/OneNetModport/top.sv:17.11-17.16> str='\drive' input
         AST_MODPORTMEMBER <tests/simple_tests/OneNetModport/top.sv:18.12-18.19> str='\observe' output
@@ -302,14 +275,14 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_INTERFACE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> str='\ConnectTB' basic_prep
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic basic_prep range=[0:0]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic basic_prep range=[0:0]
-        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:14.9-14.14> str='\drive' logic basic_prep range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneNetModport/top.sv:15.9-15.16> str='\observe' logic basic_prep range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneNetModport/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_MODPORT <tests/simple_tests/OneNetModport/top.sv:16.11-16.14> str='\dut' basic_prep
         AST_MODPORTMEMBER <tests/simple_tests/OneNetModport/top.sv:17.11-17.16> str='\drive' input basic_prep
         AST_MODPORTMEMBER <tests/simple_tests/OneNetModport/top.sv:18.12-18.19> str='\observe' output basic_prep
@@ -397,13 +370,15 @@ Optimizing module top.
 Optimizing module SUB.
 Optimizing module ConnectTB.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module DUT$interfaces$ConnectTB.
 Optimizing module top.
 Optimizing module SUB.
 Optimizing module ConnectTB.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \DUT$interfaces$ConnectTB..
 Finding unused cells or wires in module \top..
 Finding unused cells or wires in module \SUB..
@@ -411,29 +386,29 @@ Finding unused cells or wires in module \ConnectTB..
 Removed 2 unused cells and 3 unused wires.
 <suppressed ~5 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module ConnectTB...
 Checking module DUT$interfaces$ConnectTB...
 Checking module SUB...
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module ConnectTB.
 Optimizing module DUT$interfaces$ConnectTB.
 Optimizing module SUB.
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\ConnectTB'.
 Finding identical cells in module `\DUT$interfaces$ConnectTB'.
 Finding identical cells in module `\SUB'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \ConnectTB..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -448,68 +423,68 @@ Running muxtree optimizer on module \top..
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \ConnectTB.
   Optimizing cells in module \DUT$interfaces$ConnectTB.
   Optimizing cells in module \SUB.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\ConnectTB'.
 Finding identical cells in module `\DUT$interfaces$ConnectTB'.
 Finding identical cells in module `\SUB'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \ConnectTB..
 Finding unused cells or wires in module \DUT$interfaces$ConnectTB..
 Finding unused cells or wires in module \SUB..
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module ConnectTB.
 Optimizing module DUT$interfaces$ConnectTB.
 Optimizing module SUB.
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \ConnectTB..
 Finding unused cells or wires in module \DUT$interfaces$ConnectTB..
 Finding unused cells or wires in module \SUB..
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module ConnectTB.
 Optimizing module DUT$interfaces$ConnectTB.
 Optimizing module SUB.
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\ConnectTB'.
 Finding identical cells in module `\DUT$interfaces$ConnectTB'.
 Finding identical cells in module `\SUB'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \ConnectTB..
 Finding unused cells or wires in module \DUT$interfaces$ConnectTB..
 Finding unused cells or wires in module \SUB..
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === ConnectTB ===
 
@@ -517,6 +492,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              0
    Number of public wires:           0
    Number of public wire bits:       0
+   Number of ports:                  0
+   Number of port bits:              0
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -528,6 +505,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              2
    Number of public wires:           2
    Number of public wire bits:       2
+   Number of ports:                  2
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -540,6 +519,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              2
    Number of public wires:           2
    Number of public wire bits:       2
+   Number of ports:                  2
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -551,6 +532,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              4
    Number of public wires:           4
    Number of public wire bits:       4
+   Number of ports:                  2
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -567,12 +550,14 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              8
    Number of public wires:           8
    Number of public wire bits:       8
+   Number of ports:                  6
+   Number of port bits:              6
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module ConnectTB...
 Checking module DUT$interfaces$ConnectTB...
 Checking module SUB...
@@ -584,7 +569,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44 (git sha1 80ba43d26, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\ConnectTB'.
 
 (* is_interface =  1  *)
@@ -700,4 +685,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 5 unique messages, 6 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44 (git sha1 80ba43d26, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
