@@ -1,40 +1,23 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/OneStruct/dut.sv:1:1: No timescale set for "dut".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/OneStruct/dut.sv:1:1: Compile module "work@dut".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [NTE:CP0309] tests/simple_tests/OneStruct/dut.sv:1:16: Implicit port type (wire) for "b".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/OneStruct/dut.sv:1:1: Top level module "work@dut".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 0.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 6
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
@@ -50,20 +33,6 @@ Object 'work@dut' of type 'design'
           Object '' of type 'constant'
       Object 'wr' of type 'typespec_member'
     Object 'packed_mem' of type 'logic_net'
-      Object '' of type 'packed_array_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-        Object 'mem_s' of type 'struct_typespec'
-          Object 'addr' of type 'typespec_member'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-          Object 'data' of type 'typespec_member'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-          Object 'wr' of type 'typespec_member'
     Object 'memArray' of type 'logic_net'
     Object 'memMulti' of type 'logic_net'
     Object 'mem' of type 'logic_net'
@@ -209,66 +178,66 @@ Dumping AST before simplification:
           AST_STRUCT_ITEM <tests/simple_tests/OneStruct/dut.sv:6.17-6.21> str='addr' logic basic_prep range=[16:9]
           AST_STRUCT_ITEM <tests/simple_tests/OneStruct/dut.sv:7.17-7.21> str='data' logic basic_prep range=[8:1]
           AST_STRUCT_ITEM <tests/simple_tests/OneStruct/dut.sv:8.11-8.13> str='wr' logic basic_prep range=[0:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[16:0] multirange=[ 0 17 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[16:0] dimensions=[16:0][1:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> range=[33:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed range=[31:0] int=33
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[16:0] multirange=[ 0 17 0 8 ] multirange_swapped=[ 0 1 ]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> range=[33:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed range=[31:0] int=33 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[16:0] dimensions=[16:0][0:7]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> range=[135:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed range=[31:0] int=135
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[16:0] multirange=[ 0 17 0 10 0 20 ] multirange_swapped=[ 0 1 1 ]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> range=[135:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed range=[31:0] int=135 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[16:0] dimensions=[16:0][0:19][0:9]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> range=[3399:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed range=[31:0] int=3399
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic basic_prep range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> range=[3399:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed range=[31:0] int=3399 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic basic_prep range=[16:0] dimensions=[16:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 multirange=[ 0 17 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic port=2 dimensions=[16:0]
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:27.10-27.20>
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:27.14-27.16> str='\mem' basic_prep
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:27.14-27.16> str='\mem' basic_prep in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:27.19-27.20> str='\a'
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:28.10-28.24>
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> str='\b'
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:28.10-28.15>
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> str='\b' in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16 in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:28.18-28.21> str='\mem' basic_prep
           AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:29.10-29.28>
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> str='\b'
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:29.10-29.17>
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> str='\b' in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:29.20-29.23> str='\mem' basic_prep
           AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:30.10-30.27>
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> str='\b'
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:30.10-30.16>
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> str='\b' in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:30.19-30.22> str='\mem' basic_prep
           AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
@@ -287,32 +256,32 @@ Dumping AST before simplification:
                 AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
                   AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:18.21-21.8>
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:19.7-19.19>
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:19.11-19.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:19.11-19.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:20.7-20.19>
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:20.11-20.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:20.11-20.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_COND <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
                 AST_DEFAULT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
                 AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
                   AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:21.14-24.8>
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:22.7-22.21>
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:22.11-22.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:22.11-22.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed range=[31:0] int=9 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000000'(32) signed range=[31:0] int=128
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:23.7-23.21>
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:23.11-23.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0>
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:23.11-23.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed range=[31:0] int=255
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -354,66 +323,66 @@ Dumping AST after simplification:
           AST_STRUCT_ITEM <tests/simple_tests/OneStruct/dut.sv:6.17-6.21> str='addr' logic basic_prep range=[16:9]
           AST_STRUCT_ITEM <tests/simple_tests/OneStruct/dut.sv:7.17-7.21> str='data' logic basic_prep range=[8:1]
           AST_STRUCT_ITEM <tests/simple_tests/OneStruct/dut.sv:8.11-8.13> str='wr' logic basic_prep range=[0:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[33:0] multirange=[ 0 17 0 2 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:11.15-11.25> str='\packed_mem' logic basic_prep range=[33:0] dimensions=[16:0][1:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[33:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[135:0] multirange=[ 0 17 0 8 ] multirange_swapped=[ 0 1 ]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[33:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:12.9-12.17> str='\memArray' logic basic_prep range=[135:0] dimensions=[16:0][0:7]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[135:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed basic_prep range=[31:0] int=135
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[3399:0] multirange=[ 0 17 0 10 0 20 ] multirange_swapped=[ 0 1 1 ]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[135:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000111'(32) signed basic_prep range=[31:0] int=135 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:13.9-13.17> str='\memMulti' logic basic_prep range=[3399:0] dimensions=[16:0][0:19][0:9]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[3399:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed basic_prep range=[31:0] int=3399
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic reg basic_prep range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[3399:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000110101000111'(32) signed basic_prep range=[31:0] int=3399 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:15.9-15.12> str='\mem' logic reg basic_prep range=[16:0] dimensions=[16:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[16:0] multirange=[ 0 17 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0]
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> str='\mem_s' bits='010111000110110101100101011011010101111101110011'(48) basic_prep range=[47:0] int=1701666675 in_param
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.13-1.14> str='\a' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OneStruct/dut.sv:1.16-1.17> str='\b' output logic basic_prep port=2 range=[16:0] dimensions=[16:0]
+        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:3.10-3.16> basic_prep range=[16:0] in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_param
+          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:27.10-27.20> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:27.14-27.16> str='\mem' basic_prep
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:27.14-27.16> str='\mem' basic_prep in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:27.19-27.20> str='\a' basic_prep
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:28.10-28.24> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> str='\b' basic_prep
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> basic_prep range=[16:16]
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> str='\b' basic_prep int=1 in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:28.10-28.15> basic_prep range=[16:16] in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:28.18-28.21> str='\mem' basic_prep
           AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[0:0]
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:29.10-29.28> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> str='\b' basic_prep
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> basic_prep range=[15:8]
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> str='\b' basic_prep int=1 in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:29.10-29.17> basic_prep range=[15:8] in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8 in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:29.20-29.23> str='\mem' basic_prep
           AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
       AST_ASSIGN <tests/simple_tests/OneStruct/dut.sv:30.10-30.27> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> str='\b' basic_prep
-          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> basic_prep range=[7:0]
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> str='\b' basic_prep int=1 in_lvalue
+          AST_RANGE <tests/simple_tests/OneStruct/dut.sv:30.10-30.16> basic_prep range=[7:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_lvalue
+            AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
         AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:30.19-30.22> str='\mem' basic_prep
           AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
             AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
@@ -432,32 +401,32 @@ Dumping AST after simplification:
                 AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep
                   AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:18.21-21.8> basic_prep
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:19.7-19.19> basic_prep
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:19.11-19.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:19.11-19.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9] in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:20.7-20.19> basic_prep
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:20.11-20.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:20.11-20.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1] in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
               AST_COND <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep
                 AST_DEFAULT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep
                 AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep
                   AST_BLOCK <tests/simple_tests/OneStruct/dut.sv:21.14-24.8> basic_prep
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:22.7-22.21> basic_prep
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:22.11-22.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9]
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:22.11-22.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[16:9] in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed basic_prep range=[31:0] int=16 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) signed basic_prep range=[31:0] int=9 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000010000000'(32) signed basic_prep range=[31:0] int=128
                     AST_ASSIGN_EQ <tests/simple_tests/OneStruct/dut.sv:23.7-23.21> basic_prep
-                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:23.11-23.15> str='\mem' basic_prep
-                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1]
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
-                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+                      AST_IDENTIFIER <tests/simple_tests/OneStruct/dut.sv:23.11-23.15> str='\mem' basic_prep in_lvalue
+                        AST_RANGE <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> basic_prep range=[8:1] in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_lvalue
                       AST_CONSTANT <tests/simple_tests/OneStruct/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -546,28 +515,30 @@ Cleaned up 1 empty switch.
 Optimizing module dut.
 <suppressed ~3 debug messages>
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 Removed 1 unused cells and 10 unused wires.
 <suppressed ~5 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \dut..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
@@ -575,44 +546,44 @@ Running muxtree optimizer on module \dut..
 Removed 0 multiplexer ports.
 <suppressed ~2 debug messages>
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \dut.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module dut.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\dut'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \dut..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === dut ===
 
@@ -620,13 +591,15 @@ Finding unused cells or wires in module \dut..
    Number of wire bits:             35
    Number of public wires:           3
    Number of public wire bits:      35
+   Number of ports:                  2
+   Number of port bits:             18
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  2
      $mux                            2
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
 Found and reported 0 problems.
 
@@ -635,7 +608,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+1 (git sha1 669f8b18f, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dut'.
 
 (* top =  1  *)
@@ -706,4 +679,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+1 (git sha1 669f8b18f, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
