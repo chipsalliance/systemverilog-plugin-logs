@@ -1,49 +1,25 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/UnsizedConstant/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/UnsizedConstant/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/UnsizedConstant/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 0.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'o' of type 'logic_net'
-    Object '' of type 'always'
-      Object '' of type 'begin'
-        Object '' of type 'immediate_assert'
-          Object '' of type 'operation'
-            Object 'o' of type 'ref_obj'
-            Object '' of type 'constant'
   Object 'work@top' of type 'module_inst'
     Object 'o' of type 'port'
       Object '' of type 'logic_typespec'
@@ -55,22 +31,28 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
+    Object '' of type 'always'
+      Object '' of type 'begin'
+        Object '' of type 'immediate_assert'
+          Object '' of type 'operation'
+            Object 'o' of type 'ref_obj'
+            Object '' of type 'constant'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/UnsizedConstant/top.sv:1.1-6.10> str='\top'
-      AST_WIRE <tests/simple_tests/UnsizedConstant/top.sv:1.32-1.33> str='\o' output logic port=1 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/UnsizedConstant/top.sv:1.25-1.31> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/UnsizedConstant/top.sv:1.32-1.33> str='\o' output logic port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/UnsizedConstant/top.sv:1.25-1.31> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/UnsizedConstant/top.sv:2.11-2.17>
-        AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:2.11-2.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:2.11-2.12> str='\o' in_lvalue
         AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='11111111111111111111111111111111'(32) signed range=[31:0] int=4294967295
       AST_ALWAYS <tests/simple_tests/UnsizedConstant/top.sv:3.4-5.7>
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/UnsizedConstant/top.sv:3.16-5.7>
           AST_ASSERT <tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29>
             AST_EQ <tests/simple_tests/UnsizedConstant/top.sv:4.14-4.27>
@@ -88,59 +70,29 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/UnsizedConstant/top.sv:1.1-6.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/UnsizedConstant/top.sv:1.32-1.33> str='\o' output logic basic_prep port=1 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/UnsizedConstant/top.sv:1.25-1.31> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/UnsizedConstant/top.sv:1.32-1.33> str='\o' output logic basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/UnsizedConstant/top.sv:1.25-1.31> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/UnsizedConstant/top.sv:2.11-2.17> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:2.11-2.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:2.11-2.12> str='\o' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='11111111111111111111111111111111'(32) signed basic_prep range=[31:0] int=4294967295
       AST_ALWAYS <tests/simple_tests/UnsizedConstant/top.sv:3.4-5.7> basic_prep
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/UnsizedConstant/top.sv:3.16-5.7> basic_prep
-          AST_BLOCK <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> basic_prep
-            AST_ASSIGN_LE <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK' basic_prep
-              AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='x'(1) basic_prep range=[0:0]
-            AST_ASSIGN_LE <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN' basic_prep
-              AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
-          AST_BLOCK <tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29> basic_prep
-            AST_ASSIGN_LE <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK' basic_prep
-              AST_REDUCE_BOOL <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> basic_prep
-                AST_EQ <tests/simple_tests/UnsizedConstant/top.sv:4.14-4.27> basic_prep
-                  AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:4.14-4.15> str='\o' basic_prep
-                  AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000001111111111111111'(32) basic_prep range=[31:0] int=65535
-            AST_ASSIGN_LE <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN' basic_prep
-              AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK' basic_prep range=[0:0]
-      AST_WIRE <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN' basic_prep range=[0:0]
-      AST_ASSERT <tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK' basic_prep
-        AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> str='$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN' basic_prep
+          AST_ASSERT <tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29> basic_prep
+            AST_EQ <tests/simple_tests/UnsizedConstant/top.sv:4.14-4.27> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/UnsizedConstant/top.sv:4.14-4.15> str='\o' basic_prep
+              AST_CONSTANT <tests/simple_tests/UnsizedConstant/top.sv:0.0-0.0> bits='00000000000000001111111111111111'(32) basic_prep range=[31:0] int=65535
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output [31:0] o;
-      wire \$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK ;
-      wire \$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN ;
       assign o = -1;
       (* always_comb = 1 *)
       always @*
-        begin
-          begin
-            \$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK  <= 1'b x;
-            \$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN  <= 1'b 0;
-          end
-          begin
-            \$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK  <= |((o)==(65535));
-            \$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN  <= 1'b 1;
-          end
-        end
-      /** AST_ASSERT **/
+        /** AST_ASSERT **/
     endmodule
 --- END OF AST DUMP ---
 
@@ -165,8 +117,8 @@ Cleaned up 0 empty switches.
 Removed a total of 0 dead cases.
 
 2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
-Removed 0 redundant assignments.
-Promoted 2 assignments to connections.
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
 
 2.2.4. Executing PROC_INIT pass (extract init attributes).
 
@@ -176,89 +128,89 @@ Promoted 2 assignments to connections.
 Converted 0 switches.
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\top.$proc$tests/simple_tests/UnsizedConstant/top.sv:3$2'.
+Creating decoders for process `\top.$proc$tests/simple_tests/UnsizedConstant/top.sv:3$1'.
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\top.$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_EN' from process `\top.$proc$tests/simple_tests/UnsizedConstant/top.sv:3$2'.
-No latch inferred for signal `\top.$formal$tests/simple_tests/UnsizedConstant/top.sv:4$1_CHECK' from process `\top.$proc$tests/simple_tests/UnsizedConstant/top.sv:3$2'.
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `top.$proc$tests/simple_tests/UnsizedConstant/top.sv:3$2'.
+Removing empty process `top.$proc$tests/simple_tests/UnsizedConstant/top.sv:3$1'.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 <suppressed ~1 debug messages>
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 5 unused wires.
+Removed 0 unused cells and 2 unused wires.
 <suppressed ~1 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -266,13 +218,15 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  1
-     $assert                         1
+     $check                          1
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -281,7 +235,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+4 (git sha1 77b2ae2e3, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* keep =  1  *)
@@ -291,7 +245,10 @@ module top(o);
   (* src = "tests/simple_tests/UnsizedConstant/top.sv:1.32-1.33" *)
   output [31:0] o;
   wire [31:0] o;
-  always @* if (1'h1) assert(1'h0);
+  always @*
+    if (1'h1) begin
+      assert (1'h0);
+    end
   assign o = 32'd4294967295;
 endmodule
 
@@ -302,88 +259,170 @@ endmodule
 4.2. Executing DEMUXMAP pass.
 Dumping module `\top'.
 
-5. Executing SIM pass (simulate the circuit).
+5. Executing ASYNC2SYNC pass.
+
+6. Executing SIM pass (simulate the circuit).
 Simulating cycle 0.
 Simulating cycle 1.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 2.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 3.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 4.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 5.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 6.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 7.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 8.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 9.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 10.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 11.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 12.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 13.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 14.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 15.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 16.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 17.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 18.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 19.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 20.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 21.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 22.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 23.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 24.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 25.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 26.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 27.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 28.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 29.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 30.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 31.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 32.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 33.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 34.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 35.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 36.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 37.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 38.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 39.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 Simulating cycle 40.
-Warning: Assert top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$6 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
+Failed assertion $assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 at
+    tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29
+Warning: Assertion top.$assert$tests/simple_tests/UnsizedConstant/top.sv:4$2 (tests/simple_tests/UnsizedConstant/top.sv:4.7-4.29) failed.
 
 Warnings: 1 unique messages, 40 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+4 (git sha1 77b2ae2e3, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
