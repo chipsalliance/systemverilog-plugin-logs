@@ -1,42 +1,23 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:1:1: No timescale set for "my_pkg".
-
-[WRN:PA0205] tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0301] tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:1:1: Compile package "my_pkg".
-
 [INF:CP0303] tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 2
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -47,9 +28,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'state_in' of type 'io_decl'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -63,9 +41,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object 'state_in' of type 'io_decl'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -76,18 +51,12 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
       Object '' of type 'begin'
         Object 'state_out' of type 'logic_var'
           Object '' of type 'logic_typespec'
             Object '' of type 'range'
               Object '' of type 'constant'
               Object '' of type 'constant'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
         Object '' of type 'assignment'
           Object 'state_out' of type 'indexed_part_select'
             Object '' of type 'constant'
@@ -118,65 +87,73 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.1-15.10> str='\top'
-      AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic port=3 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.25-13.31> basic_prep range=[15:0]
-          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic port=3 dimensions=[15:0]
+        AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.25-13.31> basic_prep range=[15:0] in_param
+          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
+          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.44>
-        AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o' in_lvalue
         AST_FCALL <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.15-14.21> str='\my_pkg::sbox4_16bit'
           AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='1010101111001101'(16) range=[15:0] int=43981
       AST_FUNCTION <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.4-4.28> str='\my_pkg::sbox4_8bit'
         AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.23-2.34> str='\my_pkg::sbox4_8bit' logic
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.29-2.34>
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.58-2.66> str='\state_in' input logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.52-2.57> basic_prep range=[7:0]
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.29-2.34> in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.58-2.66> str='\state_in' input logic port=1 dimensions=[7:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.52-2.57> basic_prep range=[7:0] in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_ASSIGN_EQ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:3.7-3.13>
-          AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_8bit'
+          AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_8bit' in_lvalue
           AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:3.14-3.22> str='\state_in'
       AST_FUNCTION <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.4-10.29> str='\my_pkg::sbox4_16bit'
         AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.23-6.35> str='\my_pkg::sbox4_16bit' logic
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.29-6.35>
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.61-6.69> str='\state_in' input logic port=2 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.54-6.60> basic_prep range=[15:0]
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.29-6.35> in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.61-6.69> str='\state_in' input logic port=2 dimensions=[15:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.54-6.60> basic_prep range=[15:0] in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19> in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.56>
           AST_BLOCK <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.56> str='$unnamed_block$0'
             AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-              AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19> in_param
+                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
+                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.55>
-              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> str='\state_out'
-                AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
-                  AST_SUB <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
-                    AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
-                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-                  AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> str='\state_out' in_lvalue
+                AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                  AST_SUB <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                    AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                      AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_lvalue
+                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                  AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                    AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
               AST_FCALL <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.27-8.55> str='\my_pkg::sbox4_8bit'
                 AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53> str='\state_in'
                   AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
                     AST_SUB <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
                       AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
-                        AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                        AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
+                          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                         AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
+                      AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
+                        AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
             AST_ASSIGN_EQ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:9.7-9.13>
-              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_16bit'
+              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_16bit' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:9.14-9.23> str='\state_out'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -189,64 +166,72 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.1-15.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic basic_prep port=3 range=[15:0] multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.25-13.31> basic_prep range=[15:0]
-          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.32-13.33> str='\o' output logic basic_prep port=3 range=[15:0] dimensions=[15:0]
+        AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:13.25-13.31> basic_prep range=[15:0] in_param
+          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
+          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.44> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.11-14.12> str='\o' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:14.15-14.21> bits='xxxxxxxx11001101'(16) basic_prep range=[15:0] int=205
       AST_FUNCTION <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.4-4.28> str='\my_pkg::sbox4_8bit'
         AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.23-2.34> str='\my_pkg::sbox4_8bit' logic
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.29-2.34>
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.58-2.66> str='\state_in' input logic port=1 multirange=[ 0 8 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.52-2.57> basic_prep range=[7:0]
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.29-2.34> in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.58-2.66> str='\state_in' input logic port=1 dimensions=[7:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:2.52-2.57> basic_prep range=[7:0] in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_ASSIGN_EQ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:3.7-3.13>
-          AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_8bit'
+          AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_8bit' in_lvalue
           AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:3.14-3.22> str='\state_in'
       AST_FUNCTION <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.4-10.29> str='\my_pkg::sbox4_16bit'
         AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.23-6.35> str='\my_pkg::sbox4_16bit' logic
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.29-6.35>
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.61-6.69> str='\state_in' input logic port=2 multirange=[ 0 16 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.54-6.60> basic_prep range=[15:0]
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.29-6.35> in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.61-6.69> str='\state_in' input logic port=2 dimensions=[15:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:6.54-6.60> basic_prep range=[15:0] in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
         AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19> in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
+            AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_BLOCK <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.56>
           AST_BLOCK <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.56> str='$unnamed_block$0'
             AST_WIRE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.20-7.29> str='\state_out' logic
-              AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19>
-                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15
-                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:7.13-7.19> in_param
+                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
+                AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_ASSIGN_EQ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.55>
-              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> str='\state_out'
-                AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
-                  AST_SUB <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
-                    AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24>
-                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-                  AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> str='\state_out' in_lvalue
+                AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                  AST_SUB <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                    AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                      AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_lvalue
+                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                  AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                    AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.7-8.24> in_lvalue
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
               AST_FCALL <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.27-8.55> str='\my_pkg::sbox4_8bit'
                 AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53> str='\state_in'
                   AST_RANGE <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
                     AST_SUB <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
                       AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
-                        AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                        AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
+                          AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                         AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8
-                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-                    AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_ADD <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
+                      AST_SELFSZ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:8.47-8.53>
+                        AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
             AST_ASSIGN_EQ <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:9.7-9.13>
-              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_16bit'
+              AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:0.0-0.0> str='\my_pkg::sbox4_16bit' in_lvalue
               AST_IDENTIFIER <tests/simple_tests/FunctionCallsFunctionWithIndexedPartSelectAsArgument/top.sv:9.14-9.23> str='\state_out'
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -302,69 +287,71 @@ Cleaned up 0 empty switches.
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -372,12 +359,14 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             16
    Number of public wires:           1
    Number of public wire bits:      16
+   Number of ports:                  1
+   Number of port bits:             16
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -386,7 +375,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+9 (git sha1 4b9f45273, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -448,4 +437,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+9 (git sha1 4b9f45273, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
