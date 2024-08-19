@@ -1,0 +1,536 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/MultiDimHierPath5/dut.sv:1:1: Compile module "work@dut".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/MultiDimHierPath5/dut.sv:1:1: Top level module "work@dut".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 0.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@dut' of type 'design'
+  Object 'builtin' of type 'package'
+  Object '' of type 'module_inst'
+    Object 'logic4' of type 'logic_typespec'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+    Object 's_t' of type 'struct_typespec'
+      Object 'vector2x4' of type 'typespec_member'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'clk' of type 'logic_net'
+    Object 'a' of type 'logic_net'
+    Object 'b' of type 'logic_net'
+    Object 'out' of type 'logic_net'
+    Object 's' of type 'logic_net'
+    Object '' of type 'always'
+      Object '' of type 'begin'
+        Object '' of type 'assignment'
+          Object 's' of type 'ref_obj'
+          Object '' of type 'constant'
+        Object '' of type 'assignment'
+          Object 's.vector2x4[a]' of type 'hier_path'
+            Object 's' of type 'ref_obj'
+            Object 'vector2x4' of type 'bit_select'
+              Object 'a' of type 'ref_obj'
+          Object 'b' of type 'ref_obj'
+  Object 'work@dut' of type 'module_inst'
+    Object 'clk' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'out' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'clk' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'out' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 's' of type 'struct_net'
+      Object 's_t' of type 'struct_typespec'
+        Object 'vector2x4' of type 'typespec_member'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'out' of type 'ref_obj'
+      Object 's.vector2x4' of type 'hier_path'
+        Object 's' of type 'ref_obj'
+        Object 'vector2x4' of type 'ref_obj'
+Generating RTLIL representation for module `\dut'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/MultiDimHierPath5/dut.sv:1.1-21.10> str='\dut'
+      AST_TYPEDEF <tests/simple_tests/MultiDimHierPath5/dut.sv:7.13-7.24> str='\logic4'
+        AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:7.13-7.24> logic
+          AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:7.19-7.24> in_param
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_TYPEDEF <tests/simple_tests/MultiDimHierPath5/dut.sv:9.13-11.6> str='\s_t'
+        AST_STRUCT <tests/simple_tests/MultiDimHierPath5/dut.sv:9.13-11.6> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/MultiDimHierPath5/dut.sv:10.22-10.31> str='vector2x4' logic basic_prep range=[7:0] dimensions=[1:0][3:0]
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:2.17-2.20> str='\clk' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:3.29-3.30> str='\a' input logic port=2 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:4.29-4.30> str='\b' input logic port=3 dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:4.17-4.22> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:5.29-5.32> str='\out' output logic port=4 dimensions=[1:0][3:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:12.9-12.10> str='\s' logic basic_prep range=[7:0] dimensions=[7:0]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> str='\s_t' bits='01011100011100110101111101110100'(32) basic_prep range=[31:0] int=1551064948 in_param
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/MultiDimHierPath5/dut.sv:19.12-19.29>
+        AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:19.12-19.15> str='\out' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:19.18-19.19> str='\s' basic_prep
+          AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0>
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ALWAYS <tests/simple_tests/MultiDimHierPath5/dut.sv:14.5-17.8>
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/MultiDimHierPath5/dut.sv:14.17-17.8>
+          AST_ASSIGN_EQ <tests/simple_tests/MultiDimHierPath5/dut.sv:15.9-15.15>
+            AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:15.9-15.10> str='\s' in_lvalue
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='0'(1) unsized range=[0:0]
+          AST_ASSIGN_EQ <tests/simple_tests/MultiDimHierPath5/dut.sv:16.9-16.27>
+            AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.11-16.20> str='\s' basic_prep in_lvalue
+              AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                  AST_MUL <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                      AST_SUB <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_lvalue
+                        AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                    AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.21-16.22> str='\a' in_lvalue
+                  AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_lvalue
+                AST_ADD <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                  AST_MUL <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                      AST_SUB <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_lvalue
+                        AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                    AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.21-16.22> str='\a' in_lvalue
+                  AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+            AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.26-16.27> str='\b'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(clk, a, b, out);
+      input [0:0] clk;
+      input [0:0] a;
+      input [3:0] b;
+      output [7:0] out;
+      (* wiretype = "\s_t" *)
+      wire [7:0] s;
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      assign out = s[7:0];
+      (* always_comb = 1 *)
+      always @*
+        begin
+          s = 1'b 0;
+          s[((((3)-(0))+(1))*(a))+(3):((((3)-(0))+(1))*(a))+(0)] = b;
+        end
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/MultiDimHierPath5/dut.sv:1.1-21.10> str='\dut' basic_prep
+      AST_TYPEDEF <tests/simple_tests/MultiDimHierPath5/dut.sv:7.13-7.24> str='\logic4' basic_prep
+        AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:7.13-7.24> logic basic_prep range=[3:0] dimensions=[3:0]
+          AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:7.19-7.24> basic_prep range=[3:0] in_param
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_TYPEDEF <tests/simple_tests/MultiDimHierPath5/dut.sv:9.13-11.6> str='\s_t' basic_prep
+        AST_STRUCT <tests/simple_tests/MultiDimHierPath5/dut.sv:9.13-11.6> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/MultiDimHierPath5/dut.sv:10.22-10.31> str='vector2x4' logic basic_prep range=[7:0] dimensions=[1:0][3:0]
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:2.17-2.20> str='\clk' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:3.29-3.30> str='\a' input logic basic_prep port=2 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:4.29-4.30> str='\b' input logic basic_prep port=3 range=[3:0] dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:4.17-4.22> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:5.29-5.32> str='\out' output logic basic_prep port=4 range=[7:0] dimensions=[1:0][3:0]
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:12.9-12.10> str='\s' logic reg basic_prep range=[7:0] dimensions=[7:0]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> str='\s_t' bits='01011100011100110101111101110100'(32) basic_prep range=[31:0] int=1551064948 in_param
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/MultiDimHierPath5/dut.sv:19.12-19.29> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:19.12-19.15> str='\out' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:19.18-19.19> str='\s' basic_prep
+          AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[7:0]
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ALWAYS <tests/simple_tests/MultiDimHierPath5/dut.sv:14.5-17.8> basic_prep
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/MultiDimHierPath5/dut.sv:14.17-17.8> basic_prep
+          AST_ASSIGN_EQ <tests/simple_tests/MultiDimHierPath5/dut.sv:15.9-15.15> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:15.9-15.10> str='\s' basic_prep in_lvalue
+            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='0'(1) unsized basic_prep range=[0:0]
+          AST_BLOCK <tests/simple_tests/MultiDimHierPath5/dut.sv:16.9-16.27> basic_prep
+            AST_ASSIGN_EQ <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> str='$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1' basic_prep in_lvalue
+              AST_ADD <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                AST_MUL <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                  AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
+                  AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.21-16.22> str='\a' basic_prep
+                AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.11-16.20> str='\s' basic_prep in_lvalue
+              AST_BIT_OR <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                AST_BIT_AND <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                  AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.11-16.20> str='\s' basic_prep
+                  AST_BIT_NOT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                    AST_SHIFT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                      AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15
+                      AST_NEG <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                        AST_TO_SIGNED <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                          AST_CAST_SIZE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                            AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
+                            AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> str='$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1' basic_prep
+                AST_SHIFT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                  AST_TO_UNSIGNED <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                    AST_CAST_SIZE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                      AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+                      AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:16.26-16.27> str='\b' basic_prep
+                  AST_NEG <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                    AST_TO_SIGNED <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                      AST_CAST_SIZE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep
+                        AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000100001'(32) signed basic_prep range=[31:0] int=33
+                        AST_IDENTIFIER <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> str='$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1' basic_prep
+      AST_WIRE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> str='$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1' logic reg basic_prep range=[31:0] dimensions=[31:0]
+        ATTR \nosync:
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(clk, a, b, out);
+      input [0:0] clk;
+      input [0:0] a;
+      input [3:0] b;
+      output [7:0] out;
+      (* wiretype = "\s_t" *)
+      reg [7:0] s;
+      (* nosync = 1 *)
+      reg [31:0] \$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1 ;
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      assign out = s[7:0];
+      (* always_comb = 1 *)
+      always @*
+        begin
+          s = 1'b 0;
+          begin
+            \$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1  = ((4)*(a))+(0);
+            s = ((s)&(~((4'b 1111)@shift@(-(signed'(33'(\$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1 )))))))|((unsigned'(4'(b)))@shift@(-(signed'(33'(\$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1 )))));
+          end
+        end
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dut.$proc$tests/simple_tests/MultiDimHierPath5/dut.sv:14$2'.
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\dut.\s' from process `\dut.$proc$tests/simple_tests/MultiDimHierPath5/dut.sv:14$2'.
+No latch inferred for signal `\dut.$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1' from process `\dut.$proc$tests/simple_tests/MultiDimHierPath5/dut.sv:14$2'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `dut.$proc$tests/simple_tests/MultiDimHierPath5/dut.sv:14$2'.
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+<suppressed ~2 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 3 unused cells and 9 unused wires.
+<suppressed ~4 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 29 bits (of 32) from port A of cell dut.$mul$tests/simple_tests/MultiDimHierPath5/dut.sv:0$4 ($mul).
+Removed top 28 bits (of 32) from port Y of cell dut.$mul$tests/simple_tests/MultiDimHierPath5/dut.sv:0$4 ($mul).
+Removed top 28 bits (of 32) from port A of cell dut.$add$tests/simple_tests/MultiDimHierPath5/dut.sv:0$5 ($add).
+Removed top 31 bits (of 32) from port B of cell dut.$add$tests/simple_tests/MultiDimHierPath5/dut.sv:0$5 ($add).
+Removed top 27 bits (of 32) from port Y of cell dut.$add$tests/simple_tests/MultiDimHierPath5/dut.sv:0$5 ($add).
+Removed top 27 bits (of 33) from port A of cell dut.$neg$tests/simple_tests/MultiDimHierPath5/dut.sv:0$10 ($neg).
+Converting cell dut.$neg$tests/simple_tests/MultiDimHierPath5/dut.sv:0$10 ($neg) from signed to unsigned.
+Removed top 1 bits (of 6) from port A of cell dut.$neg$tests/simple_tests/MultiDimHierPath5/dut.sv:0$10 ($neg).
+Removed top 27 bits (of 32) from wire dut.$0$bitselwrite$pos$tests/simple_tests/MultiDimHierPath5/dut.sv:16$1[31:0]$3.
+Removed top 28 bits (of 32) from wire dut.$mul$tests/simple_tests/MultiDimHierPath5/dut.sv:0$4_Y.
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                  8
+   Number of wire bits:             92
+   Number of public wires:           5
+   Number of public wire bits:      22
+   Number of ports:                  4
+   Number of port bits:             14
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  4
+     $add                            1
+     $mul                            1
+     $neg                            1
+     $shift                          1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.44+20 (git sha1 5fb3c0b1d, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\dut'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:1.1-21.10" *)
+module dut(clk, a, b, out);
+  wire [4:0] _0_;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0" *)
+  wire [31:0] _1_;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0" *)
+  wire [32:0] _2_;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:3.29-3.30" *)
+  input a;
+  wire a;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:4.29-4.30" *)
+  input [3:0] b;
+  wire [3:0] b;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:2.17-2.20" *)
+  input clk;
+  wire clk;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:5.29-5.32" *)
+  output [7:0] out;
+  wire [7:0] out;
+  (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:12.9-12.10" *)
+  (* wiretype = "\\s_t" *)
+  wire [7:0] s;
+  assign _0_ = _1_[3:0] + (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0" *) 1'h0;
+  assign _1_[3:0] = 3'h4 * (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0" *) a;
+  assign _2_ = - (* src = "tests/simple_tests/MultiDimHierPath5/dut.sv:0.0-0.0" *) _0_;
+  assign out = $signed(_2_) < 0 ? b << - _2_ : b >> _2_;
+  assign _1_[31:4] = 28'h0000000;
+  assign s = out;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\dut'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Yosys 0.44+20 (git sha1 5fb3c0b1d, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
