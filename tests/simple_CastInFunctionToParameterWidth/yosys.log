@@ -1,52 +1,36 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/CastInFunctionToParameterWidth/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/CastInFunctionToParameterWidth/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/CastInFunctionToParameterWidth/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'Depth' of type 'parameter'
-    Object 'PTR_WIDTH' of type 'parameter'
-    Object '' of type 'param_assign'
-      Object 'Depth' of type 'parameter'
-      Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'PTR_WIDTH' of type 'parameter'
-      Object '' of type 'constant'
-    Object 'o' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
+    Object 'get_casted_depth' of type 'function'
+      Object '' of type 'logic_var'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'operation'
+              Object 'PTR_WIDTH' of type 'ref_obj'
+              Object '' of type 'constant'
+            Object '' of type 'constant'
+      Object '' of type 'return_stmt'
+        Object '' of type 'constant'
     Object 'Depth' of type 'parameter'
     Object 'PTR_WIDTH' of type 'parameter'
     Object '' of type 'param_assign'
@@ -55,6 +39,16 @@ Object 'work@top' of type 'design'
     Object '' of type 'param_assign'
       Object 'PTR_WIDTH' of type 'parameter'
       Object '' of type 'constant'
+    Object 'get_casted_depth' of type 'function'
+      Object '' of type 'logic_var'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'operation'
+              Object 'PTR_WIDTH' of type 'ref_obj'
+              Object '' of type 'constant'
+            Object '' of type 'constant'
+      Object '' of type 'return_stmt'
+        Object '' of type 'constant'
     Object 'o' of type 'port'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
@@ -65,54 +59,38 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-    Object 'get_casted_depth' of type 'function'
-      Object '' of type 'logic_var'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'operation'
-              Object 'PTR_WIDTH' of type 'ref_obj'
-              Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'operation'
-            Object 'PTR_WIDTH' of type 'ref_obj'
-            Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'return_stmt'
-        Object '' of type 'operation'
-          Object 'Depth' of type 'ref_obj'
     Object '' of type 'cont_assign'
       Object 'o' of type 'ref_obj'
       Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:1.1-12.10> str='\top'
-      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:2.27-2.36> str='\Depth' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
-        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:3.27-3.41> str='\PTR_WIDTH' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) range=[31:0] int=15
-        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic port=1 multirange=[ 0 15 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.17-5.32> basic_prep range=[14:0]
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) signed basic_prep range=[31:0] int=14
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.4-11.15> str='\get_casted_depth'
         AST_WIRE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38> str='\get_casted_depth' logic
-          AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38>
-            AST_SUB <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.35>
-              AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.33> str='\PTR_WIDTH'
-              AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38> in_param
+            AST_SUB <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.35> in_param
+              AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.33> str='\PTR_WIDTH' in_param
+              AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_param
+            AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_ASSIGN_EQ <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:10.7-10.13>
-          AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> str='\get_casted_depth'
-          AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:10.27-10.32> str='\Depth'
+          AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> str='\get_casted_depth' in_lvalue
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:2.27-2.36> str='\Depth' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3 in_param
+        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:3.27-3.41> str='\PTR_WIDTH' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) range=[31:0] int=15 in_param
+        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic port=1 dimensions=[14:0]
+        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.17-5.32> basic_prep range=[14:0] in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) signed basic_prep range=[31:0] int=14 in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:7.11-7.33>
-        AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:7.11-7.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:7.11-7.12> str='\o' in_lvalue
         AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='000000000000011'(15) range=[14:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -126,32 +104,32 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:1.1-12.10> str='\top' basic_prep
-      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:2.27-2.36> str='\Depth' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
-        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:3.27-3.41> str='\PTR_WIDTH' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) basic_prep range=[31:0] int=15
-        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic basic_prep port=1 range=[14:0] multirange=[ 0 15 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.17-5.32> basic_prep range=[14:0]
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) signed basic_prep range=[31:0] int=14
-          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_FUNCTION <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.4-11.15> str='\get_casted_depth'
         AST_WIRE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38> str='\get_casted_depth' logic
-          AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38>
-            AST_SUB <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.35>
-              AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.33> str='\PTR_WIDTH'
-              AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+          AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.23-9.38> in_param
+            AST_SUB <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.35> in_param
+              AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:9.24-9.33> str='\PTR_WIDTH' in_param
+              AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_param
+            AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
         AST_ASSIGN_EQ <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:10.7-10.13>
-          AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> str='\get_casted_depth'
-          AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:10.27-10.32> str='\Depth'
+          AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> str='\get_casted_depth' in_lvalue
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:2.27-2.36> str='\Depth' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3 in_param
+        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:3.27-3.41> str='\PTR_WIDTH' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) basic_prep range=[31:0] int=15 in_param
+        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.33-5.34> str='\o' output logic basic_prep port=1 range=[14:0] dimensions=[14:0]
+        AST_RANGE <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:5.17-5.32> basic_prep range=[14:0] in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) signed basic_prep range=[31:0] int=14 in_param
+          AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:7.11-7.33> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:7.11-7.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:7.11-7.12> str='\o' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/CastInFunctionToParameterWidth/top.sv:0.0-0.0> bits='000000000000011'(15) basic_prep range=[14:0] int=3
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -208,69 +186,71 @@ Cleaned up 0 empty switches.
 2.2.12. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -278,12 +258,14 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             15
    Number of public wires:           1
    Number of public wire bits:      15
+   Number of ports:                  1
+   Number of port bits:             15
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -292,7 +274,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+42 (git sha1 27b51cb35, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -354,4 +336,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+42 (git sha1 27b51cb35, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

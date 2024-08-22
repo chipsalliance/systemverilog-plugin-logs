@@ -1,52 +1,27 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/ReplicationPassedToInstance/top.sv:1:1: No timescale set for "dut".
-
-[WRN:PA0205] tests/simple_tests/ReplicationPassedToInstance/top.sv:11:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/ReplicationPassedToInstance/top.sv:1:1: Compile module "work@dut".
-
 [INF:CP0303] tests/simple_tests/ReplicationPassedToInstance/top.sv:11:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/ReplicationPassedToInstance/top.sv:11:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 2.
-
 [NTE:EL0510] Nb instances: 2.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 2
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'Width' of type 'parameter'
-    Object '' of type 'param_assign'
-      Object 'Width' of type 'parameter'
-    Object 'wmask_i' of type 'logic_net'
-    Object 'x' of type 'logic_net'
-  Object '' of type 'module_inst'
+  Object 'work@top' of type 'module_inst'
     Object 'Width' of type 'parameter'
     Object 'EccWidth' of type 'parameter'
     Object '' of type 'param_assign'
@@ -55,22 +30,15 @@ Object 'work@top' of type 'design'
     Object '' of type 'param_assign'
       Object 'EccWidth' of type 'parameter'
       Object '' of type 'constant'
-    Object 'o' of type 'logic_net'
-  Object 'work@top' of type 'module_inst'
+    Object 'o' of type 'int_var'
+    Object 'o' of type 'port'
+      Object '' of type 'int_typespec'
     Object 'u_dut' of type 'module_inst'
       Object 'Width' of type 'parameter'
       Object '' of type 'param_assign'
         Object 'Width' of type 'parameter'
         Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'Width' of type 'parameter'
-        Object '' of type 'constant'
       Object 'x' of type 'int_var'
-      Object 'wmask_i' of type 'logic_net'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
       Object 'wmask_i' of type 'port'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -78,41 +46,34 @@ Object 'work@top' of type 'design'
             Object '' of type 'constant'
       Object 'x' of type 'port'
         Object '' of type 'int_typespec'
+      Object 'wmask_i' of type 'logic_net'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
       Object '' of type 'cont_assign'
         Object 'x' of type 'ref_obj'
         Object '' of type 'operation'
           Object 'wmask_i' of type 'ref_obj'
       Object '' of type 'constant'
       Object 'o' of type 'ref_obj'
-    Object 'Width' of type 'parameter'
-    Object 'EccWidth' of type 'parameter'
-    Object '' of type 'param_assign'
-      Object 'Width' of type 'parameter'
-      Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'EccWidth' of type 'parameter'
-      Object '' of type 'constant'
-    Object 'o' of type 'port'
-      Object '' of type 'int_typespec'
-    Object 'o' of type 'int_var'
-Warning: Removing unelaborated module: \dut from the design.
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/ReplicationPassedToInstance/top.sv:11.1-21.10> str='\top'
-      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:12.18-12.28> str='\Width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:13.18-13.30> str='\EccWidth' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:11.23-11.24> str='\o' output signed port=3 range=[0:0]
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:12.18-12.28> str='\Width' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) signed range=[31:0] int=16 in_param
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:13.18-13.30> str='\EccWidth' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:11.23-11.24> str='\o' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6> str='\u_dut'
         AST_CELLTYPE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> str='$paramod\dut\Width=s32'00000000000000000000000000010011'
         AST_ARGUMENT <tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6> str='\wmask_i'
@@ -130,20 +91,20 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/ReplicationPassedToInstance/top.sv:11.1-21.10> str='\top' basic_prep
-      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:12.18-12.28> str='\Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) basic_prep range=[31:0] int=16
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:13.18-13.30> str='\EccWidth' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:11.23-11.24> str='\o' output signed basic_prep port=3 range=[31:0]
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:12.18-12.28> str='\Width' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010000'(32) basic_prep range=[31:0] int=16 in_param
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:13.18-13.30> str='\EccWidth' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3 in_param
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:11.23-11.24> str='\o' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6> str='\u_dut' basic_prep
         AST_CELLTYPE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> str='$paramod\dut\Width=s32'00000000000000000000000000010011' basic_prep
         AST_ARGUMENT <tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6> str='\wmask_i' basic_prep
@@ -161,56 +122,56 @@ Dumping Verilog AST after simplification:
 --- END OF AST DUMP ---
 Generating RTLIL representation for module `$paramod\dut\Width=s32'00000000000000000000000000010011'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/ReplicationPassedToInstance/top.sv:1.1-9.10> str='$paramod\dut\Width=s32'00000000000000000000000000010011'
-      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:3.18-3.23> str='\Width' multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed range=[31:0] int=19
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic port=1 multirange=[ 0 19 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.10-5.21> basic_prep range=[18:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:6.15-6.16> str='\x' output signed port=2 range=[0:0]
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_MODULE <tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6> str='$paramod\dut\Width=s32'00000000000000000000000000010011'
+      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:3.18-3.23> str='\Width' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) signed range=[31:0] int=19 in_param
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:6.15-6.16> str='\x' output signed port=3 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic port=2 dimensions=[18:0]
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.10-5.21> basic_prep range=[18:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.11-8.28>
-        AST_IDENTIFIER <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.11-8.12> str='\x'
+        AST_IDENTIFIER <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.11-8.12> str='\x' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.20-8.27> str='\wmask_i'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module \$paramod\dut\Width=s32'00000000000000000000000000010011 (wmask_i, x);
+    module \$paramod\dut\Width=s32'00000000000000000000000000010011 (x, wmask_i);
       /** AST_PARAMETER **/
-      input [18:0] wmask_i;
       output signed [31:0] x;
+      input [18:0] wmask_i;
       assign x = wmask_i;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/ReplicationPassedToInstance/top.sv:1.1-9.10> str='$paramod\dut\Width=s32'00000000000000000000000000010011' basic_prep
-      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:3.18-3.23> str='\Width' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) basic_prep range=[31:0] int=19
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic basic_prep port=1 range=[18:0] multirange=[ 0 19 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.10-5.21> basic_prep range=[18:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:6.15-6.16> str='\x' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_MODULE <tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6> str='$paramod\dut\Width=s32'00000000000000000000000000010011' basic_prep
+      AST_PARAMETER <tests/simple_tests/ReplicationPassedToInstance/top.sv:3.18-3.23> str='\Width' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010011'(32) basic_prep range=[31:0] int=19 in_param
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:6.15-6.16> str='\x' output signed basic_prep port=3 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.22-5.29> str='\wmask_i' input logic basic_prep port=2 range=[18:0] dimensions=[18:0]
+        AST_RANGE <tests/simple_tests/ReplicationPassedToInstance/top.sv:5.10-5.21> basic_prep range=[18:0] in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000010010'(32) signed basic_prep range=[31:0] int=18 in_param
+          AST_CONSTANT <tests/simple_tests/ReplicationPassedToInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.11-8.28> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.11-8.12> str='\x' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.11-8.12> str='\x' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/ReplicationPassedToInstance/top.sv:8.20-8.27> str='\wmask_i' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod\dut\Width=s32'00000000000000000000000000010011 (wmask_i, x);
+    module \$paramod\dut\Width=s32'00000000000000000000000000010011 (x, wmask_i);
       /** AST_PARAMETER **/
-      input [18:0] wmask_i;
       output signed [31:0] x;
+      input [18:0] wmask_i;
       assign x = wmask_i;
     endmodule
 --- END OF AST DUMP ---
@@ -262,31 +223,33 @@ Cleaned up 0 empty switches.
 Optimizing module $paramod\dut\Width=s32'00000000000000000000000000010011.
 Optimizing module top.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\dut\Width=s32'00000000000000000000000000010011.
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\dut\Width=s32'00000000000000000000000000010011..
 Finding unused cells or wires in module \top..
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\dut\Width=s32'00000000000000000000000000010011...
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\dut\Width=s32'00000000000000000000000000010011.
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\dut\Width=s32'00000000000000000000000000010011'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module $paramod\dut\Width=s32'00000000000000000000000000010011..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -295,52 +258,52 @@ Running muxtree optimizer on module \top..
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\dut\Width=s32'00000000000000000000000000010011.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\dut\Width=s32'00000000000000000000000000010011'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\dut\Width=s32'00000000000000000000000000010011..
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\dut\Width=s32'00000000000000000000000000010011.
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\dut\Width=s32'00000000000000000000000000010011..
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\dut\Width=s32'00000000000000000000000000010011.
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\dut\Width=s32'00000000000000000000000000010011'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\dut\Width=s32'00000000000000000000000000010011..
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === $paramod\dut\Width=s32'00000000000000000000000000010011 ===
 
@@ -348,6 +311,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             51
    Number of public wires:           2
    Number of public wire bits:      51
+   Number of ports:                  2
+   Number of port bits:             51
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -359,6 +324,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -374,12 +341,14 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             83
    Number of public wires:           3
    Number of public wire bits:      83
+   Number of ports:                  3
+   Number of port bits:             83
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\dut\Width=s32'00000000000000000000000000010011...
 Checking module top...
 Found and reported 0 problems.
@@ -389,10 +358,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+42 (git sha1 27b51cb35, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\dut\Width=s32'00000000000000000000000000010011'.
 
-(* src = "tests/simple_tests/ReplicationPassedToInstance/top.sv:1.1-9.10" *)
+(* src = "tests/simple_tests/ReplicationPassedToInstance/top.sv:15.4-20.6" *)
 module \$paramod\dut\Width=s32'00000000000000000000000000010011 (wmask_i, x);
   (* src = "tests/simple_tests/ReplicationPassedToInstance/top.sv:5.22-5.29" *)
   input [18:0] wmask_i;
@@ -469,5 +438,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+42 (git sha1 27b51cb35, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
