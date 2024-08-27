@@ -1,57 +1,41 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 1
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'o' of type 'logic_net'
-    Object 'iccm_bank_dout_hi' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-    Object 'iccm_rw_addr_q' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
   Object 'work@top' of type 'module_inst'
+    Object 'iccm_bank_dout_hi' of type 'logic_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'constant'
+    Object 'iccm_rw_addr_q' of type 'logic_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'constant'
     Object 'o' of type 'port'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
@@ -71,70 +55,46 @@ Object 'work@top' of type 'design'
         Object 'iccm_bank_dout_hi' of type 'part_select'
           Object '' of type 'constant'
           Object '' of type 'constant'
-    Object 'iccm_bank_dout_hi' of type 'logic_var'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'constant'
-    Object 'iccm_rw_addr_q' of type 'logic_var'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.1-6.10> str='\top'
-      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic port=1 multirange=[ 0 6 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic multirange=[ 0 6 0 2 ] multirange_swapped=[ 0 0 ]
-        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> range=[11:0]
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic dimensions=[1:0][5:0]
+        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> range=[11:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed range=[31:0] int=11 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
       AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.16-3.38> str='\iccm_rw_addr_q' logic
-        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.10-3.15>
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.10-3.15> in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic port=1 dimensions=[5:0]
+        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.58>
-        AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.12> str='\o'
+        AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.12> str='\o' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.15-5.58> str='\iccm_bank_dout_hi' basic_prep
           AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-            AST_SUB <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+            AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
               AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                  AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                    AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q'
-                      AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52>
-                        AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                        AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) range=[31:0] int=6
-                  AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                    AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                    AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+                  AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q'
+                    AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52>
+                      AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) range=[31:0] int=6
+                AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+                  AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+              AST_SUB <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                 AST_SUB <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                   AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                     AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
                       AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5
                       AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                     AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-                  AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-              AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                  AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
+                    AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
                 AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
               AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
@@ -149,18 +109,18 @@ Dumping AST before simplification:
       AST_INITIAL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
         AST_BLOCK <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
           AST_ASSIGN_EQ <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_rw_addr_q'
+            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_rw_addr_q' in_lvalue
             AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='10'(2) range=[1:0] int=2
           AST_ASSIGN_EQ <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0>
-            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_bank_dout_hi'
+            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_bank_dout_hi' in_lvalue
             AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='101010111100'(12) range=[11:0] int=2748
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
-      output [5:0] o;
       wire [11:0] iccm_bank_dout_hi;
       wire [1:0] iccm_rw_addr_q;
-      assign o = iccm_bank_dout_hi[((((iccm_rw_addr_q[0:0])*(6))+((0)*(1)))+((((5)+(1))*(1))-(1)))-((0)*(1)):((iccm_rw_addr_q[0:0])*(6))+((0)*(1))];
+      output [5:0] o;
+      assign o = iccm_bank_dout_hi[(((iccm_rw_addr_q[0:0])*(6))+((0)*(1)))+(((((5)+(1))*(1))-((0)*(1)))-(1)):((iccm_rw_addr_q[0:0])*(6))+((0)*(1))];
       initial
         begin
           iccm_rw_addr_q = 2'b 10;
@@ -170,37 +130,35 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.1-6.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0]
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic reg basic_prep range=[11:0] multirange=[ 0 6 0 2 ] multirange_swapped=[ 0 0 ]
-        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep range=[11:0]
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.16-3.38> str='\iccm_rw_addr_q' logic reg basic_prep range=[1:0]
-        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.10-3.15> basic_prep range=[1:0]
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:2.21-2.48> str='\iccm_bank_dout_hi' logic reg basic_prep range=[11:0] dimensions=[1:0][5:0]
+        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep range=[11:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) signed basic_prep range=[31:0] int=11 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.16-3.38> str='\iccm_rw_addr_q' logic reg basic_prep range=[1:0] dimensions=[1:0]
+        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:3.10-3.15> basic_prep range=[1:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.31-1.32> str='\o' output logic basic_prep port=1 range=[5:0] dimensions=[5:0]
+        AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:1.25-1.30> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.58> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.12> str='\o' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.11-5.12> str='\o' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.15-5.58> str='\iccm_bank_dout_hi' basic_prep
           AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-            AST_SUB <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
+            AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
               AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                  AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                    AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep
-                      AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> basic_prep range=[0:0]
-                        AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                        AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-                    AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
-                  AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-                AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
-              AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+                AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
+                  AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep int=1
+                    AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> basic_prep range=[0:0]
+                      AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
+                AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+              AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
             AST_ADD <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
               AST_MUL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-                AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep
+                AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> str='\iccm_rw_addr_q' basic_prep int=1
                   AST_RANGE <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:5.33-5.52> basic_prep range=[0:0]
                     AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
                     AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
@@ -209,18 +167,18 @@ Dumping AST after simplification:
       AST_INITIAL <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_rw_addr_q' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_rw_addr_q' basic_prep in_lvalue
             AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='10'(2) basic_prep range=[1:0] int=2
           AST_ASSIGN_EQ <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_bank_dout_hi' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> str='\iccm_bank_dout_hi' basic_prep in_lvalue
             AST_CONSTANT <tests/simple_tests/PartSelectOfPartSelectedBitSelect/top.sv:0.0-0.0> bits='101010111100'(12) basic_prep range=[11:0] int=2748
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
-      output [5:0] o;
       reg [11:0] iccm_bank_dout_hi;
       reg [1:0] iccm_rw_addr_q;
-      assign o = iccm_bank_dout_hi[((((iccm_rw_addr_q[0:0])*(6))+(0))+(5))-(0):((iccm_rw_addr_q[0:0])*(6))+(0)];
+      output [5:0] o;
+      assign o = iccm_bank_dout_hi[(((iccm_rw_addr_q[0:0])*(6))+(0))+(5):((iccm_rw_addr_q[0:0])*(6))+(0)];
       initial
         begin
           iccm_rw_addr_q = 2'b 10;
@@ -278,71 +236,73 @@ Cleaned up 0 empty switches.
 Optimizing module top.
 <suppressed ~3 debug messages>
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 Removed 0 unused cells and 5 unused wires.
 <suppressed ~1 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
@@ -350,12 +310,14 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             20
    Number of public wires:           3
    Number of public wire bits:      20
+   Number of ports:                  1
+   Number of port bits:              6
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -364,7 +326,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -432,4 +394,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
