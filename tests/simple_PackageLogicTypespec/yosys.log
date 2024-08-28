@@ -26,11 +26,12 @@ Object 'work@dut' of type 'design'
       Object '' of type 'range'
         Object '' of type 'constant'
         Object '' of type 'constant'
-  Object '' of type 'module_inst'
-    Object 'clk' of type 'logic_net'
-    Object 'my_in' of type 'logic_net'
-    Object 'my_out' of type 'logic_net'
   Object 'work@dut' of type 'module_inst'
+    Object 'my_in' of type 'logic_var'
+      Object 'my_type_t' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
     Object 'clk' of type 'port'
       Object '' of type 'logic_typespec'
     Object 'my_in' of type 'port'
@@ -53,25 +54,20 @@ Object 'work@dut' of type 'design'
     Object '' of type 'cont_assign'
       Object 'my_out' of type 'ref_obj'
       Object 'my_in' of type 'ref_obj'
-    Object 'my_in' of type 'logic_var'
-      Object 'my_type_t' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.1-9.10> str='\dut'
-      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.24-7.27> str='\clk' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.53-7.58> str='\my_in' input logic basic_prep port=2 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.53-7.58> str='\my_in' input logic basic_prep port=2 range=[31:0] dimensions=[31:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> str='\my_type_t' bits='01011100011011010111100101011111011101000111100101110000011001010101111101110100'(80) basic_prep range=[79:0] int=1885691764 in_param
         AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.17-3.23> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.80-7.86> str='\my_out' output logic port=3 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.24-7.27> str='\clk' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.80-7.86> str='\my_out' output logic port=3 dimensions=[31:0]
         AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.73-7.79> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -79,16 +75,16 @@ Dumping AST before simplification:
         AST_IDENTIFIER <tests/simple_tests/PackageLogicTypespec/dut.sv:8.10-8.16> str='\my_out' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/PackageLogicTypespec/dut.sv:8.19-8.24> str='\my_in'
       AST_TYPEDEF <tests/simple_tests/PackageLogicTypespec/dut.sv:3.11-3.23> str='\my_pkg::my_type_t' basic_prep
-        AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.11-3.23> logic basic_prep range=[31:0]
+        AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.11-3.23> logic basic_prep range=[31:0] dimensions=[31:0]
           AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.17-3.23> basic_prep range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
             AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
-    module dut(clk, my_in, my_out);
-      input [0:0] clk;
+    module dut(my_in, clk, my_out);
       (* wiretype = "\my_type_t" *)
       input [31:0] my_in;
+      input [0:0] clk;
       output [31:0] my_out;
       assign my_out = my_in;
       /** AST_TYPEDEF **/
@@ -96,17 +92,17 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.1-9.10> str='\dut' basic_prep
-      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.24-7.27> str='\clk' input logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.53-7.58> str='\my_in' input logic basic_prep port=2 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.53-7.58> str='\my_in' input logic basic_prep port=2 range=[31:0] dimensions=[31:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> str='\my_type_t' bits='01011100011011010111100101011111011101000111100101110000011001010101111101110100'(80) basic_prep range=[79:0] int=1885691764 in_param
         AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.17-3.23> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.80-7.86> str='\my_out' output logic basic_prep port=3 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.24-7.27> str='\clk' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.80-7.86> str='\my_out' output logic basic_prep port=3 range=[31:0] dimensions=[31:0]
         AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:7.73-7.79> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -114,16 +110,16 @@ Dumping AST after simplification:
         AST_IDENTIFIER <tests/simple_tests/PackageLogicTypespec/dut.sv:8.10-8.16> str='\my_out' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/PackageLogicTypespec/dut.sv:8.19-8.24> str='\my_in' basic_prep
       AST_TYPEDEF <tests/simple_tests/PackageLogicTypespec/dut.sv:3.11-3.23> str='\my_pkg::my_type_t' basic_prep
-        AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.11-3.23> logic basic_prep range=[31:0]
+        AST_WIRE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.11-3.23> logic basic_prep range=[31:0] dimensions=[31:0]
           AST_RANGE <tests/simple_tests/PackageLogicTypespec/dut.sv:3.17-3.23> basic_prep range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
             AST_CONSTANT <tests/simple_tests/PackageLogicTypespec/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module dut(clk, my_in, my_out);
-      input [0:0] clk;
+    module dut(my_in, clk, my_out);
       (* wiretype = "\my_type_t" *)
       input [31:0] my_in;
+      input [0:0] clk;
       output [31:0] my_out;
       assign my_out = my_in;
       /** AST_TYPEDEF **/
@@ -246,6 +242,8 @@ Finding unused cells or wires in module \dut..
    Number of wire bits:             65
    Number of public wires:           3
    Number of public wire bits:      65
+   Number of ports:                  3
+   Number of port bits:             65
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -260,7 +258,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dut'.
 
 (* top =  1  *)
@@ -329,4 +327,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

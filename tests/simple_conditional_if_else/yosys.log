@@ -20,9 +20,11 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
+  Object 'work@top' of type 'module_inst'
     Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
     Object 'b' of type 'logic_net'
+      Object '' of type 'logic_typespec'
     Object '' of type 'always'
       Object '' of type 'event_control'
         Object '' of type 'begin'
@@ -34,11 +36,6 @@ Object 'work@top' of type 'design'
             Object '' of type 'assignment'
               Object 'b' of type 'ref_obj'
               Object '' of type 'constant'
-  Object 'work@top' of type 'module_inst'
-    Object 'a' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-    Object 'b' of type 'logic_net'
-      Object '' of type 'logic_typespec'
     Object '' of type 'cont_assign'
       Object 'a' of type 'logic_net'
         Object '' of type 'logic_typespec'
@@ -58,14 +55,6 @@ Dumping AST before simplification:
         AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8>
-        AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\a' in_lvalue
-        AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_INITIAL <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
-        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
-          AST_ASSIGN_LE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
-            AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\b' in_lvalue
-            AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='0'(1) range=[0:0]
       AST_ALWAYS <tests/simple_tests/conditional_if_else/if_else.sv:9.2-12.5>
         AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.9-9.11>
           AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.12-12.5>
@@ -84,14 +73,19 @@ Dumping AST before simplification:
                   AST_ASSIGN_EQ <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.13>
                     AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.9> str='\b' in_lvalue
                     AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8>
+        AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\a' in_lvalue
+        AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_INITIAL <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
+        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
+          AST_ASSIGN_LE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7>
+            AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\b' in_lvalue
+            AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='0'(1) range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top();
       wire [0:0] a;
       reg [0:0] b;
-      assign a = 1'b 1;
-      initial
-        b <= 1'b 0;
       always @*
         case (|(a))
           1'b 1:
@@ -99,26 +93,21 @@ Dumping Verilog AST before simplification:
           default:
             b = 0;
         endcase
+      assign a = 1'b 1;
+      initial
+        b <= 1'b 0;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/conditional_if_else/if_else.sv:6.1-13.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> str='\a' logic basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> str='\a' logic basic_prep range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.11> str='\b' reg basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.11> str='\b' reg basic_prep range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\a' basic_prep in_lvalue
-        AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_INITIAL <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
-        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
-          AST_ASSIGN_LE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\b' basic_prep in_lvalue
-            AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
       AST_ALWAYS <tests/simple_tests/conditional_if_else/if_else.sv:9.2-12.5> basic_prep
         AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.9-9.11> basic_prep
           AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:9.12-12.5> basic_prep
@@ -137,14 +126,19 @@ Dumping AST after simplification:
                   AST_ASSIGN_EQ <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.13> basic_prep
                     AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:11.8-11.9> str='\b' basic_prep in_lvalue
                     AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <tests/simple_tests/conditional_if_else/if_else.sv:7.7-7.8> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\a' basic_prep in_lvalue
+        AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_INITIAL <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
+        AST_BLOCK <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
+          AST_ASSIGN_LE <tests/simple_tests/conditional_if_else/if_else.sv:8.6-8.7> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> str='\b' basic_prep in_lvalue
+            AST_CONSTANT <tests/simple_tests/conditional_if_else/if_else.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top();
       wire [0:0] a;
       reg [0:0] b;
-      assign a = 1'b 1;
-      initial
-        b <= 1'b 0;
       always @*
         case (|(a))
           1'b 1:
@@ -152,6 +146,9 @@ Dumping Verilog AST after simplification:
           default:
             b = 0;
         endcase
+      assign a = 1'b 1;
+      initial
+        b <= 1'b 0;
     endmodule
 --- END OF AST DUMP ---
 
@@ -328,6 +325,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              2
    Number of public wires:           2
    Number of public wire bits:       2
+   Number of ports:                  0
+   Number of port bits:              0
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -387,4 +386,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

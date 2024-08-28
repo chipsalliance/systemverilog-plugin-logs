@@ -24,19 +24,21 @@ there are 1 more instances of this message.
 [   NOTE] : 7
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'test_parameter' of type 'type_parameter'
+  Object 'work@top' of type 'module_inst'
+    Object 'val' of type 'logic_var'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-    Object 'a_in' of type 'logic_net'
+      Object '' of type 'constant'
+    Object 'a' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'b' of type 'port'
+      Object '' of type 'logic_typespec'
     Object 'a' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
     Object 'b' of type 'logic_net'
-    Object 'val' of type 'logic_net'
-  Object 'work@top' of type 'module_inst'
+      Object '' of type 'logic_typespec'
     Object 'inst1' of type 'module_inst'
       Object 'test_parameter' of type 'type_parameter'
         Object '' of type 'logic_typespec'
@@ -48,14 +50,14 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-      Object 'a' of type 'logic_net'
-        Object '' of type 'logic_typespec'
       Object 'a_in' of type 'port'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
       Object 'a' of type 'port'
+        Object '' of type 'logic_typespec'
+      Object 'a' of type 'logic_net'
         Object '' of type 'logic_typespec'
       Object '' of type 'cont_assign'
         Object 'a' of type 'ref_obj'
@@ -74,8 +76,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-      Object 'a' of type 'logic_net'
-        Object '' of type 'logic_typespec'
       Object 'a_in' of type 'port'
         Object '' of type 'logic_typespec'
           Object '' of type 'range'
@@ -83,35 +83,22 @@ Object 'work@top' of type 'design'
             Object '' of type 'constant'
       Object 'a' of type 'port'
         Object '' of type 'logic_typespec'
+      Object 'a' of type 'logic_net'
+        Object '' of type 'logic_typespec'
       Object '' of type 'cont_assign'
         Object 'a' of type 'ref_obj'
         Object 'a_in' of type 'bit_select'
           Object '' of type 'constant'
       Object 'val' of type 'ref_obj'
       Object 'b' of type 'ref_obj'
-    Object 'a' of type 'port'
-      Object '' of type 'logic_typespec'
-    Object 'b' of type 'port'
-      Object '' of type 'logic_typespec'
-    Object 'a' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-    Object 'b' of type 'logic_net'
-      Object '' of type 'logic_typespec'
-    Object 'val' of type 'logic_var'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'constant'
-Warning: Removing unelaborated module: \test_module from the design.
 Generating RTLIL representation for module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=5 dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=6 dimensions=[0:0]
         AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -123,29 +110,76 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
+      input [3:0] a_in;
+      output [0:0] a;
+      assign a = a_in[0];
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=5 range=[3:0] dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=6 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> str='\a_in' basic_prep int=1
+          AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
+      input [3:0] a_in;
+      output [0:0] a;
+      assign a = a_in[0:0];
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=3 dimensions=[1:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
+        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> str='\a_in'
+          AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20>
+            AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module (a_in, a);
       input [1:0] a_in;
       output [0:0] a;
       assign a = a_in[0];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module' basic_prep
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=3 range=[1:0] dimensions=[1:0]
         AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.38-12.43> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
         AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> str='\a_in' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> str='\a_in' basic_prep int=1
           AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> basic_prep range=[0:0]
             AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
-    module \$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module (a_in, a);
+    module \$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module (a_in, a);
       input [1:0] a_in;
       output [0:0] a;
       assign a = a_in[0:0];
@@ -154,26 +188,26 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top'
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic port=5 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic port=6 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic
         AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14> in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic port=2 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\inst1'
-        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
+        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a_in'
           AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.58-12.61> str='\val'
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a'
           AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.67-12.68> str='\a'
       AST_CELL <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\inst2'
-        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'
+        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a_in'
           AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.27-13.30> str='\val'
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a'
@@ -186,9 +220,9 @@ Dumping AST before simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
+      wire [3:0] val;
       output [0:0] a;
       output [0:0] b;
-      wire [3:0] val;
       /** AST_CELL **/
       /** AST_CELL **/
       initial
@@ -197,26 +231,26 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.1-14.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic basic_prep port=5 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic basic_prep port=6 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic reg basic_prep range=[3:0]
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.15-11.22> str='\val' logic reg basic_prep range=[3:0] dimensions=[3:0]
         AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:11.9-11.14> basic_prep range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.19-10.20> str='\a' output logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:10.29-10.30> str='\b' output logic basic_prep port=2 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\inst1' basic_prep
-        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
+        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module' basic_prep
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a_in' basic_prep
           AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.58-12.61> str='\val' basic_prep
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.3-12.71> str='\a' basic_prep
           AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:12.67-12.68> str='\a' basic_prep
       AST_CELL <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\inst2' basic_prep
-        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module' basic_prep
+        AST_CELLTYPE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> str='$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module' basic_prep
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a_in' basic_prep
           AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.27-13.30> str='\val' basic_prep
         AST_ARGUMENT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:13.3-13.40> str='\a' basic_prep
@@ -229,60 +263,13 @@ Dumping AST after simplification:
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
+      reg [3:0] val;
       output [0:0] a;
       output [0:0] b;
-      reg [3:0] val;
       /** AST_CELL **/
       /** AST_CELL **/
       initial
         val = 4'b 0101;
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
-Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic port=3 multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21>
-        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> str='\a_in'
-          AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20>
-            AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
-      input [3:0] a_in;
-      output [0:0] a;
-      assign a = a_in[0];
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:1.1-8.10> str='$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module' basic_prep
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:4.24-4.28> str='\a_in' input logic basic_prep port=3 range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:2.41-2.46> basic_prep range=[3:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:5.10-5.11> str='\a' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.21> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.10-7.11> str='\a' basic_prep in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> str='\a_in' basic_prep
-          AST_RANGE <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:7.19-7.20> basic_prep range=[0:0]
-            AST_CONSTANT <tests/simple_tests/TypeParameterAsPortTypeWithLogicAnonymous/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module \$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module (a_in, a);
-      input [3:0] a_in;
-      output [0:0] a;
-      assign a = a_in[0:0];
     endmodule
 --- END OF AST DUMP ---
 
@@ -292,13 +279,13 @@ Dumping Verilog AST after simplification:
 
 2.1.1. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module
 Used module:     $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module
+Used module:     $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module
 
 2.1.2. Analyzing design hierarchy..
 Top module:  \top
-Used module:     $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module
 Used module:     $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module
+Used module:     $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module
 Removed 0 unused modules.
 Warning: Resizing cell port top.inst1.a_in from 4 bits to 2 bits.
 
@@ -336,48 +323,48 @@ Removing empty process `top.$proc$tests/simple_tests/TypeParameterAsPortTypeWith
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module top.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
 
 2.3. Executing FUTURE pass.
 
 2.4. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module top.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
 
 2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
 Finding unused cells or wires in module \top..
+Finding unused cells or wires in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
 Finding unused cells or wires in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
 Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
 2.6. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module...
 Checking module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module...
+Checking module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module...
 Checking module top...
 Found and reported 0 problems.
 
 2.7. Executing OPT pass (performing simple optimizations).
 
 2.7.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module top.
 
 2.7.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
 Finding identical cells in module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
+Finding identical cells in module `$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
+Running muxtree optimizer on module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
+Running muxtree optimizer on module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -386,25 +373,25 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
   Optimizing cells in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+  Optimizing cells in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 2.7.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
 Finding identical cells in module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
+Finding identical cells in module `$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
 Finding unused cells or wires in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
+Finding unused cells or wires in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
 Finding unused cells or wires in module \top..
 
 2.7.7. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module top.
 
 2.7.8. Finished OPT passes. (There is nothing left to do.)
@@ -412,8 +399,8 @@ Optimizing module top.
 2.8. Executing WREDUCE pass (reducing word size of cells).
 
 2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
 Finding unused cells or wires in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
+Finding unused cells or wires in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
 Finding unused cells or wires in module \top..
 
 2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
@@ -421,42 +408,46 @@ Finding unused cells or wires in module \top..
 2.11. Executing OPT pass (performing simple optimizations).
 
 2.11.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module top.
 
 2.11.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
 Finding identical cells in module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
+Finding identical cells in module `$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
 Finding unused cells or wires in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
+Finding unused cells or wires in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
 Finding unused cells or wires in module \top..
 
 2.11.4. Finished fast OPT passes.
 
 2.12. Printing statistics.
 
-=== $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module ===
+=== $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module ===
 
    Number of wires:                  2
    Number of wire bits:              5
    Number of public wires:           2
    Number of public wire bits:       5
+   Number of ports:                  2
+   Number of port bits:              5
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-=== $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module ===
+=== $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module ===
 
    Number of wires:                  2
    Number of wire bits:              3
    Number of public wires:           2
    Number of public wire bits:       3
+   Number of ports:                  2
+   Number of port bits:              3
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -468,31 +459,35 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              6
    Number of public wires:           3
    Number of public wire bits:       6
+   Number of ports:                  2
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  2
-     $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module      1
      $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module      1
+     $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module      1
 
 === design hierarchy ===
 
    top                               1
-     $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module      1
      $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module      1
+     $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module      1
 
    Number of wires:                  7
    Number of wire bits:             14
    Number of public wires:           7
    Number of public wire bits:      14
+   Number of ports:                  6
+   Number of port bits:             10
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
 2.13. Executing CHECK pass (checking for obvious problems).
-Checking module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module...
 Checking module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module...
+Checking module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module...
 Checking module top...
 Found and reported 0 problems.
 
@@ -500,13 +495,13 @@ Found and reported 0 problems.
 
 3.1. Analyzing design hierarchy..
 Top module:  \top
+Used module:     $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module
 Used module:     $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module
-Used module:     $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module
 
 3.2. Analyzing design hierarchy..
 Top module:  \top
+Used module:     $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module
 Used module:     $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module
-Used module:     $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module
 Removed 0 unused modules.
 
 4. Executing PROC pass (convert processes to netlists).
@@ -540,28 +535,28 @@ Converted 0 switches.
 Cleaned up 0 empty switches.
 
 4.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module top.
 
 5. Executing OPT pass (performing simple optimizations).
 
 5.1. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module top.
 
 5.2. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
 Finding identical cells in module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
+Finding identical cells in module `$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
-Running muxtree optimizer on module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
+Running muxtree optimizer on module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
   Creating internal representation of mux trees.
   No muxes found in this module.
-Running muxtree optimizer on module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
+Running muxtree optimizer on module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Running muxtree optimizer on module \top..
@@ -570,30 +565,30 @@ Running muxtree optimizer on module \top..
 Removed 0 multiplexer ports.
 
 5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
-  Optimizing cells in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
   Optimizing cells in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+  Optimizing cells in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
 5.5. Executing OPT_MERGE pass (detect identical cells).
-Finding identical cells in module `$paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module'.
 Finding identical cells in module `$paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module'.
+Finding identical cells in module `$paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
 5.6. Executing OPT_DFF pass (perform DFF optimizations).
 
 5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module..
 Finding unused cells or wires in module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module..
+Finding unused cells or wires in module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module..
 Finding unused cells or wires in module \top..
 
 5.8. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod$2a85f2c1993cc5d0487083ace11c25f9e3182c34\test_module.
 Optimizing module $paramod$553ae4d13455974e3a64ff2625d861449941891e\test_module.
+Optimizing module $paramod$7563d9ff22d42e5806d3dc5b7047e7768b44c32c\test_module.
 Optimizing module top.
 
 5.9. Finished OPT passes. (There is nothing left to do.)
 
-Warnings: 2 unique messages, 2 total
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Warnings: 1 unique messages, 1 total
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

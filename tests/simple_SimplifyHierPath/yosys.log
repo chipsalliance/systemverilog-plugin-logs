@@ -21,57 +21,7 @@
 [   NOTE] : 5
 Object 'work@dut' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'clk' of type 'logic_net'
-    Object 'a1' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'v1' of type 'parameter'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'v1' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'constant'
-    Object 'o1' of type 'logic_net'
   Object 'work@dut' of type 'module_inst'
-    Object 'a' of type 'module_inst'
-      Object 'v1' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'v1' of type 'parameter'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'v1' of type 'parameter'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object 'o1' of type 'logic_net'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-      Object 'o1' of type 'port'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-      Object '' of type 'cont_assign'
-        Object 'o1' of type 'logic_net'
-          Object '' of type 'logic_typespec'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object 'a1' of type 'ref_obj'
     Object 'clk' of type 'port'
       Object '' of type 'logic_typespec'
     Object 'a1' of type 'port'
@@ -86,16 +36,44 @@ Object 'work@dut' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-Warning: Removing unelaborated module: \module_scope_Example from the design.
+    Object 'a' of type 'module_inst'
+      Object 'v1' of type 'parameter'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'param_assign'
+        Object 'v1' of type 'parameter'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object 'o1' of type 'port'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+      Object 'o1' of type 'logic_net'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+      Object '' of type 'cont_assign'
+        Object 'o1' of type 'logic_net'
+          Object '' of type 'logic_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object 'a1' of type 'ref_obj'
 Generating RTLIL representation for module `$paramod\module_scope_Example\v1=32'00000000000000000000000000001011'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/SimplifyHierPath/dut.sv:1.1-5.10> str='$paramod\module_scope_Example\v1=32'00000000000000000000000000001011'
-      AST_PARAMETER <tests/simple_tests/SimplifyHierPath/dut.sv:2.21-2.28> str='\v1' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+    AST_MODULE <tests/simple_tests/SimplifyHierPath/dut.sv:11.4-11.44> str='$paramod\module_scope_Example\v1=32'00000000000000000000000000001011'
+      AST_PARAMETER <tests/simple_tests/SimplifyHierPath/dut.sv:2.21-2.28> str='\v1' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) range=[31:0] int=11 in_param
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:2.14-2.20> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:1.29-1.31> str='\o1' output logic port=1 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:1.29-1.31> str='\o1' output logic port=3 dimensions=[31:0]
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:3.16-3.22> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -111,13 +89,13 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/SimplifyHierPath/dut.sv:1.1-5.10> str='$paramod\module_scope_Example\v1=32'00000000000000000000000000001011' basic_prep
-      AST_PARAMETER <tests/simple_tests/SimplifyHierPath/dut.sv:2.21-2.28> str='\v1' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+    AST_MODULE <tests/simple_tests/SimplifyHierPath/dut.sv:11.4-11.44> str='$paramod\module_scope_Example\v1=32'00000000000000000000000000001011' basic_prep
+      AST_PARAMETER <tests/simple_tests/SimplifyHierPath/dut.sv:2.21-2.28> str='\v1' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) basic_prep range=[31:0] int=11 in_param
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:2.14-2.20> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:1.29-1.31> str='\o1' output logic basic_prep port=1 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:1.29-1.31> str='\o1' output logic basic_prep port=3 range=[31:0] dimensions=[31:0]
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:3.16-3.22> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -135,11 +113,11 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/SimplifyHierPath/dut.sv:7.1-12.10> str='\dut'
-      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:8.16-8.19> str='\clk' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:8.16-8.19> str='\clk' input logic port=1 dimensions=[0:0]
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:9.23-9.25> str='\a1' output logic port=3 multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:9.23-9.25> str='\a1' output logic port=2 dimensions=[31:0]
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:9.16-9.22> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -157,11 +135,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/SimplifyHierPath/dut.sv:7.1-12.10> str='\dut' basic_prep
-      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:8.16-8.19> str='\clk' input logic basic_prep port=2 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:8.16-8.19> str='\clk' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:9.23-9.25> str='\a1' output logic basic_prep port=3 range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/SimplifyHierPath/dut.sv:9.23-9.25> str='\a1' output logic basic_prep port=2 range=[31:0] dimensions=[31:0]
         AST_RANGE <tests/simple_tests/SimplifyHierPath/dut.sv:9.16-9.22> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/SimplifyHierPath/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -313,6 +291,8 @@ Finding unused cells or wires in module \dut..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -324,6 +304,8 @@ Finding unused cells or wires in module \dut..
    Number of wire bits:             33
    Number of public wires:           2
    Number of public wire bits:      33
+   Number of ports:                  2
+   Number of port bits:             33
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -339,6 +321,8 @@ Finding unused cells or wires in module \dut..
    Number of wire bits:             65
    Number of public wires:           3
    Number of public wire bits:      65
+   Number of ports:                  3
+   Number of port bits:             65
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -354,10 +338,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\module_scope_Example\v1=32'00000000000000000000000000001011'.
 
-(* src = "tests/simple_tests/SimplifyHierPath/dut.sv:1.1-5.10" *)
+(* src = "tests/simple_tests/SimplifyHierPath/dut.sv:11.4-11.44" *)
 module \$paramod\module_scope_Example\v1=32'00000000000000000000000000001011 (o1);
   (* src = "tests/simple_tests/SimplifyHierPath/dut.sv:1.29-1.31" *)
   output [31:0] o1;
@@ -433,5 +417,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

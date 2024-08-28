@@ -38,8 +38,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'constant'
           Object '' of type 'constant'
       Object '' of type 'constant'
-  Object '' of type 'module_inst'
-    Object 'o' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
     Object 'o' of type 'port'
       Object '' of type 'logic_typespec'
@@ -57,7 +55,7 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.1-12.10> str='\top'
-      AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic port=1 multirange=[ 0 64 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic port=1 dimensions=[63:0]
         AST_RANGE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.25-10.31> basic_prep range=[63:0] in_param
           AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
           AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -73,13 +71,13 @@ Dumping AST before simplification:
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/EnumConcatenatedConst/top.sv:4.4-6.11> str='\state_pkg::state' basic_prep
-        AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> reg basic_prep range=[63:0]
+        AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> reg basic_prep range=[63:0] dimensions=[63:0]
           ATTR \enum_type:
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_RANGE <tests/simple_tests/EnumConcatenatedConst/top.sv:4.23-4.29> basic_prep range=[63:0] in_param
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_PARAMETER <tests/simple_tests/EnumConcatenatedConst/top.sv:2.27-2.36> str='\state_pkg::A' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/EnumConcatenatedConst/top.sv:2.27-2.36> str='\state_pkg::A' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/EnumConcatenatedConst/top.sv:2.20-2.26> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -96,7 +94,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.1-12.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic basic_prep port=1 range=[63:0] multirange=[ 0 64 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.32-10.33> str='\o' output logic basic_prep port=1 range=[63:0] dimensions=[63:0]
         AST_RANGE <tests/simple_tests/EnumConcatenatedConst/top.sv:10.25-10.31> basic_prep range=[63:0] in_param
           AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
           AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -112,13 +110,13 @@ Dumping AST after simplification:
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/EnumConcatenatedConst/top.sv:4.4-6.11> str='\state_pkg::state' basic_prep
-        AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> reg basic_prep range=[63:0]
+        AST_WIRE <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> reg basic_prep range=[63:0] dimensions=[63:0]
           ATTR \enum_type:
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_RANGE <tests/simple_tests/EnumConcatenatedConst/top.sv:4.23-4.29> basic_prep range=[63:0] in_param
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
             AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_PARAMETER <tests/simple_tests/EnumConcatenatedConst/top.sv:2.27-2.36> str='\state_pkg::A' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/EnumConcatenatedConst/top.sv:2.27-2.36> str='\state_pkg::A' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/EnumConcatenatedConst/top.sv:2.20-2.26> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/EnumConcatenatedConst/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -250,6 +248,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             64
    Number of public wires:           1
    Number of public wire bits:      64
+   Number of ports:                  1
+   Number of port bits:             64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -264,7 +264,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -326,4 +326,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

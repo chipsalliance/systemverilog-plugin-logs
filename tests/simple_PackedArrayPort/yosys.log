@@ -26,13 +26,59 @@ Object 'work@top' of type 'design'
     Object 'pack_pkg::foo' of type 'enum_typespec'
       Object '' of type 'logic_typespec'
       Object 'fOO' of type 'enum_const'
-  Object '' of type 'module_inst'
-    Object 'inp' of type 'logic_net'
-    Object 'out' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'inp' of type 'logic_net'
-    Object 'out' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
+    Object 'inp' of type 'array_var'
+      Object '' of type 'array_typespec'
+      Object 'pack_pkg::foo' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+        Object 'fOO' of type 'enum_const'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'operation'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'out' of type 'array_var'
+      Object '' of type 'array_typespec'
+      Object 'pack_pkg::foo' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+        Object 'fOO' of type 'enum_const'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'operation'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'inp' of type 'port'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'operation'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'packed_array_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object 'pack_pkg::foo' of type 'enum_typespec'
+          Object '' of type 'logic_typespec'
+          Object 'fOO' of type 'enum_const'
+    Object 'out' of type 'port'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'operation'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'packed_array_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object 'pack_pkg::foo' of type 'enum_typespec'
+          Object '' of type 'logic_typespec'
+          Object 'fOO' of type 'enum_const'
     Object 'u_dut' of type 'module_inst'
       Object 'inp' of type 'array_var'
         Object '' of type 'array_typespec'
@@ -91,62 +137,10 @@ Object 'work@top' of type 'design'
         Object 'inp' of type 'ref_obj'
       Object 'inp' of type 'ref_obj'
       Object 'out' of type 'ref_obj'
-    Object 'inp' of type 'port'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'operation'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'packed_array_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-        Object 'pack_pkg::foo' of type 'enum_typespec'
-          Object '' of type 'logic_typespec'
-          Object 'fOO' of type 'enum_const'
-    Object 'out' of type 'port'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'operation'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'packed_array_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-        Object 'pack_pkg::foo' of type 'enum_typespec'
-          Object '' of type 'logic_typespec'
-          Object 'fOO' of type 'enum_const'
-    Object 'inp' of type 'array_var'
-      Object '' of type 'array_typespec'
-      Object 'pack_pkg::foo' of type 'enum_typespec'
-        Object '' of type 'logic_typespec'
-        Object 'fOO' of type 'enum_const'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'operation'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-    Object 'out' of type 'array_var'
-      Object '' of type 'array_typespec'
-      Object 'pack_pkg::foo' of type 'enum_typespec'
-        Object '' of type 'logic_typespec'
-        Object 'fOO' of type 'enum_const'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'operation'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-Generating RTLIL representation for module `\top'.
+Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:9.1-11.10> str='\top'
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.38-9.41> str='\inp' input reg basic_prep port=3 range=[0:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
+    AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:10.3-10.36> str='\dut'
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.38-5.41> str='\inp' input reg basic_prep port=3 range=[0:0] dimensions=[0:0][1:0][0:1]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
         ATTR \enum_value_0:
@@ -154,7 +148,109 @@ Dumping AST before simplification:
         AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.73-9.76> str='\out' output reg basic_prep port=4 range=[0:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.73-5.76> str='\out' output reg basic_prep port=4 range=[0:0] dimensions=[0:0][1:0][0:1]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
+        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.19>
+        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.13> str='\out' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.16-6.19> str='\inp'
+      AST_ENUM <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> str='\pack_pkg::fOO' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> bits='0'(1) basic_prep range=[0:0]
+          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='\pack_pkg::foo' basic_prep
+        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0] dimensions=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(inp, out);
+      (* wiretype = "\foo" *)
+      (* enum_value_0 = "\fOO" *)
+      input reg [3:0] inp;
+      (* wiretype = "\foo" *)
+      (* enum_value_0 = "\fOO" *)
+      output reg [3:0] out;
+      assign out = inp;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Warning: reg '\out' is assigned in a continuous assignment at tests/simple_tests/PackedArrayPort/top.sv:6.10-6.19.
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:10.3-10.36> str='\dut' basic_prep
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.38-5.41> str='\inp' input reg basic_prep port=3 range=[3:0] dimensions=[0:0][1:0][0:1]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
+        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.73-5.76> str='\out' output reg basic_prep port=4 range=[3:0] dimensions=[0:0][1:0][0:1]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
+        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.19> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.13> str='\out' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.16-6.19> str='\inp' basic_prep
+      AST_ENUM <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> str='\pack_pkg::fOO' logic basic_prep range=[0:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> bits='0'(1) basic_prep range=[0:0]
+          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='\pack_pkg::foo' basic_prep
+        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0] dimensions=[0:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(inp, out);
+      (* wiretype = "\foo" *)
+      (* enum_value_0 = "\fOO" *)
+      input reg [3:0] inp;
+      (* wiretype = "\foo" *)
+      (* enum_value_0 = "\fOO" *)
+      output reg [3:0] out;
+      assign out = inp;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:9.1-11.10> str='\top'
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.38-9.41> str='\inp' input reg basic_prep port=1 range=[0:0] dimensions=[0:0][1:0][0:1]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
+        ATTR \enum_value_0:
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
+        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.73-9.76> str='\out' output reg basic_prep port=2 range=[0:0] dimensions=[0:0][1:0][0:1]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
         ATTR \enum_value_0:
@@ -177,7 +273,7 @@ Dumping AST before simplification:
             AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='\pack_pkg::foo' basic_prep
-        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0] dimensions=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
@@ -199,7 +295,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:9.1-11.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.38-9.41> str='\inp' input reg basic_prep port=3 range=[3:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.38-9.41> str='\inp' input reg basic_prep port=1 range=[3:0] dimensions=[0:0][1:0][0:1]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
         ATTR \enum_value_0:
@@ -207,7 +303,7 @@ Dumping AST after simplification:
         AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.73-9.76> str='\out' output reg basic_prep port=4 range=[3:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
+      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:9.73-9.76> str='\out' output reg basic_prep port=2 range=[3:0] dimensions=[0:0][1:0][0:1]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
         ATTR \enum_value_0:
@@ -230,7 +326,7 @@ Dumping AST after simplification:
             AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
             AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='\pack_pkg::foo' basic_prep
-        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0]
+        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0] dimensions=[0:0]
           ATTR \enum_type:
             AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
@@ -246,108 +342,6 @@ Dumping Verilog AST after simplification:
       (* enum_value_0 = "\fOO" *)
       output reg [3:0] out;
       /** AST_CELL **/
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `\dut'.
-Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:5.1-7.10> str='\dut'
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.38-5.41> str='\inp' input reg basic_prep port=1 range=[0:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
-        ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
-        ATTR \enum_value_0:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
-        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> range=[3:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.73-5.76> str='\out' output reg basic_prep port=2 range=[0:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
-        ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
-        ATTR \enum_value_0:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
-        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> range=[3:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.19>
-        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.13> str='\out' in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.16-6.19> str='\inp'
-      AST_ENUM <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> str='\pack_pkg::fOO' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> bits='0'(1) basic_prep range=[0:0]
-          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='\pack_pkg::foo' basic_prep
-        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
-          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module dut(inp, out);
-      (* wiretype = "\foo" *)
-      (* enum_value_0 = "\fOO" *)
-      input reg [3:0] inp;
-      (* wiretype = "\foo" *)
-      (* enum_value_0 = "\fOO" *)
-      output reg [3:0] out;
-      assign out = inp;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-    endmodule
---- END OF AST DUMP ---
-Warning: reg '\out' is assigned in a continuous assignment at tests/simple_tests/PackedArrayPort/top.sv:6.10-6.19.
-Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/PackedArrayPort/top.sv:5.1-7.10> str='\dut' basic_prep
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.38-5.41> str='\inp' input reg basic_prep port=1 range=[3:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
-        ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
-        ATTR \enum_value_0:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
-        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:5.73-5.76> str='\out' output reg basic_prep port=2 range=[3:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 1 ]
-        ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\foo' bits='01011100011001100110111101101111'(32) basic_prep range=[31:0] int=1550217071 in_param
-        ATTR \enum_value_0:
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='\fOO' bits='01011100011001100100111101001111'(32) basic_prep range=[31:0] int=1550208847 in_param
-        AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.19> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.10-6.13> str='\out' basic_prep in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/PackedArrayPort/top.sv:6.16-6.19> str='\inp' basic_prep
-      AST_ENUM <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> str='\pack_pkg::fOO' logic basic_prep range=[0:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
-          AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:2.24-2.27> bits='0'(1) basic_prep range=[0:0]
-          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0]
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <tests/simple_tests/PackedArrayPort/top.sv:2.3-2.34> str='\pack_pkg::foo' basic_prep
-        AST_WIRE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> reg basic_prep range=[0:0]
-          ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
-          AST_RANGE <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-            AST_CONSTANT <tests/simple_tests/PackedArrayPort/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module dut(inp, out);
-      (* wiretype = "\foo" *)
-      (* enum_value_0 = "\fOO" *)
-      input reg [3:0] inp;
-      (* wiretype = "\foo" *)
-      (* enum_value_0 = "\fOO" *)
-      output reg [3:0] out;
-      assign out = inp;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
     endmodule
@@ -397,18 +391,18 @@ Converted 0 switches.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module dut.
 Optimizing module top.
+Optimizing module dut.
 
 2.3. Executing FUTURE pass.
 
 2.4. Executing OPT_EXPR pass (perform const folding).
-Optimizing module dut.
 Optimizing module top.
+Optimizing module dut.
 
 2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \dut..
 Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \dut..
 
 2.6. Executing CHECK pass (checking for obvious problems).
 Checking module dut...
@@ -488,6 +482,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              8
    Number of public wires:           2
    Number of public wire bits:       8
+   Number of ports:                  2
+   Number of port bits:              8
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -499,6 +495,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              8
    Number of public wires:           2
    Number of public wire bits:       8
+   Number of ports:                  2
+   Number of port bits:              8
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -514,6 +512,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             16
    Number of public wires:           4
    Number of public wire bits:      16
+   Number of ports:                  4
+   Number of port bits:             16
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -529,10 +529,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dut'.
 
-(* src = "tests/simple_tests/PackedArrayPort/top.sv:5.1-7.10" *)
+(* src = "tests/simple_tests/PackedArrayPort/top.sv:10.3-10.36" *)
 module dut(inp, out);
   (* enum_value_0 = "\\fOO" *)
   (* src = "tests/simple_tests/PackedArrayPort/top.sv:5.38-5.41" *)
@@ -621,4 +621,4 @@ Simulating cycle 39.
 Simulating cycle 40.
 
 Warnings: 1 unique messages, 1 total
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

@@ -33,9 +33,6 @@ Object 'work@dut' of type 'design'
     Object '' of type 'param_assign'
       Object 'PMP_CFG_W' of type 'parameter'
       Object '' of type 'constant'
-  Object '' of type 'module_inst'
-    Object 'a' of type 'logic_net'
-    Object 'b' of type 'logic_net'
   Object 'work@dut' of type 'module_inst'
     Object 'a' of type 'port'
       Object '' of type 'logic_typespec'
@@ -68,11 +65,11 @@ Object 'work@dut' of type 'design'
 Generating RTLIL representation for module `\dut'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/OnePackage/dut.sv:11.1-18.10> str='\dut'
-      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:14.14-14.15> str='\a' input logic port=1 multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:14.14-14.15> str='\a' input logic port=1 dimensions=[5:0]
         AST_RANGE <tests/simple_tests/OnePackage/dut.sv:14.8-14.13> basic_prep range=[5:0] in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:15.13-15.14> str='\b' output reg port=2 multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:15.13-15.14> str='\b' output reg port=2 dimensions=[2:0]
         AST_RANGE <tests/simple_tests/OnePackage/dut.sv:15.7-15.12> basic_prep range=[2:0] in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -99,13 +96,13 @@ Dumping AST before simplification:
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/OnePackage/dut.sv:2.3-5.14> str='\top_pkg::opcode_e' basic_prep
-        AST_WIRE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
+        AST_WIRE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> reg basic_prep range=[5:0] dimensions=[5:0]
           ATTR \enum_type:
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0] in_param
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_PARAMETER <tests/simple_tests/OnePackage/dut.sv:7.24-7.37> str='\top_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/OnePackage/dut.sv:7.24-7.37> str='\top_pkg::PMP_CFG_W' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -124,11 +121,11 @@ Dumping Verilog AST before simplification:
 Warning: reg '\b' is assigned in a continuous assignment at tests/simple_tests/OnePackage/dut.sv:16.10-17.45.
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/OnePackage/dut.sv:11.1-18.10> str='\dut' basic_prep
-      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:14.14-14.15> str='\a' input logic basic_prep port=1 range=[5:0] multirange=[ 0 6 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:14.14-14.15> str='\a' input logic basic_prep port=1 range=[5:0] dimensions=[5:0]
         AST_RANGE <tests/simple_tests/OnePackage/dut.sv:14.8-14.13> basic_prep range=[5:0] in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:15.13-15.14> str='\b' output reg basic_prep port=2 range=[2:0] multirange=[ 0 3 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:15.13-15.14> str='\b' output reg basic_prep port=2 range=[2:0] dimensions=[2:0]
         AST_RANGE <tests/simple_tests/OnePackage/dut.sv:15.7-15.12> basic_prep range=[2:0] in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -155,13 +152,13 @@ Dumping AST after simplification:
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/OnePackage/dut.sv:2.3-5.14> str='\top_pkg::opcode_e' basic_prep
-        AST_WIRE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> reg basic_prep range=[5:0]
+        AST_WIRE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> reg basic_prep range=[5:0] dimensions=[5:0]
           ATTR \enum_type:
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0] in_param
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
             AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_PARAMETER <tests/simple_tests/OnePackage/dut.sv:7.24-7.37> str='\top_pkg::PMP_CFG_W' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/OnePackage/dut.sv:7.24-7.37> str='\top_pkg::PMP_CFG_W' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -301,6 +298,8 @@ Finding unused cells or wires in module \dut..
    Number of wire bits:              9
    Number of public wires:           2
    Number of public wire bits:       9
+   Number of ports:                  2
+   Number of port bits:              9
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -316,7 +315,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\dut'.
 
 (* top =  1  *)
@@ -340,4 +339,4 @@ endmodule
 Dumping module `\dut'.
 
 Warnings: 1 unique messages, 1 total
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

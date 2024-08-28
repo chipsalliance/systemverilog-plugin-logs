@@ -41,13 +41,6 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'data_i' of type 'logic_net'
-    Object 'o' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'data_i' of type 'logic_net'
-    Object 'o' of type 'logic_net'
-    Object 'j' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
     Object 'data_i' of type 'port'
       Object '' of type 'logic_typespec'
@@ -88,13 +81,13 @@ Object 'work@top' of type 'design'
           Object '' of type 'gen_scope'
             Object 'i' of type 'parameter'
             Object 'u_sub' of type 'module_inst'
-              Object 'data_i' of type 'logic_net'
-                Object '' of type 'logic_typespec'
-              Object 'o' of type 'logic_net'
-                Object '' of type 'logic_typespec'
               Object 'data_i' of type 'port'
                 Object '' of type 'logic_typespec'
               Object 'o' of type 'port'
+                Object '' of type 'logic_typespec'
+              Object 'data_i' of type 'logic_net'
+                Object '' of type 'logic_typespec'
+              Object 'o' of type 'logic_net'
                 Object '' of type 'logic_typespec'
               Object '' of type 'cont_assign'
                 Object 'o' of type 'ref_obj'
@@ -264,24 +257,66 @@ Object 'work@top' of type 'design'
               Object 'o' of type 'var_select'
                 Object '' of type 'constant'
                 Object '' of type 'constant'
+Generating RTLIL representation for module `\sub'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:11.10-14.12> str='\sub'
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic port=3 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic port=4 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.21>
+        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.12> str='\o' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.15-2.21> str='\data_i'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module sub(data_i, o);
+      input [0:0] data_i;
+      output [0:0] o;
+      assign o = data_i;
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:11.10-14.12> str='\sub' basic_prep
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic basic_prep port=3 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic basic_prep port=4 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.21> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.12> str='\o' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.15-2.21> str='\data_i' basic_prep
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module sub(data_i, o);
+      input [0:0] data_i;
+      output [0:0] o;
+      assign o = data_i;
+    endmodule
+--- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:5.1-17.10> str='\top'
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:6.27-6.33> str='\data_i' input logic port=1 multirange=[ 0 4 0 4 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:6.27-6.33> str='\data_i' input logic port=1 dimensions=[3:0][3:0]
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> range=[15:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:7.28-7.29> str='\o' output logic port=2 multirange=[ 0 4 0 4 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:7.28-7.29> str='\o' output logic port=2 dimensions=[3:0][3:0]
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> range=[15:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed range=[31:0] int=15 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.23-9.24> str='\j' logic range=[0:0]
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[0].j' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[0].j' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[0].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[0].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -346,7 +381,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[1].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[1].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -411,7 +446,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[2].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[2].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -476,7 +511,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[3].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[3].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -541,12 +576,12 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[1].j' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[1].j' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000001'(32) unsized range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[0].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[0].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -611,7 +646,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[1].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[1].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -676,7 +711,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[2].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[2].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -741,7 +776,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[3].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[3].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -806,12 +841,12 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[2].j' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[2].j' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000010'(32) unsized range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[0].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[0].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -876,7 +911,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[1].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[1].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -941,7 +976,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[2].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[2].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1006,7 +1041,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[3].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[3].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1071,12 +1106,12 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[3].j' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[3].j' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000011'(32) unsized range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[0].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[0].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1141,7 +1176,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[1].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[1].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1206,7 +1241,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[2].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[2].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1271,7 +1306,7 @@ Dumping AST before simplification:
                 AST_MUL <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0>
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
                   AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[3].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[3].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1361,7 +1396,6 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       input [15:0] data_i;
       output [15:0] o;
-      wire j;
       /** AST_CELL **/
       /** AST_CELL **/
       /** AST_CELL **/
@@ -1382,21 +1416,20 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:5.1-17.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:6.27-6.33> str='\data_i' input logic basic_prep port=1 range=[15:0] multirange=[ 0 4 0 4 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:6.27-6.33> str='\data_i' input logic basic_prep port=1 range=[15:0] dimensions=[3:0][3:0]
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[15:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:7.28-7.29> str='\o' output logic basic_prep port=2 range=[15:0] multirange=[ 0 4 0 4 ] multirange_swapped=[ 0 0 ]
+      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:7.28-7.29> str='\o' output logic basic_prep port=2 range=[15:0] dimensions=[3:0][3:0]
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[15:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001111'(32) signed basic_prep range=[31:0] int=15 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.23-9.24> str='\j' logic basic_prep range=[0:0]
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[0].j' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[0].j' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[0].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[0].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1413,7 +1446,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[1].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[1].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1430,7 +1463,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[4:4]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[2].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[2].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1447,7 +1480,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[8:8]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[3].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[0].gen_sbox_i[3].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized basic_prep range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1464,12 +1497,12 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[12:12]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001100'(32) basic_prep range=[31:0] int=12
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001100'(32) basic_prep range=[31:0] int=12
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[1].j' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[1].j' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000001'(32) unsized basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[0].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[0].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1486,7 +1519,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[1:1]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[1].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[1].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1503,7 +1536,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[5:5]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[2].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[2].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1520,7 +1553,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[9:9]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) basic_prep range=[31:0] int=9
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001001'(32) basic_prep range=[31:0] int=9
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[3].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[1].gen_sbox_i[3].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized basic_prep range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1537,12 +1570,12 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[13:13]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001101'(32) basic_prep range=[31:0] int=13
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001101'(32) basic_prep range=[31:0] int=13
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[2].j' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[2].j' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000010'(32) unsized basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[0].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[0].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1559,7 +1592,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[2:2]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[1].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[1].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1576,7 +1609,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[6:6]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[2].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[2].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1593,7 +1626,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[10:10]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001010'(32) basic_prep range=[31:0] int=10
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[3].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[2].gen_sbox_i[3].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized basic_prep range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1610,12 +1643,12 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[14:14]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) basic_prep range=[31:0] int=14
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001110'(32) basic_prep range=[31:0] int=14
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[3].j' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> str='\gen_sbox_j[3].j' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:9.0-9.0> bits='00000000000000000000000000000011'(32) unsized basic_prep range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[0].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[0].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1632,7 +1665,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[3:3]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[1].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[1].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000001'(32) unsized basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1649,7 +1682,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[7:7]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[2].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[2].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000010'(32) unsized basic_prep range=[31:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1666,7 +1699,7 @@ Dumping AST after simplification:
             AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[11:11]
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) basic_prep range=[31:0] int=11
               AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000001011'(32) basic_prep range=[31:0] int=11
-      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[3].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> str='\gen_sbox_j[3].gen_sbox_i[3].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:10.0-10.0> bits='00000000000000000000000000000011'(32) unsized basic_prep range=[31:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -1708,7 +1741,6 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       input [15:0] data_i;
       output [15:0] o;
-      wire j;
       /** AST_CELL **/
       /** AST_CELL **/
       /** AST_CELL **/
@@ -1725,49 +1757,6 @@ Dumping Verilog AST after simplification:
       /** AST_CELL **/
       /** AST_CELL **/
       /** AST_CELL **/
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `\sub'.
-Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.1-3.10> str='\sub'
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic port=4 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.21>
-        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.12> str='\o' in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.15-2.21> str='\data_i'
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module sub(data_i, o);
-      input [0:0] data_i;
-      output [0:0] o;
-      assign o = data_i;
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.1-3.10> str='\sub' basic_prep
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30> str='\data_i' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.45-1.46> str='\o' output logic basic_prep port=4 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_ASSIGN <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.21> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.11-2.12> str='\o' basic_prep in_lvalue
-        AST_IDENTIFIER <tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:2.15-2.21> str='\data_i' basic_prep
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module sub(data_i, o);
-      input [0:0] data_i;
-      output [0:0] o;
-      assign o = data_i;
     endmodule
 --- END OF AST DUMP ---
 
@@ -1815,20 +1804,18 @@ Converted 0 switches.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module sub.
 Optimizing module top.
+Optimizing module sub.
 
 2.3. Executing FUTURE pass.
 
 2.4. Executing OPT_EXPR pass (perform const folding).
-Optimizing module sub.
 Optimizing module top.
+Optimizing module sub.
 
 2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module \sub..
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
+Finding unused cells or wires in module \sub..
 
 2.6. Executing CHECK pass (checking for obvious problems).
 Checking module sub...
@@ -1908,6 +1895,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              2
    Number of public wires:           2
    Number of public wire bits:       2
+   Number of ports:                  2
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1919,6 +1908,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           2
    Number of public wire bits:      32
+   Number of ports:                  2
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1934,6 +1925,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             64
    Number of public wires:          34
    Number of public wire bits:      64
+   Number of ports:                 34
+   Number of port bits:             64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -1949,10 +1942,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\sub'.
 
-(* src = "tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.1-3.10" *)
+(* src = "tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:11.10-14.12" *)
 module sub(data_i, o);
   (* src = "tests/simple_tests/NestedGenscopesInModuleWithMultidimensionalPorts/top.sv:1.24-1.30" *)
   input data_i;
@@ -2122,4 +2115,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

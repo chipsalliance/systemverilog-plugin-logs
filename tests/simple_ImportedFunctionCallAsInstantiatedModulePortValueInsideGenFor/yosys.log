@@ -34,13 +34,8 @@ Object 'work@top' of type 'design'
         Object '' of type 'operation'
           Object 'val' of type 'ref_obj'
           Object '' of type 'constant'
-  Object '' of type 'module_inst'
-    Object 'module_input' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'some_package' of type 'import_typespec'
-    Object 'some_wire' of type 'logic_net'
-    Object 'k' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
+    Object 'some_package' of type 'import_typespec'
     Object 'the_function_name' of type 'function'
       Object '' of type 'logic_var'
         Object '' of type 'logic_typespec'
@@ -50,14 +45,25 @@ Object 'work@top' of type 'design'
         Object '' of type 'operation'
           Object 'val' of type 'ref_obj'
           Object '' of type 'constant'
+    Object 'the_function_name' of type 'function'
+      Object '' of type 'logic_var'
+        Object '' of type 'logic_typespec'
+      Object 'val' of type 'io_decl'
+        Object '' of type 'logic_typespec'
+      Object '' of type 'return_stmt'
+        Object '' of type 'operation'
+          Object 'val' of type 'ref_obj'
+          Object '' of type 'constant'
+    Object 'some_wire' of type 'logic_var'
+      Object '' of type 'logic_typespec'
     Object 'gen_for_generate_loop_name[0]' of type 'gen_scope_array'
       Object '' of type 'gen_scope'
         Object 'k' of type 'parameter'
         Object 'the_function_name' of type 'logic_net'
         Object 'an_instance' of type 'module_inst'
-          Object 'module_input' of type 'logic_net'
-            Object '' of type 'logic_typespec'
           Object 'module_input' of type 'port'
+            Object '' of type 'logic_typespec'
+          Object 'module_input' of type 'logic_net'
             Object '' of type 'logic_typespec'
           Object 'the_function_name' of type 'func_call'
             Object 'some_wire' of type 'ref_obj'
@@ -68,22 +74,70 @@ Object 'work@top' of type 'design'
         Object 'an_instance' of type 'module_inst'
           Object 'the_function_name' of type 'func_call'
             Object 'some_wire' of type 'ref_obj'
-    Object 'some_wire' of type 'logic_var'
-      Object '' of type 'logic_typespec'
+Generating RTLIL representation for module `\module_name'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\module_name'
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:7.33-7.45> str='\module_input' input logic port=4 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_FUNCTION <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.3-4.34> str='\some_package::the_function_name'
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name' logic
+          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 dimensions=[0:0]
+          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_ASSIGN_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.5-3.11>
+          AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\some_package::the_function_name' in_lvalue
+          AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
+            AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module module_name(module_input);
+      input [0:0] module_input;
+      /** AST_FUNCTION **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\module_name' basic_prep
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:7.33-7.45> str='\module_input' input logic basic_prep port=4 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_FUNCTION <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.3-4.34> str='\some_package::the_function_name'
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name' logic
+          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 dimensions=[0:0]
+          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+        AST_ASSIGN_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.5-3.11>
+          AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\some_package::the_function_name' in_lvalue
+          AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
+            AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
+            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module module_name(module_input);
+      input [0:0] module_input;
+      /** AST_FUNCTION **/
+    endmodule
+--- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:10.1-21.16> str='\top'
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:13.9-13.18> str='\some_wire' logic
-        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.22-15.23> str='\k' logic range=[0:0]
       AST_FUNCTION <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.3-4.34> str='\the_function_name'
         AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\the_function_name' logic
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=3 dimensions=[0:0]
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -92,7 +146,11 @@ Dumping AST before simplification:
           AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[0].k' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:13.9-13.18> str='\some_wire' logic
+        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[0].k' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -103,7 +161,7 @@ Dumping AST before simplification:
         AST_ARGUMENT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\module_input'
           AST_FCALL <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.49> str='\some_package::the_function_name'
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.39-17.48> str='\some_wire'
-      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[1].k' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[1].k' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> bits='00000000000000000000000000000001'(32) unsized range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -119,7 +177,7 @@ Dumping AST before simplification:
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 dimensions=[0:0]
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -134,7 +192,6 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       wire [0:0] some_wire;
-      wire k;
       wire \gen_for_generate_loop_name[0].the_function_name ;
       wire \gen_for_generate_loop_name[1].the_function_name ;
       /** AST_FUNCTION **/
@@ -145,17 +202,12 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:10.1-21.16> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:13.9-13.18> str='\some_wire' logic basic_prep range=[0:0]
-        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.22-15.23> str='\k' logic basic_prep range=[0:0]
       AST_FUNCTION <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.3-4.34> str='\the_function_name'
         AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\the_function_name' logic
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=2 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=3 dimensions=[0:0]
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -164,22 +216,26 @@ Dumping AST after simplification:
           AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[0].k' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:13.9-13.18> str='\some_wire' logic basic_prep range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[0].k' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.38> str='\gen_for_generate_loop_name[0].the_function_name' logic basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.38> str='\gen_for_generate_loop_name[0].the_function_name' logic basic_prep range=[0:0] dimensions=[0:0]
       AST_CELL <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\gen_for_generate_loop_name[0].an_instance' basic_prep
         AST_CELLTYPE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\module_name' basic_prep
         AST_ARGUMENT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\module_input' basic_prep
           AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.49> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$1.$result' basic_prep
-      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[1].k' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> str='\gen_for_generate_loop_name[1].k' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:15.0-15.0> bits='00000000000000000000000000000001'(32) unsized basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.38> str='\gen_for_generate_loop_name[1].the_function_name' logic basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.38> str='\gen_for_generate_loop_name[1].the_function_name' logic basic_prep range=[0:0] dimensions=[0:0]
       AST_CELL <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\gen_for_generate_loop_name[1].an_instance' basic_prep
         AST_CELLTYPE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\module_name' basic_prep
         AST_ARGUMENT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:16.5-18.7> str='\module_input' basic_prep
@@ -189,7 +245,7 @@ Dumping AST after simplification:
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 dimensions=[0:0]
           AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -198,7 +254,7 @@ Dumping AST after simplification:
           AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
             AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$1.$result' logic reg basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$1.$result' logic reg basic_prep range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -215,7 +271,7 @@ Dumping AST after simplification:
           AST_ASSIGN_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$1.$result' basic_prep in_lvalue
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.49> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$3.$result' basic_prep
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$2.$result' logic reg basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$2.$result' logic reg basic_prep range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -232,25 +288,25 @@ Dumping AST after simplification:
           AST_ASSIGN_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$2.$result' basic_prep in_lvalue
             AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17.21-17.49> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$4.$result' basic_prep
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$3.$result' logic reg basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$3.$result' logic reg basic_prep range=[0:0] dimensions=[0:0]
         ATTR \nosync:
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$3.val' logic reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$3.val' logic reg basic_prep range=[0:0] dimensions=[0:0]
         ATTR \nosync:
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$4.$result' logic reg basic_prep range=[0:0]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$4.$result' logic reg basic_prep range=[0:0] dimensions=[0:0]
         ATTR \nosync:
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$4.val' logic reg basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$4.val' logic reg basic_prep range=[0:0] dimensions=[0:0]
         ATTR \nosync:
           AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
@@ -262,7 +318,6 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       wire [0:0] some_wire;
-      wire k;
       wire \gen_for_generate_loop_name[0].the_function_name ;
       wire \gen_for_generate_loop_name[1].the_function_name ;
       reg [0:0] \some_package::the_function_name$func$tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:17$1.$result ;
@@ -293,60 +348,5 @@ Dumping Verilog AST after simplification:
         end
     endmodule
 --- END OF AST DUMP ---
-Generating RTLIL representation for module `\module_name'.
-Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:7.1-8.10> str='\module_name'
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:7.33-7.45> str='\module_input' input logic port=3 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_FUNCTION <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.3-4.34> str='\some_package::the_function_name'
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name' logic
-          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-        AST_ASSIGN_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.5-3.11>
-          AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\some_package::the_function_name' in_lvalue
-          AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
-            AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module module_name(module_input);
-      input [0:0] module_input;
-      /** AST_FUNCTION **/
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:7.1-8.10> str='\module_name' basic_prep
-      AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:7.33-7.45> str='\module_input' input logic basic_prep port=3 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-        AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_FUNCTION <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.3-4.34> str='\some_package::the_function_name'
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.22-2.27> str='\some_package::the_function_name' logic
-          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> range=[0:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_WIRE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:2.52-2.55> str='\val' input logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
-          AST_RANGE <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-        AST_ASSIGN_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.5-3.11>
-          AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> str='\some_package::the_function_name' in_lvalue
-          AST_EQ <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.20>
-            AST_IDENTIFIER <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:3.12-3.15> str='\val'
-            AST_CONSTANT <tests/simple_tests/ImportedFunctionCallAsInstantiatedModulePortValueInsideGenFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module module_name(module_input);
-      input [0:0] module_input;
-      /** AST_FUNCTION **/
-    endmodule
---- END OF AST DUMP ---
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

@@ -20,9 +20,25 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'a' of type 'logic_net'
-    Object 'b' of type 'logic_net'
+  Object 'work@top' of type 'module_inst'
+    Object 'a' of type 'array_var'
+      Object '' of type 'array_typespec'
+      Object '' of type 'logic_typespec'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+    Object 'b' of type 'array_var'
+      Object '' of type 'array_typespec'
+      Object '' of type 'logic_typespec'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
     Object '' of type 'always'
       Object '' of type 'begin'
         Object '' of type 'immediate_assert'
@@ -49,7 +65,6 @@ Object 'work@top' of type 'design'
               Object '' of type 'constant'
               Object '' of type 'constant'
             Object '' of type 'constant'
-  Object 'work@top' of type 'module_inst'
     Object '' of type 'cont_assign'
       Object 'a' of type 'var_select'
         Object '' of type 'constant'
@@ -73,32 +88,14 @@ Object 'work@top' of type 'design'
     Object '' of type 'cont_assign'
       Object 'b' of type 'ref_obj'
       Object 'a' of type 'ref_obj'
-    Object 'a' of type 'array_var'
-      Object '' of type 'array_typespec'
-      Object '' of type 'logic_typespec'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object 'b' of type 'array_var'
-      Object '' of type 'array_typespec'
-      Object '' of type 'logic_typespec'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/array-copy/top.sv:1.1-18.10> str='\top'
-      AST_WIRE <tests/simple_tests/array-copy/top.sv:2.8-2.9> str='\a' logic multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 0 ]
+      AST_WIRE <tests/simple_tests/array-copy/top.sv:2.8-2.9> str='\a' logic dimensions=[0:0][1:0][1:0]
         AST_RANGE <tests/simple_tests/array-copy/top.sv:0.0-0.0> range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/array-copy/top.sv:3.8-3.9> str='\b' logic multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 0 ]
+      AST_WIRE <tests/simple_tests/array-copy/top.sv:3.8-3.9> str='\b' logic dimensions=[0:0][1:0][1:0]
         AST_RANGE <tests/simple_tests/array-copy/top.sv:0.0-0.0> range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
@@ -375,11 +372,11 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/array-copy/top.sv:1.1-18.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/array-copy/top.sv:2.8-2.9> str='\a' logic basic_prep range=[3:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 0 ]
+      AST_WIRE <tests/simple_tests/array-copy/top.sv:2.8-2.9> str='\a' logic basic_prep range=[3:0] dimensions=[0:0][1:0][1:0]
         AST_RANGE <tests/simple_tests/array-copy/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/array-copy/top.sv:3.8-3.9> str='\b' logic basic_prep range=[3:0] multirange=[ 0 1 0 2 0 2 ] multirange_swapped=[ 0 0 0 ]
+      AST_WIRE <tests/simple_tests/array-copy/top.sv:3.8-3.9> str='\b' logic basic_prep range=[3:0] dimensions=[0:0][1:0][1:0]
         AST_RANGE <tests/simple_tests/array-copy/top.sv:0.0-0.0> basic_prep range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
           AST_CONSTANT <tests/simple_tests/array-copy/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -588,14 +585,14 @@ Import proof for assert: 1'1 when 1'1.
 Import proof for assert: 1'1 when 1'1.
 Import proof for assert: 1'1 when 1'1.
 Import proof for assert: 1'1 when 1'1.
-Import show expression: $auto$rtlil.cc:2506:And$29
-Import show expression: $auto$rtlil.cc:2476:Not$27
-Import show expression: $auto$rtlil.cc:2506:And$24
-Import show expression: $auto$rtlil.cc:2476:Not$22
-Import show expression: $auto$rtlil.cc:2506:And$19
-Import show expression: $auto$rtlil.cc:2476:Not$17
-Import show expression: $auto$rtlil.cc:2506:And$14
-Import show expression: $auto$rtlil.cc:2476:Not$12
+Import show expression: $auto$rtlil.cc:2515:And$29
+Import show expression: $auto$rtlil.cc:2485:Not$27
+Import show expression: $auto$rtlil.cc:2515:And$24
+Import show expression: $auto$rtlil.cc:2485:Not$22
+Import show expression: $auto$rtlil.cc:2515:And$19
+Import show expression: $auto$rtlil.cc:2485:Not$17
+Import show expression: $auto$rtlil.cc:2515:And$14
+Import show expression: $auto$rtlil.cc:2485:Not$12
 Import show expression: \a
 Import show expression: \b
 
@@ -609,14 +606,14 @@ Import proof for assert: 1'1 when 1'1.
 Import proof for assert: 1'1 when 1'1.
 Import proof for assert: 1'1 when 1'1.
 Import proof for assert: 1'1 when 1'1.
-Import show expression: $auto$rtlil.cc:2506:And$29
-Import show expression: $auto$rtlil.cc:2476:Not$27
-Import show expression: $auto$rtlil.cc:2506:And$24
-Import show expression: $auto$rtlil.cc:2476:Not$22
-Import show expression: $auto$rtlil.cc:2506:And$19
-Import show expression: $auto$rtlil.cc:2476:Not$17
-Import show expression: $auto$rtlil.cc:2506:And$14
-Import show expression: $auto$rtlil.cc:2476:Not$12
+Import show expression: $auto$rtlil.cc:2515:And$29
+Import show expression: $auto$rtlil.cc:2485:Not$27
+Import show expression: $auto$rtlil.cc:2515:And$24
+Import show expression: $auto$rtlil.cc:2485:Not$22
+Import show expression: $auto$rtlil.cc:2515:And$19
+Import show expression: $auto$rtlil.cc:2485:Not$17
+Import show expression: $auto$rtlil.cc:2515:And$14
+Import show expression: $auto$rtlil.cc:2485:Not$12
 Import show expression: \a
 Import show expression: \b
 
@@ -633,4 +630,4 @@ Induction step proven: SUCCESS!
                  \____ $$$|__/|________/|__/|_______/|__/
                        \__/                              
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

@@ -20,21 +20,9 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
+  Object 'work@top' of type 'module_inst'
     Object 'alert_tx_t' of type 'struct_typespec'
       Object 'a' of type 'typespec_member'
-    Object 'P' of type 'parameter'
-      Object 'alert_tx_t' of type 'struct_typespec'
-        Object 'a' of type 'typespec_member'
-    Object '' of type 'param_assign'
-      Object 'P' of type 'parameter'
-        Object 'alert_tx_t' of type 'struct_typespec'
-          Object 'a' of type 'typespec_member'
-      Object '' of type 'operation'
-        Object '' of type 'tagged_pattern'
-          Object '' of type 'constant'
-    Object 'o' of type 'logic_net'
-  Object 'work@top' of type 'module_inst'
     Object 'P' of type 'parameter'
       Object 'alert_tx_t' of type 'struct_typespec'
         Object 'a' of type 'typespec_member'
@@ -57,14 +45,14 @@ Dumping AST before simplification:
       AST_TYPEDEF <tests/simple_tests/StructParameter/top.sv:2.12-4.4> str='\alert_tx_t'
         AST_STRUCT <tests/simple_tests/StructParameter/top.sv:2.12-4.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/StructParameter/top.sv:3.11-3.12> str='a' logic basic_prep range=[0:0]
-      AST_PARAMETER <tests/simple_tests/StructParameter/top.sv:6.25-6.39> str='\P' logic basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/StructParameter/top.sv:6.25-6.39> str='\P' logic basic_prep range=[0:0] dimensions=[0:0] in_param
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> str='\alert_tx_t' bits='0101110001100001011011000110010101110010011101000101111101110100011110000101111101110100'(88) basic_prep range=[87:0] int=1954045812 in_param
         AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:6.29-6.39> bits='1'(1) basic_prep range=[0:0] int=1 in_param
         AST_RANGE <tests/simple_tests/StructParameter/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/StructParameter/top.sv:1.25-1.26> str='\o' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/StructParameter/top.sv:1.25-1.26> str='\o' output logic port=1 dimensions=[0:0]
         AST_RANGE <tests/simple_tests/StructParameter/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -86,14 +74,14 @@ Dumping AST after simplification:
       AST_TYPEDEF <tests/simple_tests/StructParameter/top.sv:2.12-4.4> str='\alert_tx_t' basic_prep
         AST_STRUCT <tests/simple_tests/StructParameter/top.sv:2.12-4.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/StructParameter/top.sv:3.11-3.12> str='a' logic basic_prep range=[0:0]
-      AST_PARAMETER <tests/simple_tests/StructParameter/top.sv:6.25-6.39> str='\P' logic basic_prep range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/StructParameter/top.sv:6.25-6.39> str='\P' logic basic_prep range=[0:0] dimensions=[0:0] in_param
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> str='\alert_tx_t' bits='0101110001100001011011000110010101110010011101000101111101110100011110000101111101110100'(88) basic_prep range=[87:0] int=1954045812 in_param
         AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:6.29-6.39> bits='1'(1) basic_prep range=[0:0] int=1 in_param
         AST_RANGE <tests/simple_tests/StructParameter/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/StructParameter/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/StructParameter/top.sv:1.25-1.26> str='\o' output logic basic_prep port=1 range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/StructParameter/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/StructParameter/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -227,6 +215,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              1
    Number of public wires:           1
    Number of public wire bits:       1
+   Number of ports:                  1
+   Number of port bits:              1
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -241,7 +231,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -303,4 +293,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

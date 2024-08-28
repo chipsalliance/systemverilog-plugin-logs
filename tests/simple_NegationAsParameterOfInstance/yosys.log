@@ -21,31 +21,15 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'RESVAL' of type 'parameter'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'RESVAL' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-    Object 'o' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'o' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
+    Object 'o' of type 'int_var'
+    Object 'o' of type 'port'
+      Object '' of type 'int_typespec'
     Object 'u_dut' of type 'module_inst'
       Object 'RESVAL' of type 'parameter'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'RESVAL' of type 'parameter'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'constant'
       Object '' of type 'param_assign'
         Object 'RESVAL' of type 'parameter'
           Object '' of type 'range'
@@ -59,22 +43,18 @@ Object 'work@top' of type 'design'
         Object 'o' of type 'ref_obj'
         Object '' of type 'constant'
       Object 'o' of type 'ref_obj'
-    Object 'o' of type 'port'
-      Object '' of type 'int_typespec'
-    Object 'o' of type 'int_var'
-Warning: Removing unelaborated module: \dut from the design.
 Generating RTLIL representation for module `$paramod\dut\RESVAL=2'11'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.1-4.10> str='$paramod\dut\RESVAL=2'11'
-      AST_PARAMETER <tests/simple_tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+    AST_MODULE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='$paramod\dut\RESVAL=2'11'
+      AST_PARAMETER <tests/simple_tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' dimensions=[1:0] in_param
         AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='11'(2) range=[1:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
-        AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> in_param
-          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
-          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed port=2 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/NegationAsParameterOfInstance/top.sv:3.11-3.27>
         AST_IDENTIFIER <tests/simple_tests/NegationAsParameterOfInstance/top.sv:3.11-3.12> str='\o' in_lvalue
         AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
@@ -87,13 +67,13 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.1-4.10> str='$paramod\dut\RESVAL=2'11' basic_prep
-      AST_PARAMETER <tests/simple_tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+    AST_MODULE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='$paramod\dut\RESVAL=2'11' basic_prep
+      AST_PARAMETER <tests/simple_tests/NegationAsParameterOfInstance/top.sv:2.26-2.32> str='\RESVAL' basic_prep range=[1:0] dimensions=[1:0] in_param
         AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='11'(2) basic_prep range=[1:0] int=3 in_param
         AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:2.20-2.25> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
+      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.23-1.24> str='\o' output signed basic_prep port=2 range=[31:0] dimensions=[31:0]
         AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -111,10 +91,10 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:6.1-10.10> str='\top'
-      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed port=2 range=[0:0]
-        AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> in_param
-          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
-          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\u_dut'
         AST_CELLTYPE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> str='$paramod\dut\RESVAL=2'11'
         AST_ARGUMENT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:7.4-9.19> str='\o'
@@ -128,7 +108,7 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:6.1-10.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed basic_prep port=2 range=[31:0]
+      AST_WIRE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:6.23-6.24> str='\o' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
         AST_RANGE <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NegationAsParameterOfInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -279,6 +259,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -290,6 +272,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -305,6 +289,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             64
    Number of public wires:           2
    Number of public wire bits:      64
+   Number of ports:                  2
+   Number of port bits:             64
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -320,10 +306,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\dut\RESVAL=2'11'.
 
-(* src = "tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.1-4.10" *)
+(* src = "tests/simple_tests/NegationAsParameterOfInstance/top.sv:7.4-9.19" *)
 module \$paramod\dut\RESVAL=2'11 (o);
   (* src = "tests/simple_tests/NegationAsParameterOfInstance/top.sv:1.23-1.24" *)
   output [31:0] o;
@@ -396,5 +382,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

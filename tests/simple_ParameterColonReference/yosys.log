@@ -33,8 +33,6 @@ Object 'work@top' of type 'design'
           Object '' of type 'constant'
           Object '' of type 'constant'
       Object '' of type 'constant'
-  Object '' of type 'module_inst'
-    Object 'a' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
     Object 'a' of type 'port'
       Object '' of type 'logic_typespec'
@@ -46,14 +44,14 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/ParameterColonReference/top.sv:5.1-7.10> str='\top'
-      AST_WIRE <tests/simple_tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 dimensions=[0:0]
         AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.24>
         AST_IDENTIFIER <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' in_lvalue
         AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
-      AST_PARAMETER <tests/simple_tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] dimensions=[3:0] in_param
         AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15 in_param
         AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:2.20-2.25> basic_prep range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
@@ -68,14 +66,14 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/ParameterColonReference/top.sv:5.1-7.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0] multirange=[ 0 1 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0] dimensions=[0:0]
         AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
           AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.24> basic_prep
         AST_IDENTIFIER <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_PARAMETER <tests/simple_tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] multirange=[ 0 4 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] dimensions=[3:0] in_param
         AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15 in_param
         AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:2.20-2.25> basic_prep range=[3:0] in_param
           AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
@@ -197,4 +195,4 @@ Induction step proven: SUCCESS!
                  \____ $$$|__/|________/|__/|_______/|__/
                        \__/                              
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

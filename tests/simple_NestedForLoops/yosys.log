@@ -22,27 +22,6 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'RhoOffset' of type 'parameter'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'operation'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'int_typespec'
-    Object '' of type 'param_assign'
-      Object 'RhoOffset' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'operation'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'int_typespec'
-      Object '' of type 'operation'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object 'o' of type 'logic_net'
-    Object 'i' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
     Object 'RhoOffset' of type 'parameter'
       Object '' of type 'range'
@@ -62,6 +41,7 @@ Object 'work@top' of type 'design'
       Object '' of type 'operation'
         Object '' of type 'constant'
         Object '' of type 'constant'
+    Object 'o' of type 'int_var'
     Object 'o' of type 'port'
       Object '' of type 'int_typespec'
     Object 'genblk1[0]' of type 'gen_scope_array'
@@ -73,28 +53,24 @@ Object 'work@top' of type 'design'
             Object '' of type 'cont_assign'
               Object 'o' of type 'ref_obj'
               Object '' of type 'constant'
-    Object 'o' of type 'int_var'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/NestedForLoops/top.sv:1.1-8.10> str='\top'
-      AST_PARAMETER <tests/simple_tests/NestedForLoops/top.sv:2.18-2.42> str='\RhoOffset' multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 1 ] in_param
-        AST_CONCAT <tests/simple_tests/NestedForLoops/top.sv:2.35-2.42> in_param
-          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_param
-          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-        AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> range=[63:0] in_param
-          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63 in_param
-          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedForLoops/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
-        AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> in_param
-          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
-          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedForLoops/top.sv:3.24-3.25> str='\i' logic range=[0:0]
-      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:3.0-3.0> str='\genblk1[0].i' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/NestedForLoops/top.sv:2.18-2.42> str='\RhoOffset' basic_prep range=[63:0] dimensions=[31:0][0:1] in_param
+        AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:2.35-2.42> bits='0000000000000000000000000000000000000000000000000000000000000001'(64) basic_prep range=[63:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[63:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
+          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/NestedForLoops/top.sv:1.23-1.24> str='\o' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:3.0-3.0> str='\genblk1[0].i' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:3.0-3.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:4.0-4.0> str='\genblk1[0].genblk1[0].y' multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:4.0-4.0> str='\genblk1[0].genblk1[0].y' dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:4.0-4.0> bits='00000000000000000000000000000000'(32) unsized range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -109,28 +85,26 @@ Dumping Verilog AST before simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       output signed [31:0] o;
-      wire i;
       assign o = 1;
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/NestedForLoops/top.sv:1.1-8.10> str='\top' basic_prep
-      AST_PARAMETER <tests/simple_tests/NestedForLoops/top.sv:2.18-2.42> str='\RhoOffset' basic_prep range=[63:0] multirange=[ 0 32 0 2 ] multirange_swapped=[ 0 1 ] in_param
+      AST_PARAMETER <tests/simple_tests/NestedForLoops/top.sv:2.18-2.42> str='\RhoOffset' basic_prep range=[63:0] dimensions=[31:0][0:1] in_param
         AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:2.35-2.42> bits='0000000000000000000000000000000000000000000000000000000000000001'(64) basic_prep range=[63:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[63:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedForLoops/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
+      AST_WIRE <tests/simple_tests/NestedForLoops/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
         AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NestedForLoops/top.sv:3.24-3.25> str='\i' logic basic_prep range=[0:0]
-      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:3.0-3.0> str='\genblk1[0].i' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:3.0-3.0> str='\genblk1[0].i' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:3.0-3.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:4.0-4.0> str='\genblk1[0].genblk1[0].y' basic_prep range=[31:0] multirange=[ 0 32 ] multirange_swapped=[ 0 ] in_param
+      AST_LOCALPARAM <tests/simple_tests/NestedForLoops/top.sv:4.0-4.0> str='\genblk1[0].genblk1[0].y' basic_prep range=[31:0] dimensions=[31:0] in_param
         AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:4.0-4.0> bits='00000000000000000000000000000000'(32) unsized basic_prep range=[31:0] in_param
         AST_RANGE <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
           AST_CONSTANT <tests/simple_tests/NestedForLoops/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
@@ -145,7 +119,6 @@ Dumping Verilog AST after simplification:
       /** AST_LOCALPARAM **/
       /** AST_LOCALPARAM **/
       output signed [31:0] o;
-      wire i;
       assign o = 1;
     endmodule
 --- END OF AST DUMP ---
@@ -201,8 +174,6 @@ Optimizing module top.
 
 2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
-Removed 0 unused cells and 1 unused wires.
-<suppressed ~1 debug messages>
 
 2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
@@ -268,6 +239,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -282,7 +255,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
@@ -344,4 +317,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

@@ -21,64 +21,7 @@
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'P' of type 'parameter'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'P' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'constant'
-    Object 'a' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'X' of type 'parameter'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'X' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'operation'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object 'o' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
-    Object 'u_dut' of type 'module_inst'
-      Object 'P' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'P' of type 'parameter'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'P' of type 'parameter'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-        Object '' of type 'constant'
-      Object 'a' of type 'logic_net'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-      Object 'a' of type 'port'
-        Object '' of type 'logic_typespec'
-          Object '' of type 'range'
-            Object '' of type 'constant'
-            Object '' of type 'constant'
-      Object '' of type 'cont_assign'
-        Object 'a' of type 'ref_obj'
-        Object '' of type 'constant'
-      Object 'o' of type 'ref_obj'
     Object 'X' of type 'parameter'
       Object '' of type 'range'
         Object '' of type 'constant'
@@ -99,16 +42,40 @@ Object 'work@top' of type 'design'
         Object '' of type 'range'
           Object '' of type 'constant'
           Object '' of type 'constant'
-Warning: Removing unelaborated module: \dut from the design.
+    Object 'u_dut' of type 'module_inst'
+      Object 'P' of type 'parameter'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'param_assign'
+        Object 'P' of type 'parameter'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+        Object '' of type 'constant'
+      Object 'a' of type 'port'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+      Object 'a' of type 'logic_net'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+      Object '' of type 'cont_assign'
+        Object 'a' of type 'ref_obj'
+        Object '' of type 'constant'
+      Object 'o' of type 'ref_obj'
 Generating RTLIL representation for module `$paramod\dut\P=2'10'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.1-4.10> str='$paramod\dut\P=2'10'
-      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:2.26-2.31> str='\P' multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+    AST_MODULE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:8.4-12.6> str='$paramod\dut\P=2'10'
+      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:2.26-2.31> str='\P' dimensions=[1:0] in_param
         AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='10'(2) range=[1:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:2.20-2.25> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.31-1.32> str='\a' output logic port=1 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.31-1.32> str='\a' output logic port=2 dimensions=[1:0]
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.25-1.30> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -124,13 +91,13 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.1-4.10> str='$paramod\dut\P=2'10' basic_prep
-      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:2.26-2.31> str='\P' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+    AST_MODULE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:8.4-12.6> str='$paramod\dut\P=2'10' basic_prep
+      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:2.26-2.31> str='\P' basic_prep range=[1:0] dimensions=[1:0] in_param
         AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='10'(2) basic_prep range=[1:0] int=2 in_param
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:2.20-2.25> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.31-1.32> str='\a' output logic basic_prep port=1 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.31-1.32> str='\a' output logic basic_prep port=2 range=[1:0] dimensions=[1:0]
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.25-1.30> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -148,12 +115,12 @@ Dumping Verilog AST after simplification:
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.1-13.10> str='\top'
-      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:7.26-7.37> str='\X' multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:7.26-7.37> str='\X' dimensions=[1:0] in_param
         AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='01'(2) range=[1:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:7.20-7.25> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.31-6.32> str='\o' output logic port=2 multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.31-6.32> str='\o' output logic port=1 dimensions=[1:0]
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.25-6.30> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -171,12 +138,12 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.1-13.10> str='\top' basic_prep
-      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:7.26-7.37> str='\X' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ] in_param
+      AST_PARAMETER <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:7.26-7.37> str='\X' basic_prep range=[1:0] dimensions=[1:0] in_param
         AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='01'(2) basic_prep range=[1:0] int=1 in_param
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:7.20-7.25> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
-      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.31-6.32> str='\o' output logic basic_prep port=2 range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.31-6.32> str='\o' output logic basic_prep port=1 range=[1:0] dimensions=[1:0]
         AST_RANGE <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:6.25-6.30> basic_prep range=[1:0] in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
           AST_CONSTANT <tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
@@ -328,6 +295,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              2
    Number of public wires:           1
    Number of public wire bits:       2
+   Number of ports:                  1
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -339,6 +308,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              2
    Number of public wires:           1
    Number of public wire bits:       2
+   Number of ports:                  1
+   Number of port bits:              2
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -354,6 +325,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:              4
    Number of public wires:           2
    Number of public wire bits:       4
+   Number of ports:                  2
+   Number of port bits:              4
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -369,10 +342,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\dut\P=2'10'.
 
-(* src = "tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.1-4.10" *)
+(* src = "tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:8.4-12.6" *)
 module \$paramod\dut\P=2'10 (a);
   (* src = "tests/simple_tests/NegationOfPatternParameterInInstance/top.sv:1.31-1.32" *)
   output [1:0] a;
@@ -445,5 +418,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 1 unique messages, 1 total
-Yosys 0.38+4 (git sha1 ac0fb2e30, clang++-15 15.0.6 -O0 -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+39 (git sha1 4cddc1999, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
