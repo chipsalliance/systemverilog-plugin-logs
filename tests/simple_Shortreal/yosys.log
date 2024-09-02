@@ -1,48 +1,30 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/Shortreal/top.sv:1:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/Shortreal/top.sv:1:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/Shortreal/top.sv:1:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [WRN:UH0720] tests/simple_tests/Shortreal/top.sv:2:4: Non-synthesizable construct "".
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 2
+[WARNING] : 1
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'o' of type 'logic_net'
-    Object 'a' of type 'logic_net'
-Warning: tests/simple_tests/Shortreal/top.sv:2: Skipping non-synthesizable object of type 'short_real_typespec'
   Object 'work@top' of type 'module_inst'
+    Object 'o' of type 'int_var'
+    Object 'a' of type 'short_real_var'
+      Object '' of type 'constant'
     Object 'o' of type 'port'
       Object '' of type 'int_typespec'
     Object '' of type 'cont_assign'
@@ -51,37 +33,32 @@ Warning: tests/simple_tests/Shortreal/top.sv:2: Skipping non-synthesizable objec
         Object '' of type 'operation'
           Object '' of type 'constant'
           Object 'a' of type 'ref_obj'
-    Object 'o' of type 'int_var'
-    Object 'a' of type 'short_real_var'
-      Object '' of type 'constant'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/Shortreal/top.sv:1.1-4.10> str='\top'
-      AST_WIRE <tests/simple_tests/Shortreal/top.sv:1.23-1.24> str='\o' output signed port=1 range=[0:0]
-        AST_RANGE <tests/simple_tests/Shortreal/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:2.14-2.21> str='\a'
-      AST_ASSIGN <tests/simple_tests/Shortreal/top.sv:3.11-3.26>
-        AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.11-3.12> str='\o'
-        AST_MUL <tests/simple_tests/Shortreal/top.sv:3.20-3.25>
-          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
-          AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.24-3.25> str='\a'
-      AST_WIRE <tests/simple_tests/Shortreal/top.sv:2.14-2.21> str='\a' signed range=[0:0]
+      AST_WIRE <tests/simple_tests/Shortreal/top.sv:1.23-1.24> str='\o' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:2.14-2.21> str='\a' signed
         AST_RANGE <tests/simple_tests/Shortreal/top.sv:0.0-0.0>
           AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
           AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_ASSIGN <tests/simple_tests/Shortreal/top.sv:3.11-3.26>
+        AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.11-3.12> str='\o' in_lvalue
+        AST_MUL <tests/simple_tests/Shortreal/top.sv:3.20-3.25>
+          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+          AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.24-3.25> str='\a'
       AST_INITIAL <tests/simple_tests/Shortreal/top.sv:0.0-0.0>
         AST_BLOCK <tests/simple_tests/Shortreal/top.sv:0.0-0.0>
           AST_ASSIGN_EQ <tests/simple_tests/Shortreal/top.sv:0.0-0.0>
-            AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:0.0-0.0> str='\a'
+            AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:0.0-0.0> str='\a' in_lvalue
             AST_REALVALUE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> real=5.000000e-01
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
       output signed [31:0] o;
-      wire signed [63:0] a;
-a      assign o = (2)*(a);
+a[63:0]      assign o = (2)*(a);
       initial
         a = 5.000000e-01;
     endmodule
@@ -89,36 +66,38 @@ a      assign o = (2)*(a);
 Warning: wire '\a' is assigned in a block at tests/simple_tests/Shortreal/top.sv:0.0-0.0.
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/Shortreal/top.sv:1.1-4.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/Shortreal/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:2.14-2.21> str='\a' basic_prep
-      AST_ASSIGN <tests/simple_tests/Shortreal/top.sv:3.11-3.26> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.11-3.12> str='\o' basic_prep
-        AST_MUL <tests/simple_tests/Shortreal/top.sv:3.20-3.25> basic_prep
-          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-          AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.24-3.25> str='\a' basic_prep
-      AST_WIRE <tests/simple_tests/Shortreal/top.sv:2.14-2.21> str='\a' signed basic_prep range=[63:0]
+      AST_WIRE <tests/simple_tests/Shortreal/top.sv:1.23-1.24> str='\o' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:2.14-2.21> str='\a' signed basic_prep
         AST_RANGE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep range=[63:0]
           AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
           AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_ASSIGN <tests/simple_tests/Shortreal/top.sv:3.11-3.26> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.11-3.12> str='\o' basic_prep in_lvalue
+        AST_MUL <tests/simple_tests/Shortreal/top.sv:3.20-3.25> basic_prep
+          AST_CONSTANT <tests/simple_tests/Shortreal/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:3.24-3.25> str='\a' basic_prep
       AST_INITIAL <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep
-            AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:0.0-0.0> str='\a' basic_prep
+            AST_IDENTIFIER <tests/simple_tests/Shortreal/top.sv:0.0-0.0> str='\a' basic_prep in_lvalue
             AST_REALVALUE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> basic_prep real=5.000000e-01
+      AST_AUTOWIRE <tests/simple_tests/Shortreal/top.sv:0.0-0.0> str='\a' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       output signed [31:0] o;
-      wire signed [63:0] a;
-a      assign o = (2)*(a);
+      /** AST_AUTOWIRE **/
+a[63:0]      assign o = (2)*(a);
       initial
         a = 5.000000e-01;
     endmodule
 --- END OF AST DUMP ---
-tests/simple_tests/Shortreal/top.sv:0: Warning: converting real value 5.000000e-01 to binary 64'0000000000000000000000000000000000000000000000000000000000000001.
+tests/simple_tests/Shortreal/top.sv:2: Warning: Identifier `\a' is implicitly declared.
+tests/simple_tests/Shortreal/top.sv:2: Warning: Range select [63:0] out of bounds on signal `\a': Setting all 64 result bits to undef.
+tests/simple_tests/Shortreal/top.sv:0: Warning: converting real value 5.000000e-01 to binary 1.
 
 2. Executing PREP pass.
 
@@ -168,84 +147,88 @@ Cleaned up 0 empty switches.
 Optimizing module top.
 <suppressed ~1 debug messages>
 
-2.3. Executing OPT_EXPR pass (perform const folding).
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 Removed 0 unused cells and 2 unused wires.
 <suppressed ~1 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \top..
   Creating internal representation of mux trees.
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
+2.8. Executing WREDUCE pass (reducing word size of cells).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === top ===
 
    Number of wires:                  2
-   Number of wire bits:             96
+   Number of wire bits:             33
    Number of public wires:           2
-   Number of public wire bits:      96
+   Number of public wire bits:      33
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  0
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module top...
 Found and reported 0 problems.
 
@@ -254,18 +237,18 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+60 (git sha1 0fc5812dc, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* top =  1  *)
 (* src = "tests/simple_tests/Shortreal/top.sv:1.1-4.10" *)
 module top(o);
   (* src = "tests/simple_tests/Shortreal/top.sv:2.14-2.21" *)
-  wire [63:0] a;
+  wire a;
   (* src = "tests/simple_tests/Shortreal/top.sv:1.23-1.24" *)
   output [31:0] o;
   wire [31:0] o;
-  assign a = 64'h0000000000000001;
+  assign a = 1'h1;
   assign o = 32'd2;
 endmodule
 
@@ -319,5 +302,5 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 3 unique messages, 3 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Warnings: 4 unique messages, 4 total
+Yosys 0.44+60 (git sha1 0fc5812dc, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
