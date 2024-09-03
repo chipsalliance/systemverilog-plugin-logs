@@ -1,50 +1,25 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/UnionInPackageWithMultirange/top.sv:1:1: No timescale set for "foo_flags_pkg".
-
-[WRN:PA0205] tests/simple_tests/UnionInPackageWithMultirange/top.sv:11:1: No timescale set for "fooes_pkg".
-
-[WRN:PA0205] tests/simple_tests/UnionInPackageWithMultirange/top.sv:27:1: No timescale set for "goog".
-
-[WRN:PA0205] tests/simple_tests/UnionInPackageWithMultirange/top.sv:34:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0301] tests/simple_tests/UnionInPackageWithMultirange/top.sv:1:1: Compile package "foo_flags_pkg".
-
 [INF:CP0301] tests/simple_tests/UnionInPackageWithMultirange/top.sv:11:1: Compile package "fooes_pkg".
-
 [INF:CP0301] tests/simple_tests/UnionInPackageWithMultirange/top.sv:27:1: Compile package "goog".
-
 [INF:CP0303] tests/simple_tests/UnionInPackageWithMultirange/top.sv:34:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/UnionInPackageWithMultirange/top.sv:34:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 1.
-
 [NTE:EL0510] Nb instances: 1.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 4
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
@@ -97,10 +72,75 @@ Object 'work@top' of type 'design'
                 Object 'b' of type 'enum_const'
                 Object 'c' of type 'enum_const'
                 Object 'd' of type 'enum_const'
-  Object '' of type 'module_inst'
-    Object 'a' of type 'logic_net'
-    Object 'b' of type 'logic_net'
   Object 'work@top' of type 'module_inst'
+    Object 'a' of type 'union_var'
+      Object 'goog::top_flag_t' of type 'union_typespec'
+        Object 'atype_t' of type 'typespec_member'
+          Object '' of type 'packed_array_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object 'foo_flags_pkg::common_flags_t' of type 'struct_typespec'
+              Object 'a' of type 'typespec_member'
+              Object 'b' of type 'typespec_member'
+              Object 'c' of type 'typespec_member'
+        Object 'btype_t' of type 'typespec_member'
+          Object '' of type 'packed_array_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object 'padded_fooes_t' of type 'struct_typespec'
+              Object 'a' of type 'typespec_member'
+              Object 'b' of type 'typespec_member'
+                Object 'fooes_pkg::classes_e' of type 'enum_typespec'
+                  Object '' of type 'logic_typespec'
+                    Object '' of type 'range'
+                      Object '' of type 'constant'
+                      Object '' of type 'constant'
+                  Object 'a' of type 'enum_const'
+                  Object 'b' of type 'enum_const'
+                  Object 'c' of type 'enum_const'
+                  Object 'd' of type 'enum_const'
+    Object 'b' of type 'union_var'
+      Object 'goog::top_flag_t' of type 'union_typespec'
+        Object 'atype_t' of type 'typespec_member'
+          Object '' of type 'packed_array_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object 'foo_flags_pkg::common_flags_t' of type 'struct_typespec'
+              Object 'a' of type 'typespec_member'
+              Object 'b' of type 'typespec_member'
+              Object 'c' of type 'typespec_member'
+        Object 'btype_t' of type 'typespec_member'
+          Object '' of type 'packed_array_typespec'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object 'padded_fooes_t' of type 'struct_typespec'
+              Object 'a' of type 'typespec_member'
+              Object 'b' of type 'typespec_member'
+                Object 'fooes_pkg::classes_e' of type 'enum_typespec'
+                  Object '' of type 'logic_typespec'
+                    Object '' of type 'range'
+                      Object '' of type 'constant'
+                      Object '' of type 'constant'
+                  Object 'a' of type 'enum_const'
+                  Object 'b' of type 'enum_const'
+                  Object 'c' of type 'enum_const'
+                  Object 'd' of type 'enum_const'
     Object 'a' of type 'port'
       Object 'goog::top_flag_t' of type 'union_typespec'
         Object 'atype_t' of type 'typespec_member'
@@ -172,74 +212,6 @@ Object 'work@top' of type 'design'
     Object '' of type 'cont_assign'
       Object 'b' of type 'ref_obj'
       Object 'a' of type 'ref_obj'
-    Object 'a' of type 'union_var'
-      Object 'goog::top_flag_t' of type 'union_typespec'
-        Object 'atype_t' of type 'typespec_member'
-          Object '' of type 'packed_array_typespec'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object 'foo_flags_pkg::common_flags_t' of type 'struct_typespec'
-              Object 'a' of type 'typespec_member'
-              Object 'b' of type 'typespec_member'
-              Object 'c' of type 'typespec_member'
-        Object 'btype_t' of type 'typespec_member'
-          Object '' of type 'packed_array_typespec'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object 'padded_fooes_t' of type 'struct_typespec'
-              Object 'a' of type 'typespec_member'
-              Object 'b' of type 'typespec_member'
-                Object 'fooes_pkg::classes_e' of type 'enum_typespec'
-                  Object '' of type 'logic_typespec'
-                    Object '' of type 'range'
-                      Object '' of type 'constant'
-                      Object '' of type 'constant'
-                  Object 'a' of type 'enum_const'
-                  Object 'b' of type 'enum_const'
-                  Object 'c' of type 'enum_const'
-                  Object 'd' of type 'enum_const'
-    Object 'b' of type 'union_var'
-      Object 'goog::top_flag_t' of type 'union_typespec'
-        Object 'atype_t' of type 'typespec_member'
-          Object '' of type 'packed_array_typespec'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object 'foo_flags_pkg::common_flags_t' of type 'struct_typespec'
-              Object 'a' of type 'typespec_member'
-              Object 'b' of type 'typespec_member'
-              Object 'c' of type 'typespec_member'
-        Object 'btype_t' of type 'typespec_member'
-          Object '' of type 'packed_array_typespec'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-            Object 'padded_fooes_t' of type 'struct_typespec'
-              Object 'a' of type 'typespec_member'
-              Object 'b' of type 'typespec_member'
-                Object 'fooes_pkg::classes_e' of type 'enum_typespec'
-                  Object '' of type 'logic_typespec'
-                    Object '' of type 'range'
-                      Object '' of type 'constant'
-                      Object '' of type 'constant'
-                  Object 'a' of type 'enum_const'
-                  Object 'b' of type 'enum_const'
-                  Object 'c' of type 'enum_const'
-                  Object 'd' of type 'enum_const'
   Object 'padded_fooes_t' of type 'struct_typespec'
     Object 'a' of type 'typespec_member'
     Object 'b' of type 'typespec_member'
@@ -255,78 +227,91 @@ Object 'work@top' of type 'design'
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.1-36.10> str='\top'
-      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.35-34.36> str='\a' input logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.35-34.36> str='\a' input logic basic_prep range=[95:0] dimensions=[95:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596
-        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.63-34.64> str='\b' output logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596 in_param
+        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0] in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95 in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.63-34.64> str='\b' output logic basic_prep range=[95:0] dimensions=[95:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596
-        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596 in_param
+        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0] in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95 in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.10-35.15>
-        AST_IDENTIFIER <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.10-35.11> str='\b'
+        AST_IDENTIFIER <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.10-35.11> str='\b' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.14-35.15> str='\a'
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\padded_fooes_t'
-        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2>
-          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic
-          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b'
-            AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27>
-              AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-              AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\builtin::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:28.9-31.2> str='\goog::top_flag_t' basic_prep
         AST_UNION <tests/simple_tests/UnionInPackageWithMultirange/top.sv:28.9-31.2> basic_prep
-          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> str='atype_t' basic_prep range=[95:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
+          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> str='atype_t' basic_prep range=[95:0] dimensions=[3:0][7:0]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:4.11-4.12> str='a' logic basic_prep range=[2:2]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:5.11-5.12> str='b' logic basic_prep range=[1:1]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:6.11-6.12> str='c' logic basic_prep range=[0:0]
-          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='btype_t' basic_prep range=[95:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
+          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='btype_t' basic_prep range=[95:0] dimensions=[3:0][7:0]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\goog::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> str='\foo_flags_pkg::common_flags_t' basic_prep
         AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:4.11-4.12> str='a' logic basic_prep range=[2:2]
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:5.11-5.12> str='b' logic basic_prep range=[1:1]
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:6.11-6.12> str='c' logic basic_prep range=[0:0]
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\foo_flags_pkg::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
       AST_ENUM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.3-18.15> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:14.5-14.6> str='\fooes_pkg::a' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:14.5-14.6> bits='00'(2) basic_prep range=[1:0]
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:15.5-15.6> str='\fooes_pkg::b' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:15.5-15.6> bits='01'(2) basic_prep range=[1:0] int=1
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:16.5-16.6> str='\fooes_pkg::c' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:16.5-16.6> bits='10'(2) basic_prep range=[1:0] int=2
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:17.5-17.6> str='\fooes_pkg::d' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:17.5-17.6> bits='11'(2) basic_prep range=[1:0] int=3
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.3-18.15> str='\fooes_pkg::classes_e' basic_prep
-        AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+        AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> reg basic_prep range=[1:0] dimensions=[1:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0] in_param
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\fooes_pkg::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(a, b);
@@ -338,81 +323,101 @@ Dumping Verilog AST before simplification:
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
       /** AST_ENUM **/
+      /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.1-36.10> str='\top' basic_prep
-      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.35-34.36> str='\a' input logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.35-34.36> str='\a' input logic basic_prep range=[95:0] dimensions=[95:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596
-        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.63-34.64> str='\b' output logic basic_prep range=[95:0] multirange=[ 0 96 ] multirange_swapped=[ 0 ]
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596 in_param
+        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0] in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95 in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:34.63-34.64> str='\b' output logic basic_prep range=[95:0] dimensions=[95:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596
-        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0]
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95
-          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='\top_flag_t' bits='0101110001110100011011110111000001011111011001100110110001100001011001110101111101110100'(88) basic_prep range=[87:0] int=1634164596 in_param
+        AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> basic_prep range=[95:0] in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=95 in_param
+          AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.10-35.15> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.10-35.11> str='\b' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.10-35.11> str='\b' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/UnionInPackageWithMultirange/top.sv:35.14-35.15> str='\a' basic_prep
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\padded_fooes_t' basic_prep
         AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
-          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0] multirange=[ 0 2 ] multirange_swapped=[ 0 ]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\builtin::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:28.9-31.2> str='\goog::top_flag_t' basic_prep
         AST_UNION <tests/simple_tests/UnionInPackageWithMultirange/top.sv:28.9-31.2> basic_prep
-          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> str='atype_t' basic_prep range=[95:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
+          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> str='atype_t' basic_prep range=[95:0] dimensions=[3:0][7:0]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:4.11-4.12> str='a' logic basic_prep range=[2:2]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:5.11-5.12> str='b' logic basic_prep range=[1:1]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:6.11-6.12> str='c' logic basic_prep range=[0:0]
-          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='btype_t' basic_prep range=[95:0] multirange=[ 0 4 0 8 ] multirange_swapped=[ 0 0 ]
+          AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='btype_t' basic_prep range=[95:0] dimensions=[3:0][7:0]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
             AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\goog::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> str='\foo_flags_pkg::common_flags_t' basic_prep
         AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:3.11-7.4> basic_prep
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:4.11-4.12> str='a' logic basic_prep range=[2:2]
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:5.11-5.12> str='b' logic basic_prep range=[1:1]
           AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:6.11-6.12> str='c' logic basic_prep range=[0:0]
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\foo_flags_pkg::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
       AST_ENUM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.3-18.15> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:14.5-14.6> str='\fooes_pkg::a' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:14.5-14.6> bits='00'(2) basic_prep range=[1:0]
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:15.5-15.6> str='\fooes_pkg::b' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:15.5-15.6> bits='01'(2) basic_prep range=[1:0] int=1
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:16.5-16.6> str='\fooes_pkg::c' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:16.5-16.6> bits='10'(2) basic_prep range=[1:0] int=2
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
         AST_ENUM_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:17.5-17.6> str='\fooes_pkg::d' logic basic_prep range=[1:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:17.5-17.6> bits='11'(2) basic_prep range=[1:0] int=3
           AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
             AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.3-18.15> str='\fooes_pkg::classes_e' basic_prep
-        AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> reg basic_prep range=[1:0]
+        AST_WIRE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> reg basic_prep range=[1:0] dimensions=[1:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0]
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/UnionInPackageWithMultirange/top.sv:13.22-13.27> basic_prep range=[1:0] in_param
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+            AST_CONSTANT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_TYPEDEF <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> str='\fooes_pkg::padded_fooes_t' basic_prep
+        AST_STRUCT <tests/simple_tests/UnionInPackageWithMultirange/top.sv:22.9-25.2> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:23.9-23.10> str='a' logic basic_prep range=[2:2]
+          AST_STRUCT_ITEM <tests/simple_tests/UnionInPackageWithMultirange/top.sv:24.24-24.25> str='b' basic_prep range=[1:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(a, b);
@@ -424,7 +429,11 @@ Dumping Verilog AST after simplification:
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
+      /** AST_TYPEDEF **/
       /** AST_ENUM **/
+      /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
 --- END OF AST DUMP ---
@@ -434,7 +443,7 @@ Dumping Verilog AST after simplification:
 2.1. Executing BMUXMAP pass.
 
 2.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+71 (git sha1 6b9321250, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `\top'.
 
 (* cells_not_processed =  1  *)
@@ -458,4 +467,4 @@ endmodule
 3.2. Executing DEMUXMAP pass.
 Dumping module `\top'.
 
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+71 (git sha1 6b9321250, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

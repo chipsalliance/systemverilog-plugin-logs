@@ -1,74 +1,28 @@
 1. Executing Verilog with UHDM frontend.
-[INF:CM0023] Creating log file tests/build/slpp_all/surelog.log.
-
-[WRN:PA0205] tests/simple_tests/EnumParameterInNestedModules/top.sv:1:1: No timescale set for "prim_subreg".
-
-[WRN:PA0205] tests/simple_tests/EnumParameterInNestedModules/top.sv:6:1: No timescale set for "prim_subreg_shadow".
-
-[WRN:PA0205] tests/simple_tests/EnumParameterInNestedModules/top.sv:18:1: No timescale set for "top".
-
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
 [INF:CP0300] Compilation...
-
 [INF:CP0303] tests/simple_tests/EnumParameterInNestedModules/top.sv:1:1: Compile module "work@prim_subreg".
-
 [INF:CP0303] tests/simple_tests/EnumParameterInNestedModules/top.sv:6:1: Compile module "work@prim_subreg_shadow".
-
 [INF:CP0303] tests/simple_tests/EnumParameterInNestedModules/top.sv:18:1: Compile module "work@top".
-
 [INF:CP0302] Compile class "work@mailbox".
-
 [INF:CP0302] Compile class "work@process".
-
 [INF:CP0302] Compile class "work@semaphore".
-
 [INF:EL0526] Design Elaboration...
-
 [NTE:EL0503] tests/simple_tests/EnumParameterInNestedModules/top.sv:18:1: Top level module "work@top".
-
 [NTE:EL0508] Nb Top level modules: 1.
-
 [NTE:EL0509] Max instance depth: 3.
-
 [NTE:EL0510] Nb instances: 3.
-
 [NTE:EL0511] Nb leaf instances: 1.
-
 [INF:UH0706] Creating UHDM Model...
-
 [INF:UH0707] Elaborating UHDM...
-
 [  FATAL] : 0
 [ SYNTAX] : 0
 [  ERROR] : 0
-[WARNING] : 3
+[WARNING] : 0
 [   NOTE] : 5
 Object 'work@top' of type 'design'
   Object 'builtin' of type 'package'
-  Object '' of type 'module_inst'
-    Object 'RESVAL' of type 'parameter'
-      Object '' of type 'range'
-        Object '' of type 'constant'
-        Object '' of type 'constant'
-    Object '' of type 'param_assign'
-      Object 'RESVAL' of type 'parameter'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object '' of type 'constant'
-    Object 'a' of type 'logic_net'
-  Object '' of type 'module_inst'
-    Object 'enum_t' of type 'enum_typespec'
-      Object '' of type 'logic_typespec'
-        Object '' of type 'range'
-          Object '' of type 'constant'
-          Object '' of type 'constant'
-      Object 'ENUM_ITEM' of type 'enum_const'
-    Object 'RESVAL' of type 'parameter'
-    Object '' of type 'param_assign'
-      Object 'RESVAL' of type 'parameter'
-      Object 'ENUM_ITEM' of type 'ref_obj'
-    Object 'b' of type 'logic_net'
-  Object '' of type 'module_inst'
+  Object 'work@top' of type 'module_inst'
     Object 'enum_t' of type 'enum_typespec'
       Object '' of type 'logic_typespec'
         Object '' of type 'range'
@@ -78,35 +32,35 @@ Object 'work@top' of type 'design'
     Object 'CTRL_RESET' of type 'parameter'
     Object '' of type 'param_assign'
       Object 'CTRL_RESET' of type 'parameter'
-      Object 'ENUM_ITEM' of type 'ref_obj'
-    Object 'o' of type 'logic_net'
+      Object '' of type 'constant'
+    Object 'o' of type 'int_var'
+    Object 'o' of type 'port'
+      Object '' of type 'int_typespec'
     Object '' of type 'always'
       Object '' of type 'begin'
         Object '' of type 'immediate_assert'
           Object '' of type 'operation'
             Object 'o' of type 'ref_obj'
             Object '' of type 'constant'
-  Object 'work@top' of type 'module_inst'
     Object 'u_ctrl_reg_shadowed' of type 'module_inst'
+      Object 'enum_t' of type 'enum_typespec'
+        Object '' of type 'logic_typespec'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+        Object 'ENUM_ITEM' of type 'enum_const'
       Object 'RESVAL' of type 'parameter'
       Object '' of type 'param_assign'
         Object 'RESVAL' of type 'parameter'
         Object '' of type 'constant'
-      Object '' of type 'param_assign'
-        Object 'RESVAL' of type 'parameter'
-        Object '' of type 'constant'
       Object 'b' of type 'int_var'
+      Object 'b' of type 'port'
+        Object '' of type 'int_typespec'
       Object 'staged_reg' of type 'module_inst'
         Object 'RESVAL' of type 'parameter'
           Object '' of type 'range'
             Object '' of type 'constant'
             Object '' of type 'constant'
-        Object '' of type 'param_assign'
-          Object 'RESVAL' of type 'parameter'
-            Object '' of type 'range'
-              Object '' of type 'constant'
-              Object '' of type 'constant'
-          Object '' of type 'constant'
         Object '' of type 'param_assign'
           Object 'RESVAL' of type 'parameter'
             Object '' of type 'range'
@@ -120,32 +74,21 @@ Object 'work@top' of type 'design'
           Object 'a' of type 'ref_obj'
           Object '' of type 'constant'
         Object 'b' of type 'ref_obj'
-      Object 'b' of type 'port'
-        Object '' of type 'int_typespec'
       Object 'o' of type 'ref_obj'
-    Object 'CTRL_RESET' of type 'parameter'
-    Object '' of type 'param_assign'
-      Object 'CTRL_RESET' of type 'parameter'
-      Object '' of type 'constant'
-    Object 'o' of type 'port'
-      Object '' of type 'int_typespec'
-    Object 'o' of type 'int_var'
-Warning: Removing unelaborated module: \prim_subreg_shadow from the design.
-Warning: Removing unelaborated module: \prim_subreg from the design.
 Generating RTLIL representation for module `$paramod\prim_subreg\RESVAL=5'11111'.
 Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:1.1-4.10> str='$paramod\prim_subreg\RESVAL=5'11111'
-      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\RESVAL' multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0]
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:1.31-1.32> str='\a' output signed port=1 range=[0:0]
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='$paramod\prim_subreg\RESVAL=5'11111'
+      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\RESVAL' dimensions=[4:0] in_param
+        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31 in_param
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:1.31-1.32> str='\a' output signed port=3 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/EnumParameterInNestedModules/top.sv:3.11-3.27>
-        AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:3.11-3.12> str='\a'
+        AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:3.11-3.12> str='\a' in_lvalue
         AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) range=[31:0] int=31
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
@@ -156,18 +99,18 @@ Dumping Verilog AST before simplification:
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:1.1-4.10> str='$paramod\prim_subreg\RESVAL=5'11111' basic_prep
-      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\RESVAL' basic_prep range=[4:0] multirange=[ 0 5 ] multirange_swapped=[ 0 ]
-        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0]
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:1.31-1.32> str='\a' output signed basic_prep port=1 range=[31:0]
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='$paramod\prim_subreg\RESVAL=5'11111' basic_prep
+      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.26-2.37> str='\RESVAL' basic_prep range=[4:0] dimensions=[4:0] in_param
+        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31 in_param
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:2.20-2.25> basic_prep range=[4:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:1.31-1.32> str='\a' output signed basic_prep port=3 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_ASSIGN <tests/simple_tests/EnumParameterInNestedModules/top.sv:3.11-3.27> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:3.11-3.12> str='\a' basic_prep
+        AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:3.11-3.12> str='\a' basic_prep in_lvalue
         AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
@@ -177,10 +120,83 @@ Dumping Verilog AST after simplification:
       assign a = 31;
     endmodule
 --- END OF AST DUMP ---
+Generating RTLIL representation for module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='$paramod\prim_subreg_shadow\RESVAL=5'11111'
+      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum1' logic
+        AST_ENUM_ITEM <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic range=[-1:0]
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) range=[4:0] int=21
+          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t'
+        AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) range=[47:0] int=1853189425 in_param
+          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28> in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4 in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\RESVAL' range=[0:0] in_param
+        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31 in_param
+      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed port=2 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_CELL <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg'
+        AST_CELLTYPE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg\RESVAL=5'11111'
+        AST_ARGUMENT <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a'
+          AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
+      /** AST_PARAMETER **/
+      output signed [31:0] b;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='$paramod\prim_subreg_shadow\RESVAL=5'11111' basic_prep
+      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum1' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic basic_prep range=[4:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) basic_prep range=[4:0] int=21
+          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t' basic_prep
+        AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg basic_prep range=[4:0] dimensions=[4:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425 in_param
+          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0] in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4 in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\RESVAL' basic_prep range=[0:0] in_param
+        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31 in_param
+      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed basic_prep port=2 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_CELL <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg' basic_prep
+        AST_CELLTYPE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg\RESVAL=5'11111' basic_prep
+        AST_ARGUMENT <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a' basic_prep
+          AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b' basic_prep
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
+      /** AST_PARAMETER **/
+      output signed [31:0] b;
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+      /** AST_CELL **/
+    endmodule
+--- END OF AST DUMP ---
 Generating RTLIL representation for module `\top'.
 Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:18.1-32.10> str='\top'
-      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.4-21.13> str='$enum1' logic
+      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.4-21.13> str='$enum0' logic
         AST_ENUM_ITEM <tests/simple_tests/EnumParameterInNestedModules/top.sv:20.7-20.27> str='\ENUM_ITEM' logic range=[-1:0]
           AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:20.7-20.27> bits='11111'(5) range=[4:0] int=31
           AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.23-19.28>
@@ -189,23 +205,23 @@ Dumping AST before simplification:
       AST_TYPEDEF <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.4-21.13> str='\enum_t'
         AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) range=[47:0] int=1853189425
-          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.23-19.28>
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\CTRL_RESET' range=[0:0]
-        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:18.23-18.24> str='\o' output signed port=3 range=[0:0]
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.23-19.28> in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4 in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\CTRL_RESET' range=[0:0] in_param
+        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31 in_param
+      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:18.23-18.24> str='\o' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\u_ctrl_reg_shadowed'
         AST_CELLTYPE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg_shadow\RESVAL=5'11111'
         AST_ARGUMENT <tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\b'
           AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:27.30-27.31> str='\o'
       AST_ALWAYS <tests/simple_tests/EnumParameterInNestedModules/top.sv:29.4-31.7>
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/EnumParameterInNestedModules/top.sv:29.16-31.7>
           AST_ASSERT <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.7-30.23>
             AST_EQ <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.21>
@@ -226,153 +242,50 @@ Dumping Verilog AST before simplification:
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:18.1-32.10> str='\top' basic_prep
-      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.4-21.13> str='$enum1' logic basic_prep
+      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.4-21.13> str='$enum0' logic basic_prep
         AST_ENUM_ITEM <tests/simple_tests/EnumParameterInNestedModules/top.sv:20.7-20.27> str='\ENUM_ITEM' logic basic_prep range=[4:0]
           ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
           AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:20.7-20.27> bits='11111'(5) basic_prep range=[4:0] int=31
           AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.23-19.28> basic_prep range=[4:0]
             AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
             AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
       AST_TYPEDEF <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.4-21.13> str='\enum_t' basic_prep
-        AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg basic_prep range=[4:0]
+        AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg basic_prep range=[4:0] dimensions=[4:0]
           ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum1' bits='001001000110010101101110011101010110110100110001'(48) basic_prep range=[47:0] int=1853189425
-          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.23-19.28> basic_prep range=[4:0]
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\CTRL_RESET' basic_prep range=[0:0]
-        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:18.23-18.24> str='\o' output signed basic_prep port=3 range=[31:0]
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:19.23-19.28> basic_prep range=[4:0] in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4 in_param
+            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:23.21-23.43> str='\CTRL_RESET' basic_prep range=[0:0] in_param
+        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31 in_param
+      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:18.23-18.24> str='\o' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_CELL <tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\u_ctrl_reg_shadowed' basic_prep
         AST_CELLTYPE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg_shadow\RESVAL=5'11111' basic_prep
         AST_ARGUMENT <tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34> str='\b' basic_prep
           AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:27.30-27.31> str='\o' basic_prep
       AST_ALWAYS <tests/simple_tests/EnumParameterInNestedModules/top.sv:29.4-31.7> basic_prep
         ATTR \always_comb:
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
         AST_BLOCK <tests/simple_tests/EnumParameterInNestedModules/top.sv:29.16-31.7> basic_prep
-          AST_BLOCK <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep
-            AST_ASSIGN_LE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK' basic_prep
-              AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='x'(1) basic_prep range=[0:0]
-            AST_ASSIGN_LE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN' basic_prep
-              AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='0'(1) basic_prep range=[0:0]
-          AST_BLOCK <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.7-30.23> basic_prep
-            AST_ASSIGN_LE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK' basic_prep
-              AST_REDUCE_BOOL <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep
-                AST_EQ <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.21> basic_prep
-                  AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.15> str='\o' basic_prep
-                  AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-            AST_ASSIGN_LE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep
-              AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN' basic_prep
-              AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK' basic_prep range=[0:0]
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN' basic_prep range=[0:0]
-      AST_ASSERT <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.7-30.23> basic_prep
-        AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK' basic_prep
-        AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN' basic_prep
+          AST_ASSERT <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.7-30.23> basic_prep
+            AST_EQ <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.21> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.15> str='\o' basic_prep
+              AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
       /** AST_PARAMETER **/
       output signed [31:0] o;
-      wire \$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK ;
-      wire \$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN ;
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_CELL **/
       (* always_comb = 1 *)
       always @*
-        begin
-          begin
-            \$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK  <= 1'b x;
-            \$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN  <= 1'b 0;
-          end
-          begin
-            \$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK  <= |((o)==(31));
-            \$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN  <= 1'b 1;
-          end
-        end
-      /** AST_ASSERT **/
-    endmodule
---- END OF AST DUMP ---
-Generating RTLIL representation for module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
-Dumping AST before simplification:
-    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:6.1-16.10> str='$paramod\prim_subreg_shadow\RESVAL=5'11111'
-      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum0' logic
-        AST_ENUM_ITEM <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic range=[-1:0]
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) range=[4:0] int=21
-          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_TYPEDEF <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t'
-        AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg
-          ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28>
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed range=[31:0] int=4
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\RESVAL' range=[0:0]
-        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) range=[4:0] int=31
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed port=2 range=[0:0]
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0>
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_CELL <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg'
-        AST_CELLTYPE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg\RESVAL=5'11111'
-        AST_ARGUMENT <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a'
-          AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b'
---- END OF AST DUMP ---
-Dumping Verilog AST before simplification:
-    module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
-      /** AST_PARAMETER **/
-      output signed [31:0] b;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
-    endmodule
---- END OF AST DUMP ---
-Dumping AST after simplification:
-    AST_MODULE <tests/simple_tests/EnumParameterInNestedModules/top.sv:6.1-16.10> str='$paramod\prim_subreg_shadow\RESVAL=5'11111' basic_prep
-      AST_ENUM <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='$enum0' logic basic_prep
-        AST_ENUM_ITEM <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> str='\ENUM_ITEM' logic basic_prep range=[4:0]
-          ATTR \enum_base_type:
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:8.7-8.27> bits='10101'(5) basic_prep range=[4:0] int=21
-          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_TYPEDEF <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.4-9.13> str='\enum_t' basic_prep
-        AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> reg basic_prep range=[4:0]
-          ATTR \enum_type:
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424
-          AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:7.23-7.28> basic_prep range=[4:0]
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4
-            AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_PARAMETER <tests/simple_tests/EnumParameterInNestedModules/top.sv:11.21-11.39> str='\RESVAL' basic_prep range=[0:0]
-        AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='11111'(5) basic_prep range=[4:0] int=31
-      AST_WIRE <tests/simple_tests/EnumParameterInNestedModules/top.sv:6.38-6.39> str='\b' output signed basic_prep port=2 range=[31:0]
-        AST_RANGE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> basic_prep range=[31:0]
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-          AST_CONSTANT <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
-      AST_CELL <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\staged_reg' basic_prep
-        AST_CELLTYPE <tests/simple_tests/EnumParameterInNestedModules/top.sv:0.0-0.0> str='$paramod\prim_subreg\RESVAL=5'11111' basic_prep
-        AST_ARGUMENT <tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25> str='\a' basic_prep
-          AST_IDENTIFIER <tests/simple_tests/EnumParameterInNestedModules/top.sv:15.21-15.22> str='\b' basic_prep
---- END OF AST DUMP ---
-Dumping Verilog AST after simplification:
-    module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
-      /** AST_PARAMETER **/
-      output signed [31:0] b;
-      /** AST_ENUM **/
-      /** AST_TYPEDEF **/
-      /** AST_CELL **/
+        /** AST_ASSERT **/
     endmodule
 --- END OF AST DUMP ---
 
@@ -401,8 +314,8 @@ Cleaned up 0 empty switches.
 Removed a total of 0 dead cases.
 
 2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
-Removed 0 redundant assignments.
-Promoted 2 assignments to connections.
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
 
 2.2.4. Executing PROC_INIT pass (extract init attributes).
 
@@ -412,57 +325,57 @@ Promoted 2 assignments to connections.
 Converted 0 switches.
 
 2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\top.$proc$tests/simple_tests/EnumParameterInNestedModules/top.sv:29$2'.
+Creating decoders for process `\top.$proc$tests/simple_tests/EnumParameterInNestedModules/top.sv:29$1'.
 
 2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\top.$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_CHECK' from process `\top.$proc$tests/simple_tests/EnumParameterInNestedModules/top.sv:29$2'.
-No latch inferred for signal `\top.$formal$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$1_EN' from process `\top.$proc$tests/simple_tests/EnumParameterInNestedModules/top.sv:29$2'.
 
 2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
 
 2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Removing empty process `top.$proc$tests/simple_tests/EnumParameterInNestedModules/top.sv:29$2'.
+Removing empty process `top.$proc$tests/simple_tests/EnumParameterInNestedModules/top.sv:29$1'.
 Cleaned up 0 empty switches.
 
 2.2.12. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module top.
+Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
 
-2.3. Executing OPT_EXPR pass (perform const folding).
-Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
 Optimizing module top.
+Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
 
-2.4. Executing OPT_CLEAN pass (remove unused cells and wires).
-Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \top..
+Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
 Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
-Removed 0 unused cells and 4 unused wires.
+Removed 0 unused cells and 1 unused wires.
 <suppressed ~1 debug messages>
 
-2.5. Executing CHECK pass (checking for obvious problems).
+2.6. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\prim_subreg\RESVAL=5'11111...
 Checking module $paramod\prim_subreg_shadow\RESVAL=5'11111...
 Checking module top...
 Found and reported 0 problems.
 
-2.6. Executing OPT pass (performing simple optimizations).
+2.7. Executing OPT pass (performing simple optimizations).
 
-2.6.1. Executing OPT_EXPR pass (perform const folding).
+2.7.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
 Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module top.
 
-2.6.2. Executing OPT_MERGE pass (detect identical cells).
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\prim_subreg\RESVAL=5'11111'.
 Finding identical cells in module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module $paramod\prim_subreg\RESVAL=5'11111..
   Creating internal representation of mux trees.
   No muxes found in this module.
@@ -474,61 +387,61 @@ Running muxtree optimizer on module \top..
   No muxes found in this module.
 Removed 0 multiplexer ports.
 
-2.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\prim_subreg\RESVAL=5'11111.
   Optimizing cells in module $paramod\prim_subreg_shadow\RESVAL=5'11111.
   Optimizing cells in module \top.
 Performed a total of 0 changes.
 
-2.6.5. Executing OPT_MERGE pass (detect identical cells).
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\prim_subreg\RESVAL=5'11111'.
 Finding identical cells in module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
 Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
 Finding unused cells or wires in module \top..
 
-2.6.7. Executing OPT_EXPR pass (perform const folding).
+2.7.7. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
 Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module top.
 
-2.6.8. Finished OPT passes. (There is nothing left to do.)
+2.7.8. Finished OPT passes. (There is nothing left to do.)
 
-2.7. Executing WREDUCE pass (reducing word size of cells).
-Removed top 26 bits (of 32) from port B of cell top.$eq$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$5 ($eq).
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 26 bits (of 32) from port B of cell top.$eq$tests/simple_tests/EnumParameterInNestedModules/top.sv:30$3 ($eq).
 
-2.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
 Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
 Finding unused cells or wires in module \top..
 
-2.9. Executing MEMORY_COLLECT pass (generating $mem cells).
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
 
-2.10. Executing OPT pass (performing simple optimizations).
+2.11. Executing OPT pass (performing simple optimizations).
 
-2.10.1. Executing OPT_EXPR pass (perform const folding).
+2.11.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\prim_subreg\RESVAL=5'11111.
 Optimizing module $paramod\prim_subreg_shadow\RESVAL=5'11111.
 Optimizing module top.
 
-2.10.2. Executing OPT_MERGE pass (detect identical cells).
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `$paramod\prim_subreg\RESVAL=5'11111'.
 Finding identical cells in module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
 Finding identical cells in module `\top'.
 Removed a total of 0 cells.
 
-2.10.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\prim_subreg\RESVAL=5'11111..
 Finding unused cells or wires in module $paramod\prim_subreg_shadow\RESVAL=5'11111..
 Finding unused cells or wires in module \top..
 
-2.10.4. Finished fast OPT passes.
+2.11.4. Finished fast OPT passes.
 
-2.11. Printing statistics.
+2.12. Printing statistics.
 
 === $paramod\prim_subreg\RESVAL=5'11111 ===
 
@@ -536,6 +449,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -547,6 +462,8 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             32
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
@@ -559,11 +476,13 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             33
    Number of public wires:           1
    Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  3
-     $assert                         1
+     $check                          1
      $eq                             1
      $paramod\prim_subreg_shadow\RESVAL=5'11111      1
 
@@ -577,14 +496,16 @@ Finding unused cells or wires in module \top..
    Number of wire bits:             97
    Number of public wires:           3
    Number of public wire bits:      96
+   Number of ports:                  3
+   Number of port bits:             96
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  2
-     $assert                         1
+     $check                          1
      $eq                             1
 
-2.12. Executing CHECK pass (checking for obvious problems).
+2.13. Executing CHECK pass (checking for obvious problems).
 Checking module $paramod\prim_subreg\RESVAL=5'11111...
 Checking module $paramod\prim_subreg_shadow\RESVAL=5'11111...
 Checking module top...
@@ -595,10 +516,10 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+/* Generated by Yosys 0.44+71 (git sha1 6b9321250, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
 Dumping module `$paramod\prim_subreg\RESVAL=5'11111'.
 
-(* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:1.1-4.10" *)
+(* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:13.4-15.25" *)
 module \$paramod\prim_subreg\RESVAL=5'11111 (a);
   (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:1.31-1.32" *)
   output [31:0] a;
@@ -607,7 +528,7 @@ module \$paramod\prim_subreg\RESVAL=5'11111 (a);
 endmodule
 Dumping module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
 
-(* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:6.1-16.10" *)
+(* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34" *)
 module \$paramod\prim_subreg_shadow\RESVAL=5'11111 (b);
   (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:6.38-6.39" *)
   output [31:0] b;
@@ -624,12 +545,15 @@ Dumping module `\top'.
 (* top =  1  *)
 (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:18.1-32.10" *)
 module top(o);
-  (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:29.4-31.7" *)
+  (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.21" *)
   wire _0_;
   (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:18.23-18.24" *)
   output [31:0] o;
   wire [31:0] o;
-  always @* if (1'h1) assert(_0_);
+  always @*
+    if (1'h1) begin
+      assert (_0_);
+    end
   assign _0_ = $signed(o) == (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:30.14-30.21" *) $signed(6'h1f);
   (* module_not_derived = 32'd1 *)
   (* src = "tests/simple_tests/EnumParameterInNestedModules/top.sv:25.4-27.34" *)
@@ -647,7 +571,9 @@ Dumping module `$paramod\prim_subreg\RESVAL=5'11111'.
 Dumping module `$paramod\prim_subreg_shadow\RESVAL=5'11111'.
 Dumping module `\top'.
 
-5. Executing SIM pass (simulate the circuit).
+5. Executing ASYNC2SYNC pass.
+
+6. Executing SIM pass (simulate the circuit).
 Simulating cycle 0.
 Simulating cycle 1.
 Simulating cycle 2.
@@ -690,5 +616,4 @@ Simulating cycle 38.
 Simulating cycle 39.
 Simulating cycle 40.
 
-Warnings: 2 unique messages, 2 total
-Yosys 0.30+16 (git sha1 8b2a00102, clang-15 15.0.7 -O0 -fsanitize-address-use-after-return=always -fsanitize-address-use-after-return=always -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
+Yosys 0.44+71 (git sha1 6b9321250, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
