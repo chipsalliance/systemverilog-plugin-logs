@@ -1,0 +1,198 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0301] tests/simple_tests/ParameterColonReference/top.sv:1:1: Compile package "pkg".
+[INF:CP0303] tests/simple_tests/ParameterColonReference/top.sv:5:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[NTE:CP0309] tests/simple_tests/ParameterColonReference/top.sv:5:19: Implicit port type (wire) for "a".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/ParameterColonReference/top.sv:5:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 6
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'pkg' of type 'package'
+    Object 'A' of type 'parameter'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'A' of type 'parameter'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'constant'
+  Object 'work@top' of type 'module_inst'
+    Object 'a' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object '' of type 'cont_assign'
+      Object 'a' of type 'ref_obj'
+      Object '' of type 'constant'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/ParameterColonReference/top.sv:5.1-7.10> str='\top'
+      AST_WIRE <tests/simple_tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.24>
+        AST_IDENTIFIER <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' in_lvalue
+        AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+      AST_PARAMETER <tests/simple_tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] dimensions=[3:0] in_param
+        AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15 in_param
+        AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:2.20-2.25> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(a);
+      /** AST_PARAMETER **/
+      output [0:0] a;
+      assign a = 1'b 1;
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/ParameterColonReference/top.sv:5.1-7.10> str='\top' basic_prep
+      AST_WIRE <tests/simple_tests/ParameterColonReference/top.sv:5.19-5.20> str='\a' output logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.24> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/ParameterColonReference/top.sv:6.11-6.12> str='\a' basic_prep in_lvalue
+        AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+      AST_PARAMETER <tests/simple_tests/ParameterColonReference/top.sv:2.26-2.34> str='\pkg::A' basic_prep range=[3:0] dimensions=[3:0] in_param
+        AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='1111'(4) basic_prep range=[3:0] int=15 in_param
+        AST_RANGE <tests/simple_tests/ParameterColonReference/top.sv:2.20-2.25> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/ParameterColonReference/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(a);
+      /** AST_PARAMETER **/
+      output [0:0] a;
+      assign a = 1'b 1;
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+4.9. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+
+** Trying induction with length 1 **
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+Import show expression: \a
+
+[base case 1] Solving problem with 2 variables and 4 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 0 cells to SAT database.
+Import show expression: \a
+
+[induction step 1] Solving problem with 2 variables and 5 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+Yosys 0.45+11 (git sha1 e8951aba2, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)

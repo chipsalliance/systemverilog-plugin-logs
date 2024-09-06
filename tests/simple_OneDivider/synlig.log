@@ -1,0 +1,342 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] third_party/surelog/tests/OneDivider/dut.v:1:1: Compile module "work@dut".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] third_party/surelog/tests/OneDivider/dut.v:1:1: Top level module "work@dut".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@dut' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'work@dut' of type 'module_inst'
+    Object 'rstn' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'clk' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'div' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'rstn' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'clk' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'div' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object '' of type 'always'
+      Object '' of type 'event_control'
+        Object '' of type 'operation'
+          Object '' of type 'operation'
+            Object 'clk' of type 'ref_obj'
+          Object '' of type 'operation'
+            Object 'rstn' of type 'ref_obj'
+        Object '' of type 'if_else'
+          Object '' of type 'operation'
+            Object 'rstn' of type 'ref_obj'
+          Object '' of type 'assignment'
+            Object 'div' of type 'ref_obj'
+            Object '' of type 'constant'
+          Object '' of type 'assignment'
+            Object 'div' of type 'ref_obj'
+            Object '' of type 'operation'
+              Object 'div' of type 'ref_obj'
+Generating RTLIL representation for module `\dut'.
+Dumping AST before simplification:
+    AST_MODULE <third_party/surelog/tests/OneDivider/dut.v:1.1-10.10> str='\dut'
+      AST_WIRE <third_party/surelog/tests/OneDivider/dut.v:1.24-1.28> str='\rstn' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <third_party/surelog/tests/OneDivider/dut.v:2.24-2.27> str='\clk' input logic port=2 dimensions=[0:0]
+        AST_RANGE <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <third_party/surelog/tests/OneDivider/dut.v:3.23-3.26> str='\div' output reg port=3 dimensions=[0:0]
+        AST_RANGE <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <third_party/surelog/tests/OneDivider/dut.v:5.1-9.23>
+        AST_POSEDGE <third_party/surelog/tests/OneDivider/dut.v:5.11-5.22>
+          AST_CAST_SIZE <third_party/surelog/tests/OneDivider/dut.v:5.11-5.22>
+            AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+            AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:5.19-5.22> str='\clk'
+        AST_NEGEDGE <third_party/surelog/tests/OneDivider/dut.v:5.26-5.38>
+          AST_CAST_SIZE <third_party/surelog/tests/OneDivider/dut.v:5.26-5.38>
+            AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+            AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:5.34-5.38> str='\rstn'
+        AST_BLOCK <third_party/surelog/tests/OneDivider/dut.v:5.8-5.39>
+          AST_CASE <third_party/surelog/tests/OneDivider/dut.v:6.8-9.23>
+            AST_REDUCE_BOOL <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_LOGIC_NOT <third_party/surelog/tests/OneDivider/dut.v:6.12-6.17>
+                AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:6.13-6.17> str='\rstn'
+            AST_COND <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='1'(1) range=[0:0] int=1
+              AST_BLOCK <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0>
+                AST_ASSIGN_LE <third_party/surelog/tests/OneDivider/dut.v:7.11-7.19>
+                  AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:7.11-7.14> str='\div' in_lvalue
+                  AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_COND <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_DEFAULT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0>
+              AST_BLOCK <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0>
+                AST_ASSIGN_LE <third_party/surelog/tests/OneDivider/dut.v:9.11-9.22>
+                  AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:9.11-9.14> str='\div' in_lvalue
+                  AST_LOGIC_NOT <third_party/surelog/tests/OneDivider/dut.v:9.18-9.22>
+                    AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:9.19-9.22> str='\div'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(rstn, clk, div);
+      input [0:0] rstn;
+      input [0:0] clk;
+      output reg [0:0] div;
+      always @(posedge 1'(clk), negedge 1'(rstn))
+        case (|(!(rstn)))
+          1'b 1:
+            div <= 0;
+          default:
+            div <= !(div);
+        endcase
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <third_party/surelog/tests/OneDivider/dut.v:1.1-10.10> str='\dut' basic_prep
+      AST_WIRE <third_party/surelog/tests/OneDivider/dut.v:1.24-1.28> str='\rstn' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <third_party/surelog/tests/OneDivider/dut.v:2.24-2.27> str='\clk' input logic basic_prep port=2 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <third_party/surelog/tests/OneDivider/dut.v:3.23-3.26> str='\div' output reg basic_prep port=3 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <third_party/surelog/tests/OneDivider/dut.v:5.1-9.23> basic_prep
+        AST_POSEDGE <third_party/surelog/tests/OneDivider/dut.v:5.11-5.22> basic_prep
+          AST_CAST_SIZE <third_party/surelog/tests/OneDivider/dut.v:5.11-5.22> basic_prep
+            AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:5.19-5.22> str='\clk' basic_prep
+        AST_NEGEDGE <third_party/surelog/tests/OneDivider/dut.v:5.26-5.38> basic_prep
+          AST_CAST_SIZE <third_party/surelog/tests/OneDivider/dut.v:5.26-5.38> basic_prep
+            AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:5.34-5.38> str='\rstn' basic_prep
+        AST_BLOCK <third_party/surelog/tests/OneDivider/dut.v:5.8-5.39> basic_prep
+          AST_CASE <third_party/surelog/tests/OneDivider/dut.v:6.8-9.23> basic_prep
+            AST_REDUCE_BOOL <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_LOGIC_NOT <third_party/surelog/tests/OneDivider/dut.v:6.12-6.17> basic_prep
+                AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:6.13-6.17> str='\rstn' basic_prep
+            AST_COND <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='1'(1) basic_prep range=[0:0] int=1
+              AST_BLOCK <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+                AST_ASSIGN_LE <third_party/surelog/tests/OneDivider/dut.v:7.11-7.19> basic_prep
+                  AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:7.11-7.14> str='\div' basic_prep in_lvalue
+                  AST_CONSTANT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_COND <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_DEFAULT <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+              AST_BLOCK <tests/../third_party/surelog/tests/OneDivider/dut.v:0.0-0.0> basic_prep
+                AST_ASSIGN_LE <third_party/surelog/tests/OneDivider/dut.v:9.11-9.22> basic_prep
+                  AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:9.11-9.14> str='\div' basic_prep in_lvalue
+                  AST_LOGIC_NOT <third_party/surelog/tests/OneDivider/dut.v:9.18-9.22> basic_prep
+                    AST_IDENTIFIER <third_party/surelog/tests/OneDivider/dut.v:9.19-9.22> str='\div' basic_prep
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(rstn, clk, div);
+      input [0:0] rstn;
+      input [0:0] clk;
+      output reg [0:0] div;
+      always @(posedge 1'(clk), negedge 1'(rstn))
+        case (|(!(rstn)))
+          1'b 1:
+            div <= 0;
+          default:
+            div <= !(div);
+        endcase
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$third_party/surelog/tests/OneDivider/dut.v:5$1 in module dut.
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rstn in `\dut.$proc$third_party/surelog/tests/OneDivider/dut.v:5$1'.
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dut.$proc$third_party/surelog/tests/OneDivider/dut.v:5$1'.
+     1/1: $0\div[0:0]
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\dut.\div' using process `\dut.$proc$third_party/surelog/tests/OneDivider/dut.v:5$1'.
+  created $adff cell `$procdff$8' with positive edge clock and positive level reset.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `dut.$proc$third_party/surelog/tests/OneDivider/dut.v:5$1'.
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+<suppressed ~2 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 2 unused cells and 4 unused wires.
+<suppressed ~3 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                  4
+   Number of wire bits:              4
+   Number of public wires:           3
+   Number of public wire bits:       3
+   Number of ports:                  3
+   Number of port bits:              3
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $adff                           1
+     $logic_not                      1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.45+11 (git sha1 e8951aba2, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\dut'.
+
+(* top =  1  *)
+(* src = "third_party/surelog/tests/OneDivider/dut.v:1.1-10.10" *)
+module dut(rstn, clk, div);
+  (* src = "third_party/surelog/tests/OneDivider/dut.v:5.1-9.23" *)
+  wire _0_;
+  (* src = "third_party/surelog/tests/OneDivider/dut.v:2.24-2.27" *)
+  input clk;
+  wire clk;
+  (* src = "third_party/surelog/tests/OneDivider/dut.v:3.23-3.26" *)
+  output div;
+  reg div;
+  (* src = "third_party/surelog/tests/OneDivider/dut.v:1.24-1.28" *)
+  input rstn;
+  wire rstn;
+  assign _0_ = ! (* src = "third_party/surelog/tests/OneDivider/dut.v:9.18-9.22" *) div;
+  (* src = "third_party/surelog/tests/OneDivider/dut.v:5.1-9.23" *)
+  always @(posedge clk, negedge rstn)
+    if (!rstn) div <= 1'h0;
+    else div <= _0_;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\dut'.
+
+Yosys 0.45+11 (git sha1 e8951aba2, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
