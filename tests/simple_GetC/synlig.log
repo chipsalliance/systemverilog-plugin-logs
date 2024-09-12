@@ -1,0 +1,297 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/GetC/top.sv:1:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/GetC/top.sv:1:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[WRN:UH0720] tests/simple_tests/GetC/top.sv:3:17: Non-synthesizable construct "getc".
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 1
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'work@top' of type 'module_inst'
+    Object 'o' of type 'byte_var'
+    Object 'a' of type 'string_var'
+      Object '' of type 'constant'
+      Object '' of type 'constant'
+    Object 'o' of type 'port'
+      Object '' of type 'byte_typespec'
+    Object '' of type 'cont_assign'
+      Object 'o' of type 'ref_obj'
+      Object 'a.getc' of type 'hier_path'
+        Object 'a' of type 'ref_obj'
+Warning: tests/simple_tests/GetC/top.sv:3: Skipping non-synthesizable object of type 'method_func_call'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/GetC/top.sv:1.1-4.10> str='\top'
+      AST_WIRE <tests/simple_tests/GetC/top.sv:1.24-1.25> str='\o' output signed port=1 range=[0:0]
+        AST_RANGE <tests/simple_tests/GetC/top.sv:0.0-0.0> range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/GetC/top.sv:2.11-2.21> str='\a' range=[0:0]
+        AST_RANGE <tests/simple_tests/GetC/top.sv:2.11-2.21> str='\a' in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/GetC/top.sv:3.11-3.24>
+        AST_IDENTIFIER <tests/simple_tests/GetC/top.sv:3.11-3.12> str='\o' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/GetC/top.sv:3.15-3.16> str='\a'
+      AST_INITIAL <tests/simple_tests/GetC/top.sv:0.0-0.0>
+        AST_BLOCK <tests/simple_tests/GetC/top.sv:0.0-0.0>
+          AST_ASSIGN_EQ <tests/simple_tests/GetC/top.sv:0.0-0.0>
+            AST_IDENTIFIER <tests/simple_tests/GetC/top.sv:0.0-0.0> str='\a' in_lvalue
+            AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> str='Test' bits='01010100011001010111001101110100'(32) range=[31:0] int=1415934836
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(o);
+      output signed [7:0] o;
+      wire [31:0] a;
+      assign o = a;
+      initial
+        a = "Test";
+    endmodule
+--- END OF AST DUMP ---
+Warning: wire '\a' is assigned in a block at tests/simple_tests/GetC/top.sv:0.0-0.0.
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/GetC/top.sv:1.1-4.10> str='\top' basic_prep
+      AST_WIRE <tests/simple_tests/GetC/top.sv:1.24-1.25> str='\o' output signed basic_prep port=1 range=[7:0] dimensions=[7:0]
+        AST_RANGE <tests/simple_tests/GetC/top.sv:0.0-0.0> basic_prep range=[7:0] in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/GetC/top.sv:2.11-2.21> str='\a' basic_prep range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/GetC/top.sv:2.11-2.21> str='\a' basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/GetC/top.sv:3.11-3.24> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/GetC/top.sv:3.11-3.12> str='\o' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/GetC/top.sv:3.15-3.16> str='\a' basic_prep
+      AST_INITIAL <tests/simple_tests/GetC/top.sv:0.0-0.0> basic_prep
+        AST_BLOCK <tests/simple_tests/GetC/top.sv:0.0-0.0> basic_prep
+          AST_ASSIGN_EQ <tests/simple_tests/GetC/top.sv:0.0-0.0> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/GetC/top.sv:0.0-0.0> str='\a' basic_prep in_lvalue
+            AST_CONSTANT <tests/simple_tests/GetC/top.sv:0.0-0.0> str='Test' bits='01010100011001010111001101110100'(32) basic_prep range=[31:0] int=1415934836
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(o);
+      output signed [7:0] o;
+      wire [31:0] a;
+      assign o = a;
+      initial
+        a = "Test";
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \top
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \top
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\top.$proc$tests/simple_tests/GetC/top.sv:0$1'.
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\top.\a' from process `\top.$proc$tests/simple_tests/GetC/top.sv:0$1'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `top.$proc$tests/simple_tests/GetC/top.sv:0$1'.
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  2
+   Number of wire bits:             40
+   Number of public wires:           2
+   Number of public wire bits:      40
+   Number of ports:                  1
+   Number of port bits:              8
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 c4fc1e288, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\top'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/GetC/top.sv:1.1-4.10" *)
+module top(o);
+  (* src = "tests/simple_tests/GetC/top.sv:2.11-2.21" *)
+  wire [31:0] a;
+  (* src = "tests/simple_tests/GetC/top.sv:1.24-1.25" *)
+  output [7:0] o;
+  wire [7:0] o;
+  assign a = 32'd1415934836;
+  assign o = 8'h74;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\top'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Warnings: 2 unique messages, 2 total
