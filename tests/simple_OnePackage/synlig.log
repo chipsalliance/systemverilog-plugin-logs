@@ -1,0 +1,342 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0301] tests/simple_tests/OnePackage/dut.sv:1:1: Compile package "top_pkg".
+[INF:CP0303] tests/simple_tests/OnePackage/dut.sv:11:1: Compile module "work@dut".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/OnePackage/dut.sv:11:1: Top level module "work@dut".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@dut' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'top_pkg' of type 'package'
+    Object 'top_pkg::opcode_e' of type 'enum_typespec'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object 'OPCODE_LOAD' of type 'enum_const'
+      Object 'OPCODE_STORE' of type 'enum_const'
+    Object 'PMP_CFG_W' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'PMP_CFG_W' of type 'parameter'
+      Object '' of type 'constant'
+  Object 'work@dut' of type 'module_inst'
+    Object 'a' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'b' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'a' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'b' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'b' of type 'ref_obj'
+      Object '' of type 'operation'
+        Object '' of type 'constant'
+        Object '' of type 'operation'
+          Object '' of type 'operation'
+            Object 'a' of type 'ref_obj'
+            Object '' of type 'constant'
+Generating RTLIL representation for module `\dut'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/OnePackage/dut.sv:11.1-18.10> str='\dut'
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:14.14-14.15> str='\a' input logic port=1 dimensions=[5:0]
+        AST_RANGE <tests/simple_tests/OnePackage/dut.sv:14.8-14.13> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:15.13-15.14> str='\b' output reg port=2 dimensions=[2:0]
+        AST_RANGE <tests/simple_tests/OnePackage/dut.sv:15.7-15.12> basic_prep range=[2:0] in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/OnePackage/dut.sv:16.10-17.45>
+        AST_IDENTIFIER <tests/simple_tests/OnePackage/dut.sv:16.10-16.11> str='\b' in_lvalue
+        AST_BIT_OR <tests/simple_tests/OnePackage/dut.sv:16.14-17.45>
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='010'(3) range=[2:0] int=2
+          AST_EQ <tests/simple_tests/OnePackage/dut.sv:17.19-17.44>
+            AST_IDENTIFIER <tests/simple_tests/OnePackage/dut.sv:17.19-17.20> str='\a'
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='000011'(6) range=[5:0] int=3
+      AST_ENUM <tests/simple_tests/OnePackage/dut.sv:2.3-5.14> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/OnePackage/dut.sv:3.5-3.28> str='\top_pkg::OPCODE_LOAD' logic basic_prep range=[5:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
+          AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <tests/simple_tests/OnePackage/dut.sv:4.5-4.28> str='\top_pkg::OPCODE_STORE' logic basic_prep range=[5:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
+          AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/OnePackage/dut.sv:2.3-5.14> str='\top_pkg::opcode_e' basic_prep
+        AST_WIRE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> reg basic_prep range=[5:0] dimensions=[5:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/OnePackage/dut.sv:7.24-7.37> str='\top_pkg::PMP_CFG_W' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(a, b);
+      /** AST_PARAMETER **/
+      input [5:0] a;
+      output reg [2:0] b;
+      assign b = (3'b 010)|((a)==(6'b 000011));
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Warning: reg '\b' is assigned in a continuous assignment at tests/simple_tests/OnePackage/dut.sv:16.10-17.45.
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/OnePackage/dut.sv:11.1-18.10> str='\dut' basic_prep
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:14.14-14.15> str='\a' input logic basic_prep port=1 range=[5:0] dimensions=[5:0]
+        AST_RANGE <tests/simple_tests/OnePackage/dut.sv:14.8-14.13> basic_prep range=[5:0] in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/OnePackage/dut.sv:15.13-15.14> str='\b' output reg basic_prep port=2 range=[2:0] dimensions=[2:0]
+        AST_RANGE <tests/simple_tests/OnePackage/dut.sv:15.7-15.12> basic_prep range=[2:0] in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/OnePackage/dut.sv:16.10-17.45> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/OnePackage/dut.sv:16.10-16.11> str='\b' basic_prep in_lvalue
+        AST_BIT_OR <tests/simple_tests/OnePackage/dut.sv:16.14-17.45> basic_prep
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='010'(3) basic_prep range=[2:0] int=2
+          AST_EQ <tests/simple_tests/OnePackage/dut.sv:17.19-17.44> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/OnePackage/dut.sv:17.19-17.20> str='\a' basic_prep
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='000011'(6) basic_prep range=[5:0] int=3
+      AST_ENUM <tests/simple_tests/OnePackage/dut.sv:2.3-5.14> str='$enum0' logic basic_prep
+        AST_ENUM_ITEM <tests/simple_tests/OnePackage/dut.sv:3.5-3.28> str='\top_pkg::OPCODE_LOAD' logic basic_prep range=[5:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:3.5-3.28> bits='000011'(6) basic_prep range=[5:0] int=3
+          AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+        AST_ENUM_ITEM <tests/simple_tests/OnePackage/dut.sv:4.5-4.28> str='\top_pkg::OPCODE_STORE' logic basic_prep range=[5:0]
+          ATTR \enum_base_type:
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:4.5-4.28> bits='010011'(6) basic_prep range=[5:0] int=19
+          AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0]
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+      AST_TYPEDEF <tests/simple_tests/OnePackage/dut.sv:2.3-5.14> str='\top_pkg::opcode_e' basic_prep
+        AST_WIRE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> reg basic_prep range=[5:0] dimensions=[5:0]
+          ATTR \enum_type:
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> str='$enum0' bits='001001000110010101101110011101010110110100110000'(48) basic_prep range=[47:0] int=1853189424 in_param
+          AST_RANGE <tests/simple_tests/OnePackage/dut.sv:2.22-2.27> basic_prep range=[5:0] in_param
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+            AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/OnePackage/dut.sv:7.24-7.37> str='\top_pkg::PMP_CFG_W' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/OnePackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(a, b);
+      /** AST_PARAMETER **/
+      input [5:0] a;
+      output reg [2:0] b;
+      assign b = (3'b 010)|((a)==(6'b 000011));
+      /** AST_ENUM **/
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+<suppressed ~1 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 4 bits (of 6) from port B of cell dut.$eq$tests/simple_tests/OnePackage/dut.sv:17$1 ($eq).
+Removed top 2 bits (of 3) from wire dut.$eq$tests/simple_tests/OnePackage/dut.sv:17$1_Y.
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                  2
+   Number of wire bits:              9
+   Number of public wires:           2
+   Number of public wire bits:       9
+   Number of ports:                  2
+   Number of port bits:              9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $eq                             1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Yosys 0.44+60 (git sha1 0fc5812dc, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\dut'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/OnePackage/dut.sv:11.1-18.10" *)
+module dut(a, b);
+  (* src = "tests/simple_tests/OnePackage/dut.sv:14.14-14.15" *)
+  input [5:0] a;
+  wire [5:0] a;
+  (* src = "tests/simple_tests/OnePackage/dut.sv:15.13-15.14" *)
+  output [2:0] b;
+  wire [2:0] b;
+  assign b[0] = a == (* src = "tests/simple_tests/OnePackage/dut.sv:17.19-17.44" *) 2'h3;
+  assign b[2:1] = 2'h1;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\dut'.
+
+Warnings: 1 unique messages, 1 total
+Yosys 0.44+60 (git sha1 0fc5812dc, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address)
