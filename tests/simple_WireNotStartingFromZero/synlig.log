@@ -1,0 +1,138 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/WireNotStartingFromZero/top.sv:1:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/WireNotStartingFromZero/top.sv:1:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'work@top' of type 'module_inst'
+    Object 'i' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'index_o' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'index_o' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'i' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'index_o' of type 'bit_select'
+        Object '' of type 'constant'
+      Object 'i' of type 'bit_select'
+        Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'index_o' of type 'bit_select'
+        Object '' of type 'constant'
+      Object 'i' of type 'bit_select'
+        Object '' of type 'constant'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/WireNotStartingFromZero/top.sv:1.1-7.10> str='\top'
+      AST_WIRE <tests/simple_tests/WireNotStartingFromZero/top.sv:1.13-1.14> str='\i' input logic port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:2.9-2.15> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/WireNotStartingFromZero/top.sv:4.14-4.21> str='\index_o' output logic port=2 dimensions=[1:2]
+        AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:4.8-4.13> basic_prep swapped_range=[2:1] in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+      AST_ASSIGN <tests/simple_tests/WireNotStartingFromZero/top.sv:5.10-5.27>
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:5.10-5.20> str='\index_o' in_lvalue
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:5.10-5.20> in_lvalue
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:5.25-5.26> str='\i'
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:5.25-5.26>
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+      AST_ASSIGN <tests/simple_tests/WireNotStartingFromZero/top.sv:6.10-6.27>
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:6.10-6.20> str='\index_o' in_lvalue
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:6.10-6.20> in_lvalue
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:6.25-6.26> str='\i'
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:6.25-6.26>
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(i, index_o);
+      input [31:0] i;
+      output [1:2] index_o;
+      assign index_o[1] = i[1];
+      assign index_o[2] = i[0];
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/WireNotStartingFromZero/top.sv:1.1-7.10> str='\top' basic_prep
+      AST_WIRE <tests/simple_tests/WireNotStartingFromZero/top.sv:1.13-1.14> str='\i' input logic basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:2.9-2.15> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/WireNotStartingFromZero/top.sv:4.14-4.21> str='\index_o' output logic basic_prep port=2 swapped_range=[2:1] dimensions=[1:2]
+        AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:4.8-4.13> basic_prep swapped_range=[2:1] in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+          AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+      AST_ASSIGN <tests/simple_tests/WireNotStartingFromZero/top.sv:5.10-5.27> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:5.10-5.20> str='\index_o' basic_prep int=1 in_lvalue
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:5.10-5.20> basic_prep range=[1:1] in_lvalue
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:5.25-5.26> str='\i' basic_prep int=1
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:5.25-5.26> basic_prep range=[1:1]
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+      AST_ASSIGN <tests/simple_tests/WireNotStartingFromZero/top.sv:6.10-6.27> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:6.10-6.20> str='\index_o' basic_prep int=1 in_lvalue
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:6.10-6.20> basic_prep range=[2:2] in_lvalue
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/WireNotStartingFromZero/top.sv:6.25-6.26> str='\i' basic_prep int=1
+          AST_RANGE <tests/simple_tests/WireNotStartingFromZero/top.sv:6.25-6.26> basic_prep range=[0:0]
+            AST_CONSTANT <tests/simple_tests/WireNotStartingFromZero/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(i, index_o);
+      input [31:0] i;
+      output [1:2] index_o;
+      assign index_o[1:1] = i[1:1];
+      assign index_o[2:2] = i[0:0];
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing Verilog backend.
+
+2.1. Executing BMUXMAP pass.
+
+2.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 e9fef2847, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\top'.
+
+module top(i, index_o);
+  input [31:0] i;
+  wire [31:0] i;
+  output [1:2] index_o;
+  wire [1:2] index_o;
+  assign index_o[1] = i[1];
+  assign index_o[2] = i[0];
+endmodule
+
