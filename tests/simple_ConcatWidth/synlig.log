@@ -1,0 +1,420 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/ConcatWidth/top.sv:1:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/ConcatWidth/top.sv:1:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 0.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'work@top' of type 'module_inst'
+    Object 'CounterWidth' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'CounterWidth' of type 'parameter'
+      Object '' of type 'constant'
+    Object 'counter' of type 'logic_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'counter_upd' of type 'logic_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'clk' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'out' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'clk' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'out' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object '' of type 'initial'
+      Object '' of type 'assignment'
+        Object 'counter' of type 'ref_obj'
+        Object '' of type 'constant'
+    Object '' of type 'always'
+      Object '' of type 'event_control'
+        Object '' of type 'operation'
+          Object 'clk' of type 'ref_obj'
+        Object '' of type 'begin'
+          Object '' of type 'assignment'
+            Object 'counter_upd' of type 'ref_obj'
+            Object '' of type 'operation'
+              Object 'counter' of type 'part_select'
+                Object '' of type 'constant'
+                Object '' of type 'constant'
+              Object '' of type 'operation'
+                Object '' of type 'operation'
+                  Object '' of type 'constant'
+                  Object '' of type 'operation'
+                    Object '' of type 'constant'
+                Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'out' of type 'ref_obj'
+      Object 'counter_upd' of type 'ref_obj'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/ConcatWidth/top.sv:1.1-18.10> str='\top'
+      AST_PARAMETER <tests/simple_tests/ConcatWidth/top.sv:2.19-2.36> str='\CounterWidth' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) signed range=[31:0] int=32 in_param
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:8.18-8.25> str='\counter' logic
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:8.11-8.17> in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:9.30-9.41> str='\counter_upd' logic
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:9.11-9.29> in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:4.17-4.20> str='\clk' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:5.37-5.40> str='\out' output logic port=2 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:5.18-5.36> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/ConcatWidth/top.sv:13.5-15.8>
+        AST_POSEDGE <tests/simple_tests/ConcatWidth/top.sv:13.14-13.25>
+          AST_CAST_SIZE <tests/simple_tests/ConcatWidth/top.sv:13.14-13.25>
+            AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+            AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:13.22-13.25> str='\clk'
+        AST_BLOCK <tests/simple_tests/ConcatWidth/top.sv:13.12-13.26>
+          AST_BLOCK <tests/simple_tests/ConcatWidth/top.sv:13.27-15.8>
+            AST_ASSIGN_EQ <tests/simple_tests/ConcatWidth/top.sv:14.9-14.80>
+              AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:14.9-14.20> str='\counter_upd' in_lvalue
+              AST_ADD <tests/simple_tests/ConcatWidth/top.sv:14.23-14.80>
+                AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:14.23-14.48> str='\counter'
+                  AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:14.23-14.48>
+                    AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
+                    AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_CONCAT <tests/simple_tests/ConcatWidth/top.sv:14.51-14.80>
+                  AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='1'(1) range=[0:0] int=1
+                  AST_REPLICATE <tests/simple_tests/ConcatWidth/top.sv:14.52-14.74>
+                    AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                    AST_CONCAT <tests/simple_tests/ConcatWidth/top.sv:14.67-14.73>
+                      AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='0'(1) range=[0:0]
+      AST_ASSIGN <tests/simple_tests/ConcatWidth/top.sv:16.12-16.29>
+        AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:16.12-16.15> str='\out' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:16.18-16.29> str='\counter_upd'
+      AST_INITIAL <tests/simple_tests/ConcatWidth/top.sv:11.5-12.21>
+        AST_BLOCK <tests/simple_tests/ConcatWidth/top.sv:11.5-12.21>
+          AST_ASSIGN_EQ <tests/simple_tests/ConcatWidth/top.sv:12.9-12.20>
+            AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:12.9-12.16> str='\counter' in_lvalue
+            AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(clk, out);
+      /** AST_PARAMETER **/
+      wire [63:0] counter;
+      wire [31:0] counter_upd;
+      input [0:0] clk;
+      output [31:0] out;
+      always @(posedge 1'(clk))
+        counter_upd = (counter[31:0])+({{31{{1'b 0}}}, 1'b 1});
+      assign out = counter_upd;
+      initial
+        counter = 0;
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/ConcatWidth/top.sv:1.1-18.10> str='\top' basic_prep
+      AST_PARAMETER <tests/simple_tests/ConcatWidth/top.sv:2.19-2.36> str='\CounterWidth' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) basic_prep range=[31:0] int=32 in_param
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:8.18-8.25> str='\counter' logic reg basic_prep range=[63:0] dimensions=[63:0]
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:8.11-8.17> basic_prep range=[63:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:9.30-9.41> str='\counter_upd' logic reg basic_prep range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:9.11-9.29> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:4.17-4.20> str='\clk' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/ConcatWidth/top.sv:5.37-5.40> str='\out' output logic basic_prep port=2 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:5.18-5.36> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/ConcatWidth/top.sv:13.5-15.8> basic_prep
+        AST_POSEDGE <tests/simple_tests/ConcatWidth/top.sv:13.14-13.25> basic_prep
+          AST_CAST_SIZE <tests/simple_tests/ConcatWidth/top.sv:13.14-13.25> basic_prep
+            AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:13.22-13.25> str='\clk' basic_prep
+        AST_BLOCK <tests/simple_tests/ConcatWidth/top.sv:13.12-13.26> basic_prep
+          AST_BLOCK <tests/simple_tests/ConcatWidth/top.sv:13.27-15.8> basic_prep
+            AST_ASSIGN_EQ <tests/simple_tests/ConcatWidth/top.sv:14.9-14.80> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:14.9-14.20> str='\counter_upd' basic_prep in_lvalue
+              AST_ADD <tests/simple_tests/ConcatWidth/top.sv:14.23-14.80> basic_prep
+                AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:14.23-14.48> str='\counter' basic_prep int=1
+                  AST_RANGE <tests/simple_tests/ConcatWidth/top.sv:14.23-14.48> basic_prep range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
+                    AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:14.51-14.80> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+      AST_ASSIGN <tests/simple_tests/ConcatWidth/top.sv:16.12-16.29> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:16.12-16.15> str='\out' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:16.18-16.29> str='\counter_upd' basic_prep
+      AST_INITIAL <tests/simple_tests/ConcatWidth/top.sv:11.5-12.21> basic_prep
+        AST_BLOCK <tests/simple_tests/ConcatWidth/top.sv:11.5-12.21> basic_prep
+          AST_ASSIGN_EQ <tests/simple_tests/ConcatWidth/top.sv:12.9-12.20> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/ConcatWidth/top.sv:12.9-12.16> str='\counter' basic_prep in_lvalue
+            AST_CONSTANT <tests/simple_tests/ConcatWidth/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(clk, out);
+      /** AST_PARAMETER **/
+      reg [63:0] counter;
+      reg [31:0] counter_upd;
+      input [0:0] clk;
+      output [31:0] out;
+      always @(posedge 1'(clk))
+        counter_upd = (counter[31:0])+(1);
+      assign out = counter_upd;
+      initial
+        counter = 0;
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \top
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \top
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\top.$proc$tests/simple_tests/ConcatWidth/top.sv:11$3'.
+Creating decoders for process `\top.$proc$tests/simple_tests/ConcatWidth/top.sv:13$1'.
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\top.\counter' from process `\top.$proc$tests/simple_tests/ConcatWidth/top.sv:11$3'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\top.\counter_upd' using process `\top.$proc$tests/simple_tests/ConcatWidth/top.sv:13$1'.
+  created $dff cell `$procdff$4' with positive edge clock.
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `top.$proc$tests/simple_tests/ConcatWidth/top.sv:11$3'.
+Removing empty process `top.$proc$tests/simple_tests/ConcatWidth/top.sv:13$1'.
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+<suppressed ~1 debug messages>
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  4
+   Number of wire bits:            129
+   Number of public wires:           4
+   Number of public wire bits:     129
+   Number of ports:                  2
+   Number of port bits:             33
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $dff                            1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 4f0c77ecf, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\top'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/ConcatWidth/top.sv:1.1-18.10" *)
+module top(clk, out);
+  (* src = "tests/simple_tests/ConcatWidth/top.sv:4.17-4.20" *)
+  input clk;
+  wire clk;
+  (* src = "tests/simple_tests/ConcatWidth/top.sv:8.18-8.25" *)
+  wire [63:0] counter;
+  (* src = "tests/simple_tests/ConcatWidth/top.sv:9.30-9.41" *)
+  reg [31:0] counter_upd;
+  (* src = "tests/simple_tests/ConcatWidth/top.sv:5.37-5.40" *)
+  output [31:0] out;
+  wire [31:0] out;
+  (* src = "tests/simple_tests/ConcatWidth/top.sv:13.5-15.8" *)
+  always @(posedge clk)
+    counter_upd <= 32'd1;
+  assign counter = 64'h0000000000000000;
+  assign out = counter_upd;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\top'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
