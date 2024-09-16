@@ -1,0 +1,248 @@
+1. Executing Verilog with UHDM frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0304] tests/simple_tests/InterfaceAssign/top.sv:1:1: Compile interface "work@sw_test_status_if".
+[INF:CP0303] tests/simple_tests/InterfaceAssign/top.sv:5:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/InterfaceAssign/top.sv:5:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 0.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object '' of type 'interface_inst'
+    Object 'x' of type 'logic_net'
+    Object 'x' of type 'port'
+  Object 'builtin' of type 'package'
+  Object 'work@top' of type 'module_inst'
+    Object 'u_sw' of type 'interface_inst'
+      Object 'x' of type 'port'
+        Object '' of type 'int_typespec'
+      Object 'x' of type 'int_var'
+      Object 'o' of type 'ref_obj'
+    Object 'o' of type 'int_var'
+    Object 'o' of type 'port'
+      Object '' of type 'int_typespec'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/InterfaceAssign/top.sv:5.1-7.10> str='\top'
+      AST_CELL <tests/simple_tests/InterfaceAssign/top.sv:6.4-6.34> str='\u_sw'
+        AST_CELLTYPE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> str='\sw_test_status_if'
+        AST_ARGUMENT <tests/simple_tests/InterfaceAssign/top.sv:6.4-6.34> str='\x'
+          AST_IDENTIFIER <tests/simple_tests/InterfaceAssign/top.sv:6.30-6.31> str='\o'
+      AST_WIRE <tests/simple_tests/InterfaceAssign/top.sv:5.23-5.24> str='\o' output signed port=3 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(o);
+      output signed [31:0] o;
+      /** AST_CELL **/
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/InterfaceAssign/top.sv:5.1-7.10> str='\top' basic_prep
+      AST_CELL <tests/simple_tests/InterfaceAssign/top.sv:6.4-6.34> str='\u_sw' basic_prep
+        AST_CELLTYPE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> str='\sw_test_status_if' basic_prep
+        AST_ARGUMENT <tests/simple_tests/InterfaceAssign/top.sv:6.4-6.34> str='\x' basic_prep
+          AST_IDENTIFIER <tests/simple_tests/InterfaceAssign/top.sv:6.30-6.31> str='\o' basic_prep
+      AST_WIRE <tests/simple_tests/InterfaceAssign/top.sv:5.23-5.24> str='\o' output signed basic_prep port=3 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(o);
+      output signed [31:0] o;
+      /** AST_CELL **/
+    endmodule
+--- END OF AST DUMP ---
+Generating RTLIL representation for module `\sw_test_status_if'.
+Dumping AST before simplification:
+    AST_INTERFACE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> str='\sw_test_status_if'
+      AST_WIRE <tests/simple_tests/InterfaceAssign/top.sv:1.40-1.41> str='\x' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    /** AST_INTERFACE **/
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_INTERFACE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> str='\sw_test_status_if' basic_prep
+      AST_WIRE <tests/simple_tests/InterfaceAssign/top.sv:1.40-1.41> str='\x' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/InterfaceAssign/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    /** AST_INTERFACE **/
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \top
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \top
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  1
+   Number of wire bits:             32
+   Number of public wires:           1
+   Number of public wire bits:      32
+   Number of ports:                  1
+   Number of port bits:             32
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     sw_test_status_if               1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 1f7737b02, clang++-15 15.0.6 -Og -fPIC -O1 -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize=address) */
+Dumping module `\top'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/InterfaceAssign/top.sv:5.1-7.10" *)
+module top(o);
+  (* src = "tests/simple_tests/InterfaceAssign/top.sv:5.23-5.24" *)
+  output [31:0] o;
+  wire [31:0] o;
+  (* module_not_derived = 32'd1 *)
+  (* src = "tests/simple_tests/InterfaceAssign/top.sv:6.4-6.34" *)
+  sw_test_status_if u_sw (
+    .x(o)
+  );
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\top'.
+
