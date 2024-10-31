@@ -118,8 +118,28 @@ Dumping AST before simplification:
           AST_IDENTIFIER <tests/simple_tests/AssignmentToConcatenation/top.sv:10.13-10.14> str='\a' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/AssignmentToConcatenation/top.sv:11.19-11.30> str='\hw2reg_wrap' basic_prep
           AST_RANGE <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
-            AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_SUB <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+              AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                    AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                      AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                        AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                        AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2
+              AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+            AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+              AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
+                    AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+              AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
       AST_INITIAL <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
         AST_BLOCK <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
           AST_ASSIGN_EQ <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0>
@@ -137,7 +157,7 @@ Dumping Verilog AST before simplification:
       /** AST_ENUM **/
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
-      assign {a, b} = hw2reg_wrap[1:0];
+      assign {a, b} = hw2reg_wrap[((((((0)+(0))+(0))+(0))+(0))+(2))-(1):((((0)+(0))+(0))+(0))+(0)];
       initial
         hw2reg_wrap = {c, d};
     endmodule
@@ -195,8 +215,8 @@ Dumping AST after simplification:
           AST_IDENTIFIER <tests/simple_tests/AssignmentToConcatenation/top.sv:10.13-10.14> str='\a' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/AssignmentToConcatenation/top.sv:11.19-11.30> str='\hw2reg_wrap' basic_prep
           AST_RANGE <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep range=[1:0]
-            AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
-            AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1
+            AST_CONSTANT <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
       AST_INITIAL <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep
         AST_BLOCK <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/AssignmentToConcatenation/top.sv:0.0-0.0> basic_prep
@@ -355,7 +375,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Synlig (git sha1 44d00f6f2, g++ 12.2.0-14 -fPIC -O3) */
+/* Generated by Synlig (git sha1 14b81041b, g++ 12.2.0-14 -fPIC -O3) */
 Dumping module `\top'.
 
 (* top =  1  *)

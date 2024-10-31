@@ -70,13 +70,13 @@ Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.1-9.10> str='\top'
       AST_TYPEDEF <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-4.5> str='\struct_t'
         AST_STRUCT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-4.5> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:3.19-3.20> str='x' logic basic_prep range=[2:0]
-      AST_WIRE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:6.24-6.25> str='\a' logic basic_prep range=[2:0] dimensions=[2:0][2:0][1:0]
+          AST_STRUCT_ITEM <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:3.19-3.20> str='x' logic basic_prep range=[2:0] dimensions=[2:0]
+      AST_WIRE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:6.24-6.25> str='\a' logic basic_prep range=[17:0] dimensions=[2:0][2:0][1:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> str='\struct_t' bits='010111000111001101110100011100100111010101100011011101000101111101110100'(72) basic_prep range=[71:0] int=1668570996 in_param
-        AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> range=[17:0] in_param
-          AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000010001'(32) signed range=[31:0] int=17 in_param
-          AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+        AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> basic_prep range=[17:0] in_param
+          AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000010001'(32) signed basic_prep range=[31:0] int=17 in_param
+          AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_WIRE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.31-1.32> str='\o' output logic port=1 dimensions=[2:0]
         AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.25-1.30> basic_prep range=[2:0] in_param
           AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
@@ -84,51 +84,55 @@ Dumping AST before simplification:
       AST_ASSIGN <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:7.11-7.27>
         AST_IDENTIFIER <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:7.11-7.12> str='\a' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-            AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-              AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6 in_lvalue
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+            AST_SUB <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
               AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
                 AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                        AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+              AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
             AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-              AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6 in_lvalue
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
               AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3 in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
                 AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_lvalue
+                  AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> in_lvalue
+                    AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) range=[31:0] int=2 in_lvalue
+              AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
       AST_ASSIGN <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:8.11-8.24>
         AST_IDENTIFIER <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:8.11-8.12> str='\o' in_lvalue
         AST_IDENTIFIER <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:8.15-8.16> str='\a' basic_prep
           AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-            AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-              AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+            AST_SUB <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
               AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-                AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+                AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
+                    AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
+                      AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
+                        AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                        AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) range=[31:0] int=3
+              AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
             AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-              AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
               AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-                AST_MUL <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
-                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0>
+                    AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+              AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -136,15 +140,15 @@ Dumping Verilog AST before simplification:
       wire [17:0] a;
       output [2:0] o;
       /** AST_TYPEDEF **/
-      assign a[((6)*(0))+(((3)*(0))+((0)+(2))):((6)*(0))+(((3)*(0))+((0)+(2)))] = 1;
-      assign o = a[((6)*(0))+(((3)*(0))+(2)):((6)*(0))+(((3)*(0))+(0))];
+      assign a[((((((0)+(0))+(0))+(2))+(0))+(1))-(1):((((0)+(0))+(0))+(2))+(0)] = 1;
+      assign o = a[((((((0)+(0))+(0))+(0))+(0))+(3))-(1):((((0)+(0))+(0))+(0))+(0)];
     endmodule
 --- END OF AST DUMP ---
 Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:1.1-9.10> str='\top' basic_prep
       AST_TYPEDEF <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-4.5> str='\struct_t' basic_prep
         AST_STRUCT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:2.12-4.5> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:3.19-3.20> str='x' logic basic_prep range=[2:0]
+          AST_STRUCT_ITEM <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:3.19-3.20> str='x' logic basic_prep range=[2:0] dimensions=[2:0]
       AST_WIRE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:6.24-6.25> str='\a' logic basic_prep range=[17:0] dimensions=[2:0][2:0][1:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> str='\struct_t' bits='010111000111001101110100011100100111010101100011011101000101111101110100'(72) basic_prep range=[71:0] int=1668570996 in_param
@@ -158,15 +162,15 @@ Dumping AST after simplification:
       AST_ASSIGN <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:7.11-7.27> basic_prep
         AST_IDENTIFIER <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:7.11-7.12> str='\a' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> basic_prep range=[2:2] in_lvalue
-            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_lvalue
-            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_lvalue
+            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_lvalue
+            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_lvalue
         AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
       AST_ASSIGN <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:8.11-8.24> basic_prep
         AST_IDENTIFIER <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:8.11-8.12> str='\o' basic_prep in_lvalue
         AST_IDENTIFIER <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:8.15-8.16> str='\a' basic_prep
           AST_RANGE <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> basic_prep range=[2:0]
-            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
-            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2
+            AST_CONSTANT <tests/simple_tests/SelectOnMemberSelectedFrom2DArray/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module top(o);
@@ -315,7 +319,7 @@ Found and reported 2 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Synlig (git sha1 44d00f6f2, g++ 12.2.0-14 -fPIC -O3) */
+/* Generated by Synlig (git sha1 14b81041b, g++ 12.2.0-14 -fPIC -O3) */
 Dumping module `\top'.
 
 (* top =  1  *)

@@ -96,7 +96,7 @@ Dumping AST before simplification:
     AST_MODULE <tests/simple_tests/StructInPackage/dut.sv:13.1-25.10> str='\dut'
       AST_TYPEDEF <tests/simple_tests/StructInPackage/dut.sv:14.13-16.6> str='\struct2'
         AST_STRUCT <tests/simple_tests/StructInPackage/dut.sv:14.13-16.6> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:15.21-15.26> str='third' logic basic_prep range=[5:0]
+          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:15.21-15.26> str='third' logic basic_prep range=[5:0] dimensions=[5:0]
       AST_WIRE <tests/simple_tests/StructInPackage/dut.sv:13.12-13.16> str='\var1' output logic basic_prep range=[7:0] dimensions=[7:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> str='\struct1' bits='0101110001110011011101000111001001110101011000110111010000110001'(64) basic_prep range=[63:0] int=1969452081 in_param
@@ -118,27 +118,87 @@ Dumping AST before simplification:
       AST_ASSIGN <tests/simple_tests/StructInPackage/dut.sv:22.12-22.28>
         AST_IDENTIFIER <tests/simple_tests/StructInPackage/dut.sv:22.17-22.22> str='\var1' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+            AST_SUB <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+              AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8 in_lvalue
+              AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+            AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+              AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+              AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed range=[31:0] int=255
       AST_ASSIGN <tests/simple_tests/StructInPackage/dut.sv:23.12-23.29>
         AST_IDENTIFIER <tests/simple_tests/StructInPackage/dut.sv:23.17-23.23> str='\var2' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6 in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+            AST_SUB <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+              AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) range=[31:0] int=7 in_lvalue
+              AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+            AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+              AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+              AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed range=[31:0] int=127
       AST_ASSIGN <tests/simple_tests/StructInPackage/dut.sv:24.12-24.27>
         AST_IDENTIFIER <tests/simple_tests/StructInPackage/dut.sv:24.17-24.22> str='\var3' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed range=[31:0] int=5 in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+            AST_SUB <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+              AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                        AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) range=[31:0] int=6 in_lvalue
+              AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+            AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+              AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+              AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed range=[31:0] int=63
       AST_TYPEDEF <tests/simple_tests/StructInPackage/dut.sv:2.13-4.6> str='\pkg1::struct1' basic_prep
         AST_STRUCT <tests/simple_tests/StructInPackage/dut.sv:2.13-4.6> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:3.21-3.26> str='first' logic basic_prep range=[7:0]
+          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:3.21-3.26> str='first' logic basic_prep range=[7:0] dimensions=[7:0]
       AST_TYPEDEF <tests/simple_tests/StructInPackage/dut.sv:8.13-10.6> str='\pkg2::struct1' basic_prep
         AST_STRUCT <tests/simple_tests/StructInPackage/dut.sv:8.13-10.6> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:9.21-9.27> str='second' logic basic_prep range=[6:0]
+          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:9.21-9.27> str='second' logic basic_prep range=[6:0] dimensions=[6:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module dut(var1, var2, var3);
@@ -149,9 +209,9 @@ Dumping Verilog AST before simplification:
       (* wiretype = "\struct2" *)
       output [5:0] var3;
       /** AST_TYPEDEF **/
-      assign var1[7:0] = 255;
-      assign var2[6:0] = 127;
-      assign var3[5:0] = 63;
+      assign var1[((((((0)+(0))+(0))+(0))+(0))+(8))-(1):((((0)+(0))+(0))+(0))+(0)] = 255;
+      assign var2[((((((0)+(0))+(0))+(0))+(0))+(7))-(1):((((0)+(0))+(0))+(0))+(0)] = 127;
+      assign var3[((((((0)+(0))+(0))+(0))+(0))+(6))-(1):((((0)+(0))+(0))+(0))+(0)] = 63;
       /** AST_TYPEDEF **/
       /** AST_TYPEDEF **/
     endmodule
@@ -160,7 +220,7 @@ Dumping AST after simplification:
     AST_MODULE <tests/simple_tests/StructInPackage/dut.sv:13.1-25.10> str='\dut' basic_prep
       AST_TYPEDEF <tests/simple_tests/StructInPackage/dut.sv:14.13-16.6> str='\struct2' basic_prep
         AST_STRUCT <tests/simple_tests/StructInPackage/dut.sv:14.13-16.6> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:15.21-15.26> str='third' logic basic_prep range=[5:0]
+          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:15.21-15.26> str='third' logic basic_prep range=[5:0] dimensions=[5:0]
       AST_WIRE <tests/simple_tests/StructInPackage/dut.sv:13.12-13.16> str='\var1' output logic basic_prep range=[7:0] dimensions=[7:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> str='\struct1' bits='0101110001110011011101000111001001110101011000110111010000110001'(64) basic_prep range=[63:0] int=1969452081 in_param
@@ -182,27 +242,27 @@ Dumping AST after simplification:
       AST_ASSIGN <tests/simple_tests/StructInPackage/dut.sv:22.12-22.28> basic_prep
         AST_IDENTIFIER <tests/simple_tests/StructInPackage/dut.sv:22.17-22.22> str='\var1' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> basic_prep range=[7:0] in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) basic_prep range=[31:0] int=7 in_lvalue
+            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000011111111'(32) signed basic_prep range=[31:0] int=255
       AST_ASSIGN <tests/simple_tests/StructInPackage/dut.sv:23.12-23.29> basic_prep
         AST_IDENTIFIER <tests/simple_tests/StructInPackage/dut.sv:23.17-23.23> str='\var2' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> basic_prep range=[6:0] in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6 in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) basic_prep range=[31:0] int=6 in_lvalue
+            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000001111111'(32) signed basic_prep range=[31:0] int=127
       AST_ASSIGN <tests/simple_tests/StructInPackage/dut.sv:24.12-24.27> basic_prep
         AST_IDENTIFIER <tests/simple_tests/StructInPackage/dut.sv:24.17-24.22> str='\var3' basic_prep in_lvalue
           AST_RANGE <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> basic_prep range=[5:0] in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_lvalue
-            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000101'(32) basic_prep range=[31:0] int=5 in_lvalue
+            AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0] in_lvalue
         AST_CONSTANT <tests/simple_tests/StructInPackage/dut.sv:0.0-0.0> bits='00000000000000000000000000111111'(32) signed basic_prep range=[31:0] int=63
       AST_TYPEDEF <tests/simple_tests/StructInPackage/dut.sv:2.13-4.6> str='\pkg1::struct1' basic_prep
         AST_STRUCT <tests/simple_tests/StructInPackage/dut.sv:2.13-4.6> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:3.21-3.26> str='first' logic basic_prep range=[7:0]
+          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:3.21-3.26> str='first' logic basic_prep range=[7:0] dimensions=[7:0]
       AST_TYPEDEF <tests/simple_tests/StructInPackage/dut.sv:8.13-10.6> str='\pkg2::struct1' basic_prep
         AST_STRUCT <tests/simple_tests/StructInPackage/dut.sv:8.13-10.6> basic_prep
-          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:9.21-9.27> str='second' logic basic_prep range=[6:0]
+          AST_STRUCT_ITEM <tests/simple_tests/StructInPackage/dut.sv:9.21-9.27> str='second' logic basic_prep range=[6:0] dimensions=[6:0]
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module dut(var1, var2, var3);
@@ -353,7 +413,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Synlig (git sha1 44d00f6f2, g++ 12.2.0-14 -fPIC -O3) */
+/* Generated by Synlig (git sha1 14b81041b, g++ 12.2.0-14 -fPIC -O3) */
 Dumping module `\dut'.
 
 (* top =  1  *)

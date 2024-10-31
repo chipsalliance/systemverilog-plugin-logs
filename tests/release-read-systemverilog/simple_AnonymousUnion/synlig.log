@@ -48,28 +48,68 @@ Dumping AST before simplification:
           AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_UNION <tests/simple_tests/AnonymousUnion/top.sv:5.6-5.8> str='\un' basic_prep
-        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:3.11-3.13> str='v1' signed basic_prep range=[31:0]
-        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:4.11-4.13> str='v2' signed basic_prep range=[31:0]
+        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:3.11-3.13> str='v1' signed basic_prep range=[31:0] dimensions=[31:0]
+        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:4.11-4.13> str='v2' signed basic_prep range=[31:0] dimensions=[31:0]
       AST_INITIAL <tests/simple_tests/AnonymousUnion/top.sv:7.4-10.7>
         AST_BLOCK <tests/simple_tests/AnonymousUnion/top.sv:7.12-10.7>
           AST_ASSIGN_EQ <tests/simple_tests/AnonymousUnion/top.sv:8.7-8.16>
             AST_IDENTIFIER <tests/simple_tests/AnonymousUnion/top.sv:8.10-8.12> str='\un' basic_prep in_lvalue
               AST_RANGE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_lvalue
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                AST_SUB <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                        AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                          AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                            AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                            AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                        AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                    AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                      AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> in_lvalue
+                        AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                        AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0] in_lvalue
             AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
           AST_ASSIGN_EQ <tests/simple_tests/AnonymousUnion/top.sv:9.7-9.16>
             AST_IDENTIFIER <tests/simple_tests/AnonymousUnion/top.sv:9.7-9.8> str='\o' in_lvalue
             AST_IDENTIFIER <tests/simple_tests/AnonymousUnion/top.sv:9.11-9.13> str='\un' basic_prep
               AST_RANGE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
-      AST_WIRE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> str='\un' logic range=[-1:0]
+                AST_SUB <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                    AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                      AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                        AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                          AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                            AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                            AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                        AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                  AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                    AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                      AST_ADD <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0>
+                        AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                        AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+      AST_WIRE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> str='\un' logic basic_prep range=[31:0]
         ATTR \wiretype:
-          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> str='\un' bits='010111000111010101101110'(24) range=[23:0] int=6059374 in_param
-        AST_RANGE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> range=[31:0] in_param
-          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
-          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> str='\un' bits='010111000111010101101110'(24) basic_prep range=[23:0] int=6059374 in_param
+        AST_RANGE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module top(o);
@@ -78,8 +118,8 @@ Dumping Verilog AST before simplification:
       wire [31:0] un;
 un      initial
         begin
-          un[31:0] = 1;
-          o = un[31:0];
+          un[((((((0)+(0))+(0))+(0))+(0))+(32))-(1):((((0)+(0))+(0))+(0))+(0)] = 1;
+          o = un[((((((0)+(0))+(0))+(0))+(0))+(32))-(1):((((0)+(0))+(0))+(0))+(0)];
         end
     endmodule
 --- END OF AST DUMP ---
@@ -91,22 +131,22 @@ Dumping AST after simplification:
           AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
           AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
       AST_UNION <tests/simple_tests/AnonymousUnion/top.sv:5.6-5.8> str='\un' basic_prep
-        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:3.11-3.13> str='v1' signed basic_prep range=[31:0]
-        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:4.11-4.13> str='v2' signed basic_prep range=[31:0]
+        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:3.11-3.13> str='v1' signed basic_prep range=[31:0] dimensions=[31:0]
+        AST_STRUCT_ITEM <tests/simple_tests/AnonymousUnion/top.sv:4.11-4.13> str='v2' signed basic_prep range=[31:0] dimensions=[31:0]
       AST_INITIAL <tests/simple_tests/AnonymousUnion/top.sv:7.4-10.7> basic_prep
         AST_BLOCK <tests/simple_tests/AnonymousUnion/top.sv:7.12-10.7> basic_prep
           AST_ASSIGN_EQ <tests/simple_tests/AnonymousUnion/top.sv:8.7-8.16> basic_prep
             AST_IDENTIFIER <tests/simple_tests/AnonymousUnion/top.sv:8.10-8.12> str='\un' basic_prep in_lvalue
               AST_RANGE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> basic_prep range=[31:0] in_lvalue
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_lvalue
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_lvalue
+                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31 in_lvalue
+                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0] in_lvalue
             AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
           AST_ASSIGN_EQ <tests/simple_tests/AnonymousUnion/top.sv:9.7-9.16> basic_prep
             AST_IDENTIFIER <tests/simple_tests/AnonymousUnion/top.sv:9.7-9.8> str='\o' basic_prep in_lvalue
             AST_IDENTIFIER <tests/simple_tests/AnonymousUnion/top.sv:9.11-9.13> str='\un' basic_prep
               AST_RANGE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> basic_prep range=[31:0]
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31
-                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0]
+                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
       AST_WIRE <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> str='\un' logic reg basic_prep range=[31:0] dimensions=[31:0]
         ATTR \wiretype:
           AST_CONSTANT <tests/simple_tests/AnonymousUnion/top.sv:0.0-0.0> str='\un' bits='010111000111010101101110'(24) basic_prep range=[23:0] int=6059374 in_param
@@ -265,7 +305,7 @@ Found and reported 0 problems.
 3.1. Executing BMUXMAP pass.
 
 3.2. Executing DEMUXMAP pass.
-/* Generated by Synlig (git sha1 44d00f6f2, g++ 12.2.0-14 -fPIC -O3) */
+/* Generated by Synlig (git sha1 14b81041b, g++ 12.2.0-14 -fPIC -O3) */
 Dumping module `\top'.
 
 (* top =  1  *)
