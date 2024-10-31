@@ -1,0 +1,628 @@
+1. Executing SystemVerilog frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0301] tests/simple_tests/PartSelectInFor/top.sv:1:1: Compile package "my_pkg".
+[INF:CP0303] tests/simple_tests/PartSelectInFor/top.sv:11:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/PartSelectInFor/top.sv:11:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 0.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'my_pkg' of type 'package'
+    Object 'my_pkg::hw_key_req_t' of type 'struct_typespec'
+      Object 'key' of type 'typespec_member'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'Shares' of type 'parameter'
+    Object 'KeyWidth' of type 'parameter'
+    Object 'NumRegsKey' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'Shares' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'KeyWidth' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'NumRegsKey' of type 'parameter'
+      Object '' of type 'constant'
+  Object 'work@top' of type 'module_inst'
+    Object 'my_pkg::hw_key_req_t' of type 'struct_typespec'
+      Object 'key' of type 'typespec_member'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'my_pkg' of type 'import_typespec'
+    Object 'KeyWidth' of type 'parameter'
+    Object 'NumRegsKey' of type 'parameter'
+    Object 'Shares' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'Shares' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'KeyWidth' of type 'parameter'
+      Object '' of type 'constant'
+    Object '' of type 'param_assign'
+      Object 'NumRegsKey' of type 'parameter'
+      Object '' of type 'constant'
+    Object 'o' of type 'int_var'
+    Object 'o' of type 'port'
+      Object '' of type 'int_typespec'
+    Object 'keymgr_key_i' of type 'struct_net'
+      Object 'my_pkg::hw_key_req_t' of type 'struct_typespec'
+        Object 'key' of type 'typespec_member'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+          Object '' of type 'range'
+            Object '' of type 'constant'
+            Object '' of type 'constant'
+    Object '' of type 'always'
+      Object 'key_sideload_get' of type 'named_begin'
+        Object '' of type 'for_stmt'
+          Object '' of type 'assignment'
+            Object 'i' of type 'int_var'
+            Object '' of type 'constant'
+          Object '' of type 'operation'
+            Object 'i' of type 'ref_obj'
+            Object '' of type 'constant'
+          Object '' of type 'operation'
+            Object 'i' of type 'ref_obj'
+Warning: tests/simple_tests/PartSelectInFor/top.sv:15: Post-incrementation operations are handled as pre-incrementation.
+          Object '' of type 'begin'
+            Object '' of type 'assignment'
+              Object 'o' of type 'ref_obj'
+              Object 'keymgr_key_i.key[0][31:0]' of type 'hier_path'
+                Object 'keymgr_key_i' of type 'ref_obj'
+                Object 'key' of type 'var_select'
+                  Object '' of type 'constant'
+                  Object 'key' of type 'part_select'
+                    Object '' of type 'constant'
+                    Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'keymgr_key_i' of type 'struct_net'
+        Object 'my_pkg::hw_key_req_t' of type 'struct_typespec'
+          Object 'key' of type 'typespec_member'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object '' of type 'range'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+      Object '' of type 'constant'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/PartSelectInFor/top.sv:11.1-19.10> str='\top'
+      AST_TYPEDEF <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> str='\hw_key_req_t'
+        AST_STRUCT <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/PartSelectInFor/top.sv:7.40-7.43> str='key' logic basic_prep range=[511:0] dimensions=[1:0][255:0]
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:2.18-2.28> str='\Shares' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:3.18-3.32> str='\KeyWidth' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) signed range=[31:0] int=256 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:4.18-4.32> str='\NumRegsKey' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectInFor/top.sv:11.23-11.24> str='\o' output signed port=1 dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29> str='\keymgr_key_i' logic basic_prep range=[511:0] dimensions=[511:0]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\hw_key_req_t' bits='01011100011010000111011101011111011010110110010101111001010111110111001001100101011100010101111101110100'(104) basic_prep range=[103:0] int=1701928820 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[511:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000111111111'(32) signed basic_prep range=[31:0] int=511 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/PartSelectInFor/top.sv:14.4-18.7>
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:14.24-14.40> str='\key_sideload_get'
+          AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:15.7-15.10> str='$fordecl_block0'
+            AST_WIRE <tests/simple_tests/PartSelectInFor/top.sv:15.16-15.17> str='\i' logic signed
+              AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> range=[31:0] in_param
+                AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+                AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+            AST_FOR <tests/simple_tests/PartSelectInFor/top.sv:15.7-15.10> str='$loop0'
+              AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:15.12-15.21>
+                AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:15.16-15.17> str='\i' in_lvalue
+                AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+              AST_LT <tests/simple_tests/PartSelectInFor/top.sv:15.23-15.37> in_param
+                AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:15.23-15.24> str='\i' in_param
+                AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) signed range=[31:0] int=8 in_param
+              AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42>
+                AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.40> str='\i' in_lvalue
+                AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42>
+                  AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.40> str='\i'
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+              AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:15.44-17.10> str='$loop0'
+                AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41>
+                  AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' in_lvalue
+                  AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                    AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                      AST_SUB <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                        AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                          AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                            AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                              AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                                AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                                AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                              AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                            AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000100000'(32) range=[31:0] int=32
+                        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                      AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                        AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                          AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                            AST_ADD <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0>
+                              AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                              AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                            AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+                        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) range=[31:0]
+      AST_INITIAL <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29>
+        AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29>
+          AST_ASSIGN_LE <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29>
+            AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\keymgr_key_i' in_lvalue
+            AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(512) range=[511:0] int=4294967295
+      AST_TYPEDEF <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> str='\my_pkg::hw_key_req_t' basic_prep
+        AST_STRUCT <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/PartSelectInFor/top.sv:7.40-7.43> str='key' logic basic_prep range=[511:0] dimensions=[1:0][255:0]
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:2.18-2.28> str='\my_pkg::Shares' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:3.18-3.32> str='\my_pkg::KeyWidth' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) basic_prep range=[31:0] int=256 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:4.18-4.32> str='\my_pkg::NumRegsKey' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(o);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      output signed [31:0] o;
+      (* wiretype = "\hw_key_req_t" *)
+      wire [511:0] keymgr_key_i;
+      /** AST_TYPEDEF **/
+      (* always_comb = 1 *)
+      always @*
+        begin
+          wire signed [31:0] i;
+          /** AST_FOR **/
+        end
+      initial
+        keymgr_key_i <= 512'b 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111;
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Warning: wire '\o' is assigned in a block at tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41.
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/PartSelectInFor/top.sv:11.1-19.10> str='\top' basic_prep
+      AST_TYPEDEF <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> str='\hw_key_req_t' basic_prep
+        AST_STRUCT <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/PartSelectInFor/top.sv:7.40-7.43> str='key' logic basic_prep range=[511:0] dimensions=[1:0][255:0]
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:2.18-2.28> str='\Shares' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:3.18-3.32> str='\KeyWidth' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) basic_prep range=[31:0] int=256 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:4.18-4.32> str='\NumRegsKey' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectInFor/top.sv:11.23-11.24> str='\o' output signed basic_prep port=1 range=[31:0] dimensions=[31:0]
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29> str='\keymgr_key_i' logic reg basic_prep range=[511:0] dimensions=[511:0]
+        ATTR \wiretype:
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\hw_key_req_t' bits='01011100011010000111011101011111011010110110010101111001010111110111001001100101011100010101111101110100'(104) basic_prep range=[103:0] int=1701928820 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[511:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000111111111'(32) signed basic_prep range=[31:0] int=511 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ALWAYS <tests/simple_tests/PartSelectInFor/top.sv:14.4-18.7> basic_prep
+        ATTR \always_comb:
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:14.24-14.40> basic_prep
+          AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:15.7-15.10> basic_prep
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.41> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.10-16.11> str='\o' basic_prep in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:16.14-16.26> str='\keymgr_key_i' basic_prep
+                AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0]
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+                  AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_EQ <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.40> str='\key_sideload_get.$fordecl_block0.i' basic_prep in_lvalue
+              AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000001000'(32) signed basic_prep range=[31:0] int=8
+            AST_FOR <tests/simple_tests/PartSelectInFor/top.sv:15.7-15.10> str='$loop0' basic_prep
+      AST_INITIAL <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29> basic_prep
+        AST_BLOCK <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29> basic_prep
+          AST_ASSIGN_LE <tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29> basic_prep
+            AST_IDENTIFIER <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\keymgr_key_i' basic_prep in_lvalue
+            AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111'(512) basic_prep range=[511:0] int=4294967295
+      AST_TYPEDEF <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> str='\my_pkg::hw_key_req_t' basic_prep
+        AST_STRUCT <tests/simple_tests/PartSelectInFor/top.sv:6.12-8.5> basic_prep
+          AST_STRUCT_ITEM <tests/simple_tests/PartSelectInFor/top.sv:7.40-7.43> str='key' logic basic_prep range=[511:0] dimensions=[1:0][255:0]
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:2.18-2.28> str='\my_pkg::Shares' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000010'(32) basic_prep range=[31:0] int=2 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:3.18-3.32> str='\my_pkg::KeyWidth' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000100000000'(32) basic_prep range=[31:0] int=256 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_PARAMETER <tests/simple_tests/PartSelectInFor/top.sv:4.18-4.32> str='\my_pkg::NumRegsKey' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/PartSelectInFor/top.sv:15.16-15.17> str='\key_sideload_get.$fordecl_block0.i' logic reg signed basic_prep range=[31:0] dimensions=[31:0]
+        ATTR \nosync:
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_RANGE <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[0].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[1].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1 in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[2].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[3].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[4].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000100'(32) signed basic_prep range=[31:0] int=4 in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[5].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000101'(32) signed basic_prep range=[31:0] int=5 in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[6].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000110'(32) signed basic_prep range=[31:0] int=6 in_param
+      AST_LOCALPARAM <tests/simple_tests/PartSelectInFor/top.sv:0.0-0.0> str='\key_sideload_get.$fordecl_block0.$loop0[7].i' basic_prep in_param
+        AST_CONSTANT <tests/simple_tests/PartSelectInFor/top.sv:15.39-15.42> bits='00000000000000000000000000000111'(32) signed basic_prep range=[31:0] int=7 in_param
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(o);
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_PARAMETER **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      /** AST_LOCALPARAM **/
+      output signed [31:0] o;
+      (* wiretype = "\hw_key_req_t" *)
+      reg [511:0] keymgr_key_i;
+      (* nosync = 1 *)
+      reg signed [31:0] \key_sideload_get.$fordecl_block0.i ;
+      /** AST_TYPEDEF **/
+      (* always_comb = 1 *)
+      always @*
+        begin
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          o = keymgr_key_i[31:0];
+          \key_sideload_get.$fordecl_block0.i  = 8;
+          /** AST_FOR **/
+        end
+      initial
+        keymgr_key_i <= 512'b 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111;
+      /** AST_TYPEDEF **/
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \top
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \top
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\top.$proc$tests/simple_tests/PartSelectInFor/top.sv:13$3'.
+Creating decoders for process `\top.$proc$tests/simple_tests/PartSelectInFor/top.sv:14$1'.
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\top.\keymgr_key_i' from process `\top.$proc$tests/simple_tests/PartSelectInFor/top.sv:13$3'.
+No latch inferred for signal `\top.\key_sideload_get.$fordecl_block0.i' from process `\top.$proc$tests/simple_tests/PartSelectInFor/top.sv:14$1'.
+No latch inferred for signal `\top.\o' from process `\top.$proc$tests/simple_tests/PartSelectInFor/top.sv:14$1'.
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `top.$proc$tests/simple_tests/PartSelectInFor/top.sv:13$3'.
+Removing empty process `top.$proc$tests/simple_tests/PartSelectInFor/top.sv:14$1'.
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  2
+   Number of wire bits:            544
+   Number of public wires:           2
+   Number of public wire bits:     544
+   Number of ports:                  1
+   Number of port bits:             32
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  0
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 34500a541, g++ 12.2.0-14 -fPIC -O3) */
+Dumping module `\top'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/PartSelectInFor/top.sv:11.1-19.10" *)
+module top(o);
+  (* src = "tests/simple_tests/PartSelectInFor/top.sv:13.17-13.29" *)
+  (* wiretype = "\\hw_key_req_t" *)
+  wire [511:0] keymgr_key_i;
+  (* src = "tests/simple_tests/PartSelectInFor/top.sv:11.23-11.24" *)
+  output [31:0] o;
+  wire [31:0] o;
+  assign keymgr_key_i = 512'hffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff;
+  assign o = 32'd4294967295;
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\top'.
+
+5. Executing SIM pass (simulate the circuit).
+Simulating cycle 0.
+Simulating cycle 1.
+Simulating cycle 2.
+Simulating cycle 3.
+Simulating cycle 4.
+Simulating cycle 5.
+Simulating cycle 6.
+Simulating cycle 7.
+Simulating cycle 8.
+Simulating cycle 9.
+Simulating cycle 10.
+Simulating cycle 11.
+Simulating cycle 12.
+Simulating cycle 13.
+Simulating cycle 14.
+Simulating cycle 15.
+Simulating cycle 16.
+Simulating cycle 17.
+Simulating cycle 18.
+Simulating cycle 19.
+Simulating cycle 20.
+Simulating cycle 21.
+Simulating cycle 22.
+Simulating cycle 23.
+Simulating cycle 24.
+Simulating cycle 25.
+Simulating cycle 26.
+Simulating cycle 27.
+Simulating cycle 28.
+Simulating cycle 29.
+Simulating cycle 30.
+Simulating cycle 31.
+Simulating cycle 32.
+Simulating cycle 33.
+Simulating cycle 34.
+Simulating cycle 35.
+Simulating cycle 36.
+Simulating cycle 37.
+Simulating cycle 38.
+Simulating cycle 39.
+Simulating cycle 40.
+
+Warnings: 2 unique messages, 9 total

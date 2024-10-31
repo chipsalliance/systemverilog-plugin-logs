@@ -1,0 +1,280 @@
+1. Executing SystemVerilog frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/AluOps/dut.v:1:1: Compile module "work@dut".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/AluOps/dut.v:1:1: Top level module "work@dut".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 1.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@dut' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'work@dut' of type 'module_inst'
+    Object 'a' of type 'logic_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'b' of type 'logic_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'a' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'b' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object '' of type 'cont_assign'
+      Object 'b' of type 'ref_obj'
+      Object '' of type 'operation'
+        Object '' of type 'operation'
+          Object '' of type 'operation'
+            Object 'a' of type 'part_select'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+        Object 'a' of type 'part_select'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+Generating RTLIL representation for module `\dut'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/AluOps/dut.v:1.1-7.10> str='\dut'
+      AST_WIRE <tests/simple_tests/AluOps/dut.v:1.13-1.14> str='\a' input logic port=1 dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/AluOps/dut.v:4.8-4.13> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/AluOps/dut.v:1.16-1.17> str='\b' output logic port=2 dimensions=[2:0]
+        AST_RANGE <tests/simple_tests/AluOps/dut.v:5.8-5.13> basic_prep range=[2:0] in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/AluOps/dut.v:6.9-6.33>
+        AST_IDENTIFIER <tests/simple_tests/AluOps/dut.v:6.9-6.10> str='\b' in_lvalue
+        AST_CONCAT <tests/simple_tests/AluOps/dut.v:6.13-6.33>
+          AST_IDENTIFIER <tests/simple_tests/AluOps/dut.v:6.26-6.32> str='\a'
+            AST_RANGE <tests/simple_tests/AluOps/dut.v:6.26-6.32>
+              AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+              AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+          AST_BIT_NOT <tests/simple_tests/AluOps/dut.v:6.14-6.24>
+            AST_REDUCE_OR <tests/simple_tests/AluOps/dut.v:6.16-6.23>
+              AST_IDENTIFIER <tests/simple_tests/AluOps/dut.v:6.17-6.23> str='\a'
+                AST_RANGE <tests/simple_tests/AluOps/dut.v:6.17-6.23>
+                  AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed range=[31:0] int=3
+                  AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed range=[31:0] int=2
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module dut(a, b);
+      input [3:0] a;
+      output [2:0] b;
+      assign b = {~(|(a[3:2])), a[3:2]};
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/AluOps/dut.v:1.1-7.10> str='\dut' basic_prep
+      AST_WIRE <tests/simple_tests/AluOps/dut.v:1.13-1.14> str='\a' input logic basic_prep port=1 range=[3:0] dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/AluOps/dut.v:4.8-4.13> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/AluOps/dut.v:1.16-1.17> str='\b' output logic basic_prep port=2 range=[2:0] dimensions=[2:0]
+        AST_RANGE <tests/simple_tests/AluOps/dut.v:5.8-5.13> basic_prep range=[2:0] in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2 in_param
+          AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/AluOps/dut.v:6.9-6.33> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/AluOps/dut.v:6.9-6.10> str='\b' basic_prep in_lvalue
+        AST_CONCAT <tests/simple_tests/AluOps/dut.v:6.13-6.33> basic_prep
+          AST_IDENTIFIER <tests/simple_tests/AluOps/dut.v:6.26-6.32> str='\a' basic_prep int=1
+            AST_RANGE <tests/simple_tests/AluOps/dut.v:6.26-6.32> basic_prep range=[3:2]
+              AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+              AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+          AST_BIT_NOT <tests/simple_tests/AluOps/dut.v:6.14-6.24> basic_prep
+            AST_REDUCE_OR <tests/simple_tests/AluOps/dut.v:6.16-6.23> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/AluOps/dut.v:6.17-6.23> str='\a' basic_prep int=1
+                AST_RANGE <tests/simple_tests/AluOps/dut.v:6.17-6.23> basic_prep range=[3:2]
+                  AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3
+                  AST_CONSTANT <tests/simple_tests/AluOps/dut.v:0.0-0.0> bits='00000000000000000000000000000010'(32) signed basic_prep range=[31:0] int=2
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module dut(a, b);
+      input [3:0] a;
+      output [2:0] b;
+      assign b = {~(|(a[3:2])), a[3:2]};
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+2.2. Executing PROC pass (convert processes to netlists).
+
+2.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+2.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+2.2.4. Executing PROC_INIT pass (extract init attributes).
+
+2.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+2.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+2.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+2.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+2.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+2.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.3. Executing FUTURE pass.
+
+2.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+2.6. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+2.7. Executing OPT pass (performing simple optimizations).
+
+2.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+2.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+2.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.7.8. Finished OPT passes. (There is nothing left to do.)
+
+2.8. Executing WREDUCE pass (reducing word size of cells).
+
+2.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.11. Executing OPT pass (performing simple optimizations).
+
+2.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+2.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+2.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+2.11.4. Finished fast OPT passes.
+
+2.12. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                  3
+   Number of wire bits:              8
+   Number of public wires:           2
+   Number of public wire bits:       7
+   Number of ports:                  2
+   Number of port bits:              7
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $not                            1
+     $reduce_or                      1
+
+2.13. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+3. Executing Verilog backend.
+
+3.1. Executing BMUXMAP pass.
+
+3.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 34500a541, g++ 12.2.0-14 -fPIC -O3) */
+Dumping module `\dut'.
+
+(* top =  1  *)
+(* src = "tests/simple_tests/AluOps/dut.v:1.1-7.10" *)
+module dut(a, b);
+  (* src = "tests/simple_tests/AluOps/dut.v:6.16-6.23" *)
+  wire _0_;
+  (* src = "tests/simple_tests/AluOps/dut.v:1.13-1.14" *)
+  input [3:0] a;
+  wire [3:0] a;
+  (* src = "tests/simple_tests/AluOps/dut.v:1.16-1.17" *)
+  output [2:0] b;
+  wire [2:0] b;
+  assign b[2] = ~ (* src = "tests/simple_tests/AluOps/dut.v:6.14-6.24" *) _0_;
+  assign _0_ = | (* src = "tests/simple_tests/AluOps/dut.v:6.16-6.23" *) a[3:2];
+  assign b[1:0] = a[3:2];
+endmodule
+
+4. Executing Verilog backend.
+
+4.1. Executing BMUXMAP pass.
+
+4.2. Executing DEMUXMAP pass.
+Dumping module `\dut'.
+
