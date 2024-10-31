@@ -1,0 +1,320 @@
+1. Executing SystemVerilog frontend.
+[INF:CM0023] Creating log file "tests/build/slpp_all/surelog.log".
+[INF:CP0300] Compilation...
+[INF:CP0303] tests/simple_tests/MemorySlice/top.sv:1:1: Compile module "work@top".
+[INF:CP0302] Compile class "work@mailbox".
+[INF:CP0302] Compile class "work@process".
+[INF:CP0302] Compile class "work@semaphore".
+[INF:EL0526] Design Elaboration...
+[NTE:EL0503] tests/simple_tests/MemorySlice/top.sv:1:1: Top level module "work@top".
+[NTE:EL0508] Nb Top level modules: 1.
+[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0510] Nb instances: 1.
+[NTE:EL0511] Nb leaf instances: 0.
+[INF:UH0706] Creating UHDM Model...
+[INF:UH0707] Elaborating UHDM...
+[  FATAL] : 0
+[ SYNTAX] : 0
+[  ERROR] : 0
+[WARNING] : 0
+[   NOTE] : 5
+Object 'work@top' of type 'design'
+  Object 'builtin' of type 'package'
+  Object 'work@top' of type 'module_inst'
+    Object 'N' of type 'parameter'
+    Object '' of type 'param_assign'
+      Object 'N' of type 'parameter'
+      Object '' of type 'constant'
+    Object 'mem' of type 'array_var'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+      Object '' of type 'range'
+        Object '' of type 'constant'
+        Object '' of type 'constant'
+    Object 'ck' of type 'port'
+      Object '' of type 'logic_typespec'
+    Object 'sin' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'sout' of type 'port'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'ck' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+    Object 'sin' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object 'sout' of type 'logic_net'
+      Object '' of type 'logic_typespec'
+        Object '' of type 'range'
+          Object '' of type 'constant'
+          Object '' of type 'constant'
+    Object '' of type 'always'
+      Object '' of type 'event_control'
+        Object '' of type 'operation'
+          Object 'ck' of type 'ref_obj'
+        Object '' of type 'begin'
+          Object '' of type 'assignment'
+            Object 'mem' of type 'part_select'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+            Object 'mem' of type 'part_select'
+              Object '' of type 'constant'
+              Object '' of type 'constant'
+          Object '' of type 'assignment'
+            Object 'mem' of type 'bit_select'
+              Object '' of type 'constant'
+            Object 'sin' of type 'ref_obj'
+    Object '' of type 'cont_assign'
+      Object 'sout' of type 'ref_obj'
+      Object 'mem' of type 'bit_select'
+        Object '' of type 'constant'
+Generating RTLIL representation for module `\top'.
+Dumping AST before simplification:
+    AST_MODULE <tests/simple_tests/MemorySlice/top.sv:1.1-11.10> str='\top'
+      AST_PARAMETER <tests/simple_tests/MemorySlice/top.sv:1.24-1.27> str='\N' dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) range=[31:0] int=8 in_param
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:4.13-4.16> str='\mem' logic dimensions=[3:0][7:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic port=1 dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic port=2 dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:2.33-2.38> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:3.24-3.28> str='\sout' output logic port=3 dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:3.18-3.23> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/MemorySlice/top.sv:5.8-5.23>
+        AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:5.8-5.12> str='\sout' in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:5.19-5.22> str='\mem' basic_prep
+          AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+            AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+              AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+                AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+              AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                  AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                    AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+                  AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+                AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+            AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+              AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7
+              AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+      AST_ALWAYS <tests/simple_tests/MemorySlice/top.sv:6.1-10.4>
+        ATTR \always_ff:
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_param
+        AST_POSEDGE <tests/simple_tests/MemorySlice/top.sv:6.14-6.24>
+          AST_CAST_SIZE <tests/simple_tests/MemorySlice/top.sv:6.14-6.24>
+            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1
+            AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:6.22-6.24> str='\ck'
+        AST_BLOCK <tests/simple_tests/MemorySlice/top.sv:6.11-6.25>
+          AST_BLOCK <tests/simple_tests/MemorySlice/top.sv:7.1-10.4>
+            AST_ASSIGN_LE <tests/simple_tests/MemorySlice/top.sv:8.3-8.29>
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:8.3-8.14> str='\mem' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                    AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+                    AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                      AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                        AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                          AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000111'(32) signed range=[31:0] int=7 in_lvalue
+                            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+                        AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                  AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed range=[31:0] int=1 in_lvalue
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:8.18-8.29> str='\mem' basic_prep
+                AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                  AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                    AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+                    AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                      AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                        AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                          AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000110'(32) signed range=[31:0] int=6
+                            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+                        AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1
+                  AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0>
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0]
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4
+            AST_ASSIGN_LE <tests/simple_tests/MemorySlice/top.sv:9.3-9.17>
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:9.3-9.10> str='\mem' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                  AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                    AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+                    AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                      AST_SUB <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                        AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                          AST_ADD <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+                        AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+                      AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) range=[31:0] int=1 in_lvalue
+                  AST_MUL <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> in_lvalue
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed range=[31:0] in_lvalue
+                    AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) range=[31:0] int=4 in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:9.14-9.17> str='\sin'
+--- END OF AST DUMP ---
+Dumping Verilog AST before simplification:
+    module top(ck, sin, sout);
+      /** AST_PARAMETER **/
+      wire [31:0] mem;
+      input [0:0] ck;
+      input [3:0] sin;
+      output [3:0] sout;
+      assign sout = mem[((7)*(4))+(((((7)+(1))*(4))-((7)*(4)))-(1)):(7)*(4)];
+      (* always_ff = 1 *)
+      always @(posedge 1'(ck))
+        begin
+          mem[((1)*(4))+(((((7)+(1))*(4))-((1)*(4)))-(1)):(1)*(4)] <= mem[((0)*(4))+(((((6)+(1))*(4))-((0)*(4)))-(1)):(0)*(4)];
+          mem[((0)*(4))+(((((0)+(1))*(4))-((0)*(4)))-(1)):(0)*(4)] <= sin;
+        end
+    endmodule
+--- END OF AST DUMP ---
+Dumping AST after simplification:
+    AST_MODULE <tests/simple_tests/MemorySlice/top.sv:1.1-11.10> str='\top' basic_prep
+      AST_PARAMETER <tests/simple_tests/MemorySlice/top.sv:1.24-1.27> str='\N' basic_prep range=[31:0] dimensions=[31:0] in_param
+        AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000001000'(32) basic_prep range=[31:0] int=8 in_param
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:4.13-4.16> str='\mem' logic reg basic_prep range=[31:0] dimensions=[3:0][7:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) signed basic_prep range=[31:0] int=31 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:2.17-2.19> str='\ck' input logic basic_prep port=1 range=[0:0] dimensions=[0:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[0:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:2.39-2.42> str='\sin' input logic basic_prep port=2 range=[3:0] dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:2.33-2.38> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_WIRE <tests/simple_tests/MemorySlice/top.sv:3.24-3.28> str='\sout' output logic basic_prep port=3 range=[3:0] dimensions=[3:0]
+        AST_RANGE <tests/simple_tests/MemorySlice/top.sv:3.18-3.23> basic_prep range=[3:0] in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) signed basic_prep range=[31:0] int=3 in_param
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) signed basic_prep range=[31:0] in_param
+      AST_ASSIGN <tests/simple_tests/MemorySlice/top.sv:5.8-5.23> basic_prep
+        AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:5.8-5.12> str='\sout' basic_prep in_lvalue
+        AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:5.19-5.22> str='\mem' basic_prep
+          AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:28]
+            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31
+            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011100'(32) basic_prep range=[31:0] int=28
+      AST_ALWAYS <tests/simple_tests/MemorySlice/top.sv:6.1-10.4> basic_prep
+        ATTR \always_ff:
+          AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) basic_prep range=[31:0] int=1 in_param
+        AST_POSEDGE <tests/simple_tests/MemorySlice/top.sv:6.14-6.24> basic_prep
+          AST_CAST_SIZE <tests/simple_tests/MemorySlice/top.sv:6.14-6.24> basic_prep
+            AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000001'(32) signed basic_prep range=[31:0] int=1
+            AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:6.22-6.24> str='\ck' basic_prep
+        AST_BLOCK <tests/simple_tests/MemorySlice/top.sv:6.11-6.25> basic_prep
+          AST_BLOCK <tests/simple_tests/MemorySlice/top.sv:7.1-10.4> basic_prep
+            AST_ASSIGN_LE <tests/simple_tests/MemorySlice/top.sv:8.3-8.29> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:8.3-8.14> str='\mem' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[31:4] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011111'(32) basic_prep range=[31:0] int=31 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000100'(32) basic_prep range=[31:0] int=4 in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:8.18-8.29> str='\mem' basic_prep
+                AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[27:0]
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000011011'(32) basic_prep range=[31:0] int=27
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0]
+            AST_ASSIGN_LE <tests/simple_tests/MemorySlice/top.sv:9.3-9.17> basic_prep
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:9.3-9.10> str='\mem' basic_prep in_lvalue
+                AST_RANGE <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> basic_prep range=[3:0] in_lvalue
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000011'(32) basic_prep range=[31:0] int=3 in_lvalue
+                  AST_CONSTANT <tests/simple_tests/MemorySlice/top.sv:0.0-0.0> bits='00000000000000000000000000000000'(32) basic_prep range=[31:0] in_lvalue
+              AST_IDENTIFIER <tests/simple_tests/MemorySlice/top.sv:9.14-9.17> str='\sin' basic_prep
+--- END OF AST DUMP ---
+Dumping Verilog AST after simplification:
+    module top(ck, sin, sout);
+      /** AST_PARAMETER **/
+      reg [31:0] mem;
+      input [0:0] ck;
+      input [3:0] sin;
+      output [3:0] sout;
+      assign sout = mem[31:28];
+      (* always_ff = 1 *)
+      always @(posedge 1'(ck))
+        begin
+          mem[31:4] <= mem[27:0];
+          mem[3:0] <= sin;
+        end
+    endmodule
+--- END OF AST DUMP ---
+
+2. Executing Verilog backend.
+
+2.1. Executing BMUXMAP pass.
+
+2.2. Executing DEMUXMAP pass.
+/* Generated by Synlig (git sha1 44d00f6f2, g++ 12.2.0-14 -fPIC -O3) */
+Dumping module `\top'.
+Warning: Module top contains RTLIL processes with sync rules. Such RTLIL processes can't always be mapped directly to Verilog always blocks. unintended changes in simulation behavior are possible! Use "proc" to convert processes to logic networks and registers.
+
+module top(ck, sin, sout);
+  reg \$auto$verilog_backend.cc:2352:dump_module$2  = 0;
+  reg [31:0] _0_;
+  input ck;
+  wire ck;
+  reg [31:0] mem;
+  input [3:0] sin;
+  wire [3:0] sin;
+  output [3:0] sout;
+  wire [3:0] sout;
+  always @* begin
+    if (\$auto$verilog_backend.cc:2352:dump_module$2 ) begin end
+    _0_[31:4] = mem[27:0];
+    _0_[3:0] = sin;
+  end
+  always @(posedge ck) begin
+      mem <= _0_;
+  end
+  assign sout = mem[31:28];
+endmodule
+
+Warnings: 1 unique messages, 1 total
