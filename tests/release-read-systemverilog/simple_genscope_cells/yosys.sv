@@ -20,20 +20,22 @@ module \$paramod\ibex_counter\CounterWidth=s32'00000000000000000000000000001010 
   wire [9:0] _07_;
   (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:60.19-60.76" *)
   wire [9:0] _08_;
-  (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:87.9-87.16" *)
   wire _09_;
-  (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:51.10-51.38" *)
   wire _10_;
-  wire [9:0] _11_;
+  (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:87.9-87.16" *)
+  wire _11_;
+  (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:51.10-51.38" *)
   wire _12_;
   wire [9:0] _13_;
   wire _14_;
-  wire [31:0] _15_;
+  wire [9:0] _15_;
   wire _16_;
   wire [31:0] _17_;
   wire _18_;
-  wire [9:0] _19_;
+  wire [31:0] _19_;
   wire _20_;
+  wire [9:0] _21_;
+  wire _22_;
   (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:31.23-31.28" *)
   input clk_i;
   wire clk_i;
@@ -70,18 +72,19 @@ module \$paramod\ibex_counter\CounterWidth=s32'00000000000000000000000000001010 
   (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:44.28-44.30" *)
   wire we;
   assign _08_ = counter[9:0] + (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:60.19-60.76" *) 10'h001;
-  assign _09_ = ! (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:87.9-87.16" *) rst_ni;
-  assign _10_ = counter_we_i | (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:51.10-51.38" *) counterh_we_i;
+  assign _09_ = ~ rst_ni;
+  assign _11_ = ! (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:87.9-87.16" *) rst_ni;
+  assign _12_ = counter_we_i | (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:51.10-51.38" *) counterh_we_i;
   (* \always_ff  = 32'd1 *)
   (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:86.3-92.6" *)
   always @(posedge clk_i, negedge rst_ni)
     if (!rst_ni) counter_q <= 10'h000;
-    else counter_q <= _13_;
-  assign _11_ = _12_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:63.5-69.8" *) 10'hxxx : _19_;
-  assign _13_ = _14_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:63.5-69.8" *) _06_[9:0] : _07_;
-  assign _15_ = _16_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:54.5-57.8" *) counter_val_i : 32'd0;
-  assign _17_ = _18_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:54.5-57.8" *) { 22'h000000, counter_q } : counter_val_i;
-  assign _19_ = _20_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:65.14-69.8" *) _08_ : counter_q;
+    else counter_q <= _15_;
+  assign _13_ = _14_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:63.5-69.8" *) 10'hxxx : _21_;
+  assign _15_ = _16_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:63.5-69.8" *) _06_[9:0] : _07_;
+  assign _17_ = _18_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:54.5-57.8" *) counter_val_i : 32'd0;
+  assign _19_ = _20_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:54.5-57.8" *) { 22'h000000, counter_q } : counter_val_i;
+  assign _21_ = _22_ ? (* full_case = 32'd1 *) (* src = "/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:0.0-0.0|/root/synlig/synlig/tests/simple_tests/genscope_cells/dut.sv:65.14-69.8" *) _08_ : counter_q;
   assign counter[9:0] = counter_q;
   assign counter[63:10] = 54'h00000000000000;
   assign \g_counter_narrow.unused_counter_load  = counter_load[63:10];
@@ -89,21 +92,22 @@ module \$paramod\ibex_counter\CounterWidth=s32'00000000000000000000000000001010 
   assign _00_ = _05_;
   assign _03_ = _08_;
   assign _01_ = _06_;
-  assign _04_ = _10_;
-  assign _20_ = counter_inc_i;
-  assign _12_ = _10_;
-  assign _07_ = _11_;
-  assign _14_ = _10_;
-  assign _05_ = _13_;
-  assign _16_ = counterh_we_i;
-  assign _06_[63:32] = _15_;
+  assign _04_ = _12_;
+  assign _22_ = counter_inc_i;
+  assign _14_ = _12_;
+  assign _07_ = _13_;
+  assign _16_ = _12_;
+  assign _05_ = _15_;
   assign _18_ = counterh_we_i;
-  assign _06_[31:0] = _17_;
+  assign _06_[63:32] = _17_;
+  assign _20_ = counterh_we_i;
+  assign _06_[31:0] = _19_;
   assign _02_ = counter_d;
-  assign we = _10_;
-  assign counter_d = _13_;
-  assign counter_load = { _15_, _17_ };
+  assign we = _12_;
+  assign counter_d = _15_;
+  assign counter_load = { _17_, _19_ };
   assign counter_upd = _08_;
+  assign _10_ = _09_;
 endmodule
 
 (* cells_not_processed =  1  *)
