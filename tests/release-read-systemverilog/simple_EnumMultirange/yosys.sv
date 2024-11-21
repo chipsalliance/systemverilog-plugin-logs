@@ -2,7 +2,7 @@
 (* cells_not_processed =  1  *)
 (* src = "/root/synlig/synlig/tests/simple_tests/EnumMultirange/top.sv:1.1-42.10" *)
 module top();
-  reg \$auto$verilog_backend.cc:2352:dump_module$4  = 0;
+  reg \$auto$verilog_backend.cc:2348:dump_module$4  = 0;
   (* src = "/root/synlig/synlig/tests/simple_tests/EnumMultirange/top.sv:37.3-41.6" *)
   reg [31:0] _0_;
   (* src = "/root/synlig/synlig/tests/simple_tests/EnumMultirange/top.sv:37.3-41.6" *)
@@ -38,7 +38,7 @@ module top();
   (* wiretype = "\\dec_lc_state_e" *)
   reg [4:0] transition_target_d;
   always @* begin
-    if (\$auto$verilog_backend.cc:2352:dump_module$4 ) begin end
+    if (\$auto$verilog_backend.cc:2348:dump_module$4 ) begin end
     _1_[0] = 1'h0;
     _1_[1] = 1'h1;
     _1_[2] = 1'h0;
