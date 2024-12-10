@@ -12,7 +12,7 @@
 [NTE:EL0503] tests/simple_tests/BindModuleWithInputPorts/top.sv:7:1: Top level module "work@top".
 [NTE:EL0504] Multiple top level modules in design.
 [NTE:EL0508] Nb Top level modules: 2.
-[NTE:EL0509] Max instance depth: 1.
+[NTE:EL0509] Max instance depth: 2.
 [NTE:EL0510] Nb instances: 3.
 [NTE:EL0511] Nb leaf instances: 2.
 [INF:UH0706] Creating UHDM Model...
@@ -34,6 +34,7 @@ Object 'work@rv_dm' of type 'design'
         Object '' of type 'logic_typespec'
       Object 'clk_i' of type 'logic_net'
         Object '' of type 'logic_typespec'
+      Object 'clk_i' of type 'ref_obj'
   Object 'work@top' of type 'module_inst'
     Object 'o' of type 'int_var'
     Object 'o' of type 'port'
@@ -109,6 +110,7 @@ Dumping AST before simplification:
       AST_CELL <tests/simple_tests/BindModuleWithInputPorts/top.sv:8.15-8.39> str='\u_dmidpi'
         AST_CELLTYPE <tests/simple_tests/BindModuleWithInputPorts/top.sv:0.0-0.0> str='\dmidpi'
         AST_ARGUMENT <tests/simple_tests/BindModuleWithInputPorts/top.sv:8.15-8.39> str='\clk_i'
+          AST_IDENTIFIER <tests/simple_tests/BindModuleWithInputPorts/top.sv:8.32-8.37> str='\clk_i'
 --- END OF AST DUMP ---
 Dumping Verilog AST before simplification:
     module rv_dm(clk_i);
@@ -125,6 +127,7 @@ Dumping AST after simplification:
       AST_CELL <tests/simple_tests/BindModuleWithInputPorts/top.sv:8.15-8.39> str='\u_dmidpi' basic_prep
         AST_CELLTYPE <tests/simple_tests/BindModuleWithInputPorts/top.sv:0.0-0.0> str='\dmidpi' basic_prep
         AST_ARGUMENT <tests/simple_tests/BindModuleWithInputPorts/top.sv:8.15-8.39> str='\clk_i' basic_prep
+          AST_IDENTIFIER <tests/simple_tests/BindModuleWithInputPorts/top.sv:8.32-8.37> str='\clk_i' basic_prep
 --- END OF AST DUMP ---
 Dumping Verilog AST after simplification:
     module rv_dm(clk_i);
